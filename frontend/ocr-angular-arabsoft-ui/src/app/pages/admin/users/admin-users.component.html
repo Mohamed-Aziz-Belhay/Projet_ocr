@@ -152,13 +152,14 @@
               <select [(ngModel)]="createForm.role" name="role">
                 <option value="admin">admin</option>
                 <option value="operator">operator</option>
+                <option value="simple_user">simple_user</option>
                 <option value="viewer">viewer</option>
               </select>
             </label>
-            <label class="check-line">
+            <!--<label class="check-line">
               <input [(ngModel)]="createForm.is_superuser" name="is_superuser" type="checkbox">
               <span>Superuser</span>
-            </label>
+            </label>-->
             <button class="btn btn-primary" type="submit">Créer</button>
           </form>
         </div>
@@ -184,7 +185,7 @@
                 <th>Nom</th>
                 <th>Rôle</th>
                 <th>Actif</th>
-                <th>Superuser</th>
+                <!--<th>Superuser</th>-->
                 <th>Actions</th>
               </tr>
             </thead>
@@ -198,11 +199,12 @@
                     <select [(ngModel)]="editForm.role" name="edit_role_{{ user.id }}">
                       <option value="admin">admin</option>
                       <option value="operator">operator</option>
+                      <option value="simple_user">simple_user</option>
                       <option value="viewer">viewer</option>
                     </select>
                   </td>
                   <td><input [(ngModel)]="editForm.is_active" name="edit_active_{{ user.id }}" type="checkbox"></td>
-                  <td><input [(ngModel)]="editForm.is_superuser" name="edit_super_{{ user.id }}" type="checkbox"></td>
+                  <!--<td><input [(ngModel)]="editForm.is_superuser" name="edit_super_{{ user.id }}" type="checkbox"></td>-->
                   <td class="actions-cell">
                     <button class="mini primary" type="button" (click)="saveEdit(user)">Sauver</button>
                     <button class="mini" type="button" (click)="cancelEdit()">Annuler</button>
@@ -224,11 +226,11 @@
                       {{ user.is_active ? 'Actif' : 'Inactif' }}
                     </span>
                   </td>
-                  <td>
+                 <!-- <td>
                     <span class="super-badge" [class.yes]="user.is_superuser">
                       {{ user.is_superuser ? 'Oui' : 'Non' }}
                     </span>
-                  </td>
+                  </td>-->
                   <td class="actions-cell">
                     <button class="mini" type="button" (click)="startEdit(user)">Modifier</button>
                     <button class="mini danger" type="button" (click)="disable(user)"

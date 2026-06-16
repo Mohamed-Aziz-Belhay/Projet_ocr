@@ -1257,3 +1257,10 @@ table.ocr-tbl td strong {
 .history-search {
   width: 280px;
 }
+
+input[type="checkbox"] {
+  width: 16px !important;
+  height: 16px !important;
+  accent-color: #1565c0;
+  cursor: pointer;
+}
