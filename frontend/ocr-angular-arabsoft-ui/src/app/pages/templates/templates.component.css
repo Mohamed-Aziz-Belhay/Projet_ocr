@@ -677,3 +677,45 @@ textarea,
     grid-template-columns:1fr;
   }
 }
+/* Boutons bleu marine — légèrement moins foncé que login/register */
+.btn-primary,
+.btn-primary.small-btn {
+  background: linear-gradient(135deg, #1565c0, #1e88e5) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 18px rgba(21, 101, 192, 0.28);
+}
+
+.btn-primary:hover,
+.btn-primary.small-btn:hover {
+  background: linear-gradient(135deg, #1976d2, #2196f3) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(21, 101, 192, 0.38);
+}
+
+.btn-ghost,
+.btn-ghost.small-btn {
+  border: 1px solid rgba(21, 101, 192, 0.35);
+  color: #1565c0;
+  background: rgba(21, 101, 192, 0.07);
+}
+
+.btn-ghost:hover,
+.btn-ghost.small-btn:hover {
+  background: rgba(21, 101, 192, 0.14);
+  border-color: rgba(21, 101, 192, 0.55);
+  color: #1565c0;
+  transform: translateY(-1px);
+}
+
+.carousel-btn,
+.catalog-nav-btn {
+  border-color: rgba(21, 101, 192, 0.30);
+  color: #1565c0;
+}
+
+.carousel-btn:hover,
+.catalog-nav-btn:hover {
+  border-color: #1565c0;
+  color: #1565c0;
+  background: rgba(21, 101, 192, 0.08);
+}

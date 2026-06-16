@@ -307,3 +307,22 @@ input:focus {
   color: var(--ink);
   outline: none;
 }
+
+.btn-login {
+  flex: 1;
+  background: linear-gradient(135deg, #1565c0, #1e88e5);
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(10, 67, 157, 0.3);
+}
+
+.btn-login:hover:not(:disabled) {
+  background: linear-gradient(135deg, #1976d2, #2196f3);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(10, 61, 143, 0.40);
+}
+
+.btn-login:disabled {
+  background: linear-gradient(135deg, #546e7a, #78909c);
+  box-shadow: none;
+  cursor: wait;
+}
