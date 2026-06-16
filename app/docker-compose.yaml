@@ -1,0 +1,183 @@
+#/app/docker-compose.yaml
+version: "3.9"
+
+services:
+
+  # ── Base de données PostgreSQL ──────────────────────────────────────────────
+  db:
+    image: postgres:16-alpine
+    container_name: ocr_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-ocruser}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ocrpass}
+      POSTGRES_DB: ${POSTGRES_DB:-ocrplatform}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-ocruser}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - ocr_network
+
+  # ── Redis (pour Celery worker) ──────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: ocr_redis
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - ocr_network
+
+  # ── Backend FastAPI ─────────────────────────────────────────────────────────
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: ocr_backend
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-ocruser}:${POSTGRES_PASSWORD:-ocrpass}@db:5432/${POSTGRES_DB:-ocrplatform}
+      REDIS_URL: redis://redis:6379/0
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/1
+    volumes:
+      - .:/app                                      # Hot-reload dev
+      - uploads_data:/app/app/data/scanner_session
+      - swin_weights:/app/app/models/swin
+      - yolo_weights:/app/app/models/document_detector
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - ocr_network
+
+  # ── Celery Worker (worker/tasks.py) ─────────────────────────────────────────
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: ocr_worker
+    restart: unless-stopped
+    command: celery -A app.worker.celery_app worker --loglevel=info --concurrency=2
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-ocruser}:${POSTGRES_PASSWORD:-ocrpass}@db:5432/${POSTGRES_DB:-ocrplatform}
+      REDIS_URL: redis://redis:6379/0
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/1
+    volumes:
+      - .:/app
+      - uploads_data:/app/app/data/scanner_session
+      - swin_weights:/app/app/models/swin
+      - yolo_weights:/app/app/models/document_detector
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - ocr_network
+
+  # ── Frontend Angular ─────────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend/ocr-angular-arabsoft-ui
+      dockerfile: ../../Dockerfile.frontend
+    container_name: ocr_frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - ocr_network
+
+  # ── Prometheus ──────────────────────────────────────────────────────────────
+  prometheus:
+    image: prom/prometheus:v2.51.0
+    container_name: ocr_prometheus
+    restart: unless-stopped
+    volumes:
+      - ./infra/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention.time=30d'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+    ports:
+      - "9090:9090"
+    depends_on:
+      - backend
+    networks:
+      - ocr_network
+
+  # ── Grafana ──────────────────────────────────────────────────────────────────
+  grafana:
+    image: grafana/grafana:10.4.0
+    container_name: ocr_grafana
+    restart: unless-stopped
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_USER:-admin}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:-admin}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_SERVER_ROOT_URL: http://localhost:3000
+    volumes:
+      - grafana_data:/var/lib/grafana
+      # Provisioning automatique de la datasource Prometheus
+      - ./infra/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources:ro
+      # Provisioning automatique des dashboards
+      - ./infra/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./infra/grafana/dashboards:/etc/grafana/provisioning/dashboards/files:ro
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    networks:
+      - ocr_network
+
+  # ── pgAdmin (optionnel) ──────────────────────────────────────────────────────
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: ocr_pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@ocr.local}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin}
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+    profiles:
+      - tools
+    networks:
+      - ocr_network
+
+# ── Volumes ──────────────────────────────────────────────────────────────────
+volumes:
+  postgres_data:
+  prometheus_data:
+  grafana_data:
+  uploads_data:
+  swin_weights:
+  yolo_weights:
+
+# ── Réseau ───────────────────────────────────────────────────────────────────
+networks:
+  ocr_network:
+    driver: bridge

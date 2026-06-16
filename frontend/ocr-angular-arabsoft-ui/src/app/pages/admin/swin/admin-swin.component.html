@@ -1,0 +1,231 @@
+<section class="admin-layout">
+  <input id="sidebarToggle" class="sidebar-toggle" type="checkbox">
+
+  <aside class="admin-sidebar">
+    <div class="sb-brand">
+      <img src="assets/extractly-mark.svg" alt="ExtractLY">
+      <strong>ExtractLY</strong>
+    </div>
+
+    <nav class="sb-nav">
+      <a class="sb-link" routerLink="/admin/dashboard" *ngIf="auth.canSeeDashboard()"><span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-9"/></svg></span><span>Dashboard</span></a>
+      <a class="sb-link" routerLink="/profile"><span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.7-4 4.4-6 8-6s6.3 2 8 6"/></svg></span><span>Profil</span></a>
+
+      <p class="nav-section-label" *ngIf="auth.canManageUsers() || auth.canManageTemplates() || auth.canManageSwin()">Administration</p>
+      <a class="sb-link" routerLink="/admin/users" *ngIf="auth.canManageUsers()"><span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="10" r="3"/><path d="M2.5 20c1.3-3.5 3.6-5.2 6.5-5.2s5.2 1.7 6.5 5.2"/><path d="M13.8 15.2c2.4.2 4.2 1.8 5.7 4.8"/></svg></span><span>Utilisateurs</span></a>
+      <a class="sb-link" routerLink="/templates" *ngIf="auth.canManageTemplates()"><span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M8 3h5v4a2 2 0 1 0 4 0V3h4v6h-4a2 2 0 1 0 0 4h4v8h-6v-4a2 2 0 1 0-4 0v4H3v-6h4a2 2 0 1 0 0-4H3V3h5z"/></svg></span><span>Templates</span></a>
+      <a class="sb-link active" routerLink="/admin/swin" *ngIf="auth.canManageSwin()"><span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M9 4a4 4 0 0 0-4 4v1a4 4 0 0 0 0 8v1a3 3 0 0 0 5 2.2"/><path d="M15 4a4 4 0 0 1 4 4v1a4 4 0 0 1 0 8v1a3 3 0 0 1-5 2.2"/><path d="M9 4v16"/><path d="M15 4v16"/><path d="M7 10h4"/><path d="M13 14h4"/></svg></span><span>Swin Training</span><em>AI</em></a>
+
+      <p class="nav-section-label" *ngIf="auth.canViewHistory() || auth.canUseAssistant()">Outils</p>
+      <a class="sb-link" routerLink="/history" *ngIf="auth.canViewHistory()"><span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/><path d="M3 12a9 9 0 0 1 2.2-5.8"/></svg></span><span>Historique</span></a>
+      <a class="sb-link" routerLink="/assistant" *ngIf="auth.canUseAssistant()"><span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V5"/><path d="M9 5h6"/><circle cx="9" cy="13" r="1"/><circle cx="15" cy="13" r="1"/><path d="M9 17h6"/></svg></span><span>Assistant OCR</span></a>
+      <a class="sb-link" routerLink="/"><span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v6h5"/><path d="M9 13h6"/><path d="M9 17h6"/></svg></span><span>Extraction</span></a>
+    </nav>
+
+    <div class="sb-footer user-footer">
+      <div class="sb-user-avatar">{{ (auth.getUser()?.full_name || auth.getUser()?.email || 'Utilisateur').slice(0, 1).toUpperCase() }}</div>
+      <div class="sb-user-text">
+        <strong>{{ auth.getUser()?.full_name || auth.getUser()?.email || 'Utilisateur' }}</strong>
+        <span>{{ auth.getUser()?.role || 'user' }}</span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="admin-page">
+    <header class="admin-topbar">
+      <div class="topbar-left">
+        <label class="menu-btn" for="sidebarToggle" title="Afficher / masquer le menu"><span></span><span></span><span></span></label>
+        <nav class="top-menu">
+          <a routerLink="/admin/dashboard" *ngIf="auth.canSeeDashboard()">Dashboard</a>
+          <a routerLink="/admin/users" *ngIf="auth.canManageUsers()">Users</a>
+          <a routerLink="/templates" *ngIf="auth.canManageTemplates()">Templates</a>
+          <a routerLink="/admin/swin" class="active" *ngIf="auth.canManageSwin()">Swin</a>
+          <a routerLink="/history" *ngIf="auth.canViewHistory()">Historique</a>
+          <a routerLink="/assistant" *ngIf="auth.canUseAssistant()">Assistant</a>
+          <a routerLink="/profile">Profil</a>
+          <a routerLink="/">Extraction</a>
+        </nav>
+      </div>
+
+      <div class="topbar-right">
+        <button class="top-icon" type="button" (click)="refreshAll()">↻</button>
+        <button class="top-icon" type="button" aria-label="IA"><span class="top-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M9 4a4 4 0 0 0-4 4v1a4 4 0 0 0 0 8v1a3 3 0 0 0 5 2.2"/><path d="M15 4a4 4 0 0 1 4 4v1a4 4 0 0 1 0 8v1a3 3 0 0 1-5 2.2"/><path d="M9 4v16"/><path d="M15 4v16"/></svg></span></button>
+        <div class="user-avatar"><img src="assets/Arabsoft_Logo.jpg" alt="Admin"></div>
+      </div>
+    </header>
+
+    <div class="breadcrumb-bar"><span>Home</span><span>/</span><strong>Swin</strong></div>
+
+    <div class="admin-content">
+      <div class="page-title">
+        <div>
+          <h1>Entraînement Swin</h1>
+          <p>Créer ou améliorer un classificateur documentaire pour les nouveaux documents non entraînés par le système.</p>
+        </div>
+        <button class="btn btn-primary" type="button" (click)="refreshAll()" [disabled]="loadingStatus() || loadingJobs()">
+          {{ loadingStatus() || loadingJobs() ? 'Chargement…' : 'Actualiser' }}
+        </button>
+      </div>
+
+      <div class="alert error" *ngIf="error()">{{ error() }}</div>
+      <div class="alert success" *ngIf="message()">{{ message() }}</div>
+
+      <section class="kpi-grid">
+        <article class="kpi blue">
+          <div class="kpi-value">{{ statusLabel(status()) }}</div>
+          <div class="kpi-label">Statut Swin</div>
+          <div class="status-pill" [class]="statusClass(status())">{{ statusClass(status()) }}</div>
+        </article>
+
+        <article class="kpi cyan">
+          <div class="kpi-value">{{ status()?.labels?.length || 0 }}</div>
+          <div class="kpi-label">Classes connues</div>
+          <div class="kpi-sub">labels du modèle chargé</div>
+        </article>
+
+        <article class="kpi yellow">
+          <div class="kpi-value">{{ percent(status()?.threshold) }}</div>
+          <div class="kpi-label">Seuil confiance</div>
+          <div class="kpi-sub">acceptation automatique</div>
+        </article>
+
+        <article class="kpi green">
+          <div class="kpi-value">{{ jobs().length }}</div>
+          <div class="kpi-label">Jobs training</div>
+          <div class="kpi-sub">historique backend</div>
+        </article>
+      </section>
+
+      <section class="grid-main">
+        <article class="card train-card">
+          <div class="card-h">
+            <div class="card-h-icon blue"><span class="ui-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M9 4a4 4 0 0 0-4 4v1a4 4 0 0 0 0 8v1a3 3 0 0 0 5 2.2"/><path d="M15 4a4 4 0 0 1 4 4v1a4 4 0 0 1 0 8v1a3 3 0 0 1-5 2.2"/><path d="M9 4v16"/><path d="M15 4v16"/><path d="M7 10h4"/><path d="M13 14h4"/></svg></span></div>
+            <div>
+              <div class="title">Nouvel entraînement</div>
+              <div class="sub">Dataset d’images classées par dossier, puis fine-tuning Swin.</div>
+            </div>
+          </div>
+
+          <div class="card-b">
+            <form class="train-form" (ngSubmit)="startTraining()">
+              <label>
+                Type de document / label principal
+                <input [(ngModel)]="trainForm.documentType" name="documentType" placeholder="ex: attestation_salaire">
+              </label>
+
+              <label>
+                Template associé optionnel
+                <input [(ngModel)]="trainForm.templateId" name="templateId" placeholder="ex: attestation_salaire_tn">
+              </label>
+
+              <label>
+                Nom dataset
+                <input [(ngModel)]="trainForm.datasetName" name="datasetName" placeholder="ex: dataset_attestations_v1">
+              </label>
+
+              <label>
+                Modèle Swin
+                <select [(ngModel)]="trainForm.modelName" name="modelName">
+                  <option value="swin_tiny_patch4_window7_224">swin_tiny_patch4_window7_224</option>
+                  <option value="swin_small_patch4_window7_224">swin_small_patch4_window7_224</option>
+                  <option value="swin_base_patch4_window7_224">swin_base_patch4_window7_224</option>
+                </select>
+              </label>
+
+              <div class="form-grid-4">
+                <label>Epochs<input [(ngModel)]="trainForm.epochs" name="epochs" type="number" min="1" max="200"></label>
+                <label>Batch<input [(ngModel)]="trainForm.batchSize" name="batchSize" type="number" min="1" max="128"></label>
+                <label>Image size<input [(ngModel)]="trainForm.imageSize" name="imageSize" type="number" min="128" max="512"></label>
+                <label>Val split<input [(ngModel)]="trainForm.validationSplit" name="validationSplit" type="number" min="0.05" max="0.5" step="0.05"></label>
+              </div>
+
+              <label>
+                Learning rate
+                <input [(ngModel)]="trainForm.learningRate" name="learningRate" type="number" min="0.000001" max="0.01" step="0.000001">
+              </label>
+
+              <label>
+                Notes admin
+                <textarea [(ngModel)]="trainForm.notes" name="notes" rows="3" placeholder="Contexte du nouveau document, source des images, remarques..."></textarea>
+              </label>
+
+              <div class="upload-zone">
+                <input id="datasetZip" type="file" accept=".zip" (change)="onDatasetFileChange($event)">
+                <label for="datasetZip">
+                  <strong>{{ datasetFileName() || 'Choisir un dataset .zip' }}</strong>
+                  <span>Structure attendue : train/classe/*.jpg et val/classe/*.jpg</span>
+                </label>
+              </div>
+
+              <div class="actions">
+                <button class="btn btn-primary" type="submit" [disabled]="training()">{{ training() ? 'Lancement…' : 'Lancer entraînement' }}</button>
+                <button class="btn btn-ghost" type="button" (click)="resetForm()">Réinitialiser</button>
+              </div>
+            </form>
+          </div>
+        </article>
+
+        <aside class="side-stack">
+          <article class="card">
+            <div class="card-h"><div class="card-h-icon green"><span class="ui-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m5 12 4.5 4.5L19 7"/></svg></span></div><div><div class="title">Statut modèle</div><div class="sub">Réponse brute de /swin/status</div></div></div>
+            <div class="card-b">
+              <div class="info-list" *ngIf="status() as s; else noStatus">
+                <div><span>Actif</span><strong>{{ s.active || s.available ? 'oui' : 'non' }}</strong></div>
+                <div><span>Chemin</span><strong>{{ s.model_path || s.checkpoint_path || '—' }}</strong></div>
+                <div><span>Raison</span><strong>{{ s.reason || s.error || '—' }}</strong></div>
+              </div>
+              <ng-template #noStatus><p class="empty">Aucun statut chargé.</p></ng-template>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-h"><div class="card-h-icon orange"><span class="ui-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M3 6h7l2 2h9v10.5A2.5 2.5 0 0 1 18.5 21h-13A2.5 2.5 0 0 1 3 18.5z"/><path d="M3 8V5.5A2.5 2.5 0 0 1 5.5 3H10l2 3"/></svg></span></div><div><div class="title">Format dataset</div><div class="sub">Organisation recommandée</div></div></div>
+            <div class="card-b"><pre class="dataset-tree">{{ expectedDatasetTree }}</pre></div>
+          </article>
+
+          <article class="card">
+            <div class="card-h"><div class="card-h-icon blue"><span class="ui-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg></span></div><div><div class="title">Tester une image</div><div class="sub">Vérifier la classe prédite par Swin</div></div></div>
+            <div class="card-b">
+              <div class="upload-zone compact">
+                <input id="predictImage" type="file" accept="image/*" (change)="onPredictFileChange($event)">
+                <label for="predictImage"><strong>{{ predictFileName() || 'Choisir une image' }}</strong><span>jpg, png, webp…</span></label>
+              </div>
+              <button class="btn btn-primary full" type="button" (click)="testPrediction()" [disabled]="predicting()">{{ predicting() ? 'Prédiction…' : 'Tester' }}</button>
+              <div class="prediction" *ngIf="prediction() as p">
+                <strong>{{ p.document_class || p.document_type || 'Classe inconnue' }}</strong>
+                <span>Confiance : {{ percent(p.confidence) }}</span>
+                <small>{{ p.method || 'swin' }}</small>
+              </div>
+            </div>
+          </article>
+        </aside>
+      </section>
+
+      <section class="grid-bottom">
+        <article class="card">
+          <div class="card-h"><div class="card-h-icon orange"><span class="ui-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 3h10v18l-2-1.3-2 1.3-2-1.3-2 1.3-2-1.3z"/><path d="M9 8h6"/><path d="M9 12h6"/><path d="M9 16h4"/></svg></span></div><div><div class="title">Jobs récents</div><div class="sub">Suivi des entraînements lancés par l’admin</div></div></div>
+          <div class="tbl-wrap">
+            <table class="ocr-tbl" *ngIf="jobs().length; else noJobs">
+              <thead><tr><th>Job</th><th>Document</th><th>Statut</th><th>Modèle</th><th>Date</th></tr></thead>
+              <tbody>
+                <tr *ngFor="let job of jobs()">
+                  <td><strong>{{ job.job_id || job.id || '—' }}</strong></td>
+                  <td>{{ job.document_type || job.label || '—' }}</td>
+                  <td><span class="badge">{{ job.status || '—' }}</span></td>
+                  <td>{{ job.model_name || '—' }}</td>
+                  <td>{{ formatDate(job.created_at || job.updated_at) }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <ng-template #noJobs><p class="empty padded">Aucun job trouvé ou endpoint /swin/jobs non disponible.</p></ng-template>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-h"><div class="card-h-icon blue">&#123; &#125;</div><div><div class="title">Dernière réponse API</div><div class="sub">Debug admin</div></div></div>
+          <div class="card-b"><pre class="json-box">{{ asJson(trainResponse() || prediction() || status()) }}</pre></div>
+        </article>
+      </section>
+    </div>
+  </main>
+</section>

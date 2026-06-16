@@ -1,0 +1,51 @@
+<canvas class="bg-canvas" [class.admin-hidden]="isConsoleRoute()" aria-hidden="true"></canvas>
+
+<nav class="top-nav" *ngIf="!isConsoleRoute()">
+  <a class="nav-logo" routerLink="/">
+    <img src="assets/Arabsoft_Logo.jpg" alt="Arabsoft" class="login-logo-img">
+    <span>Extract<span style="color: rgb(4, 47, 126);">LY</span></span>
+  </a>
+
+  <span class="nav-badge">OCR Microservice</span>
+  <div class="nav-spacer"></div>
+
+  <div class="nav-pills">
+    <a routerLink="/" class="nav-pill">Extraction</a>
+
+    <a routerLink="/login" class="nav-pill" *ngIf="!isLoggedIn()">Login</a>
+    <a routerLink="/register" class="nav-pill" *ngIf="!isLoggedIn()">Créer compte</a>
+
+    <a routerLink="/admin/dashboard" class="nav-pill" *ngIf="isLoggedIn() && canSeeDashboard()">Dashboard</a>
+    <a routerLink="/admin/users" class="nav-pill" *ngIf="isLoggedIn() && canManageUsers()">Users</a>
+    <a routerLink="/templates" class="nav-pill" *ngIf="isLoggedIn() && canManageTemplates()">Templates</a>
+    
+    <a routerLink="/history" class="nav-pill" *ngIf="isLoggedIn() && canViewHistory()">Historique</a>
+    <a routerLink="/assistant" class="nav-pill" *ngIf="isLoggedIn() && canUseAssistant()">Assistant</a>
+    <a routerLink="/profile" class="nav-pill" *ngIf="isLoggedIn() && canViewProfile()">Profil</a>
+  </div>
+
+  <div class="nav-user" *ngIf="isLoggedIn()">
+    <span class="nav-avatar">{{ currentUserName().slice(0, 2).toUpperCase() }}</span>
+    <span class="nav-user-text">
+      <strong>{{ currentUserName() }}</strong>
+      <small>{{ currentUserRole() }}</small>
+    </span>
+  </div>
+
+  <button class="theme-btn" type="button" title="Changer de thème" (click)="toggleTheme()">
+    {{ theme === 'dark' ? '☀️' : '🌙' }}
+  </button>
+
+  <button class="theme-btn logout-btn" type="button" title="Déconnexion" *ngIf="isLoggedIn()" (click)="logout()">
+    ⏻
+  </button>
+</nav>
+
+<main [class.admin-main-host]="isConsoleRoute()">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="app-footer" *ngIf="!isConsoleRoute()">
+  <p>© 2026 Arabsoft · OCR Microservice</p>
+  <p>FastAPI · PaddleOCR · EasyOCR · Angular</p>
+</footer>

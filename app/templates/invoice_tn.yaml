@@ -1,0 +1,224 @@
+id: invoice_tn
+name: "Facture Tunisienne"
+version: "3.0"
+description: "Facture tunisienne multi-profils : TTN électronique, facture commerciale standard et facture simple"
+document_type: invoice
+doc_family: invoice
+language: fr
+
+language_hints:
+  - fr
+  - ar
+
+preferred_engine: paddle
+
+engines:
+  primary: paddle
+  secondary: easyocr
+
+anchors_required:
+  - Facture
+  - Date
+
+critical_fields:
+  - invoice_number
+  - invoice_date
+  - total_ttc
+
+fields:
+  - name: invoice_profile
+    label: "Profil de facture"
+    extraction_method: regex
+    required: false
+    output_key: invoiceProfile
+    patterns:
+      - "(TTN|Tunisie\\s+TradeNet|Facture\\s+électronique|Facture\\s+electronique)"
+
+  - name: invoice_number
+    label: "Numéro de facture"
+    extraction_method: regex
+    required: true
+    output_key: invoiceNumber
+    patterns:
+      - "(?:Facture\\s*N[°o]?\\s*)([A-Z0-9][A-Z0-9\\-/]{0,30})"
+      - "(?:Facture\\s+num[eé]ro[\\s:]*)([A-Z0-9][A-Z0-9\\-/]{0,30})"
+      - "(?:Invoice|INV)\\s*[#:\\-]\\s*([A-Z0-9][A-Z0-9\\-/]{0,30})"
+    validation:
+      min_length: 1
+      max_length: 40
+
+  - name: invoice_date
+    label: "Date de facture"
+    extraction_method: regex
+    required: true
+    output_key: invoiceDate
+    patterns:
+      - "(?:^|\\s)Date[:\\s]+(\\d{1,2}[\\/\\-.]\\d{1,2}[\\/\\-.]\\d{2,4})(?:\\s|$)"
+      - "(?:Datée?|Date\\s+d(?:u|e))[:\\s]+(\\d{1,2}[\\/\\-.]\\d{1,2}[\\/\\-.]\\d{2,4})"
+    validation:
+      type: date
+
+  - name: reference_unique
+    label: "Référence unique"
+    extraction_method: regex
+    required: false
+    output_key: referenceUnique
+    patterns:
+      - "R[eéè]f[eéè]rence\\s+Unique\\s*[:\\-]?\\s*([0-9]{8,50})"
+      - "Reference\\s+Unique\\s*[:\\-]?\\s*([0-9]{8,50})"
+      - "sous\\s+la\\s+r[eéè]f[eéè]rence\\s*[:\\-]?\\s*([0-9]{8,50})"
+    validation:
+      min_length: 8
+      max_length: 50
+
+  - name: supplier_name
+    label: "Fournisseur"
+    extraction_method: regex
+    required: false
+    output_key: supplierName
+    patterns:
+      - "(T\\.T\\.N|Tunisie\\s+TradeNet|TUNISIE\\s+TRADENET)"
+      - "^((?:Ste|SARL|SA\\b|SUARL|Sté|Société|Entreprise|Ets)\\s+[\\w][\\w\\s\\.\\-&]{1,80})$"
+
+  - name: customer_name
+    label: "Client"
+    extraction_method: regex
+    required: false
+    output_key: customerName
+    patterns:
+      - "Nom\\s+Compte\\s*:\\s*([A-Za-zÀ-ÿ0-9\\s,\\.\\-]{2,70})"
+      - "Client\\s*:\\s*([A-Za-zÀ-ÿ0-9\\s,\\.\\-]{2,70})"
+
+  - name: supplier_tax_id
+    label: "Matricule fiscal fournisseur"
+    extraction_method: regex
+    required: false
+    output_key: supplierTaxId
+    patterns:
+      - "(?:Matricule\\s*Fiscal(?:e)?|MF|Identifiant\\s+fiscal)[\\s:]+([A-Z0-9\\/\\-]{5,30})"
+
+  - name: customer_tax_id
+    label: "Matricule fiscal client"
+    extraction_method: regex
+    required: false
+    output_key: customerTaxId
+    patterns:
+      - "(?:Matricule\\s*Fiscal(?:e)?\\s+client|MF\\s+client)[\\s:]+([A-Z0-9\\/\\-]{5,30})"
+
+  - name: period_start
+    label: "Début de période"
+    extraction_method: regex
+    required: false
+    output_key: periodStart
+    patterns:
+      - "P[eé]riode\\s*[:\\-]?\\s*du\\s*(\\d{1,2}[\\/\\-.]\\d{1,2}[\\/\\-.]\\d{2,4})"
+
+  - name: period_end
+    label: "Fin de période"
+    extraction_method: regex
+    required: false
+    output_key: periodEnd
+    patterns:
+      - "\\bAu\\s*(\\d{1,2}[\\/\\-.]\\d{1,2}[\\/\\-.]\\d{2,4})"
+
+  - name: payment_due_date
+    label: "Date limite de paiement"
+    extraction_method: regex
+    required: false
+    output_key: paymentDueDate
+    patterns:
+      - "Date\\s+Limite\\s+de\\s+paiement\\s*[:\\-]?\\s*([0-9]{6,8}|\\d{1,2}[\\/\\-.]\\d{1,2}[\\/\\-.]\\d{2,4})"
+
+  - name: total_ht
+    label: "Total H.T."
+    extraction_method: regex
+    required: false
+    output_key: totalHT
+    patterns:
+      - "Total\\s+H\\.?T\\.?V\\.?A\\.?\\s+([0-9]+(?:[.,][0-9]+)?)"
+      - "Total\\s+H\\.?T\\.?\\s+([0-9]+(?:[.,][0-9]+)?)"
+      - "Montant\\s+H\\.?T\\.?\\s+([0-9]+(?:[.,][0-9]+)?)"
+
+  - name: vat_rate
+    label: "Taux TVA"
+    extraction_method: regex
+    required: false
+    output_key: vatRate
+    patterns:
+      - "([0-9]{1,2}(?:[.,][0-9])?)\\s*%\\s*(?:TVA|T\\.V\\.A)"
+      - "Taux\\s*\\(?%\\)?\\s+([0-9]{1,2}(?:[.,][0-9])?)"
+
+  - name: vat_amount
+    label: "Montant TVA"
+    extraction_method: regex
+    required: false
+    output_key: vatAmount
+    patterns:
+      - "Montant\\s+TVA\\s+([0-9]+(?:[.,][0-9]+)?)"
+      - "TVA\\s+([0-9]+(?:[.,][0-9]+)?)"
+
+  - name: stamp_amount
+    label: "Droit de timbre"
+    extraction_method: regex
+    required: false
+    output_key: stampAmount
+    patterns:
+      - "Droit\\s+de\\s+Timbre\\s+([0-9]+(?:[.,][0-9]+)?)"
+      - "Timbre\\s+([0-9]+(?:[.,][0-9]+)?)"
+
+  - name: total_ttc
+    label: "Montant T.T.C."
+    extraction_method: regex
+    required: true
+    output_key: totalTTC
+    patterns:
+      - "Montant\\s*T\\.?T\\.?C\\.?\\s+([0-9]+(?:[.,][0-9]+)?)"
+      - "Total\\s+T\\.?T\\.?C\\.?\\s+([0-9]+(?:[.,][0-9]+)?)"
+      - "Net\\s*[àa]\\s*payer\\s+([0-9]+(?:[.,][0-9]+)?)"
+      - "Montant\\s+(?:total|net|TTC)[:\\s]+([0-9]+(?:[.,][0-9]+)?)"
+
+  - name: currency
+    label: "Devise"
+    extraction_method: regex
+    required: false
+    output_key: currency
+    patterns:
+      - "\\b(TND|DT|EUR|USD|MAD|GBP)\\b"
+      - "\\b(DINARS?|MILLIMES?)\\b"
+
+  - name: line_items
+    label: "Contenu du tableau"
+    extraction_method: regex
+    required: false
+    output_key: lineItems
+    patterns:
+      - "__LINE_ITEMS_COMPUTED_BY_INVOICE_EXTRACTOR__"
+
+  - name: amount_consistency
+    label: "Cohérence des montants"
+    extraction_method: regex
+    required: false
+    output_key: amountConsistency
+    patterns:
+      - "__AMOUNT_CONSISTENCY_COMPUTED_BY_INVOICE_EXTRACTOR__"
+
+output_mapping:
+  invoice_profile: invoiceProfile
+  invoice_number: invoiceNumber
+  invoice_date: invoiceDate
+  reference_unique: referenceUnique
+  supplier_name: supplierName
+  customer_name: customerName
+  supplier_tax_id: supplierTaxId
+  customer_tax_id: customerTaxId
+  period_start: periodStart
+  period_end: periodEnd
+  payment_due_date: paymentDueDate
+  total_ht: totalHT
+  vat_rate: vatRate
+  vat_amount: vatAmount
+  stamp_amount: stampAmount
+  total_ttc: totalTTC
+  currency: currency
+  line_items: lineItems
+  amount_consistency: amountConsistency

@@ -1,0 +1,237 @@
+id: midv_svk_id
+name: MIDV-2020 svk_id
+document_type: id_document
+dataset: midv2020
+source_class: svk_id
+template_source_variant: templates
+language: auto
+preferred_engine: paddle
+engines:
+  primary: paddle
+  secondary: easyocr
+fields:
+- name: birth_date
+  type: date
+  required: true
+  output_key: birthDate
+  patterns:
+  - (\d{1,2}[.\-/ ]+\d{1,2}[.\-/ ]+\d{2,4})
+  - (\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4})
+- name: expiry_date
+  type: date
+  required: true
+  output_key: expiryDate
+  patterns:
+  - (\d{1,2}[.\-/ ]+\d{1,2}[.\-/ ]+\d{2,4})
+  - (\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4})
+- name: face
+  type: image
+  required: false
+  output_key: face
+- name: gender
+  type: enum
+  required: false
+  output_key: gender
+- name: id_number
+  type: text
+  required: true
+  output_key: personalNumber
+  validation:
+    min_length: 3
+    max_length: 40
+- name: issue_date
+  type: date
+  required: false
+  output_key: issueDate
+  patterns:
+  - (\d{1,2}[.\-/ ]+\d{1,2}[.\-/ ]+\d{2,4})
+  - (\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4})
+- name: issue_place
+  type: text
+  required: false
+  output_key: issue_place
+- name: name
+  type: text
+  required: true
+  output_key: givenNames
+- name: nationality
+  type: text
+  required: false
+  output_key: nationality
+- name: number
+  type: text
+  required: true
+  output_key: documentNumber
+  validation:
+    min_length: 3
+    max_length: 40
+- name: photo
+  type: image
+  required: false
+  output_key: photo
+- name: signature
+  type: image
+  required: false
+  output_key: signature
+- name: surname
+  type: text
+  required: true
+  output_key: surname
+roi_fields:
+- name: birth_date
+  type: date
+  output_key: birthDate
+  bbox_norm:
+  - 0.706304
+  - 0.385475
+  - 0.177313
+  - 0.036313
+  required: true
+  orientation: '0'
+  visual: false
+- name: expiry_date
+  type: date
+  output_key: expiryDate
+  bbox_norm:
+  - 0.706322
+  - 0.662011
+  - 0.176467
+  - 0.036313
+  required: true
+  orientation: '0'
+  visual: false
+- name: face
+  type: image
+  output_key: face
+  bbox_norm:
+  - 0.095238
+  - 0.355699
+  - 0.188367
+  - 0.404956
+  required: false
+  orientation: '0'
+  visual: true
+- name: gender
+  type: enum
+  output_key: gender
+  bbox_norm:
+  - 0.349224
+  - 0.477654
+  - 0.023501
+  - 0.044693
+  required: false
+  orientation: '0'
+  visual: false
+- name: id_number
+  type: text
+  output_key: personalNumber
+  bbox_norm:
+  - 0.70624
+  - 0.47905
+  - 0.210377
+  - 0.036313
+  required: true
+  orientation: '0'
+  visual: false
+- name: issue_date
+  type: date
+  output_key: issueDate
+  bbox_norm:
+  - 0.706767
+  - 0.75419
+  - 0.176912
+  - 0.036313
+  required: false
+  orientation: '0'
+  visual: false
+- name: issue_place
+  type: text
+  output_key: issue_place
+  bbox_norm:
+  - 0.349088
+  - 0.748617
+  - 0.135839
+  - 0.047486
+  required: false
+  orientation: '0'
+  visual: false
+- name: name
+  type: text
+  output_key: givenNames
+  bbox_norm:
+  - 0.349024
+  - 0.294045
+  - 0.101138
+  - 0.040503
+  required: true
+  orientation: '0'
+  visual: false
+- name: nationality
+  type: text
+  output_key: nationality
+  bbox_norm:
+  - 0.349206
+  - 0.385475
+  - 0.063492
+  - 0.039106
+  required: false
+  orientation: '0'
+  visual: false
+- name: number
+  type: text
+  output_key: documentNumber
+  bbox_norm:
+  - 0.352488
+  - 0.604763
+  - 0.209522
+  - 0.053073
+  required: true
+  orientation: '0'
+  visual: false
+- name: photo
+  type: image
+  output_key: photo
+  bbox_norm:
+  - 0.045365
+  - 0.248647
+  - 0.285078
+  - 0.553505
+  required: false
+  orientation: '0'
+  visual: true
+- name: signature
+  type: image
+  output_key: signature
+  bbox_norm:
+  - 0.637693
+  - 0.824843
+  - 0.22504
+  - 0.142832
+  required: false
+  orientation: '0'
+  visual: true
+- name: surname
+  type: text
+  output_key: surname
+  bbox_norm:
+  - 0.350652
+  - 0.199735
+  - 0.120329
+  - 0.040503
+  required: true
+  orientation: '0'
+  visual: false
+output_mapping:
+  birth_date: birthDate
+  expiry_date: expiryDate
+  face: face
+  gender: gender
+  id_number: personalNumber
+  issue_date: issueDate
+  issue_place: issue_place
+  name: givenNames
+  nationality: nationality
+  number: documentNumber
+  photo: photo
+  signature: signature
+  surname: surname

@@ -1,0 +1,200 @@
+id: aze_passport
+name: "Azerbaijan Passport"
+version: "1.0"
+description: "Template-driven extraction for Azerbaijan passport"
+doc_family: id_document
+pipeline: generic_template_v1
+language_hints:
+  - en
+preferred_engine: paddle
+anchors_required:
+  - PASSPORT
+  - Passport No
+  - Date of birth
+  - Date of expiry
+fields:
+  - name: passport_number
+    label: "Passport No"
+    extraction_method: regex
+    patterns:
+      - '(?:Passport\s*No|Pasportun\s*n[o°]mrasi)\s*[:#]?\s*([A-Z0-9]{6,12})'
+      - '\b([A-Z]\d{8})\b'
+    validation:
+      type: regex
+      pattern: '^[A-Z0-9]{6,12}$'
+    normalization:
+      strip: true
+      uppercase: true
+    required: true
+    confidence_weight: 3.0
+
+  - name: surname
+    label: "Surname"
+    extraction_method: regex
+    patterns:
+      - '(?:Surname|Soyadi)\s*[:#]?\s*([A-ZƏÖĞÇŞİI\- ]{2,60})'
+    validation:
+      type: any
+      min_length: 2
+      max_length: 60
+    normalization:
+      strip: true
+      uppercase: true
+    required: true
+
+  - name: given_names
+    label: "Given name"
+    extraction_method: regex
+    patterns:
+      - '(?:Given\s*name.*?|Adi.*?):\s*([A-ZƏÖĞÇŞİI\- ]{2,80})'
+    validation:
+      type: any
+      min_length: 2
+      max_length: 80
+    normalization:
+      strip: true
+      uppercase: true
+    required: true
+
+  - name: nationality
+    label: "Nationality"
+    extraction_method: regex
+    patterns:
+      - '(?:Nationality|Vatandasligi)\s*[:#]?\s*([A-Z/ ]{3,40})'
+    validation:
+      type: any
+      min_length: 3
+      max_length: 40
+    normalization:
+      strip: true
+      uppercase: true
+
+  - name: date_of_birth
+    label: "Date of birth"
+    extraction_method: regex
+    patterns:
+      - '(?:Date\s*of\s*birth|Doguldugu\s*tarix)\s*[:#]?\s*(\d{2}[./-]\d{2}[./-]\d{4})'
+    validation:
+      type: any
+      min_length: 10
+      max_length: 10
+    normalization:
+      strip: true
+    required: true
+
+  - name: personal_number
+    label: "Personal No"
+    extraction_method: regex
+    patterns:
+      - '(?:Personal\s*No|Fardi\s*identifikasiya\s*n[o°]mrasi)\s*[:#]?\s*([A-Z0-9]{6,12})'
+    validation:
+      type: regex
+      pattern: '^[A-Z0-9]{6,12}$'
+    normalization:
+      strip: true
+      uppercase: true
+
+  - name: sex
+    label: "Sex"
+    extraction_method: regex
+    patterns:
+      - '(?:Sex|Cinsi)\s*[:#]?\s*([MFQK](?:/[MF])?)'
+    validation:
+      type: any
+      min_length: 1
+      max_length: 4
+    normalization:
+      strip: true
+      uppercase: true
+
+  - name: place_of_birth
+    label: "Place of birth"
+    extraction_method: regex
+    patterns:
+      - '(?:Place\s*of\s*birth|Doguldugu\s*yer)\s*[:#]?\s*([A-Z/ ]{3,40})'
+    validation:
+      type: any
+      min_length: 3
+      max_length: 40
+    normalization:
+      strip: true
+      uppercase: true
+
+  - name: date_of_issue
+    label: "Date of issue"
+    extraction_method: regex
+    patterns:
+      - '(?:Date\s*of\s*issue|Verilme\s*tarixi)\s*[:#]?\s*(\d{2}[./-]\d{2}[./-]\d{4})'
+    validation:
+      type: any
+      min_length: 10
+      max_length: 10
+    normalization:
+      strip: true
+
+  - name: date_of_expiry
+    label: "Date of expiry"
+    extraction_method: regex
+    patterns:
+      - '(?:Date\s*of\s*expiry|Etibarliliq\s*muddati)\s*[:#]?\s*(\d{2}[./-]\d{2}[./-]\d{4})'
+    validation:
+      type: any
+      min_length: 10
+      max_length: 10
+    normalization:
+      strip: true
+    required: true
+
+  - name: issuing_authority
+    label: "Issuing authority"
+    extraction_method: regex
+    patterns:
+      - '(?:Issuing\s*authority|Pasportu\s*ver[əe]n\s*orqan)\s*[:#]?\s*([A-ZƏÖĞÇŞİI\- ]{5,100})'
+    validation:
+      type: any
+      min_length: 5
+      max_length: 100
+    normalization:
+      strip: true
+      uppercase: true
+
+  - name: mrz_line_1
+    label: "MRZ Line 1"
+    extraction_method: regex
+    patterns:
+      - '\b([A-Z0-9<]{30,44})\b'
+    validation:
+      type: any
+      min_length: 30
+      max_length: 44
+    normalization:
+      strip: true
+      uppercase: true
+
+  - name: mrz_line_2
+    label: "MRZ Line 2"
+    extraction_method: regex
+    patterns:
+      - '\b([A-Z0-9<]{30,44})\b'
+    validation:
+      type: any
+      min_length: 30
+      max_length: 44
+    normalization:
+      strip: true
+      uppercase: true
+
+output_mapping:
+  passport_number: passportNumber
+  surname: surname
+  given_names: givenNames
+  nationality: nationality
+  date_of_birth: birthDate
+  personal_number: personalNumber
+  sex: sex
+  place_of_birth: birthPlace
+  date_of_issue: issueDate
+  date_of_expiry: expiryDate
+  issuing_authority: issuingAuthority
+  mrz_line_1: mrzLine1
+  mrz_line_2: mrzLine2

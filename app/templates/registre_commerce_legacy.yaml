@@ -1,0 +1,207 @@
+id: registre_commerce_legacy_ar
+name: "Registre de Commerce Tunisien - Format legacy"
+version: "1.1"
+description: "Ancien registre de commerce tunisien arabe/français, OCR bruité, extraction prudente des champs courts et structurés"
+document_type: registre_commerce
+doc_family: business_registry
+language: ar
+
+language_hints:
+  - ar
+  - fr
+  - en
+
+preferred_engine: paddle
+
+engines:
+  primary: paddle
+  secondary: easyocr
+
+anchors_any:
+  - السجل التجاري
+  - مضمون عن السجل التجاري
+  - كاتبة السجل التجاري
+  - VOYAGEUR
+  - CORPORATION
+  - SARL
+  - SUARL
+  - SA
+
+fields:
+  - name: identifiant_unique
+    type: text
+    label: "Identifiant unique / عدد المعرف"
+    required: true
+    output_key: uniqueIdentifier
+    aliases:
+      - المعرف الوحيد
+      - عدد المعرف الوحيد
+      - identifiant
+    patterns:
+      - "\\b([0-9]{5,12}[A-Z])\\b"
+      - "\\b([A-Z][0-9]{6,12})\\b"
+    validation:
+      min_length: 5
+      max_length: 20
+    normalization:
+      strip: true
+      remove_spaces: true
+    confidence_weight: 2.5
+
+  - name: numero_registre
+    type: text
+    label: "Numéro registre / عدد السجل"
+    required: false
+    output_key: registrationNumber
+    aliases:
+      - عدد السجل التجاري
+      - رقم السجل التجاري
+      - رقم القيد
+      - عدد الإيداع
+    patterns:
+      - "\\b([A-Z]{1,2}[0-9]{6,12})\\b"
+      - "\\b(G[0-9]{6,12})\\b"
+      - "\\b(D[0-9]{6,12})\\b"
+      - "\\b(B[0-9]{6,12})\\b"
+    validation:
+      min_length: 5
+      max_length: 20
+    normalization:
+      strip: true
+      remove_spaces: true
+    confidence_weight: 1.5
+
+  - name: denomination_sociale
+    type: text
+    label: "Dénomination sociale / التسمية الاجتماعية"
+    required: true
+    output_key: companyName
+    aliases:
+      - التسمية الاجتماعية
+      - اسم الشركة
+      - الاسم التجاري
+      - denomination
+      - company name
+    patterns:
+      - "\\b([A-Z][A-Z\\s&\\.]{5,90}(?:CORPORATION|CORPORRATION|COMPANY|CO\\.?|CORP\\.?|SARL|SUARL|SA))\\b"
+      - "\\b(VOYAGEUR\\s+OIL\\s+AND\\s+(?:GAZ|CAZ)\\s*CORPORR?ATION)\\b"
+      - "(?:التسمية|اسم الشركة|الاسم التجاري)[\\s:،]*([^\\n]{3,90})"
+    validation:
+      min_length: 3
+      max_length: 100
+    normalization:
+      strip: true
+    confidence_weight: 2.5
+
+  - name: date_extrait
+    type: text
+    label: "Date de l'extrait"
+    required: true
+    output_key: extractionDate
+    aliases:
+      - تاريخ تسليم المضمون
+      - تاريخ المضمون
+      - date extrait
+    patterns:
+      - "\\b([0-9]{4}[/\\-.][0-9]{1,2}[/\\-.][0-9]{1,2})\\b"
+      - "\\b([0-9]{1,2}[/\\-.][0-9]{1,2}[/\\-.][0-9]{4})\\b"
+    validation:
+      min_length: 8
+      max_length: 12
+    normalization:
+      strip: true
+    confidence_weight: 1.5
+
+  - name: date_immatriculation
+    type: text
+    label: "Date immatriculation / تاريخ الترسيم"
+    required: false
+    output_key: registrationDate
+    aliases:
+      - تاريخ الترسيم
+      - تاريخ التسجيل
+      - تاريخ الإيداع
+    patterns:
+      - "\\b([0-9]{4}[/\\-.][0-9]{1,2}[/\\-.][0-9]{1,2})\\b"
+      - "\\b([0-9]{1,2}[/\\-.][0-9]{1,2}[/\\-.][0-9]{4})\\b"
+    validation:
+      min_length: 8
+      max_length: 12
+    normalization:
+      strip: true
+    confidence_weight: 1.0
+
+  - name: forme_juridique
+    type: text
+    label: "Forme juridique / الشكل القانوني"
+    required: false
+    output_key: legalForm
+    aliases:
+      - الشكل القانوني
+      - نوع الشركة
+    patterns:
+      - "\\b(SARL|SUARL|SA|S\\.A\\.|SNC|SCS|GIE)\\b"
+      - "(شركة\\s+ذات\\s+مسؤولية\\s+محدودة)"
+      - "(شركة\\s+مساهمة)"
+      - "(?:الشكل\\s+القانوني|نوع\\s+الشركة)[\\s:،]*([^\\n]{2,60})"
+    validation:
+      min_length: 2
+      max_length: 80
+    normalization:
+      strip: true
+    confidence_weight: 1.0
+
+  - name: capital_social
+    type: text
+    label: "Capital / رأس المال"
+    required: false
+    output_key: capital
+    aliases:
+      - رأس المال
+      - capital
+    patterns:
+      - "(?:رأس\\s+المال|Capital)[\\s:،]*([0-9\\s.,]+)\\s*(?:دينار|دت|TND)?"
+      - "([0-9]{1,3}(?:[\\s.][0-9]{3})+(?:[,.][0-9]{1,3})?)\\s*(?:دينار|دت|TND)"
+    validation:
+      min_length: 1
+      max_length: 30
+    normalization:
+      strip: true
+      remove_spaces: true
+      custom_replace:
+        "،": "."
+        ",": "."
+    confidence_weight: 1.0
+
+  - name: siege_social
+    type: text
+    label: "Adresse siège / المقر الاجتماعي"
+    required: false
+    output_key: address
+    aliases:
+      - المقر الاجتماعي
+      - العنوان
+      - عنوان المحل
+    patterns:
+      - "(?:المقر\\s+الاجتماعي|العنوان|عنوان\\s+المحل)[\\s:،]*([^\\n]{5,120})"
+      - "([0-9]{1,4}\\s+[^\\n]{5,100}\\s+(?:تونس|Tunis|بنزرت|صفاقس|سوسة))"
+    validation:
+      min_length: 5
+      max_length: 140
+    normalization:
+      strip: true
+    confidence_weight: 0.8
+
+output_mapping:
+  identifiant_unique: uniqueIdentifier
+  numero_registre: registrationNumber
+  denomination_sociale: companyName
+  date_extrait: extractionDate
+  date_immatriculation: registrationDate
+  forme_juridique: legalForm
+  capital_social: capital
+  siege_social: address
+
+postprocess_hooks:
+  - normalize_dates
+  - normalize_registration

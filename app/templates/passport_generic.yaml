@@ -1,0 +1,78 @@
+id: passport_generic
+name: Generic Passport Template
+document_type: passport
+language: en
+preferred_engine: paddle
+
+engines:
+  primary: paddle
+  secondary: easyocr
+
+fields:
+  - name: passport_number
+    type: text
+    required: true
+    output_key: passportNumber
+    aliases:
+      - Passport No
+      - Passport Number
+      - N° Passeport
+      - Passeport
+    patterns:
+      - "(?:passport|passeport|no\\.?|n[°o])\\s*[:#\\-]?\\s*([A-Z0-9]{5,12})"
+    validation:
+      min_length: 5
+      max_length: 12
+
+  - name: surname
+    type: text
+    required: false
+    output_key: surname
+    aliases:
+      - Surname
+      - Nom
+
+  - name: given_names
+    type: text
+    required: false
+    output_key: givenNames
+    aliases:
+      - Given names
+      - Given name
+      - Prénoms
+      - Prenom
+
+  - name: nationality
+    type: text
+    required: false
+    output_key: nationality
+    aliases:
+      - Nationality
+      - Nationalité
+
+  - name: date_of_birth
+    type: date
+    required: false
+    output_key: dateOfBirth
+    aliases:
+      - Date of birth
+      - Date de naissance
+    patterns:
+      - "(\\d{1,2}[\\/\\-.]\\d{1,2}[\\/\\-.]\\d{4})"
+
+  - name: expiry_date
+    type: date
+    required: false
+    output_key: expiryDate
+    aliases:
+      - Date of expiry
+      - Expiry date
+      - Date d'expiration
+
+output_mapping:
+  passport_number: passportNumber
+  surname: surname
+  given_names: givenNames
+  nationality: nationality
+  date_of_birth: dateOfBirth
+  expiry_date: expiryDate

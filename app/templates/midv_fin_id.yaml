@@ -1,0 +1,256 @@
+id: midv_fin_id
+name: MIDV-2020 fin_id
+document_type: id_document
+dataset: midv2020
+source_class: fin_id
+template_source_variant: templates
+language: auto
+preferred_engine: paddle
+engines:
+  primary: paddle
+  secondary: easyocr
+fields:
+- name: birth_date
+  type: date
+  required: true
+  output_key: birthDate
+  patterns:
+  - (\d{1,2}[.\-/ ]+\d{1,2}[.\-/ ]+\d{2,4})
+  - (\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4})
+- name: birth_date_2
+  type: date
+  required: false
+  output_key: birthDateShort
+  patterns:
+  - (\d{1,2}[.\-/ ]+\d{1,2}[.\-/ ]+\d{2,4})
+  - (\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4})
+- name: birth_date_22
+  type: date
+  required: false
+  output_key: birthDateShortRotated
+  patterns:
+  - (\d{1,2}[.\-/ ]+\d{1,2}[.\-/ ]+\d{2,4})
+  - (\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4})
+- name: code
+  type: text
+  required: false
+  output_key: countryCode
+- name: expiry_date
+  type: date
+  required: true
+  output_key: expiryDate
+  patterns:
+  - (\d{1,2}[.\-/ ]+\d{1,2}[.\-/ ]+\d{2,4})
+  - (\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4})
+- name: face
+  type: image
+  required: false
+  output_key: face
+- name: gender
+  type: enum
+  required: false
+  output_key: gender
+- name: issue_date
+  type: date
+  required: false
+  output_key: issueDate
+  patterns:
+  - (\d{1,2}[.\-/ ]+\d{1,2}[.\-/ ]+\d{2,4})
+  - (\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4})
+- name: name
+  type: text
+  required: true
+  output_key: givenNames
+- name: nationality
+  type: text
+  required: false
+  output_key: nationality
+- name: number
+  type: text
+  required: true
+  output_key: documentNumber
+  validation:
+    min_length: 3
+    max_length: 40
+- name: photo
+  type: image
+  required: false
+  output_key: photo
+- name: signature
+  type: image
+  required: false
+  output_key: signature
+- name: surname
+  type: text
+  required: true
+  output_key: surname
+roi_fields:
+- name: birth_date
+  type: date
+  output_key: birthDate
+  bbox_norm:
+  - 0.296389
+  - 0.505137
+  - 0.163276
+  - 0.037671
+  required: true
+  orientation: '0'
+  visual: false
+- name: birth_date_2
+  type: date
+  output_key: birthDateShort
+  bbox_norm:
+  - 0.474692
+  - 0.720908
+  - 0.083017
+  - 0.030822
+  required: false
+  orientation: '0'
+  visual: false
+- name: birth_date_22
+  type: date
+  output_key: birthDateShortRotated
+  bbox_norm:
+  - 0.705538
+  - 0.880119
+  - 0.008781
+  - 0.056966
+  required: false
+  orientation: '90'
+  visual: false
+- name: code
+  type: text
+  output_key: countryCode
+  bbox_norm:
+  - 0.47364
+  - 0.505137
+  - 0.077546
+  - 0.035959
+  required: false
+  orientation: '0'
+  visual: false
+- name: expiry_date
+  type: date
+  output_key: expiryDate
+  bbox_norm:
+  - 0.297519
+  - 0.672927
+  - 0.163055
+  - 0.037689
+  required: true
+  orientation: '0'
+  visual: false
+- name: face
+  type: image
+  output_key: face
+  bbox_norm:
+  - 0.75353
+  - 0.534511
+  - 0.164373
+  - 0.361566
+  required: false
+  orientation: '0'
+  visual: true
+- name: gender
+  type: enum
+  output_key: gender
+  bbox_norm:
+  - 0.390911
+  - 0.339041
+  - 0.018681
+  - 0.037671
+  required: false
+  orientation: '0'
+  visual: false
+- name: issue_date
+  type: date
+  output_key: issueDate
+  bbox_norm:
+  - 0.297519
+  - 0.597603
+  - 0.163675
+  - 0.037671
+  required: false
+  orientation: '0'
+  visual: false
+- name: name
+  type: text
+  output_key: givenNames
+  bbox_norm:
+  - 0.293244
+  - 0.246575
+  - 0.089185
+  - 0.037671
+  required: true
+  orientation: '0'
+  visual: false
+- name: nationality
+  type: text
+  output_key: nationality
+  bbox_norm:
+  - 0.925875
+  - 0.327055
+  - 0.039
+  - 0.037671
+  required: false
+  orientation: '0'
+  visual: false
+- name: number
+  type: text
+  output_key: documentNumber
+  bbox_norm:
+  - 0.610075
+  - 0.333904
+  - 0.163952
+  - 0.037671
+  required: true
+  orientation: '0'
+  visual: false
+- name: photo
+  type: image
+  output_key: photo
+  bbox_norm:
+  - 0.710942
+  - 0.444252
+  - 0.252926
+  - 0.492445
+  required: false
+  orientation: '0'
+  visual: true
+- name: signature
+  type: image
+  output_key: signature
+  bbox_norm:
+  - 0.210814
+  - 0.830197
+  - 0.237678
+  - 0.137304
+  required: false
+  orientation: '0'
+  visual: true
+- name: surname
+  type: text
+  output_key: surname
+  bbox_norm:
+  - 0.294207
+  - 0.191781
+  - 0.131972
+  - 0.037671
+  required: true
+  orientation: '0'
+  visual: false
+output_mapping:
+  birth_date: birthDate
+  birth_date_2: birthDateShort
+  birth_date_22: birthDateShortRotated
+  code: countryCode
+  expiry_date: expiryDate
+  face: face
+  gender: gender
+  issue_date: issueDate
+  name: givenNames
+  nationality: nationality
+  number: documentNumber
+  photo: photo
+  signature: signature
+  surname: surname

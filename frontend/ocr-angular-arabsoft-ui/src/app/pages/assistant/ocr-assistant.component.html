@@ -1,0 +1,260 @@
+<section class="admin-layout">
+  <input id="sidebarToggle" class="sidebar-toggle" type="checkbox">
+
+  <aside class="admin-sidebar">
+    <div class="sb-brand">
+      <img src="assets/extractly-mark.svg" alt="ExtractLY">
+      <strong>ExtractLY</strong>
+    </div>
+
+    <nav class="sb-nav">
+      <a class="sb-link" routerLink="/admin/dashboard" *ngIf="auth.canSeeDashboard()">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-9"/></svg></span><span>Dashboard</span>
+      </a>
+
+      <a class="sb-link" routerLink="/profile">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.7-4 4.4-6 8-6s6.3 2 8 6"/></svg></span><span>Profil</span>
+      </a>
+
+      <p class="nav-section-label" *ngIf="auth.canManageUsers() || auth.canManageTemplates()">Administration</p>
+
+      <a class="sb-link" routerLink="/admin/users" *ngIf="auth.canManageUsers()">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="10" r="3"/><path d="M2.5 20c1.3-3.5 3.6-5.2 6.5-5.2s5.2 1.7 6.5 5.2"/><path d="M13.8 15.2c2.4.2 4.2 1.8 5.7 4.8"/></svg></span><span>Utilisateurs</span>
+      </a>
+
+      <a class="sb-link" routerLink="/templates" *ngIf="auth.canManageTemplates()">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M8 3h5v4a2 2 0 1 0 4 0V3h4v6h-4a2 2 0 1 0 0 4h4v8h-6v-4a2 2 0 1 0-4 0v4H3v-6h4a2 2 0 1 0 0-4H3V3h5z"/></svg></span><span>Templates</span>
+      </a>
+
+      <p class="nav-section-label" *ngIf="auth.canViewHistory() || auth.canUseAssistant()">Outils</p>
+
+      <a class="sb-link" routerLink="/history" *ngIf="auth.canViewHistory()">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/><path d="M3 12a9 9 0 0 1 2.2-5.8"/></svg></span><span>Historique</span>
+      </a>
+
+      <a class="sb-link active" routerLink="/assistant" *ngIf="auth.canUseAssistant()">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V5"/><path d="M9 5h6"/><circle cx="9" cy="13" r="1"/><circle cx="15" cy="13" r="1"/><path d="M9 17h6"/></svg></span><span>Assistant OCR</span>
+      </a>
+
+      <a class="sb-link" routerLink="/">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v6h5"/><path d="M9 13h6"/><path d="M9 17h6"/></svg></span><span>Extraction</span>
+      </a>
+    </nav>
+
+    <div class="sb-footer user-footer">
+      <div class="sb-user-avatar">
+        {{ (auth.getUser()?.full_name || auth.getUser()?.email || 'Utilisateur').slice(0, 1).toUpperCase() }}
+      </div>
+      <div class="sb-user-text">
+        <strong>{{ auth.getUser()?.full_name || auth.getUser()?.email || 'Utilisateur' }}</strong>
+        <span>{{ auth.getUser()?.role || 'user' }}</span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="admin-page">
+    <header class="admin-topbar">
+      <div class="topbar-left">
+        <label class="menu-btn" for="sidebarToggle" title="Afficher / masquer le menu"><span></span><span></span><span></span></label>
+
+        <nav class="top-menu">
+          <a routerLink="/admin/dashboard" *ngIf="auth.canSeeDashboard()">Dashboard</a>
+          <a routerLink="/admin/users" *ngIf="auth.canManageUsers()">Users</a>
+          <a routerLink="/templates" *ngIf="auth.canManageTemplates()">Templates</a>
+          <a routerLink="/history" *ngIf="auth.canViewHistory()">Historique</a>
+          <a routerLink="/assistant" *ngIf="auth.canUseAssistant()">Assistant</a>
+          <a routerLink="/profile">Profil</a>
+          <a routerLink="/">Extraction</a>
+        </nav>
+      </div>
+
+      <div class="topbar-right">
+        
+        <button class="btn btn-ghost" type="button" (click)="checkStatus()" [disabled]="checkingStatus()">
+          {{ checkingStatus() ? 'Vérification…' : 'Vérifier IA' }}
+        </button>
+
+        <div class="user-avatar">
+          <img src="assets/Arabsoft_Logo.jpg" alt="Admin">
+        </div>
+      </div>
+    </header>
+
+    <div class="breadcrumb-bar">
+      <span>Home</span>
+      <span>/</span>
+      <strong>Assistant OCR</strong>
+    </div>
+
+    <div class="admin-content">
+      <div class="page-title">
+        <div>
+          <h1>Assistant OCR spécialisé</h1>
+          <p>Analyse intelligente des résultats OCR, champs faibles et historique.</p>
+        </div>
+
+        <div class="assistant-toggles">
+          <label>
+            <input
+              type="checkbox"
+              [(ngModel)]="includeLastResult"
+              (change)="refreshLastResult()">
+            <span>Résultat courant</span>
+          </label>
+
+          <label>
+            <input type="checkbox" [(ngModel)]="includeHistory">
+            <span>Historique</span>
+          </label>
+
+          <label>
+            <input type="checkbox" [(ngModel)]="useAi">
+            <span>Mode IA</span>
+          </label>
+
+          <label>
+            <input type="checkbox" [(ngModel)]="showDebug">
+            <span>Debug</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="alert error" *ngIf="error()">
+        {{ error() }}
+      </div>
+
+      <section class="assistant-status">
+        <article class="mini-stat">
+          <div class="mini-icon blue"><span class="ui-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v6h5"/><path d="M9 13h6"/><path d="M9 17h6"/></svg></span></div>
+          <div>
+            <span class="ms-label">Dernier résultat local</span>
+            <strong class="ms-value" [class.ok]="hasLastResult()" [class.ko]="!hasLastResult()">
+              {{ hasLastResult() ? 'Disponible' : 'Absent' }}
+            </strong>
+            <small class="ms-sub">vient de ocr_last_result après extraction</small>
+          </div>
+        </article>
+
+        <article class="mini-stat">
+          <div class="mini-icon purple"><span class="ui-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V5"/><path d="M9 5h6"/><circle cx="9" cy="13" r="1"/><circle cx="15" cy="13" r="1"/><path d="M9 17h6"/></svg></span></div>
+          <div>
+            <span class="ms-label">Mode demandé</span>
+            <strong class="ms-value">
+              {{ useAi ? 'IA + règles' : 'Règles métier' }}
+            </strong>
+            <small class="ms-sub">le backend indique le mode réel dans chaque message</small>
+          </div>
+        </article>
+
+        <article class="mini-stat">
+          <div class="mini-icon purple"><span class="ui-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M9 4a4 4 0 0 0-4 4v1a4 4 0 0 0 0 8v1a3 3 0 0 0 5 2.2"/><path d="M15 4a4 4 0 0 1 4 4v1a4 4 0 0 1 0 8v1a3 3 0 0 1-5 2.2"/><path d="M9 4v16"/><path d="M15 4v16"/><path d="M7 10h4"/><path d="M13 14h4"/></svg></span></div>
+          <div>
+            <span class="ms-label">Provider IA</span>
+            <strong class="ms-value">
+              {{ modeLabel() }}
+            </strong>
+            <small class="ms-sub">
+              Le message doit afficher ai:groq si Groq répond.
+            </small>
+          </div>
+        </article>
+      </section>
+
+      <section class="assistant-grid">
+        <article class="card chat-card">
+          <div class="card-h">
+            <div class="card-h-icon blue"><span class="ui-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V5"/><path d="M9 5h6"/><circle cx="9" cy="13" r="1"/><circle cx="15" cy="13" r="1"/><path d="M9 17h6"/></svg></span></div>
+            <div>
+              <div class="title">Conversation OCR</div>
+              <div class="sub">Analyse des champs faibles, erreurs, modes OCR et historique</div>
+            </div>
+          </div>
+
+          <div class="chat-box">
+            <div
+              class="msg"
+              *ngFor="let m of messages()"
+              [class.user]="m.role === 'user'"
+              [class.warning]="m.severity === 'warning'">
+
+              <div class="msg-head">
+                <strong>{{ m.role === 'user' ? 'Vous' : 'Assistant OCR' }}</strong>
+                <span *ngIf="m.mode">{{ m.mode }}</span>
+              </div>
+
+              <p>{{ m.text }}</p>
+
+              <details class="json-block" *ngIf="showDebug && m.debug">
+                <summary>Debug assistant</summary>
+                <pre>{{ debugJson(m.debug) }}</pre>
+              </details>
+
+              <div class="suggestions" *ngIf="m.suggestions?.length">
+                <button
+                  type="button"
+                  *ngFor="let s of m.suggestions"
+                  (click)="send(s)">
+                  {{ s }}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <form class="chat-form" (ngSubmit)="send()">
+            <input
+              [(ngModel)]="message"
+              name="message"
+              type="text"
+              placeholder="Ex: Analyse le dernier résultat OCR">
+
+            <button class="btn btn-primary" type="submit" [disabled]="loading()">
+              {{ loading() ? '...' : 'Envoyer' }}
+            </button>
+          </form>
+        </article>
+
+        <aside class="card tips-card">
+          <div class="card-h">
+            <div class="card-h-icon orange"><span class="ui-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M8 14a6 6 0 1 1 8 0c-1.2 1-1.6 2-1.8 3H9.8c-.2-1-.6-2-1.8-3z"/></svg></span></div>
+            <div>
+              <div class="title">Questions spécialisées</div>
+              <div class="sub">Raccourcis pour la démo</div>
+            </div>
+          </div>
+
+          <div class="tip-list">
+            <button type="button" (click)="send('Analyse le dernier résultat OCR')">
+              <span><span class="ui-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-9"/></svg></span></span>
+              Analyse le dernier résultat OCR
+            </button>
+
+            <button type="button" (click)="send('Donne-moi la dernière extraction faite')">
+              <span><span class="ui-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/><path d="M3 12a9 9 0 0 1 2.2-5.8"/></svg></span></span>
+              Dernière extraction faite
+            </button>
+
+            <button type="button" (click)="send('Quels champs sont faibles ou manquants ?')">
+              <span><span class="ui-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 3 2.5 20h19z"/><path d="M12 9v5"/><path d="M12 17h.01"/></svg></span>️</span>
+              Champs faibles ou manquants
+            </button>
+
+            <button type="button" (click)="send('Quel mode OCR utiliser pour ce document ?')">
+              <span><span class="ui-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.8 1.8 0 0 0 .3 2l.1.1-2.1 2.1-.1-.1a1.8 1.8 0 0 0-2-.3 1.8 1.8 0 0 0-1.1 1.7V21h-3v-.5a1.8 1.8 0 0 0-1.1-1.7 1.8 1.8 0 0 0-2 .3l-.1.1-2.1-2.1.1-.1a1.8 1.8 0 0 0 .3-2 1.8 1.8 0 0 0-1.7-1.1H4v-3h.5a1.8 1.8 0 0 0 1.7-1.1 1.8 1.8 0 0 0-.3-2l-.1-.1 2.1-2.1.1.1a1.8 1.8 0 0 0 2 .3 1.8 1.8 0 0 0 1.1-1.7V3h3v.5a1.8 1.8 0 0 0 1.1 1.7 1.8 1.8 0 0 0 2-.3l.1-.1 2.1 2.1-.1.1a1.8 1.8 0 0 0-.3 2 1.8 1.8 0 0 0 1.7 1.1H21v3h-.5a1.8 1.8 0 0 0-1.1 1.1z"/></svg></span>️</span>
+              Recommander un mode OCR
+            </button>
+
+            <button type="button" (click)="send('Quel est le taux de succès global ?')">
+              <span><span class="ui-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.6 2.6L16.5 9"/></svg></span></span>
+              Taux de succès global
+            </button>
+
+            <button type="button" (click)="send('Quels documents posent problème dans l’historique ?')">
+              <span><span class="ui-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M3 6h7l2 2h9v10.5A2.5 2.5 0 0 1 18.5 21h-13A2.5 2.5 0 0 1 3 18.5z"/><path d="M3 8V5.5A2.5 2.5 0 0 1 5.5 3H10l2 3"/></svg></span></span>
+              Documents problématiques
+            </button>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+</section>

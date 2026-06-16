@@ -1,0 +1,166 @@
+id: registre_commerce
+name: Registre de Commerce Tunisien / Extrait RNE
+version: "3.1"
+description: Extraction stabilisée des champs critiques d'un extrait RNE tunisien
+document_type: registre_commerce
+doc_family: business_registry
+language: fr
+
+language_hints:
+  - fr
+  - ar
+
+preferred_engine: paddle
+
+engines:
+  primary: paddle
+  secondary: easyocr
+
+anchors_any:
+  - Registre National des Entreprises
+  - Extrait du Registre
+  - Identifiant Unique
+  - Raison sociale
+  - Centre National du Registre des Entreprises
+  - السجل الوطني للمؤسسات
+  - السجل التجاري
+  - RNE
+
+fields:
+  - name: identifiant_unique
+    type: text
+    label: Identifiant unique
+    required: true
+    output_key: uniqueIdentifier
+    aliases:
+      - Identifiant Unique
+      - Identifiant unique
+      - المعرف الموحد
+    patterns:
+      - "(?i)Identifiant\\s+Unique\\s*[:\\-]?\\s*([0-9]{5,12}[A-Z])"
+      - "(?i)Identifiant\\s+Unique\\s+([0-9]{5,12}[A-Z])"
+      - "(?i)المعرف\\s+الموحد[^0-9A-Z]*([0-9]{5,12}[A-Z])"
+    validation:
+      min_length: 5
+      max_length: 20
+    normalization:
+      strip: true
+      remove_spaces: true
+    confidence_weight: 3.0
+
+  - name: raison_sociale
+    type: text
+    label: Raison sociale
+    required: true
+    output_key: companyName
+    aliases:
+      - Raison sociale
+      - Dénomination
+      - Nom société
+      - Société
+      - الاسم الاجتماعي
+      - الإسم الإجتماعي
+    patterns:
+      - "(?i)Raison\\s+sociale\\s*[:\\-]?\\s*([A-Z0-9][A-Z0-9\\s&\\.\\-]{2,80}?)(?:\\s+Nom\\s+Commerc\\w*|\\s+Adresse\\s+Sociale|\\s+Capital|\\s+Activit[eé]|$)"
+      - "(?i)الاسم\\s+الإجتماعي\\s*[:\\-]?\\s*([^\\n]{3,80})"
+      - "(?i)الاسم\\s+الاجتماعي\\s*[:\\-]?\\s*([^\\n]{3,80})"
+    validation:
+      min_length: 3
+      max_length: 100
+    normalization:
+      strip: true
+    confidence_weight: 3.0
+
+  - name: date_extrait
+    type: text
+    label: Date de l'extrait
+    required: true
+    output_key: extractionDate
+    aliases:
+      - Date de l'extrait
+      - Date extrait
+      - تاريخ استخراج المضمون
+    patterns:
+      - "(?i)Date\\s+de\\s+l['’]extrait\\s*[:\\-]?\\s*([0-9]{4}[/\\-][0-9]{2}[/\\-][0-9]{2})"
+      - "(?i)Date\\s+de\\s+l['’]extrait\\s*[:\\-]?\\s*([0-9]{2}[/\\-][0-9]{2}[/\\-][0-9]{4})"
+      - "(?i)^\\s*([0-9]{2}[/\\-][0-9]{2}[/\\-][0-9]{4})\\s+Extrait\\s+Registre"
+      - "(?i)تاريخ\\s+استخراج\\s+المضمون[^0-9]*([0-9]{4}[/\\-][0-9]{2}[/\\-][0-9]{2})"
+    validation:
+      min_length: 8
+      max_length: 12
+    normalization:
+      strip: true
+    confidence_weight: 2.0
+
+  - name: capital
+    type: text
+    label: Capital
+    required: false
+    output_key: capital
+    aliases:
+      - Capital
+      - رأس المال
+    patterns:
+      - "(?i)Capital\\s*[:\\-]?\\s*([0-9][0-9\\s.,]{2,20})(?=\\s+Activit[eé]|\\s+Forme|\\s+Date|\\s*$)"
+      - "(?i)Capital\\s+([0-9][0-9\\s.,]{2,20})(?=\\s+Activit[eé]|\\s+Forme|\\s+Date|\\s*$)"
+      - "(?i)رأس\\s+المال\\s*[:\\-]?\\s*([0-9][0-9\\s.,]{2,20})"
+    validation:
+      min_length: 3
+      max_length: 30
+    normalization:
+      strip: true
+      remove_spaces: true
+    confidence_weight: 1.5
+
+  - name: date_publication
+    type: text
+    label: Date de publication
+    required: false
+    output_key: publicationDate
+    aliases:
+      - Date de Publication
+      - Date de publication
+      - تاريخ النشر
+    patterns:
+      - "(?i)Date\\s+de\\s+Pub\\s*lication\\s*[:\\-]?\\s*([0-9]{4}[/\\-][0-9]{2}[/\\-][0-9]{2})"
+      - "(?i)Date\\s+de\\s+Publication\\s*[:\\-]?\\s*([0-9]{4}[/\\-][0-9]{2}[/\\-][0-9]{2})"
+      - "(?i)تاريخ\\s+النشر[^0-9]*([0-9]{4}[/\\-][0-9]{2}[/\\-][0-9]{2})"
+    validation:
+      min_length: 8
+      max_length: 12
+    normalization:
+      strip: true
+    confidence_weight: 1.5
+
+  - name: date_debut_activite
+    type: text
+    label: Date début activité
+    required: false
+    output_key: activityStartDate
+    aliases:
+      - Date de début d'activité
+      - Date de debut d'activite
+      - Date début activité
+      - تاريخ بداية النشاط
+    patterns:
+      - "(?i)Date\\s+de\\s+d[eé]but\\s+d['’]activit[eé]\\s*[:\\-]?\\s*([0-9]{4}[/\\-][0-9]{2}[/\\-][0-9]{2})"
+      - "(?i)Date\\s+de\\s+debut\\s+d['’]activite\\s*[:\\-]?\\s*([0-9]{4}[/\\-][0-9]{2}[/\\-][0-9]{2})"
+      - "(?i)تاريخ\\s+بداية\\s+النشاط[^0-9]*([0-9]{4}[/\\-][0-9]{2}[/\\-][0-9]{2})"
+    validation:
+      min_length: 8
+      max_length: 12
+    normalization:
+      strip: true
+    confidence_weight: 1.5
+
+output_mapping:
+  identifiant_unique: uniqueIdentifier
+  raison_sociale: companyName
+  date_extrait: extractionDate
+  capital: capital
+  date_publication: publicationDate
+  date_debut_activite: activityStartDate
+
+postprocess_hooks:
+  - normalize_dates
+  - normalize_registration

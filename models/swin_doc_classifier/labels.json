@@ -1,0 +1,38 @@
+{
+  "labels": [
+    "alb_id",
+    "aze_passport",
+    "esp_id",
+    "est_id",
+    "fin_id",
+    "grc_passport",
+    "lva_passport",
+    "rus_passport",
+    "srb_passport",
+    "svk_id"
+  ],
+  "label_to_id": {
+    "alb_id": 0,
+    "aze_passport": 1,
+    "esp_id": 2,
+    "est_id": 3,
+    "fin_id": 4,
+    "grc_passport": 5,
+    "lva_passport": 6,
+    "rus_passport": 7,
+    "srb_passport": 8,
+    "svk_id": 9
+  },
+  "id_to_label": {
+    "0": "alb_id",
+    "1": "aze_passport",
+    "2": "esp_id",
+    "3": "est_id",
+    "4": "fin_id",
+    "5": "grc_passport",
+    "6": "lva_passport",
+    "7": "rus_passport",
+    "8": "srb_passport",
+    "9": "svk_id"
+  }
+}

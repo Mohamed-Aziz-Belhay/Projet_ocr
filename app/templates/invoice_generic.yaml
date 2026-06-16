@@ -1,0 +1,74 @@
+id: invoice_generic
+name: Generic Invoice Template
+document_type: invoice
+language: fr
+preferred_engine: paddle
+
+engines:
+  primary: paddle
+  secondary: easyocr
+
+fields:
+  - name: invoice_number
+    type: text
+    required: true
+    output_key: invoiceNumber
+    aliases:
+      - Facture
+      - Facture N°
+      - Numéro facture
+      - Invoice
+      - Invoice No
+    patterns:
+      - "(?:facture|invoice|num[eé]ro|n[°o])\\s*[:#\\-]?\\s*([A-Z0-9\\-/]+)"
+    validation:
+      min_length: 2
+      max_length: 40
+
+  - name: invoice_date
+    type: date
+    required: false
+    output_key: invoiceDate
+    aliases:
+      - Date
+      - Date facture
+      - Invoice date
+    patterns:
+      - "(\\d{1,2}[\\/\\-.]\\d{1,2}[\\/\\-.]\\d{4})"
+
+  - name: supplier_name
+    type: text
+    required: false
+    output_key: supplierName
+    aliases:
+      - Fournisseur
+      - Société
+      - Supplier
+
+  - name: customer_name
+    type: text
+    required: false
+    output_key: customerName
+    aliases:
+      - Client
+      - Customer
+
+  - name: total_amount
+    type: amount
+    required: true
+    output_key: totalAmount
+    aliases:
+      - Total TTC
+      - Montant total
+      - Total
+    patterns:
+      - "(?:total\\s*(?:ttc)?|montant\\s*total)\\s*[:\\-]?\\s*([0-9\\s.,]+)"
+    validation:
+      regex: "\\d"
+
+output_mapping:
+  invoice_number: invoiceNumber
+  invoice_date: invoiceDate
+  supplier_name: supplierName
+  customer_name: customerName
+  total_amount: totalAmount

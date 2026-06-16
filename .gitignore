@@ -1,0 +1,104 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# Archives et zips
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Datasets et données
+*.csv
+*.json.bak
+*.parquet
+*.pkl
+*.h5
+*.hdf5
+data/
+datasets/
+dataset/
+
+# Fichiers volumineux OCR/ML
+*.onnx
+*.pdparams
+*.pdmodel
+*.nb
+*.tflite
+*.pt
+*.pth
+*.bin
+
+# Uploads et résultats temporaires
+uploads/
+tmp/
+temp/
+*.tmp
+
+# Logs
+*.log
+logs/
+
+# Node modules Angular
+frontend/ocr-angular-arabsoft-ui/node_modules/
+frontend/ocr-angular-arabsoft-ui/dist/
+frontend/ocr-angular-arabsoft-ui/.angular/
+
+# Variables d'environnement
+.env
+.env.local
+.env.production
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage
+.coverage
+htmlcov/
+
+# Résultats de tests et benchmarks
+result*.json
+benchmark*.json
+benchmark_*/
+benchmark_*_responses/
+debug_*/
+runs/
+logs.txt
+result.json
+ocr_dev.db
+
+# Fichiers de debug images
+debug_*.jpg
+debug_*.png
+*.jpg
+*.png
+*.webp
+*.jpeg
+*.pdf
+
+# Fichiers utilitaires de dev
+fix_encoding.py
+restore_from_vscode_history.py
+show_db.py
+structure.txt
+curl
+
+# Fichiers de validation
+VALIDATION_REPORT_*.md
+TESTS_RESULTS.md

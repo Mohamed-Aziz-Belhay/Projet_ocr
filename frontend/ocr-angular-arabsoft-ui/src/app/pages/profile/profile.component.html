@@ -1,0 +1,241 @@
+<section class="admin-layout">
+  <input id="sidebarToggle" class="sidebar-toggle" type="checkbox">
+
+  <aside class="admin-sidebar">
+    <div class="sb-brand">
+      <img src="assets/extractly-mark.svg" alt="ExtractLY">
+      <strong>ExtractLY</strong>
+    </div>
+
+    <nav class="sb-nav">
+      <a class="sb-link" routerLink="/admin/dashboard" *ngIf="auth.canSeeDashboard()">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-9"/></svg></span><span>Dashboard</span>
+      </a>
+
+      <a class="sb-link active" routerLink="/profile">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.7-4 4.4-6 8-6s6.3 2 8 6"/></svg></span><span>Profil</span>
+      </a>
+
+      <p class="nav-section-label" *ngIf="auth.canManageUsers() || auth.canManageTemplates()">Administration</p>
+
+      <a class="sb-link" routerLink="/admin/users" *ngIf="auth.canManageUsers()">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="10" r="3"/><path d="M2.5 20c1.3-3.5 3.6-5.2 6.5-5.2s5.2 1.7 6.5 5.2"/><path d="M13.8 15.2c2.4.2 4.2 1.8 5.7 4.8"/></svg></span><span>Utilisateurs</span>
+      </a>
+
+      <a class="sb-link" routerLink="/templates" *ngIf="auth.canManageTemplates()">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M8 3h5v4a2 2 0 1 0 4 0V3h4v6h-4a2 2 0 1 0 0 4h4v8h-6v-4a2 2 0 1 0-4 0v4H3v-6h4a2 2 0 1 0 0-4H3V3h5z"/></svg></span><span>Templates</span>
+      </a>
+
+      <p class="nav-section-label" *ngIf="auth.canViewHistory() || auth.canUseAssistant()">Outils</p>
+
+      <a class="sb-link" routerLink="/history" *ngIf="auth.canViewHistory()">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/><path d="M3 12a9 9 0 0 1 2.2-5.8"/></svg></span><span>Historique</span>
+      </a>
+
+      <a class="sb-link" routerLink="/assistant" *ngIf="auth.canUseAssistant()">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V5"/><path d="M9 5h6"/><circle cx="9" cy="13" r="1"/><circle cx="15" cy="13" r="1"/><path d="M9 17h6"/></svg></span><span>Assistant OCR</span>
+      </a>
+
+      <a class="sb-link" routerLink="/">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v6h5"/><path d="M9 13h6"/><path d="M9 17h6"/></svg></span><span>Extraction</span>
+      </a>
+    </nav>
+
+    <div class="sb-footer user-footer">
+      <div class="sb-user-avatar">{{ (user()?.full_name || user()?.email || 'Utilisateur').slice(0, 1).toUpperCase() }}</div>
+      <div class="sb-user-text">
+        <strong>{{ user()?.full_name || user()?.email || 'Utilisateur' }}</strong>
+        <span>{{ user()?.role || 'user' }}</span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="admin-page">
+    <header class="admin-topbar">
+      <div class="topbar-left">
+        <label class="menu-btn" for="sidebarToggle" title="Afficher / masquer le menu"><span></span><span></span><span></span></label>
+
+        <nav class="top-menu">
+          <a routerLink="/admin/dashboard" *ngIf="auth.canSeeDashboard()">Dashboard</a>
+          <a routerLink="/admin/users" *ngIf="auth.canManageUsers()">Users</a>
+          <a routerLink="/templates" *ngIf="auth.canManageTemplates()">Templates</a>
+          <a routerLink="/history" *ngIf="auth.canViewHistory()">Historique</a>
+          <a routerLink="/assistant" *ngIf="auth.canUseAssistant()">Assistant</a>
+          <a routerLink="/profile">Profil</a>
+          <a routerLink="/">Extraction</a>
+        </nav>
+      </div>
+
+      <div class="topbar-right">
+        
+
+        <div class="user-avatar"><img src="assets/Arabsoft_Logo.jpg" alt="Admin"></div>
+      </div>
+    </header>
+
+    <div class="breadcrumb-bar">
+      <span>Home</span>
+      <span>/</span>
+      <strong>Profil</strong>
+    </div>
+
+    <div class="admin-content">
+      <div class="page-title">
+        <div>
+          <p class="eyebrow">Compte utilisateur</p>
+          <h1>Profil</h1>
+          <p>Consultez les informations de votre compte, vos accès et votre activité OCR.</p>
+        </div>
+
+        <button class="btn btn-secondary" type="button" (click)="refresh()" [disabled]="loading()">
+          {{ loading() ? 'Actualisation…' : 'Actualiser' }}
+        </button>
+      </div>
+
+      <div class="alert error" *ngIf="error()">{{ error() }}</div>
+
+      <article class="profile-card" *ngIf="user() as u">
+        <div class="profile-summary">
+          <div class="profile-avatar">{{ (u.full_name || u.email || 'U').charAt(0).toUpperCase() }}</div>
+
+          <div>
+            <h2>{{ u.full_name || 'Utilisateur' }}</h2>
+            <p>{{ u.email }}</p>
+          </div>
+
+          <span class="role-badge">{{ u.role }}</span>
+        </div>
+
+        <div class="profile-grid">
+          <div><span>Email</span><strong>{{ u.email }}</strong></div>
+          <div><span>Nom complet</span><strong>{{ u.full_name || '—' }}</strong></div>
+          <div><span>Rôle</span><strong>{{ u.role }}</strong></div>
+
+          <div>
+            <span>Super admin</span>
+            <strong><span class="status-pill" [class.warning]="u.is_superuser">{{ u.is_superuser ? 'Oui' : 'Non' }}</span></strong>
+          </div>
+
+          <div>
+            <span>Statut</span>
+            <strong>
+              <span class="status-pill" [class.done]="u.is_active" [class.failed]="!u.is_active">
+                <span class="pip"></span>
+                {{ u.is_active ? 'Actif' : 'Inactif' }}
+              </span>
+            </strong>
+          </div>
+
+          <div><span>Organisation</span><strong>{{ u.organization_id || 'Locale / demo' }}</strong></div>
+        </div>
+
+        <section class="profile-insights" *ngIf="profileStats() as ps">
+          <article class="profile-stat">
+            <span>Mes extractions</span>
+            <strong>{{ ps.total }}</strong>
+            <small>Total des documents traités par votre compte</small>
+          </article>
+
+          <article class="profile-stat success">
+            <span>Validées</span>
+            <strong>{{ ps.success }}</strong>
+            <small>Extractions terminées avec succès</small>
+          </article>
+
+          <article class="profile-stat warning">
+            <span>En review</span>
+            <strong>{{ ps.review }}</strong>
+            <small>Documents nécessitant une vérification</small>
+          </article>
+
+          <article class="profile-stat">
+            <span>Confiance moyenne</span>
+            <strong>{{ percent(ps.avgConfidence) }}</strong>
+            <small>Qualité moyenne des extractions</small>
+          </article>
+        </section>
+
+        <div class="profile-security-grid">
+          <article class="security-card">
+            <div class="security-icon">
+              <span class="ui-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg></span>
+            </div>
+
+            <div>
+              <span>Dernière connexion</span>
+              <strong>{{ formatDate(u.last_login_at) }}</strong>
+              <small>Dernière authentification enregistrée</small>
+            </div>
+          </article>
+
+          <article class="security-card">
+            <div class="security-icon">
+              <span class="ui-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v6h5"/><path d="M9 13h6"/></svg></span>
+            </div>
+
+            <div>
+              <span>Dernière extraction</span>
+              <strong>{{ profileStats().lastExtraction ? formatDate(profileStats().lastExtraction?.created_at) : '—' }}</strong>
+              <small>{{ profileStats().lastExtraction?.file_name || 'Aucune extraction récente' }}</small>
+            </div>
+          </article>
+        </div>
+
+        <form class="password-card" (ngSubmit)="changePassword()">
+          <div class="password-card-header">
+            <div>
+              <h3>Changer mot de passe</h3>
+              <p>Renforcez la sécurité de votre compte utilisateur.</p>
+            </div>
+
+            <span class="security-badge">Sécurité</span>
+          </div>
+
+          <div class="password-grid">
+            <label>
+              Ancien mot de passe
+              <input type="password" name="currentPassword" [(ngModel)]="currentPassword" placeholder="Votre mot de passe actuel" autocomplete="current-password">
+            </label>
+
+            <label>
+              Nouveau mot de passe
+              <input type="password" name="newPassword" [(ngModel)]="newPassword" placeholder="Minimum 8 caractères" autocomplete="new-password">
+            </label>
+
+            <label>
+              Confirmer le mot de passe
+              <input type="password" name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="Confirmer le nouveau mot de passe" autocomplete="new-password">
+            </label>
+          </div>
+
+          <div class="alert success" *ngIf="passwordMessage()">{{ passwordMessage() }}</div>
+          <div class="alert error" *ngIf="passwordError()">{{ passwordError() }}</div>
+
+          <div class="password-actions">
+            <button class="btn btn-primary" type="submit" [disabled]="passwordLoading()">
+              {{ passwordLoading() ? 'Modification…' : 'Modifier le mot de passe' }}
+            </button>
+          </div>
+        </form>
+
+        <div class="role-note">
+          <div class="note-icon"><span class="ui-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 15v2"/></svg></span></div>
+
+          <div>
+            <strong>Accès :</strong>
+
+            <span *ngIf="isAdmin(); else operatorAccess">administrateur — extraction, templates, historique global.</span>
+
+            <ng-template #operatorAccess>opérateur — extraction et historique personnel.</ng-template>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-primary" routerLink="/">Retour extraction</a>
+          <a class="btn btn-secondary" routerLink="/history">Historique</a>
+          <button class="btn btn-danger" type="button" (click)="logout()">Déconnexion</button>
+        </div>
+      </article>
+    </div>
+  </main>
+</section>

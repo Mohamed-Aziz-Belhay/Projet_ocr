@@ -1,0 +1,167 @@
+id: invoice_tn_compact
+name: Facture Tunisienne Compacte
+version: "1.0"
+description: Facture tunisienne compacte, image basse résolution, tableau dense
+doc_family: invoice
+language_hints:
+  - fr
+preferred_engine: tesseract
+anchors_required: []
+
+fields:
+  - name: fournisseur
+    label: Société fournisseur
+    extraction_method: regex
+    patterns:
+      - '([A-Z]{2,}(?:\s+[A-Z]{2,}){0,4})'
+      - '(?:LOGO|U2C|T\.T\.N|Tunisie\s+TradeNet)'
+    validation:
+      type: any
+      min_length: 2
+    normalization:
+      strip: true
+    required: false
+    output_key: supplier_name
+
+  - name: numero_facture
+    label: Numéro de facture
+    extraction_method: regex
+    patterns:
+      - '(?:Facture|FACTURE|Fac)[\sN°:#-]*([A-Z0-9][A-Z0-9\-\/]{0,20})'
+      - '\b(FA[0-9A-Z]{3,20})\b'
+      - '\b([0-9]{1,6})\b'
+    validation:
+      type: any
+      min_length: 1
+    normalization:
+      strip: true
+    required: false
+    output_key: invoice_number
+    confidence_weight: 2.0
+
+  - name: date_facture
+    label: Date
+    extraction_method: regex
+    patterns:
+      - '(?<!\d)(\d{2}/\d{2}/\d{4})(?!\d)'
+      - '(?<!\d)(\d{2}-\d{2}-\d{4})(?!\d)'
+      - '(?<!\d)(\d{2}\.\d{2}\.\d{4})(?!\d)'
+    validation:
+      type: date
+      date_formats:
+        - "%d/%m/%Y"
+        - "%d-%m-%Y"
+        - "%d.%m.%Y"
+        - "%m/%d/%Y"
+    normalization:
+      strip: true
+    required: false
+    output_key: invoice_date
+
+  - name: total_ht
+    label: Total HT
+    extraction_method: regex
+    patterns:
+      - 'Total\s*H\.?T\.?\s*[:\s]*([0-9]+(?:[.,][0-9]+)?)'
+      - 'H\.?T\.?\s*[:\s]*([0-9]+(?:[.,][0-9]+)?)'
+      - '([0-9]+(?:[.,][0-9]+)?)\s+(?:12|19)\s+[0-9]+(?:[.,][0-9]+)?'
+    validation:
+      type: any
+    normalization:
+      strip: true
+      custom_replace:
+        " ": ""
+        ",": "."
+    required: false
+    output_key: total_ht
+
+  - name: vat_rate
+    label: Taux TVA
+    extraction_method: regex
+    patterns:
+      - '(?<![0-9])((?:6|7|12|18|19))(?:[.,]0)?(?![0-9])'
+    validation:
+      type: any
+    normalization:
+      strip: true
+      custom_replace:
+        ",": "."
+    required: false
+    output_key: vat_rate
+
+  - name: vat_amount
+    label: Montant TVA
+    extraction_method: regex
+    patterns:
+      - 'TVA\s*[:\s]*([0-9]+(?:[.,][0-9]+)?)'
+      - 'Tax\s*[:\s]*([0-9]+(?:[.,][0-9]+)?)'
+    validation:
+      type: any
+    normalization:
+      strip: true
+      custom_replace:
+        " ": ""
+        ",": "."
+    required: false
+    output_key: vat_amount
+
+  - name: total_ttc
+    label: Total TTC
+    extraction_method: regex
+    patterns:
+      - 'Total\s*T\.?T\.?C\.?\s*[:\s]*([0-9]+(?:[.,][0-9]+)?)'
+      - 'T\.?T\.?C\.?\s*[:\s]*([0-9]+(?:[.,][0-9]+)?)'
+      - '([0-9]+(?:[.,][0-9]+)?)\s*(?:DT|TND)'
+    validation:
+      type: any
+    normalization:
+      strip: true
+      custom_replace:
+        " ": ""
+        ",": "."
+    required: false
+    output_key: total_ttc
+    confidence_weight: 2.0
+
+  - name: timbre
+    label: Droit de timbre
+    extraction_method: regex
+    patterns:
+      - '(?:Timbre|Droit\s+de\s+Timbre)\s*[:\s]*([0-9]+(?:[.,][0-9]+)?)'
+    validation:
+      type: any
+    normalization:
+      strip: true
+      custom_replace:
+        " ": ""
+        ",": "."
+    required: false
+    output_key: stamp_duty
+
+  - name: devise
+    label: Devise
+    extraction_method: regex
+    patterns:
+      - '\b(DT|TND|EUR|USD)\b'
+      - '([€$£])'
+    validation:
+      type: any
+    normalization:
+      strip: true
+      uppercase: true
+    required: false
+    output_key: currency
+
+postprocess_hooks:
+  - normalize_dates
+
+output_mapping:
+  supplier_name: supplierName
+  invoice_number: invoiceNumber
+  invoice_date: invoiceDate
+  total_ht: totalHT
+  vat_rate: vatRate
+  vat_amount: vatAmount
+  total_ttc: totalTTC
+  stamp_duty: stampDuty
+  currency: currency

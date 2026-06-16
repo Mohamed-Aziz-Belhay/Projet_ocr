@@ -1,0 +1,31 @@
+[
+  {
+    "file": "tests/fixtures/invoice_sample_1.png",
+    "template_id": "invoice_generic",
+    "expected": {
+      "invoice_number": "F2024-0042",
+      "invoice_date": "2024-03-15",
+      "amount_incl_tax": "1250.000",
+      "vendor": "Société ABC SARL",
+      "currency": "DT"
+    }
+  },
+  {
+    "file": "tests/fixtures/cin_sample_1.png",
+    "template_id": "cin_tn",
+    "expected": {
+      "id_number": "12345678",
+      "last_name": "BEN ALI",
+      "first_name": "MOHAMED"
+    }
+  },
+  {
+    "file": "tests/fixtures/registre_sample_1.png",
+    "template_id": "registre_commerce_modern",
+    "expected": {
+      "registration_number": "B0123456",
+      "company_name": "EXEMPLE TECH SARL",
+      "legal_form": "SARL"
+    }
+  }
+]

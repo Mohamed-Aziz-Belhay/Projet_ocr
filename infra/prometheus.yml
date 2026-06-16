@@ -1,0 +1,50 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    project: 'ocr-platform-arabsoft'
+    env: 'production'
+
+# ── Règles d'alerte (optionnel) ───────────────────────────────────────────────
+# rule_files:
+#   - /etc/prometheus/alerts/*.yml
+
+scrape_configs:
+
+  # ── Backend FastAPI (expose /metrics via prometheus_fastapi_instrumentator) ──
+  - job_name: 'ocr-backend'
+    static_configs:
+      - targets: ['backend:8000']
+    metrics_path: '/metrics'
+    scrape_interval: 10s
+    # Métriques exposées par app/core/metrics.py :
+    # - ocr_extractions_total (labels: org_slug, template_id, engine, status)
+    # - ocr_extraction_confidence (histogram)
+    # - ocr_processing_duration_seconds (histogram)
+    # - ocr_field_extraction_total (labels: template_id, field_name, outcome)
+    # - ocr_pages_processed_total (labels: org_slug, engine)
+    # - ocr_job_queue_depth (gauge)
+    # - ocr_quota_usage_pct (labels: org_slug, quota_type)
+    # - ocr_circuit_breaker_state (labels: engine)
+    # - ocr_rate_limit_hits_total (labels: org_slug)
+
+  # ── Celery Worker ─────────────────────────────────────────────────────────
+  # Si tu actives prometheus sur le worker, sinon commenter ce bloc
+  # - job_name: 'ocr-worker'
+  #   static_configs:
+  #     - targets: ['worker:9191']
+
+  # ── PostgreSQL (optionnel — nécessite postgres_exporter) ──────────────────
+  # - job_name: 'postgres'
+  #   static_configs:
+  #     - targets: ['postgres-exporter:9187']
+
+  # ── Redis (optionnel — nécessite redis_exporter) ──────────────────────────
+  # - job_name: 'redis'
+  #   static_configs:
+  #     - targets: ['redis-exporter:9121']
+
+  # ── Prometheus lui-même ───────────────────────────────────────────────────
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']

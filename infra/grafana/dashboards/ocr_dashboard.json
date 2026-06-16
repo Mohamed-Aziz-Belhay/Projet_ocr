@@ -1,0 +1,153 @@
+{
+  "__inputs": [],
+  "__requires": [
+    {"type": "grafana", "id": "grafana", "name": "Grafana", "version": "10.0.0"},
+    {"type": "datasource", "id": "prometheus", "name": "Prometheus", "version": "1.0.0"}
+  ],
+  "annotations": {"list": []},
+  "description": "OCR Microservice — Business Metrics Dashboard",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {
+        "defaults": {"color": {"mode": "thresholds"},
+          "thresholds": {"mode": "absolute", "steps": [
+            {"color": "green", "value": null},
+            {"color": "yellow", "value": 0.7},
+            {"color": "red", "value": 0.5}
+          ]},
+          "unit": "percentunit"
+        }
+      },
+      "gridPos": {"h": 4, "w": 6, "x": 0, "y": 0},
+      "id": 1,
+      "options": {"reduceOptions": {"calcs": ["lastNotNull"]}, "orientation": "auto",
+                  "textMode": "auto", "colorMode": "background"},
+      "title": "Global Extraction Confidence (avg)",
+      "type": "stat",
+      "targets": [{"expr": "avg(ocr_extraction_confidence_sum / ocr_extraction_confidence_count)",
+                   "legendFormat": "Confidence"}]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {"defaults": {"unit": "reqps"}},
+      "gridPos": {"h": 4, "w": 6, "x": 6, "y": 0},
+      "id": 2,
+      "title": "Extraction Rate (req/s)",
+      "type": "stat",
+      "targets": [{"expr": "rate(ocr_extractions_total[5m])", "legendFormat": "Rate"}]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {"defaults": {"unit": "short",
+        "thresholds": {"mode": "absolute", "steps": [
+          {"color": "green", "value": null},
+          {"color": "red", "value": 1}
+        ]}}},
+      "gridPos": {"h": 4, "w": 6, "x": 12, "y": 0},
+      "id": 3,
+      "title": "Circuit Breakers Open",
+      "type": "stat",
+      "targets": [{"expr": "sum(ocr_circuit_breaker_state == 1)", "legendFormat": "Open"}]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {"defaults": {"unit": "short"}},
+      "gridPos": {"h": 4, "w": 6, "x": 18, "y": 0},
+      "id": 4,
+      "title": "Active Jobs",
+      "type": "stat",
+      "targets": [{"expr": "ocr_job_queue_depth", "legendFormat": "Queued"}]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {"defaults": {"unit": "s"}},
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 4},
+      "id": 5,
+      "title": "Processing Duration by Template",
+      "type": "timeseries",
+      "targets": [
+        {"expr": "histogram_quantile(0.50, rate(ocr_processing_duration_seconds_bucket[5m]))",
+         "legendFormat": "p50 {{template_id}}"},
+        {"expr": "histogram_quantile(0.95, rate(ocr_processing_duration_seconds_bucket[5m]))",
+         "legendFormat": "p95 {{template_id}}"},
+        {"expr": "histogram_quantile(0.99, rate(ocr_processing_duration_seconds_bucket[5m]))",
+         "legendFormat": "p99 {{template_id}}"}
+      ]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {"defaults": {"unit": "short"}},
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 4},
+      "id": 6,
+      "title": "Field Extraction Outcomes",
+      "type": "timeseries",
+      "targets": [
+        {"expr": "rate(ocr_field_extraction_total{outcome='found'}[5m])",
+         "legendFormat": "Found {{field_name}}"},
+        {"expr": "rate(ocr_field_extraction_total{outcome='missing'}[5m])",
+         "legendFormat": "Missing {{field_name}}"},
+        {"expr": "rate(ocr_field_extraction_total{outcome='invalid'}[5m])",
+         "legendFormat": "Invalid {{field_name}}"}
+      ]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {"defaults": {"unit": "short"}},
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 12},
+      "id": 7,
+      "title": "Extractions by Status",
+      "type": "timeseries",
+      "targets": [
+        {"expr": "rate(ocr_extractions_total{status='success'}[5m])", "legendFormat": "success"},
+        {"expr": "rate(ocr_extractions_total{status='partial'}[5m])", "legendFormat": "partial"},
+        {"expr": "rate(ocr_extractions_total{status='failed'}[5m])",  "legendFormat": "failed"}
+      ]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {"defaults": {"unit": "short"}},
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 12},
+      "id": 8,
+      "title": "Rate Limit Hits",
+      "type": "timeseries",
+      "targets": [
+        {"expr": "rate(ocr_rate_limit_hits_total[5m])",
+         "legendFormat": "Rate limited {{org_slug}}"}
+      ]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {"defaults": {"unit": "percent",
+        "thresholds": {"mode": "absolute", "steps": [
+          {"color": "green", "value": null},
+          {"color": "yellow", "value": 70},
+          {"color": "red", "value": 90}
+        ]},
+        "max": 100, "min": 0
+      }},
+      "gridPos": {"h": 6, "w": 24, "x": 0, "y": 20},
+      "id": 9,
+      "title": "Quota Usage by Organisation",
+      "type": "bargauge",
+      "targets": [
+        {"expr": "ocr_quota_usage_pct",
+         "legendFormat": "{{org_slug}} — {{quota_type}}"}
+      ]
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 38,
+  "tags": ["ocr", "business", "enterprise"],
+  "time": {"from": "now-6h", "to": "now"},
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "OCR Microservice — Enterprise",
+  "uid": "ocr-enterprise-v2",
+  "version": 1
+}

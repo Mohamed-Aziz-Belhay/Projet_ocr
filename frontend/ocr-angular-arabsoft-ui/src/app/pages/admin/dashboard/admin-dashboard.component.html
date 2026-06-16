@@ -1,0 +1,381 @@
+<section class="admin-layout">
+  <input id="sidebarToggle" class="sidebar-toggle" type="checkbox">
+
+  <aside class="admin-sidebar">
+    <div class="sb-brand">
+      <img src="assets/extractly-mark.svg" alt="ExtractLY">
+      <strong>ExtractLY</strong>
+    </div>
+
+    <nav class="sb-nav">
+      <a class="sb-link active" routerLink="/admin/dashboard" *ngIf="auth.canSeeDashboard()">
+        <span class="sb-svg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M4 19V5"/>
+            <path d="M4 19h16"/>
+            <path d="M8 16v-5"/>
+            <path d="M12 16V8"/>
+            <path d="M16 16v-9"/>
+          </svg>
+        </span>
+        <span>Dashboard</span>
+      </a>
+
+      <a class="sb-link" routerLink="/profile">
+        <span class="sb-svg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 20c1.7-4 4.4-6 8-6s6.3 2 8 6"/>
+          </svg>
+        </span>
+        <span>Profil</span>
+      </a>
+
+      <p class="nav-section-label" *ngIf="auth.canManageUsers() || auth.canManageTemplates() || auth.canManageSwin()">
+        Administration
+      </p>
+
+      <a class="sb-link" routerLink="/admin/users" *ngIf="auth.canManageUsers()">
+        <span class="sb-svg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <circle cx="9" cy="8" r="3.5"/>
+            <circle cx="17" cy="10" r="3"/>
+            <path d="M2.5 20c1.3-3.5 3.6-5.2 6.5-5.2s5.2 1.7 6.5 5.2"/>
+            <path d="M13.8 15.2c2.4.2 4.2 1.8 5.7 4.8"/>
+          </svg>
+        </span>
+        <span>Utilisateurs</span>
+      </a>
+
+      <a class="sb-link" routerLink="/templates" *ngIf="auth.canManageTemplates()">
+        <span class="sb-svg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M8 3h5v4a2 2 0 1 0 4 0V3h4v6h-4a2 2 0 1 0 0 4h4v8h-6v-4a2 2 0 1 0-4 0v4H3v-6h4a2 2 0 1 0 0-4H3V3h5z"/>
+          </svg>
+        </span>
+        <span>Templates</span>
+      </a>
+
+      <p class="nav-section-label" *ngIf="auth.canViewHistory() || auth.canUseAssistant()">
+        Outils
+      </p>
+
+      <a class="sb-link" routerLink="/history" *ngIf="auth.canViewHistory()">
+        <span class="sb-svg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <circle cx="12" cy="12" r="8"/>
+            <path d="M12 7v5l3 2"/>
+            <path d="M3 12a9 9 0 0 1 2.2-5.8"/>
+          </svg>
+        </span>
+        <span>Historique</span>
+      </a>
+
+      <a class="sb-link" routerLink="/assistant" *ngIf="auth.canUseAssistant()">
+        <span class="sb-svg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <rect x="5" y="8" width="14" height="11" rx="3"/>
+            <path d="M12 8V5"/>
+            <path d="M9 5h6"/>
+            <circle cx="9" cy="13" r="1"/>
+            <circle cx="15" cy="13" r="1"/>
+            <path d="M9 17h6"/>
+          </svg>
+        </span>
+        <span>Assistant OCR</span>
+      </a>
+
+      <a class="sb-link" routerLink="/">
+        <span class="sb-svg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M7 3h7l5 5v13H7z"/>
+            <path d="M14 3v6h5"/>
+            <path d="M9 13h6"/>
+            <path d="M9 17h6"/>
+          </svg>
+        </span>
+        <span>Extraction</span>
+      </a>
+    </nav>
+
+    <div class="sb-footer user-footer">
+      <div class="sb-user-avatar">
+        {{ (auth.getUser()?.full_name || auth.getUser()?.email || 'Utilisateur').slice(0, 1).toUpperCase() }}
+      </div>
+
+      <div class="sb-user-text">
+        <strong>{{ auth.getUser()?.full_name || auth.getUser()?.email || 'Utilisateur' }}</strong>
+        <span>{{ auth.getUser()?.role || 'user' }}</span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="admin-page">
+    <header class="admin-topbar">
+      <div class="topbar-left">
+        <label class="menu-btn" for="sidebarToggle" title="Afficher / masquer le menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <nav class="top-menu">
+          <a routerLink="/admin/dashboard" *ngIf="auth.canSeeDashboard()">Dashboard</a>
+          <a routerLink="/admin/users" *ngIf="auth.canManageUsers()">Users</a>
+          <a routerLink="/templates" *ngIf="auth.canManageTemplates()">Templates</a>
+          <a routerLink="/history" *ngIf="auth.canViewHistory()">Historique</a>
+          <a routerLink="/assistant" *ngIf="auth.canUseAssistant()">Assistant</a>
+          <a routerLink="/profile">Profil</a>
+          <a routerLink="/">Extraction</a>
+        </nav>
+      </div>
+
+      <div class="topbar-right">
+        
+
+
+        <div class="user-avatar">
+          <img src="assets/Arabsoft_Logo.jpg" alt="Admin">
+        </div>
+      </div>
+    </header>
+
+    <div class="breadcrumb-bar">
+      <span>Home</span>
+      <span>/</span>
+      <strong>Dashboard</strong>
+    </div>
+
+    <div class="admin-content">
+      <div class="page-title">
+        <div>
+          <h1>Dashboard OCR</h1>
+          <p>Vue globale des utilisateurs, extractions et performances OCR</p>
+        </div>
+
+        <button class="btn btn-primary" type="button" (click)="load()" [disabled]="loading()">
+          {{ loading() ? 'Chargement…' : 'Actualiser' }}
+        </button>
+      </div>
+
+      <div class="alert error" *ngIf="error()">
+        {{ error() }}
+      </div>
+
+      <ng-container *ngIf="stats() as s">
+        <section class="kpi-grid">
+          <article class="kpi blue">
+            <div class="kpi-headline">
+              <div class="kpi-copy">
+                <div class="kpi-value">{{ s.users.total }}</div>
+                <div class="kpi-label">Utilisateurs</div>
+              </div>
+
+              <div class="kpi-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <circle cx="9" cy="8" r="3.5"></circle>
+                  <circle cx="17" cy="10" r="3"></circle>
+                  <path d="M2.5 20c1.3-3.5 3.6-5.2 6.5-5.2s5.2 1.7 6.5 5.2"></path>
+                  <path d="M13.8 15.2c2.4.2 4.2 1.8 5.7 4.8"></path>
+                </svg>
+              </div>
+            </div>
+
+            <div class="kpi-chart"></div>
+            <div class="kpi-sub">{{ s.users.active }} actifs · {{ s.users.admins }} admins</div>
+          </article>
+
+          <article class="kpi cyan">
+            <div class="kpi-headline">
+              <div class="kpi-copy">
+                <div class="kpi-value">{{ s.extractions.total }}</div>
+                <div class="kpi-label">Extractions</div>
+              </div>
+
+              <div class="kpi-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M7 3h7l5 5v13H7z"></path>
+                  <path d="M14 3v6h5"></path>
+                  <path d="M9 13h6"></path>
+                  <path d="M9 17h6"></path>
+                </svg>
+              </div>
+            </div>
+
+            <div class="kpi-chart"></div>
+            <div class="kpi-sub">documents traités</div>
+          </article>
+
+          <article class="kpi yellow">
+            <div class="kpi-headline">
+              <div class="kpi-copy">
+                <div class="kpi-value">{{ s.extractions.success }}</div>
+                <div class="kpi-label">Succès OCR</div>
+              </div>
+
+              <div class="kpi-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M8 12.5l2.5 2.5L16.5 9"></path>
+                </svg>
+              </div>
+            </div>
+
+            <div class="kpi-chart"></div>
+            <div class="kpi-sub">extractions validées</div>
+          </article>
+
+          <article class="kpi red">
+            <div class="kpi-headline">
+              <div class="kpi-copy">
+                <div class="kpi-value">{{ s.extractions.review_required }}</div>
+                <div class="kpi-label">À vérifier</div>
+              </div>
+
+              <div class="kpi-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M12 9v4"></path>
+                  <path d="M12 17h.01"></path>
+                  <path d="M10.3 4.3 2.6 18a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"></path>
+                </svg>
+              </div>
+            </div>
+
+            <div class="kpi-chart bars"></div>
+            <div class="kpi-sub">documents à contrôler</div>
+          </article>
+        </section>
+
+        <section class="analytics-card">
+          <div class="analytics-header">
+            <div>
+              <h2>Activité OCR</h2>
+              <p>Résumé des performances et documents traités</p>
+            </div>
+
+            <div class="segment"></div>
+          </div>
+
+          <div class="stats-row">
+            <article>
+              <span>Périmètre</span>
+              <strong>{{ s.scope }}</strong>
+            </article>
+
+            <article>
+              <span>Utilisateurs actifs</span>
+              <strong>{{ s.users.active }}</strong>
+            </article>
+
+            <article>
+              <span>Temps moyen</span>
+              <strong>{{ formatMs(s.extractions.avg_processing_time_ms) }}</strong>
+            </article>
+
+            <article>
+              <span>À vérifier</span>
+              <strong class="warning">{{ s.extractions.review_required }}</strong>
+            </article>
+          </div>
+
+          <div class="grid-3-2">
+            <article class="card doc-donut-card">
+              <div class="card-h">
+                <div>
+                  <div class="title">Répartition par document</div>
+                  <div class="sub">Vue circulaire des types détectés et qualité OCR</div>
+                </div>
+              </div>
+
+              <div class="card-b">
+                <ng-container *ngIf="s.extractions.by_document_type.length; else noDocType">
+                  <div class="donut-layout">
+                    <div class="doc-donut" aria-label="Répartition par document">
+                      <div class="donut-center">
+                        <strong>{{ s.extractions.total }}</strong>
+                        <span>Total</span>
+                      </div>
+                    </div>
+
+                    <div class="donut-legend">
+                      <div
+                        class="donut-legend-row"
+                        *ngFor="let item of s.extractions.by_document_type | slice:0:4; let i = index">
+                        <span
+                          class="legend-dot"
+                          [class.dot-one]="i === 0"
+                          [class.dot-two]="i === 1"
+                          [class.dot-three]="i === 2"
+                          [class.dot-four]="i === 3">
+                        </span>
+
+                        <span class="legend-label">{{ item.document_type || 'unknown' }}</span>
+                        <strong>{{ item.count }}</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="donut-metrics">
+                    <article class="donut-metric success">
+                      <span>Taux de réussite OCR</span>
+                      <strong>{{ successRate(s) }}</strong>
+                      <small>succès / total</small>
+                    </article>
+
+                    <article class="donut-metric confidence">
+                      <span>Confiance moyenne</span>
+                      <strong>{{ safePercent(s.extractions.avg_confidence) }}</strong>
+                      <small>qualité OCR</small>
+                    </article>
+                  </div>
+                </ng-container>
+
+                <ng-template #noDocType>
+                  <p class="empty">Aucune donnée documentaire pour le moment.</p>
+                </ng-template>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-h">
+                <div>
+                  <div class="title">Dernières extractions</div>
+                  <div class="sub">Activité OCR récente</div>
+                </div>
+              </div>
+
+              <div class="card-b">
+                <div class="act-list" *ngIf="s.extractions.recent.length; else noRecent">
+                  <div class="act-item" *ngFor="let item of s.extractions.recent">
+                    <div class="act-dot">
+                      <span class="mini-doc-icon"></span>
+                    </div>
+
+                    <div class="act-body">
+                      <div class="at">
+                        <span>{{ item.file_name || 'Document' }}</span>
+                        · {{ item.document_type || 'unknown' }}
+                      </div>
+
+                      <div class="am">
+                        {{ item.status || '—' }} · {{ formatDate(item.created_at) }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <ng-template #noRecent>
+                  <p class="empty">Aucune extraction récente.</p>
+                </ng-template>
+              </div>
+            </article>
+          </div>
+
+          <div class="alert error" *ngIf="s.extractions.error">
+            {{ s.extractions.error }}
+          </div>
+        </section>
+      </ng-container>
+    </div>
+  </main>
+</section>

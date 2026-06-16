@@ -1,0 +1,178 @@
+id: registre_commerce_tn
+name: "Registre de Commerce Tunisien"
+version: "1.0"
+description: "Extraction OCR globale des extraits du Registre National des Entreprises tunisien"
+document_type: registre_commerce
+doc_family: registre_commerce
+language: fr
+
+language_hints:
+  - fr
+  - ar
+
+preferred_engine: paddle
+
+engines:
+  primary: paddle
+  secondary: easyocr
+
+anchors_required:
+  - Registre
+  - Entreprises
+  - Identifiant Unique
+
+critical_fields:
+  - date_extrait
+  - identifiant_unique
+  - raison_sociale
+
+fields:
+  - name: date_extrait
+    label: "Date de l'extrait"
+    extraction_method: regex
+    patterns:
+      - "\\b(20\\d{2}[/\\-.]\\d{1,2}[/\\-.]\\d{1,2})\\b"
+      - "\\b(\\d{1,2}[/\\-.]\\d{1,2}[/\\-.]20\\d{2})\\b"
+    required: true
+    output_key: extractDate
+
+  - name: identifiant_unique
+    label: "Identifiant unique"
+    extraction_method: regex
+    patterns:
+      - "\\b([0-9]{5,12}[A-Z])\\b"
+    required: true
+    output_key: uniqueIdentifier
+
+  - name: raison_sociale
+    label: "Raison sociale"
+    extraction_method: regex
+    patterns:
+      - "(?:Raison\\s+sociale|Raison\\s+Sociale|الإسم\\s+الإجتماعي|الاسم\\s+الاجتماعي)\\s*[:\\-]?\\s*(.+?)(?=\\s+(?:Nom\\s+Commercial|Adresse\\s+Sociale|Capital|Activit[eé]|Forme\\s+Juridique|$))"
+      - "\\b([A-Z][A-Z\\s&\\.]{5,100}(?:CORPORATION|CORPORRATION|COMPANY|CO\\.?|CORP\\.?|SARL|SUARL|SA))\\b"
+    required: true
+    output_key: companyName
+
+  - name: nom_commercial
+    label: "Nom commercial"
+    extraction_method: regex
+    patterns:
+      - "(?:Nom\\s+Commercial|Nom\\s+commercial|الإسم\\s+التجاري|الاسم\\s+التجاري)\\s*[:\\-]?\\s*(.+?)(?=\\s+(?:Adresse\\s+Sociale|Capital|Activit[eé]|Forme\\s+Juridique|$))"
+    required: false
+    output_key: tradeName
+
+  - name: adresse_sociale
+    label: "Adresse sociale"
+    extraction_method: regex
+    patterns:
+      - "(?:Adresse\\s+Sociale|Adresse\\s+sociale|Si[eè]ge\\s+social|المقر\\s+الإجتماعي|المقر\\s+الاجتماعي)\\s*[:\\-]?\\s*(.+?)(?=\\s+(?:Capital|رأس\\s+المال|Activit[eé]\\s+Principale|النشاط\\s+الأصلي|Forme\\s+Juridique|$))"
+    required: false
+    output_key: registeredAddress
+
+  - name: capital
+    label: "Capital"
+    extraction_method: regex
+    patterns:
+      - "(?:Capital|رأس\\s+المال)\\s*[:\\-]?\\s*([0-9][0-9\\s.,]{2,30})"
+    required: false
+    output_key: capital
+
+  - name: activite_principale
+    label: "Activité principale"
+    extraction_method: regex
+    patterns:
+      - "(?:Activit[eé]\\s+Principale|النشاط\\s+الأصلي|النشاط\\s+الرئيسي)\\s*[:\\-]?\\s*(.+?)(?=\\s+(?:Activit[eé]\\s+Secondaire|النشاط\\s+الثانوي|Forme\\s+Juridique|النظام\\s+القانوني|Date\\s+de\\s+Publication|$))"
+    required: false
+    output_key: mainActivity
+
+  - name: activite_secondaire
+    label: "Activité secondaire"
+    extraction_method: regex
+    patterns:
+      - "(?:Activit[eé]\\s+Secondaire|النشاط\\s+الثانوي)\\s*[:\\-]?\\s*(.+?)(?=\\s+(?:Forme\\s+Juridique|النظام\\s+القانوني|Date\\s+de\\s+Publication|تاريخ\\s+النشر|$))"
+    required: false
+    output_key: secondaryActivity
+
+  - name: forme_juridique
+    label: "Forme juridique"
+    extraction_method: regex
+    patterns:
+      - "\\b(SARL|SUARL|SA|S\\.A\\.|SNC|SCS|GIE)\\b"
+      - "(?:Forme\\s+Juridique|Forme\\s+juridique|النظام\\s+القانوني)\\s*[:\\-]?\\s*(.+?)(?=\\s+(?:Date\\s+de\\s+Publication|تاريخ\\s+النشر|Date\\s+de\\s+d[eé]but|تاريخ\\s+بداية|Informations|$))"
+    required: false
+    output_key: legalForm
+
+  - name: date_publication
+    label: "Date de publication"
+    extraction_method: regex
+    patterns:
+      - "(?:Date\\s+de\\s+Publication|تاريخ\\s+النشر)\\s*[:\\-]?\\s*((?:20\\d{2}|19\\d{2})[/\\-.]\\d{1,2}[/\\-.]\\d{1,2}|\\d{1,2}[/\\-.]\\d{1,2}[/\\-.](?:20\\d{2}|19\\d{2}))"
+    required: false
+    output_key: publicationDate
+
+  - name: date_debut_activite
+    label: "Date de début d'activité"
+    extraction_method: regex
+    patterns:
+      - "(?:Date\\s+de\\s+d[eé]but\\s+d['’]activit[eé]|تاريخ\\s+بداية\\s+النشاط)\\s*[:\\-]?\\s*((?:20\\d{2}|19\\d{2})[/\\-.]\\d{1,2}[/\\-.]\\d{1,2}|\\d{1,2}[/\\-.]\\d{1,2}[/\\-.](?:20\\d{2}|19\\d{2}))"
+    required: false
+    output_key: activityStartDate
+
+  - name: dirigeant_qualite
+    label: "Qualité du dirigeant"
+    extraction_method: regex
+    patterns:
+      - "\\b(G[eé]rant|Directeur|Administrateur|وكيل|وكيله|مدير)\\b"
+    required: false
+    output_key: managerRole
+
+  - name: dirigeant_adresse
+    label: "Adresse du dirigeant"
+    extraction_method: regex
+    patterns:
+      - "(?:Adresse|العنوان)\\s*[:\\-]?\\s*([^\\n]{5,120})"
+    required: false
+    output_key: managerAddress
+
+  - name: dirigeant_nationalite
+    label: "Nationalité du dirigeant"
+    extraction_method: regex
+    patterns:
+      - "\\b(Tunisienne|Tunisien|TUNISIENNE|TUNISIEN|تونسية|تونسي)\\b"
+    required: false
+    output_key: managerNationality
+
+  - name: dirigeant_date_naissance
+    label: "Date de naissance du dirigeant"
+    extraction_method: regex
+    patterns:
+      - "\\b((?:20\\d{2}|19\\d{2})[/\\-.]\\d{1,2}[/\\-.]\\d{1,2})\\b"
+      - "\\b(\\d{1,2}[/\\-.]\\d{1,2}[/\\-.](?:20\\d{2}|19\\d{2}))\\b"
+    required: false
+    output_key: managerBirthDate
+
+  - name: dirigeant_nom_prenom
+    label: "Nom et prénom du dirigeant"
+    extraction_method: regex
+    patterns:
+      - "(?:Nom\\s*&\\s*Pr[eé]nom|الاسم\\s+و\\s+اللقب)\\s*[:\\-]?\\s*([^\\n]{3,80})"
+    required: false
+    output_key: managerFullName
+
+output_mapping:
+  date_extrait: extractDate
+  identifiant_unique: uniqueIdentifier
+  raison_sociale: companyName
+  nom_commercial: tradeName
+  adresse_sociale: registeredAddress
+  capital: capital
+  activite_principale: mainActivity
+  activite_secondaire: secondaryActivity
+  forme_juridique: legalForm
+  date_publication: publicationDate
+  date_debut_activite: activityStartDate
+  dirigeant_qualite: managerRole
+  dirigeant_adresse: managerAddress
+  dirigeant_nationalite: managerNationality
+  dirigeant_date_naissance: managerBirthDate
+  dirigeant_nom_prenom: managerFullName

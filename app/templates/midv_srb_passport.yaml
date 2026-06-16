@@ -1,0 +1,371 @@
+id: midv_srb_passport
+name: MIDV-2020 srb_passport
+document_type: passport
+dataset: midv2020
+source_class: srb_passport
+template_source_variant: templates
+language: auto
+preferred_engine: paddle
+engines:
+  primary: paddle
+  secondary: easyocr
+fields:
+- name: authority
+  type: text
+  required: false
+  output_key: issuingAuthority
+- name: birth_date
+  type: date
+  required: true
+  output_key: birthDate
+  patterns:
+  - (\d{1,2}[.\-/ ]+\d{1,2}[.\-/ ]+\d{2,4})
+  - (\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4})
+- name: birth_place
+  type: text
+  required: false
+  output_key: birthPlace
+- name: code
+  type: text
+  required: false
+  output_key: countryCode
+- name: expiry_date
+  type: date
+  required: true
+  output_key: expiryDate
+  patterns:
+  - (\d{1,2}[.\-/ ]+\d{1,2}[.\-/ ]+\d{2,4})
+  - (\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4})
+- name: expiry_date2
+  type: text
+  required: false
+  output_key: expiry_date2
+- name: face
+  type: image
+  required: false
+  output_key: face
+- name: gender
+  type: enum
+  required: false
+  output_key: gender
+- name: id_number
+  type: text
+  required: true
+  output_key: personalNumber
+  validation:
+    min_length: 3
+    max_length: 40
+- name: issue_date
+  type: date
+  required: false
+  output_key: issueDate
+  patterns:
+  - (\d{1,2}[.\-/ ]+\d{1,2}[.\-/ ]+\d{2,4})
+  - (\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4})
+- name: mrz_line0
+  type: mrz
+  required: true
+  output_key: mrzLine0
+  validation:
+    min_length: 20
+    max_length: 60
+- name: mrz_line1
+  type: mrz
+  required: true
+  output_key: mrzLine1
+  validation:
+    min_length: 20
+    max_length: 60
+- name: name
+  type: text
+  required: true
+  output_key: givenNames
+- name: nationality
+  type: text
+  required: false
+  output_key: nationality
+- name: number
+  type: text
+  required: true
+  output_key: documentNumber
+  validation:
+    min_length: 3
+    max_length: 40
+- name: photo
+  type: image
+  required: false
+  output_key: photo
+- name: residence_line0
+  type: text
+  required: false
+  output_key: residence_line0
+- name: residence_line1
+  type: text
+  required: false
+  output_key: residence_line1
+- name: signature
+  type: image
+  required: false
+  output_key: signature
+- name: surname
+  type: text
+  required: true
+  output_key: surname
+- name: type
+  type: text
+  required: false
+  output_key: documentTypeCode
+roi_fields:
+- name: authority
+  type: text
+  output_key: issuingAuthority
+  bbox_norm:
+  - 0.305589
+  - 0.579925
+  - 0.3705
+  - 0.022801
+  required: false
+  orientation: '0'
+  visual: false
+- name: birth_date
+  type: date
+  output_key: birthDate
+  bbox_norm:
+  - 0.30609
+  - 0.372284
+  - 0.105319
+  - 0.022835
+  required: true
+  orientation: '0'
+  visual: false
+- name: birth_place
+  type: text
+  output_key: birthPlace
+  bbox_norm:
+  - 0.434358
+  - 0.431445
+  - 0.300299
+  - 0.022794
+  required: false
+  orientation: '0'
+  visual: false
+- name: code
+  type: text
+  output_key: countryCode
+  bbox_norm:
+  - 0.435501
+  - 0.140977
+  - 0.042534
+  - 0.022856
+  required: false
+  orientation: '0'
+  visual: false
+- name: expiry_date
+  type: date
+  output_key: expiryDate
+  bbox_norm:
+  - 0.306056
+  - 0.701592
+  - 0.105719
+  - 0.022807
+  required: true
+  orientation: '0'
+  visual: false
+- name: expiry_date2
+  type: text
+  output_key: expiry_date2
+  bbox_norm:
+  - 0.856233
+  - 0.648536
+  - 0.102526
+  - 0.022835
+  required: false
+  orientation: '0'
+  visual: false
+- name: face
+  type: image
+  output_key: face
+  bbox_norm:
+  - 0.081411
+  - 0.33864
+  - 0.167146
+  - 0.328802
+  required: false
+  orientation: '0'
+  visual: true
+- name: gender
+  type: enum
+  output_key: gender
+  bbox_norm:
+  - 0.305613
+  - 0.431445
+  - 0.047824
+  - 0.022198
+  required: false
+  orientation: '0'
+  visual: false
+- name: id_number
+  type: text
+  output_key: personalNumber
+  bbox_norm:
+  - 0.644204
+  - 0.372264
+  - 0.150397
+  - 0.022828
+  required: true
+  orientation: '0'
+  visual: false
+- name: issue_date
+  type: date
+  output_key: issueDate
+  bbox_norm:
+  - 0.306018
+  - 0.642397
+  - 0.105495
+  - 0.021498
+  required: false
+  orientation: '0'
+  visual: false
+- name: mrz_line0
+  type: mrz
+  output_key: mrzLine0
+  bbox_norm:
+  - 0.041742
+  - 0.824368
+  - 0.920023
+  - 0.030235
+  required: true
+  orientation: '0'
+  visual: false
+- name: mrz_line1
+  type: mrz
+  output_key: mrzLine1
+  bbox_norm:
+  - 0.041304
+  - 0.899138
+  - 0.920676
+  - 0.032972
+  required: true
+  orientation: '0'
+  visual: false
+- name: name
+  type: text
+  output_key: givenNames
+  bbox_norm:
+  - 0.305775
+  - 0.258508
+  - 0.079057
+  - 0.022821
+  required: true
+  orientation: '0'
+  visual: false
+- name: nationality
+  type: text
+  output_key: nationality
+  bbox_norm:
+  - 0.30558
+  - 0.312514
+  - 0.087431
+  - 0.022828
+  required: false
+  orientation: '0'
+  visual: false
+- name: number
+  type: text
+  output_key: documentNumber
+  bbox_norm:
+  - 0.643889
+  - 0.14099
+  - 0.103908
+  - 0.022842
+  required: true
+  orientation: '0'
+  visual: false
+- name: photo
+  type: image
+  output_key: photo
+  bbox_norm:
+  - 0.037124
+  - 0.249314
+  - 0.250812
+  - 0.454987
+  required: false
+  orientation: '0'
+  visual: true
+- name: residence_line0
+  type: text
+  output_key: residence_line0
+  bbox_norm:
+  - 0.305003
+  - 0.491201
+  - 0.249672
+  - 0.022807
+  required: false
+  orientation: '0'
+  visual: false
+- name: residence_line1
+  type: text
+  output_key: residence_line1
+  bbox_norm:
+  - 0.305894
+  - 0.518796
+  - 0.207005
+  - 0.023508
+  required: false
+  orientation: '0'
+  visual: false
+- name: signature
+  type: image
+  output_key: signature
+  bbox_norm:
+  - 0.651081
+  - 0.649076
+  - 0.145836
+  - 0.090054
+  required: false
+  orientation: '0'
+  visual: true
+- name: surname
+  type: text
+  output_key: surname
+  bbox_norm:
+  - 0.304955
+  - 0.196791
+  - 0.099628
+  - 0.022198
+  required: true
+  orientation: '0'
+  visual: false
+- name: type
+  type: text
+  output_key: documentTypeCode
+  bbox_norm:
+  - 0.306061
+  - 0.140519
+  - 0.011558
+  - 0.023522
+  required: false
+  orientation: '0'
+  visual: false
+output_mapping:
+  authority: issuingAuthority
+  birth_date: birthDate
+  birth_place: birthPlace
+  code: countryCode
+  expiry_date: expiryDate
+  expiry_date2: expiry_date2
+  face: face
+  gender: gender
+  id_number: personalNumber
+  issue_date: issueDate
+  mrz_line0: mrzLine0
+  mrz_line1: mrzLine1
+  name: givenNames
+  nationality: nationality
+  number: documentNumber
+  photo: photo
+  residence_line0: residence_line0
+  residence_line1: residence_line1
+  signature: signature
+  surname: surname
+  type: documentTypeCode

@@ -1,0 +1,141 @@
+id: registre_commerce_modern
+name: "Registre de Commerce (format moderne)"
+version: "1.0"
+description: "Extrait les champs d'un registre de commerce tunisien format numérique/moderne"
+doc_family: "business_registry"
+language_hints: ["ar", "fr"]
+preferred_engine: "paddle"
+anchors_required: ["registre", "commerce"]
+
+fields:
+  - name: numero_registre
+    label: "Numéro de registre"
+    extraction_method: regex
+    patterns:
+      - "(?:N°?|Numéro)[\\s:]*([A-Z0-9\\-/]{5,20})"
+      - "\\b(B\\d{6,10})\\b"
+      - "([A-Z]{1,3}[0-9]{4,10})"
+    validation:
+      type: regex
+      pattern: "[A-Z0-9\\-/]{5,20}"
+    normalization:
+      strip: true
+      uppercase: true
+      remove_spaces: true
+    required: true
+    output_key: "registration_number"
+    confidence_weight: 2.0
+
+  - name: denomination_sociale
+    label: "Dénomination sociale"
+    extraction_method: anchor
+    anchors:
+      - text: "Dénomination"
+        required: true
+      - text: "Raison sociale"
+        required: false
+      - text: "اسم الشركة"
+        required: false
+    patterns:
+      - "(?:Dénomination|Raison sociale)[\\s:]+([^\\n]{3,80})"
+    validation:
+      type: any
+      min_length: 2
+      max_length: 200
+    normalization:
+      strip: true
+    required: true
+    output_key: "company_name"
+    confidence_weight: 1.5
+
+  - name: forme_juridique
+    label: "Forme juridique"
+    extraction_method: regex
+    patterns:
+      - "\\b(SARL|SA|SUARL|SNC|SCS|GIE|Association)\\b"
+      - "(?:Forme juridique)[\\s:]+([^\\n]{2,50})"
+    validation:
+      type: enum
+      allowed_values: ["SARL", "SA", "SUARL", "SNC", "SCS", "GIE", "Association", "Entreprise individuelle"]
+    normalization:
+      strip: true
+      uppercase: true
+    required: false
+    output_key: "legal_form"
+
+  - name: capital_social
+    label: "Capital social"
+    extraction_method: regex
+    patterns:
+      - "(?:Capital)[\\s:]*([0-9\\s.,]+)\\s*(?:DT|TND|dinars?)"
+      - "([0-9]{1,3}(?:[\\s.,][0-9]{3})*(?:[.,][0-9]{1,3})?)\\s*(?:DT|TND)"
+    validation:
+      type: number
+    normalization:
+      strip: true
+      custom_replace:
+        " ": ""
+        ",": "."
+    required: false
+    output_key: "capital"
+
+  - name: date_immatriculation
+    label: "Date d'immatriculation"
+    extraction_method: regex
+    patterns:
+      - "(?:Date[^:]*immatriculation|Immatriculé[^:]*le)[\\s:]*([0-9]{1,2}[/\\-\\.][0-9]{1,2}[/\\-\\.][0-9]{2,4})"
+      - "\\b(\\d{1,2}[/\\-\\.]\\d{1,2}[/\\-\\.]\\d{2,4})\\b"
+    validation:
+      type: date
+      date_formats: ["%d/%m/%Y", "%d-%m-%Y", "%d.%m.%Y", "%d/%m/%y"]
+    normalization:
+      strip: true
+    required: false
+    output_key: "registration_date"
+
+  - name: siege_social
+    label: "Siège social / Adresse"
+    extraction_method: anchor
+    anchors:
+      - text: "Siège social"
+        required: false
+      - text: "Adresse"
+        required: false
+      - text: "المقر الاجتماعي"
+        required: false
+    validation:
+      type: any
+      min_length: 5
+    normalization:
+      strip: true
+    required: false
+    output_key: "address"
+
+  - name: objet_social
+    label: "Objet social / Activité"
+    extraction_method: anchor
+    anchors:
+      - text: "Objet social"
+        required: false
+      - text: "Activité"
+        required: false
+      - text: "النشاط"
+        required: false
+    validation:
+      type: any
+    normalization:
+      strip: true
+    required: false
+    output_key: "activity"
+
+postprocess_hooks:
+  - normalize_dates
+
+output_mapping:
+  registration_number: "registrationNumber"
+  company_name: "companyName"
+  legal_form: "legalForm"
+  capital: "capital"
+  registration_date: "registrationDate"
+  address: "address"
+  activity: "activity"

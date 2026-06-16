@@ -1,0 +1,162 @@
+id: cin_tn
+name: "Carte d'Identité Nationale Tunisienne"
+version: '6.0'
+description: "CIN tunisienne — pipeline spécialisé avec zones fixes, scoring par champ, fallback conditionnel et review_required"
+doc_family: id_document
+pipeline: cin_specialized_v1
+language_hints:
+  - ar
+  - fr
+preferred_engine: auto
+anchors_required:
+  - اللقب
+  - الاسم
+
+engines:
+  compare_all_engines: true
+  primary: paddle
+  secondary: easyocr
+  experimental:
+    - surya
+  numeric_fallback: tesseract
+
+fixed_zones:
+  id_number: [0.34, 0.16, 0.74, 0.34]
+  last_name: [0.56, 0.22, 0.98, 0.42]
+  first_name: [0.56, 0.34, 0.98, 0.54]
+  birth_date: [0.53, 0.48, 0.98, 0.70]
+  birth_place: [0.54, 0.64, 0.98, 0.93]
+  right_text: [0.50, 0.18, 0.98, 0.96]
+
+field_policies:
+  id_number:
+    required: true
+    review_threshold: 0.92
+    accepted_scripts: [latin_digits, arabic_digits]
+    prefer_zone: id_number
+  last_name:
+    required: true
+    review_threshold: 0.90
+    prefer_anchor: اللقب
+    prefer_zone: last_name
+    forbidden_tokens: [الجمهورية, بطاقة, التعريف, الولادة, الاسم]
+  first_name:
+    required: true
+    review_threshold: 0.90
+    prefer_anchor: الاسم
+    prefer_zone: first_name
+    forbidden_tokens: [الجمهورية, بطاقة, التعريف, الولادة, اللقب]
+  birth_date:
+    required: false
+    review_threshold: 0.86
+    prefer_zone: birth_date
+  birth_place:
+    required: false
+    review_threshold: 0.80
+    prefer_zone: birth_place
+
+review_policy:
+  status_on_critical_ambiguity: review_required
+  critical_fields: [id_number, last_name, first_name]
+
+fields:
+  - name: numero_cin
+    label: "Numéro CIN"
+    extraction_method: regex
+    patterns:
+      - 'IDTUN([0-9]{8})[0-9<]'
+      - '(?:رقم|No|N°)[\s:]*([0-9]{8})'
+      - '\b([0-9]{8})\b'
+    validation:
+      type: regex
+      pattern: '[0-9]{8}'
+    normalization:
+      strip: true
+      remove_spaces: true
+    required: true
+    output_key: id_number
+    confidence_weight: 3.0
+
+  - name: nom
+    label: 'Nom (اللقب)'
+    extraction_method: anchor
+    anchors:
+      - text: اللقب
+        required: true
+    patterns:
+      - '([\u0600-\u06FF][\u0600-\u06FF\s]{1,39})\s+اللقب'
+      - 'اللقب\s*[:/]?\s*([\u0600-\u06FF][\u0600-\u06FF\s]{1,39})'
+    validation:
+      type: any
+      min_length: 2
+      max_length: 60
+    normalization:
+      strip: true
+    required: true
+    output_key: last_name
+    confidence_weight: 1.6
+
+  - name: prenom
+    label: 'Prénom (الاسم)'
+    extraction_method: anchor
+    anchors:
+      - text: الاسم
+        required: true
+    patterns:
+      - '([\u0600-\u06FF][\u0600-\u06FF\s]{1,39})\s+الاسم'
+      - 'الاسم\s*[:/]?\s*([\u0600-\u06FF][\u0600-\u06FF\s]{1,39})'
+    validation:
+      type: any
+      min_length: 2
+      max_length: 60
+    normalization:
+      strip: true
+    required: true
+    output_key: first_name
+    confidence_weight: 1.6
+
+  - name: date_naissance
+    label: 'Date de naissance (تاريخ الولادة)'
+    extraction_method: regex
+    patterns:
+      - 'تاريخ\s*الولادة[\s:]*([0-9]{1,2}\s+[\u0600-\u06FF]{3,12}\s+[0-9]{4})'
+      - '\b([0-9]{1,2}\s+(?:جانفي|فيفري|مارس|أفريل|افريل|ماي|جوان|جويلية|جويليه|أوت|اوت|سبتمبر|أكتوبر|اكتوبر|نوفمبر|ديسمبر)\s+[0-9]{4})\b'
+      - 'تاريخ\s*الولادة[\s:]*([0-9]{1,2}[/\-.][0-9]{1,2}[/\-.][0-9]{4})'
+      - '\b(\d{2}[/\-.]\d{2}[/\-.]\d{4})\b'
+    validation:
+      type: any
+    normalization:
+      strip: true
+    required: false
+    output_key: birth_date
+    confidence_weight: 1.2
+
+  - name: lieu_naissance
+    label: 'Lieu (مكانها)'
+    extraction_method: anchor
+    anchors:
+      - text: مكانها
+        required: false
+      - text: مكان الولادة
+        required: false
+    patterns:
+      - '([\u0600-\u06FF][\u0600-\u06FF\s]{1,50})\s+مكانها'
+      - 'مكانها\s*[:/]?\s*([\u0600-\u06FF][\u0600-\u06FF\s]{1,50})'
+    validation:
+      type: any
+      min_length: 2
+    normalization:
+      strip: true
+    required: false
+    output_key: birth_place
+    confidence_weight: 1.0
+
+postprocess_hooks:
+  - normalize_dates
+
+output_mapping:
+  id_number: idNumber
+  last_name: lastName
+  first_name: firstName
+  birth_date: birthDate
+  birth_place: birthPlace

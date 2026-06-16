@@ -1,0 +1,28 @@
+# .dockerignore
+frontend/ocr-angular-arabsoft-ui/node_modules
+frontend/ocr-angular-arabsoft-ui/dist
+**/__pycache__
+**/*.pyc
+.git
+.env # NE PAS copier dans l'image (il est monté en volume)
+*.pt # modèles PyTorch (YOLO, Swin) → montés en volume
+*.pth
+/tmp
+.pytest_cache
+.venv
+venv
+app.zip
+*.pt
+*.pth
+*.db
+*.csv
+*.json
+result_*.json
+benchmark_*
+debug/
+debug_*/
+runs/
+htmlcov/
+data/
+logs.txt
+structure.txt

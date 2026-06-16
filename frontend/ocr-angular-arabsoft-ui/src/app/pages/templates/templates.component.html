@@ -1,0 +1,570 @@
+<!-- ═══════════════════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════════════════ -->
+<section class="hero template-hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Template Manager · Arabsoft Solution</div>
+    <h1 class="hero-title">
+      <span class="gradient-text">Gestion des templates</span><br>
+      et mapping JSON
+    </h1>
+    <p class="hero-sub">
+      Créez des templates par JSON, exemples YAML, drag &amp; drop.
+    </p>
+    <div class="hero-chips">
+      <span class="chip">YAML Templates</span>
+      <span class="chip">Regex Fields</span>
+      <span class="chip">ROI Designer</span>
+      <span class="chip">Output Mapping</span>
+      <span class="chip">Validation</span>
+      <span class="chip">API Templates</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION PRINCIPALE
+     ═══════════════════════════════════════════════════════════ -->
+<section class="template-section">
+
+  <!-- ── Carousel header ── -->
+  <div class="section-header carousel-header">
+    <div>
+      <div class="section-label">Exemples YAML</div>
+      <h2>Bibliothèque de modèles</h2>
+      <p>Affichage en carrousel : chargez un exemple dans l'éditeur ou téléchargez-le en .yaml.</p>
+    </div>
+
+    <div class="carousel-controls">
+      <!-- Chevron gauche -->
+      <button class="carousel-btn" type="button" (click)="scrollYamlCarousel('left')" aria-label="Précédent">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <!-- Chevron droit -->
+      <button class="carousel-btn" type="button" (click)="scrollYamlCarousel('right')" aria-label="Suivant">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Carousel YAML ── -->
+  <div class="yaml-carousel-shell">
+    <div class="yaml-carousel" #yamlCarousel>
+
+      <article class="yaml-card" *ngFor="let example of yamlExamples">
+        <span class="cap-tag">{{ example.id }}</span>
+        <h3>{{ example.title }}</h3>
+        <p>{{ example.description }}</p>
+        <div class="yaml-actions">
+          <button class="btn-primary small-btn" type="button" (click)="useYamlExample(example)">Charger</button>
+          <button class="btn-ghost small-btn" type="button" (click)="downloadYamlExample(example)">Télécharger</button>
+        </div>
+      </article>
+
+      <article class="yaml-card yaml-card-all">
+        <span class="cap-tag">bundle</span>
+        <h3>Tous les exemples</h3>
+        <p>Télécharge un seul fichier contenant tous les exemples YAML.</p>
+        <div class="yaml-actions">
+          <button class="btn-primary small-btn" type="button" (click)="downloadAllYamlExamples()">
+            Télécharger tout
+          </button>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TEMPLATE BUILDER
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="template-builder-section">
+
+    <div class="section-header builder-title">
+      <div>
+        <div class="section-label">Création visuelle</div>
+        <h2>Template Builder par drag &amp; drop</h2>
+        <p>
+          Glissez des champs dans la zone de construction, configurez les labels et les regex,
+          puis générez automatiquement le JSON du template.
+        </p>
+      </div>
+    </div>
+
+    <section class="builder-workspace">
+
+      <!-- ── Palette ── -->
+      <aside class="builder-palette panel">
+        <div class="panel-head">
+          <div class="panel-num">01</div>
+          <div>
+            <h2>Palette</h2>
+            <p>Glissez un type de champ vers la zone de création.</p>
+          </div>
+        </div>
+
+        <div class="panel-body palette-body">
+          <article
+            class="palette-item"
+            *ngFor="let item of fieldPalette"
+            draggable="true"
+            (dragstart)="onPaletteDragStart($event, item)"
+            (click)="addBuilderField(item.type)">
+
+            <!-- ── Icône SVG selon type ── -->
+            <div class="palette-icon">
+
+              <!-- text -->
+              <svg *ngIf="item.type === 'text'"
+                   width="22" height="22" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="4 7 4 4 20 4 20 7"/>
+                <line x1="9" y1="20" x2="15" y2="20"/>
+                <line x1="12" y1="4" x2="12" y2="20"/>
+              </svg>
+
+              <!-- number -->
+              <svg *ngIf="item.type === 'number'"
+                   width="22" height="22" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4"  y1="9"  x2="20" y2="9"/>
+                <line x1="4"  y1="15" x2="20" y2="15"/>
+                <line x1="10" y1="3"  x2="8"  y2="21"/>
+                <line x1="16" y1="3"  x2="14" y2="21"/>
+              </svg>
+
+              <!-- date -->
+              <svg *ngIf="item.type === 'date'"
+                   width="22" height="22" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8"  y1="2" x2="8"  y2="6"/>
+                <line x1="3"  y1="10" x2="21" y2="10"/>
+              </svg>
+
+              <!-- amount -->
+              <svg *ngIf="item.type === 'amount'"
+                   width="22" height="22" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23"/>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+
+              <!-- id -->
+              <svg *ngIf="item.type === 'id'"
+                   width="22" height="22" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="5" width="20" height="14" rx="2"/>
+                <circle cx="9" cy="12" r="2.5"/>
+                <line x1="13" y1="9"  x2="19" y2="9"/>
+                <line x1="13" y1="12" x2="19" y2="12"/>
+                <line x1="13" y1="15" x2="19" y2="15"/>
+              </svg>
+
+              <!-- email -->
+              <svg *ngIf="item.type === 'email'"
+                   width="22" height="22" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+
+              <!-- custom -->
+              <svg *ngIf="item.type === 'custom'"
+                   width="22" height="22" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"/>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+              </svg>
+
+            </div>
+
+            <div>
+              <strong>{{ item.title }}</strong>
+              <span>{{ item.description }}</span>
+            </div>
+          </article>
+        </div>
+      </aside>
+
+      <!-- ── Builder Panel ── -->
+      <section class="builder-panel panel">
+        <div class="panel-head">
+          <div class="panel-num panel-num-success">02</div>
+          <div>
+            <h2>Template Builder</h2>
+            <p>Configurez les métadonnées et les champs à extraire.</p>
+          </div>
+        </div>
+
+        <div class="panel-body builder-body">
+
+          <!-- Métadonnées -->
+          <div class="builder-meta-grid">
+            <label>
+              <span>ID template</span>
+              <input [(ngModel)]="builderId" placeholder="ex: attestation_salaire">
+            </label>
+            <label>
+              <span>Nom</span>
+              <input [(ngModel)]="builderName" placeholder="ex: Attestation de salaire">
+            </label>
+            <label>
+              <span>Type document</span>
+              <input [(ngModel)]="builderDocumentType" placeholder="ex: attestation_salaire">
+            </label>
+            <label>
+              <span>Langue</span>
+              <select [(ngModel)]="builderLanguage">
+                <option value="fr">Français</option>
+                <option value="ar">Arabe</option>
+                <option value="en">Anglais</option>
+                <option value="auto">Auto</option>
+              </select>
+            </label>
+            <label>
+              <span>Moteur OCR</span>
+              <select [(ngModel)]="builderEngine">
+                <option value="paddle">PaddleOCR</option>
+                <option value="easyocr">EasyOCR</option>
+                <option value="tesseract">Tesseract</option>
+                <option value="auto">Auto</option>
+              </select>
+            </label>
+          </div>
+
+          <!-- Drop zone -->
+          <div class="drop-zone"
+               [class.active]="dropActive"
+               [class.empty]="builderFields.length === 0"
+               (dragover)="onBuilderDragOver($event)"
+               (dragleave)="onBuilderDragLeave()"
+               (drop)="onBuilderDrop($event)">
+
+            <!-- Empty state -->
+            <div class="drop-empty" *ngIf="builderFields.length === 0">
+              <div class="drop-icon">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="1.5"
+                     stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+              </div>
+              <strong>Déposez vos champs ici</strong>
+              <span>Vous pouvez aussi cliquer sur un champ dans la palette.</span>
+            </div>
+
+            <!-- Field cards -->
+            <article class="builder-field-card"
+                     *ngFor="let field of builderFields; let i = index">
+
+              <div class="field-card-head">
+                <div>
+                  <span class="field-index">Champ {{ i + 1 }}</span>
+                  <strong>{{ field.label || field.name }}</strong>
+                </div>
+
+                <div class="field-card-actions">
+                  <!-- Monter -->
+                  <button type="button" class="mini-btn"
+                          (click)="moveBuilderField(i, 'up')"
+                          [disabled]="i === 0"
+                          aria-label="Monter">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2.5"
+                         stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="18 15 12 9 6 15"/>
+                    </svg>
+                  </button>
+                  <!-- Descendre -->
+                  <button type="button" class="mini-btn"
+                          (click)="moveBuilderField(i, 'down')"
+                          [disabled]="i === builderFields.length - 1"
+                          aria-label="Descendre">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2.5"
+                         stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                  </button>
+                  <!-- Supprimer -->
+                  <button type="button" class="mini-btn danger"
+                          (click)="removeBuilderField(i)"
+                          aria-label="Supprimer">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2.5"
+                         stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18"/>
+                      <line x1="6"  y1="6" x2="18" y2="18"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="field-config-grid">
+                <label>
+                  <span>Nom technique</span>
+                  <input [(ngModel)]="field.name"
+                         (blur)="updateBuilderFieldName(i)"
+                         placeholder="ex: invoice_number">
+                </label>
+                <label>
+                  <span>Label</span>
+                  <input [(ngModel)]="field.label" placeholder="ex: Numéro de facture">
+                </label>
+                <label>
+                  <span>Type</span>
+                  <select [(ngModel)]="field.type">
+                    <option value="text">Texte</option>
+                    <option value="number">Nombre</option>
+                    <option value="date">Date</option>
+                    <option value="amount">Montant</option>
+                    <option value="id">Identifiant</option>
+                    <option value="email">Email</option>
+                    <option value="custom">Custom</option>
+                  </select>
+                </label>
+                <label>
+                  <span>Output key</span>
+                  <input [(ngModel)]="field.output_key" placeholder="ex: invoiceNumber">
+                </label>
+                <label class="required-line">
+                  <input type="checkbox" [(ngModel)]="field.required">
+                  <span>Champ obligatoire</span>
+                </label>
+              </div>
+
+              <!-- Patterns -->
+              <div class="patterns-block">
+                <div class="patterns-head">
+                  <strong>Regex patterns</strong>
+                  <button type="button" class="mini-btn" (click)="addPattern(i)">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2.8"
+                         stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"/>
+                      <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                    pattern
+                  </button>
+                </div>
+
+                <div class="pattern-row"
+                     *ngFor="let pattern of field.patterns; let p = index">
+                  <input [(ngModel)]="field.patterns[p]" placeholder="Expression régulière">
+                  <button type="button" class="mini-btn danger"
+                          (click)="removePattern(i, p)"
+                          aria-label="Supprimer pattern">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2.8"
+                         stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18"/>
+                      <line x1="6"  y1="6" x2="18" y2="18"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+            </article>
+          </div>
+
+          <!-- Footer builder -->
+          <div class="builder-footer">
+            <button class="btn-primary small-btn" type="button"
+                    (click)="generateTemplateFromBuilder()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2.2"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+              Générer JSON dans l'éditeur
+            </button>
+            <button class="btn-ghost small-btn" type="button"
+                    (click)="addBuilderField('custom')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2.2"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+              Ajouter champ custom
+            </button>
+          </div>
+
+          <div class="template-note">
+            Le builder génère un template JSON compatible avec la sauvegarde actuelle.
+            Vous pouvez ensuite modifier le JSON manuellement avant sauvegarde.
+          </div>
+        </div>
+      </section>
+
+    </section>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CATALOGUE + ÉDITEUR
+       ═══════════════════════════════════════════════════════════ -->
+  <div class="section-header manager-title">
+    <div>
+      <div class="section-label">Espace de gestion</div>
+      <h2>Templates OCR</h2>
+      <p>Le catalogue garde une hauteur limitée et se parcourt avec les boutons haut/bas ou la molette.</p>
+    </div>
+  </div>
+
+  <section class="template-workspace">
+
+    <!-- ── Catalogue ── -->
+    <aside class="panel catalog-panel">
+      <div class="panel-head">
+        <div class="panel-num">01</div>
+        <div>
+          <h2>Catalogue</h2>
+          <p>{{ filtered().length }} templates disponibles.</p>
+        </div>
+      </div>
+
+      <div class="panel-body catalog-body">
+        <input class="search"
+               [(ngModel)]="search"
+               placeholder="Rechercher un template...">
+
+        <div class="catalog-nav">
+          <!-- Haut -->
+          <button class="catalog-nav-btn" type="button" (click)="scrollCatalog('up')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="18 15 12 9 6 15"/>
+            </svg>
+            Haut
+          </button>
+          <!-- Bas -->
+          <button class="catalog-nav-btn" type="button" (click)="scrollCatalog('down')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+            Bas
+          </button>
+        </div>
+
+        <div class="actions">
+          <button class="btn-primary small-btn" type="button" (click)="newTemplate()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            Nouveau
+          </button>
+          <button class="btn-ghost small-btn" type="button" (click)="load()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 4 23 10 17 10"/>
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+            </svg>
+            Recharger
+          </button>
+        </div>
+
+        <div class="catalog-list" #catalogList>
+          <button class="template-item"
+                  *ngFor="let t of filtered()"
+                  [class.active]="t.id === selectedId"
+                  (click)="open(t.id)">
+            <strong>{{ t.id }}</strong>
+            <span>{{ t.name || '-' }}</span>
+            <small>type: {{ t.document_type || '-' }} · fields: {{ t.field_count || 0 }}</small>
+          </button>
+
+          <div class="catalog-empty" *ngIf="filtered().length === 0">
+            Aucun template trouvé.
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── Éditeur ── -->
+    <section class="panel editor" id="templateEditorPanel">
+      <div class="panel-head">
+        <div class="panel-num panel-num-success">02</div>
+        <div>
+          <h2>Éditeur</h2>
+          <p>JSON depuis l'API, YAML d'exemple, builder drag &amp; drop.</p>
+        </div>
+      </div>
+
+      <div class="panel-body">
+        <textarea [(ngModel)]="content" spellcheck="false"></textarea>
+
+        <div class="actions editor-actions">
+          <!-- Sauvegarder -->
+          <button class="btn-primary small-btn" type="button" (click)="save()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.3"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+              <polyline points="17 21 17 13 7 13 7 21"/>
+              <polyline points="7 3 7 8 15 8"/>
+            </svg>
+            Sauvegarder JSON
+          </button>
+          <!-- Copier -->
+          <button class="btn-ghost small-btn" type="button" (click)="copy()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.3"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+            Copier
+          </button>
+          <!-- Supprimer -->
+          <button class="danger-btn small-btn" type="button" (click)="remove()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.3"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 6 5 6 21 6"/>
+              <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+              <path d="M10 11v6M14 11v6"/>
+              <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+            </svg>
+            Supprimer
+          </button>
+        </div>
+
+        <div class="template-note">
+          Note : les exemples YAML sont destinés au téléchargement ou à la copie.
+          La sauvegarde via l'API actuelle attend du JSON. Les templates ROI nécessitent
+          que le backend sache exploiter le champ <code>roi</code>.
+        </div>
+
+        <div class="status" [class.error]="error" *ngIf="status">{{ status }}</div>
+      </div>
+    </section>
+
+  </section>
+</section>

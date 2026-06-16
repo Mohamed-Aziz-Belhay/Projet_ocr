@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OCR Microservice Platform</title>
+  <style>
+    :root{
+      --bg:#f4f7fb;--card:rgba(255,255,255,.92);--muted:#64748b;--text:#0f172a;--border:#dbe4f0;
+      --primary:#2563eb;--primary-dark:#1d4ed8;--accent:#7c3aed;--success:#16a34a;--warning:#d97706;--danger:#dc2626;
+      --shadow:0 22px 55px rgba(15,23,42,.10);--soft:0 10px 28px rgba(15,23,42,.07);--radius:20px;
+    }
+    *{box-sizing:border-box}body{margin:0;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:radial-gradient(circle at 8% 4%,rgba(37,99,235,.16),transparent 32%),radial-gradient(circle at 94% 8%,rgba(124,58,237,.14),transparent 30%),linear-gradient(180deg,#f8fbff 0%,var(--bg) 45%,#eef3fb 100%);min-height:100vh}.container{width:min(1280px,calc(100% - 24px));margin:0 auto;padding:24px 0 42px}.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(255,255,255,.82));border:1px solid rgba(219,228,240,.95);border-radius:24px;box-shadow:var(--shadow);padding:28px;margin-bottom:20px}.topbar{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;position:relative;z-index:1}.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#dbeafe;color:#1d4ed8;border:1px solid #bfdbfe;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:900;margin-bottom:14px}h1{margin:0;font-size:clamp(30px,4vw,46px);line-height:1.05;letter-spacing:-.04em}.hero p{color:var(--muted);line-height:1.7;max-width:900px;margin:14px 0 0;font-size:15px}.nav{display:flex;gap:10px;flex-wrap:wrap}.chip,.nav a{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--border);background:rgba(255,255,255,.86);border-radius:999px;padding:9px 12px;font-size:12px;font-weight:850;color:#334155;text-decoration:none}.nav a.primary-link{color:white;background:linear-gradient(135deg,var(--primary),var(--accent));border:0}.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.chip-dot{width:8px;height:8px;border-radius:999px;background:linear-gradient(135deg,var(--primary),var(--accent))}.grid{display:grid;grid-template-columns:430px 1fr;gap:20px;align-items:start}.card{background:var(--card);border:1px solid rgba(219,228,240,.95);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;backdrop-filter:blur(10px)}.sticky{position:sticky;top:16px}.card h2{margin:0 0 6px;font-size:21px;letter-spacing:-.02em}.sub{color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:18px}.step{border:1px solid var(--border);border-radius:16px;padding:15px;margin-bottom:14px;background:rgba(248,250,252,.86)}.step-title{display:flex;align-items:center;gap:10px;font-weight:950;margin-bottom:12px}.num{width:29px;height:29px;display:grid;place-items:center;color:white;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:999px;font-size:12px;box-shadow:0 10px 20px rgba(37,99,235,.25)}.form-group{display:grid;gap:7px;margin-bottom:12px}label{font-size:13px;font-weight:850;color:#334155}input,select{width:100%;border:1px solid var(--border);border-radius:12px;padding:12px;font-size:14px;outline:none;background:white;color:var(--text);transition:.18s}input:focus,select:focus{border-color:#93c5fd;box-shadow:0 0 0 4px rgba(37,99,235,.10)}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.hint-box{border:1px solid #bfdbfe;background:linear-gradient(135deg,#eff6ff,#f5f3ff);color:#1e3a8a;border-radius:13px;padding:12px;font-size:13px;line-height:1.6;margin-bottom:12px}.custom-box{display:none;border:1px solid #ddd6fe;background:#f5f3ff;color:#4c1d95;border-radius:13px;padding:12px;font-size:13px;line-height:1.6;margin-bottom:12px}.custom-box.active{display:block}.preview{border:1px dashed #b7c5d8;border-radius:15px;background:white;min-height:185px;display:grid;place-items:center;padding:12px;color:var(--muted);text-align:center;overflow:hidden}.preview img{max-width:100%;max-height:270px;object-fit:contain;border-radius:12px;box-shadow:var(--soft)}.switch{display:flex;justify-content:space-between;align-items:center;background:white;border:1px solid var(--border);padding:12px;border-radius:12px;font-weight:850;font-size:13px}.switch input{width:18px;height:18px;accent-color:var(--primary)}.btn{width:100%;border:0;border-radius:14px;padding:14px;font-size:15px;font-weight:950;cursor:pointer;transition:.18s;text-decoration:none;display:inline-flex;justify-content:center;align-items:center}.btn-primary{color:white;background:linear-gradient(135deg,var(--primary),var(--primary-dark));box-shadow:0 16px 28px rgba(37,99,235,.24)}.btn-primary:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 20px 34px rgba(37,99,235,.30)}.btn-secondary{color:var(--text);background:#f8fafc;border:1px solid var(--border);margin-top:10px}.btn:disabled{opacity:.65;cursor:not-allowed}.result-empty{min-height:560px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(248,250,252,.88),rgba(255,255,255,.82));border:1px dashed var(--border);border-radius:17px;text-align:center;color:var(--muted);padding:20px}.empty-icon{width:64px;height:64px;border-radius:22px;display:grid;place-items:center;margin:0 auto 12px;background:linear-gradient(135deg,#dbeafe,#ede9fe);color:var(--primary-dark);font-size:26px;font-weight:950}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}.metric{background:rgba(248,250,252,.92);border:1px solid var(--border);border-radius:15px;padding:14px;min-height:82px}.metric .k{color:var(--muted);font-size:12px;font-weight:850;margin-bottom:7px;text-transform:uppercase;letter-spacing:.04em}.metric .v{font-size:17px;font-weight:950;word-break:break-word}.badge{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:950;white-space:nowrap}.ok{color:#166534;background:#dcfce7;border:1px solid #bbf7d0}.warn{color:#92400e;background:#fef3c7;border:1px solid #fde68a}.info{color:#1d4ed8;background:#dbeafe;border:1px solid #bfdbfe}.danger-badge{color:#991b1b;background:#fee2e2;border:1px solid #fecaca}.review-box{background:#fffbeb;color:#78350f;border:1px solid #fde68a;border-radius:15px;padding:14px;line-height:1.6;margin:14px 0 16px}.decision-box{display:grid;grid-template-columns:1.2fr 2fr;gap:12px;margin:14px 0 16px}.decision-main,.pipeline-box{border:1px solid var(--border);border-radius:15px;background:white;padding:14px}.decision-label{color:var(--muted);font-size:12px;font-weight:850;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}.decision-value{font-weight:950;font-size:19px}.pipeline{display:flex;flex-wrap:wrap;align-items:center;gap:8px;color:#334155;font-size:12px;font-weight:850}.pipeline span{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:999px;padding:6px 9px}.fields{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:18px 0}.field{border:1px solid var(--border);border-radius:15px;padding:14px;background:white;box-shadow:0 8px 18px rgba(15,23,42,.04)}.field .name{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:950;margin-bottom:8px}.field .value{font-size:19px;line-height:1.45;font-weight:950;direction:auto;word-break:break-word}.field .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.pill{border-radius:999px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;padding:5px 8px;font-size:11px;font-weight:850}.pill-valid{color:#166534;background:#dcfce7;border-color:#bbf7d0}.pill-invalid{color:#92400e;background:#fef3c7;border-color:#fde68a}.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 10px}.tab{border:1px solid var(--border);background:white;border-radius:999px;padding:9px 13px;font-weight:950;cursor:pointer}.tab.active{color:white;background:var(--primary);border-color:var(--primary)}pre{display:none;background:#0f172a;color:#e2e8f0;border-radius:15px;padding:14px;font-size:12px;line-height:1.6;max-height:430px;overflow:auto;white-space:pre-wrap;word-break:break-word}pre.active{display:block}.error{background:#fef2f2;color:#7f1d1d;border:1px solid #fecaca;border-radius:15px;padding:14px;line-height:1.6}.spinner{width:16px;height:16px;display:inline-block;border:2px solid rgba(255,255,255,.35);border-top-color:white;border-radius:999px;animation:spin .8s linear infinite;vertical-align:-3px;margin-right:8px}@keyframes spin{to{transform:rotate(360deg)}}@media(max-width:1080px){.grid{grid-template-columns:1fr}.sticky{position:static}.topbar{display:block}.nav{margin-top:14px}}@media(max-width:760px){.summary,.row,.fields,.decision-box{grid-template-columns:1fr}.hero,.card{padding:18px}}
+  
+    .field .value-block{margin-top:6px}
+    .kv-list{display:grid;gap:8px;margin-top:6px}
+    .kv-item{display:grid;grid-template-columns:minmax(110px,180px) 1fr;gap:10px;padding:8px 10px;border:1px solid #e2e8f0;border-radius:12px;background:#f8fafc}
+    .kv-key{font-size:12px;font-weight:800;color:#64748b;text-transform:uppercase;letter-spacing:.04em}
+    .kv-val{font-size:15px;font-weight:700;color:#0f172a;word-break:break-word}
+    .line-items-wrapper{margin-top:6px;overflow:auto;border:1px solid #e2e8f0;border-radius:14px;background:#fff}
+    .line-items-caption{padding:10px 12px;border-bottom:1px solid #e2e8f0;background:#f8fafc;font-size:12px;font-weight:800;color:#475569;text-transform:uppercase;letter-spacing:.05em}
+    .line-items-table{width:100%;border-collapse:collapse;min-width:720px}
+    .line-items-table th,.line-items-table td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
+    .line-items-table th{background:#f8fafc;font-size:12px;font-weight:900;color:#475569;text-transform:uppercase;letter-spacing:.05em}
+    .line-items-table td{font-size:14px;color:#0f172a}
+    .line-items-table tr:last-child td{border-bottom:0}
+    .line-items-empty{padding:14px 12px;color:#64748b;font-size:14px}
+    .line-items-card{grid-column:1/-1}
+
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <div class="topbar">
+        <div>
+          <div class="hero-badge">Microservice OCR générique · Routage YOLO + Swin · Templates YAML</div>
+          <h1>Plateforme OCR multi-documents</h1>
+          <p>Interface de démonstration pour extraire automatiquement les données depuis passeports, cartes d’identité, factures tunisiennes, registres de commerce et templates personnalisés. Le système privilégie une extraction fiable et bascule en révision humaine si les champs critiques sont incertains.</p>
+          <div class="hero-actions">
+            <span class="chip"><span class="chip-dot"></span>Passeport MRZ-first</span>
+            <span class="chip"><span class="chip-dot"></span>Facture invoice_tn</span>
+            <span class="chip"><span class="chip-dot"></span>Contrôle largeur ROI</span>
+            <span class="chip"><span class="chip-dot"></span>Templates personnalisés</span>
+          </div>
+        </div>
+        <nav class="nav">
+          <a class="primary-link" href="/templates-ui" >Gérer les templates</a>
+          <a href="/templates" target="_blank">API templates</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="grid">
+      <form class="card sticky" id="ocrForm">
+        <h2>Extraction document</h2>
+        <div class="sub">Sélectionne le type de document. Les recommandations moteur/mode se mettent à jour automatiquement.</div>
+
+        <div class="step">
+          <div class="step-title"><span class="num">1</span> Type et template</div>
+          <div class="row">
+            <div class="form-group"><label for="documentType">Type de document</label><select id="documentType"><option value="auto">Détection auto</option><option value="passport">Passeport</option><option value="id_document">Document d’identité</option><option value="invoice">Facture tunisienne</option><option value="cin_tn">CIN tunisienne</option><option value="registre_commerce">Registre de commerce</option><option value="custom">Template personnalisé</option></select></div>
+            <div class="form-group"><label for="templateId">Template</label><select id="templateId"><option value="">Auto</option></select></div>
+          </div>
+          <div class="custom-box" id="customBox"><strong>Mode custom template.</strong><br>Crée ou modifie un template dans la page dédiée, puis reviens ici et sélectionne son identifiant dans la liste. <a href="/templates-ui" >Ouvrir le gestionnaire de templates</a>.</div>
+        </div>
+
+        <div class="step">
+          <div class="step-title"><span class="num">2</span> Paramètres OCR</div>
+          <div class="row">
+            <div class="form-group"><label for="languageHint">Langue</label><select id="languageHint"><option value="">Auto</option><option value="ar">Arabe</option><option value="fr">Français</option><option value="en">Anglais</option></select></div>
+            <div class="form-group"><label for="engine">Moteur</label><select id="engine"><option value="auto">auto</option><option value="paddle">paddle</option><option value="easyocr">easyocr</option><option value="tesseract">tesseract</option><option value="surya">surya</option></select></div>
+          </div>
+          <div class="row">
+            <div class="form-group"><label for="processingMode">Mode de traitement</label><select id="processingMode"><option value="fast">fast</option><option value="balanced" selected>balanced</option><option value="full">full</option></select></div>
+            <div class="form-group"><label for="cinMode">Mode CIN</label><select id="cinMode"><option value="fast">fast</option><option value="balanced" selected>balanced</option><option value="full">full</option></select></div>
+          </div>
+          <div class="hint-box" id="engineHelp"></div>
+          <div class="switch"><span>Inclure diagnostics</span><input id="includeDiagnostics" type="checkbox" checked /></div>
+        </div>
+
+        <div class="step">
+          <div class="step-title"><span class="num">3</span> Upload</div>
+          <div class="form-group"><label for="apiKey">API Key</label><input id="apiKey" value="dev-key-123" autocomplete="off" /></div>
+          <div class="form-group"><label for="fileInput">Document image / PDF</label><input id="fileInput" type="file" accept="image/*,.pdf" required /></div>
+          <div class="preview" id="preview">Sélectionne un document pour afficher l'aperçu.</div>
+          <button class="btn btn-primary" id="submitBtn" type="submit">Lancer l’extraction</button>
+          <button class="btn btn-secondary" id="resetBtn" type="button">Réinitialiser</button>
+        </div>
+      </form>
+
+      <section class="card"><h2>Résultat d’extraction</h2><div class="sub">Décision métier, champs structurés, texte brut, JSON complet et diagnostics techniques.</div><div id="resultArea" class="result-empty"><div><div class="empty-icon">OCR</div><strong>Aucune extraction lancée</strong><br>Le résultat s’affichera ici après l’analyse du document.</div></div></section>
+    </section>
+  </main>
+
+  <script>
+    const form=document.getElementById('ocrForm'),fileInput=document.getElementById('fileInput'),preview=document.getElementById('preview'),resultArea=document.getElementById('resultArea'),submitBtn=document.getElementById('submitBtn'),resetBtn=document.getElementById('resetBtn'),documentType=document.getElementById('documentType'),templateId=document.getElementById('templateId'),processingMode=document.getElementById('processingMode'),cinMode=document.getElementById('cinMode'),engine=document.getElementById('engine'),languageHint=document.getElementById('languageHint'),engineHelp=document.getElementById('engineHelp'),customBox=document.getElementById('customBox');
+    const staticTemplates=[['','Auto'],['passport_generic','passport_generic'],['midv_aze_passport','midv_aze_passport'],['midv_srb_passport','midv_srb_passport'],['midv_svk_id','midv_svk_id'],['invoice_tn','invoice_tn'],['invoice_generic','invoice_generic'],['cin_tn','cin_tn'],['registre_commerce','registre_commerce']];
+    async function loadTemplateOptions(){let opts=staticTemplates;try{const res=await fetch('/templates');if(res.ok){const data=await res.json();opts=[['','Auto'],...data.map(t=>[t.id,t.id])];}}catch(e){}templateId.innerHTML=opts.map(([v,t])=>`<option value="${escapeHtml(v)}">${escapeHtml(t)}</option>`).join('');updateTemplateFromType();}
+    function updateTemplateFromType(){const map={auto:'',passport:'',id_document:'',invoice:'invoice_tn',cin_tn:'cin_tn',registre_commerce:'registre_commerce',custom:''};templateId.value=map[documentType.value]||'';customBox.classList.toggle('active',documentType.value==='custom');applyRecommendedDefaults();updateMoteurHelp();}
+    function applyRecommendedDefaults(){if(documentType.value==='invoice'){engine.value='paddle';processingMode.value='balanced';languageHint.value='fr'}else if(documentType.value==='passport'){engine.value='easyocr';processingMode.value='fast';languageHint.value='en'}else if(documentType.value==='id_document'){engine.value='easyocr';processingMode.value='balanced';languageHint.value='en'}else if(documentType.value==='cin_tn'){engine.value='easyocr';processingMode.value='balanced';languageHint.value='ar'}else if(documentType.value==='custom'){engine.value='paddle';processingMode.value='balanced';languageHint.value=''}else{engine.value='auto';processingMode.value='balanced';languageHint.value=''}}
+    function updateMoteurHelp(){const dt=documentType.value;const msg={passport:'<strong>Recommandé :</strong> EasyOCR + fast. Le passeport utilise MRZ-first ; le moteur sert surtout à lire la MRZ.',id_document:'<strong>Recommandé :</strong> EasyOCR + balanced. Les cartes ID utilisent ROI + width guard ; balanced est plus sûr pour les documents difficiles.',invoice:'<strong>Recommandé :</strong> Paddle + balanced. Les factures exploitent OCR global + règles métier + cohérence HT/TVA/Timbre/TTC.',cin_tn:'<strong>Recommandé :</strong> EasyOCR + balanced avec langue arabe/français.',custom:'<strong>Template personnalisé :</strong> commence par Paddle pour documents imprimés/tableaux, EasyOCR pour cartes ou photos. Ajuste ensuite selon le résultat raw_text.',auto:'<strong>Auto :</strong> utile pour tester le routage Swin. Pour la démo, un type explicite est plus stable.'};engineHelp.innerHTML=msg[dt]||msg.auto;}
+    documentType.addEventListener('change',updateTemplateFromType);engine.addEventListener('change',updateMoteurHelp);processingMode.addEventListener('change',updateMoteurHelp);loadTemplateOptions();
+    fileInput.addEventListener('change',()=>{const file=fileInput.files&&fileInput.files[0];if(!file){preview.textContent="Sélectionne un document pour afficher l'aperçu.";return}if(!file.type.startsWith('image/')){preview.innerHTML=`Fichier sélectionné : <strong>${escapeHtml(file.name)}</strong>`;return}const url=URL.createObjectURL(file);preview.innerHTML=`<img src="${url}" alt="Aperçu du document importé" />`;});
+    resetBtn.addEventListener('click',()=>{form.reset();document.getElementById('apiKey').value='dev-key-123';documentType.value='auto';templateId.value='';processingMode.value='balanced';cinMode.value='balanced';engine.value='auto';languageHint.value='';updateMoteurHelp();preview.textContent="Sélectionne un document pour afficher l'aperçu.";resultArea.className='result-empty';resultArea.innerHTML='<div><div class="empty-icon">OCR</div><strong>Aucune extraction lancée</strong><br>Le résultat s’affichera ici après l’analyse du document.</div>';});
+    form.addEventListener('submit',async e=>{e.preventDefault();const apiKey=document.getElementById('apiKey').value.trim();const file=fileInput.files&&fileInput.files[0];if(!apiKey)return renderError('Clé API obligatoire.');if(!file)return renderError('Sélectionne un fichier.');const fd=new FormData();fd.append('file',file);fd.append('document_type',documentType.value);fd.append('engine',engine.value);fd.append('processing_mode',processingMode.value);fd.append('cin_mode',cinMode.value);fd.append('include_diagnostics',document.getElementById('includeDiagnostics').checked?'true':'false');if(templateId.value.trim())fd.append('template_id',templateId.value.trim());if(languageHint.value.trim())fd.append('language_hint',languageHint.value.trim());setLoading(true);try{const response=await fetch('/extract',{method:'POST',headers:{'X-API-Key':apiKey},body:fd});const ct=response.headers.get('content-type')||'';const payload=ct.includes('application/json')?await response.json():await response.text();if(!response.ok){renderError(`Erreur HTTP ${response.status}`,typeof payload==='object'?JSON.stringify(payload,null,2):String(payload));return}renderResult(payload)}catch(err){renderError('Erreur réseau ou serveur indisponible.',String(err))}finally{setLoading(false)}});
+    function setLoading(v){submitBtn.disabled=v;submitBtn.innerHTML=v?'<span class="spinner"></span>Extraction en cours...':'Lancer l’extraction'}
+    function renderResult(data){const fields=Array.isArray(data.fields)?data.fields:[],diagnostics=data.diagnostics||{},routing=data.routing||diagnostics.routing||{},strategy=diagnostics.strategy||diagnostics.passport_extraction?.passport_extraction||diagnostics.roi_extraction?.roi_extraction||diagnostics.invoice_extraction?.invoice_extraction||'-';resultArea.className='';resultArea.innerHTML=`<div class="summary"><div class="metric"><div class="k">Statut</div><div class="v"><span class="badge ${statusClass(data.status)}">${escapeHtml(statusLabel(data.status))}</span></div></div><div class="metric"><div class="k">Décision métier</div><div class="v">${escapeHtml(businessDecision(data))}</div></div><div class="metric"><div class="k">Type</div><div class="v">${escapeHtml(toDisplayLabel(data.document_type)||'-')}</div></div><div class="metric"><div class="k">Temps</div><div class="v">${formatMs(data.processing_time_ms)}</div></div></div><div class="summary"><div class="metric"><div class="k">Template</div><div class="v">${escapeHtml(data.template_id||'-')}</div></div><div class="metric"><div class="k">Moteur</div><div class="v">${escapeHtml(data.engine_used||'-')}</div></div><div class="metric"><div class="k">Confiance</div><div class="v">${asPercent(data.global_confidence)}</div></div><div class="metric"><div class="k">Qualité</div><div class="v">${asPercent(data.quality_score)}</div></div></div><div class="decision-box"><div class="decision-main"><div class="decision-label">Décision</div><div class="decision-value"><span class="badge ${statusClass(data.status)}">${escapeHtml(businessDecision(data))}</span></div></div><div class="pipeline-box"><div class="decision-label">Pipeline</div><div class="pipeline"><span>${escapeHtml(routing.method||'routage')}</span><span>${escapeHtml(data.template_id||'template-auto')}</span><span>${escapeHtml(data.engine_used||'moteur-auto')}</span><span>${escapeHtml(strategy)}</span></div></div></div>${renderReviewReasons(data)}<div class="fields">${fields.length?fields.map(renderField).join(''):renderNormalized(data.normalized_data||{})}</div><div class="tabs"><button class="tab active" data-tab="json" type="button">JSON</button><button class="tab" data-tab="raw" type="button">Texte brut</button><button class="tab" data-tab="diag" type="button">Diagnostics</button><button class="tab" data-tab="normalized" type="button">Données normalisées</button></div><pre id="tab-json" class="active">${escapeHtml(JSON.stringify(data,null,2))}</pre><pre id="tab-raw">${escapeHtml(data.raw_text||'')}</pre><pre id="tab-diag">${escapeHtml(JSON.stringify(diagnostics,null,2))}</pre><pre id="tab-normalized">${escapeHtml(JSON.stringify(data.normalized_data||{},null,2))}</pre><button class="btn btn-secondary" id="copyBtn" type="button">Copier JSON</button><button class="btn btn-secondary" id="downloadBtn" type="button">Télécharger JSON</button>`;bindTabs();bindResultButtons(data)}
+    const FIELD_LABELS={
+      auto:'Détection auto',
+      invoice:'Facture tunisienne',
+      passport:'Passeport',
+      id_document:'Document d’identité',
+      cin_tn:'CIN tunisienne',
+      registre_commerce:'Registre de commerce',
+      custom:'Template personnalisé',
+      invoice_profile:'Profil de facture',
+      invoice_number:'Numéro de facture',
+      invoice_date:'Date de facture',
+      supplier_name:'Fournisseur',
+      customer_name:'Client',
+      tax_id:'Matricule fiscal',
+      supplier_tax_id:'Matricule fiscal fournisseur',
+      customer_tax_id:'Matricule fiscal client',
+      document_number:'Numéro du document',
+      surname:'Nom',
+      name:'Prénom',
+      given_names:'Prénom(s)',
+      nationality:'Nationalité',
+      birth_date:'Date de naissance',
+      expiry_date:'Date d’expiration',
+      issue_date:'Date de délivrance',
+      issue_place:'Lieu de délivrance',
+      gender:'Sexe',
+      mrz_line0:'MRZ ligne 1',
+      mrz_line1:'MRZ ligne 2',
+      total_ht:'Total H.T.',
+      vat_amount:'Montant TVA',
+      vat_rate:'Taux TVA',
+      stamp_amount:'Droit de timbre',
+      total_ttc:'Total T.T.C.',
+      currency:'Devise',
+      amount_consistency:'Cohérence des montants',
+      reference_unique:'Référence unique',
+      period_start:'Période du',
+      period_end:'Période au',
+      payment_due_date:'Date limite de paiement',
+      line_items:'Lignes de facture',
+      lineItems:'Lignes de facture',
+      code:'Code',
+      designation:'Désignation',
+      description:'Désignation',
+      quantity:'Quantité',
+      unit_price:'Prix unitaire',
+      unit_ht:'Prix unitaire HT',
+      vat:'TVA',
+      tva:'TVA',
+      vat_percent:'TVA %',
+      vat_rate_percent:'TVA %',
+      total:'Total',
+      line_total:'Total',
+      raw_total:'Total brut'
+    };
+    const LINE_ITEM_COLUMNS=[
+      {label:'Code',aliases:['code','item_code']},
+      {label:'Désignation',aliases:['designation','description','libelle','label','name']},
+      {label:'Quantité',aliases:['quantity','qty','quantite']},
+      {label:'Prix unitaire H.T.V.A.',aliases:['prix_unitaire_htva','unit_price','prix_unitaire','unit_ht','price','pu','p_u_htva']},
+      {label:'TVA %',aliases:['vat_rate','tva_rate','tax_rate','vat_percent','taux_tva']},
+      {label:'Total H.T.V.A.',aliases:['total_htva','total','line_total','montant','amount','total_ht']}
+    ];
+    function renderReviewReasons(data){const reasons=Array.isArray(data.review_reasons)?data.review_reasons:[];if(!reasons.length)return'';return`<div class="review-box"><strong>Révision requise</strong><ul>${reasons.map(r=>`<li>${escapeHtml(r)}</li>`).join('')}</ul></div>`}
+    function toDisplayLabel(name){
+      const key=String(name||'').trim();
+      if(!key)return '-';
+      return FIELD_LABELS[key]||key.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+    }
+    function formatDateValue(value){
+      const s=String(value||'').trim();
+      const m=s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      return m?`${m[3]}/${m[2]}/${m[1]}`:s;
+    }
+    function formatSimpleValue(value,fieldName=''){
+      if(value===null||value===undefined||value==='')return '—';
+      if(typeof value==='boolean'){
+        if(fieldName==='amount_consistency')return value?'Cohérent':'Non cohérent';
+        return value?'Oui':'Non';
+      }
+      if(typeof value==='string'){
+        if(/_date$/.test(fieldName)||/^period_/.test(fieldName))return formatDateValue(value);
+        return value;
+      }
+      return String(value);
+    }
+    function findLineItemValue(item,aliases){
+      for(const alias of aliases){
+        if(Object.prototype.hasOwnProperty.call(item,alias)&&item[alias]!==null&&item[alias]!==undefined&&item[alias]!=='')return item[alias];
+      }
+      return '';
+    }
+    function renderObjectValue(obj){
+      const entries=Object.entries(obj||{}).filter(([,v])=>v!==null&&v!==undefined&&v!=='');
+      if(!entries.length)return '<div class="value">—</div>';
+      return `<div class="value-block kv-list">${entries.map(([k,v])=>`<div class="kv-item"><div class="kv-key">${escapeHtml(toDisplayLabel(k))}</div><div class="kv-val">${escapeHtml(formatSimpleValue(v,k))}</div></div>`).join('')}</div>`;
+    }
+    function renderLineItems(items){
+      const rows=Array.isArray(items)?items:[];
+      if(!rows.length)return '<div class="value">—</div>';
+      const activeColumns=LINE_ITEM_COLUMNS.filter(col=>rows.some(item=>findLineItemValue(item||{},col.aliases)!==''));
+      const columns=activeColumns.length?activeColumns:LINE_ITEM_COLUMNS;
+      const header=`<tr>${columns.map(col=>`<th>${escapeHtml(col.label)}</th>`).join('')}</tr>`;
+      const body=rows.map(item=>`<tr>${columns.map(col=>`<td>${escapeHtml(formatSimpleValue(findLineItemValue(item||{},col.aliases),col.aliases[0]))}</td>`).join('')}</tr>`).join('');
+      return `<div class="value-block line-items-wrapper"><div class="line-items-caption">${rows.length} ligne(s) détectée(s)</div><table class="line-items-table"><thead>${header}</thead><tbody>${body}</tbody></table></div>`;
+    }
+    function tryParseJsonArray(value){
+      if(typeof value!=='string')return value;
+      const s=value.trim();
+      if(!(s.startsWith('[')||s.startsWith('{')))return value;
+      try{return JSON.parse(s)}catch(_){return value}
+    }
+    function renderFieldValue(field){
+      let value=field?field.value:null;
+      if(field&&(field.name==='line_items'||field.name==='lineItems')){
+        value=tryParseJsonArray(value);
+        return renderLineItems(Array.isArray(value)?value:[]);
+      }
+      if(Array.isArray(value)){
+        if(!value.length)return '<div class="value">—</div>';
+        if(value.every(item=>item&&typeof item==='object'&&!Array.isArray(item)))return renderObjectValue({éléments:value.length, contenu:'Voir JSON pour le détail complet'});
+        return `<div class="value">${escapeHtml(value.map(v=>formatSimpleValue(v,field.name)).join(', '))}</div>`;
+      }
+      if(value&&typeof value==='object')return renderObjectValue(value);
+      return `<div class="value">${escapeHtml(formatSimpleValue(value,field?field.name:''))}</div>`;
+    }
+    function renderField(field){const validClass=field.validated?'pill-valid':'pill-invalid';const validText=field.validated?'validé':'non validé';const error=field.error?`<span class="pill pill-invalid">${escapeHtml(field.error)}</span>`:'';const extra=(field.name==='line_items'||field.name==='lineItems')?' line-items-card':'';return`<div class="field${extra}"><div class="name">${escapeHtml(toDisplayLabel(field.name||'-'))}</div>${renderFieldValue(field)}<div class="meta"><span class="pill">${asPercent(field.confidence)}</span><span class="pill ${validClass}">${validText}</span><span class="pill">${escapeHtml(field.selected_source||field.selected_engine||'-')}</span>${error}</div></div>`}
+    function renderNormalized(n){const e=Object.entries(n||{});if(!e.length)return'<div class="field"><div class="name">Aucun champ</div><div class="value">—</div></div>';return e.map(([k,v])=>{const extra=(k==='line_items'||k==='lineItems')?' line-items-card':'';return `<div class="field${extra}"><div class="name">${escapeHtml(toDisplayLabel(k))}</div>${renderFieldValue({name:k,value:v})}</div>`}).join('')}
+    function bindTabs(){document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('pre').forEach(x=>x.classList.remove('active'));btn.classList.add('active');const pane=document.getElementById(`tab-${btn.dataset.tab}`);if(pane)pane.classList.add('active')}))}
+    function bindResultButtons(data){const copyBtn=document.getElementById('copyBtn'),downloadBtn=document.getElementById('downloadBtn');if(copyBtn)copyBtn.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(JSON.stringify(data,null,2));copyBtn.textContent='JSON copié'}catch(e){copyBtn.textContent='Copie impossible'}setTimeout(()=>{const b=document.getElementById('copyBtn');if(b)b.textContent='Copier JSON'},1300)});if(downloadBtn)downloadBtn.addEventListener('click',()=>{const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`ocr_result_${data.template_id||data.document_type||'document'}.json`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url)})}
+    function renderError(title,detail=''){resultArea.className='';resultArea.innerHTML=`<div class="error"><strong>${escapeHtml(title)}</strong>${detail?`<pre class="active" style="background:transparent;color:inherit;padding:0;">${escapeHtml(detail)}</pre>`:''}</div>`}
+    function statusLabel(status){const labels={success:'Succès',review_required:'Révision requise',partial:'Partiel',failed:'Échec'};return labels[status]||status||'-'}
+    function statusClass(status){if(status==='success')return'ok';if(status==='review_required')return'warn';if(status==='partial')return'info';if(status==='failed')return'danger-badge';return'warn'}
+    function businessDecision(data){if(data.status==='success')return'Extraction acceptée';if(data.status==='review_required')return'Révision humaine';if(data.status==='partial')return'Extraction partielle';if(data.status==='failed')return'Extraction rejetée';return'Indéterminée'}
+    function asPercent(value){const n=Number(value);if(!Number.isFinite(n))return'—';return`${(n<=1?n*100:n).toFixed(1)}%`}
+    function formatMs(ms){const n=Number(ms);if(!Number.isFinite(n))return'—';return n<1000?`${Math.round(n)} ms`:`${(n/1000).toFixed(2)} s`}
+    function escapeHtml(value){return String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;')}
+  </script>
+</body>
+</html>

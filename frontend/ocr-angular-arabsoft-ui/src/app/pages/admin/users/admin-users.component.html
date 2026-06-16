@@ -1,0 +1,254 @@
+<section class="admin-layout">
+  <input id="sidebarToggle" class="sidebar-toggle" type="checkbox">
+
+  <aside class="admin-sidebar">
+    <div class="sb-brand">
+      <img src="assets/extractly-mark.svg" alt="ExtractLY">
+      <strong>ExtractLY</strong>
+    </div>
+
+    <nav class="sb-nav">
+      <a class="sb-link" routerLink="/admin/dashboard" *ngIf="auth.canSeeDashboard()">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-9"/></svg></span><span>Dashboard</span>
+      </a>
+
+      <a class="sb-link" routerLink="/profile">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.7-4 4.4-6 8-6s6.3 2 8 6"/></svg></span><span>Profil</span>
+      </a>
+
+      <p class="nav-section-label" *ngIf="auth.canManageUsers() || auth.canManageTemplates() || auth.canManageSwin()">Administration</p>
+
+      <a class="sb-link active" routerLink="/admin/users" *ngIf="auth.canManageUsers()">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="10" r="3"/><path d="M2.5 20c1.3-3.5 3.6-5.2 6.5-5.2s5.2 1.7 6.5 5.2"/><path d="M13.8 15.2c2.4.2 4.2 1.8 5.7 4.8"/></svg></span><span>Utilisateurs</span>
+      </a>
+
+      <a class="sb-link" routerLink="/templates" *ngIf="auth.canManageTemplates()">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M8 3h5v4a2 2 0 1 0 4 0V3h4v6h-4a2 2 0 1 0 0 4h4v8h-6v-4a2 2 0 1 0-4 0v4H3v-6h4a2 2 0 1 0 0-4H3V3h5z"/></svg></span><span>Templates</span>
+      </a>
+
+      <p class="nav-section-label" *ngIf="auth.canViewHistory() || auth.canUseAssistant()">Outils</p>
+
+      <a class="sb-link" routerLink="/history" *ngIf="auth.canViewHistory()">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/><path d="M3 12a9 9 0 0 1 2.2-5.8"/></svg></span><span>Historique</span>
+      </a>
+
+      <a class="sb-link" routerLink="/assistant" *ngIf="auth.canUseAssistant()">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V5"/><path d="M9 5h6"/><circle cx="9" cy="13" r="1"/><circle cx="15" cy="13" r="1"/><path d="M9 17h6"/></svg></span><span>Assistant OCR</span>
+      </a>
+
+      <a class="sb-link" routerLink="/">
+        <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v6h5"/><path d="M9 13h6"/><path d="M9 17h6"/></svg></span><span>Extraction</span>
+      </a>
+    </nav>
+
+    <div class="sb-footer user-footer">
+      <div class="sb-user-avatar">{{ (auth.getUser()?.full_name || auth.getUser()?.email || 'Utilisateur').slice(0, 1).toUpperCase() }}</div>
+      <div class="sb-user-text">
+        <strong>{{ auth.getUser()?.full_name || auth.getUser()?.email || 'Utilisateur' }}</strong>
+        <span>{{ auth.getUser()?.role || 'user' }}</span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="admin-page">
+    <header class="admin-topbar">
+      <div class="topbar-left">
+        <label class="menu-btn" for="sidebarToggle" title="Afficher / masquer le menu"><span></span><span></span><span></span></label>
+        <nav class="top-menu">
+          <a routerLink="/admin/dashboard" *ngIf="auth.canSeeDashboard()">Dashboard</a>
+          <a routerLink="/admin/users" *ngIf="auth.canManageUsers()">Users</a>
+          <a routerLink="/templates" *ngIf="auth.canManageTemplates()">Templates</a>
+          <a routerLink="/admin/swin" *ngIf="auth.canManageSwin()">Swin</a>
+          <a routerLink="/history" *ngIf="auth.canViewHistory()">Historique</a>
+          <a routerLink="/assistant" *ngIf="auth.canUseAssistant()">Assistant</a>
+          <a routerLink="/profile">Profil</a>
+          <a routerLink="/">Extraction</a>
+        </nav>
+      </div>
+      <div class="topbar-right">
+        <div class="user-avatar"><img src="assets/Arabsoft_Logo.jpg" alt="Admin"></div>
+      </div>
+    </header>
+
+    <div class="breadcrumb-bar">
+      <span>Home</span><span>/</span><strong>Users</strong>
+    </div>
+
+    <div class="admin-content">
+
+      <!-- TITRE + BARRE DE RECHERCHE + ACTUALISER -->
+      <div class="page-title">
+        <div>
+          <h1>Gestion des utilisateurs</h1>
+          <p>Créer, modifier et gérer les rôles des utilisateurs OCR.</p>
+        </div>
+
+        <div class="users-toolbar">
+          <!-- Barre de recherche -->
+          <div class="history-search">
+            <span class="search-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="11" cy="11" r="7"></circle>
+                <path d="M20 20l-3.5-3.5"></path>
+              </svg>
+            </span>
+            <input
+              type="search"
+              placeholder="Rechercher email, nom, rôle…"
+              [ngModel]="searchQuery()"
+              (ngModelChange)="searchQuery.set($event)">
+            <button
+              class="search-clear"
+              type="button"
+              *ngIf="searchQuery()"
+              (click)="clearSearch()"
+              aria-label="Effacer">×</button>
+          </div>
+
+          <button class="btn btn-primary" type="button" (click)="load()" [disabled]="loading()">
+            {{ loading() ? 'Chargement…' : 'Actualiser' }}
+          </button>
+        </div>
+      </div>
+
+      <!-- Résumé filtre -->
+      <div class="filter-summary" *ngIf="searchQuery()">
+        Résultats pour : <strong>"{{ searchQuery() }}"</strong>
+        · {{ filteredUsers().length }} utilisateur(s)
+        <button class="btn btn-light" type="button" style="margin-left:8px;padding:4px 10px;font-size:12px" (click)="clearSearch()">
+          Effacer
+        </button>
+      </div>
+
+      <div class="alert error"   *ngIf="error()">{{ error() }}</div>
+      <div class="alert success" *ngIf="message()">{{ message() }}</div>
+
+      <!-- CREATE USER -->
+      <section class="card">
+        <div class="card-h">
+          <div class="card-h-icon blue">＋</div>
+          <div>
+            <div class="title">Créer un utilisateur</div>
+            <div class="sub">Ajouter un admin, operator ou viewer</div>
+          </div>
+        </div>
+
+        <div class="card-b">
+          <form class="user-form" (ngSubmit)="createUser()">
+            <label>
+              Email
+              <input [(ngModel)]="createForm.email" name="email" type="email" placeholder="user@arabsoft.com.tn">
+            </label>
+            <label>
+              Nom complet
+              <input [(ngModel)]="createForm.full_name" name="full_name" type="text" placeholder="Nom et prénom">
+            </label>
+            <label>
+              Mot de passe
+              <input [(ngModel)]="createForm.password" name="password" type="password" placeholder="Minimum 8 caractères">
+            </label>
+            <label>
+              Rôle
+              <select [(ngModel)]="createForm.role" name="role">
+                <option value="admin">admin</option>
+                <option value="operator">operator</option>
+                <option value="viewer">viewer</option>
+              </select>
+            </label>
+            <label class="check-line">
+              <input [(ngModel)]="createForm.is_superuser" name="is_superuser" type="checkbox">
+              <span>Superuser</span>
+            </label>
+            <button class="btn btn-primary" type="submit">Créer</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- USERS LIST -->
+      <section class="card users-card">
+        <div class="card-h">
+          <div class="card-h-icon orange">
+            <span class="ui-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="10" r="3"/><path d="M2.5 20c1.3-3.5 3.6-5.2 6.5-5.2s5.2 1.7 6.5 5.2"/><path d="M13.8 15.2c2.4.2 4.2 1.8 5.7 4.8"/></svg></span>
+          </div>
+          <div>
+            <div class="title">Liste des utilisateurs</div>
+            <div class="sub">{{ filteredUsers().length }} / {{ users().length }} utilisateur(s) affiché(s)</div>
+          </div>
+        </div>
+
+        <div class="tbl-wrap users-table-scroll">
+          <table class="ocr-tbl">
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Nom</th>
+                <th>Rôle</th>
+                <th>Actif</th>
+                <th>Superuser</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let user of filteredUsers()">
+                <ng-container *ngIf="editUserId() === user.id; else readRow">
+                  <td><strong>{{ user.email }}</strong></td>
+                  <td><input [(ngModel)]="editForm.full_name" name="edit_full_name_{{ user.id }}"></td>
+                  <td>
+                    <select [(ngModel)]="editForm.role" name="edit_role_{{ user.id }}">
+                      <option value="admin">admin</option>
+                      <option value="operator">operator</option>
+                      <option value="viewer">viewer</option>
+                    </select>
+                  </td>
+                  <td><input [(ngModel)]="editForm.is_active" name="edit_active_{{ user.id }}" type="checkbox"></td>
+                  <td><input [(ngModel)]="editForm.is_superuser" name="edit_super_{{ user.id }}" type="checkbox"></td>
+                  <td class="actions-cell">
+                    <button class="mini primary" type="button" (click)="saveEdit(user)">Sauver</button>
+                    <button class="mini" type="button" (click)="cancelEdit()">Annuler</button>
+                  </td>
+                </ng-container>
+
+                <ng-template #readRow>
+                  <td><strong>{{ user.email }}</strong></td>
+                  <td>{{ user.full_name || '—' }}</td>
+                  <td>
+                    <span class="role-badge"
+                      [class.role-admin]="user.role === 'admin'"
+                      [class.role-operator]="user.role === 'operator'"
+                      [class.role-viewer]="user.role === 'viewer'">{{ user.role }}</span>
+                  </td>
+                  <td>
+                    <span class="status-pill" [class.done]="user.is_active" [class.failed]="!user.is_active">
+                      <span class="pip"></span>
+                      {{ user.is_active ? 'Actif' : 'Inactif' }}
+                    </span>
+                  </td>
+                  <td>
+                    <span class="super-badge" [class.yes]="user.is_superuser">
+                      {{ user.is_superuser ? 'Oui' : 'Non' }}
+                    </span>
+                  </td>
+                  <td class="actions-cell">
+                    <button class="mini" type="button" (click)="startEdit(user)">Modifier</button>
+                    <button class="mini danger" type="button" (click)="disable(user)"
+                      [disabled]="!user.is_active || user.is_superuser">Désactiver</button>
+                  </td>
+                </ng-template>
+              </tr>
+
+              <tr *ngIf="!filteredUsers().length && !loading()">
+                <td colspan="6" class="empty-cell">
+                  <ng-container *ngIf="searchQuery(); else noUsers">
+                    Aucun utilisateur ne correspond à "{{ searchQuery() }}".
+                  </ng-container>
+                  <ng-template #noUsers>Aucun utilisateur trouvé.</ng-template>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+</section>

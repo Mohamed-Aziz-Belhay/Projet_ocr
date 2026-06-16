@@ -1,0 +1,75 @@
+id: midv_rus_passport
+name: MIDV-2020 rus_passport
+document_type: passport
+dataset: midv2020
+source_class: rus_passport
+template_source_variant: templates
+language: auto
+preferred_engine: paddle
+engines:
+  primary: paddle
+  secondary: easyocr
+fields:
+- name: birth_date
+  type: date
+  required: true
+  output_key: birthDate
+  patterns:
+  - (\d{1,2}[.\-/ ]+\d{1,2}[.\-/ ]+\d{2,4})
+  - (\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4})
+- name: birth_place_line0
+  type: text
+  required: false
+  output_key: birth_place_line0
+- name: birth_place_line1
+  type: text
+  required: false
+  output_key: birth_place_line1
+- name: birth_place_line2
+  type: text
+  required: false
+  output_key: birth_place_line2
+- name: face
+  type: image
+  required: false
+  output_key: face
+- name: gender
+  type: enum
+  required: false
+  output_key: gender
+- name: name
+  type: text
+  required: true
+  output_key: givenNames
+- name: number
+  type: text
+  required: true
+  output_key: documentNumber
+  validation:
+    min_length: 3
+    max_length: 40
+- name: patronymic
+  type: text
+  required: false
+  output_key: patronymic
+- name: photo
+  type: image
+  required: false
+  output_key: photo
+- name: surname
+  type: text
+  required: true
+  output_key: surname
+roi_fields: []
+output_mapping:
+  birth_date: birthDate
+  birth_place_line0: birth_place_line0
+  birth_place_line1: birth_place_line1
+  birth_place_line2: birth_place_line2
+  face: face
+  gender: gender
+  name: givenNames
+  number: documentNumber
+  patronymic: patronymic
+  photo: photo
+  surname: surname
