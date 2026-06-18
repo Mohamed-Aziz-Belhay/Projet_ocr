@@ -178,6 +178,34 @@ def _send_reset_email(email: str, code: str) -> str:
         ) from exc
 
 
+# ─────────────────────────────────────────────────────────────────────────────
+# Helper : retourner la première clé API autorisée pour le header Angular
+# ─────────────────────────────────────────────────────────────────────────────
+def _get_api_key_for_client() -> str | None:
+    """
+    Retourne la première clé de ALLOWED_API_KEYS pour que le frontend
+    puisse l'utiliser dans le header X-API-Key.
+    Ne jamais retourner 'dev-key-123' en production.
+    """
+    env = (settings.ENVIRONMENT or "development").lower()
+    keys = settings.ALLOWED_API_KEYS or []
+
+    if not keys:
+        return None
+
+    first_key = keys[0]
+
+    # Sécurité : ne jamais exposer la clé dev en production
+    if env == "production" and first_key == "dev-key-123":
+        return None
+
+    return first_key
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Endpoints
+# ─────────────────────────────────────────────────────────────────────────────
+
 @router.post("/login", response_model=TokenResponse)
 async def login(payload: LoginRequest, db: AsyncSession = Depends(get_db)):
     auth = AuthService(db)
@@ -201,10 +229,14 @@ async def login(payload: LoginRequest, db: AsyncSession = Depends(get_db)):
 
     token, expires_in = auth.create_user_token(user)
 
+    # ✅ Retourner la clé API au frontend pour éviter le fallback 'dev-key-123'
+    api_key = _get_api_key_for_client()
+
     return TokenResponse(
         access_token=token,
         expires_in=expires_in,
         user=UserResponse(**user_to_dict(user)),
+        api_key=api_key,
     )
 
 
@@ -244,10 +276,14 @@ async def register(payload: RegisterRequest, db: AsyncSession = Depends(get_db))
 
     token, expires_in = auth.create_user_token(user)
 
+    # ✅ Retourner la clé API au register aussi
+    api_key = _get_api_key_for_client()
+
     return TokenResponse(
         access_token=token,
         expires_in=expires_in,
         user=UserResponse(**user_to_dict(user)),
+        api_key=api_key,
     )
 
 

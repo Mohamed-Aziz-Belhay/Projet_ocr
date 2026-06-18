@@ -27,6 +27,7 @@ class TokenResponse(BaseModel):
     token_type: str = "bearer"
     expires_in: int
     user: "UserResponse"
+    api_key:      Optional[str] = None 
 
 
 class UserResponse(BaseModel):

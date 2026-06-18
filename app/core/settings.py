@@ -134,15 +134,38 @@ class Settings(BaseSettings):
     WEBHOOK_TIMEOUT_SECONDS: int = 10
     WEBHOOK_RETRIES: int = 3
 
+    # ✅ APRÈS — bloquer en production, avertir en dev
     @model_validator(mode="after")
     def finalize_settings(self):
+        import warnings
         env = (self.ENVIRONMENT or "development").lower()
+
+        # SECRET_KEY
         if not self.SECRET_KEY:
             if env == "production":
                 raise ValueError("SECRET_KEY is required in production")
             self.SECRET_KEY = "dev-secret-key-change-me-please-12345"
-        if not self.ALLOWED_API_KEYS and env in {"development", "test"}:
-            self.ALLOWED_API_KEYS = ["dev-key-123"]
+            warnings.warn(
+                "SECRET_KEY not set — using insecure default. "
+                "Set SECRET_KEY in .env for any non-dev environment.",
+                stacklevel=2,
+            )
+
+        # ALLOWED_API_KEYS
+        if not self.ALLOWED_API_KEYS:
+            if env == "production":
+                raise ValueError(
+                    "ALLOWED_API_KEYS must be set in production. "
+                    "Generate a key with: python3 -c \"import secrets; print(secrets.token_urlsafe(32))\""
+                )
+            if env in {"development", "test"}:
+                self.ALLOWED_API_KEYS = ["dev-key-123"]
+                warnings.warn(
+                    "ALLOWED_API_KEYS not set — using insecure 'dev-key-123'. "
+                    "Set ALLOWED_API_KEYS in .env before deploying.",
+                    stacklevel=2,
+                )
+
         return self
 
     @field_validator("ALLOWED_API_KEYS", mode="before")

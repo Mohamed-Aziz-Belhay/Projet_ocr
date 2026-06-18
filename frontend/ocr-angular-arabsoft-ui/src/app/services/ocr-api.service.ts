@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { AuthApiService } from './auth-api.service';
 
 // ── Interfaces alignées sur to_summary() PostgreSQL ──────────────────────────
 export interface TemplateSummary {
@@ -64,7 +65,7 @@ export class OcrApiService {
 
   private readonly baseUrl = environment.apiBaseUrl.replace(/\/$/, '');
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private authService: AuthApiService) {}
 
   // ── Extraction ────────────────────────────────────────────────────────────
   extract(req: ExtractRequest): Observable<any> {
@@ -79,13 +80,10 @@ export class OcrApiService {
       if (req.languageHint) f.append('language_hint', req.languageHint);
 
       // ← Ajoute ces headers
-      const apiKey = localStorage.getItem('ocr_api_key') || 'dev-key-123';
-      const token  = localStorage.getItem('ocr_access_token') || '';
-      const headers: any = {};
-      if (apiKey) headers['X-API-Key']     = apiKey;
-      if (token)  headers['Authorization'] = `Bearer ${token}`;
-
-      return this.http.post<any>(`${this.baseUrl}/extract`, f, { headers });
+      return this.http.post<any>(
+        `${this.baseUrl}/extract`, f,
+        { headers: this.authService.authHeaders() }
+    );
   }
 
   // ── Templates ─────────────────────────────────────────────────────────────
