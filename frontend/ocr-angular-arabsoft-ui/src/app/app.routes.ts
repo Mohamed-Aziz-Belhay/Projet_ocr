@@ -14,9 +14,10 @@ import { OcrAssistantComponent } from './pages/assistant/ocr-assistant.component
 import { authGuard } from './services/auth.guard';
 import { adminGuard } from './services/admin.guard';
 import { roleGuard } from './services/role.guard';
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
-  { path: '', component: ExtractionComponent },
+  { path: '', component: HomeComponent },
 
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -35,6 +36,7 @@ export const routes: Routes = [
   { path: 'history', component: HistoryComponent, canActivate: [roleGuard], data: { roles: ['admin', 'operator','simple_user'] } },
   { path: 'assistant', component: OcrAssistantComponent, canActivate: [authGuard, roleGuard], data: { roles: ['admin', 'operator'] } },
 
+  { path: 'extract', component: ExtractionComponent, canActivate: [authGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
 
   { path: '**', redirectTo: '' },

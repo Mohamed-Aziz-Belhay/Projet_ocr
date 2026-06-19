@@ -85,7 +85,7 @@
         <span>Assistant OCR</span>
       </a>
 
-      <a class="sb-link" routerLink="/">
+      <a class="sb-link" routerLink="/extract">
         <span class="sb-svg" aria-hidden="true">
           <svg viewBox="0 0 24 24" focusable="false">
             <path d="M7 3h7l5 5v13H7z"/>
@@ -126,7 +126,7 @@
           <a routerLink="/history" *ngIf="auth.canViewHistory()">Historique</a>
           <a routerLink="/assistant" *ngIf="auth.canUseAssistant()">Assistant</a>
           <a routerLink="/profile">Profil</a>
-          <a routerLink="/">Extraction</a>
+          <a routerLink="/extract">Extraction</a>
         </nav>
       </div>
 

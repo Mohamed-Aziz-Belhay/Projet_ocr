@@ -1,0 +1,248 @@
+/* ============================================================
+   HOME COMPONENT — Styles spécifiques uniquement.
+   Toutes les classes partagées (.hero, .chip, .gradient-text,
+   .cap-card, .flow-line, .btn-primary, .section-header...)
+   sont définies globalement et réutilisées ici sans redéfinition.
+   ============================================================ */
+
+/* ── Stats bar ──────────────────────────────────────────── */
+.home-stats {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 0 40px 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 16px;
+  text-align: center;
+  backdrop-filter: var(--blur);
+  transition: all .25s;
+}
+
+.stat-card:hover {
+  border-color: var(--border2);
+  transform: translateY(-2px);
+}
+
+.stat-value {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.9rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1.1;
+}
+
+.stat-label {
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+
+/* ── Section header (réutilisé, padding ajusté pour home) ── */
+.home-section-header {
+  padding: 0 40px;
+  margin: 0 auto 36px;
+  max-width: 1100px;
+  text-align: center;
+}
+
+.home-section-header .section-label {
+  justify-content: center;
+}
+
+.home-section-header .section-label::before {
+  display: none;
+}
+
+.home-section-header h2 {
+  font-size: 1.7rem;
+}
+
+.home-section-header p {
+  max-width: 560px;
+  margin: 10px auto 0;
+}
+
+/* ── Caps grid (home variant : 3 colonnes, max width) ───── */
+.home-caps {
+  max-width: 1100px;
+  margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ── Rôles ──────────────────────────────────────────────── */
+.role-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 0 40px 70px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.role-card {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  backdrop-filter: var(--blur);
+  transition: all .25s;
+}
+
+.role-card:hover {
+  border-color: var(--border2);
+  transform: translateY(-3px);
+}
+
+.role-card-head {
+  margin-bottom: 14px;
+}
+
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+.role-badge.role-admin {
+  background: rgba(248, 113, 113, .15);
+  color: #f87171;
+}
+
+.role-badge.role-operator {
+  background: rgba(79, 142, 255, .15);
+  color: var(--accent);
+}
+
+.role-badge.role-simple {
+  background: rgba(34, 211, 160, .15);
+  color: var(--success);
+}
+
+.role-badge.role-viewer {
+  background: rgba(245, 158, 11, .15);
+  color: var(--warn);
+}
+
+.role-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.role-list li {
+  font-size: 13px;
+  color: var(--ink2);
+  padding-left: 16px;
+  position: relative;
+}
+
+.role-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ── CTA final ──────────────────────────────────────────── */
+.home-cta-section {
+  position: relative;
+  z-index: 1;
+  padding: 0 40px 90px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.home-cta-card {
+  background: linear-gradient(135deg, rgba(79, 142, 255, .10), rgba(129, 140, 248, .08));
+  border: 1px solid rgba(79, 142, 255, .25);
+  border-radius: var(--radius);
+  padding: 48px 40px;
+  text-align: center;
+  backdrop-filter: var(--blur);
+}
+
+.home-cta-card h2 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  color: var(--ink);
+  letter-spacing: -.02em;
+  margin-bottom: 8px;
+}
+
+.home-cta-card p {
+  font-size: 14.5px;
+  color: var(--ink2);
+  margin-bottom: 22px;
+}
+
+.home-cta-card .hero-cta {
+  justify-content: center;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1000px) {
+  .home-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home-caps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .role-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .home-stats,
+  .home-caps,
+  .role-grid {
+    grid-template-columns: 1fr;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .home-section-header {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .home-cta-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .home-cta-card {
+    padding: 32px 22px;
+  }
+}

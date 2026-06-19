@@ -19,11 +19,13 @@ import { authGuard } from './app/services/auth.guard';
 import { adminGuard } from './app/services/admin.guard';
 import { roleGuard } from './app/services/role.guard';
 import { ForgotPasswordComponent } from './app/pages/forgot-password/forgot-password.component';
+import { HomeComponent } from './app/pages/home/home.component';
 
 const routes: Routes = [
   // Page publique : visible même sans login.
+  { path: '', component: HomeComponent },
   // Le bouton "lancer extraction" reste protégé dans extraction.component.ts.
-  { path: '', component: ExtractionComponent },
+  { path: 'extract', component: ExtractionComponent ,canActivate: [authGuard, adminGuard], },
 
   // Admin seulement
   {

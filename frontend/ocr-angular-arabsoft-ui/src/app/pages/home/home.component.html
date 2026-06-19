@@ -1,0 +1,274 @@
+<!-- ============================================================
+     HOME — Page d'accueil ExtractLY
+     Réutilise les classes globales du thème : hero, chip,
+     gradient-text, flow-line, cap-card, btn-primary, btn-ghost
+     ============================================================ -->
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      Plateforme PFE · Arabsoft Solution
+    </div>
+
+    <h1 class="hero-title">
+      <span class="gradient-text">Extract</span><span style="color: var(--ink)">LY</span>
+    </h1>
+
+    <p class="hero-sub">
+      Plateforme intelligente d'extraction documentaire par OCR multi-moteurs.
+      Passeports, CIN tunisiennes, factures et registres de commerce — analysés,
+      classifiés et validés automatiquement.
+    </p>
+
+    <div class="hero-cta">
+      <a routerLink="/extract" class="btn-primary">
+        <span class="ui-svg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M13 2 4 14h7l-1 8 10-13h-7z"></path>
+          </svg>
+        </span>
+        Lancer une extraction
+      </a>
+
+      <a routerLink="/register" class="btn-ghost" *ngIf="!isLoggedIn()">
+        Créer un compte
+      </a>
+    </div>
+
+    <div class="hero-chips">
+      <span class="chip">FastAPI</span>
+      <span class="chip">Angular 17</span>
+      <span class="chip">PaddleOCR</span>
+      <span class="chip">EasyOCR</span>
+      <span class="chip">YOLOv8</span>
+      <span class="chip">Swin Transformer</span>
+      <span class="chip">Audit JSON</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Stats bar ──────────────────────────────────────────── -->
+<section class="home-stats">
+  <div class="stat-card" *ngFor="let s of stats">
+    <div class="stat-value">{{ s.value }}</div>
+    <div class="stat-label">{{ s.label }}</div>
+  </div>
+</section>
+
+<!-- ── Flow : comment ça marche ───────────────────────────── -->
+<div class="section-header home-section-header">
+  <div class="section-label">Comment ça marche</div>
+  <h2>Du document brut à la donnée structurée</h2>
+  <p>Une pipeline complète : prétraitement, détection, classification, OCR et validation métier.</p>
+</div>
+
+<div class="flow-line">
+  <div class="flow-node">
+    <div class="flow-node-icon fn-doc">
+      <span class="ui-svg" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path d="M7 3h7l5 5v13H7z"></path><path d="M14 3v6h5"></path>
+          <path d="M9 13h6"></path><path d="M9 17h6"></path>
+        </svg>
+      </span>
+    </div>
+    <div>
+      <strong>Document</strong>
+      <span>Scan, photo ou PDF</span>
+    </div>
+  </div>
+
+  <div class="flow-arrow">
+    <div class="flow-dots"></div>
+    <div class="flow-dots flow-dots2"></div>
+    <div class="flow-dots flow-dots3"></div>
+  </div>
+
+  <div class="flow-node">
+    <div class="flow-node-icon fn-engine">
+      <span class="ui-svg" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 0 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V21a2 2 0 0 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1A2 2 0 0 1 4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H3a2 2 0 0 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.3 7A2 2 0 0 1 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3h.1a1.7 1.7 0 0 0 1-1.6V3a2 2 0 0 1 4 0v.1a1.7 1.7 0 0 0 1 1.6h.1a1.7 1.7 0 0 0 1.9-.3l.1-.1A2 2 0 0 1 19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9v.1a1.7 1.7 0 0 0 1.6 1h.1a2 2 0 0 1 0 4H21a1.7 1.7 0 0 0-1.6 1z"></path>
+        </svg>
+      </span>
+    </div>
+    <div>
+      <strong>YOLO + Swin</strong>
+      <span>Détection &amp; classification</span>
+    </div>
+  </div>
+
+  <div class="flow-arrow">
+    <div class="flow-dots"></div>
+    <div class="flow-dots flow-dots2"></div>
+    <div class="flow-dots flow-dots3"></div>
+  </div>
+
+  <div class="flow-node">
+    <div class="flow-node-icon fn-engine">
+      <span class="ui-svg" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+          <path d="M7 8h10"></path><path d="M7 12h6"></path><path d="M7 16h8"></path>
+        </svg>
+      </span>
+    </div>
+    <div>
+      <strong>OCR Engine</strong>
+      <span>PaddleOCR / EasyOCR / Tesseract</span>
+    </div>
+  </div>
+
+  <div class="flow-arrow">
+    <div class="flow-dots"></div>
+    <div class="flow-dots flow-dots2"></div>
+    <div class="flow-dots flow-dots3"></div>
+  </div>
+
+  <div class="flow-node">
+    <div class="flow-node-icon fn-json">
+      <span class="ui-svg" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path d="M8 7 4 12l4 5"></path><path d="M16 7l4 5-4 5"></path><path d="M14 4 10 20"></path>
+        </svg>
+      </span>
+    </div>
+    <div>
+      <strong>JSON validé</strong>
+      <span>Champs scorés &amp; tracés</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── Capacités (cap-card) ───────────────────────────────── -->
+<div class="section-header home-section-header">
+  <div class="section-label">Capacités</div>
+  <h2>Une plateforme, pas juste un OCR</h2>
+  <p>Routage intelligent, sécurité, automatisation et pilotage analytique.</p>
+</div>
+
+<section class="caps home-caps">
+  <div class="cap-card">
+    <span class="cap-tag">Détection</span>
+    <div class="cap-icon">
+      <span class="ui-svg" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path d="M8 5a3 3 0 0 0-3 3v1a3 3 0 0 0 0 6v1a3 3 0 0 0 5.2 2"></path>
+          <path d="M16 5a3 3 0 0 1 3 3v1a3 3 0 0 1 0 6v1a3 3 0 0 1-5.2 2"></path>
+          <path d="M12 4v16"></path>
+        </svg>
+      </span>
+    </div>
+    <h3>Routage intelligent</h3>
+    <p>Classification automatique du document (Swin Transformer) et localisation par YOLOv8 avant extraction.</p>
+  </div>
+
+  <div class="cap-card">
+    <span class="cap-tag">Extraction</span>
+    <div class="cap-icon">
+      <span class="ui-svg" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path d="M13 2 4 14h7l-1 8 10-13h-7z"></path>
+        </svg>
+      </span>
+    </div>
+    <h3>OCR multi-moteurs</h3>
+    <p>PaddleOCR, EasyOCR et Tesseract sélectionnés automatiquement selon le type de document.</p>
+  </div>
+
+  <div class="cap-card">
+    <span class="cap-tag">Validation</span>
+    <div class="cap-icon">
+      <span class="ui-svg" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M8 12.5l2.5 2.5L16.5 9"></path>
+        </svg>
+      </span>
+    </div>
+    <h3>Décision métier vérifiable</h3>
+    <p>Champs scorés, validés et tracés. Texte brut, JSON complet et export disponibles.</p>
+  </div>
+
+  <div class="cap-card">
+    <span class="cap-tag">Sécurité</span>
+    <div class="cap-icon">
+      <span class="ui-svg" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <rect x="5" y="11" width="14" height="9" rx="2"></rect>
+          <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+        </svg>
+      </span>
+    </div>
+    <h3>JWT + RBAC</h3>
+    <p>Authentification PBKDF2-SHA256, 4 rôles (admin, operator, simple user, viewer), audit complet.</p>
+  </div>
+
+  <div class="cap-card">
+    <span class="cap-tag">Automatisation</span>
+    <div class="cap-icon">
+      <span class="ui-svg" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+          <path d="M4 9h16"></path><path d="M9 4v5"></path>
+        </svg>
+      </span>
+    </div>
+    <h3>Scanner Agent</h3>
+    <p>Surveillance d'un dossier local&nbsp;: tout document déposé est extrait automatiquement.</p>
+  </div>
+
+  <div class="cap-card">
+    <span class="cap-tag">Pilotage</span>
+    <div class="cap-icon">
+      <span class="ui-svg" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path d="M4 19V5"></path><path d="M4 19h16"></path>
+          <path d="M8 16v-5"></path><path d="M12 16V8"></path><path d="M16 16v-9"></path>
+        </svg>
+      </span>
+    </div>
+    <h3>Templates &amp; Dashboard</h3>
+    <p>Templates YAML personnalisables et tableau de bord analytique pour les administrateurs.</p>
+  </div>
+</section>
+
+<!-- ── Rôles ──────────────────────────────────────────────── -->
+<div class="section-header home-section-header">
+  <div class="section-label">Accès par rôle</div>
+  <h2>Une plateforme, quatre niveaux d'accès</h2>
+  <p>Chaque extraction est nominative et tracée selon le rôle de l'utilisateur connecté.</p>
+</div>
+
+<section class="role-grid">
+  <article class="role-card" *ngFor="let r of roles">
+    <div class="role-card-head">
+      <span class="role-badge" [class]="r.badgeClass">{{ r.name }}</span>
+    </div>
+    <ul class="role-list">
+      <li *ngFor="let item of r.items">{{ item }}</li>
+    </ul>
+  </article>
+</section>
+
+<!-- ── CTA final ──────────────────────────────────────────── -->
+<section class="home-cta-section">
+  <div class="home-cta-card">
+    <h2>Prêt à automatiser vos documents&nbsp;?</h2>
+    <p>Lancez votre première extraction en quelques secondes.</p>
+    <div class="hero-cta">
+      <a routerLink="/extract" class="btn-primary">
+        <span class="ui-svg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M13 2 4 14h7l-1 8 10-13h-7z"></path>
+          </svg>
+        </span>
+        Commencer maintenant
+      </a>
+      <a routerLink="/login" class="btn-ghost" *ngIf="!isLoggedIn()">
+        Se connecter
+      </a>
+    </div>
+  </div>
+</section>

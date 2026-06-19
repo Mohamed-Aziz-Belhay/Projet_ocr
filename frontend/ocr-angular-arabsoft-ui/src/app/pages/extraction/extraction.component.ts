@@ -16,7 +16,7 @@ type DocumentType =
   | 'custom';
 
 @Component({
-  selector: 'ocr-extraction',
+  selector: 'extract',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './extraction.component.html',

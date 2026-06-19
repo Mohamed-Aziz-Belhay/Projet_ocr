@@ -10,7 +10,8 @@
   <div class="nav-spacer"></div>
 
   <div class="nav-pills">
-    <a routerLink="/" class="nav-pill">Extraction</a>
+    <a routerLink="/" class="nav-pill">Accueil</a>
+    <a routerLink="/extract" class="nav-pill" *ngIf="isLoggedIn()">Extraction</a>
 
     <a routerLink="/login" class="nav-pill" *ngIf="!isLoggedIn()">Login</a>
     <a routerLink="/register" class="nav-pill" *ngIf="!isLoggedIn()">Créer compte</a>
