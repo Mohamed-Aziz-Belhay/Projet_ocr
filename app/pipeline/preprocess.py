@@ -144,8 +144,7 @@ def preprocess_for_pipeline(image: np.ndarray) -> Dict[str, object]:
         "transforms": {"resized": True, "deskewed": True, "contrast": True},
     }
 
-# ── Fonctions manquantes à ajouter à la fin de app/pipeline/preprocess.py ────
-# Colle ce bloc à la fin du fichier existant
+
 
 def to_gray(image: np.ndarray) -> np.ndarray:
     if len(image.shape) == 2:

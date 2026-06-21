@@ -1,1 +1,497 @@
-∢ਢ灡⽰楰数楬敮是敩摬敟瑸慲瑣牯⹳祰䴊瑯略⁲❤硥牴捡楴湯朠꧃썮犩煩敵钀倠慨敳䈠ਮ匊썰掩晩捩瑩꧃⁳썧犩꧃獥㨠 ⴠ删䱔愠慲敢㨠氠扡汥瀠略⁴꫃牴⁥噁乁⁔畯䄠剐裃⁓慬瘠污略⁲畳⁲慬洠꫃敭氠杩敮 ⴠ䴠楯⁳牡扡獥琠湵獩敩獮搠湡⁳敬⁳慤整ੳ†‭牃獯⵳慦汬慢正爠来硥钆愠据潨ੲ†‭潌杧湩⁧썤璩楡汬꧃瀠畯⁲썤抩杯敵⁲敬⁳畮汬ੳ∢ਢ牦浯张晟瑵牵彥 浩潰瑲愠湮瑯瑡潩獮椊灭牯⁴敲昊潲⁭祴楰杮椠灭牯⁴湁ⱹ䰠獩ⱴ传瑰潩慮ⱬ吠灵敬ਊ牦浯愠灰献档浥獡琮浥汰瑡⁥浩潰瑲䘠敩摬灓捥‬慖楬慤楴湯灓捥‬潎浲污穩瑡潩卮数੣牦浯愠灰挮牯⹥潬杧湩⁧浩潰瑲朠瑥江杯敧ੲ氊杯㴠朠瑥江杯敧⡲彟慮敭彟਩⌊匠꧃慰慲整牵⁳潣牵湡獴攠瑮敲氠扡汥攠⁴慶敬牵弊䕓䅐䅒佔卒㴠爠⹥潣灭汩⡥≲獜嬪⼺胢岓崭獜簪獜㉻紬⤢ਊ‣慃慲瑣ꣃ敲⁳牡扡獥弊剁䉁䍉㴠爠⹥潣灭汩⡥≲屛ふ〶ⴰ畜㘰䙆畜㜰〵尭ふ㜷嵆⤢ਊ⌊肔铢₀潎浲污獩瑡潩⁮铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢઀搊晥渠牯慭楬敺琨硥㩴猠牴‬灳捥›潎浲污穩瑡潩卮数⥣ⴠ‾瑳㩲 †爠獥汵⁴‽整瑸 †椠⁦灳捥献牴灩਺††††敲畳瑬㴠爠獥汵⹴瑳楲⡰਩††潦⁲牳Ᵽ搠瑳椠⁮灳捥挮獵潴彭敲汰捡⹥瑩浥⡳㨩 †††爠獥汵⁴‽敲畳瑬爮灥慬散猨捲‬獤⥴ †椠⁦灳捥爮浥癯彥灳捡獥਺††††敲畳瑬㴠爠獥汵⹴敲汰捡⡥•Ⱒ∠⤢ †椠⁦灳捥甮灰牥慣敳਺††††敲畳瑬㴠爠獥汵⹴灵数⡲਩††汥晩猠数⹣潬敷捲獡㩥 †††爠獥汵⁴‽敲畳瑬氮睯牥⤨ †爠瑥牵⁮敲畳瑬ਊ⌊肔铢₀慖楬慤楴湯肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢઀搊晥瘠污摩瑡彥楦汥⡤慶畬㩥䄠祮‬灳捥›慖楬慤楴湯灓捥 㸭吠灵敬扛潯ⱬ传瑰潩慮孬瑳嵲㩝 †椠⁦慶畬⁥獩丠湯㩥 †††爠瑥牵⁮慆獬ⱥ∠畁畣敮瘠污略⁲硥牴楡整ਢ††癳㴠猠牴瘨污敵਩ †椠⁦灳捥琮灹⁥㴽∠敲敧≸愠摮猠数⹣慰瑴牥㩮 †††椠⁦潮⁴敲昮汵浬瑡档猨数⹣慰瑴牥Ɱ猠⥶਺††††††敲畴湲䘠污敳‬≦慐瑴牥⁮潮⁮敲灳捥썴㪩笠灳捥瀮瑡整湲≽ †攠楬⁦灳捥琮灹⁥㴽∠慤整㨢 †††映潲⁭灡⹰瑵汩⹳慤整癟污摩瑡潩⁮浩潰瑲瀠牡敳摟瑡੥††††晩渠瑯瀠牡敳摟瑡⡥癳㨩 †††††爠瑥牵⁮慆獬ⱥ映䐢瑡⁥湩慶楬敤›獻絶ਢ††汥晩猠数⹣祴数㴠‽渢浵敢≲਺††††牴㩹 †††††映潬瑡猨⹶敲汰捡⡥ⰢⰢ∠∮⸩敲汰捡⡥•Ⱒ∠⤢爮灥慬散∨硜ちⰢ∠⤢਩††††硥散瑰嘠污敵牅潲㩲 †††††爠瑥牵⁮慆獬ⱥ映倢獡甠⁮潮扭敲›獻絶ਢ††汥晩猠数⹣祴数㴠‽攢畮≭਺††††晩猠⁶潮⁴湩嬠瑳⡲⥶映牯瘠椠⁮灳捥愮汬睯摥癟污敵嵳਺††††††敲畴湲䘠污敳‬嘢污略⁲潨獲氠獩整ਢ †椠⁦灳捥洮湩江湥瑧⁨湡⁤敬⡮癳 ‼灳捥洮湩江湥瑧㩨 †††爠瑥牵⁮慆獬ⱥ映吢潲⁰潣牵⁴洨湩笠灳捥洮湩江湥瑧絨∩ †椠⁦灳捥洮硡江湥瑧⁨湡⁤敬⡮癳 ‾灳捥洮硡江湥瑧㩨 †††爠瑥牵⁮慆獬ⱥ映吢潲⁰潬杮⠠慭⁸獻数⹣慭彸敬杮桴⥽ਢ †爠瑥牵⁮牔敵‬潎敮ਊ⌊肔铢₀瑓慲썴枩敩⁳❤硥牴捡楴湯肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔ਊ敤⁦硥牴捡彴祢牟来硥琨硥㩴猠牴‬慰瑴牥獮›楌瑳獛牴⥝ⴠ‾畔汰孥灏楴湯污獛牴ⱝ映潬瑡㩝 †∠∢獅慳敩挠慨畱⁥慰瑴牥⁮敲敧⁸慰⁲牯牤⁥敤瀠楲牯瑩꧃∮∢ †映牯椠‬慰瑴牥⁮湩攠畮敭慲整瀨瑡整湲⥳਺††††牴㩹 †††††洠㴠爠⹥敳牡档瀨瑡整湲‬整瑸‬敲䤮乇剏䍅十⁅⁼敲䴮䱕䥔䥌䕎簠爠⹥乕䍉䑏⥅ †††††椠⁦㩭 †††††††瘠污敵㴠洠朮潲灵ㄨ 晩洠氮獡楴摮硥愠摮洠氮獡楴摮硥㸠‽‱汥敳洠朮潲灵〨਩††††††††潣普†‽慭⡸⸰㔹ⴠ椠⨠〠〮ⰷ〠㔮⤰ †††††††氠杯搮扥杵∨敒敧⁸慭捴≨‬硥牴㵡≻慰≴›慰瑴牥孮㐺崰‬瘢污㨢猠牴瘨污敵嬩㌺崰⥽ †††††††爠瑥牵⁮慶畬⹥瑳楲⡰Ⱙ挠湯੦††††硥散瑰爠⹥牥潲⁲獡攠捸਺††††††潬⹧慷湲湩⡧刢来硥椠癮污摩≥‬硥牴㵡≻慰瑴牥≮›慰瑴牥Ɱ∠牥潲≲›瑳⡲硥⥣⥽ †爠瑥牵⁮潎敮‬⸰ਰਊ敤⁦硥牴捡彴祢慟据潨⡲整瑸›瑳Ⱳ映敩摬›楆汥卤数⥣ⴠ‾畔汰孥灏楴湯污獛牴ⱝ映潬瑡㩝 †∠∢ †䔠瑸慲瑣潩⁮慰⁲湡牣⁥胢ₔ썧犨⁥敬⁳潤畣敭瑮⁳呒⁌牡扡獥ਮ †倠畯⁲敬琠硥整愠慲敢‬慐摤敬䍏⁒数瑵爠瑥畯湲牥㨠 ††⠠⥡∠慬敢㩬瘠污略≲†蛢ₒ瑳湡慤摲 ††⠠⥢∠慶敬牵氠扡汥•†蛢ₒ呒⁌慳獮猠꧃慰慲整牵 ††⠠⥣䰠扡汥猠牵甠敮氠杩敮‬慶敬牵猠牵氠⁡楬湧⁥畳癩湡整ਊ††敃瑴⁥潦据楴湯朠ꣃ敲氠獥琠潲獩挠獡ਮ††∢ਢ††楬敮⁳‽整瑸献汰瑩楬敮⡳਩ †映牯愠据潨彲灳捥椠⁮楦汥⹤湡档牯㩳 †††愠据潨彲整瑸㴠愠据潨彲灳捥琮硥⹴瑳楲⡰਩††††湡档牯江睯牥㴠愠据潨彲整瑸氮睯牥⤨ †††椠彳牡扡捩慟据潨⁲‽潢汯弨剁䉁䍉献慥捲⡨湡档牯瑟硥⥴਩ †††映牯椠‬楬敮椠⁮湥浵牥瑡⡥楬敮⥳਺††††††楬敮獟㴠氠湩⹥瑳楲⡰਩††††††楬敮江㴠氠湩彥⹳潬敷⡲਩ †††††椠⁦湡档牯江睯牥渠瑯椠⁮楬敮江਺††††††††潣瑮湩敵ਊ††††††‣铢肔䌠獡⠠⥡㨠∠慬敢㩬瘠污略≲漠⁵氢扡汥鎀瘠污略≲肔铢肔铢肔铢肔铢肔铢肔铢肔铢઀††††††慰瑲⁳‽卟偅剁呁剏⹓灳楬⡴楬敮獟‬慭獸汰瑩ㄽ਩††††††晩氠湥瀨牡獴 㴽㈠਺††††††††‣썄璩牥業敮焠敵汬⁥慰瑲敩攠瑳氠⁥慬敢⁬瑥氠煡敵汬⁥獥⁴慬瘠污略ੲ††††††††敬瑦‬楲桧⁴‽慰瑲孳崰献牴灩⤨‬慰瑲孳崱献牴灩⤨ †††††††⌠匠⁩敬氠扡汥洠瑡档⁥慬瀠牡楴⁥慧捵敨銆瘠污略⁲ꃃ搠潲瑩੥††††††††晩愠据潨彲潬敷⁲湩氠晥⹴潬敷⡲ 湡⁤楟彳慶畬⡥楲桧⥴਺††††††††††敲畴湲爠杩瑨‬⸰㔸 †††††††⌠匠⁩敬氠扡汥洠瑡档⁥慬瀠牡楴⁥牤楯整⠠呒⥌銆瘠污略⁲ꃃ朠畡档੥††††††††晩愠据潨彲潬敷⁲湩爠杩瑨氮睯牥⤨愠摮张獩癟污敵氨晥⥴਺††††††††††敲畴湲氠晥ⱴ〠㠮ਲ਼ †††††⌠肔铢₀慃⁳戨 呒⁌›瘢污略⁲慬敢≬猠湡⁳썳炩牡瑡略⁲铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢઀††††††晩椠彳牡扡捩慟据潨⁲湡⁤湡档牯江睯牥椠⁮楬敮江਺††††††††‣湅썬皨⁥敬氠扡汥攠⁴牰湥⁤敬爠獥整 †††††††眠瑩潨瑵慟据潨⁲‽敲献扵ਨ††††††††††敲攮捳灡⡥湡档牯瑟硥⥴‬∢‬楬敮獟‬汦条㵳敲䤮乇剏䍅十੅††††††††⸩瑳楲⡰•⼺胢ⶓ⤢ †††††††椠⁦楟彳慶畬⡥楷桴畯彴湡档牯㨩 †††††††††爠瑥牵⁮楷桴畯彴湡档牯‬⸰〸ਊ††††††‣铢肔䌠獡⠠⥣㨠瘠污略⁲畳⁲慬氠杩敮猠極慶瑮⁥铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢઀††††††潦⁲⁪湩爠湡敧椨⬠ㄠ‬業⡮⁩‫ⰳ氠湥氨湩獥⤩㨩 †††††††渠硥彴楬敮㴠氠湩獥橛⹝瑳楲⡰਩††††††††晩渠瑯渠硥彴楬敮਺††††††††††潣瑮湩敵 †††††††⌠쌠皉瑩⁥敤挠灡畴敲⁲湵愠瑵敲氠扡汥 †††††††椠彳湡瑯敨彲慬敢⁬‽湡⡹ †††††††††愠琮硥⹴瑳楲⡰⸩潬敷⡲ 湩渠硥彴楬敮氮睯牥⤨ †††††††††映牯愠椠⁮楦汥⹤湡档牯ੳ††††††††††晩愠琮硥⹴瑳楲⡰ 㴡愠据潨彲整瑸 †††††††⤠ †††††††椠⁦潮⁴獩慟潮桴牥江扡汥愠摮张獩癟污敵渨硥彴楬敮㨩 †††††††††爠瑥牵⁮敮瑸江湩ⱥ〠㜮ਵ †⌠䘠污扬捡⁫敲敧⁸楳愠据潨獲渠漧瑮爠敩⁮潤湮꧃ †椠⁦楦汥⹤慰瑴牥獮਺††††ⱶ挠㴠攠瑸慲瑣扟役敲敧⡸整瑸‬楦汥⹤慰瑴牥獮਩††††晩瘠਺††††††敲畴湲瘠‬⁣‪⸰㠸ਊ††敲畴湲丠湯ⱥ〠〮ਊ搊晥张獩癟污敵琨硥㩴猠牴 㸭戠潯㩬 †∠∢ †嘠꧃楲楦⁥畱甧敮挠慨껃敮瀠略⁴꫃牴⁥湵⁥慶敬牵⠠慰⁳楶敤‬潣瑮敩瑮氠瑥牴獥振楨晦敲ⱳ †瀠獡焠❵湵猠꧃慰慲整牵⸩ †∠∢ †椠⁦潮⁴整瑸漠⁲敬⡮整瑸献牴灩⤨ ‼㨲 †††爠瑥牵⁮慆獬੥††敲畴湲戠潯⡬敲献慥捲⡨≲䅛娭ⵡ썺ⶀ뿃畜㘰〰尭ふ䘶う㤭≝‬整瑸⤩ਊ⌊肔铢₀硅牴捡整牵瀠楲据灩污肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢઀搊晥张瑳楲彰楢楤琨硥㩴猠牴 㸭猠牴਺††∢刢浥癯⁥湕捩摯⁥楢楤敲瑣潩慮⁬潣瑮潲⁬慭歲⁳桴瑡挠牯畲瑰爠来硥洠瑡档湩⹧∢ਢ††浩潰瑲爠੥††敲畴湲爠⹥畳⡢≲躀胢ꪀ꺀臢ⶦ臢嶩Ⱒ∠Ⱒ琠硥⥴ਊ搊晥攠瑸慲瑣晟敩摬琨硥㩴猠牴‬楦汥㩤䘠敩摬灓捥 㸭搠捩㩴 †∠∢ †删瑥畯湲⁥湻浡ⱥ瘠污敵‬潣普摩湥散‬慶楬慤整Ɽ爠睡瑟硥ⱴ攠牲牯⹽ਊ††潌楧畱⁥਺†††⸱䴠꧃桴摯⁥牰湩楣慰敬⠠敲敧⁸畯愠据潨⥲ ††㈠‮牃獯⵳慦汬慢正猠⁩畮汬 ††㌠‮潎浲污獩瑡潩੮†††⸴嘠污摩瑡潩੮††∢ਢ††整瑸㴠张瑳楲彰楢楤琨硥⥴ †爠睡癟污敵›灏楴湯污獛牴⁝‽潎敮 †挠湯楦敤据㩥映潬瑡㴠〠〮 †洠瑥潨⁤‽楦汥⹤硥牴捡楴湯浟瑥潨੤ †椠⁦敭桴摯㴠‽爢来硥㨢 †††椠⁦楦汥⹤慰瑴牥獮਺††††††慲彷慶畬ⱥ挠湯楦敤据⁥‽硥牴捡彴祢牟来硥琨硥ⱴ映敩摬瀮瑡整湲⥳ †††椠⁦慲彷慶畬⁥獩丠湯⁥湡⁤楦汥⹤湡档牯㩳 †††††爠睡癟污敵‬潣普摩湥散㴠攠瑸慲瑣扟役湡档牯琨硥ⱴ映敩摬਩††††††晩爠睡癟污敵਺††††††††潣普摩湥散⨠‽⸰㠸†‣썰溩污瑩꧃挠潲獳昭污扬捡੫ †攠楬⁦敭桴摯㴠‽愢据潨≲਺††††慲彷慶畬ⱥ挠湯楦敤据⁥‽硥牴捡彴祢慟据潨⡲整瑸‬楦汥⥤ †††椠⁦慲彷慶畬⁥獩丠湯⁥湡⁤楦汥⹤慰瑴牥獮਺††††††慲彷慶畬ⱥ挠湯楦敤据⁥‽硥牴捡彴祢牟来硥琨硥ⱴ映敩摬瀮瑡整湲⥳ †††††椠⁦慲彷慶畬㩥 †††††††挠湯楦敤据⁥㴪〠㠮ਸ †攠獬㩥 †††椠⁦楦汥⹤慰瑴牥獮਺††††††慲彷慶畬ⱥ挠湯楦敤据⁥‽硥牴捡彴祢牟来硥琨硥ⱴ映敩摬瀮瑡整湲⥳ †††椠⁦慲彷慶畬⁥獩丠湯⁥湡⁤楦汥⹤湡档牯㩳 †††††爠睡癟污敵‬潣普摩湥散㴠攠瑸慲瑣扟役湡档牯琨硥ⱴ映敩摬਩ †渠牯彭慶畬⁥‽潮浲污穩⡥慲彷慶畬ⱥ映敩摬渮牯慭楬慺楴湯 晩爠睡癟污敵椠⁳潮⁴潎敮攠獬⁥潎敮 †椠彳慶楬Ɽ攠牲牯浟杳㴠瘠污摩瑡彥楦汥⡤潮浲癟污敵‬楦汥⹤慶楬慤楴湯਩††畯灴瑵湟浡⁥‽楦汥⹤畯灴瑵歟祥漠⁲楦汥⹤慮敭ਊ††潬⹧敤畢⡧攢瑸慲瑣晟敩摬Ⱒ攠瑸慲笽 †††∠楦汥≤›畯灴瑵湟浡ⱥ∠敭桴摯㨢洠瑥潨Ɽ †††∠慲≷›慲彷慶畬ⱥ∠慶畬≥›潮浲癟污敵ਬ††††挢湯≦›潲湵⡤潣普摩湥散‬⤳‬瘢污摩㨢椠彳慶楬Ɽ †素਩ †爠瑥牵⁮੻††††渢浡≥›†††畯灴瑵湟浡ⱥ †††∠慶畬≥›††渠牯彭慶畬ⱥ †††∠潣普摩湥散㨢爠畯摮挨湯楦敤据ⱥ㌠Ⱙ †††∠慶楬慤整≤›椠彳慶楬Ɽ †††∠慲彷整瑸㨢†爠睡癟污敵ਬ††††攢牲牯㨢†††牥潲彲獭⁧晩渠瑯椠彳慶楬⁤湡⁤潮浲癟污敵椠⁳潮⁴潎敮攠獬⁥潎敮ਬ††੽
+#/pipline/field_extractors
+from __future__ import annotations
+
+import re
+from datetime import datetime
+from typing import Any, Dict, List, Optional, Tuple
+
+from app.schemas.template import FieldSpec, ValidationSpec, NormalizationSpec
+from app.core.logging import get_logger
+
+log = get_logger(__name__)
+
+_SEPARATORS = re.compile(r"\s*[:/–\-]\s*|\s{2,}")
+_ARABIC = re.compile(r"[\u0600-\u06FF\u0750-\u077F]")
+_ARABIC_DIGITS_TRANS = str.maketrans("٠١٢٣٤٥٦٧٨٩", "0123456789")
+
+_MONTH_ALIASES = {
+    "جانفي": "جانفي",
+    "يفناج": "جانفي",
+    "فيفري": "فيفري",
+    "يرفيف": "فيفري",
+    "مارس": "مارس",
+    "سرام": "مارس",
+    "افريل": "افريل",
+    "أفريل": "افريل",
+    "ليرفا": "افريل",
+    "ماي": "ماي",
+    "يام": "ماي",
+    "جوان": "جوان",
+    "ناوج": "جوان",
+    "جويلية": "جويلية",
+    "جويليه": "جويلية",
+    "ةيليوج": "جويلية",
+    "أوت": "اوت",
+    "اوت": "اوت",
+    "توأ": "اوت",
+    "سبتمبر": "سبتمبر",
+    "ربمتبس": "سبتمبر",
+    "أكتوبر": "اكتوبر",
+    "اكتوبر": "اكتوبر",
+    "ربوتكأ": "اكتوبر",
+    "ربوتكا": "اكتوبر",
+    "نوفمبر": "نوفمبر",
+    "ربمفون": "نوفمبر",
+    "ديسمبر": "ديسمبر",
+    "ربمسيد": "ديسمبر",
+}
+
+_MONTHS_REGEX = r"(?:جانفي|فيفري|مارس|افريل|أفريل|ماي|جوان|جويلية|جويليه|أوت|اوت|سبتمبر|أكتوبر|اكتوبر|نوفمبر|ديسمبر)"
+
+_CIN_LABELS_LAST = ["اللقب", "اللب", "بللا", "بقللا", "بّمللا"]
+_CIN_LABELS_FIRST = ["الاسم", "السام", "مسالا", "مسا", "مسرا"]
+_CIN_LABELS_PLACE = ["مكان الولادة", "مكانها", "الولادة", "ةدالولا", "خراب ةدالولا"]
+
+
+def _collapse_spaces(s: str) -> str:
+    return re.sub(r"\s+", " ", (s or "")).strip()
+
+
+def _digits_only(s: str) -> str:
+    return re.sub(r"\D", "", (s or "").translate(_ARABIC_DIGITS_TRANS))
+
+
+def _clean_text_basic(s: str) -> str:
+    s = (s or "").translate(_ARABIC_DIGITS_TRANS)
+    s = s.replace("\xa0", " ")
+    s = s.replace("|", " ")
+    s = s.replace("،", " ")
+    s = s.replace("؛", " ")
+    return _collapse_spaces(s)
+
+
+def _clean_ar_value(s: str) -> str:
+    s = _clean_text_basic(s)
+    s = re.sub(r"[^\u0600-\u06FF0-9\s\-/]", " ", s)
+    return _collapse_spaces(s)
+
+
+def _normalize_place(s: str) -> str:
+    s = _clean_ar_value(s)
+    s = s.replace("القلعة الكبر", "القلعة الكبرى")
+    s = s.replace(" الكبر", " الكبرى")
+    s = s.replace("ربكلا", "الكبرى")
+    return _collapse_spaces(s)
+
+
+def _reverse_arabic_token(token: str) -> str:
+    if re.search(r"[\u0600-\u06FF]", token):
+        return token[::-1]
+    return token
+
+
+def _reverse_arabic_tokens_in_line(line: str) -> str:
+    parts = re.split(r"(\s+)", line or "")
+    parts = [_reverse_arabic_token(p) if not p.isspace() else p for p in parts]
+    return "".join(parts)
+
+
+def _build_text_variants(text: str) -> List[str]:
+    base = (text or "").translate(_ARABIC_DIGITS_TRANS)
+    lines = [x.rstrip() for x in base.splitlines()]
+    v1 = "\n".join(lines)
+    v2 = "\n".join(_reverse_arabic_tokens_in_line(x) for x in lines)
+
+    out: List[str] = []
+    for v in (v1, v2):
+        v = "\n".join(_collapse_spaces(x) for x in v.splitlines())
+        v = "\n".join(x for x in v.splitlines() if x.strip())
+        if v and v not in out:
+            out.append(v)
+    return out
+
+
+def _valid_ar_name(s: str) -> bool:
+    t = _clean_ar_value(s)
+    if len(t) < 2 or len(t) > 50:
+        return False
+    if len(_digits_only(t)) >= 2:
+        return False
+
+    parts = [p.strip(" .:-") for p in t.split() if p.strip(" .:-")]
+    if not (1 <= len(parts) <= 6):
+        return False
+
+    return all(re.fullmatch(r"[\u0600-\u06FF]{2,}", p) for p in parts)
+
+
+def _valid_place(s: str) -> bool:
+    t = _normalize_place(s)
+    if len(t) < 2 or len(t) > 60:
+        return False
+    if len(_digits_only(t)) > 0:
+        return False
+
+    parts = [p.strip(" .:-") for p in t.split() if p.strip(" .:-")]
+    if not (1 <= len(parts) <= 5):
+        return False
+
+    return all(re.fullmatch(r"[\u0600-\u06FF]{2,}", p) for p in parts)
+
+
+def _normalize_month_name(month: str) -> str:
+    m = _collapse_spaces(month).replace("أ", "ا")
+    return _MONTH_ALIASES.get(m, m)
+
+
+def parse_date_any(text: str) -> Optional[str]:
+    if not text:
+        return None
+
+    t = _clean_text_basic(text)
+
+    m = re.search(r"\b(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{4})\b", t)
+    if m:
+        d, mo, y = int(m.group(1)), int(m.group(2)), int(m.group(3))
+        try:
+            return datetime(y, mo, d).strftime("%Y-%m-%d")
+        except ValueError:
+            return None
+
+    m = re.search(rf"\b(\d{{1,2}})\s+({_MONTHS_REGEX})\s+(\d{{4}})\b", t)
+    if m:
+        d = int(m.group(1))
+        month_name = _normalize_month_name(m.group(2))
+        y = int(m.group(3))
+        month_map = {
+            "جانفي": 1,
+            "فيفري": 2,
+            "مارس": 3,
+            "افريل": 4,
+            "ماي": 5,
+            "جوان": 6,
+            "جويلية": 7,
+            "اوت": 8,
+            "سبتمبر": 9,
+            "اكتوبر": 10,
+            "نوفمبر": 11,
+            "ديسمبر": 12,
+        }
+        mo = month_map.get(month_name)
+        if mo is None:
+            return None
+        try:
+            return datetime(y, mo, d).strftime("%Y-%m-%d")
+        except ValueError:
+            return None
+
+    return None
+
+
+def extract_cin_number(text: str) -> Optional[str]:
+    if not text:
+        return None
+
+    for variant in _build_text_variants(text):
+        for line in variant.splitlines():
+            s = line.strip()
+            if not s:
+                continue
+            if re.fullmatch(r"[\d\s]{8,20}", s):
+                d = _digits_only(s)
+                if re.fullmatch(r"\d{8}", d):
+                    return d
+
+        for m in re.finditer(r"(?<!\d)((?:\d[\s]*){8})(?!\d)", variant):
+            d = _digits_only(m.group(1))
+            if re.fullmatch(r"\d{8}", d):
+                return d
+
+        for m in re.finditer(r"\b(\d{8})\b", variant):
+            return m.group(1)
+
+    return None
+
+
+def _extract_value_near_label(lines: List[str], labels: List[str], kind: str = "name") -> Optional[str]:
+    for i, line in enumerate(lines):
+        line_s = _collapse_spaces(line)
+        if not line_s:
+            continue
+
+        matched_label = next((lab for lab in labels if lab in line_s), None)
+        if not matched_label:
+            continue
+
+        candidate = line_s.replace(matched_label, " ")
+        candidate = re.sub(r"[:/\-–]+", " ", candidate)
+        candidate = _collapse_spaces(candidate)
+
+        if kind == "name":
+            if _valid_ar_name(candidate):
+                return _clean_ar_value(candidate)
+        else:
+            candidate = _normalize_place(candidate)
+            if _valid_place(candidate):
+                return candidate
+
+        for j in range(max(0, i - 1), min(len(lines), i + 3)):
+            if j == i:
+                continue
+            neighbor = _collapse_spaces(lines[j])
+            if not neighbor:
+                continue
+            if any(lbl in neighbor for lbl in labels):
+                continue
+
+            if kind == "name":
+                if _valid_ar_name(neighbor):
+                    return _clean_ar_value(neighbor)
+            else:
+                neighbor = _normalize_place(neighbor)
+                if _valid_place(neighbor):
+                    return neighbor
+
+    return None
+
+
+def _extract_birth_date_from_text(text: str) -> Optional[str]:
+    if not text:
+        return None
+
+    for variant in _build_text_variants(text):
+        m = re.search(r"\b(\d{1,2}[\/\-.]\d{1,2}[\/\-.]\d{4})\b", variant)
+        if m:
+            return m.group(1)
+
+        m = re.search(rf"\b(\d{{1,2}}\s+{_MONTHS_REGEX}\s+\d{{4}})\b", variant)
+        if m:
+            return m.group(1)
+
+    return None
+
+
+def _extract_place_from_bottom(text: str) -> Optional[str]:
+    for variant in _build_text_variants(text):
+        lines = [_collapse_spaces(x) for x in variant.splitlines()]
+        lines = [x for x in lines if x]
+
+        for line in reversed(lines[-5:]):
+            cand = _normalize_place(line)
+            cand = re.sub(r"^(مكان\s+الولادة|الولادة)\s*", "", cand).strip()
+            if _valid_place(cand):
+                return cand
+
+    return None
+
+
+def extract_cin_fields(text: str) -> Dict[str, Any]:
+    result: Dict[str, Any] = {}
+    variants = _build_text_variants(text)
+
+    cin = extract_cin_number(text)
+    if cin:
+        result["cin_number"] = cin
+
+    for variant in variants:
+        lines = [_collapse_spaces(x) for x in variant.splitlines() if x.strip()]
+
+        if "family_name" not in result:
+            family = _extract_value_near_label(lines, _CIN_LABELS_LAST, kind="name")
+            if family:
+                result["family_name"] = family
+
+        if "first_name" not in result:
+            first = _extract_value_near_label(lines, _CIN_LABELS_FIRST, kind="name")
+            if first:
+                result["first_name"] = _clean_ar_value(first).split()[0]
+
+        if "place_of_birth" not in result:
+            place = _extract_value_near_label(lines, _CIN_LABELS_PLACE, kind="place")
+            if not place:
+                place = _extract_place_from_bottom(variant)
+            if place:
+                result["place_of_birth"] = _normalize_place(place)
+
+        if "date_of_birth" not in result:
+            dob = _extract_birth_date_from_text(variant)
+            if dob:
+                result["date_of_birth"] = dob
+
+    return result
+
+
+def normalize(text: str, spec: NormalizationSpec) -> str:
+    result = text or ""
+
+    if getattr(spec, "strip", False):
+        result = result.strip()
+
+    for src, dst in getattr(spec, "custom_replace", {}).items():
+        result = result.replace(src, dst)
+
+    if getattr(spec, "remove_spaces", False):
+        result = result.replace(" ", "")
+
+    if getattr(spec, "uppercase", False):
+        result = result.upper()
+    elif getattr(spec, "lowercase", False):
+        result = result.lower()
+
+    return result
+
+
+def validate_field(value: Any, spec: ValidationSpec) -> Tuple[bool, Optional[str]]:
+    if value is None:
+        if getattr(spec, "type", None) == "required":
+            return False, "Champ requis"
+        return False, "Aucune valeur extraite"
+
+    sv = str(value)
+    spec_type = getattr(spec, "type", None)
+
+    if spec_type == "regex" and getattr(spec, "pattern", None):
+        if not re.fullmatch(spec.pattern, sv):
+            return False, f"Pattern non respecté: {spec.pattern}"
+
+    elif spec_type == "date":
+        if not parse_date_any(sv):
+            return False, f"Date invalide: {sv}"
+
+    elif spec_type == "number":
+        try:
+            float(sv.replace(",", ".").replace(" ", "").replace("\xa0", ""))
+        except ValueError:
+            return False, f"Pas un nombre: {sv}"
+
+    elif spec_type == "enum":
+        allowed = [str(v) for v in getattr(spec, "allowed_values", [])]
+        if sv not in allowed:
+            return False, "Valeur hors liste"
+
+    elif spec_type == "required":
+        if not sv.strip():
+            return False, "Champ requis"
+
+    min_length = getattr(spec, "min_length", None)
+    max_length = getattr(spec, "max_length", None)
+
+    if min_length and len(sv) < min_length:
+        return False, f"Trop court (min {min_length})"
+    if max_length and len(sv) > max_length:
+        return False, f"Trop long (max {max_length})"
+
+    return True, None
+
+
+def extract_by_regex(text: str, patterns: List[str]) -> Tuple[Optional[str], float]:
+    for i, pattern in enumerate(patterns):
+        try:
+            m = re.search(pattern, text, re.IGNORECASE | re.MULTILINE | re.UNICODE)
+            if m:
+                value = m.group(1) if m.lastindex and m.lastindex >= 1 else m.group(0)
+                conf = max(0.95 - i * 0.07, 0.50)
+                return value.strip(), conf
+        except re.error as exc:
+            log.warning("Regex invalide", extra={"pattern": pattern, "error": str(exc)})
+    return None, 0.0
+
+
+def _is_value(text: str) -> bool:
+    if not text or len(text.strip()) < 2:
+        return False
+    return bool(re.search(r"[A-Za-zÀ-ÿ\u0600-\u06FF0-9]", text))
+
+
+def extract_by_anchor(text: str, field: FieldSpec) -> Tuple[Optional[str], float]:
+    lines = text.splitlines()
+    anchors = getattr(field, "anchors", []) or []
+
+    for anchor_spec in anchors:
+        anchor_text = getattr(anchor_spec, "text", str(anchor_spec)).strip()
+        anchor_lower = anchor_text.lower()
+        is_arabic_anchor = bool(_ARABIC.search(anchor_text))
+
+        for i, line in enumerate(lines):
+            line_s = line.strip()
+            line_l = line_s.lower()
+
+            if anchor_lower not in line_l:
+                continue
+
+            parts = _SEPARATORS.split(line_s, maxsplit=1)
+            if len(parts) == 2:
+                left, right = parts[0].strip(), parts[1].strip()
+                if anchor_lower in left.lower() and _is_value(right):
+                    return right, 0.85
+                if anchor_lower in right.lower() and _is_value(left):
+                    return left, 0.83
+
+            if is_arabic_anchor and anchor_lower in line_l:
+                without_anchor = re.sub(re.escape(anchor_text), "", line_s, flags=re.IGNORECASE).strip(" :/–-")
+                if _is_value(without_anchor):
+                    return without_anchor, 0.80
+
+            for j in range(i + 1, min(i + 3, len(lines))):
+                next_line = lines[j].strip()
+                if not next_line:
+                    continue
+                if _is_value(next_line):
+                    return next_line, 0.75
+
+    patterns = getattr(field, "patterns", None) or []
+    if patterns:
+        v, c = extract_by_regex(text, patterns)
+        if v:
+            return v, c * 0.88
+
+    return None, 0.0
+
+
+def extract_field(text: str, field: FieldSpec) -> dict:
+    raw_value: Optional[str] = None
+    confidence: float = 0.0
+    method = getattr(field, "extraction_method", None)
+
+    patterns = getattr(field, "patterns", None) or []
+    anchors = getattr(field, "anchors", None) or []
+
+    if method == "regex":
+        if patterns:
+            raw_value, confidence = extract_by_regex(text, patterns)
+        if raw_value is None and anchors:
+            raw_value, confidence = extract_by_anchor(text, field)
+            if raw_value:
+                confidence *= 0.88
+
+    elif method == "anchor":
+        raw_value, confidence = extract_by_anchor(text, field)
+        if raw_value is None and patterns:
+            raw_value, confidence = extract_by_regex(text, patterns)
+            if raw_value:
+                confidence *= 0.88
+    else:
+        if patterns:
+            raw_value, confidence = extract_by_regex(text, patterns)
+        if raw_value is None and anchors:
+            raw_value, confidence = extract_by_anchor(text, field)
+
+    normalization = getattr(field, "normalization", None)
+    validation = getattr(field, "validation", None)
+
+    norm_value = normalize(raw_value, normalization) if raw_value is not None and normalization else raw_value
+    if validation:
+        is_valid, error_msg = validate_field(norm_value, validation)
+    else:
+        is_valid, error_msg = (norm_value is not None), None
+
+    output_name = getattr(field, "output_key", None) or getattr(field, "name", "unknown")
+
+    return {
+        "name": output_name,
+        "value": norm_value,
+        "confidence": round(confidence, 3),
+        "validated": is_valid,
+        "raw_text": raw_value,
+        "error": error_msg if not is_valid and norm_value is not None else None,
+    }
