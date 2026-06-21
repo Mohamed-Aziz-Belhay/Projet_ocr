@@ -32,28 +32,36 @@ class VariantFingerprint:
     min_score: float = 0.5
 
 
-# ââ Variant registry âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+# ── Variant registry ──────────────────────────────────────────────────────────
 # Add new variants here without touching the classifier logic.
+#
+# NOTE (correction encodage) : les ancres arabes ci-dessous ont été
+# RECONSTRUITES — le fichier source contenait des octets corrompus
+# (séquences "ýÿýÿ...") correspondant à une perte de données réelle,
+# pas seulement à un mauvais décodage. Le vocabulaire utilisé reprend
+# les termes administratifs tunisiens standards déjà identifiés dans
+# field_resolver.py (FORBIDDEN_LABELS). À VÉRIFIER contre un vrai
+# document scanné avant mise en production.
 
 _FINGERPRINTS: List[VariantFingerprint] = [
     VariantFingerprint(
         variant_id="registre_commerce_modern",
         doc_family="business_registry",
         required_anchors=["registre de commerce", "forme juridique"],
-        bonus_anchors=["capital social", "siÃ¨ge social", "dÃ©nomination"],
+        bonus_anchors=["capital social", "siège social", "dénomination"],
         dominant_script="latin",
     ),
     VariantFingerprint(
         variant_id="registre_commerce_legacy_ar",
         doc_family="business_registry",
-        required_anchors=["Ø§ÙØ³Ø¬Ùýÿýÿýÿýÿýÿýÿýÿ", ýÿýÿýÿýÿýÿ Ø§ÙÙØ§ÙÙÙÙ"],
-        bonus_anchors=["Ø±Ø£Ø³ýÿýÿýÿýÿýÿ", ýÿýÿýÿýÿýÿ± Ø§ÙØ§Ø¬ØªÙØ§Ø¹Ù", "Ø§ÙØªØ³ÙÙØ©"],
+        required_anchors=["السجل التجاري", "الشكل القانوني"],
+        bonus_anchors=["رأس المال الاجتماعي", "المقر الاجتماعي", "التسمية"],
         dominant_script="arabic",
     ),
     VariantFingerprint(
         variant_id="cin_tn_recto",
         doc_family="id_document",
-        required_anchors=["carte d'identitÃ© nationale", "tunisienne"],
+        required_anchors=["carte d'identité nationale", "tunisienne"],
         bonus_anchors=["date de naissance", "lieu de naissance"],
         dominant_script="latin",
         min_score=0.4,
@@ -61,8 +69,8 @@ _FINGERPRINTS: List[VariantFingerprint] = [
     VariantFingerprint(
         variant_id="cin_tn_recto_ar",
         doc_family="id_document",
-        required_anchors=["Ø¨Ø·Ø§ÙØ©ýÿýÿýÿýÿýÿýÿýÿ Ø§ÙÙØ·ÙÙØ©"],
-        bonus_anchors=["ØªØ§Ø±ÙØ®ýÿýÿýÿýÿýÿýÿýÿ©", ýÿýÿýÿýÿ Ø§ÙÙÙØ§Ø¯Ø©"],
+        required_anchors=["بطاقة التعريف الوطنية"],
+        bonus_anchors=["تاريخ الولادة", "محل الولادة"],
         dominant_script="arabic",
         min_score=0.4,
     ),
@@ -76,10 +84,10 @@ _FINGERPRINTS: List[VariantFingerprint] = [
 ]
 
 
-# ââ Script detection âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+# ── Script detection ───────────────────────────────────────────────────────────
 
 _ARABIC_RE = re.compile(r"[\u0600-\u06FF]{3,}")
-_LATIN_RE = re.compile(r"[a-zA-ZÃ-Ã¿]{3,}")
+_LATIN_RE = re.compile(r"[a-zA-ZÀ-ÿ]{3,}")
 
 
 def _detect_dominant_script(text: str) -> str:
@@ -92,14 +100,14 @@ def _detect_dominant_script(text: str) -> str:
     return "unknown"
 
 
-# ââ Orientation (heuristic via aspect ratio) ââââââââââââââââââââââââââââââââââ
+# ── Orientation (heuristic via aspect ratio) ───────────────────────────────────
 
 def _detect_orientation(image: np.ndarray) -> str:
     h, w = image.shape[:2]
     return "landscape" if w > h else "portrait"
 
 
-# ââ Main classifier ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+# ── Main classifier ─────────────────────────────────────────────────────────────
 
 def classify_variant(
     doc_family: str,

@@ -1,1 +1,301 @@
-∢ਢ灡⽰汣獡楳楦牥⽳睳湩损慬獳晩敩⹲祰邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕闢邕䌊慬獳晩捩瑡略⁲睓湩吠慲獮潦浲牥钀倠慨敳䐠ਮ쌊璉瑡⁳਺†铢肔匠䥗彎位䕄彌䅐䡔瘠摩⁥蛢ₒ湩捡楴ⱦ爠瑥畯湲⁥∨湵湫睯≮‬⸰⤰ 鲔铢₀潍썤沨⁥潣普杩牵꧃洠楡⁳潮⁮档牡썧₩蛢ₒ慬祺氠慯楤杮愠⁵攱⁲灡数੬†铢肔䴠摯ꣃ敬挠慨杲꧃銆椠普꧃敲据⁥썲斩汬⁥畳⁲❬浩条੥䄊瑣癩瑡潩⁮਺†⸱䔠瑮慲껃敮⁲›祰桴湯愠灰洯摯汥⽳睳湩琯慲湩獟楷⹮祰⸠⸮ ㈠‮慄獮⸠湥⁶›坓义䵟䑏䱅偟呁㵈⼮潭敤獬猯楷彮潤彣汣獡楳楦牥 ㌠‮敒썤涩牡敲⁲癵捩牯੮嘊獩扩敬猠牵䜠呅⼠敨污桴銆挠慨灭∠睳湩损慬獳晩敩≲∊∢昊潲⁭彟畦畴敲彟椠灭牯⁴湡潮慴楴湯ੳ牦浯琠灹湩⁧浩潰瑲䐠捩ⱴ䰠獩ⱴ传瑰潩慮ⱬ吠灵敬椊灭牯⁴畮灭⁹獡渠ੰ昊潲⁭灡⹰潣敲献瑥楴杮⁳浩潰瑲朠瑥獟瑥楴杮ੳ牦浯愠灰挮牯⹥潬杧湩⁧浩潰瑲朠瑥江杯敧ੲ氊杯†††‽敧彴潬杧牥弨湟浡彥⥟猊瑥楴杮⁳‽敧彴敳瑴湩獧⤨ਊ挊慬獳匠楷䑮捯浵湥䍴慬獳晩敩㩲 †∠∢ †䌠慬獳晩捩瑡略⁲敤映浡汩敬搠⁥潤畣敭瑮瀠牡椠慭敧ਮ†† †䰠獥氠扡汥⁳潤癩湥⁴潣牲獥潰摮敲愠硵瘠污略獲搠捯晟浡汩⁹敤⁳整灭慬整⁳䅙䱍ਮ††敌洠灡楰杮椠㉤慬敢⁬獥⁴档牡썧₩敤異獩氠扡汥损湯楦⹧獪湯搠湡⁳敬爠꧃数瑲楯敲洠摯ꣃ敬ਮ††∢ਢ †⌠䰠扡汥⁳慰⁲썤暩畡⁴用楴楬썳玩猠⁩慬敢彬潣普杩樮潳⁮扡敳瑮਩††䕄䅆䱕彔䅌䕂卌›楌瑳獛牴⁝‽ਜ਼††††椢彤潤畣敭瑮Ⱒ †††∠湩潶捩≥ਬ††††戢獵湩獥彳敲楧瑳祲Ⱒ †††∠敲散灩≴ਬ††††挢湯牴捡≴ਬ††††產歮潮湷Ⱒ †崠ਊ††敤⁦彟湩瑩彟猨汥ⱦ洠摯汥灟瑡㩨传瑰潩慮孬瑳嵲㴠丠湯⥥਺††††敳晬弮潭敤彬慰桴†‽潭敤彬慰桴漠⁲敳瑴湩獧匮䥗彎位䕄彌䅐䡔漠⁲∢ †††猠汥⹦浟摯汥†††㴠丠湯੥††††敳晬弮牰捯獥潳⁲†‽潎敮 †††猠汥⹦江慯敤⁤††㴠䘠污敳 †††猠汥⹦江慯彤牥潲㩲传瑰潩慮孬瑳嵲㴠丠湯੥††††敳晬弮慬敢獬›楌瑳獛牴⁝‽敳晬䐮䙅啁呌䱟䉁䱅੓††††敳晬弮摩氲扡汥›楄瑣楛瑮‬瑳嵲㴠笠੽ †⌠肔铢₀觃慴⁴铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢઀ †搠晥椠彳潣普杩牵摥猨汥⥦ⴠ‾潢汯਺††††敲畴湲戠潯⡬敳晬弮潭敤彬慰桴਩ †搠晥椠彳敲摡⡹敳晬 㸭戠潯㩬 †††爠瑥牵⁮敳晬弮潬摡摥愠摮猠汥⹦浟摯汥椠⁳潮⁴潎敮ਊ††敤⁦瑳瑡獵猨汥⥦ⴠ‾楄瑣਺††††∢䐢捩楴湯慮物⁥敤猠慴畴⁴潰牵䜠呅⼠敨污桴攠⁴䕇⁔猯楷⽮瑳瑡獵∮∢ †††椠⁦潮⁴敳晬椮彳潣普杩牵摥⤨਺††††††敲畴湲笠 †††††††∠捡楴敶㨢†慆獬ⱥ †††††††∠敲獡湯㨢†匢䥗彎位䕄彌䅐䡔渠湯搠꧃楦楮搠湡⁳攮癮Ⱒ †††††††∠捡楴湯㨢†ਨ††††††††††ㄢ‮牐꧃慰敲⁲›祰桴湯愠灰洯摯汥⽳睳湩瀯敲慰敲浟摩㉶㈰⸰祰ⴠ洭摩彶楤⁲⼮慤慴洯摩㉶㈰‰ⴭ畯灴瑵摟物⸠搯瑡⽡業癤〲〲灟潲散獳摥†ਢ††††††††††㈢‮湅牴썡溮牥㨠瀠瑹潨⁮灡⽰潭敤獬猯楷⽮牴楡彮睳湩瀮⁹ⴭ慤慴摟物⸠搯瑡⽡業癤〲〲灟潲散獳摥ⴠ漭瑵異⁴⼮潭敤獬猯楷彮潤彣汣獡楳楦牥†ਢ††††††††††㌢‮攮癮㨠匠䥗彎位䕄彌䅐䡔⸽洯摯汥⽳睳湩摟捯损慬獳晩敩≲ †††††††⤠ਬ††††††੽††††晩猠汥⹦江慯彤牥潲㩲 †††††爠瑥牵⁮੻††††††††愢瑣癩≥›††䘠污敳ਬ††††††††洢摯汥灟瑡≨›猠汥⹦浟摯汥灟瑡ⱨ †††††††∠牥潲≲›†††敳晬弮潬摡敟牲牯ਬ††††††††愢瑣潩≮›††∠썖犩晩敩⁺敬挠敨業⁮瑥氠獥搠꧃数摮湡散⁳琨牯档‬牴湡晳牯敭獲∩ਬ††††††੽††††晩猠汥⹦江慯敤㩤 †††††爠瑥牵⁮੻††††††††愢瑣癩≥›††吠畲ⱥ †††††††∠潭敤彬慰桴㨢†敳晬弮潭敤彬慰桴ਬ††††††††氢扡汥≳›††猠汥⹦江扡汥ⱳ †††††††∠桴敲桳汯≤›†敳瑴湩獧匮䥗彎佃䙎䑉久䕃呟剈卅佈䑌ਬ††††††੽††††‣潃普杩牵꧃洠楡⁳慰⁳湥潣敲挠慨杲꧃⠠癡湡⁴牰浥敩⁲灡数⥬ †††爠瑥牵⁮੻††††††愢瑣癩≥›††䘠污敳ਬ††††††洢摯汥灟瑡≨›猠汥⹦浟摯汥灟瑡ⱨ †††††∠敲獡湯㨢†††䴢摯ꣃ敬挠湯楦畧썲₩胢ₔ档牡敧敭瑮愠⁵牰浥敩⁲灡数⁬❤湩썦犩湥散Ⱒ †††素ਊ††‣铢肔䌠慨杲浥湥⁴铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔ਊ††敤⁦江慯⡤敳晬 㸭戠潯㩬 †††∠∢桃牡敧氠⁥潭썤沨⁥敤異獩搠獩⹫吠牨慥ⵤ慳敦瘠慩氠捯⁫浩汰捩瑩⁥䜨䱉⸩∢ਢ††††晩猠汥⹦江慯敤㩤 †††††爠瑥牵⁮牔敵 †††椠⁦潮⁴敳晬弮潭敤彬慰桴਺††††††敲畴湲䘠污敳ਊ††††牴㩹 †††††映潲⁭慰桴楬⁢浩潰瑲倠瑡੨††††††浩潰瑲樠潳੮††††††牦浯琠慲獮潦浲牥⁳浩潰瑲䄠瑵䥯慭敧牐捯獥潳Ⱳ匠楷䙮牯浉条䍥慬獳晩捩瑡潩੮††††††浩潰瑲琠牯档ਊ††††††潭敤彬楤⁲‽慐桴猨汥⹦浟摯汥灟瑡⥨ †††††椠⁦潮⁴潭敤彬楤⹲硥獩獴⤨਺††††††††敳晬弮潬摡敟牲牯㴠映刢꧃数瑲楯敲椠瑮潲癵扡敬㨠笠潭敤彬楤絲ਢ††††††††敲畴湲䘠污敳ਊ††††††潬⹧湩潦∨桃牡敧敭瑮匠楷⁮汣獡楳楦牥Ⱒ攠瑸慲笽瀢瑡≨›瑳⡲潭敤彬楤⥲⥽ਊ††††††‣慌敢獬搠灥極⁳慬敢彬潣普杩樮潳⁮瀨潲畤瑩瀠牡琠慲湩獟楷⹮祰਩††††††晣彧慰桴㴠洠摯汥摟物⼠∠慬敢彬潣普杩樮潳≮ †††††椠⁦晣彧慰桴攮楸瑳⡳㨩 †††††††挠杦㴠樠潳⹮潬摡⡳晣彧慰桴爮慥彤整瑸⤨਩††††††††敳晬弮慬敢獬†‽晣⹧敧⡴氢扡汥≳‬敳晬䐮䙅啁呌䱟䉁䱅⥓ †††††††猠汥⹦楟㉤慬敢⁬‽楻瑮欨㨩瘠映牯欠‬⁶湩挠杦朮瑥∨摩氲扡汥Ⱒ笠⥽椮整獭⤨੽††††††汥敳਺††††††††潬⹧慷湲湩⡧氢扡汥损湯楦⹧獪湯愠獢湥⁴胢ₔ瑵汩獩瑡潩⁮敤⁳慬敢獬瀠牡搠꧃慦瑵⤢ਊ††††††敳晬弮牰捯獥潳⁲‽畁潴浉条健潲散獳牯昮潲彭牰瑥慲湩摥猨牴洨摯汥摟物⤩ †††††猠汥⹦浟摯汥††㴠匠楷䙮牯浉条䍥慬獳晩捩瑡潩⹮牦浯灟敲牴楡敮⡤瑳⡲潭敤彬楤⥲਩††††††敳晬弮潭敤⹬癥污⤨ਊ††††††‣瑕汩獩⁥偃⁕湥椠普꧃敲据⁥瀨獡戠獥楯⁮敤䜠啐瀠畯⁲慬瀠潲⥤ †††††猠汥⹦摟癥捩⁥‽潴捲⹨敤楶散∨畣慤•晩琠牯档挮摵⹡獩慟慶汩扡敬⤨攠獬⁥挢異⤢ †††††猠汥⹦浟摯汥†‽敳晬弮潭敤⹬潴猨汥⹦摟癥捩⥥ਊ††††††敳晬弮潬摡摥㴠吠畲੥††††††潬⹧湩潦ਨ††††††††匢楷⁮汣獡楳楦牥瀠썲璪Ⱒ †††††††攠瑸慲笽氢扡汥≳›敳晬弮慬敢獬‬搢癥捩≥›瑳⡲敳晬弮敤楶散紩ਬ††††††਩††††††敲畴湲吠畲੥ †††攠捸灥⁴浉潰瑲牅潲⁲獡攠਺††††††敳晬弮潬摡敟牲牯㴠映琢牯档琯慲獮潦浲牥⁳潮⁮湩瑳污썬₩›敻≽ †††††氠杯眮牡楮杮∨睓湩椠摮獩潰楮汢⁥搨꧃数摮湡散⥳Ⱒ攠瑸慲笽攢牲牯㨢猠汥⹦江慯彤牥潲絲਩††††硥散瑰䔠捸灥楴湯愠⁳㩥 †††††猠汥⹦江慯彤牥潲⁲‽瑳⡲⥥ †††††氠杯攮牲牯∨觃档捥挠慨杲浥湥⁴睓湩Ⱒ攠瑸慲笽攢牲牯㨢猠汥⹦江慯彤牥潲絲਩††††敲畴湲䘠污敳ਊ††‣铢肔䤠普꧃敲据⁥铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢઀ †搠晥挠慬獳晩⡹敳晬‬浩条㩥渠⹰摮牡慲⥹ⴠ‾畔汰孥瑳Ⱳ映潬瑡㩝 †††∠∢ †††䌠慬獳晩敩甠敮椠慭敧搠⁥潤畣敭瑮ਮ†††† †††䄠杲㩳 †††††椠慭敧›畮灭⁹牡慲⁹䝂⁒猨牯楴⁥灏湥噃 畯删䉇ਮ††††敒畴湲㩳 †††††⠠潤彣慦業祬‬潣普摩湥散 胢ₔ∨湵湫睯≮‬⸰⤰猠⁩潭썤沨⁥湩楤灳湯扩敬ਮ††††∢ਢ††††晩渠瑯猠汥⹦江慯⡤㨩 †††††爠瑥牵⁮產歮潮湷Ⱒ〠〮ਊ††††牴㩹 †††††椠灭牯⁴潴捲੨††††††牦浯倠䱉椠灭牯⁴浉条⁥獡倠䱉浉条੥ †††††⌠䌠湯敶獲潩⁮䝂銆䝒⁂楳渠꧃散獳楡敲⠠灏湥噃猠牯⁴䝂⥒ †††††椠⁦敬⡮浩条⹥桳灡⥥㴠‽″湡⁤浩条⹥桳灡孥崲㴠‽㨳 †††††††瀠汩楟杭㴠倠䱉浉条⹥牦浯牡慲⡹浩条孥⸮Ⱞ㨠ⴺ崱 ⌠䈠則蛢劒䉇 †††††攠獬㩥 †††††††瀠汩楟杭㴠倠䱉浉条⹥牦浯牡慲⡹浩条⥥ਊ††††††湩異獴㴠猠汥⹦灟潲散獳牯椨慭敧㵳楰彬浩Ⱨ爠瑥牵彮整獮牯㵳瀢≴਩††††††湩異獴㴠笠㩫瘠琮⡯敳晬弮敤楶散 潦⁲Ⱬ瘠椠⁮湩異獴椮整獭⤨੽ †††††眠瑩⁨潴捲⹨潮束慲⡤㨩 †††††††漠瑵異獴㴠猠汥⹦浟摯汥⨨椪灮瑵⥳ਊ††††††牰扯⁳††㴠琠牯档献景浴硡漨瑵異獴氮杯瑩ⱳ搠浩ㄽ嬩崰 †††††瀠敲彤摩⁸†‽湩⡴牰扯⹳牡浧硡⤨਩††††††潣普摩湥散㴠映潬瑡瀨潲獢灛敲彤摩嵸਩ †††††⌠删꧃潳摵敲氠⁥慬敢੬††††††晩猠汥⹦楟㉤慬敢㩬 †††††††氠扡汥㴠猠汥⹦楟㉤慬敢⹬敧⡴牰摥楟硤‬產歮潮湷⤢ †††††攠獬㩥 †††††††氠扡汥㴠猠汥⹦浟摯汥挮湯楦⹧摩氲扡汥朮瑥瀨敲彤摩ⱸ∠湵湫睯≮਩ †††††⌠匠略汩搠⁥潣普慩据੥††††††晩挠湯楦敤据⁥‼敳瑴湩獧匮䥗彎佃䙎䑉久䕃呟剈卅佈䑌਺††††††††潬⹧敤畢⡧ †††††††††∠睓湩挠湯⁦潳獵猠略汩Ⱒ †††††††††攠瑸慲笽氢扡汥㨢氠扡汥‬挢湯≦›潣普摩湥散ਬ†††††††††††††∠桴敲桳汯≤›敳瑴湩獧匮䥗彎佃䙎䑉久䕃呟剈卅佈䑌ⱽ †††††††⤠ †††††††爠瑥牵⁮產歮潮湷Ⱒ挠湯楦敤据੥ †††††氠杯搮扥杵∨睓湩挠慬獳晩捩瑡潩≮‬硥牴㵡≻慬敢≬›慬敢ⱬ∠潣普㨢爠畯摮挨湯楦敤据ⱥ㌠紩਩††††††敲畴湲氠扡汥‬潣普摩湥散ਊ††††硥散瑰䔠捸灥楴湯愠⁳硥㩣 †††††氠杯攮牲牯∨睓湩椠普꧃敲据⁥꧃档畯꧃≥‬硥牴㵡≻牥潲≲›瑳⡲硥⥣⥽ †††††爠瑥牵⁮產歮潮湷Ⱒ〠〮ਊ††敤⁦汣獡楳祦睟瑩彨敤慴汩⡳敳晬‬浩条㩥渠⹰摮牡慲⥹ⴠ‾楄瑣਺††††∢ਢ††††汃獡楳楦慣楴湯挠浯汰ꣃ整愠敶⁣捳牯獥瀠畯⁲潴瑵獥氠獥挠慬獳獥ਮ††††瑕汩獩꧃瀠牡䜠呅⼠睳湩瀯敲楤瑣ਮ††††∢ਢ††††晩渠瑯猠汥⹦江慯⡤㨩 †††††爠瑥牵⁮≻牥潲≲›䴢摯ꣃ敬渠湯挠慨杲꧃Ⱒ∠牰摥捩楴湯≳›嵛੽ †††琠祲਺††††††浩潰瑲琠牯档 †††††映潲⁭䥐⁌浩潰瑲䤠慭敧愠⁳䥐䥌慭敧ਊ††††††楰彬浩⁧‽䥐䥌慭敧昮潲慭牲祡椨慭敧⹛⸮‬㨺ㄭ⥝ †††††椠灮瑵⁳㴠猠汥⹦灟潲散獳牯椨慭敧㵳楰彬浩Ⱨ爠瑥牵彮整獮牯㵳瀢≴਩††††††湩異獴†‽死›⹶潴猨汥⹦摟癥捩⥥映牯欠‬⁶湩椠灮瑵⹳瑩浥⡳紩ਊ††††††楷桴琠牯档渮彯牧摡⤨਺††††††††畯灴瑵⁳‽敳晬弮潭敤⡬⨪湩異獴਩ †††††瀠潲獢㴠琠牯档献景浴硡漨瑵異獴氮杯瑩ⱳ搠浩ㄽ嬩崰挮異⤨琮汯獩⡴਩ †††††瀠敲楤瑣潩獮㴠嬠੝††††††潦⁲Ⱪ瀠潲⁢湩攠畮敭慲整瀨潲獢㨩 †††††††氠汢㴠⠠敳晬弮摩氲扡汥朮瑥椨਩†††††††††††漠⁲敳晬弮潭敤⹬潣普杩椮㉤慬敢⹬敧⡴Ⱪ映挢慬獳筟絩⤢਩††††††††牰摥捩楴湯⹳灡数摮笨氢扡汥㨢氠汢‬挢湯楦敤据≥›潲湵⡤牰扯‬⤴⥽ਊ††††††牰摥捩楴湯⹳潳瑲欨祥氽浡摢⁡㩸砠≛潣普摩湥散崢‬敲敶獲㵥牔敵਩††††††潴⁰‽牰摥捩楴湯孳崰ਊ††††††敲畴湲笠 †††††††∠牰摥捩整彤汣獡≳›潴孰氢扡汥崢ਬ††††††††挢湯楦敤据≥›††琠灯≛潣普摩湥散崢ਬ††††††††愢汬损慬獳獥㨢††瀠敲楤瑣潩獮ਬ††††††††琢牨獥潨摬㨢†††猠瑥楴杮⹳坓义䍟乏䥆䕄䍎彅䡔䕒䡓䱏ⱄ †††††††∠捡散瑰摥㨢††††潴孰挢湯楦敤据≥⁝㴾猠瑥楴杮⹳坓义䍟乏䥆䕄䍎彅䡔䕒䡓䱏ⱄ †††††素 †††攠捸灥⁴硅散瑰潩⁮獡攠捸਺††††††敲畴湲笠攢牲牯㨢猠牴攨捸Ⱙ∠牰摥捩楴湯≳›嵛੽ †搠晥挠慬獳晩役慢捴⡨敳晬‬浩条獥›楌瑳湛⹰摮牡慲嵹 㸭䰠獩孴畔汰孥瑳Ⱳ映潬瑡嵝਺††††∢䌢慬獳晩敩瀠畬楳略獲椠慭敧⁳胢ₔ慦汬慢正猠꧃畱湥楴汥∮∢ †††爠瑥牵⁮獛汥⹦汣獡楳祦椨杭 潦⁲浩⁧湩椠慭敧嵳ਊ⌊肔铢₀楓杮敬潴⁮桴敲摡猭晡⁥铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢઀弊汣獡楳楦牥›灏楴湯污卛楷䑮捯浵湥䍴慬獳晩敩嵲㴠丠湯੥ਊ敤⁦敧彴睳湩损慬獳晩敩⡲ 㸭匠楷䑮捯浵湥䍴慬獳晩敩㩲 †朠潬慢⁬损慬獳晩敩ੲ††晩张汣獡楳楦牥椠⁳潎敮਺††††损慬獳晩敩⁲‽睓湩潄畣敭瑮汃獡楳楦牥⤨ †爠瑥牵⁮损慬獳晩敩ੲਊ敤⁦睳湩獟慴畴⡳ 㸭䐠捩㩴 †∠∢慒捣畯捲⁩潰牵䜠呅⼠敨污桴∮∢ †爠瑥牵⁮敧彴睳湩损慬獳晩敩⡲⸩瑳瑡獵⤨
+#/app/classifiers/swin_classifier.py
+from __future__ import annotations
+
+import json
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+import cv2
+import numpy as np
+import torch
+from PIL import Image
+from torchvision import transforms
+
+try:
+    import timm
+except Exception as e:  # pragma: no cover
+    raise RuntimeError(
+        "Le package 'timm' est requis pour charger le classifieur Swin. "
+        "Installez-le avec: pip install timm"
+    ) from e
+
+from app.core.logging import get_logger
+from app.core.settings import get_settings
+
+log = get_logger(__name__)
+
+
+class ConvertToRGB:
+    def __call__(self, img):
+        return img.convert("RGB")
+
+
+@dataclass
+class SwinPrediction:
+    predicted_class: Optional[str]
+    confidence: float
+    accepted: bool
+    all_classes: List[Dict[str, Any]]
+    model_name: Optional[str]
+    img_size: Optional[int]
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "predicted_class": self.predicted_class,
+            "confidence": self.confidence,
+            "accepted": self.accepted,
+            "all_classes": self.all_classes,
+            "model_name": self.model_name,
+            "img_size": self.img_size,
+        }
+
+
+class SwinDocumentClassifier:
+    """
+    Classifieur documentaire Swin aligné avec :
+    - train_swin.py
+    - evaluate_swin.py
+
+    Attendu dans SWIN_MODEL_PATH :
+    - soit le dossier contenant :
+        best_model.pt
+        label_config.json
+        training_config.json
+    - soit directement le chemin vers best_model.pt
+    """
+
+    def __init__(self) -> None:
+        self.settings = get_settings()
+        self.device = self._resolve_device()
+
+        self.model_dir: Optional[Path] = None
+        self.checkpoint_path: Optional[Path] = None
+        self.label_config_path: Optional[Path] = None
+        self.training_config_path: Optional[Path] = None
+
+        self.model = None
+        self.model_name: Optional[str] = None
+        self.img_size: int = 224
+        self.threshold: float = float(getattr(self.settings, "SWIN_CONFIDENCE_THRESHOLD", 0.75) or 0.75)
+
+        self.class_to_idx: Dict[str, int] = {}
+        self.idx_to_class: Dict[int, str] = {}
+        self.num_classes: int = 0
+
+        self.transform = None
+        self._loaded = False
+        self._load_error: Optional[str] = None
+
+    # ---------------------------------------------------------------------
+    # Public API
+    # ---------------------------------------------------------------------
+
+    def is_configured(self) -> bool:
+        self._ensure_loaded()
+        return self._loaded
+
+    def get_status(self) -> Dict[str, Any]:
+        self._ensure_loaded()
+        return {
+            "configured": self._loaded,
+            "device": self.device,
+            "model_dir": str(self.model_dir) if self.model_dir else None,
+            "checkpoint_path": str(self.checkpoint_path) if self.checkpoint_path else None,
+            "label_config_path": str(self.label_config_path) if self.label_config_path else None,
+            "training_config_path": str(self.training_config_path) if self.training_config_path else None,
+            "model_name": self.model_name,
+            "img_size": self.img_size,
+            "num_classes": self.num_classes,
+            "classes": [self.idx_to_class[i] for i in sorted(self.idx_to_class)],
+            "threshold": self.threshold,
+            "error": self._load_error,
+        }
+
+    def reload(self) -> Dict[str, Any]:
+        self._loaded = False
+        self._load_error = None
+        self.model = None
+        self.transform = None
+        self.class_to_idx = {}
+        self.idx_to_class = {}
+        self.num_classes = 0
+        self.model_name = None
+        self.img_size = 224
+        self.model_dir = None
+        self.checkpoint_path = None
+        self.label_config_path = None
+        self.training_config_path = None
+        self._ensure_loaded()
+        return self.get_status()
+
+    def classify(self, image_bgr: np.ndarray) -> Optional[str]:
+        details = self.classify_with_details(image_bgr)
+        if "error" in details:
+            return None
+        return details.get("predicted_class")
+
+    def classify_with_details(self, image_bgr: np.ndarray) -> Dict[str, Any]:
+        self._ensure_loaded()
+        if not self._loaded:
+            return {"error": self._load_error or "Swin model not configured"}
+
+        if image_bgr is None or not isinstance(image_bgr, np.ndarray):
+            return {"error": "Invalid image input"}
+
+        try:
+            pil_img = self._cv2_to_pil(image_bgr)
+            x = self.transform(pil_img).unsqueeze(0).to(self.device)
+
+            with torch.no_grad():
+                logits = self.model(x)
+                probs = torch.softmax(logits, dim=1).cpu().numpy()[0]
+
+            top_indices = np.argsort(-probs).tolist()
+            all_classes = [
+                {
+                    "class_name": self.idx_to_class[int(i)],
+                    "confidence": float(probs[int(i)]),
+                }
+                for i in top_indices
+            ]
+
+            best_idx = int(top_indices[0])
+            predicted_class = self.idx_to_class[best_idx]
+            confidence = float(probs[best_idx])
+            accepted = confidence >= self.threshold
+
+            pred = SwinPrediction(
+                predicted_class=predicted_class,
+                confidence=confidence,
+                accepted=accepted,
+                all_classes=all_classes,
+                model_name=self.model_name,
+                img_size=self.img_size,
+            )
+            return pred.to_dict()
+
+        except Exception as exc:
+            log.error("Swin classification failed", extra={"error": str(exc)})
+            return {"error": str(exc)}
+
+    # ---------------------------------------------------------------------
+    # Internal helpers
+    # ---------------------------------------------------------------------
+
+    def _resolve_device(self) -> str:
+        if torch.cuda.is_available():
+            return "cuda"
+        return "cpu"
+
+    def _ensure_loaded(self) -> None:
+        if self._loaded:
+            return
+        self._load()
+
+    def _load(self) -> None:
+        try:
+            model_path_value = getattr(self.settings, "SWIN_MODEL_PATH", None)
+            if not model_path_value:
+                self._load_error = "SWIN_MODEL_PATH not configured"
+                return
+
+            raw_path = Path(str(model_path_value)).expanduser()
+
+            if raw_path.is_file():
+                # Cas où SWIN_MODEL_PATH pointe directement vers best_model.pt
+                self.checkpoint_path = raw_path
+                self.model_dir = raw_path.parent
+            else:
+                # Cas où SWIN_MODEL_PATH pointe vers le dossier modèle
+                self.model_dir = raw_path
+                self.checkpoint_path = self.model_dir / "best_model.pt"
+
+            self.label_config_path = self.model_dir / "label_config.json"
+            self.training_config_path = self.model_dir / "training_config.json"
+
+            if not self.checkpoint_path.exists():
+                self._load_error = f"Checkpoint introuvable: {self.checkpoint_path}"
+                return
+
+            if not self.label_config_path.exists():
+                self._load_error = f"label_config.json introuvable: {self.label_config_path}"
+                return
+
+            label_cfg = self._load_json(self.label_config_path)
+            training_cfg = self._load_json(self.training_config_path) if self.training_config_path.exists() else {}
+
+            self.class_to_idx = {
+                str(k): int(v) for k, v in label_cfg["class_to_idx"].items()
+            }
+            self.idx_to_class = {int(v): str(k) for k, v in self.class_to_idx.items()}
+            self.num_classes = int(label_cfg["num_classes"])
+
+            self.model_name = str(training_cfg.get("model_name", "swin_tiny_patch4_window7_224"))
+            self.img_size = int(training_cfg.get("img_size", 224))
+
+            self.transform = transforms.Compose(
+                [
+                    ConvertToRGB(),
+                    transforms.Resize((self.img_size, self.img_size)),
+                    transforms.ToTensor(),
+                    transforms.Normalize(
+                        mean=[0.485, 0.456, 0.406],
+                        std=[0.229, 0.224, 0.225],
+                    ),
+                ]
+            )
+
+            self.model = timm.create_model(
+                model_name=self.model_name,
+                pretrained=False,
+                num_classes=self.num_classes,
+            )
+            self.model = self.model.to(self.device)
+
+            ckpt = torch.load(
+                self.checkpoint_path,
+                map_location=self.device,
+                weights_only=False,
+            )
+            self.model.load_state_dict(ckpt["model_state_dict"])
+            self.model.eval()
+
+            self._loaded = True
+            self._load_error = None
+
+            log.info(
+                "Swin classifier loaded",
+                extra={
+                    "model_dir": str(self.model_dir),
+                    "model_name": self.model_name,
+                    "num_classes": self.num_classes,
+                    "device": self.device,
+                    "threshold": self.threshold,
+                },
+            )
+
+        except Exception as exc:
+            self._loaded = False
+            self._load_error = str(exc)
+            log.error("Failed to load Swin classifier", extra={"error": str(exc)})
+
+    def _load_json(self, path: Path) -> Dict[str, Any]:
+        with path.open("r", encoding="utf-8") as f:
+            return json.load(f)
+
+    def _cv2_to_pil(self, image_bgr: np.ndarray) -> Image.Image:
+        if image_bgr.ndim == 2:
+            return Image.fromarray(image_bgr)
+        image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
+        return Image.fromarray(image_rgb)
+
+
+_classifier: Optional[SwinDocumentClassifier] = None
+
+
+def get_swin_classifier() -> SwinDocumentClassifier:
+    global _classifier
+    if _classifier is None:
+        _classifier = SwinDocumentClassifier()
+    return _classifier
