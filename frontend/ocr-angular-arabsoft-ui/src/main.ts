@@ -25,7 +25,7 @@ const routes: Routes = [
   // Page publique : visible même sans login.
   { path: '', component: HomeComponent },
   // Le bouton "lancer extraction" reste protégé dans extraction.component.ts.
-  { path: 'extract', component: ExtractionComponent ,canActivate: [authGuard, adminGuard], },
+  { path: 'extract', component: ExtractionComponent ,canActivate: [authGuard], },
 
   // Admin seulement
   {
