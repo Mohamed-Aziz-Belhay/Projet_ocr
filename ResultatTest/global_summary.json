@@ -1,0 +1,41 @@
+{
+  "total_cases": 9,
+  "by_family": {
+    "cin_tn": {
+      "cases": 1,
+      "http_ok": 1,
+      "success": 1,
+      "review_required": 0,
+      "other_status": 0,
+      "critical_pass": 1,
+      "technical_failures": 0
+    },
+    "passport_tn": {
+      "cases": 1,
+      "http_ok": 1,
+      "success": 1,
+      "review_required": 0,
+      "other_status": 0,
+      "critical_pass": 1,
+      "technical_failures": 0
+    },
+    "invoice": {
+      "cases": 1,
+      "http_ok": 1,
+      "success": 0,
+      "review_required": 1,
+      "other_status": 0,
+      "critical_pass": 0,
+      "technical_failures": 0
+    },
+    "midv2020": {
+      "cases": 6,
+      "http_ok": 6,
+      "success": 5,
+      "review_required": 1,
+      "other_status": 0,
+      "critical_pass": 5,
+      "technical_failures": 0
+    }
+  }
+}

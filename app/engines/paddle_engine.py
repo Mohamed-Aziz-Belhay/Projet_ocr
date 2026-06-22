@@ -4,6 +4,15 @@ PaddleOCR engine — compatible PaddleOCR 2.x ET 3.x.
 
 FIX: PaddleOCR 3.x a supprimé show_log, use_gpu, use_angle_cls.
      Détection de version + fallback pour assurer la compatibilité.
+
+FIX (mémoire) : le cache du modèle PaddleOCR est maintenant un attribut DE
+CLASSE (comme dans easyocr_engine.py), pas un attribut d'instance. Avant ce
+correctif, si get_engine()/get_engine_instance() crée une nouvelle instance
+de PaddleOCREngine à chaque requête HTTP, self._ocr repartait à None à
+chaque fois et rechargeait un modèle PaddleOCR complet en mémoire sans
+jamais libérer le précédent (PaddlePaddle gère sa mémoire côté C++, mal
+libérée par le garbage collector Python) — fuite mémoire progressive
+jusqu'au crash du process après suffisamment de requêtes.
 """
 from __future__ import annotations
 import time
@@ -32,14 +41,24 @@ def _get_paddle_major() -> int:
 class PaddleOCREngine(BaseOCREngine):
     name = "paddle"
 
+    # Cache de classe : partagé par TOUTES les instances de PaddleOCREngine,
+    # comme _readers dans EasyOCREngine. Clé = langue chargée.
+    # C'est ce qui garantit qu'un modèle PaddleOCR n'est chargé qu'UNE FOIS
+    # par langue pour toute la durée de vie du process, même si une nouvelle
+    # instance Python de PaddleOCREngine est créée à chaque requête.
+    _ocr_cache: dict[str, object] = {}
+
     def __init__(self):
-        self._ocr = None
+        # Ne plus utiliser self._ocr comme cache - voir _ocr_cache (classe).
         self._loaded_lang: Optional[str] = None
 
     def _load(self, lang: str = "en") -> None:
         lang = (lang or "en").split("+")[0]
-        if self._ocr is not None and self._loaded_lang == lang:
+
+        if lang in self._ocr_cache:
+            self._loaded_lang = lang
             return
+
         try:
             from paddleocr import PaddleOCR
             major = _get_paddle_major()
@@ -47,25 +66,32 @@ class PaddleOCREngine(BaseOCREngine):
                 # PaddleOCR 3.x : show_log / use_gpu / use_angle_cls SUPPRIMES
                 paddle_lang = _LANG_MAP_V3.get(lang, "en")
                 try:
-                    self._ocr = PaddleOCR(lang=paddle_lang)
+                    instance = PaddleOCR(lang=paddle_lang)
                 except TypeError:
-                    self._ocr = PaddleOCR()
-                log.info("PaddleOCR 3.x init", extra={"lang": paddle_lang})
+                    instance = PaddleOCR()
+                log.info("PaddleOCR 3.x init (mise en cache classe)", extra={"lang": paddle_lang})
             else:
                 # PaddleOCR 2.x
                 paddle_lang = _LANG_MAP_V2.get(lang, "en")
-                self._ocr = PaddleOCR(
+                instance = PaddleOCR(
                     use_angle_cls=True, lang=paddle_lang,
                     show_log=False, use_gpu=False,
                 )
-                log.info("PaddleOCR 2.x init", extra={"lang": paddle_lang})
+                log.info("PaddleOCR 2.x init (mise en cache classe)", extra={"lang": paddle_lang})
+
+            self._ocr_cache[lang] = instance
             self._loaded_lang = lang
         except ImportError:
             log.warning("paddleocr non installé")
-            self._ocr = None
         except Exception as exc:
             log.error("PaddleOCR init échoué", extra={"error": str(exc)})
-            self._ocr = None
+
+    @property
+    def _ocr(self):
+        """Compat: retourne l'instance pour la langue actuellement chargée."""
+        if self._loaded_lang is None:
+            return None
+        return self._ocr_cache.get(self._loaded_lang)
 
     def is_available(self) -> bool:
         try:
@@ -79,10 +105,7 @@ class PaddleOCREngine(BaseOCREngine):
         self._load(lang)
         if self._ocr is None:
             return OCRResult(full_text="", engine=self.name)
-        language = (language or "en").split("+")[0]
-        self._load(language or "en")
-        if self._ocr is None:
-            return OCRResult(full_text="", engine=self.name)
+
         t0 = time.time()
         try:
             major = _get_paddle_major()

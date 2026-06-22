@@ -1,0 +1,614 @@
+{
+  "job_id": "c6c0fcfc-61a6-4dde-ab7f-9625026a2c4c",
+  "status": "success",
+  "template_id": "cin_tn",
+  "document_type": "cin_tn",
+  "document_variant": "recto",
+  "engine_used": "mixed(easyocr,easyocr_boxes)",
+  "language_detected": "ar",
+  "global_confidence": 0.9421,
+  "quality_score": 0.754,
+  "fields": [
+    {
+      "name": "id_number",
+      "value": "09275830",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "09275830",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    },
+    {
+      "name": "last_name",
+      "value": "نورالدين",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "نورالدين",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    },
+    {
+      "name": "first_name",
+      "value": "صدقي",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "صدقي",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    },
+    {
+      "name": "birth_date",
+      "value": "1988-07-06",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "1988-07-06",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    },
+    {
+      "name": "birth_place",
+      "value": "القلعة الكبرى",
+      "confidence": 0.82,
+      "validated": true,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": null,
+      "selected_source": "cin_postprocess_birth_place_context",
+      "review_required": false,
+      "reasons": [
+        "field unresolved",
+        "birth_place_recovered:place_after_label:مكانها القلعة الكب"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "idNumber": "09275830",
+    "lastName": "نورالدين",
+    "firstName": "صدقي",
+    "birthDate": "1988-07-06",
+    "birthPlace": "القلعة الكبرى"
+  },
+  "routing": null,
+  "business_validation": {
+    "status": "success",
+    "review_required": false,
+    "review_reasons": [],
+    "warnings": [],
+    "business_confidence": 0.9421,
+    "critical_fields_ok": 3,
+    "valid_fields_ok": 5,
+    "present_fields": 5,
+    "quality_score": 0.754,
+    "avg_field_confidence": 0.924,
+    "field_coverage": 1.0
+  },
+  "diagnostics": {
+    "mode": "cin_specialized_v2",
+    "cin_mode": "balanced",
+    "strategy": "balanced: spatial-first + targeted-roi-fallback + optional-full-fallback",
+    "pipeline_steps": [
+      "easyocr_boxes",
+      "paddle_boxes",
+      "targeted_roi:easyocr"
+    ],
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.678,
+        "contrast": 0.447,
+        "quality_score": 0.754
+      },
+      "transforms": {
+        "resized": false,
+        "deskewed": false,
+        "contrast": true,
+        "mode": "cin_legacy_compatible"
+      },
+      "cin_preprocessor_keys": [
+        "binary",
+        "card_roi",
+        "deskewed",
+        "gray",
+        "oriented",
+        "original"
+      ]
+    },
+    "quality_checks": {
+      "sharpness": 1.0,
+      "brightness": 0.678,
+      "contrast": 0.447,
+      "quality_score": 0.754
+    },
+    "roi_fields": {
+      "cin_number": [
+        45,
+        386
+      ],
+      "family_name": [
+        37,
+        337
+      ],
+      "first_name": [
+        37,
+        337
+      ],
+      "date_of_birth": [
+        41,
+        337
+      ],
+      "place_of_birth": [
+        41,
+        337
+      ],
+      "gender": [
+        30,
+        165
+      ],
+      "right_text_block": [
+        209,
+        379
+      ]
+    },
+    "engines": [
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "targeted_missing_rois",
+        "target_fields": [
+          "place_of_birth"
+        ],
+        "processing_time_ms": 444,
+        "zones": {
+          "place_of_birth": "جويليه 900 خ الوددة ٧٥",
+          "right_text_block": "اللقب نورالدين صدقى بن الصادق بن تاخالولادة 06 جويلية 1988 ٤ كاغا القلعة الكب الاسم فرج"
+        },
+        "zone_scores": {
+          "place_of_birth": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      }
+    ],
+    "spatial": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "box_count": 11,
+          "fields": {
+            "cin_number": "09275830",
+            "family_name": "نورالدين",
+            "first_name": "صدقي",
+            "date_of_birth": "1988-07-06"
+          },
+          "scores": {
+            "cin_number": 20.170559174704838,
+            "family_name": 15.117170437030127,
+            "first_name": 11.006939766502427,
+            "date_of_birth": 14.06822335018787
+          },
+          "meta": {
+            "cin_number": {
+              "chosen_from": "09275830",
+              "candidate_text": "09275830",
+              "source_kind": "spatial_numeric"
+            },
+            "family_name": {
+              "chosen_from": "اللقب نورالدين",
+              "candidate_text": "نورالدين",
+              "source_kind": "inline",
+              "anchors_found": 1
+            },
+            "first_name": {
+              "chosen_from": "الاسم",
+              "candidate_text": "صدقي",
+              "source_kind": "label_neighbor_merged",
+              "anchors_found": 1
+            },
+            "date_of_birth": {
+              "chosen_from": "تاريخالولادة 06 جويلية 1988",
+              "candidate_text": "06 جويلية 1988",
+              "source_kind": "inline",
+              "anchors_found": 1
+            },
+            "place_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_place",
+              "anchors_found": 1
+            },
+            "label_spatial": {
+              "reason": "no_items"
+            }
+          },
+          "label_spatial": {
+            "fields": {},
+            "scores": {},
+            "meta": {
+              "reason": "no_items"
+            }
+          },
+          "raw_text_reconstructed": ""
+        },
+        {
+          "engine": "paddle_boxes",
+          "box_count": 21,
+          "fields": {
+            "family_name": "رون",
+            "first_name": "يقدص"
+          },
+          "scores": {
+            "family_name": 11.096064364032866,
+            "first_name": 10.954265244650829
+          },
+          "meta": {
+            "cin_number": {
+              "chosen_from": null,
+              "candidate_text": null,
+              "source_kind": "spatial_numeric"
+            },
+            "family_name": {
+              "chosen_from": "بقللا",
+              "candidate_text": "رون",
+              "source_kind": "label_neighbor_merged",
+              "anchors_found": 1
+            },
+            "first_name": {
+              "chosen_from": "مسالا",
+              "candidate_text": "يقدص",
+              "source_kind": "label_neighbor_merged",
+              "anchors_found": 1
+            },
+            "date_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_date",
+              "anchors_found": 1
+            },
+            "place_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_place",
+              "anchors_found": 0
+            },
+            "label_spatial": {
+              "reason": "no_items"
+            }
+          },
+          "label_spatial": {
+            "fields": {},
+            "scores": {},
+            "meta": {
+              "reason": "no_items"
+            }
+          },
+          "raw_text_reconstructed": ""
+        }
+      ]
+    },
+    "fusion": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "source": "spatial_boxes",
+          "fields": {
+            "cin_number": "09275830",
+            "family_name": "نورالدين",
+            "first_name": "صدقي",
+            "date_of_birth": "1988-07-06"
+          }
+        },
+        {
+          "engine": "paddle_boxes",
+          "source": "spatial_boxes",
+          "fields": {
+            "family_name": "رون",
+            "first_name": "يقدص"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "targeted_roi_ocr",
+          "fields": {
+            "cin_number": "CIN_FAMILY_NAME:",
+            "family_name": "CIN_FIRST_NAME:",
+            "first_name": "CIN_DATE_OF_BIRTH:",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: جويليه 900 خ الوددة ٧٥",
+            "place_of_birth": "جويليه 900 خ الوددة ٧٥"
+          }
+        }
+      ],
+      "aggregated": {
+        "cin_number": [
+          {
+            "value": "09275830",
+            "avg_conf": 20.170559,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 49.170559,
+            "raw_value": "09275830",
+            "meta": []
+          }
+        ],
+        "family_name": [
+          {
+            "value": "نورالدين",
+            "avg_conf": 20.170559,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 55.170559,
+            "raw_value": "نورالدين",
+            "meta": []
+          },
+          {
+            "value": "الودة",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "easyocr",
+              "global_text"
+            ],
+            "sources": [
+              "text_family_fallback",
+              "text_family_global"
+            ],
+            "profiles": [],
+            "selection_score": 46.3,
+            "raw_value": "الودة",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_combined_text": true
+              }
+            ]
+          },
+          {
+            "value": "رون",
+            "avg_conf": 11.096064,
+            "count": 1,
+            "engines": [
+              "paddle_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 45.696064,
+            "raw_value": "رون",
+            "meta": []
+          }
+        ],
+        "first_name": [
+          {
+            "value": "صدقي",
+            "avg_conf": 20.170559,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 53.070559,
+            "raw_value": "صدقي",
+            "meta": []
+          },
+          {
+            "value": "الودة",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "easyocr",
+              "global_text"
+            ],
+            "sources": [
+              "text_first_fallback",
+              "text_first_global"
+            ],
+            "profiles": [],
+            "selection_score": 46.3,
+            "raw_value": "الودة",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_combined_text": true
+              }
+            ]
+          },
+          {
+            "value": "يقدص",
+            "avg_conf": 11.096064,
+            "count": 1,
+            "engines": [
+              "paddle_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 44.096064,
+            "raw_value": "يقدص",
+            "meta": []
+          }
+        ],
+        "date_of_birth": [
+          {
+            "value": "06/07/1988",
+            "avg_conf": 10.08528,
+            "count": 2,
+            "engines": [
+              "easyocr",
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes",
+              "text_date_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 46.08528,
+            "raw_value": "1988-07-06",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          }
+        ],
+        "place_of_birth": []
+      },
+      "selected": {
+        "cin_number": {
+          "value": "09275830",
+          "avg_conf": 20.170559,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 49.170559,
+          "raw_value": "09275830",
+          "meta": []
+        },
+        "family_name": {
+          "value": "نورالدين",
+          "avg_conf": 20.170559,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 55.170559,
+          "raw_value": "نورالدين",
+          "meta": []
+        },
+        "first_name": {
+          "value": "صدقي",
+          "avg_conf": 20.170559,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 53.070559,
+          "raw_value": "صدقي",
+          "meta": []
+        },
+        "date_of_birth": {
+          "value": "06/07/1988",
+          "avg_conf": 10.08528,
+          "count": 2,
+          "engines": [
+            "easyocr",
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes",
+            "text_date_fallback"
+          ],
+          "profiles": [],
+          "selection_score": 46.08528,
+          "raw_value": "1988-07-06",
+          "meta": [
+            {
+              "from_raw_text": true
+            }
+          ]
+        },
+        "place_of_birth": null
+      }
+    },
+    "cin_postprocess": {
+      "executed": true,
+      "name_extraction": {
+        "debug_sequence": "اللقب:نورالدين الاسم:? variants:normal",
+        "family_name": "نورالدين",
+        "first_name": null,
+        "rule": "family_name=all words after اللقب; first_name=words on الاسم line before بن/بنت"
+      },
+      "applied": [
+        {
+          "field": "last_name",
+          "type": "postprocess_skip_name_override",
+          "kept": "نورالدين",
+          "candidate": "نورالدين",
+          "candidate_ok": true,
+          "old_ok": true,
+          "good_spatial": true
+        },
+        {
+          "field": "birth_place",
+          "type": "contextual_place_recovery",
+          "old": null,
+          "new": "القلعة الكبرى",
+          "reason": "place_after_label:مكانها القلعة الكب"
+        }
+      ]
+    },
+    "review_required": false,
+    "review_reasons": [],
+    "business_validation": {
+      "status": "success",
+      "review_required": false,
+      "review_reasons": [],
+      "warnings": [],
+      "business_confidence": 0.9421,
+      "critical_fields_ok": 3,
+      "valid_fields_ok": 5,
+      "present_fields": 5,
+      "quality_score": 0.754,
+      "avg_field_confidence": 0.924,
+      "field_coverage": 1.0
+    }
+  },
+  "raw_text": "CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: جويليه 900 خ الوددة 75 اللقب نورالدين صدقى بن الصادق بن تاريخ الولادة 06 جويلية 1988 4 مكانها القلعة الكب الاسم فرج 09275830 نورالدين صدقي 1988-07-06 رون يقدص CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: جويليه 900 خ الوددة 75 جويليه 900 خ الوددة 75 09275830 نورالدين صدقي 1988-07-06 09275830 09275830 نورالدين اللقب نورالدين صدقي الاسم 06 جويلية 1988 تاريخ الولادة 06 جويلية 1988 رون يقدص رون اللقب يقدص الاسم جويليه 900 خ الوددة 75 اللقب نورالدين صدقى بن الصادق بن تاريخ الولادة 06 جويلية 1988 4 مكانها القلعة الكب الاسم فرج",
+  "processing_time_ms": 2521,
+  "warnings": [],
+  "review_reasons": []
+}

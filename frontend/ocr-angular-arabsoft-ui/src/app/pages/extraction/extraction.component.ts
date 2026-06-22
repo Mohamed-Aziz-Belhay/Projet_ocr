@@ -89,6 +89,15 @@ export class ExtractionComponent implements OnInit {
     this.applyDefaults();
   }
 
+  scrollToExtraction(): void {
+  document
+    .getElementById('document-selector')
+    ?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+}
+
   applyDefaults() {
     if (this.documentType === 'invoice') {
       this.engine = 'paddle';
