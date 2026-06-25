@@ -1,0 +1,1729 @@
+{
+  "job_id": "2cc9d210-bccd-4dda-a890-c47ecfbe6a2d",
+  "status": "success",
+  "template_id": "midv_aze_passport",
+  "document_type": "passport",
+  "document_variant": null,
+  "engine_used": "passport_mrz",
+  "language_detected": "en",
+  "global_confidence": 0.9629,
+  "quality_score": 0.759,
+  "fields": [
+    {
+      "name": "document_number",
+      "value": "C51393915",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "29.012021 DAXILI ISLOR NAZIRLIY| U Voyu \" MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C51393915242E9005086M2101299019LXGE<<<<<<<14",
+      "raw_template_field": "document_number",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "surname",
+      "value": "ARGEDAS",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "29.012021 DAXILI ISLOR NAZIRLIY| U Voyu \" MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C51393915242E9005086M2101299019LXGE<<<<<<<14",
+      "raw_template_field": "surname",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "given_names",
+      "value": "AGAMUSA",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "29.012021 DAXILI ISLOR NAZIRLIY| U Voyu \" MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C51393915242E9005086M2101299019LXGE<<<<<<<14",
+      "raw_template_field": "given_names",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "nationality",
+      "value": "AZE",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "29.012021 DAXILI ISLOR NAZIRLIY| U Voyu \" MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C51393915242E9005086M2101299019LXGE<<<<<<<14",
+      "raw_template_field": "nationality",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "birth_date",
+      "value": "1990-05-08",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "29.012021 DAXILI ISLOR NAZIRLIY| U Voyu \" MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C51393915242E9005086M2101299019LXGE<<<<<<<14",
+      "raw_template_field": "birth_date",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "gender",
+      "value": "M",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "29.012021 DAXILI ISLOR NAZIRLIY| U Voyu \" MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C51393915242E9005086M2101299019LXGE<<<<<<<14",
+      "raw_template_field": "gender",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "expiry_date",
+      "value": "2021-01-29",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "29.012021 DAXILI ISLOR NAZIRLIY| U Voyu \" MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C51393915242E9005086M2101299019LXGE<<<<<<<14",
+      "raw_template_field": "expiry_date",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "issuing_country",
+      "value": "AZE",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "29.012021 DAXILI ISLOR NAZIRLIY| U Voyu \" MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C51393915242E9005086M2101299019LXGE<<<<<<<14",
+      "raw_template_field": "issuing_country",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "personal_number",
+      "value": "019LXGE",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "29.012021 DAXILI ISLOR NAZIRLIY| U Voyu \" MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C51393915242E9005086M2101299019LXGE<<<<<<<14",
+      "raw_template_field": "personal_number",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "mrz",
+      "value": "PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<<\nC513939152AZE9005086M2101299019LXGE<<<<<<<14",
+      "confidence": 0.97,
+      "validated": true,
+      "raw_text": "29.012021 DAXILI ISLOR NAZIRLIY| U Voyu \" MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C51393915242E9005086M2101299019LXGE<<<<<<<14",
+      "raw_template_field": "mrz",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "document_number": "C51393915",
+    "surname": "ARGEDAS",
+    "given_names": "AGAMUSA",
+    "nationality": "AZE",
+    "birth_date": "1990-05-08",
+    "gender": "M",
+    "expiry_date": "2021-01-29",
+    "issuing_country": "AZE",
+    "personal_number": "019LXGE",
+    "mrz": "PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<<\nC513939152AZE9005086M2101299019LXGE<<<<<<<14"
+  },
+  "routing": {
+    "requested_document_type": "auto",
+    "requested_template_id": null,
+    "selected_template_id": "midv_aze_passport",
+    "selected_document_type": "passport",
+    "method": "swin_image_classifier",
+    "document_class": "aze_passport",
+    "confidence": 1.0
+  },
+  "business_validation": {
+    "status": "success",
+    "review_required": false,
+    "review_reasons": [],
+    "valid_fields_ok": 10,
+    "present_fields": 10,
+    "field_coverage": 1.0,
+    "avg_field_confidence": 0.943,
+    "business_confidence": 0.9629,
+    "quality_score": 0.759
+  },
+  "diagnostics": {
+    "mode": "generic_template_v5_detector_swin_roi_passport_invoice",
+    "processing_mode": "fast",
+    "routing": {
+      "requested_document_type": "auto",
+      "requested_template_id": null,
+      "selected_template_id": "midv_aze_passport",
+      "selected_document_type": "passport",
+      "method": "swin_image_classifier",
+      "document_class": "aze_passport",
+      "confidence": 1.0
+    },
+    "template_id": "midv_aze_passport",
+    "document_type": "passport",
+    "engine": "passport_mrz",
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.796,
+        "contrast": 0.365,
+        "quality_score": 0.759
+      },
+      "transforms": {
+        "resized": true,
+        "deskewed": true,
+        "contrast": true
+      }
+    },
+    "layout": {
+      "page_width": 2000,
+      "page_height": 1407,
+      "orientation": "landscape",
+      "has_table": true,
+      "column_count": 3,
+      "regions": [
+        {
+          "type": "text_block",
+          "bbox": [
+            0,
+            1243,
+            321,
+            164
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0,
+            1203,
+            320,
+            14
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            0,
+            1170,
+            320,
+            16
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            412,
+            1141,
+            82,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            638,
+            1120,
+            281,
+            287
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            987,
+            1118,
+            116,
+            99
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            0,
+            1109,
+            320,
+            14
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            412,
+            1101,
+            79,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            0,
+            1076,
+            321,
+            32
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            412,
+            1019,
+            82,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            0,
+            967,
+            320,
+            63
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            0,
+            941,
+            321,
+            22
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            411,
+            939,
+            83,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            0,
+            906,
+            321,
+            32
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            412,
+            897,
+            82,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            0,
+            876,
+            320,
+            16
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1474,
+            864,
+            163,
+            498
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            412,
+            856,
+            82,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            655,
+            838,
+            74,
+            197
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            412,
+            818,
+            82,
+            35
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1675,
+            771,
+            325,
+            636
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1234,
+            751,
+            78,
+            127
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            411,
+            736,
+            83,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            412,
+            655,
+            82,
+            35
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            507,
+            613,
+            79,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            412,
+            613,
+            79,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1677,
+            609,
+            323,
+            161
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            411,
+            572,
+            83,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1678,
+            535,
+            322,
+            73
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            506,
+            533,
+            80,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            411,
+            532,
+            83,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            507,
+            492,
+            79,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            411,
+            492,
+            83,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            507,
+            451,
+            79,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1678,
+            448,
+            322,
+            83
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            411,
+            411,
+            83,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            506,
+            410,
+            80,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            411,
+            370,
+            83,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            507,
+            369,
+            79,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            412,
+            328,
+            82,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            655,
+            292,
+            984,
+            742
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1677,
+            272,
+            323,
+            171
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            507,
+            207,
+            79,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            412,
+            207,
+            79,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            1676,
+            201,
+            324,
+            70
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            412,
+            168,
+            82,
+            35
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            1676,
+            133,
+            324,
+            61
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1476,
+            107,
+            106,
+            176
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            506,
+            85,
+            80,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            507,
+            46,
+            79,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        }
+      ],
+      "region_count": 57
+    },
+    "field_count": 10,
+    "validated_field_count": 10,
+    "document_localizer": {
+      "localizer": "document_localizer_v3_yolo_raw_plus_normalized",
+      "method": "yolo_crop",
+      "detector": {
+        "found": true,
+        "bbox_xyxy": [
+          0.0,
+          0.0,
+          1584.31689453125,
+          1495.0595703125
+        ],
+        "confidence": 0.8907,
+        "class_name": "document",
+        "method": "yolo_document_detector",
+        "error": null
+      },
+      "input_shape": [
+        1525,
+        2167
+      ],
+      "localized_shape": [
+        1525,
+        1616
+      ],
+      "candidate_count": 20,
+      "raw_candidate_count": 4,
+      "normalized_candidate_count": 16,
+      "yolo_crop_padding": 0.02,
+      "aspect_trim": {
+        "enabled": false,
+        "reason": "aspect trimming degraded ROI alignment in previous tests"
+      },
+      "post_yolo_normalizer": {
+        "executed": true,
+        "diagnostics": {
+          "normalizer": "classical_cv_multi_candidate_v6_strict_color_nms",
+          "input_shape": [
+            1525,
+            1616
+          ],
+          "detection_shape": [
+            1132,
+            1200
+          ],
+          "scale": 0.7425742574257426,
+          "mode": "fast",
+          "found_contour": true,
+          "contours_total": 368,
+          "sliding_candidate_count": 8,
+          "contour_candidate_count": 42,
+          "candidate_pool_count": 50,
+          "crop_candidate_count": 8,
+          "final_candidate_count": 16,
+          "rejected": {
+            "too_small": 24,
+            "too_large": 0,
+            "bad_aspect": 14,
+            "touches_border_large": 0,
+            "invalid_crop": 0
+          },
+          "selected_strategy": "multi_candidate_roi_score",
+          "candidates_preview": [
+            {
+              "source": "sliding_color_window",
+              "index": 222,
+              "score": 0.857387,
+              "density": 0.709237,
+              "mean_saturation": 0.382276,
+              "std_value": 0.222991,
+              "center_density": 0.971304,
+              "center_saturation": 0.509154,
+              "area_ratio": 0.005228,
+              "bbox_detection": [
+                210,
+                105,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 224,
+              "score": 0.657873,
+              "density": 0.599127,
+              "mean_saturation": 0.315588,
+              "std_value": 0.217957,
+              "center_density": 0.650145,
+              "center_saturation": 0.356863,
+              "area_ratio": 0.005228,
+              "bbox_detection": [
+                252,
+                105,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 271,
+              "score": 0.633245,
+              "density": 0.549,
+              "mean_saturation": 0.310795,
+              "std_value": 0.212569,
+              "center_density": 0.664058,
+              "center_saturation": 0.347215,
+              "area_ratio": 0.005228,
+              "bbox_detection": [
+                231,
+                126,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 269,
+              "score": 0.561497,
+              "density": 0.476485,
+              "mean_saturation": 0.281902,
+              "std_value": 0.207956,
+              "center_density": 0.590725,
+              "center_saturation": 0.3157,
+              "area_ratio": 0.005228,
+              "bbox_detection": [
+                189,
+                126,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 174,
+              "score": 0.512724,
+              "density": 0.42664,
+              "mean_saturation": 0.266387,
+              "std_value": 0.213543,
+              "center_density": 0.503188,
+              "center_saturation": 0.303725,
+              "area_ratio": 0.005228,
+              "bbox_detection": [
+                231,
+                84,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 220,
+              "score": 0.511223,
+              "density": 0.441988,
+              "mean_saturation": 0.266013,
+              "std_value": 0.211645,
+              "center_density": 0.482609,
+              "center_saturation": 0.295598,
+              "area_ratio": 0.005228,
+              "bbox_detection": [
+                168,
+                105,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 228,
+              "score": 0.510782,
+              "density": 0.50704,
+              "mean_saturation": 0.217812,
+              "std_value": 0.17055,
+              "center_density": 0.626377,
+              "center_saturation": 0.242938,
+              "area_ratio": 0.005228,
+              "bbox_detection": [
+                336,
+                105,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 3021,
+              "score": 0.500658,
+              "density": 0.381913,
+              "mean_saturation": 0.233783,
+              "std_value": 0.192653,
+              "center_density": 0.57881,
+              "center_saturation": 0.319989,
+              "area_ratio": 0.013391,
+              "bbox_detection": [
+                210,
+                84,
+                170,
+                107
+              ],
+              "aspect": 1.5888,
+              "aspect_penalty": 0.0028,
+              "touches_border": false,
+              "reject_reason": null
+            }
+          ],
+          "candidate_angles": [
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180
+          ]
+        },
+        "normalized_shape": [
+          90,
+          143
+        ],
+        "candidate_count": 16
+      }
+    },
+    "passport_extraction": {
+      "passport_extraction": "passport_mrz_first_best_candidate_v2_strict_early_stop",
+      "selected_angle": 0,
+      "selected_source": "full_image_width_guard",
+      "selected_candidate_index": -1,
+      "selected_debug_prefix": "passport_cand_-1_angle_0",
+      "selected_score": 128.4,
+      "selected_mrz_core_valid": true,
+      "candidate_debug": [
+        {
+          "angle": 0,
+          "source": "full_image_width_guard",
+          "candidate_index": -1,
+          "debug_prefix": "passport_cand_-1_angle_0",
+          "score": 128.4,
+          "mrz_core_valid": true,
+          "validated_fields": 10,
+          "present_fields": 10,
+          "review_required_fields": [],
+          "warnings": [],
+          "passport_debug_summary": {
+            "selected_candidate": "bottom_30_clahe",
+            "selected_score": 82.0
+          }
+        }
+      ],
+      "selected_candidate_debug": {
+        "passport_extraction": "passport_mrz_first_v2_mrz_preprocess_repair",
+        "engine": "easyocr",
+        "language_hints": [
+          "en"
+        ],
+        "selected_candidate": "bottom_30_clahe",
+        "selected_base_candidate": "bottom_30",
+        "selected_variant": "clahe",
+        "selected_bbox_norm": [
+          0.03,
+          0.67,
+          0.94,
+          0.3
+        ],
+        "selected_score": 82.0,
+        "selected_raw_text": "29.012021 DAXILI ISLOR NAZIRLIY| U Voyu \" MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C51393915242E9005086M2101299019LXGE<<<<<<<14",
+        "selected_repaired_text": "29.012021 DAXILI ISLOR NAZIRLIY| U Voyu \" MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C51393915242E9005086M2101299019LXGE<<<<<<<14",
+        "selected_parsed": {
+          "valid": true,
+          "document_type": "PC",
+          "issuing_country": "AZE",
+          "document_number": "C51393915",
+          "surname": "ARGEDAS",
+          "given_names": "AGAMUSA",
+          "nationality": "AZE",
+          "birth_date": "1990-05-08",
+          "gender": "M",
+          "expiry_date": "2021-01-29",
+          "personal_number": "019LXGE",
+          "mrz_lines": [
+            "PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<<",
+            "C513939152AZE9005086M2101299019LXGE<<<<<<<14"
+          ],
+          "checks": {
+            "document_number": true,
+            "birth_date": true,
+            "expiry_date": true,
+            "personal_number": false,
+            "composite": false
+          },
+          "errors": []
+        },
+        "selected_repair_candidates": [
+          {
+            "method": "raw_ocr_text",
+            "text": "29.012021 DAXILI ISLOR NAZIRLIY| U Voyu \" MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C51393915242E9005086M2101299019LXGE<<<<<<<14",
+            "score": 82.0,
+            "valid": true,
+            "parsed": {
+              "valid": true,
+              "document_type": "PC",
+              "issuing_country": "AZE",
+              "document_number": "C51393915",
+              "surname": "ARGEDAS",
+              "given_names": "AGAMUSA",
+              "nationality": "AZE",
+              "birth_date": "1990-05-08",
+              "gender": "M",
+              "expiry_date": "2021-01-29",
+              "personal_number": "019LXGE",
+              "mrz_lines": [
+                "PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<<",
+                "C513939152AZE9005086M2101299019LXGE<<<<<<<14"
+              ],
+              "checks": {
+                "document_number": true,
+                "birth_date": true,
+                "expiry_date": true,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": []
+            }
+          }
+        ],
+        "candidates": [
+          {
+            "candidate": "bottom_38_clahe",
+            "base_candidate": "bottom_38",
+            "variant": "clahe",
+            "bbox_norm": [
+              0.02,
+              0.58,
+              0.96,
+              0.4
+            ],
+            "raw_text": "Yenimp larixinvave @Issue ellivemWWWWpW vaue WerU 30.01.2011 29.01.2021 Pasportulveran orqan lssuing authority 29.012021 DAXiLI ISLOR NAZiRLivi MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C513939152A2E9005086M2101299019LXGE<<<<<<<14 T2_",
+            "selected_text": "Yenimp larixinvave @Issue ellivemWWWWpW vaue WerU 30.01.2011 29.01.2021 Pasportulveran orqan lssuing authority 29.012021 DAXiLI ISLOR NAZiRLivi MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C513939152A2E9005086M2101299019LXGE<<<<<<<14 T2_",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": "PL",
+              "issuing_country": "ARI",
+              "document_number": "112901202",
+              "surname": "XINVAVEISSUEELLIVEMWWWWPWVAUEWERU",
+              "given_names": null,
+              "nationality": "PAS",
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": "NLSSUINGAUTHOR",
+              "mrz_lines": [
+                "PLARIXINVAVEISSUEELLIVEMWWWWPWVAUEWERU300120",
+                "1129012021PASPORTULVERANORQANLSSUINGAUTHORIT"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "Yenimp larixinvave @Issue ellivemWWWWpW vaue WerU 30.01.2011 29.01.2021 Pasportulveran orqan lssuing authority 29.012021 DAXiLI ISLOR NAZiRLivi MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C513939152A2E9005086M2101299019LXGE<<<<<<<14 T2_",
+                "score": 3.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "PL",
+                  "issuing_country": "ARI",
+                  "document_number": "112901202",
+                  "surname": "XINVAVEISSUEELLIVEMWWWWPWVAUEWERU",
+                  "given_names": null,
+                  "nationality": "PAS",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "NLSSUINGAUTHOR",
+                  "mrz_lines": [
+                    "PLARIXINVAVEISSUEELLIVEMWWWWPWVAUEWERU300120",
+                    "1129012021PASPORTULVERANORQANLSSUINGAUTHORIT"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              }
+            ],
+            "score": 3.4
+          },
+          {
+            "candidate": "bottom_38_sharp",
+            "base_candidate": "bottom_38",
+            "variant": "sharp",
+            "bbox_norm": [
+              0.02,
+              0.58,
+              0.96,
+              0.4
+            ],
+            "raw_text": "Yenimp lanixiivaie @Nsque JellIvemWWWwew vaueWNeRW 30.01.2011 29.01.2021 ~Pasportul veran organ Issuing authority 29.0+2021 DAXiLi ISLOR NAZIRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C513939152A2E9005086M2101299019LXGE<<<<<<<14 724",
+            "selected_text": "Yenimp lanixiivaie @Nsque JellIvemWWWwew vaueWNeRW 30.01.2011 29.01.2021 ~Pasportul veran organ Issuing authority 29.0+2021 DAXiLi ISLOR NAZIRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C513939152A2E9005086M2101299019LXGE<<<<<<<14 724",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": "PL",
+              "issuing_country": "ANI",
+              "document_number": "201129012",
+              "surname": "XIIVAIENSQUEJELLIVEMWWWWEWVAUEWNERW",
+              "given_names": null,
+              "nationality": "ZIP",
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": "GANISSUINGAUTH",
+              "mrz_lines": [
+                "PLANIXIIVAIENSQUEJELLIVEMWWWWEWVAUEWNERW3001",
+                "2011290120ZIPASPORTULVERANORGANISSUINGAUTHOR"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "Yenimp lanixiivaie @Nsque JellIvemWWWwew vaueWNeRW 30.01.2011 29.01.2021 ~Pasportul veran organ Issuing authority 29.0+2021 DAXiLi ISLOR NAZIRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C513939152A2E9005086M2101299019LXGE<<<<<<<14 724",
+                "score": 3.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "PL",
+                  "issuing_country": "ANI",
+                  "document_number": "201129012",
+                  "surname": "XIIVAIENSQUEJELLIVEMWWWWEWVAUEWNERW",
+                  "given_names": null,
+                  "nationality": "ZIP",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "GANISSUINGAUTH",
+                  "mrz_lines": [
+                    "PLANIXIIVAIENSQUEJELLIVEMWWWWEWVAUEWNERW3001",
+                    "2011290120ZIPASPORTULVERANORGANISSUINGAUTHOR"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              }
+            ],
+            "score": 3.4
+          },
+          {
+            "candidate": "bottom_38_binary",
+            "base_candidate": "bottom_38",
+            "variant": "binary",
+            "bbox_norm": [
+              0.02,
+              0.58,
+              0.96,
+              0.4
+            ],
+            "raw_text": "#enima [arixinuale Q1 Issue EliwlhIY MMumurl tale QI ExtiY 30.01.2011 29.01,.2021 Pasportu veran OrganfIssuing authority 29.012021 DAXiLi iSLOR NAZiRLivi MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAs<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C513939152A2E9005086M2101299019LXGE<<<<<<<14 Ogd_",
+            "selected_text": "#enima [arixinuale Q1 Issue EliwlhIY MMumurl tale QI ExtiY 30.01.2011 29.01,.2021 Pasportu veran OrganfIssuing authority 29.012021 DAXiLi iSLOR NAZiRLivi MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAs<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C513939152A2E9005086M2101299019LXGE<<<<<<<14 Ogd_",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": "PA",
+              "issuing_country": "SPO",
+              "document_number": "AXILIISLO",
+              "surname": "RTUVERANORGANFISSUINGAUTHORITYD",
+              "given_names": null,
+              "nationality": "NAZ",
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": "FINTERNALAFFAI",
+              "mrz_lines": [
+                "PASPORTUVERANORGANFISSUINGAUTHORITY29012021D",
+                "AXILIISLORNAZIRLIVIMINISTRYOFINTERNALAFFAIRS"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "#enima [arixinuale Q1 Issue EliwlhIY MMumurl tale QI ExtiY 30.01.2011 29.01,.2021 Pasportu veran OrganfIssuing authority 29.012021 DAXiLi iSLOR NAZiRLivi MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAs<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C513939152A2E9005086M2101299019LXGE<<<<<<<14 Ogd_",
+                "score": 3.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "PA",
+                  "issuing_country": "SPO",
+                  "document_number": "AXILIISLO",
+                  "surname": "RTUVERANORGANFISSUINGAUTHORITYD",
+                  "given_names": null,
+                  "nationality": "NAZ",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "FINTERNALAFFAI",
+                  "mrz_lines": [
+                    "PASPORTUVERANORGANFISSUINGAUTHORITY29012021D",
+                    "AXILIISLORNAZIRLIVIMINISTRYOFINTERNALAFFAIRS"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              }
+            ],
+            "score": 3.4
+          },
+          {
+            "candidate": "bottom_35_clahe",
+            "base_candidate": "bottom_35",
+            "variant": "clahe",
+            "bbox_norm": [
+              0.03,
+              0.62,
+              0.94,
+              0.35
+            ],
+            "raw_text": "Oce Co Lde Pasportu veran orqan lssuing authority 29.0f2021 DAXiLi iSLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C513939152A2E9005086021012990I9LXGE< <<<<<<14 Otgzo_",
+            "selected_text": "Oce Co Lde Pasportu veran orqan lssuing authority 29.0f2021 DAXiLi iSLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C513939152A2E9005086021012990I9LXGE< <<<<<<14 Otgzo_",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": "PA",
+              "issuing_country": "SPO",
+              "document_number": "XILIISLOR",
+              "surname": "RTUVERANORQANLSSUINGAUTHORITYFDA",
+              "given_names": null,
+              "nationality": "AZI",
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": "INTERNALAFFAIR",
+              "mrz_lines": [
+                "PASPORTUVERANORQANLSSUINGAUTHORITY290F2021DA",
+                "XILIISLORNAZIRLIYIMINISTRYOFINTERNALAFFAIRSP"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "Oce Co Lde Pasportu veran orqan lssuing authority 29.0f2021 DAXiLi iSLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C513939152A2E9005086021012990I9LXGE< <<<<<<14 Otgzo_",
+                "score": 3.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "PA",
+                  "issuing_country": "SPO",
+                  "document_number": "XILIISLOR",
+                  "surname": "RTUVERANORQANLSSUINGAUTHORITYFDA",
+                  "given_names": null,
+                  "nationality": "AZI",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "INTERNALAFFAIR",
+                  "mrz_lines": [
+                    "PASPORTUVERANORQANLSSUINGAUTHORITY290F2021DA",
+                    "XILIISLORNAZIRLIYIMINISTRYOFINTERNALAFFAIRSP"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              }
+            ],
+            "score": 3.4
+          },
+          {
+            "candidate": "bottom_35_sharp",
+            "base_candidate": "bottom_35",
+            "variant": "sharp",
+            "bbox_norm": [
+              0.03,
+              0.62,
+              0.94,
+              0.35
+            ],
+            "raw_text": "Uiy Lo eto Pasportui veran orqan Issuing authority 29.0f2021 DAXiLi iSLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C51393915242E9005086021012990I9LXGE<<<<<<<14 Ohgeetox_",
+            "selected_text": "Uiy Lo eto Pasportui veran orqan Issuing authority 29.0f2021 DAXiLi iSLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C51393915242E9005086021012990I9LXGE<<<<<<<14 Ohgeetox_",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": "PA",
+              "issuing_country": "SPO",
+              "document_number": "AXILIISLO",
+              "surname": "RTUIVERANORQANISSUINGAUTHORITYFD",
+              "given_names": null,
+              "nationality": "NAZ",
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": "FINTERNALAFFAI",
+              "mrz_lines": [
+                "PASPORTUIVERANORQANISSUINGAUTHORITY290F2021D",
+                "AXILIISLORNAZIRLIYIMINISTRYOFINTERNALAFFAIRS"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "Uiy Lo eto Pasportui veran orqan Issuing authority 29.0f2021 DAXiLi iSLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C51393915242E9005086021012990I9LXGE<<<<<<<14 Ohgeetox_",
+                "score": 3.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "PA",
+                  "issuing_country": "SPO",
+                  "document_number": "AXILIISLO",
+                  "surname": "RTUIVERANORQANISSUINGAUTHORITYFD",
+                  "given_names": null,
+                  "nationality": "NAZ",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "FINTERNALAFFAI",
+                  "mrz_lines": [
+                    "PASPORTUIVERANORQANISSUINGAUTHORITY290F2021D",
+                    "AXILIISLORNAZIRLIYIMINISTRYOFINTERNALAFFAIRS"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              }
+            ],
+            "score": 3.4
+          },
+          {
+            "candidate": "bottom_35_binary",
+            "base_candidate": "bottom_35",
+            "variant": "binary",
+            "bbox_norm": [
+              0.03,
+              0.62,
+              0.94,
+              0.35
+            ],
+            "raw_text": "i \"Lo L d Pasportv veran organ Jlssuing authority 29.012021 DAXiLi ISLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<< < < C51393915242E90050860210129909LX4E<<<< <<<14 Ohz2_",
+            "selected_text": "i \"Lo L d Pasportv veran organ Jlssuing authority 29.012021 DAXiLi ISLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<< < < C51393915242E90050860210129909LX4E<<<< <<<14 Ohz2_",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": "PA",
+              "issuing_country": "SPO",
+              "document_number": "AXILIISLO",
+              "surname": "RTVVERANORGANJLSSUINGAUTHORITYD",
+              "given_names": null,
+              "nationality": "NAZ",
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": "FINTERNALAFFAI",
+              "mrz_lines": [
+                "PASPORTVVERANORGANJLSSUINGAUTHORITY29012021D",
+                "AXILIISLORNAZIRLIYIMINISTRYOFINTERNALAFFAIRS"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "i \"Lo L d Pasportv veran organ Jlssuing authority 29.012021 DAXiLi ISLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<< < < C51393915242E90050860210129909LX4E<<<< <<<14 Ohz2_",
+                "score": 3.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "PA",
+                  "issuing_country": "SPO",
+                  "document_number": "AXILIISLO",
+                  "surname": "RTVVERANORGANJLSSUINGAUTHORITYD",
+                  "given_names": null,
+                  "nationality": "NAZ",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "FINTERNALAFFAI",
+                  "mrz_lines": [
+                    "PASPORTVVERANORGANJLSSUINGAUTHORITY29012021D",
+                    "AXILIISLORNAZIRLIYIMINISTRYOFINTERNALAFFAIRS"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              }
+            ],
+            "score": 3.4
+          },
+          {
+            "candidate": "bottom_30_clahe",
+            "base_candidate": "bottom_30",
+            "variant": "clahe",
+            "bbox_norm": [
+              0.03,
+              0.67,
+              0.94,
+              0.3
+            ],
+            "raw_text": "29.012021 DAXILI ISLOR NAZIRLIY| U Voyu \" MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C51393915242E9005086M2101299019LXGE<<<<<<<14",
+            "selected_text": "29.012021 DAXILI ISLOR NAZIRLIY| U Voyu \" MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C51393915242E9005086M2101299019LXGE<<<<<<<14",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": true,
+              "document_type": "PC",
+              "issuing_country": "AZE",
+              "document_number": "C51393915",
+              "surname": "ARGEDAS",
+              "given_names": "AGAMUSA",
+              "nationality": "AZE",
+              "birth_date": "1990-05-08",
+              "gender": "M",
+              "expiry_date": "2021-01-29",
+              "personal_number": "019LXGE",
+              "mrz_lines": [
+                "PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<<",
+                "C513939152AZE9005086M2101299019LXGE<<<<<<<14"
+              ],
+              "checks": {
+                "document_number": true,
+                "birth_date": true,
+                "expiry_date": true,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": []
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "29.012021 DAXILI ISLOR NAZIRLIY| U Voyu \" MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C51393915242E9005086M2101299019LXGE<<<<<<<14",
+                "score": 82.0,
+                "valid": true,
+                "parsed": {
+                  "valid": true,
+                  "document_type": "PC",
+                  "issuing_country": "AZE",
+                  "document_number": "C51393915",
+                  "surname": "ARGEDAS",
+                  "given_names": "AGAMUSA",
+                  "nationality": "AZE",
+                  "birth_date": "1990-05-08",
+                  "gender": "M",
+                  "expiry_date": "2021-01-29",
+                  "personal_number": "019LXGE",
+                  "mrz_lines": [
+                    "PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<<",
+                    "C513939152AZE9005086M2101299019LXGE<<<<<<<14"
+                  ],
+                  "checks": {
+                    "document_number": true,
+                    "birth_date": true,
+                    "expiry_date": true,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": []
+                }
+              }
+            ],
+            "score": 82.0
+          }
+        ]
+      },
+      "early_stop": {
+        "enabled": true,
+        "reason": "valid_mrz_core_checks"
+      }
+    },
+    "passport_width_guard": {
+      "enabled": true,
+      "min_width_ratio": 0.9,
+      "original_width": 2167,
+      "localized_width": 1616,
+      "actual_width_ratio": 0.7457,
+      "use_full_image_candidate": true,
+      "candidate_policy": "full_image_prepended",
+      "selected_source": "full_image_width_guard",
+      "selected_candidate_index": -1
+    },
+    "raw_ocr_executed": false,
+    "strategy": "passport_mrz_first"
+  },
+  "raw_text": "29.012021 DAXILI ISLOR NAZIRLIY| U Voyu \" MINISTRY OF INTERNAL AFFAIRS PCAZEARGEDAS<<AGAMUSA<<<<<<<<<<<<<<<<<<<<<<< C51393915242E9005086M2101299019LXGE<<<<<<<14",
+  "processing_time_ms": 5631,
+  "warnings": [],
+  "review_reasons": []
+}

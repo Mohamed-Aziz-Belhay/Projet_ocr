@@ -1,0 +1,551 @@
+{
+  "job_id": "59f246d1-0ff7-4057-a64b-ce2279efdb55",
+  "status": "success",
+  "template_id": "cin_tn",
+  "document_type": "cin_tn",
+  "document_variant": "recto",
+  "engine_used": "mixed(easyocr_boxes,paddle_boxes)",
+  "language_detected": "ar",
+  "global_confidence": 0.9414,
+  "quality_score": 0.429,
+  "fields": [
+    {
+      "name": "id_number",
+      "value": "06987596",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "06987596",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    },
+    {
+      "name": "last_name",
+      "value": "النقاز",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "النقاذ",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes",
+        "cin_arabic_ocr_fix:النقاذ->النقاز"
+      ]
+    },
+    {
+      "name": "first_name",
+      "value": "هيفاء",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "هدفاء",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "paddle_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes",
+        "cin_arabic_ocr_fix:هدفاء->هيفاء"
+      ]
+    },
+    {
+      "name": "birth_date",
+      "value": "1997-04-28",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "1997-04-28",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    },
+    {
+      "name": "birth_place",
+      "value": "النقاز",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "فيتوريا",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "cin_postprocess_birth_place_context",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes",
+        "birth_place_recovered:place_after_label:مكانها النقاز هيفاء النقاز"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "idNumber": "06987596",
+    "lastName": "النقاز",
+    "firstName": "هيفاء",
+    "birthDate": "1997-04-28",
+    "birthPlace": "النقاز"
+  },
+  "routing": null,
+  "business_validation": {
+    "status": "success",
+    "review_required": false,
+    "review_reasons": [],
+    "warnings": [],
+    "business_confidence": 0.9414,
+    "critical_fields_ok": 3,
+    "valid_fields_ok": 5,
+    "present_fields": 5,
+    "quality_score": 0.429,
+    "avg_field_confidence": 0.95,
+    "field_coverage": 1.0
+  },
+  "diagnostics": {
+    "mode": "cin_specialized_v2",
+    "cin_mode": "balanced",
+    "strategy": "balanced: spatial-first + targeted-roi-fallback + optional-full-fallback",
+    "pipeline_steps": [
+      "easyocr_boxes",
+      "paddle_boxes"
+    ],
+    "preprocessing": {
+      "quality": {
+        "sharpness": 0.307,
+        "brightness": 0.477,
+        "contrast": 0.571,
+        "quality_score": 0.429
+      },
+      "transforms": {
+        "resized": false,
+        "deskewed": false,
+        "contrast": true,
+        "mode": "cin_legacy_compatible"
+      },
+      "cin_preprocessor_keys": [
+        "binary",
+        "card_roi",
+        "deskewed",
+        "gray",
+        "oriented",
+        "original"
+      ]
+    },
+    "quality_checks": {
+      "sharpness": 0.307,
+      "brightness": 0.477,
+      "contrast": 0.571,
+      "quality_score": 0.429
+    },
+    "roi_fields": {
+      "cin_number": [
+        77,
+        578
+      ],
+      "family_name": [
+        64,
+        506
+      ],
+      "first_name": [
+        64,
+        506
+      ],
+      "date_of_birth": [
+        71,
+        506
+      ],
+      "place_of_birth": [
+        71,
+        506
+      ],
+      "gender": [
+        52,
+        248
+      ],
+      "right_text_block": [
+        362,
+        569
+      ]
+    },
+    "engines": [],
+    "spatial": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "box_count": 12,
+          "fields": {
+            "cin_number": "06987596",
+            "family_name": "النقاذ",
+            "date_of_birth": "1997-04-28",
+            "place_of_birth": "فيتوريا"
+          },
+          "scores": {
+            "cin_number": 20.199886653819007,
+            "family_name": 9.812519746624053,
+            "date_of_birth": 14.088098128078821,
+            "place_of_birth": 11.5
+          },
+          "meta": {
+            "cin_number": {
+              "chosen_from": "06987596",
+              "candidate_text": "06987596",
+              "source_kind": "spatial_numeric"
+            },
+            "family_name": {
+              "chosen_from": "اللقب",
+              "candidate_text": "النقاذ",
+              "source_kind": "label_neighbor_merged",
+              "anchors_found": 1
+            },
+            "first_name": {
+              "chosen_from": null,
+              "source_kind": "dropped_duplicate"
+            },
+            "date_of_birth": {
+              "chosen_from": "تابيخ الولادة 28 افريل 1997",
+              "candidate_text": "تابيخ 28 افريل 1997",
+              "source_kind": "inline",
+              "anchors_found": 1
+            },
+            "place_of_birth": {
+              "chosen_from": "مكانها",
+              "candidate_text": "تابيخ الولادة 28 افريل 1997 فيتوريا",
+              "source_kind": "label_row_join",
+              "anchors_found": 1
+            },
+            "label_spatial": {
+              "reason": "no_items"
+            }
+          },
+          "label_spatial": {
+            "fields": {},
+            "scores": {},
+            "meta": {
+              "reason": "no_items"
+            }
+          },
+          "raw_text_reconstructed": ""
+        },
+        {
+          "engine": "paddle_boxes",
+          "box_count": 21,
+          "fields": {
+            "family_name": "زاقنلا",
+            "first_name": "ءافده"
+          },
+          "scores": {
+            "family_name": 9.822773452873868,
+            "first_name": 10.404952838910718
+          },
+          "meta": {
+            "cin_number": {
+              "chosen_from": null,
+              "candidate_text": null,
+              "source_kind": "spatial_numeric"
+            },
+            "family_name": {
+              "chosen_from": "بقللا",
+              "candidate_text": "زاقنلا",
+              "source_kind": "label_neighbor_merged",
+              "anchors_found": 1
+            },
+            "first_name": {
+              "chosen_from": "مسالا",
+              "candidate_text": "ءافده",
+              "source_kind": "label_neighbor_merged",
+              "anchors_found": 1
+            },
+            "date_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_date",
+              "anchors_found": 1
+            },
+            "place_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_place",
+              "anchors_found": 0
+            },
+            "label_spatial": {
+              "reason": "no_items"
+            }
+          },
+          "label_spatial": {
+            "fields": {},
+            "scores": {},
+            "meta": {
+              "reason": "no_items"
+            }
+          },
+          "raw_text_reconstructed": ""
+        }
+      ]
+    },
+    "fusion": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "source": "spatial_boxes",
+          "fields": {
+            "cin_number": "06987596",
+            "family_name": "النقاذ",
+            "date_of_birth": "1997-04-28",
+            "place_of_birth": "فيتوريا"
+          }
+        },
+        {
+          "engine": "paddle_boxes",
+          "source": "spatial_boxes",
+          "fields": {
+            "family_name": "زاقنلا",
+            "first_name": "ءافده"
+          }
+        }
+      ],
+      "aggregated": {
+        "cin_number": [
+          {
+            "value": "06987596",
+            "avg_conf": 20.199887,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 49.199887,
+            "raw_value": "06987596",
+            "meta": []
+          }
+        ],
+        "family_name": [
+          {
+            "value": "النقاذ",
+            "avg_conf": 20.199887,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 53.399887,
+            "raw_value": "النقاذ",
+            "meta": []
+          },
+          {
+            "value": "زاقنلا",
+            "avg_conf": 10.404953,
+            "count": 1,
+            "engines": [
+              "paddle_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 44.304953,
+            "raw_value": "زاقنلا",
+            "meta": []
+          }
+        ],
+        "first_name": [
+          {
+            "value": "هدفاء",
+            "avg_conf": 10.404953,
+            "count": 1,
+            "engines": [
+              "paddle_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 42.304953,
+            "raw_value": "ءافده",
+            "meta": []
+          }
+        ],
+        "date_of_birth": [
+          {
+            "value": "28/04/1997",
+            "avg_conf": 20.199887,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 49.199887,
+            "raw_value": "1997-04-28",
+            "meta": []
+          }
+        ],
+        "place_of_birth": [
+          {
+            "value": "فيتوريا",
+            "avg_conf": 20.199887,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 62.199887,
+            "raw_value": "فيتوريا",
+            "meta": []
+          }
+        ]
+      },
+      "selected": {
+        "cin_number": {
+          "value": "06987596",
+          "avg_conf": 20.199887,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 49.199887,
+          "raw_value": "06987596",
+          "meta": []
+        },
+        "family_name": {
+          "value": "النقاذ",
+          "avg_conf": 20.199887,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 53.399887,
+          "raw_value": "النقاذ",
+          "meta": []
+        },
+        "first_name": {
+          "value": "هدفاء",
+          "avg_conf": 10.404953,
+          "count": 1,
+          "engines": [
+            "paddle_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 42.304953,
+          "raw_value": "ءافده",
+          "meta": []
+        },
+        "date_of_birth": {
+          "value": "28/04/1997",
+          "avg_conf": 20.199887,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 49.199887,
+          "raw_value": "1997-04-28",
+          "meta": []
+        },
+        "place_of_birth": {
+          "value": "فيتوريا",
+          "avg_conf": 20.199887,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 62.199887,
+          "raw_value": "فيتوريا",
+          "meta": []
+        }
+      }
+    },
+    "cin_postprocess": {
+      "executed": true,
+      "name_extraction": {
+        "debug_sequence": "اللقب:النقاز هيفاء النقاز الاسم:? variants:normal",
+        "family_name": "النقاز هيفاء النقاز",
+        "first_name": null,
+        "rule": "family_name=all words after اللقب; first_name=words on الاسم line before بن/بنت"
+      },
+      "applied": [
+        {
+          "field": "last_name",
+          "type": "arabic_ocr_name_fix",
+          "old": "النقاذ",
+          "new": "النقاز"
+        },
+        {
+          "field": "first_name",
+          "type": "arabic_ocr_name_fix",
+          "old": "هدفاء",
+          "new": "هيفاء"
+        },
+        {
+          "field": "last_name",
+          "type": "postprocess_skip_name_override",
+          "kept": "النقاز",
+          "candidate": "النقاز هيفاء النقاز",
+          "candidate_ok": true,
+          "old_ok": true,
+          "good_spatial": true
+        },
+        {
+          "field": "birth_place",
+          "type": "contextual_place_recovery",
+          "old": "فيتوريا",
+          "new": "النقاز",
+          "reason": "place_after_label:مكانها النقاز هيفاء النقاز"
+        }
+      ]
+    },
+    "review_required": false,
+    "review_reasons": [],
+    "business_validation": {
+      "status": "success",
+      "review_required": false,
+      "review_reasons": [],
+      "warnings": [],
+      "business_confidence": 0.9414,
+      "critical_fields_ok": 3,
+      "valid_fields_ok": 5,
+      "present_fields": 5,
+      "quality_score": 0.429,
+      "avg_field_confidence": 0.95,
+      "field_coverage": 1.0
+    }
+  },
+  "raw_text": "06987596 النقاز 1997-04-28 فيتوريا النقاز هيفاء 06987596 النقاز 1997-04-28 فيتوريا 06987596 06987596 النقاز اللقب تابيخ 28 افريل 1997 تاريخ الولادة 28 افريل 1997 تاريخ الولادة 28 افريل 1997 فيتوريا مكانها النقاز هيفاء النقاز اللقب هيفاء الاسم",
+  "processing_time_ms": 2319,
+  "warnings": [],
+  "review_reasons": []
+}

@@ -1,0 +1,482 @@
+{
+  "job_id": "3e1b3782-b9d6-4cab-b532-79097727967d",
+  "status": "success",
+  "template_id": "cin_tn",
+  "document_type": "cin_tn",
+  "document_variant": "recto",
+  "engine_used": "easyocr_boxes",
+  "language_detected": "ar",
+  "global_confidence": 0.9588,
+  "quality_score": 0.777,
+  "fields": [
+    {
+      "name": "id_number",
+      "value": "05814306",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "05814306",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    },
+    {
+      "name": "last_name",
+      "value": "جماعي",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "جماعي",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    },
+    {
+      "name": "first_name",
+      "value": "زينب",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "بنيز",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes",
+        "cin_arabic_ocr_fix:بنيز->زينب"
+      ]
+    },
+    {
+      "name": "birth_date",
+      "value": "1970-06-23",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "1970-06-23",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    },
+    {
+      "name": "birth_place",
+      "value": "قابس",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "قابس",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "idNumber": "05814306",
+    "lastName": "جماعي",
+    "firstName": "زينب",
+    "birthDate": "1970-06-23",
+    "birthPlace": "قابس"
+  },
+  "routing": null,
+  "business_validation": {
+    "status": "success",
+    "review_required": false,
+    "review_reasons": [],
+    "warnings": [],
+    "business_confidence": 0.9588,
+    "critical_fields_ok": 3,
+    "valid_fields_ok": 5,
+    "present_fields": 5,
+    "quality_score": 0.777,
+    "avg_field_confidence": 0.95,
+    "field_coverage": 1.0
+  },
+  "diagnostics": {
+    "mode": "cin_specialized_v2",
+    "cin_mode": "balanced",
+    "strategy": "balanced: spatial-first + targeted-roi-fallback + optional-full-fallback",
+    "pipeline_steps": [
+      "easyocr_boxes"
+    ],
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.732,
+        "contrast": 0.48,
+        "quality_score": 0.777
+      },
+      "transforms": {
+        "resized": false,
+        "deskewed": false,
+        "contrast": true,
+        "mode": "cin_legacy_compatible"
+      },
+      "cin_preprocessor_keys": [
+        "binary",
+        "card_roi",
+        "deskewed",
+        "gray",
+        "oriented",
+        "original"
+      ]
+    },
+    "quality_checks": {
+      "sharpness": 1.0,
+      "brightness": 0.732,
+      "contrast": 0.48,
+      "quality_score": 0.777
+    },
+    "roi_fields": {
+      "cin_number": [
+        55,
+        398
+      ],
+      "family_name": [
+        45,
+        348
+      ],
+      "first_name": [
+        45,
+        348
+      ],
+      "date_of_birth": [
+        50,
+        348
+      ],
+      "place_of_birth": [
+        50,
+        348
+      ],
+      "gender": [
+        36,
+        170
+      ],
+      "right_text_block": [
+        253,
+        391
+      ]
+    },
+    "engines": [],
+    "spatial": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "box_count": 12,
+          "fields": {
+            "cin_number": "05814306",
+            "family_name": "جماعي",
+            "first_name": "زينب",
+            "date_of_birth": "1970-06-23",
+            "place_of_birth": "قابس"
+          },
+          "scores": {
+            "cin_number": 20.19941500144528,
+            "family_name": 10.584779099319974,
+            "first_name": 15.102983277047251,
+            "date_of_birth": 14.079263623632176,
+            "place_of_birth": 9.0
+          },
+          "meta": {
+            "cin_number": {
+              "chosen_from": "05814306",
+              "candidate_text": "05814306",
+              "source_kind": "spatial_numeric"
+            },
+            "family_name": {
+              "chosen_from": "اللقب",
+              "candidate_text": "جماعي",
+              "source_kind": "label_neighbor_merged",
+              "anchors_found": 1
+            },
+            "first_name": {
+              "chosen_from": "الاسم زينب",
+              "candidate_text": "زينب",
+              "source_kind": "inline",
+              "anchors_found": 1
+            },
+            "date_of_birth": {
+              "chosen_from": "ناخ الولادة 23 جوان 1970",
+              "candidate_text": "ن 23 جوان 1970",
+              "source_kind": "inline",
+              "anchors_found": 1
+            },
+            "place_of_birth": {
+              "chosen_from": "right_text_block",
+              "candidate_text": "الجمهوريةالتونسيذ بطاقهالتعريف الوطنيذ 05814306 اللقب جماعي الاسم زينب بنت محمد بن التجاني لذضر ناخ الولادة 23 جوان 1970 تاها قابس",
+              "source_kind": "right_text_fallback",
+              "anchors_found": 0
+            },
+            "label_spatial": {
+              "reason": "no_items"
+            }
+          },
+          "label_spatial": {
+            "fields": {},
+            "scores": {},
+            "meta": {
+              "reason": "no_items"
+            }
+          },
+          "raw_text_reconstructed": ""
+        }
+      ]
+    },
+    "fusion": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "source": "spatial_boxes",
+          "fields": {
+            "cin_number": "05814306",
+            "family_name": "جماعي",
+            "first_name": "زينب",
+            "date_of_birth": "1970-06-23",
+            "place_of_birth": "قابس"
+          }
+        }
+      ],
+      "aggregated": {
+        "cin_number": [
+          {
+            "value": "05814306",
+            "avg_conf": 20.199415,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 49.199415,
+            "raw_value": "05814306",
+            "meta": []
+          }
+        ],
+        "family_name": [
+          {
+            "value": "جماعي",
+            "avg_conf": 20.199415,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 53.999415,
+            "raw_value": "جماعي",
+            "meta": []
+          }
+        ],
+        "first_name": [
+          {
+            "value": "بنيز",
+            "avg_conf": 20.199415,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 53.099415,
+            "raw_value": "زينب",
+            "meta": []
+          }
+        ],
+        "date_of_birth": [
+          {
+            "value": "23/06/1970",
+            "avg_conf": 20.199415,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 49.199415,
+            "raw_value": "1970-06-23",
+            "meta": []
+          }
+        ],
+        "place_of_birth": [
+          {
+            "value": "قابس",
+            "avg_conf": 20.199415,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 62.199415,
+            "raw_value": "قابس",
+            "meta": []
+          }
+        ]
+      },
+      "selected": {
+        "cin_number": {
+          "value": "05814306",
+          "avg_conf": 20.199415,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 49.199415,
+          "raw_value": "05814306",
+          "meta": []
+        },
+        "family_name": {
+          "value": "جماعي",
+          "avg_conf": 20.199415,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 53.999415,
+          "raw_value": "جماعي",
+          "meta": []
+        },
+        "first_name": {
+          "value": "بنيز",
+          "avg_conf": 20.199415,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 53.099415,
+          "raw_value": "زينب",
+          "meta": []
+        },
+        "date_of_birth": {
+          "value": "23/06/1970",
+          "avg_conf": 20.199415,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 49.199415,
+          "raw_value": "1970-06-23",
+          "meta": []
+        },
+        "place_of_birth": {
+          "value": "قابس",
+          "avg_conf": 20.199415,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 62.199415,
+          "raw_value": "قابس",
+          "meta": []
+        }
+      }
+    },
+    "cin_postprocess": {
+      "executed": true,
+      "name_extraction": {
+        "debug_sequence": "اللقب:جماعي الاسم:زينب بببببنت محمد variants:normal",
+        "family_name": "جماعي",
+        "first_name": "زينب بببببنت محمد",
+        "rule": "family_name=all words after اللقب; first_name=words on الاسم line before بن/بنت"
+      },
+      "applied": [
+        {
+          "field": "first_name",
+          "type": "arabic_ocr_name_fix",
+          "old": "بنيز",
+          "new": "زينب"
+        },
+        {
+          "field": "last_name",
+          "type": "postprocess_skip_name_override",
+          "kept": "جماعي",
+          "candidate": "جماعي",
+          "candidate_ok": true,
+          "old_ok": true,
+          "good_spatial": true
+        },
+        {
+          "field": "first_name",
+          "type": "postprocess_skip_name_override",
+          "kept": "زينب",
+          "candidate": "زينب بببببنت محمد",
+          "candidate_ok": true,
+          "old_ok": true,
+          "good_spatial": true
+        },
+        {
+          "field": "birth_place",
+          "type": "postprocess_skip_place_override",
+          "kept": "قابس",
+          "candidate": "قابس",
+          "reason": "place_after_label:مكانها قابس",
+          "good_spatial": true
+        }
+      ]
+    },
+    "review_required": false,
+    "review_reasons": [],
+    "business_validation": {
+      "status": "success",
+      "review_required": false,
+      "review_reasons": [],
+      "warnings": [],
+      "business_confidence": 0.9588,
+      "critical_fields_ok": 3,
+      "valid_fields_ok": 5,
+      "present_fields": 5,
+      "quality_score": 0.777,
+      "avg_field_confidence": 0.95,
+      "field_coverage": 1.0
+    }
+  },
+  "raw_text": "05814306 جماعي زينب 1970-06-23 قابس 05814306 جماعي زينب 1970-06-23 قابس 05814306 05814306 جماعي اللقب زينب الاسم زينب ن 23 جوان 1970 تاريخ الولادة 23 جوان 1970 الجمهوريةالتونسيذ بطاقهالتعريف الوطنيذ 05814306 اللقب جماعي الاسم زينب ببنت محمد بن التجاني لذضر تاريخ الولادة 23 جوان 1970 مكانها قابس right_text_block",
+  "processing_time_ms": 930,
+  "warnings": [],
+  "review_reasons": []
+}

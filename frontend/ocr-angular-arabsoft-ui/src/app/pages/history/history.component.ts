@@ -121,7 +121,7 @@ export class HistoryComponent implements OnInit {
     this.detailOpen.set(false);
     this.currentPage.set(1);
 
-    this.authApi.history(100).subscribe({
+    this.authApi.history(300).subscribe({
       next: response => {
         this.items.set(response.items || []);
         this.loading.set(false);

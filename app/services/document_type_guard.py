@@ -17,6 +17,14 @@ Objectifs:
 - Distinguer CIN tunisienne, carte d'identité étrangère, passeport, facture et registre.
 - Éviter qu'une carte d'identité étrangère soit acceptée comme passeport.
 - Gérer l'arabe OCR inversé caractère par caractère.
+
+FIX: le motif de détection MRZ "carte identité" (\bid[a-z0-9<]{5,}) était
+trop permissif et matchait n'importe quel mot commençant par "id" suivi de
+5 caractères alphanumériques - notamment "identité"/"identite", très courant
+sur les CIN tunisiennes elles-mêmes. Remplacé par un motif qui exige la
+présence d'un caractère de remplissage MRZ "<" (comme pour le motif passeport
+P<), ce qui élimine les faux positifs tout en gardant la détection des
+vraies MRZ de carte d'identité (ID<TUN..., ID<SVK..., etc.).
 """
 from __future__ import annotations
 
@@ -273,8 +281,10 @@ def detect_document_type_from_text(raw_text: str) -> TypeDetectionResult:
         score, reasons = scores["passport"]
         scores["passport"] = (score + 8.0, _unique(reasons + ["MRZ passeport P<"]))
 
-    # MRZ carte identité: souvent I< ou ID..., classé id_document.
-    if _has_regex(compact, r"\bi<[a-z0-9<]{5,}") or _has_regex(compact, r"\bid[a-z0-9<]{5,}"):
+    # MRZ carte identité: souvent I< ou ID<..., classé id_document.
+    # FIX: exige un '<' de remplissage MRZ (comme le motif passeport P<)
+    # pour éviter de matcher "identité"/"identite" en faux positif.
+    if _has_regex(compact, r"\bid[a-z0-9]{0,3}<[a-z0-9<]{3,}"):
         score, reasons = scores["id_document"]
         scores["id_document"] = (score + 6.0, _unique(reasons + ["MRZ carte identité"]))
 

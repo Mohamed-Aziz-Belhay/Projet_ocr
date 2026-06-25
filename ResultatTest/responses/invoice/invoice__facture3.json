@@ -1,0 +1,914 @@
+{
+  "job_id": "7143111a-218f-4d61-844f-7fd4459fbbf4",
+  "status": "success",
+  "template_id": "invoice_tn",
+  "document_type": "invoice",
+  "document_variant": null,
+  "engine_used": "paddle",
+  "language_detected": "fr",
+  "global_confidence": 0.8769,
+  "quality_score": 0.806,
+  "fields": [
+    {
+      "name": "invoice_profile",
+      "value": "ttn_electronic",
+      "confidence": 0.8,
+      "validated": true,
+      "raw_text": "ttn_electronic",
+      "raw_template_field": "invoice_profile",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "invoice_number",
+      "value": "50",
+      "confidence": 0.88,
+      "validated": true,
+      "raw_text": "Facture N 50",
+      "raw_template_field": "invoice_number",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "invoice_date",
+      "value": "2015-04-03",
+      "confidence": 0.86,
+      "validated": true,
+      "raw_text": "Date 03/04/2015",
+      "raw_template_field": "invoice_date",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "reference_unique",
+      "value": "88812500089016077795819135",
+      "confidence": 0.86,
+      "validated": true,
+      "raw_text": "Reférence Unique 88812500089016077795819135",
+      "raw_template_field": "reference_unique",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "supplier_name",
+      "value": "Tunisie TradeNet",
+      "confidence": 0.78,
+      "validated": true,
+      "raw_text": "T.T.N",
+      "raw_template_field": "supplier_name",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "period_start",
+      "value": "2015-02-01",
+      "confidence": 0.72,
+      "validated": true,
+      "raw_text": "Periodedu 02/01/2015 Au 02/28/2015",
+      "raw_template_field": "period_start",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "period_end",
+      "value": "2015-02-28",
+      "confidence": 0.72,
+      "validated": true,
+      "raw_text": "Periodedu 02/01/2015 Au 02/28/2015",
+      "raw_template_field": "period_end",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "payment_due_date",
+      "value": "2015-04-03",
+      "confidence": 0.72,
+      "validated": true,
+      "raw_text": "Date Limite de paiement: 030415",
+      "raw_template_field": "payment_due_date",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "total_ht",
+      "value": "135.500",
+      "confidence": 0.84,
+      "validated": true,
+      "raw_text": "Total H.T.V.A. 135.500",
+      "raw_template_field": "total_ht",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "vat_amount",
+      "value": "16.260",
+      "confidence": 0.84,
+      "validated": true,
+      "raw_text": "Montant TVA 16.260",
+      "raw_template_field": "vat_amount",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "vat_rate",
+      "value": "12.0",
+      "confidence": 0.75,
+      "validated": true,
+      "raw_text": "Taux%) Base Montant TVA Total H.T.V.A. 135.500 12.0",
+      "raw_template_field": "vat_rate",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "stamp_amount",
+      "value": "0.500",
+      "confidence": 0.78,
+      "validated": true,
+      "raw_text": "Droit de Timbre 0.500",
+      "raw_template_field": "stamp_amount",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "total_ttc",
+      "value": "152.260",
+      "confidence": 0.9,
+      "validated": true,
+      "raw_text": "Montant T.T.C 152.260",
+      "raw_template_field": "total_ttc",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "currency",
+      "value": "TND",
+      "confidence": 0.8,
+      "validated": true,
+      "raw_text": "DINARS",
+      "raw_template_field": "currency",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "line_items",
+      "value": [
+        {
+          "code": "SMTP.P",
+          "designation": "C.SMTP principal",
+          "quantite": "1.0",
+          "taux_tva": "12",
+          "prix_unitaire_htva": "50.000",
+          "total_htva": "50.000"
+        },
+        {
+          "code": "TCEAP",
+          "designation": "Dossier TCEAP",
+          "quantite": "2.0",
+          "taux_tva": "12",
+          "prix_unitaire_htva": "4.500",
+          "total_htva": "9.000"
+        },
+        {
+          "code": "FDE",
+          "designation": "Dossier FDE",
+          "quantite": "17.0",
+          "taux_tva": "12",
+          "prix_unitaire_htva": "4.500",
+          "total_htva": "76.500"
+        }
+      ],
+      "confidence": 0.82,
+      "validated": true,
+      "raw_text": "table: Code / Designation / Quantite / TVA / PUHTVA / Total HTVA",
+      "raw_template_field": "line_items",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "amount_consistency",
+      "value": true,
+      "confidence": 0.9,
+      "validated": true,
+      "raw_text": "135.500+16.260+0.500=152.260 ≈ 152.260",
+      "raw_template_field": "amount_consistency",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "invoiceProfile": "ttn_electronic",
+    "invoiceNumber": "50",
+    "invoiceDate": "2015-04-03",
+    "referenceUnique": "88812500089016077795819135",
+    "supplierName": "Tunisie TradeNet",
+    "periodStart": "2015-02-01",
+    "periodEnd": "2015-02-28",
+    "paymentDueDate": "2015-04-03",
+    "totalHT": "135.500",
+    "vatAmount": "16.260",
+    "vatRate": "12.0",
+    "stampAmount": "0.500",
+    "totalTTC": "152.260",
+    "currency": "TND",
+    "lineItems": [
+      {
+        "code": "SMTP.P",
+        "designation": "C.SMTP principal",
+        "quantite": "1.0",
+        "taux_tva": "12",
+        "prix_unitaire_htva": "50.000",
+        "total_htva": "50.000"
+      },
+      {
+        "code": "TCEAP",
+        "designation": "Dossier TCEAP",
+        "quantite": "2.0",
+        "taux_tva": "12",
+        "prix_unitaire_htva": "4.500",
+        "total_htva": "9.000"
+      },
+      {
+        "code": "FDE",
+        "designation": "Dossier FDE",
+        "quantite": "17.0",
+        "taux_tva": "12",
+        "prix_unitaire_htva": "4.500",
+        "total_htva": "76.500"
+      }
+    ],
+    "amountConsistency": true
+  },
+  "routing": {
+    "requested_document_type": "invoice",
+    "requested_template_id": "invoice_tn",
+    "selected_template_id": "invoice_tn",
+    "selected_document_type": "invoice",
+    "method": "explicit_invoice_request_fast_path",
+    "forced_invoice_guard": true
+  },
+  "business_validation": {
+    "status": "success",
+    "review_required": false,
+    "review_reasons": [],
+    "valid_fields_ok": 16,
+    "present_fields": 16,
+    "field_coverage": 1.0,
+    "avg_field_confidence": 0.8106,
+    "business_confidence": 0.8769,
+    "quality_score": 0.806
+  },
+  "diagnostics": {
+    "mode": "generic_template_v5_detector_swin_roi_passport_invoice",
+    "processing_mode": "balanced",
+    "routing": {
+      "requested_document_type": "invoice",
+      "requested_template_id": "invoice_tn",
+      "selected_template_id": "invoice_tn",
+      "selected_document_type": "invoice",
+      "method": "explicit_invoice_request_fast_path",
+      "forced_invoice_guard": true
+    },
+    "template_id": "invoice_tn",
+    "document_type": "invoice",
+    "engine": "paddle",
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.931,
+        "contrast": 0.412,
+        "quality_score": 0.806
+      },
+      "transforms": {
+        "resized": true,
+        "deskewed": true,
+        "contrast": true
+      }
+    },
+    "layout": {
+      "page_width": 1240,
+      "page_height": 1754,
+      "orientation": "portrait",
+      "has_table": true,
+      "column_count": 3,
+      "regions": [
+        {
+          "type": "footer",
+          "bbox": [
+            67,
+            1686,
+            99,
+            23
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            651,
+            1569,
+            130,
+            20
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            105,
+            1569,
+            130,
+            20
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            84,
+            1494,
+            170,
+            68
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            823,
+            1438,
+            223,
+            20
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            266,
+            1438,
+            223,
+            23
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1068,
+            1414,
+            95,
+            43
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            827,
+            1406,
+            209,
+            29
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            257,
+            1406,
+            242,
+            29
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "table",
+          "bbox": [
+            42,
+            1391,
+            1142,
+            323
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            63,
+            1258,
+            1108,
+            114
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "table",
+          "bbox": [
+            63,
+            1043,
+            1109,
+            186
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "table",
+          "bbox": [
+            53,
+            522,
+            1128,
+            454
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            82,
+            296,
+            259,
+            216
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            346,
+            282,
+            836,
+            230
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            711,
+            230,
+            279,
+            21
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            499,
+            230,
+            157,
+            23
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            215,
+            230,
+            121,
+            21
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            1049,
+            227,
+            131,
+            29
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            382,
+            227,
+            108,
+            29
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            383,
+            194,
+            108,
+            25
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            804,
+            193,
+            172,
+            21
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            499,
+            193,
+            235,
+            21
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            69,
+            172,
+            1109,
+            11
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            1068,
+            94,
+            112,
+            77
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            367,
+            91,
+            116,
+            59
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            94,
+            85,
+            222,
+            51
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            523,
+            54,
+            474,
+            107
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            1096,
+            46,
+            84,
+            27
+          ],
+          "confidence": 1.0,
+          "label": null
+        }
+      ],
+      "region_count": 29
+    },
+    "field_count": 16,
+    "validated_field_count": 16,
+    "document_localizer": {
+      "localizer": "skipped",
+      "reason": "explicit_invoice_full_page_ocr_fast_path",
+      "candidate_count": 0
+    },
+    "raw_ocr_executed": true,
+    "raw_ocr_source": "full_page_invoice_ocr",
+    "raw_ocr_score": 0.0,
+    "raw_ocr_processing_time_ms": 10775,
+    "invoice_targeted_ocr": {
+      "executed": false,
+      "reason": "not_needed",
+      "combined_text": "",
+      "zones": [],
+      "zone_count": 0,
+      "non_empty_zone_count": 0,
+      "missing_header_fields": [],
+      "policy": "header_fields_only_no_amount_merge"
+    },
+    "invoice_text_enriched": false,
+    "invoice_targeted_policy": "diagnostic_and_header_fields_only",
+    "invoice_extraction": {
+      "invoice_extraction": "invoice_extractor_v3_tn_multi_profile_raw_text_rules",
+      "critical_fields": [
+        "invoice_date",
+        "invoice_number",
+        "total_ttc"
+      ],
+      "fields": [
+        {
+          "name": "invoice_profile",
+          "value": "ttn_electronic",
+          "validated": true,
+          "error": null,
+          "confidence": 0.8,
+          "included_in_response": true
+        },
+        {
+          "name": "invoice_number",
+          "value": "50",
+          "validated": true,
+          "error": null,
+          "confidence": 0.88,
+          "included_in_response": true
+        },
+        {
+          "name": "invoice_date",
+          "value": "2015-04-03",
+          "validated": true,
+          "error": null,
+          "confidence": 0.86,
+          "included_in_response": true
+        },
+        {
+          "name": "reference_unique",
+          "value": "88812500089016077795819135",
+          "validated": true,
+          "error": null,
+          "confidence": 0.86,
+          "included_in_response": true
+        },
+        {
+          "name": "supplier_name",
+          "value": "Tunisie TradeNet",
+          "validated": true,
+          "error": null,
+          "confidence": 0.78,
+          "included_in_response": true
+        },
+        {
+          "name": "customer_name",
+          "label": "Client",
+          "value": null,
+          "validated": false,
+          "error": "customer_name_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "supplier_tax_id",
+          "label": "Matricule fiscal fournisseur",
+          "value": null,
+          "validated": false,
+          "error": "supplier_tax_id_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "customer_tax_id",
+          "label": "Matricule fiscal client",
+          "value": null,
+          "validated": false,
+          "error": "customer_tax_id_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "period_start",
+          "value": "2015-02-01",
+          "validated": true,
+          "error": null,
+          "confidence": 0.72,
+          "included_in_response": true
+        },
+        {
+          "name": "period_end",
+          "value": "2015-02-28",
+          "validated": true,
+          "error": null,
+          "confidence": 0.72,
+          "included_in_response": true
+        },
+        {
+          "name": "payment_due_date",
+          "value": "2015-04-03",
+          "validated": true,
+          "error": null,
+          "confidence": 0.72,
+          "included_in_response": true
+        },
+        {
+          "name": "total_ht",
+          "value": "135.500",
+          "validated": true,
+          "error": null,
+          "confidence": 0.84,
+          "included_in_response": true
+        },
+        {
+          "name": "vat_amount",
+          "value": "16.260",
+          "validated": true,
+          "error": null,
+          "confidence": 0.84,
+          "included_in_response": true
+        },
+        {
+          "name": "vat_rate",
+          "value": "12.0",
+          "validated": true,
+          "error": null,
+          "confidence": 0.75,
+          "included_in_response": true
+        },
+        {
+          "name": "stamp_amount",
+          "value": "0.500",
+          "validated": true,
+          "error": null,
+          "confidence": 0.78,
+          "included_in_response": true
+        },
+        {
+          "name": "total_ttc",
+          "value": "152.260",
+          "validated": true,
+          "error": null,
+          "confidence": 0.9,
+          "included_in_response": true
+        },
+        {
+          "name": "currency",
+          "value": "TND",
+          "validated": true,
+          "error": null,
+          "confidence": 0.8,
+          "included_in_response": true
+        },
+        {
+          "name": "line_items",
+          "value": [
+            {
+              "code": "SMTP.P",
+              "designation": "C.SMTP principal",
+              "quantite": "1.0",
+              "taux_tva": "12",
+              "prix_unitaire_htva": "50.000",
+              "total_htva": "50.000"
+            },
+            {
+              "code": "TCEAP",
+              "designation": "Dossier TCEAP",
+              "quantite": "2.0",
+              "taux_tva": "12",
+              "prix_unitaire_htva": "4.500",
+              "total_htva": "9.000"
+            },
+            {
+              "code": "FDE",
+              "designation": "Dossier FDE",
+              "quantite": "17.0",
+              "taux_tva": "12",
+              "prix_unitaire_htva": "4.500",
+              "total_htva": "76.500"
+            }
+          ],
+          "validated": true,
+          "error": null,
+          "confidence": 0.82,
+          "included_in_response": true
+        },
+        {
+          "name": "amount_consistency",
+          "value": true,
+          "validated": true,
+          "error": null,
+          "confidence": 0.9,
+          "included_in_response": true
+        }
+      ]
+    },
+    "strategy": "invoice_raw_text_rules",
+    "roi_skipped": true,
+    "roi_skipped_reason": "invoice_full_page_ocr_path"
+  },
+  "raw_text": "Adresse: Rue du Lac Malaren,Lotissement El Khalij Les Berges du Clgill Lac,1053-Tunis, Tunisie &T.T.N Télephone: 71861712 Telecopie : 71861141 csall Site Web: TUNISIE TRADENET www.tradenet.com.tn Facture N 50 Periodedu 02/01/2015 Au 02/28/2015 Baall Date 03/04/2015 Reférence Unique 88812500089016077795819135 Ipreipet NomCompte: Mode de connexion : SMTP Rang du compte NP Profil Code Client: Matricule Fiscal: Date Limite de paiement: 030415 TUNIS Copie de la facture électronique enregistrée chez TTN sous la référence : 88812500089016077795819135 Code Désignation Quantite T.V.A.% P.U.H.T.V.A Total H.T.V.A SMTP.P C.SMTP principal 1.0 12 50.000 50.000 RC TCEAP Dossier TCEAP 2.0 12 4.500 9.000 FDE Dossier FDE 17.0 12 4.500 76.500 AL Taux%) Base Montant TVA Total H.T.V.A. 135.500 12.0 135.500 16.260 Montant TVA 16.260 Droit de Timbre 0.500 Total 135.500 16.260 Montant T.T.C 152.260 Arrete la présente facture. sauf erreur ou omission de notre part, a la somme de : CENT CINQUANTE DEUX DINARS ET DEUX CENT SOIXANTE MILLIMES A Régler exclusivement au niveau des bureaux postaux sur présentation de la facture. Poste Coupon de Versement CCP Poste Bulletin de Versement CCP laoylas loy Nd'emission N°d'émission Pip 2.J 1 0760 152.260 0000501541100013 4M 0760 152.260 0000501541100013 4M Code org Montant Reférence Cles Code.org Montant Reférence Cles",
+  "processing_time_ms": 10790,
+  "warnings": [],
+  "review_reasons": []
+}

@@ -1,0 +1,1016 @@
+{
+  "job_id": "c354779e-8110-46be-9f7f-2edbc2bef30c",
+  "status": "success",
+  "template_id": "midv_svk_id",
+  "document_type": "id_document",
+  "document_variant": null,
+  "engine_used": "easyocr",
+  "language_detected": "auto",
+  "global_confidence": 0.805,
+  "quality_score": 0.688,
+  "fields": [
+    {
+      "name": "birth_date",
+      "value": "1964-03-20",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "L 20.03.1964",
+      "raw_template_field": "birth_date",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "expiry_date",
+      "value": "2023-11-17",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "17.11.2023",
+      "raw_template_field": "expiry_date",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "gender",
+      "value": "F",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "Metno F",
+      "raw_template_field": "gender",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "field unresolved",
+        "postprocessed:midv_svk_gender"
+      ]
+    },
+    {
+      "name": "id_number",
+      "value": "640320/0338",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "640320/0338",
+      "raw_template_field": "id_number",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "issue_date",
+      "value": "2013-11-17",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "17.11.2013",
+      "raw_template_field": "issue_date",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "issue_place",
+      "value": "Lucenec",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "wyoa/ lssued DY Lucenec ri Jieaen C;",
+      "raw_template_field": "issue_place",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi",
+        "postprocessed:midv_svk_issue_place"
+      ]
+    },
+    {
+      "name": "name",
+      "value": "Ornela",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "Ornela 7",
+      "raw_template_field": "name",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi",
+        "postprocessed:midv_svk_name"
+      ]
+    },
+    {
+      "name": "nationality",
+      "value": "SVK",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "OLOCAC AD LSVK",
+      "raw_template_field": "nationality",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "number",
+      "value": "HT299402",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "HT299402",
+      "raw_template_field": "number",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "surname",
+      "value": "Kovcan",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "FClndo DucI Kovcan",
+      "raw_template_field": "surname",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi",
+        "postprocessed:midv_svk_surname"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "birth_date": "1964-03-20",
+    "expiry_date": "2023-11-17",
+    "gender": "F",
+    "id_number": "640320/0338",
+    "issue_date": "2013-11-17",
+    "issue_place": "Lucenec",
+    "name": "Ornela",
+    "nationality": "SVK",
+    "number": "HT299402",
+    "surname": "Kovcan"
+  },
+  "routing": {
+    "requested_document_type": "auto",
+    "requested_template_id": null,
+    "selected_template_id": "midv_svk_id",
+    "selected_document_type": "id_document",
+    "method": "swin_image_classifier",
+    "document_class": "svk_id",
+    "confidence": 0.9999
+  },
+  "business_validation": {
+    "status": "success",
+    "review_required": false,
+    "review_reasons": [],
+    "valid_fields_ok": 10,
+    "present_fields": 10,
+    "field_coverage": 1.0,
+    "avg_field_confidence": 0.7,
+    "business_confidence": 0.805,
+    "quality_score": 0.688
+  },
+  "diagnostics": {
+    "mode": "generic_template_v5_detector_swin_roi_passport_invoice",
+    "processing_mode": "fast",
+    "routing": {
+      "requested_document_type": "auto",
+      "requested_template_id": null,
+      "selected_template_id": "midv_svk_id",
+      "selected_document_type": "id_document",
+      "method": "swin_image_classifier",
+      "document_class": "svk_id",
+      "confidence": 0.9999
+    },
+    "template_id": "midv_svk_id",
+    "document_type": "id_document",
+    "engine": "easyocr",
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.65,
+        "contrast": 0.253,
+        "quality_score": 0.688
+      },
+      "transforms": {
+        "resized": true,
+        "deskewed": true,
+        "contrast": true
+      }
+    },
+    "layout": {
+      "page_width": 1267,
+      "page_height": 800,
+      "orientation": "landscape",
+      "has_table": false,
+      "column_count": 3,
+      "regions": [
+        {
+          "type": "text_block",
+          "bbox": [
+            46,
+            733,
+            103,
+            49
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            425,
+            726,
+            84,
+            53
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            425,
+            643,
+            304,
+            29
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            802,
+            641,
+            465,
+            145
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            876,
+            569,
+            339,
+            69
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            876,
+            493,
+            358,
+            71
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            429,
+            480,
+            304,
+            52
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            135,
+            458,
+            127,
+            43
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            424,
+            378,
+            140,
+            72
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            425,
+            350,
+            178,
+            26
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            35,
+            319,
+            164,
+            109
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            423,
+            304,
+            120,
+            41
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            876,
+            271,
+            387,
+            153
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            422,
+            231,
+            346,
+            72
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            427,
+            203,
+            240,
+            26
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            0,
+            196,
+            640,
+            579
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            53,
+            171,
+            84,
+            17
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            157,
+            222,
+            44
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "table",
+          "bbox": [
+            13,
+            33,
+            956,
+            126
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1018,
+            32,
+            162,
+            124
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            981,
+            0,
+            286,
+            14
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0,
+            0,
+            976,
+            18
+          ],
+          "confidence": 1.0,
+          "label": null
+        }
+      ],
+      "region_count": 22
+    },
+    "field_count": 10,
+    "validated_field_count": 10,
+    "document_localizer": {
+      "localizer": "document_localizer_v3_yolo_raw_plus_normalized",
+      "method": "yolo_crop",
+      "detector": {
+        "found": true,
+        "bbox_xyxy": [
+          0.0,
+          0.0,
+          829.3286743164062,
+          716.0
+        ],
+        "confidence": 0.9499,
+        "class_name": "document",
+        "method": "yolo_document_detector",
+        "error": null
+      },
+      "input_shape": [
+        716,
+        1134
+      ],
+      "localized_shape": [
+        716,
+        846
+      ],
+      "candidate_count": 20,
+      "raw_candidate_count": 4,
+      "normalized_candidate_count": 16,
+      "yolo_crop_padding": 0.02,
+      "aspect_trim": {
+        "enabled": false,
+        "reason": "aspect trimming degraded ROI alignment in previous tests"
+      },
+      "post_yolo_normalizer": {
+        "executed": true,
+        "diagnostics": {
+          "normalizer": "classical_cv_multi_candidate_v6_strict_color_nms",
+          "input_shape": [
+            716,
+            846
+          ],
+          "detection_shape": [
+            716,
+            846
+          ],
+          "scale": 1.0,
+          "mode": "fast",
+          "found_contour": true,
+          "contours_total": 3,
+          "sliding_candidate_count": 8,
+          "contour_candidate_count": 3,
+          "candidate_pool_count": 11,
+          "crop_candidate_count": 8,
+          "final_candidate_count": 16,
+          "rejected": {
+            "too_small": 2,
+            "too_large": 1,
+            "bad_aspect": 0,
+            "touches_border_large": 0,
+            "invalid_crop": 0
+          },
+          "selected_strategy": "multi_candidate_roi_score",
+          "candidates_preview": [
+            {
+              "source": "sliding_color_window",
+              "index": 257,
+              "score": 1.021258,
+              "density": 0.925263,
+              "mean_saturation": 0.504738,
+              "std_value": 0.112416,
+              "center_density": 0.952742,
+              "center_saturation": 0.615671,
+              "area_ratio": 0.00941,
+              "bbox_detection": [
+                30,
+                75,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1969,
+              "score": 1.007475,
+              "density": 0.967719,
+              "mean_saturation": 0.443732,
+              "std_value": 0.297404,
+              "center_density": 1.0,
+              "center_saturation": 0.464497,
+              "area_ratio": 0.00941,
+              "bbox_detection": [
+                705,
+                645,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1763,
+              "score": 0.962473,
+              "density": 0.999474,
+              "mean_saturation": 0.425205,
+              "std_value": 0.110854,
+              "center_density": 1.0,
+              "center_saturation": 0.461992,
+              "area_ratio": 0.00941,
+              "bbox_detection": [
+                555,
+                585,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 310,
+              "score": 0.962132,
+              "density": 0.987719,
+              "mean_saturation": 0.442151,
+              "std_value": 0.095482,
+              "center_density": 0.994228,
+              "center_saturation": 0.462099,
+              "area_ratio": 0.00941,
+              "bbox_detection": [
+                60,
+                90,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 2268,
+              "score": 0.961116,
+              "density": 0.990132,
+              "mean_saturation": 0.423272,
+              "std_value": 0.091195,
+              "center_density": 1.0,
+              "center_saturation": 0.474043,
+              "area_ratio": 0.01355,
+              "bbox_detection": [
+                15,
+                90,
+                114,
+                72
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 2122,
+              "score": 0.954921,
+              "density": 0.904727,
+              "mean_saturation": 0.47798,
+              "std_value": 0.111775,
+              "center_density": 0.826011,
+              "center_saturation": 0.5527,
+              "area_ratio": 0.01355,
+              "bbox_detection": [
+                30,
+                45,
+                114,
+                72
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 16977,
+              "score": 0.944972,
+              "density": 0.962585,
+              "mean_saturation": 0.364003,
+              "std_value": 0.120436,
+              "center_density": 0.999909,
+              "center_saturation": 0.381199,
+              "area_ratio": 0.073775,
+              "bbox_detection": [
+                525,
+                480,
+                266,
+                168
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 5495,
+              "score": 0.944221,
+              "density": 0.997136,
+              "mean_saturation": 0.401846,
+              "std_value": 0.116351,
+              "center_density": 0.997476,
+              "center_saturation": 0.420928,
+              "area_ratio": 0.018444,
+              "bbox_detection": [
+                525,
+                555,
+                133,
+                84
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            }
+          ],
+          "candidate_angles": [
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180
+          ]
+        },
+        "normalized_shape": [
+          60,
+          95
+        ],
+        "candidate_count": 16
+      }
+    },
+    "roi_extraction": {
+      "roi_extraction": "template_roi_with_document_localization_v3_weighted_score_safe",
+      "selected_angle": 0,
+      "selected_source": "full_image_roi_width_guard",
+      "selected_candidate_index": -1,
+      "selected_rotation_index": null,
+      "selected_debug_prefix": "cand_-1_angle_0",
+      "selected_content_bbox_norm": null,
+      "selected_score": 93.35,
+      "document_normalizer": {
+        "normalizer": "skipped",
+        "reason": "using_document_localizer_candidates",
+        "candidate_count": 21
+      },
+      "candidate_debug": [
+        {
+          "angle": 0,
+          "source": "full_image_roi_width_guard",
+          "candidate_index": -1,
+          "rotation_index": null,
+          "debug_prefix": "cand_-1_angle_0",
+          "content_bbox_norm": null,
+          "score": 93.35,
+          "validated_fields": 9,
+          "validated_strong_fields": 6,
+          "present_fields": 9,
+          "review_required_fields": [],
+          "warnings": []
+        }
+      ],
+      "selected_candidate_debug": {
+        "roi_extraction": "template_roi_v3_expected_nationality_strict_midv",
+        "engine": "easyocr",
+        "language_hints": [
+          "en"
+        ],
+        "template_id": "midv_svk_id",
+        "source_class": "svk_id",
+        "expected_nationality": "SVK",
+        "debug_prefix": "cand_-1_angle_0",
+        "content_bbox_norm_received": null,
+        "content_bbox_norm_applied": false,
+        "fields": [
+          {
+            "name": "birth_date",
+            "output_key": "birthDate",
+            "raw_text": "L 20.03.1964",
+            "value": "1964-03-20",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.706304,
+              0.385475,
+              0.177313,
+              0.036313
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_birth_date.jpg",
+            "review_required": false
+          },
+          {
+            "name": "expiry_date",
+            "output_key": "expiryDate",
+            "raw_text": "17.11.2023",
+            "value": "2023-11-17",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.706322,
+              0.662011,
+              0.176467,
+              0.036313
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_expiry_date.jpg",
+            "review_required": false
+          },
+          {
+            "name": "face",
+            "output_key": "face",
+            "skipped": true,
+            "reason": "visual field",
+            "bbox_norm": [
+              0.095238,
+              0.355699,
+              0.188367,
+              0.404956
+            ]
+          },
+          {
+            "name": "gender",
+            "output_key": "gender",
+            "raw_text": "Metno F",
+            "value": null,
+            "valid": false,
+            "error": "invalid_gender",
+            "bbox_norm": [
+              0.349224,
+              0.477654,
+              0.023501,
+              0.044693
+            ],
+            "confidence": 0.0,
+            "debug_file": "debug_roi/cand_-1_angle_0_gender.jpg",
+            "review_required": false
+          },
+          {
+            "name": "id_number",
+            "output_key": "personalNumber",
+            "raw_text": "640320/0338",
+            "value": "640320/0338",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.70624,
+              0.47905,
+              0.210377,
+              0.036313
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_id_number.jpg",
+            "review_required": false
+          },
+          {
+            "name": "issue_date",
+            "output_key": "issueDate",
+            "raw_text": "17.11.2013",
+            "value": "2013-11-17",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.706767,
+              0.75419,
+              0.176912,
+              0.036313
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_issue_date.jpg",
+            "review_required": false
+          },
+          {
+            "name": "issue_place",
+            "output_key": "issue_place",
+            "raw_text": "wyoa/ lssued DY Lucenec ri Jieaen C;",
+            "value": "wyoa/ lssued DY Lucenec ri Jieaen C",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.349088,
+              0.748617,
+              0.135839,
+              0.047486
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_issue_place.jpg",
+            "review_required": false
+          },
+          {
+            "name": "name",
+            "output_key": "givenNames",
+            "raw_text": "Ornela 7",
+            "value": "Ornela",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.349024,
+              0.294045,
+              0.101138,
+              0.040503
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_name.jpg",
+            "review_required": false
+          },
+          {
+            "name": "nationality",
+            "output_key": "nationality",
+            "raw_text": "OLOCAC AD LSVK",
+            "value": "SVK",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.349206,
+              0.385475,
+              0.063492,
+              0.039106
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_nationality.jpg",
+            "review_required": false
+          },
+          {
+            "name": "number",
+            "output_key": "documentNumber",
+            "raw_text": "HT299402",
+            "value": "HT299402",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.352488,
+              0.604763,
+              0.209522,
+              0.053073
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_number.jpg",
+            "review_required": false
+          },
+          {
+            "name": "photo",
+            "output_key": "photo",
+            "skipped": true,
+            "reason": "visual field",
+            "bbox_norm": [
+              0.045365,
+              0.248647,
+              0.285078,
+              0.553505
+            ]
+          },
+          {
+            "name": "signature",
+            "output_key": "signature",
+            "skipped": true,
+            "reason": "visual field",
+            "bbox_norm": [
+              0.637693,
+              0.824843,
+              0.22504,
+              0.142832
+            ]
+          },
+          {
+            "name": "surname",
+            "output_key": "surname",
+            "raw_text": "FClndo DucI Kovcan",
+            "value": "FClndo DucI Kovcan",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.350652,
+              0.199735,
+              0.120329,
+              0.040503
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_surname.jpg",
+            "review_required": false
+          }
+        ]
+      },
+      "early_stop": {
+        "enabled": true,
+        "reason": "strong_full_image_roi_width_guard_candidate",
+        "min_score": 80.0,
+        "validated_strong_fields": 6
+      }
+    },
+    "roi_width_guard": {
+      "enabled": true,
+      "min_width_ratio": 0.9,
+      "original_width": 1134,
+      "localized_width": 846,
+      "actual_width_ratio": 0.746,
+      "use_full_image_candidate": true,
+      "candidate_policy": "full_image_prepended",
+      "selected_source": "full_image_roi_width_guard",
+      "selected_candidate_index": -1,
+      "selected_angle": 0,
+      "selected_score": 93.35
+    },
+    "raw_ocr_executed": false,
+    "raw_ocr_skipped_reason": "strong_roi_candidate"
+  },
+  "raw_text": "",
+  "processing_time_ms": 2090,
+  "warnings": [],
+  "review_reasons": []
+}

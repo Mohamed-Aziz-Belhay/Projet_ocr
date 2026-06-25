@@ -1,0 +1,1320 @@
+{
+  "job_id": "2fc02dd6-6117-428c-b7a0-f3f546203ebe",
+  "status": "review_required",
+  "template_id": "passport_generic",
+  "document_type": "passport",
+  "document_variant": null,
+  "engine_used": "passport_mrz",
+  "language_detected": "en",
+  "global_confidence": 0.0,
+  "quality_score": 0.505,
+  "fields": [
+    {
+      "name": "document_number",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "Flal SOUSSE/U Dale & eaue 77 Issuing AuthorityljLAY1t+ TUNIS/L4s 19-07-2019 Dale derry ALort 18-07-2024",
+      "raw_template_field": "document_number",
+      "error": "invalid_document_number",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "suppressed:invalid_mrz_core_validation"
+      ]
+    },
+    {
+      "name": "surname",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "Flal SOUSSE/U Dale & eaue 77 Issuing AuthorityljLAY1t+ TUNIS/L4s 19-07-2019 Dale derry ALort 18-07-2024",
+      "raw_template_field": "surname",
+      "error": "invalid_surname",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "suppressed:invalid_mrz_core_validation"
+      ]
+    },
+    {
+      "name": "given_names",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "Flal SOUSSE/U Dale & eaue 77 Issuing AuthorityljLAY1t+ TUNIS/L4s 19-07-2019 Dale derry ALort 18-07-2024",
+      "raw_template_field": "given_names",
+      "error": "invalid_given_names",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "field unresolved",
+        "suppressed:invalid_mrz_core_validation"
+      ]
+    },
+    {
+      "name": "nationality",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "Flal SOUSSE/U Dale & eaue 77 Issuing AuthorityljLAY1t+ TUNIS/L4s 19-07-2019 Dale derry ALort 18-07-2024",
+      "raw_template_field": "nationality",
+      "error": "invalid_nationality",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "suppressed:invalid_mrz_core_validation"
+      ]
+    },
+    {
+      "name": "birth_date",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "Flal SOUSSE/U Dale & eaue 77 Issuing AuthorityljLAY1t+ TUNIS/L4s 19-07-2019 Dale derry ALort 18-07-2024",
+      "raw_template_field": "birth_date",
+      "error": "invalid_birth_date",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "suppressed:invalid_mrz_core_validation"
+      ]
+    },
+    {
+      "name": "gender",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "Flal SOUSSE/U Dale & eaue 77 Issuing AuthorityljLAY1t+ TUNIS/L4s 19-07-2019 Dale derry ALort 18-07-2024",
+      "raw_template_field": "gender",
+      "error": "invalid_gender",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "field unresolved",
+        "suppressed:invalid_mrz_core_validation"
+      ]
+    },
+    {
+      "name": "expiry_date",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "Flal SOUSSE/U Dale & eaue 77 Issuing AuthorityljLAY1t+ TUNIS/L4s 19-07-2019 Dale derry ALort 18-07-2024",
+      "raw_template_field": "expiry_date",
+      "error": "invalid_expiry_date",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "suppressed:invalid_mrz_core_validation"
+      ]
+    },
+    {
+      "name": "issuing_country",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "Flal SOUSSE/U Dale & eaue 77 Issuing AuthorityljLAY1t+ TUNIS/L4s 19-07-2019 Dale derry ALort 18-07-2024",
+      "raw_template_field": "issuing_country",
+      "error": "invalid_issuing_country",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "field unresolved",
+        "suppressed:invalid_mrz_core_validation"
+      ]
+    },
+    {
+      "name": "personal_number",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "Flal SOUSSE/U Dale & eaue 77 Issuing AuthorityljLAY1t+ TUNIS/L4s 19-07-2019 Dale derry ALort 18-07-2024",
+      "raw_template_field": "personal_number",
+      "error": "invalid_personal_number",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "field unresolved",
+        "suppressed:invalid_mrz_core_validation"
+      ]
+    },
+    {
+      "name": "mrz",
+      "value": "",
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "Flal SOUSSE/U Dale & eaue 77 Issuing AuthorityljLAY1t+ TUNIS/L4s 19-07-2019 Dale derry ALort 18-07-2024",
+      "raw_template_field": "mrz",
+      "error": "invalid_mrz",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "field unresolved",
+        "suppressed:invalid_mrz_core_validation"
+      ]
+    }
+  ],
+  "normalized_data": {},
+  "routing": {
+    "requested_document_type": "passport",
+    "requested_template_id": "passport_generic",
+    "selected_template_id": "passport_generic",
+    "selected_document_type": "passport",
+    "method": "explicit_template_object"
+  },
+  "business_validation": {
+    "status": "review_required",
+    "review_required": true,
+    "review_reasons": [
+      "Missing or invalid required field: document_number",
+      "Missing or invalid required field: surname",
+      "Missing or invalid required field: nationality",
+      "Missing or invalid required field: birth_date",
+      "Missing or invalid required field: expiry_date"
+    ],
+    "valid_fields_ok": 0,
+    "present_fields": 0,
+    "field_coverage": 0.0,
+    "avg_field_confidence": 0.0,
+    "business_confidence": 0.0,
+    "quality_score": 0.505
+  },
+  "diagnostics": {
+    "mode": "generic_template_v5_detector_swin_roi_passport_invoice",
+    "processing_mode": "fast",
+    "routing": {
+      "requested_document_type": "passport",
+      "requested_template_id": "passport_generic",
+      "selected_template_id": "passport_generic",
+      "selected_document_type": "passport",
+      "method": "explicit_template_object"
+    },
+    "template_id": "passport_generic",
+    "document_type": "passport",
+    "engine": "passport_mrz",
+    "preprocessing": {
+      "quality": {
+        "sharpness": 0.496,
+        "brightness": 0.612,
+        "contrast": 0.43,
+        "quality_score": 0.505
+      },
+      "transforms": {
+        "resized": true,
+        "deskewed": true,
+        "contrast": true
+      }
+    },
+    "layout": {
+      "page_width": 1438,
+      "page_height": 800,
+      "orientation": "landscape",
+      "has_table": true,
+      "column_count": 3,
+      "regions": [
+        {
+          "type": "footer",
+          "bbox": [
+            1091,
+            754,
+            122,
+            32
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            423,
+            650,
+            943,
+            104
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1083,
+            541,
+            355,
+            104
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1325,
+            421,
+            101,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1343,
+            381,
+            95,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1367,
+            322,
+            71,
+            29
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1255,
+            313,
+            98,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            905,
+            308,
+            346,
+            264
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            4,
+            206,
+            879,
+            439
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1157,
+            190,
+            275,
+            43
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            69,
+            104,
+            180,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            557,
+            99,
+            325,
+            49
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            99,
+            138,
+            49
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            887,
+            96,
+            266,
+            57
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            73,
+            20,
+            469,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            91,
+            0,
+            1347,
+            60
+          ],
+          "confidence": 1.0,
+          "label": null
+        }
+      ],
+      "region_count": 16
+    },
+    "field_count": 10,
+    "validated_field_count": 0,
+    "document_localizer": {
+      "localizer": "document_localizer_v3_yolo_raw_plus_normalized",
+      "method": "yolo_crop",
+      "detector": {
+        "found": true,
+        "bbox_xyxy": [
+          129.0989990234375,
+          0.0,
+          905.8130493164062,
+          556.0
+        ],
+        "confidence": 0.9073,
+        "class_name": "document",
+        "method": "yolo_document_detector",
+        "error": null
+      },
+      "input_shape": [
+        556,
+        1000
+      ],
+      "localized_shape": [
+        556,
+        807
+      ],
+      "candidate_count": 20,
+      "raw_candidate_count": 4,
+      "normalized_candidate_count": 16,
+      "yolo_crop_padding": 0.02,
+      "aspect_trim": {
+        "enabled": false,
+        "reason": "aspect trimming degraded ROI alignment in previous tests"
+      },
+      "post_yolo_normalizer": {
+        "executed": true,
+        "diagnostics": {
+          "normalizer": "classical_cv_multi_candidate_v6_strict_color_nms",
+          "input_shape": [
+            556,
+            807
+          ],
+          "detection_shape": [
+            556,
+            807
+          ],
+          "scale": 1.0,
+          "mode": "fast",
+          "found_contour": true,
+          "contours_total": 53,
+          "sliding_candidate_count": 8,
+          "contour_candidate_count": 42,
+          "candidate_pool_count": 50,
+          "crop_candidate_count": 8,
+          "final_candidate_count": 16,
+          "rejected": {
+            "too_small": 32,
+            "too_large": 0,
+            "bad_aspect": 5,
+            "touches_border_large": 1,
+            "invalid_crop": 0
+          },
+          "selected_strategy": "multi_candidate_roi_score",
+          "candidates_preview": [
+            {
+              "source": "sliding_color_window",
+              "index": 1471,
+              "score": 0.655496,
+              "density": 0.600526,
+              "mean_saturation": 0.284263,
+              "std_value": 0.255347,
+              "center_density": 0.683622,
+              "center_saturation": 0.330504,
+              "area_ratio": 0.012704,
+              "bbox_detection": [
+                406,
+                462,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 853,
+              "score": 0.628376,
+              "density": 0.832281,
+              "mean_saturation": 0.167379,
+              "std_value": 0.020176,
+              "center_density": 0.970418,
+              "center_saturation": 0.175925,
+              "area_ratio": 0.012704,
+              "bbox_detection": [
+                644,
+                280,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 698,
+              "score": 0.617732,
+              "density": 0.782632,
+              "mean_saturation": 0.174784,
+              "std_value": 0.076977,
+              "center_density": 0.920274,
+              "center_saturation": 0.178702,
+              "area_ratio": 0.012704,
+              "bbox_detection": [
+                616,
+                238,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1474,
+              "score": 0.598831,
+              "density": 0.538947,
+              "mean_saturation": 0.268856,
+              "std_value": 0.253081,
+              "center_density": 0.608586,
+              "center_saturation": 0.307686,
+              "area_ratio": 0.012704,
+              "bbox_detection": [
+                448,
+                462,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 955,
+              "score": 0.594925,
+              "density": 0.775263,
+              "mean_saturation": 0.17633,
+              "std_value": 0.060683,
+              "center_density": 0.828283,
+              "center_saturation": 0.183737,
+              "area_ratio": 0.012704,
+              "bbox_detection": [
+                644,
+                308,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1487,
+              "score": 0.593647,
+              "density": 0.539649,
+              "mean_saturation": 0.259194,
+              "std_value": 0.223434,
+              "center_density": 0.673882,
+              "center_saturation": 0.291121,
+              "area_ratio": 0.012704,
+              "bbox_detection": [
+                630,
+                462,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1426,
+              "score": 0.591383,
+              "density": 0.544912,
+              "mean_saturation": 0.266017,
+              "std_value": 0.242336,
+              "center_density": 0.607504,
+              "center_saturation": 0.292345,
+              "area_ratio": 0.012704,
+              "bbox_detection": [
+                378,
+                448,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 35,
+              "score": 0.585777,
+              "density": 0.782281,
+              "mean_saturation": 0.206673,
+              "std_value": 0.155444,
+              "center_density": 0.910895,
+              "center_saturation": 0.215575,
+              "area_ratio": 0.012704,
+              "bbox_detection": [
+                490,
+                0,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": true,
+              "reject_reason": null
+            }
+          ],
+          "candidate_angles": [
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180
+          ]
+        },
+        "normalized_shape": [
+          60,
+          95
+        ],
+        "candidate_count": 16
+      }
+    },
+    "passport_extraction": {
+      "passport_extraction": "passport_mrz_first_best_candidate_v2_strict",
+      "selected_angle": 0,
+      "selected_source": "full_image_width_guard",
+      "selected_candidate_index": -1,
+      "selected_debug_prefix": "passport_cand_-1_angle_0",
+      "selected_score": -15.0,
+      "selected_mrz_core_valid": false,
+      "candidate_debug": [
+        {
+          "angle": 0,
+          "source": "full_image_width_guard",
+          "candidate_index": -1,
+          "debug_prefix": "passport_cand_-1_angle_0",
+          "score": -15.0,
+          "mrz_core_valid": false,
+          "validated_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [
+            "document_number",
+            "surname",
+            "nationality",
+            "birth_date",
+            "expiry_date"
+          ],
+          "warnings": [
+            "Required passport MRZ field 'document_number' missing or invalid",
+            "Required passport MRZ field 'surname' missing or invalid",
+            "Required passport MRZ field 'nationality' missing or invalid",
+            "Required passport MRZ field 'birth_date' missing or invalid",
+            "Required passport MRZ field 'expiry_date' missing or invalid",
+            "Passport MRZ parsed but validation is incomplete or failed",
+            "Passport MRZ core validation failed"
+          ],
+          "passport_debug_summary": {
+            "selected_candidate": "bottom_38_clahe",
+            "selected_score": -11.2
+          }
+        },
+        {
+          "angle": 0,
+          "source": "yolo_crop_raw",
+          "candidate_index": 0,
+          "debug_prefix": "passport_cand_0_angle_0",
+          "score": -15.0,
+          "mrz_core_valid": false,
+          "validated_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [
+            "document_number",
+            "surname",
+            "nationality",
+            "birth_date",
+            "expiry_date"
+          ],
+          "warnings": [
+            "Required passport MRZ field 'document_number' missing or invalid",
+            "Required passport MRZ field 'surname' missing or invalid",
+            "Required passport MRZ field 'nationality' missing or invalid",
+            "Required passport MRZ field 'birth_date' missing or invalid",
+            "Required passport MRZ field 'expiry_date' missing or invalid",
+            "Passport MRZ parsed but validation is incomplete or failed",
+            "Passport MRZ core validation failed"
+          ],
+          "passport_debug_summary": {
+            "selected_candidate": "bottom_38_clahe",
+            "selected_score": -11.2
+          }
+        },
+        {
+          "angle": 180,
+          "source": "yolo_crop_raw",
+          "candidate_index": 0,
+          "debug_prefix": "passport_cand_0_angle_180",
+          "score": -15.0,
+          "mrz_core_valid": false,
+          "validated_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [],
+          "warnings": [
+            "No MRZ candidate crop found",
+            "Passport MRZ core validation failed"
+          ],
+          "passport_debug_summary": {
+            "selected_candidate": null,
+            "selected_score": null
+          }
+        },
+        {
+          "angle": 90,
+          "source": "yolo_crop_raw",
+          "candidate_index": 0,
+          "debug_prefix": "passport_cand_0_angle_90",
+          "score": -15.0,
+          "mrz_core_valid": false,
+          "validated_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [],
+          "warnings": [
+            "No MRZ candidate crop found",
+            "Passport MRZ core validation failed"
+          ],
+          "passport_debug_summary": {
+            "selected_candidate": null,
+            "selected_score": null
+          }
+        },
+        {
+          "angle": 270,
+          "source": "yolo_crop_raw",
+          "candidate_index": 0,
+          "debug_prefix": "passport_cand_0_angle_270",
+          "score": -15.0,
+          "mrz_core_valid": false,
+          "validated_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [],
+          "warnings": [
+            "No MRZ candidate crop found",
+            "Passport MRZ core validation failed"
+          ],
+          "passport_debug_summary": {
+            "selected_candidate": null,
+            "selected_score": null
+          }
+        },
+        {
+          "angle": 0,
+          "source": "yolo_crop_normalized:sliding_color_window",
+          "candidate_index": 100,
+          "debug_prefix": "passport_cand_100_angle_0",
+          "score": -15.0,
+          "mrz_core_valid": false,
+          "validated_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [],
+          "warnings": [
+            "No MRZ candidate crop found",
+            "Passport MRZ core validation failed"
+          ],
+          "passport_debug_summary": {
+            "selected_candidate": null,
+            "selected_score": null
+          }
+        },
+        {
+          "angle": 180,
+          "source": "yolo_crop_normalized:sliding_color_window",
+          "candidate_index": 101,
+          "debug_prefix": "passport_cand_101_angle_180",
+          "score": -15.0,
+          "mrz_core_valid": false,
+          "validated_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [],
+          "warnings": [
+            "No MRZ candidate crop found",
+            "Passport MRZ core validation failed"
+          ],
+          "passport_debug_summary": {
+            "selected_candidate": null,
+            "selected_score": null
+          }
+        }
+      ],
+      "selected_candidate_debug": {
+        "passport_extraction": "passport_mrz_first_v2_mrz_preprocess_repair",
+        "engine": "easyocr",
+        "language_hints": [
+          "en"
+        ],
+        "selected_candidate": "bottom_38_clahe",
+        "selected_base_candidate": "bottom_38",
+        "selected_variant": "clahe",
+        "selected_bbox_norm": [
+          0.02,
+          0.58,
+          0.96,
+          0.4
+        ],
+        "selected_score": -11.2,
+        "selected_raw_text": "Flal SOUSSE/U Dale & eaue 77 Issuing AuthorityljLAY1t+ TUNIS/L4s 19-07-2019 Dale derry ALort 18-07-2024",
+        "selected_repaired_text": "Flal SOUSSE/U Dale & eaue 77 Issuing AuthorityljLAY1t+ TUNIS/L4s 19-07-2019 Dale derry ALort 18-07-2024",
+        "selected_parsed": {
+          "valid": false,
+          "document_type": null,
+          "issuing_country": null,
+          "document_number": null,
+          "surname": null,
+          "given_names": null,
+          "nationality": null,
+          "birth_date": null,
+          "gender": null,
+          "expiry_date": null,
+          "personal_number": null,
+          "mrz_lines": [],
+          "checks": {},
+          "errors": [
+            "td3_mrz_lines_not_found"
+          ]
+        },
+        "selected_repair_candidates": [
+          {
+            "method": "raw_ocr_text",
+            "text": "Flal SOUSSE/U Dale & eaue 77 Issuing AuthorityljLAY1t+ TUNIS/L4s 19-07-2019 Dale derry ALort 18-07-2024",
+            "score": -11.2,
+            "valid": false,
+            "parsed": {
+              "valid": false,
+              "document_type": null,
+              "issuing_country": null,
+              "document_number": null,
+              "surname": null,
+              "given_names": null,
+              "nationality": null,
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": null,
+              "mrz_lines": [],
+              "checks": {},
+              "errors": [
+                "td3_mrz_lines_not_found"
+              ]
+            }
+          }
+        ],
+        "candidates": [
+          {
+            "candidate": "bottom_38_clahe",
+            "base_candidate": "bottom_38",
+            "variant": "clahe",
+            "bbox_norm": [
+              0.02,
+              0.58,
+              0.96,
+              0.4
+            ],
+            "raw_text": "Flal SOUSSE/U Dale & eaue 77 Issuing AuthorityljLAY1t+ TUNIS/L4s 19-07-2019 Dale derry ALort 18-07-2024",
+            "selected_text": "Flal SOUSSE/U Dale & eaue 77 Issuing AuthorityljLAY1t+ TUNIS/L4s 19-07-2019 Dale derry ALort 18-07-2024",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": null,
+              "issuing_country": null,
+              "document_number": null,
+              "surname": null,
+              "given_names": null,
+              "nationality": null,
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": null,
+              "mrz_lines": [],
+              "checks": {},
+              "errors": [
+                "td3_mrz_lines_not_found"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "Flal SOUSSE/U Dale & eaue 77 Issuing AuthorityljLAY1t+ TUNIS/L4s 19-07-2019 Dale derry ALort 18-07-2024",
+                "score": -11.2,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": null,
+                  "issuing_country": null,
+                  "document_number": null,
+                  "surname": null,
+                  "given_names": null,
+                  "nationality": null,
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": null,
+                  "mrz_lines": [],
+                  "checks": {},
+                  "errors": [
+                    "td3_mrz_lines_not_found"
+                  ]
+                }
+              }
+            ],
+            "score": -11.2
+          },
+          {
+            "candidate": "bottom_38_sharp",
+            "base_candidate": "bottom_38",
+            "variant": "sharp",
+            "bbox_norm": [
+              0.02,
+              0.58,
+              0.96,
+              0.4
+            ],
+            "raw_text": "Flel SOUSSE/L Dal &leae \"t Issuing AuthorityljLAY1t+ TUNIS/erg 19-07-2019 Dale deyaLeet 18-07-2024",
+            "selected_text": "Flel SOUSSE/L Dal &leae \"t Issuing AuthorityljLAY1t+ TUNIS/erg 19-07-2019 Dale deyaLeet 18-07-2024",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": null,
+              "issuing_country": null,
+              "document_number": null,
+              "surname": null,
+              "given_names": null,
+              "nationality": null,
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": null,
+              "mrz_lines": [],
+              "checks": {},
+              "errors": [
+                "td3_mrz_lines_not_found"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "Flel SOUSSE/L Dal &leae \"t Issuing AuthorityljLAY1t+ TUNIS/erg 19-07-2019 Dale deyaLeet 18-07-2024",
+                "score": -11.2,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": null,
+                  "issuing_country": null,
+                  "document_number": null,
+                  "surname": null,
+                  "given_names": null,
+                  "nationality": null,
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": null,
+                  "mrz_lines": [],
+                  "checks": {},
+                  "errors": [
+                    "td3_mrz_lines_not_found"
+                  ]
+                }
+              }
+            ],
+            "score": -11.2
+          },
+          {
+            "candidate": "bottom_38_binary",
+            "base_candidate": "bottom_38",
+            "variant": "binary",
+            "bbox_norm": [
+              0.02,
+              0.58,
+              0.96,
+              0.4
+            ],
+            "raw_text": "Fa SOUSSE/tn 14 Issuing Authortyl ALmit If md* TUNIS/od 19-07-2019 030 06t+ 18-07-2024",
+            "selected_text": "Fa SOUSSE/tn 14 Issuing Authortyl ALmit If md* TUNIS/od 19-07-2019 030 06t+ 18-07-2024",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": null,
+              "issuing_country": null,
+              "document_number": null,
+              "surname": null,
+              "given_names": null,
+              "nationality": null,
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": null,
+              "mrz_lines": [],
+              "checks": {},
+              "errors": [
+                "td3_mrz_lines_not_found"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "Fa SOUSSE/tn 14 Issuing Authortyl ALmit If md* TUNIS/od 19-07-2019 030 06t+ 18-07-2024",
+                "score": -11.2,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": null,
+                  "issuing_country": null,
+                  "document_number": null,
+                  "surname": null,
+                  "given_names": null,
+                  "nationality": null,
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": null,
+                  "mrz_lines": [],
+                  "checks": {},
+                  "errors": [
+                    "td3_mrz_lines_not_found"
+                  ]
+                }
+              }
+            ],
+            "score": -11.2
+          },
+          {
+            "candidate": "bottom_35_clahe",
+            "base_candidate": "bottom_35",
+            "variant": "clahe",
+            "bbox_norm": [
+              0.03,
+              0.62,
+              0.94,
+              0.35
+            ],
+            "raw_text": "Issuing Authorityl_Laxin D delil4te TUNIS/u 19-07-2019 Hod Dale de ALArb 18-07-2024",
+            "selected_text": "Issuing Authorityl_Laxin D delil4te TUNIS/u 19-07-2019 Hod Dale de ALArb 18-07-2024",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": null,
+              "issuing_country": null,
+              "document_number": null,
+              "surname": null,
+              "given_names": null,
+              "nationality": null,
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": null,
+              "mrz_lines": [],
+              "checks": {},
+              "errors": [
+                "td3_mrz_lines_not_found"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "Issuing Authorityl_Laxin D delil4te TUNIS/u 19-07-2019 Hod Dale de ALArb 18-07-2024",
+                "score": -11.2,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": null,
+                  "issuing_country": null,
+                  "document_number": null,
+                  "surname": null,
+                  "given_names": null,
+                  "nationality": null,
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": null,
+                  "mrz_lines": [],
+                  "checks": {},
+                  "errors": [
+                    "td3_mrz_lines_not_found"
+                  ]
+                }
+              }
+            ],
+            "score": -11.2
+          },
+          {
+            "candidate": "bottom_35_sharp",
+            "base_candidate": "bottom_35",
+            "variant": "sharp",
+            "bbox_norm": [
+              0.03,
+              0.62,
+              0.94,
+              0.35
+            ],
+            "raw_text": "Date dtesue LLtll Issuing Authorityl _axlin TUNIS/us 19-07-2019 Dale derpy Arb 18-07-2024",
+            "selected_text": "Date dtesue LLtll Issuing Authorityl _axlin TUNIS/us 19-07-2019 Dale derpy Arb 18-07-2024",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": null,
+              "issuing_country": null,
+              "document_number": null,
+              "surname": null,
+              "given_names": null,
+              "nationality": null,
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": null,
+              "mrz_lines": [],
+              "checks": {},
+              "errors": [
+                "td3_mrz_lines_not_found"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "Date dtesue LLtll Issuing Authorityl _axlin TUNIS/us 19-07-2019 Dale derpy Arb 18-07-2024",
+                "score": -11.2,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": null,
+                  "issuing_country": null,
+                  "document_number": null,
+                  "surname": null,
+                  "given_names": null,
+                  "nationality": null,
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": null,
+                  "mrz_lines": [],
+                  "checks": {},
+                  "errors": [
+                    "td3_mrz_lines_not_found"
+                  ]
+                }
+              }
+            ],
+            "score": -11.2
+          },
+          {
+            "candidate": "bottom_35_binary",
+            "base_candidate": "bottom_35",
+            "variant": "binary",
+            "bbox_norm": [
+              0.03,
+              0.62,
+              0.94,
+              0.35
+            ],
+            "raw_text": "@delt Issuing Authorityl _ m+ TUNIS/udsi 19-07-2019 D dupy pL AT: u 18-07-2024 N",
+            "selected_text": "@delt Issuing Authorityl _ m+ TUNIS/udsi 19-07-2019 D dupy pL AT: u 18-07-2024 N",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": null,
+              "issuing_country": null,
+              "document_number": null,
+              "surname": null,
+              "given_names": null,
+              "nationality": null,
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": null,
+              "mrz_lines": [],
+              "checks": {},
+              "errors": [
+                "td3_mrz_lines_not_found"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "@delt Issuing Authorityl _ m+ TUNIS/udsi 19-07-2019 D dupy pL AT: u 18-07-2024 N",
+                "score": -11.2,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": null,
+                  "issuing_country": null,
+                  "document_number": null,
+                  "surname": null,
+                  "given_names": null,
+                  "nationality": null,
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": null,
+                  "mrz_lines": [],
+                  "checks": {},
+                  "errors": [
+                    "td3_mrz_lines_not_found"
+                  ]
+                }
+              }
+            ],
+            "score": -11.2
+          },
+          {
+            "candidate": "bottom_30_clahe",
+            "base_candidate": "bottom_30",
+            "variant": "clahe",
+            "bbox_norm": [
+              0.03,
+              0.67,
+              0.94,
+              0.3
+            ],
+            "raw_text": "19-07-2019 Hobers Dale @TLAt+ 18-07-2024",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": null,
+              "issuing_country": null,
+              "document_number": null,
+              "surname": null,
+              "given_names": null,
+              "nationality": null,
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": null,
+              "mrz_lines": [],
+              "checks": {},
+              "errors": [
+                "empty_mrz_text"
+              ]
+            },
+            "repair_candidates": [],
+            "score": -25.0,
+            "skipped_reason": "no_mrz_anchor_detected"
+          }
+        ]
+      }
+    },
+    "passport_width_guard": {
+      "enabled": true,
+      "min_width_ratio": 0.9,
+      "original_width": 1000,
+      "localized_width": 807,
+      "actual_width_ratio": 0.807,
+      "use_full_image_candidate": true,
+      "candidate_policy": "full_image_prepended",
+      "selected_source": "full_image_width_guard",
+      "selected_candidate_index": -1
+    },
+    "raw_ocr_executed": false,
+    "strategy": "passport_mrz_first"
+  },
+  "raw_text": "Flal SOUSSE/U Dale & eaue 77 Issuing AuthorityljLAY1t+ TUNIS/L4s 19-07-2019 Dale derry ALort 18-07-2024",
+  "processing_time_ms": 11301,
+  "warnings": [
+    "Required passport MRZ field 'document_number' missing or invalid",
+    "Required passport MRZ field 'surname' missing or invalid",
+    "Required passport MRZ field 'nationality' missing or invalid",
+    "Required passport MRZ field 'birth_date' missing or invalid",
+    "Required passport MRZ field 'expiry_date' missing or invalid",
+    "Passport MRZ parsed but validation is incomplete or failed",
+    "Passport MRZ core validation failed"
+  ],
+  "review_reasons": [
+    "Missing or invalid required field: document_number",
+    "Missing or invalid required field: surname",
+    "Missing or invalid required field: nationality",
+    "Missing or invalid required field: birth_date",
+    "Missing or invalid required field: expiry_date"
+  ]
+}

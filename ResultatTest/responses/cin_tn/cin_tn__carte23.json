@@ -1,0 +1,527 @@
+{
+  "job_id": "3470aa70-8de5-4d4a-becd-aff89653b865",
+  "status": "failed",
+  "template_id": "cin_tn",
+  "document_type": "cin_tn",
+  "document_variant": "recto",
+  "engine_used": "unknown",
+  "language_detected": "ar",
+  "global_confidence": 0.0233,
+  "quality_score": 0.465,
+  "fields": [
+    {
+      "name": "id_number",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": "CIN introuvable",
+      "selected_engine": null,
+      "selected_source": null,
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "critical field missing"
+      ]
+    },
+    {
+      "name": "last_name",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": "Nom introuvable",
+      "selected_engine": null,
+      "selected_source": null,
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "critical field missing"
+      ]
+    },
+    {
+      "name": "first_name",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": "Prénom introuvable",
+      "selected_engine": null,
+      "selected_source": null,
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "critical field missing"
+      ]
+    },
+    {
+      "name": "birth_date",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": "Date introuvable",
+      "selected_engine": null,
+      "selected_source": null,
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "critical field missing"
+      ]
+    },
+    {
+      "name": "birth_place",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": "Lieu introuvable",
+      "selected_engine": null,
+      "selected_source": null,
+      "review_required": false,
+      "reasons": [
+        "field unresolved"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "idNumber": null,
+    "lastName": null,
+    "firstName": null,
+    "birthDate": null,
+    "birthPlace": null
+  },
+  "routing": null,
+  "business_validation": {
+    "status": "failed",
+    "review_required": true,
+    "review_reasons": [
+      "critical field missing or invalid: last_name",
+      "critical field missing or invalid: id_number",
+      "critical field missing or invalid: first_name",
+      "birth_date missing"
+    ],
+    "warnings": [
+      "Champ critique à vérifier: last_name",
+      "Champ critique à vérifier: id_number",
+      "Champ critique à vérifier: first_name",
+      "Date de naissance à vérifier"
+    ],
+    "business_confidence": 0.0233,
+    "critical_fields_ok": 0,
+    "valid_fields_ok": 0,
+    "present_fields": 0,
+    "quality_score": 0.465,
+    "avg_field_confidence": 0.0,
+    "field_coverage": 0.0
+  },
+  "diagnostics": {
+    "mode": "cin_specialized_v2",
+    "cin_mode": "balanced",
+    "strategy": "balanced: spatial-first + targeted-roi-fallback + optional-full-fallback",
+    "pipeline_steps": [
+      "easyocr_boxes",
+      "paddle_boxes",
+      "targeted_roi:easyocr",
+      "targeted_roi:paddle",
+      "full_ocr:paddle"
+    ],
+    "preprocessing": {
+      "quality": {
+        "sharpness": 0.411,
+        "brightness": 0.705,
+        "contrast": 0.346,
+        "quality_score": 0.465
+      },
+      "transforms": {
+        "resized": false,
+        "deskewed": true,
+        "contrast": true,
+        "mode": "cin_legacy_compatible"
+      },
+      "cin_preprocessor_keys": [
+        "binary",
+        "card_roi",
+        "deskewed",
+        "gray",
+        "oriented",
+        "original"
+      ]
+    },
+    "quality_checks": {
+      "sharpness": 0.411,
+      "brightness": 0.705,
+      "contrast": 0.346,
+      "quality_score": 0.465
+    },
+    "roi_fields": {
+      "cin_number": [
+        167,
+        372
+      ],
+      "family_name": [
+        141,
+        333
+      ],
+      "first_name": [
+        141,
+        333
+      ],
+      "date_of_birth": [
+        154,
+        333
+      ],
+      "place_of_birth": [
+        153,
+        333
+      ],
+      "gender": [
+        103,
+        167
+      ],
+      "right_text_block": [
+        742,
+        364
+      ]
+    },
+    "engines": [
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "targeted_missing_rois",
+        "target_fields": [
+          "cin_number",
+          "family_name",
+          "first_name",
+          "date_of_birth",
+          "place_of_birth"
+        ],
+        "processing_time_ms": 456,
+        "zones": {
+          "cin_number": "",
+          "family_name": "",
+          "first_name": "؟",
+          "date_of_birth": "",
+          "place_of_birth": "",
+          "right_text_block": "^ ؟"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "paddle",
+        "executed": true,
+        "trial_type": "targeted_missing_rois",
+        "target_fields": [
+          "cin_number",
+          "family_name",
+          "first_name",
+          "date_of_birth",
+          "place_of_birth"
+        ],
+        "processing_time_ms": 1141,
+        "zones": {
+          "cin_number": "",
+          "family_name": "نطولا ةيسن",
+          "first_name": "برعتلا ة ةيروهمج",
+          "date_of_birth": "",
+          "place_of_birth": "",
+          "right_text_block": "ةينطولا فيرعتلا ةقاطب ةيسنوتلا ةيوهمجلا"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "paddle",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "ةينطولا فيرعتلا ةقاطب ةيسنوتلا ةيوهمجلا 199 ساقل نسح سنوت اهزاكم",
+        "full_text_score": 0.0,
+        "processing_time_ms": 1194,
+        "zones": {
+          "cin_number": "",
+          "family_name": "نطولا ةيسن",
+          "first_name": "برعتلا ة ةيروهمج",
+          "date_of_birth": "",
+          "place_of_birth": "",
+          "gender": "",
+          "right_text_block": "ةينطولا فيرعتلا ةقاطب ةيسنوتلا ةيوهمجلا"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      }
+    ],
+    "spatial": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "box_count": 14,
+          "fields": {},
+          "scores": {},
+          "meta": {
+            "cin_number": {
+              "chosen_from": null,
+              "candidate_text": null,
+              "source_kind": "spatial_numeric"
+            },
+            "family_name": {
+              "chosen_from": null,
+              "source_kind": "no_label",
+              "anchors_found": 0
+            },
+            "first_name": {
+              "chosen_from": null,
+              "source_kind": "no_label",
+              "anchors_found": 0
+            },
+            "date_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_date",
+              "anchors_found": 0
+            },
+            "place_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_place",
+              "anchors_found": 0
+            },
+            "label_spatial": {
+              "reason": "no_items"
+            }
+          },
+          "label_spatial": {
+            "fields": {},
+            "scores": {},
+            "meta": {
+              "reason": "no_items"
+            }
+          },
+          "raw_text_reconstructed": ""
+        },
+        {
+          "engine": "paddle_boxes",
+          "box_count": 7,
+          "fields": {},
+          "scores": {},
+          "meta": {
+            "cin_number": {
+              "chosen_from": null,
+              "candidate_text": null,
+              "source_kind": "spatial_numeric"
+            },
+            "family_name": {
+              "chosen_from": null,
+              "source_kind": "no_label",
+              "anchors_found": 0
+            },
+            "first_name": {
+              "chosen_from": null,
+              "source_kind": "no_label",
+              "anchors_found": 0
+            },
+            "date_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_date",
+              "anchors_found": 0
+            },
+            "place_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_place",
+              "anchors_found": 1
+            },
+            "label_spatial": {
+              "reason": "no_items"
+            }
+          },
+          "label_spatial": {
+            "fields": {},
+            "scores": {},
+            "meta": {
+              "reason": "no_items"
+            }
+          },
+          "raw_text_reconstructed": ""
+        }
+      ]
+    },
+    "fusion": {
+      "trials": [
+        {
+          "engine": "easyocr",
+          "source": "targeted_roi_ocr",
+          "fields": {
+            "cin_number": "CIN_FAMILY_NAME:",
+            "family_name": "CIN_FIRST_NAME: ؟",
+            "first_name": "؟",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
+            "place_of_birth": "^ ؟"
+          }
+        },
+        {
+          "engine": "paddle",
+          "source": "targeted_roi_ocr",
+          "fields": {
+            "cin_number": "CIN_FAMILY_NAME: نطولا ةيسن",
+            "family_name": "نطولا ةيسن",
+            "first_name": "برعتلا ة ةيروهمج",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
+            "place_of_birth": "ةينطولا فيرعتلا ةقاطب ةيسنوتلا ةيوهمجلا"
+          }
+        },
+        {
+          "engine": "paddle",
+          "source": "roi_ocr",
+          "fields": {
+            "cin_number": "CIN_FAMILY_NAME: نطولا ةيسن",
+            "family_name": "نطولا ةيسن",
+            "first_name": "برعتلا ة ةيروهمج",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
+            "place_of_birth": "ةينطولا فيرعتلا ةقاطب ةيسنوتلا ةيوهمجلا 199 ساقل نسح سنوت اهزاكم"
+          }
+        }
+      ],
+      "aggregated": {
+        "cin_number": [],
+        "family_name": [
+          {
+            "value": "الوطن نسية",
+            "avg_conf": 0.0,
+            "count": 4,
+            "engines": [
+              "paddle"
+            ],
+            "sources": [
+              "extractor",
+              "roi_ocr",
+              "targeted_roi_ocr"
+            ],
+            "profiles": [],
+            "selection_score": 36.4,
+            "raw_value": "نطولا ةيسن",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_raw_text": true
+              }
+            ]
+          }
+        ],
+        "first_name": [
+          {
+            "value": "التعرب ة جمهورية",
+            "avg_conf": 0.0,
+            "count": 4,
+            "engines": [
+              "paddle"
+            ],
+            "sources": [
+              "extractor",
+              "roi_ocr",
+              "targeted_roi_ocr"
+            ],
+            "profiles": [],
+            "selection_score": 33.4,
+            "raw_value": "برعتلا ة ةيروهمج",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_raw_text": true
+              }
+            ]
+          }
+        ],
+        "date_of_birth": [],
+        "place_of_birth": []
+      },
+      "selected": {
+        "family_name": null,
+        "first_name": null,
+        "date_of_birth": null,
+        "place_of_birth": null
+      }
+    },
+    "cin_postprocess": {
+      "executed": true,
+      "name_extraction": null,
+      "applied": []
+    },
+    "review_required": true,
+    "review_reasons": [
+      "critical field missing or invalid: last_name",
+      "critical field missing or invalid: id_number",
+      "critical field missing or invalid: first_name",
+      "birth_date missing"
+    ],
+    "business_validation": {
+      "status": "failed",
+      "review_required": true,
+      "review_reasons": [
+        "critical field missing or invalid: last_name",
+        "critical field missing or invalid: id_number",
+        "critical field missing or invalid: first_name",
+        "birth_date missing"
+      ],
+      "warnings": [
+        "Champ critique à vérifier: last_name",
+        "Champ critique à vérifier: id_number",
+        "Champ critique à vérifier: first_name",
+        "Date de naissance à vérifier"
+      ],
+      "business_confidence": 0.0233,
+      "critical_fields_ok": 0,
+      "valid_fields_ok": 0,
+      "present_fields": 0,
+      "quality_score": 0.465,
+      "avg_field_confidence": 0.0,
+      "field_coverage": 0.0
+    }
+  },
+  "raw_text": "CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: ؟ CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ^ ؟ CIN_FAMILY_NAME: CIN_FIRST_NAME: ؟ ؟ CIN_PLACE_OF_BIRTH: ^ ؟ CIN_NUMBER: CIN_FAMILY_NAME: نطولا ةيسن CIN_FIRST_NAME: برعتلا ة ةيروهمج CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ةينطولا فيرعتلا ةقاطب ةيسنوتلا ةيوهمجلا CIN_FAMILY_NAME: نطولا ةيسن نطولا ةيسن برعتلا ة ةيروهمج CIN_PLACE_OF_BIRTH: ةينطولا فيرعتلا ةقاطب ةيسنوتلا ةيوهمجلا CIN_NUMBER: CIN_FAMILY_NAME: نطولا ةيسن CIN_FIRST_NAME: برعتلا ة ةيروهمج CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ةينطولا فيرعتلا ةقاطب ةيسنوتلا ةيوهمجلا 199 ساقل نسح سنوت اهزاكم CIN_FAMILY_NAME: نطولا ةيسن نطولا ةيسن برعتلا ة ةيروهمج CIN_PLACE_OF_BIRTH: ةينطولا فيرعتلا ةقاطب ةيسنوتلا ةيوهمجلا 199 ساقل نسح سنوت اهزاكم ؟ ^ ؟ نطولا ةيسن برعتلا ة ةيروهمج ةينطولا فيرعتلا ةقاطب ةيسنوتلا ةيوهمجلا ةينطولا فيرعتلا ةقاطب ةيسنوتلا ةيوهمجلا 199 ساقل نسح سنوت اهزاكم نطولا ةيسن برعتلا ة ةيروهمج ةينطولا فيرعتلا ةقاطب ةيسنوتلا ةيوهمجلا",
+  "processing_time_ms": 4779,
+  "warnings": [
+    "Champ critique à vérifier: last_name",
+    "Champ critique à vérifier: id_number",
+    "Champ critique à vérifier: first_name",
+    "Date de naissance à vérifier",
+    "Champ requis 'numero_cin' à vérifier",
+    "Champ requis 'nom' à vérifier",
+    "Champ requis 'prenom' à vérifier",
+    "Champ requis 'date_naissance' à vérifier"
+  ],
+  "review_reasons": [
+    "critical field missing or invalid: last_name",
+    "critical field missing or invalid: id_number",
+    "critical field missing or invalid: first_name",
+    "birth_date missing"
+  ]
+}

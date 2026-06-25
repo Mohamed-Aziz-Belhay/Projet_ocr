@@ -1,0 +1,1122 @@
+{
+  "job_id": "cd08a3d5-d73b-46a7-8efc-07362cb4b28b",
+  "status": "success",
+  "template_id": "midv_lva_passport",
+  "document_type": "passport",
+  "document_variant": null,
+  "engine_used": "passport_mrz",
+  "language_detected": "en",
+  "global_confidence": 0.9629,
+  "quality_score": 0.785,
+  "fields": [
+    {
+      "name": "document_number",
+      "value": "LV9412755",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<\nLV94127551LVA0005267F2202130260500<28410K<26",
+      "raw_template_field": "document_number",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "surname",
+      "value": "KALNINS",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<\nLV94127551LVA0005267F2202130260500<28410K<26",
+      "raw_template_field": "surname",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "given_names",
+      "value": "AIVITA KRIRK",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<\nLV94127551LVA0005267F2202130260500<28410K<26",
+      "raw_template_field": "given_names",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "nationality",
+      "value": "LVA",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<\nLV94127551LVA0005267F2202130260500<28410K<26",
+      "raw_template_field": "nationality",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "birth_date",
+      "value": "2000-05-26",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<\nLV94127551LVA0005267F2202130260500<28410K<26",
+      "raw_template_field": "birth_date",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "gender",
+      "value": "F",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<\nLV94127551LVA0005267F2202130260500<28410K<26",
+      "raw_template_field": "gender",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "expiry_date",
+      "value": "2022-02-13",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<\nLV94127551LVA0005267F2202130260500<28410K<26",
+      "raw_template_field": "expiry_date",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "issuing_country",
+      "value": "LVA",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<\nLV94127551LVA0005267F2202130260500<28410K<26",
+      "raw_template_field": "issuing_country",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "personal_number",
+      "value": "26050028410K",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<\nLV94127551LVA0005267F2202130260500<28410K<26",
+      "raw_template_field": "personal_number",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "mrz",
+      "value": "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<\nLV94127551LVA0005267F2202130260500<28410K<26",
+      "confidence": 0.97,
+      "validated": true,
+      "raw_text": "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<\nLV94127551LVA0005267F2202130260500<28410K<26",
+      "raw_template_field": "mrz",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "document_number": "LV9412755",
+    "surname": "KALNINS",
+    "given_names": "AIVITA KRIRK",
+    "nationality": "LVA",
+    "birth_date": "2000-05-26",
+    "gender": "F",
+    "expiry_date": "2022-02-13",
+    "issuing_country": "LVA",
+    "personal_number": "26050028410K",
+    "mrz": "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<\nLV94127551LVA0005267F2202130260500<28410K<26"
+  },
+  "routing": {
+    "requested_document_type": "auto",
+    "requested_template_id": null,
+    "selected_template_id": "midv_lva_passport",
+    "selected_document_type": "passport",
+    "method": "swin_image_classifier",
+    "document_class": "lva_passport",
+    "confidence": 1.0
+  },
+  "business_validation": {
+    "status": "success",
+    "review_required": false,
+    "review_reasons": [],
+    "valid_fields_ok": 10,
+    "present_fields": 10,
+    "field_coverage": 1.0,
+    "avg_field_confidence": 0.943,
+    "business_confidence": 0.9629,
+    "quality_score": 0.785
+  },
+  "diagnostics": {
+    "mode": "generic_template_v5_detector_swin_roi_passport_invoice",
+    "processing_mode": "fast",
+    "routing": {
+      "requested_document_type": "auto",
+      "requested_template_id": null,
+      "selected_template_id": "midv_lva_passport",
+      "selected_document_type": "passport",
+      "method": "swin_image_classifier",
+      "document_class": "lva_passport",
+      "confidence": 1.0
+    },
+    "template_id": "midv_lva_passport",
+    "document_type": "passport",
+    "engine": "passport_mrz",
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.787,
+        "contrast": 0.46,
+        "quality_score": 0.785
+      },
+      "transforms": {
+        "resized": true,
+        "deskewed": true,
+        "contrast": true
+      }
+    },
+    "layout": {
+      "page_width": 2000,
+      "page_height": 1403,
+      "orientation": "landscape",
+      "has_table": true,
+      "column_count": 3,
+      "regions": [
+        {
+          "type": "table",
+          "bbox": [
+            79,
+            1123,
+            1835,
+            280
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            0,
+            1014,
+            60,
+            84
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1478,
+            849,
+            150,
+            127
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1030,
+            798,
+            589,
+            180
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1028,
+            685,
+            394,
+            105
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1029,
+            630,
+            400,
+            50
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            569,
+            574,
+            412,
+            50
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1030,
+            573,
+            365,
+            51
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            569,
+            523,
+            282,
+            45
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1487,
+            518,
+            217,
+            188
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1031,
+            518,
+            125,
+            50
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1347,
+            517,
+            141,
+            51
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            572,
+            485,
+            419,
+            31
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1027,
+            484,
+            310,
+            30
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1344,
+            482,
+            274,
+            28
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            568,
+            429,
+            223,
+            47
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            569,
+            307,
+            434,
+            117
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            570,
+            251,
+            62,
+            46
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            784,
+            250,
+            125,
+            47
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1345,
+            248,
+            313,
+            49
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            21,
+            244,
+            277,
+            43
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            569,
+            217,
+            214,
+            32
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            787,
+            216,
+            535,
+            31
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            21,
+            195,
+            251,
+            43
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            20,
+            142,
+            146,
+            46
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            569,
+            136,
+            891,
+            61
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "table",
+          "bbox": [
+            33,
+            0,
+            1967,
+            1133
+          ],
+          "confidence": 1.0,
+          "label": null
+        }
+      ],
+      "region_count": 27
+    },
+    "field_count": 10,
+    "validated_field_count": 10,
+    "document_localizer": {
+      "localizer": "document_localizer_v3_yolo_raw_plus_normalized",
+      "method": "yolo_crop",
+      "detector": {
+        "found": true,
+        "bbox_xyxy": [
+          0.0,
+          0.0,
+          1588.00634765625,
+          1492.751708984375
+        ],
+        "confidence": 0.8392,
+        "class_name": "document",
+        "method": "yolo_document_detector",
+        "error": null
+      },
+      "input_shape": [
+        1521,
+        2167
+      ],
+      "localized_shape": [
+        1521,
+        1620
+      ],
+      "candidate_count": 20,
+      "raw_candidate_count": 4,
+      "normalized_candidate_count": 16,
+      "yolo_crop_padding": 0.02,
+      "aspect_trim": {
+        "enabled": false,
+        "reason": "aspect trimming degraded ROI alignment in previous tests"
+      },
+      "post_yolo_normalizer": {
+        "executed": true,
+        "diagnostics": {
+          "normalizer": "classical_cv_multi_candidate_v6_strict_color_nms",
+          "input_shape": [
+            1521,
+            1620
+          ],
+          "detection_shape": [
+            1127,
+            1200
+          ],
+          "scale": 0.7407407407407407,
+          "mode": "fast",
+          "found_contour": true,
+          "contours_total": 244,
+          "sliding_candidate_count": 8,
+          "contour_candidate_count": 43,
+          "candidate_pool_count": 51,
+          "crop_candidate_count": 8,
+          "final_candidate_count": 16,
+          "rejected": {
+            "too_small": 21,
+            "too_large": 0,
+            "bad_aspect": 16,
+            "touches_border_large": 0,
+            "invalid_crop": 0
+          },
+          "selected_strategy": "multi_candidate_roi_score",
+          "candidates_preview": [
+            {
+              "source": "sliding_color_window",
+              "index": 1224,
+              "score": 0.736348,
+              "density": 0.899043,
+              "mean_saturation": 0.237135,
+              "std_value": 0.087837,
+              "center_density": 1.0,
+              "center_saturation": 0.254562,
+              "area_ratio": 0.005251,
+              "bbox_detection": [
+                189,
+                819,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1226,
+              "score": 0.731408,
+              "density": 0.897916,
+              "mean_saturation": 0.232549,
+              "std_value": 0.085284,
+              "center_density": 1.0,
+              "center_saturation": 0.250763,
+              "area_ratio": 0.005251,
+              "bbox_detection": [
+                231,
+                819,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1222,
+              "score": 0.68063,
+              "density": 0.837229,
+              "mean_saturation": 0.213917,
+              "std_value": 0.082257,
+              "center_density": 0.951884,
+              "center_saturation": 0.233976,
+              "area_ratio": 0.005251,
+              "bbox_detection": [
+                147,
+                819,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1228,
+              "score": 0.653117,
+              "density": 0.795269,
+              "mean_saturation": 0.206453,
+              "std_value": 0.084269,
+              "center_density": 0.925797,
+              "center_saturation": 0.228522,
+              "area_ratio": 0.005251,
+              "bbox_detection": [
+                273,
+                819,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1172,
+              "score": 0.611304,
+              "density": 0.735427,
+              "mean_saturation": 0.199944,
+              "std_value": 0.113868,
+              "center_density": 0.828406,
+              "center_saturation": 0.222184,
+              "area_ratio": 0.005251,
+              "bbox_detection": [
+                210,
+                798,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1174,
+              "score": 0.598373,
+              "density": 0.718108,
+              "mean_saturation": 0.188988,
+              "std_value": 0.117706,
+              "center_density": 0.831884,
+              "center_saturation": 0.217519,
+              "area_ratio": 0.005251,
+              "bbox_detection": [
+                252,
+                798,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1170,
+              "score": 0.595927,
+              "density": 0.712475,
+              "mean_saturation": 0.193826,
+              "std_value": 0.102427,
+              "center_density": 0.832754,
+              "center_saturation": 0.219782,
+              "area_ratio": 0.005251,
+              "bbox_detection": [
+                168,
+                798,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 124,
+              "score": 0.549997,
+              "density": 0.431569,
+              "mean_saturation": 0.286426,
+              "std_value": 0.145234,
+              "center_density": 0.586087,
+              "center_saturation": 0.374452,
+              "area_ratio": 0.005251,
+              "bbox_detection": [
+                1050,
+                105,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            }
+          ],
+          "candidate_angles": [
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180
+          ]
+        },
+        "normalized_shape": [
+          90,
+          143
+        ],
+        "candidate_count": 16
+      }
+    },
+    "passport_extraction": {
+      "passport_extraction": "passport_mrz_first_best_candidate_v2_strict_early_stop",
+      "selected_angle": 0,
+      "selected_source": "full_image_width_guard",
+      "selected_candidate_index": -1,
+      "selected_debug_prefix": "passport_cand_-1_angle_0",
+      "selected_score": 128.4,
+      "selected_mrz_core_valid": true,
+      "candidate_debug": [
+        {
+          "angle": 0,
+          "source": "full_image_width_guard",
+          "candidate_index": -1,
+          "debug_prefix": "passport_cand_-1_angle_0",
+          "score": 128.4,
+          "mrz_core_valid": true,
+          "validated_fields": 10,
+          "present_fields": 10,
+          "review_required_fields": [],
+          "warnings": [],
+          "passport_debug_summary": {
+            "selected_candidate": "bottom_38_clahe",
+            "selected_score": 88.0
+          }
+        }
+      ],
+      "selected_candidate_debug": {
+        "passport_extraction": "passport_mrz_first_v2_mrz_preprocess_repair",
+        "engine": "easyocr",
+        "language_hints": [
+          "en"
+        ],
+        "selected_candidate": "bottom_38_clahe",
+        "selected_base_candidate": "bottom_38",
+        "selected_variant": "clahe",
+        "selected_bbox_norm": [
+          0.02,
+          0.58,
+          0.96,
+          0.4
+        ],
+        "selected_score": 88.0,
+        "selected_raw_text": "Dalenea W 13.02.2012_ Denca 03 Dtonof expiry/ expiration: 13.02.2022 '42 9808 P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<kRirK<<<< LV94127551LVA0O05267F2202130260500<28410k<26",
+        "selected_repaired_text": "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<\nLV94127551LVA0005267F2202130260500<28410K<26",
+        "selected_parsed": {
+          "valid": true,
+          "document_type": "P",
+          "issuing_country": "LVA",
+          "document_number": "LV9412755",
+          "surname": "KALNINS",
+          "given_names": "AIVITA KRIRK",
+          "nationality": "LVA",
+          "birth_date": "2000-05-26",
+          "gender": "F",
+          "expiry_date": "2022-02-13",
+          "personal_number": "26050028410K",
+          "mrz_lines": [
+            "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<",
+            "LV94127551LVA0005267F2202130260500<28410K<26"
+          ],
+          "checks": {
+            "document_number": true,
+            "birth_date": true,
+            "expiry_date": true,
+            "personal_number": true,
+            "composite": true
+          },
+          "errors": []
+        },
+        "selected_repair_candidates": [
+          {
+            "method": "raw_ocr_text",
+            "text": "Dalenea W 13.02.2012_ Denca 03 Dtonof expiry/ expiration: 13.02.2022 '42 9808 P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<kRirK<<<< LV94127551LVA0O05267F2202130260500<28410k<26",
+            "score": 30.8,
+            "valid": false,
+            "parsed": {
+              "valid": false,
+              "document_type": "P",
+              "issuing_country": "LVA",
+              "document_number": "LV9412755",
+              "surname": "KALNINS",
+              "given_names": "AIVITA KRIRK",
+              "nationality": "LVA",
+              "birth_date": "2000-05-26",
+              "gender": "F",
+              "expiry_date": "2022-02-13",
+              "personal_number": "26050028410K",
+              "mrz_lines": [
+                "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<",
+                "LV94127551LVA0O05267F2202130260500<28410K<26"
+              ],
+              "checks": {
+                "document_number": true,
+                "birth_date": false,
+                "expiry_date": true,
+                "personal_number": true,
+                "composite": false
+              },
+              "errors": [
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            }
+          },
+          {
+            "method": "token_reconstruction",
+            "text": "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<\nLV94127551LVA0O05267F2202130260500<28410K<26",
+            "score": 30.8,
+            "valid": false,
+            "parsed": {
+              "valid": false,
+              "document_type": "P",
+              "issuing_country": "LVA",
+              "document_number": "LV9412755",
+              "surname": "KALNINS",
+              "given_names": "AIVITA KRIRK",
+              "nationality": "LVA",
+              "birth_date": "2000-05-26",
+              "gender": "F",
+              "expiry_date": "2022-02-13",
+              "personal_number": "26050028410K",
+              "mrz_lines": [
+                "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<",
+                "LV94127551LVA0O05267F2202130260500<28410K<26"
+              ],
+              "checks": {
+                "document_number": true,
+                "birth_date": false,
+                "expiry_date": true,
+                "personal_number": true,
+                "composite": false
+              },
+              "errors": [
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            }
+          },
+          {
+            "method": "token_reconstruction",
+            "text": "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<\nLV94127551LVA0005267F2202130260500<28410K<26",
+            "score": 88.0,
+            "valid": true,
+            "parsed": {
+              "valid": true,
+              "document_type": "P",
+              "issuing_country": "LVA",
+              "document_number": "LV9412755",
+              "surname": "KALNINS",
+              "given_names": "AIVITA KRIRK",
+              "nationality": "LVA",
+              "birth_date": "2000-05-26",
+              "gender": "F",
+              "expiry_date": "2022-02-13",
+              "personal_number": "26050028410K",
+              "mrz_lines": [
+                "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<",
+                "LV94127551LVA0005267F2202130260500<28410K<26"
+              ],
+              "checks": {
+                "document_number": true,
+                "birth_date": true,
+                "expiry_date": true,
+                "personal_number": true,
+                "composite": true
+              },
+              "errors": []
+            }
+          }
+        ],
+        "candidates": [
+          {
+            "candidate": "bottom_38_clahe",
+            "base_candidate": "bottom_38",
+            "variant": "clahe",
+            "bbox_norm": [
+              0.02,
+              0.58,
+              0.96,
+              0.4
+            ],
+            "raw_text": "Dalenea W 13.02.2012_ Denca 03 Dtonof expiry/ expiration: 13.02.2022 '42 9808 P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<kRirK<<<< LV94127551LVA0O05267F2202130260500<28410k<26",
+            "selected_text": "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<\nLV94127551LVA0005267F2202130260500<28410K<26",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": true,
+              "document_type": "P",
+              "issuing_country": "LVA",
+              "document_number": "LV9412755",
+              "surname": "KALNINS",
+              "given_names": "AIVITA KRIRK",
+              "nationality": "LVA",
+              "birth_date": "2000-05-26",
+              "gender": "F",
+              "expiry_date": "2022-02-13",
+              "personal_number": "26050028410K",
+              "mrz_lines": [
+                "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<",
+                "LV94127551LVA0005267F2202130260500<28410K<26"
+              ],
+              "checks": {
+                "document_number": true,
+                "birth_date": true,
+                "expiry_date": true,
+                "personal_number": true,
+                "composite": true
+              },
+              "errors": []
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "Dalenea W 13.02.2012_ Denca 03 Dtonof expiry/ expiration: 13.02.2022 '42 9808 P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<kRirK<<<< LV94127551LVA0O05267F2202130260500<28410k<26",
+                "score": 30.8,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "LVA",
+                  "document_number": "LV9412755",
+                  "surname": "KALNINS",
+                  "given_names": "AIVITA KRIRK",
+                  "nationality": "LVA",
+                  "birth_date": "2000-05-26",
+                  "gender": "F",
+                  "expiry_date": "2022-02-13",
+                  "personal_number": "26050028410K",
+                  "mrz_lines": [
+                    "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<",
+                    "LV94127551LVA0O05267F2202130260500<28410K<26"
+                  ],
+                  "checks": {
+                    "document_number": true,
+                    "birth_date": false,
+                    "expiry_date": true,
+                    "personal_number": true,
+                    "composite": false
+                  },
+                  "errors": [
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<\nLV94127551LVA0O05267F2202130260500<28410K<26",
+                "score": 30.8,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "LVA",
+                  "document_number": "LV9412755",
+                  "surname": "KALNINS",
+                  "given_names": "AIVITA KRIRK",
+                  "nationality": "LVA",
+                  "birth_date": "2000-05-26",
+                  "gender": "F",
+                  "expiry_date": "2022-02-13",
+                  "personal_number": "26050028410K",
+                  "mrz_lines": [
+                    "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<",
+                    "LV94127551LVA0O05267F2202130260500<28410K<26"
+                  ],
+                  "checks": {
+                    "document_number": true,
+                    "birth_date": false,
+                    "expiry_date": true,
+                    "personal_number": true,
+                    "composite": false
+                  },
+                  "errors": [
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<\nLV94127551LVA0005267F2202130260500<28410K<26",
+                "score": 88.0,
+                "valid": true,
+                "parsed": {
+                  "valid": true,
+                  "document_type": "P",
+                  "issuing_country": "LVA",
+                  "document_number": "LV9412755",
+                  "surname": "KALNINS",
+                  "given_names": "AIVITA KRIRK",
+                  "nationality": "LVA",
+                  "birth_date": "2000-05-26",
+                  "gender": "F",
+                  "expiry_date": "2022-02-13",
+                  "personal_number": "26050028410K",
+                  "mrz_lines": [
+                    "P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<KRIRK<<<<",
+                    "LV94127551LVA0005267F2202130260500<28410K<26"
+                  ],
+                  "checks": {
+                    "document_number": true,
+                    "birth_date": true,
+                    "expiry_date": true,
+                    "personal_number": true,
+                    "composite": true
+                  },
+                  "errors": []
+                }
+              }
+            ],
+            "score": 88.0
+          }
+        ]
+      },
+      "early_stop": {
+        "enabled": true,
+        "reason": "valid_mrz_core_checks"
+      }
+    },
+    "passport_width_guard": {
+      "enabled": true,
+      "min_width_ratio": 0.9,
+      "original_width": 2167,
+      "localized_width": 1620,
+      "actual_width_ratio": 0.7476,
+      "use_full_image_candidate": true,
+      "candidate_policy": "full_image_prepended",
+      "selected_source": "full_image_width_guard",
+      "selected_candidate_index": -1
+    },
+    "raw_ocr_executed": false,
+    "strategy": "passport_mrz_first"
+  },
+  "raw_text": "Dalenea W 13.02.2012_ Denca 03 Dtonof expiry/ expiration: 13.02.2022 '42 9808 P<LVAKALNINS<<AIVITA<<<<<<<<<<<<<<<kRirK<<<< LV94127551LVA0O05267F2202130260500<28410k<26",
+  "processing_time_ms": 1917,
+  "warnings": [],
+  "review_reasons": []
+}

@@ -1,0 +1,683 @@
+{
+  "job_id": "b9a5e8c3-518d-48fa-82ee-47522ccc7621",
+  "status": "review_required",
+  "template_id": "cin_tn",
+  "document_type": "cin_tn",
+  "document_variant": "recto",
+  "engine_used": "mixed(easyocr,easyocr_boxes)",
+  "language_detected": "ar",
+  "global_confidence": 0.8151,
+  "quality_score": 0.359,
+  "fields": [
+    {
+      "name": "id_number",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": "CIN introuvable",
+      "selected_engine": null,
+      "selected_source": null,
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "critical field missing"
+      ]
+    },
+    {
+      "name": "last_name",
+      "value": "الوضيف",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "فيضولا",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    },
+    {
+      "name": "first_name",
+      "value": "محمد",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "محمل",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes",
+        "cin_arabic_ocr_fix:محمل->محمد"
+      ]
+    },
+    {
+      "name": "birth_date",
+      "value": "1949-12-28",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "1949-12-28",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    },
+    {
+      "name": "birth_place",
+      "value": "الماتلين",
+      "confidence": 0.82,
+      "validated": true,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": null,
+      "selected_source": "cin_postprocess_birth_place_context",
+      "review_required": false,
+      "reasons": [
+        "field unresolved",
+        "birth_place_recovered:known_place_in_raw_text"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "idNumber": null,
+    "lastName": "الوضيف",
+    "firstName": "محمد",
+    "birthDate": "1949-12-28",
+    "birthPlace": "الماتلين"
+  },
+  "routing": null,
+  "business_validation": {
+    "status": "review_required",
+    "review_required": true,
+    "review_reasons": [
+      "critical field missing or invalid: id_number"
+    ],
+    "warnings": [
+      "Champ critique à vérifier: id_number"
+    ],
+    "business_confidence": 0.8151,
+    "critical_fields_ok": 2,
+    "valid_fields_ok": 4,
+    "present_fields": 4,
+    "quality_score": 0.359,
+    "avg_field_confidence": 0.9175,
+    "field_coverage": 0.8
+  },
+  "diagnostics": {
+    "mode": "cin_specialized_v2",
+    "cin_mode": "balanced",
+    "strategy": "balanced: spatial-first + targeted-roi-fallback + optional-full-fallback",
+    "pipeline_steps": [
+      "easyocr_boxes",
+      "paddle_boxes",
+      "targeted_roi:easyocr",
+      "targeted_roi:paddle",
+      "full_ocr:paddle"
+    ],
+    "preprocessing": {
+      "quality": {
+        "sharpness": 0.156,
+        "brightness": 0.609,
+        "contrast": 0.453,
+        "quality_score": 0.359
+      },
+      "transforms": {
+        "resized": true,
+        "deskewed": false,
+        "contrast": true,
+        "mode": "cin_legacy_compatible"
+      },
+      "cin_preprocessor_keys": [
+        "binary",
+        "card_roi",
+        "deskewed",
+        "gray",
+        "oriented",
+        "original"
+      ]
+    },
+    "quality_checks": {
+      "sharpness": 0.156,
+      "brightness": 0.609,
+      "contrast": 0.453,
+      "quality_score": 0.359
+    },
+    "roi_fields": {
+      "cin_number": [
+        156,
+        928
+      ],
+      "family_name": [
+        132,
+        832
+      ],
+      "first_name": [
+        132,
+        832
+      ],
+      "date_of_birth": [
+        144,
+        832
+      ],
+      "place_of_birth": [
+        144,
+        832
+      ],
+      "gender": [
+        96,
+        416
+      ],
+      "right_text_block": [
+        696,
+        912
+      ]
+    },
+    "engines": [
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "targeted_missing_rois",
+        "target_fields": [
+          "cin_number",
+          "place_of_birth"
+        ],
+        "processing_time_ms": 828,
+        "zones": {
+          "cin_number": "٠«١٤٦ت٠٠٧ت",
+          "place_of_birth": "عاها الماتلين",
+          "right_text_block": "م الوضيف اللقب محمد بن الحبيب بن عبد 1949 ديسمبر تاخ الولادة 28 عاها الماتلين اللسم القادر"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "place_of_birth": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "paddle",
+        "executed": true,
+        "trial_type": "targeted_missing_rois",
+        "target_fields": [
+          "cin_number"
+        ],
+        "processing_time_ms": 613,
+        "zones": {
+          "cin_number": "ولالا ةيرصب"
+        },
+        "zone_scores": {
+          "cin_number": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "paddle",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "ةيسنوتلا ةيروهمجلا ةينطولا ةقاطب فيرعتل فيضولا بقللا دمحم مسالا رداقلا ددع بيبخحلا نب 194 8 ربمسيد ةدالولا ا نيلتاملا",
+        "full_text_score": 0.0,
+        "processing_time_ms": 3493,
+        "zones": {
+          "cin_number": "ولالا ةيرصب",
+          "family_name": "",
+          "first_name": "دلدعولا مسالا دلمحم",
+          "date_of_birth": "داقلا دبع نب نب بيبحلا لولا ىرات",
+          "place_of_birth": "نيلتاملا ازناكم",
+          "gender": "",
+          "right_text_block": "فيض وولا بقللا دمحم مسالا ا رداقلا دبع بيبحلا نب نب 14 8 ربمسيد ةدالولا ا نيلتاملا"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      }
+    ],
+    "spatial": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "box_count": 14,
+          "fields": {
+            "family_name": "الوضيف",
+            "first_name": "محمل",
+            "date_of_birth": "1949-12-28"
+          },
+          "scores": {
+            "family_name": 6.98179315602343,
+            "first_name": 9.26283938121338,
+            "date_of_birth": 14.131407771778662
+          },
+          "meta": {
+            "cin_number": {
+              "chosen_from": null,
+              "candidate_text": null,
+              "source_kind": "spatial_numeric"
+            },
+            "family_name": {
+              "chosen_from": "اللقب",
+              "candidate_text": "الوضيف",
+              "source_kind": "label_neighbor_merged",
+              "anchors_found": 1
+            },
+            "first_name": {
+              "chosen_from": "الاسم",
+              "candidate_text": "محمل",
+              "source_kind": "label_neighbor_merged",
+              "anchors_found": 2
+            },
+            "date_of_birth": {
+              "chosen_from": "تايخالولادة 28 ديسمبر 1949",
+              "candidate_text": "تايخ 28 ديسمبر 1949",
+              "source_kind": "inline",
+              "anchors_found": 1
+            },
+            "place_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_place",
+              "anchors_found": 1
+            },
+            "label_spatial": {
+              "reason": "no_items"
+            }
+          },
+          "label_spatial": {
+            "fields": {},
+            "scores": {},
+            "meta": {
+              "reason": "no_items"
+            }
+          },
+          "raw_text_reconstructed": ""
+        },
+        {
+          "engine": "paddle_boxes",
+          "box_count": 20,
+          "fields": {
+            "family_name": "فيضولا",
+            "first_name": "نيلتا"
+          },
+          "scores": {
+            "family_name": 7.055405440522468,
+            "first_name": 15.193523144721985
+          },
+          "meta": {
+            "cin_number": {
+              "chosen_from": null,
+              "candidate_text": null,
+              "source_kind": "spatial_numeric"
+            },
+            "family_name": {
+              "chosen_from": "بقللا",
+              "candidate_text": "فيضولا",
+              "source_kind": "label_neighbor_merged",
+              "anchors_found": 1
+            },
+            "first_name": {
+              "chosen_from": "نيلتاملا",
+              "candidate_text": "نيلتا",
+              "source_kind": "inline",
+              "anchors_found": 2
+            },
+            "date_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_date",
+              "anchors_found": 2
+            },
+            "place_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_place",
+              "anchors_found": 0
+            },
+            "label_spatial": {
+              "reason": "no_items"
+            }
+          },
+          "label_spatial": {
+            "fields": {},
+            "scores": {},
+            "meta": {
+              "reason": "no_items"
+            }
+          },
+          "raw_text_reconstructed": ""
+        }
+      ]
+    },
+    "fusion": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "source": "spatial_boxes",
+          "fields": {
+            "family_name": "الوضيف",
+            "first_name": "محمل",
+            "date_of_birth": "1949-12-28"
+          }
+        },
+        {
+          "engine": "paddle_boxes",
+          "source": "spatial_boxes",
+          "fields": {
+            "family_name": "فيضولا",
+            "first_name": "نيلتا"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "targeted_roi_ocr",
+          "fields": {
+            "cin_number": "٠«١٤٦ت٠٠٧ت",
+            "family_name": "CIN_FIRST_NAME:",
+            "first_name": "CIN_DATE_OF_BIRTH:",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: عاها الماتلين",
+            "place_of_birth": "عاها الماتلين"
+          }
+        },
+        {
+          "engine": "paddle",
+          "source": "targeted_roi_ocr",
+          "fields": {
+            "cin_number": "ولالا ةيرصب",
+            "family_name": "CIN_FIRST_NAME:",
+            "first_name": "CIN_DATE_OF_BIRTH:",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH:"
+          }
+        },
+        {
+          "engine": "paddle",
+          "source": "roi_ocr",
+          "fields": {
+            "cin_number": "ولالا ةيرصب",
+            "family_name": "CIN_FIRST_NAME: دلدعولا مسالا دلمحم",
+            "first_name": "دلدعولا مسالا دلمحم",
+            "date_of_birth": "داقلا دبع نب نب بيبحلا لولا ىرات",
+            "place_of_birth": "نيلتاملا ازناكم"
+          }
+        }
+      ],
+      "aggregated": {
+        "cin_number": [],
+        "family_name": [
+          {
+            "value": "الوضيف",
+            "avg_conf": 7.331233,
+            "count": 4,
+            "engines": [
+              "easyocr",
+              "easyocr_boxes",
+              "global_text",
+              "paddle_boxes"
+            ],
+            "sources": [
+              "spatial_boxes",
+              "text_family_fallback",
+              "text_family_global"
+            ],
+            "profiles": [],
+            "selection_score": 67.631233,
+            "raw_value": "فيضولا",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_combined_text": true
+              }
+            ]
+          },
+          {
+            "value": "الوعدلد",
+            "avg_conf": 0.0,
+            "count": 1,
+            "engines": [
+              "paddle"
+            ],
+            "sources": [
+              "text_family_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 33.3,
+            "raw_value": "الوعدلد",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          }
+        ],
+        "first_name": [
+          {
+            "value": "محمل",
+            "avg_conf": 14.131408,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 48.231408,
+            "raw_value": "محمل",
+            "meta": []
+          },
+          {
+            "value": "اتلين",
+            "avg_conf": 15.193523,
+            "count": 1,
+            "engines": [
+              "paddle_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 48.193523,
+            "raw_value": "نيلتا",
+            "meta": []
+          },
+          {
+            "value": "الوضيف",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "easyocr",
+              "global_text"
+            ],
+            "sources": [
+              "text_first_fallback",
+              "text_first_global"
+            ],
+            "profiles": [],
+            "selection_score": 46.3,
+            "raw_value": "الوضيف",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_combined_text": true
+              }
+            ]
+          },
+          {
+            "value": "الوعدلد",
+            "avg_conf": 0.0,
+            "count": 1,
+            "engines": [
+              "paddle"
+            ],
+            "sources": [
+              "text_first_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 33.3,
+            "raw_value": "الوعدلد",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          }
+        ],
+        "date_of_birth": [
+          {
+            "value": "28/12/1949",
+            "avg_conf": 14.131408,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 43.131408,
+            "raw_value": "1949-12-28",
+            "meta": []
+          }
+        ],
+        "place_of_birth": []
+      },
+      "selected": {
+        "family_name": {
+          "value": "الوضيف",
+          "avg_conf": 7.331233,
+          "count": 4,
+          "engines": [
+            "easyocr",
+            "easyocr_boxes",
+            "global_text",
+            "paddle_boxes"
+          ],
+          "sources": [
+            "spatial_boxes",
+            "text_family_fallback",
+            "text_family_global"
+          ],
+          "profiles": [],
+          "selection_score": 67.631233,
+          "raw_value": "فيضولا",
+          "meta": [
+            {
+              "from_raw_text": true
+            },
+            {
+              "from_combined_text": true
+            }
+          ]
+        },
+        "first_name": {
+          "value": "محمل",
+          "avg_conf": 14.131408,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 48.231408,
+          "raw_value": "محمل",
+          "meta": []
+        },
+        "date_of_birth": {
+          "value": "28/12/1949",
+          "avg_conf": 14.131408,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 43.131408,
+          "raw_value": "1949-12-28",
+          "meta": []
+        },
+        "place_of_birth": null
+      }
+    },
+    "cin_postprocess": {
+      "executed": true,
+      "name_extraction": {
+        "debug_sequence": "اللقب:ازناكم فيض وولا الاسم:? variants:normal",
+        "family_name": "ازناكم فيض وولا",
+        "first_name": null,
+        "rule": "family_name=all words after اللقب; first_name=words on الاسم line before بن/بنت"
+      },
+      "applied": [
+        {
+          "field": "first_name",
+          "type": "arabic_ocr_name_fix",
+          "old": "محمل",
+          "new": "محمد"
+        },
+        {
+          "field": "last_name",
+          "type": "postprocess_skip_name_override",
+          "kept": "الوضيف",
+          "candidate": "ازناكم فيض وولا",
+          "candidate_ok": true,
+          "old_ok": true,
+          "good_spatial": true
+        },
+        {
+          "field": "birth_place",
+          "type": "contextual_place_recovery",
+          "old": null,
+          "new": "الماتلين",
+          "reason": "known_place_in_raw_text"
+        }
+      ]
+    },
+    "review_required": true,
+    "review_reasons": [
+      "critical field missing or invalid: id_number"
+    ],
+    "business_validation": {
+      "status": "review_required",
+      "review_required": true,
+      "review_reasons": [
+        "critical field missing or invalid: id_number"
+      ],
+      "warnings": [
+        "Champ critique à vérifier: id_number"
+      ],
+      "business_confidence": 0.8151,
+      "critical_fields_ok": 2,
+      "valid_fields_ok": 4,
+      "present_fields": 4,
+      "quality_score": 0.359,
+      "avg_field_confidence": 0.9175,
+      "field_coverage": 0.8
+    }
+  },
+  "raw_text": "CIN_NUMBER: 0«146ت007ت CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: عاها الماتلين م الوضيف اللقب محمد بن الحبيب بن عبد 1949 ديسمبر تاخ الولادة 28 عاها الماتلين الاسم القادر الوضيف محمد 1949-12-28 فيضولا نيلتا 0«146ت007ت CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: عاها الماتلين عاها الماتلين CIN_NUMBER: ولالا ةيرصب CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ولالا ةيرصب CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_NUMBER: ولالا ةيرصب CIN_FAMILY_NAME: CIN_FIRST_NAME: دلدعولا الاسم دلمحم CIN_DATE_OF_BIRTH: داقلا دبع نب نب بيبحلا لولا ىرات CIN_PLACE_OF_BIRTH: نيلتاملا ازناكم ةيسنوتلا ةيروهمجلا ةينطولا ةقاطب فيرعتل فيضولا اللقب محمد الاسم رداقلا ددع بيبخحلا نب 194 8 ربمسيد الولادة ا نيلتاملا ولالا ةيرصب CIN_FIRST_NAME: دلدعولا الاسم دلمحم دلدعولا الاسم دلمحم داقلا دبع نب نب بيبحلا لولا ىرات نيلتاملا ازناكم الوضيف محمد 1949-12-28 الوضيف اللقب محمد الاسم تايخ 28 ديسمبر 1949 تايخالولادة 28 ديسمبر 1949 فيضولا نيلتا فيضولا اللقب نيلتا نيلتاملا 0«146ت007ت عاها الماتلين م الوضيف اللقب محمد بن الحبيب بن عبد 1949 ديسمبر تاخ الولادة 28 عاها الماتلين الاسم القادر ولالا ةيرصب ةيسنوتلا ةيروهمجلا ةينطولا ةقاطب فيرعتل فيضولا اللقب محمد الاسم رداقلا ددع بيبخحلا نب 194 8 ربمسيد الولادة ا نيلتاملا ولالا ةيرصب دلدعولا الاسم دلمحم داقلا دبع نب نب بيبحلا لولا ىرات نيلتاملا ازناكم فيض وولا اللقب محمد الاسم ا رداقلا دبع بيبحلا نب نب 14 8 ربمسيد الولادة ا نيلتاملا",
+  "processing_time_ms": 8136,
+  "warnings": [
+    "Champ critique à vérifier: id_number",
+    "Champ requis 'numero_cin' à vérifier"
+  ],
+  "review_reasons": [
+    "critical field missing or invalid: id_number"
+  ]
+}

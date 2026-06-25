@@ -1,0 +1,731 @@
+{
+  "job_id": "ce391b42-880a-4a8c-bde4-bfa9fc407f8b",
+  "status": "review_required",
+  "template_id": "cin_tn",
+  "document_type": "cin_tn",
+  "document_variant": "recto",
+  "engine_used": "mixed(easyocr_boxes,paddle,paddle_boxes)",
+  "language_detected": "ar",
+  "global_confidence": 0.8301,
+  "quality_score": 0.669,
+  "fields": [
+    {
+      "name": "id_number",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": "CIN introuvable",
+      "selected_engine": null,
+      "selected_source": null,
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "critical field missing"
+      ]
+    },
+    {
+      "name": "last_name",
+      "value": "مثيه",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "مثيه",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "paddle",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    },
+    {
+      "name": "first_name",
+      "value": "بلق",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "قلب",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "paddle_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    },
+    {
+      "name": "birth_date",
+      "value": "1995-02-23",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "1995-02-23",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    },
+    {
+      "name": "birth_place",
+      "value": "الجم",
+      "confidence": 0.6,
+      "validated": false,
+      "raw_text": "الجم",
+      "raw_template_field": null,
+      "error": "Lieu de naissance générique/suspect - vérification requise",
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": true,
+      "reasons": [
+        "selected_from:spatial_boxes",
+        "invalid_suspicious_birth_place"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "idNumber": null,
+    "lastName": "مثيه",
+    "firstName": "بلق",
+    "birthDate": "1995-02-23",
+    "birthPlace": "الجم"
+  },
+  "routing": null,
+  "business_validation": {
+    "status": "review_required",
+    "review_required": true,
+    "review_reasons": [
+      "critical field missing or invalid: id_number"
+    ],
+    "warnings": [
+      "Champ critique à vérifier: id_number"
+    ],
+    "business_confidence": 0.8301,
+    "critical_fields_ok": 2,
+    "valid_fields_ok": 3,
+    "present_fields": 4,
+    "quality_score": 0.669,
+    "avg_field_confidence": 0.95,
+    "field_coverage": 0.6
+  },
+  "diagnostics": {
+    "mode": "cin_specialized_v2",
+    "cin_mode": "balanced",
+    "strategy": "balanced: spatial-first + targeted-roi-fallback + optional-full-fallback",
+    "pipeline_steps": [
+      "easyocr_boxes",
+      "paddle_boxes",
+      "targeted_roi:easyocr",
+      "targeted_roi:paddle",
+      "full_ocr:paddle"
+    ],
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.494,
+        "contrast": 0.317,
+        "quality_score": 0.669
+      },
+      "transforms": {
+        "resized": false,
+        "deskewed": false,
+        "contrast": true,
+        "mode": "cin_legacy_compatible"
+      },
+      "cin_preprocessor_keys": [
+        "binary",
+        "card_roi",
+        "deskewed",
+        "gray",
+        "oriented",
+        "original"
+      ]
+    },
+    "quality_checks": {
+      "sharpness": 1.0,
+      "brightness": 0.494,
+      "contrast": 0.317,
+      "quality_score": 0.669
+    },
+    "roi_fields": {
+      "cin_number": [
+        73,
+        418
+      ],
+      "family_name": [
+        61,
+        375
+      ],
+      "first_name": [
+        61,
+        375
+      ],
+      "date_of_birth": [
+        67,
+        375
+      ],
+      "place_of_birth": [
+        67,
+        375
+      ],
+      "gender": [
+        44,
+        187
+      ],
+      "right_text_block": [
+        323,
+        410
+      ]
+    },
+    "engines": [
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "targeted_missing_rois",
+        "target_fields": [
+          "cin_number",
+          "place_of_birth"
+        ],
+        "processing_time_ms": 525,
+        "zones": {
+          "cin_number": "بماقه التعريف الوطا",
+          "place_of_birth": "797",
+          "right_text_block": "الهمامي الاقب بن الازهر بن ي 1995 نارخ الولادة 23 نارا تو الام هىثم بلقاسم فيفر نس"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "place_of_birth": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "paddle",
+        "executed": true,
+        "trial_type": "targeted_missing_rois",
+        "target_fields": [
+          "cin_number",
+          "place_of_birth"
+        ],
+        "processing_time_ms": 1395,
+        "zones": {
+          "cin_number": "طلاا ةيرعتلا ةتا",
+          "place_of_birth": "",
+          "right_text_block": "يمامهلا بقللا مثيه مسإلا رهزالا نب مساقلب نب ةدالولا خيات 19959 يرفيف سنوت"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "place_of_birth": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "paddle",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "ةيسنوتلا ةيروهمجلا ةقا ةينطولا ةيرعتلا يمامهلا ةيشلا مثيه مسإلا نب رهزالا نب مساقلب ةدالولا ات 195 يرفيف سنوت",
+        "full_text_score": 0.0,
+        "processing_time_ms": 2069,
+        "zones": {
+          "cin_number": "طلاا ةيرعتلا ةتا",
+          "family_name": "",
+          "first_name": "ثه مإلا",
+          "date_of_birth": "رهورالا نب رفيف ةدالولا خيات 15",
+          "place_of_birth": "",
+          "gender": "",
+          "right_text_block": "يمامهلا بقللا مثيه مسإلا رهزالا نب مساقلب نب ةدالولا خيات 19959 يرفيف سنوت"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      }
+    ],
+    "spatial": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "box_count": 11,
+          "fields": {
+            "family_name": "الا قب",
+            "first_name": "لق",
+            "date_of_birth": "1995-02-23",
+            "place_of_birth": "الجم"
+          },
+          "scores": {
+            "family_name": 15.049304760988614,
+            "first_name": 15.197179644502532,
+            "date_of_birth": 14.10334619917011,
+            "place_of_birth": 9.0
+          },
+          "meta": {
+            "cin_number": {
+              "chosen_from": null,
+              "candidate_text": null,
+              "source_kind": "spatial_numeric"
+            },
+            "family_name": {
+              "chosen_from": "الا قب",
+              "candidate_text": "الا قب",
+              "source_kind": "inline",
+              "anchors_found": 1
+            },
+            "first_name": {
+              "chosen_from": "لقاسم",
+              "candidate_text": "لق",
+              "source_kind": "inline",
+              "anchors_found": 2
+            },
+            "date_of_birth": {
+              "chosen_from": "تابيخ الولادة 23 فيفري 1995",
+              "candidate_text": "تابيخ 23 فيفري 1995",
+              "source_kind": "inline",
+              "anchors_found": 1
+            },
+            "place_of_birth": {
+              "chosen_from": "right_text_block",
+              "candidate_text": "الجمهوريةالتونسيه بلاقةالتعرف الوطنيه الا قب الهمامي اللم هيثم بن الازهر لقاسم بن تابيخ الولادة 23 فيفري 1995 ناغا تونس",
+              "source_kind": "right_text_fallback",
+              "anchors_found": 0
+            },
+            "label_spatial": {
+              "reason": "no_items"
+            }
+          },
+          "label_spatial": {
+            "fields": {},
+            "scores": {},
+            "meta": {
+              "reason": "no_items"
+            }
+          },
+          "raw_text_reconstructed": ""
+        },
+        {
+          "engine": "paddle_boxes",
+          "box_count": 19,
+          "fields": {
+            "family_name": "مثيه",
+            "first_name": "قلب"
+          },
+          "scores": {
+            "family_name": 11.205098802152365,
+            "first_name": 15.182009029388428
+          },
+          "meta": {
+            "cin_number": {
+              "chosen_from": null,
+              "candidate_text": null,
+              "source_kind": "spatial_numeric"
+            },
+            "family_name": {
+              "chosen_from": "بقللا",
+              "candidate_text": "مثيه",
+              "source_kind": "label_neighbor_merged",
+              "anchors_found": 1
+            },
+            "first_name": {
+              "chosen_from": "مساقلب",
+              "candidate_text": "قلب",
+              "source_kind": "inline",
+              "anchors_found": 2
+            },
+            "date_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_date",
+              "anchors_found": 1
+            },
+            "place_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_place",
+              "anchors_found": 0
+            },
+            "label_spatial": {
+              "reason": "no_items"
+            }
+          },
+          "label_spatial": {
+            "fields": {},
+            "scores": {},
+            "meta": {
+              "reason": "no_items"
+            }
+          },
+          "raw_text_reconstructed": ""
+        }
+      ]
+    },
+    "fusion": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "source": "spatial_boxes",
+          "fields": {
+            "family_name": "الا قب",
+            "first_name": "لق",
+            "date_of_birth": "1995-02-23",
+            "place_of_birth": "الجم"
+          }
+        },
+        {
+          "engine": "paddle_boxes",
+          "source": "spatial_boxes",
+          "fields": {
+            "family_name": "مثيه",
+            "first_name": "قلب"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "targeted_roi_ocr",
+          "fields": {
+            "cin_number": "بماقه التعريف الوطا",
+            "family_name": "CIN_FIRST_NAME:",
+            "first_name": "CIN_DATE_OF_BIRTH:",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: 797",
+            "place_of_birth": "797"
+          }
+        },
+        {
+          "engine": "paddle",
+          "source": "targeted_roi_ocr",
+          "fields": {
+            "cin_number": "طلاا ةيرعتلا ةتا",
+            "family_name": "CIN_FIRST_NAME:",
+            "first_name": "CIN_DATE_OF_BIRTH:",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
+            "place_of_birth": "يمامهلا بقللا مثيه مسإلا رهزالا نب مساقلب نب ةدالولا خيات 19959 يرفيف سنوت"
+          }
+        },
+        {
+          "engine": "paddle",
+          "source": "roi_ocr",
+          "fields": {
+            "cin_number": "طلاا ةيرعتلا ةتا",
+            "family_name": "CIN_FIRST_NAME: ثه مإلا",
+            "first_name": "ثه مإلا",
+            "date_of_birth": "رهورالا نب رفيف ةدالولا خيات 15",
+            "place_of_birth": "ةيسنوتلا ةيروهمجلا ةقا ةينطولا ةيرعتلا يمامهلا ةيشلا مثيه مسإلا نب رهزالا نب مساقلب ةدالولا ات 195 يرفيف سنوت"
+          }
+        }
+      ],
+      "aggregated": {
+        "cin_number": [],
+        "family_name": [
+          {
+            "value": "الهمامي",
+            "avg_conf": 0.0,
+            "count": 3,
+            "engines": [
+              "easyocr",
+              "global_text",
+              "paddle"
+            ],
+            "sources": [
+              "text_family_fallback",
+              "text_family_global"
+            ],
+            "profiles": [],
+            "selection_score": 53.3,
+            "raw_value": "الهمامي",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_combined_text": true
+              }
+            ]
+          },
+          {
+            "value": "مثيه",
+            "avg_conf": 7.591005,
+            "count": 2,
+            "engines": [
+              "paddle",
+              "paddle_boxes"
+            ],
+            "sources": [
+              "spatial_boxes",
+              "text_family_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 49.191005,
+            "raw_value": "مثيه",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          },
+          {
+            "value": "الا بق",
+            "avg_conf": 15.19718,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 46.79718,
+            "raw_value": "الا قب",
+            "meta": []
+          }
+        ],
+        "first_name": [
+          {
+            "value": "بلق",
+            "avg_conf": 15.182009,
+            "count": 1,
+            "engines": [
+              "paddle_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 47.282009,
+            "raw_value": "قلب",
+            "meta": []
+          },
+          {
+            "value": "الهمامي",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "global_text",
+              "paddle"
+            ],
+            "sources": [
+              "text_first_fallback",
+              "text_first_global"
+            ],
+            "profiles": [],
+            "selection_score": 46.3,
+            "raw_value": "الهمامي",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_combined_text": true
+              }
+            ]
+          },
+          {
+            "value": "اران",
+            "avg_conf": 0.0,
+            "count": 1,
+            "engines": [
+              "easyocr"
+            ],
+            "sources": [
+              "text_first_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 32.6,
+            "raw_value": "اران",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          },
+          {
+            "value": "مثيه",
+            "avg_conf": 0.0,
+            "count": 1,
+            "engines": [
+              "paddle"
+            ],
+            "sources": [
+              "text_first_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 32.6,
+            "raw_value": "مثيه",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          }
+        ],
+        "date_of_birth": [
+          {
+            "value": "23/02/1995",
+            "avg_conf": 15.19718,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 44.19718,
+            "raw_value": "1995-02-23",
+            "meta": []
+          }
+        ],
+        "place_of_birth": [
+          {
+            "value": "الجم",
+            "avg_conf": 15.19718,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 57.19718,
+            "raw_value": "الجم",
+            "meta": []
+          }
+        ]
+      },
+      "selected": {
+        "family_name": {
+          "value": "مثيه",
+          "avg_conf": 7.591005,
+          "count": 2,
+          "engines": [
+            "paddle",
+            "paddle_boxes"
+          ],
+          "sources": [
+            "spatial_boxes",
+            "text_family_fallback"
+          ],
+          "profiles": [],
+          "selection_score": 49.191005,
+          "raw_value": "مثيه",
+          "meta": [
+            {
+              "from_raw_text": true
+            }
+          ]
+        },
+        "first_name": {
+          "value": "بلق",
+          "avg_conf": 15.182009,
+          "count": 1,
+          "engines": [
+            "paddle_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 47.282009,
+          "raw_value": "قلب",
+          "meta": []
+        },
+        "date_of_birth": {
+          "value": "23/02/1995",
+          "avg_conf": 15.19718,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 44.19718,
+          "raw_value": "1995-02-23",
+          "meta": []
+        },
+        "place_of_birth": {
+          "value": "الجم",
+          "avg_conf": 15.19718,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 57.19718,
+          "raw_value": "الجم",
+          "meta": []
+        }
+      }
+    },
+    "cin_postprocess": {
+      "executed": true,
+      "name_extraction": {
+        "debug_sequence": "اللقب:ةيرعتلا ةتا يمامهلا الاسم:? variants:normal",
+        "family_name": "ةيرعتلا ةتا يمامهلا",
+        "first_name": null,
+        "rule": "family_name=all words after اللقب; first_name=words on الاسم line before بن/بنت"
+      },
+      "applied": [
+        {
+          "field": "last_name",
+          "type": "postprocess_skip_name_override",
+          "kept": "مثيه",
+          "candidate": "ةيرعتلا ةتا يمامهلا",
+          "candidate_ok": true,
+          "old_ok": true,
+          "good_spatial": true
+        },
+        {
+          "field": "birth_place",
+          "type": "invalid_suspicious_birth_place",
+          "value": "الجم"
+        }
+      ]
+    },
+    "review_required": true,
+    "review_reasons": [
+      "critical field missing or invalid: id_number"
+    ],
+    "business_validation": {
+      "status": "review_required",
+      "review_required": true,
+      "review_reasons": [
+        "critical field missing or invalid: id_number"
+      ],
+      "warnings": [
+        "Champ critique à vérifier: id_number"
+      ],
+      "business_confidence": 0.8301,
+      "critical_fields_ok": 2,
+      "valid_fields_ok": 3,
+      "present_fields": 4,
+      "quality_score": 0.669,
+      "avg_field_confidence": 0.95,
+      "field_coverage": 0.6
+    }
+  },
+  "raw_text": "الا قب لق 1995-02-23 الجم مثيه قلب CIN_NUMBER: بماقه التعريف الوطا CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 797 الهمامي اللقب بن الازهر بن ي 1995 نارخ الولادة 23 نارا تو الام هىثم بلقاسم فيفر نس بماقه التعريف الوطا CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 797 797 CIN_NUMBER: طلاا ةيرعتلا ةتا CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: يمامهلا اللقب مثيه الاسم رهزالا نب الاسمقلب نب الولادة خيات 19959 يرفيف سنوت طلاا ةيرعتلا ةتا CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: يمامهلا اللقب مثيه الاسم رهزالا نب الاسمقلب نب الولادة خيات 19959 يرفيف سنوت CIN_NUMBER: طلاا ةيرعتلا ةتا CIN_FAMILY_NAME: CIN_FIRST_NAME: ثه مإلا CIN_DATE_OF_BIRTH: رهورالا نب رفيف الولادة خيات 15 CIN_PLACE_OF_BIRTH: ةيسنوتلا ةيروهمجلا ةقا ةينطولا ةيرعتلا يمامهلا ةيشلا مثيه الاسم نب رهزالا نب الاسمقلب الولادة ات 195 يرفيف سنوت طلاا ةيرعتلا ةتا CIN_FIRST_NAME: ثه مإلا ثه مإلا رهورالا نب رفيف الولادة خيات 15 ةيسنوتلا ةيروهمجلا ةقا ةينطولا ةيرعتلا يمامهلا ةيشلا مثيه الاسم نب رهزالا نب الاسمقلب الولادة ات 195 يرفيف سنوت الا قب لق 1995-02-23 الجم الا قب الا قب لق لقاسم تابيخ 23 فيفري 1995 تاريخ الولادة 23 فيفري 1995 الجمهوريةالتونسيه بلاقةالتعرف الوطنيه الا قب الهمامي اللم هيثم بن الازهر لقاسم بن تاريخ الولادة 23 فيفري 1995 ناغا تونس right_text_block مثيه قلب مثيه اللقب قلب الاسمقلب بماقه التعريف الوطا 797 الهمامي اللقب بن الازهر بن ي 1995 نارخ الولادة 23 نارا تو الام هىثم بلقاسم فيفر نس طلاا ةيرعتلا ةتا يمامهلا اللقب مثيه الاسم رهزالا نب الاسمقلب نب الولادة خيات 19959 يرفيف سنوت ةيسنوتلا ةيروهمجلا ةقا ةينطولا ةيرعتلا يمامهلا ةيشلا مثيه الاسم نب رهزالا نب الاسمقلب الولادة ات 195 يرفيف سنوت طلاا ةيرعتلا ةتا ثه مإلا رهورالا نب رفيف الولادة خيات 15 يمامهلا اللقب مثيه الاسم رهزالا نب الاسمقلب نب الولادة خيات 19959 يرفيف سنوت",
+  "processing_time_ms": 6734,
+  "warnings": [
+    "Champ critique à vérifier: id_number",
+    "Champ requis 'numero_cin' à vérifier",
+    "Champ requis 'lieu_naissance' à vérifier"
+  ],
+  "review_reasons": [
+    "critical field missing or invalid: id_number"
+  ]
+}

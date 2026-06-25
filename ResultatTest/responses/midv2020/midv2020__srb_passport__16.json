@@ -1,0 +1,1089 @@
+{
+  "job_id": "d9bb9124-6e2f-4ed1-9b02-12b60e2d5199",
+  "status": "success",
+  "template_id": "midv_srb_passport",
+  "document_type": "passport",
+  "document_variant": null,
+  "engine_used": "passport_mrz",
+  "language_detected": "en",
+  "global_confidence": 0.9629,
+  "quality_score": 0.744,
+  "fields": [
+    {
+      "name": "document_number",
+      "value": "976600073",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE U0 EESKOVGU Ea 06.08.2011 Bas 06.08.2021 Mez P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<< 9766000736SRB9301179F21080691701993971495<90",
+      "raw_template_field": "document_number",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "surname",
+      "value": "NIKOLIC",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE U0 EESKOVGU Ea 06.08.2011 Bas 06.08.2021 Mez P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<< 9766000736SRB9301179F21080691701993971495<90",
+      "raw_template_field": "surname",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "given_names",
+      "value": "LIDIJA",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE U0 EESKOVGU Ea 06.08.2011 Bas 06.08.2021 Mez P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<< 9766000736SRB9301179F21080691701993971495<90",
+      "raw_template_field": "given_names",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "nationality",
+      "value": "SRB",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE U0 EESKOVGU Ea 06.08.2011 Bas 06.08.2021 Mez P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<< 9766000736SRB9301179F21080691701993971495<90",
+      "raw_template_field": "nationality",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "birth_date",
+      "value": "1993-01-17",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE U0 EESKOVGU Ea 06.08.2011 Bas 06.08.2021 Mez P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<< 9766000736SRB9301179F21080691701993971495<90",
+      "raw_template_field": "birth_date",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "gender",
+      "value": "F",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE U0 EESKOVGU Ea 06.08.2011 Bas 06.08.2021 Mez P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<< 9766000736SRB9301179F21080691701993971495<90",
+      "raw_template_field": "gender",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "expiry_date",
+      "value": "2021-08-06",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE U0 EESKOVGU Ea 06.08.2011 Bas 06.08.2021 Mez P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<< 9766000736SRB9301179F21080691701993971495<90",
+      "raw_template_field": "expiry_date",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "issuing_country",
+      "value": "SRB",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE U0 EESKOVGU Ea 06.08.2011 Bas 06.08.2021 Mez P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<< 9766000736SRB9301179F21080691701993971495<90",
+      "raw_template_field": "issuing_country",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "personal_number",
+      "value": "1701993971495",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE U0 EESKOVGU Ea 06.08.2011 Bas 06.08.2021 Mez P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<< 9766000736SRB9301179F21080691701993971495<90",
+      "raw_template_field": "personal_number",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "mrz",
+      "value": "P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<<\n9766000736SRB9301179F21080691701993971495<90",
+      "confidence": 0.97,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE U0 EESKOVGU Ea 06.08.2011 Bas 06.08.2021 Mez P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<< 9766000736SRB9301179F21080691701993971495<90",
+      "raw_template_field": "mrz",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "document_number": "976600073",
+    "surname": "NIKOLIC",
+    "given_names": "LIDIJA",
+    "nationality": "SRB",
+    "birth_date": "1993-01-17",
+    "gender": "F",
+    "expiry_date": "2021-08-06",
+    "issuing_country": "SRB",
+    "personal_number": "1701993971495",
+    "mrz": "P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<<\n9766000736SRB9301179F21080691701993971495<90"
+  },
+  "routing": {
+    "requested_document_type": "auto",
+    "requested_template_id": null,
+    "selected_template_id": "midv_srb_passport",
+    "selected_document_type": "passport",
+    "method": "swin_image_classifier",
+    "document_class": "srb_passport",
+    "confidence": 1.0
+  },
+  "business_validation": {
+    "status": "success",
+    "review_required": false,
+    "review_reasons": [],
+    "valid_fields_ok": 10,
+    "present_fields": 10,
+    "field_coverage": 1.0,
+    "avg_field_confidence": 0.943,
+    "business_confidence": 0.9629,
+    "quality_score": 0.744
+  },
+  "diagnostics": {
+    "mode": "generic_template_v5_detector_swin_roi_passport_invoice",
+    "processing_mode": "fast",
+    "routing": {
+      "requested_document_type": "auto",
+      "requested_template_id": null,
+      "selected_template_id": "midv_srb_passport",
+      "selected_document_type": "passport",
+      "method": "swin_image_classifier",
+      "document_class": "srb_passport",
+      "confidence": 1.0
+    },
+    "template_id": "midv_srb_passport",
+    "document_type": "passport",
+    "engine": "passport_mrz",
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.685,
+        "contrast": 0.408,
+        "quality_score": 0.744
+      },
+      "transforms": {
+        "resized": true,
+        "deskewed": true,
+        "contrast": true
+      }
+    },
+    "layout": {
+      "page_width": 2000,
+      "page_height": 1375,
+      "orientation": "landscape",
+      "has_table": false,
+      "column_count": 3,
+      "regions": [
+        {
+          "type": "text_block",
+          "bbox": [
+            726,
+            1284,
+            157,
+            91
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            388,
+            1281,
+            84,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            388,
+            1240,
+            85,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            387,
+            1197,
+            85,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            1155,
+            85,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            1113,
+            84,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            387,
+            1030,
+            86,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            986,
+            84,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            902,
+            85,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            387,
+            861,
+            85,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            387,
+            819,
+            86,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            387,
+            776,
+            86,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            387,
+            735,
+            86,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            652,
+            85,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            494,
+            565,
+            81,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            565,
+            85,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            523,
+            84,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            494,
+            442,
+            81,
+            35
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            387,
+            398,
+            86,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            494,
+            357,
+            81,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            387,
+            354,
+            85,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            312,
+            84,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            270,
+            81,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            493,
+            230,
+            82,
+            35
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            230,
+            81,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            387,
+            188,
+            82,
+            35
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            494,
+            146,
+            81,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            387,
+            143,
+            85,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            625,
+            128,
+            62,
+            63
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            493,
+            102,
+            82,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            387,
+            102,
+            85,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            494,
+            60,
+            81,
+            41
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            388,
+            59,
+            84,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            387,
+            18,
+            85,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            587,
+            0,
+            1120,
+            1375
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            610,
+            0,
+            77,
+            127
+          ],
+          "confidence": 1.0,
+          "label": null
+        }
+      ],
+      "region_count": 36
+    },
+    "field_count": 10,
+    "validated_field_count": 10,
+    "document_localizer": {
+      "localizer": "document_localizer_v3_yolo_raw_plus_normalized",
+      "method": "yolo_crop",
+      "detector": {
+        "found": true,
+        "bbox_xyxy": [
+          0.0,
+          0.0,
+          1597.2381591796875,
+          1488.0
+        ],
+        "confidence": 0.7008,
+        "class_name": "document",
+        "method": "yolo_document_detector",
+        "error": null
+      },
+      "input_shape": [
+        1488,
+        2163
+      ],
+      "localized_shape": [
+        1488,
+        1629
+      ],
+      "candidate_count": 20,
+      "raw_candidate_count": 4,
+      "normalized_candidate_count": 16,
+      "yolo_crop_padding": 0.02,
+      "aspect_trim": {
+        "enabled": false,
+        "reason": "aspect trimming degraded ROI alignment in previous tests"
+      },
+      "post_yolo_normalizer": {
+        "executed": true,
+        "diagnostics": {
+          "normalizer": "classical_cv_multi_candidate_v6_strict_color_nms",
+          "input_shape": [
+            1488,
+            1629
+          ],
+          "detection_shape": [
+            1096,
+            1200
+          ],
+          "scale": 0.7366482504604052,
+          "mode": "fast",
+          "found_contour": true,
+          "contours_total": 278,
+          "sliding_candidate_count": 8,
+          "contour_candidate_count": 41,
+          "candidate_pool_count": 49,
+          "crop_candidate_count": 8,
+          "final_candidate_count": 16,
+          "rejected": {
+            "too_small": 32,
+            "too_large": 0,
+            "bad_aspect": 7,
+            "touches_border_large": 0,
+            "invalid_crop": 0
+          },
+          "selected_strategy": "multi_candidate_roi_score",
+          "candidates_preview": [
+            {
+              "source": "sliding_color_window",
+              "index": 1210,
+              "score": 1.170246,
+              "density": 1.0,
+              "mean_saturation": 0.684055,
+              "std_value": 0.08788,
+              "center_density": 1.0,
+              "center_saturation": 0.677016,
+              "area_ratio": 0.00509,
+              "bbox_detection": [
+                882,
+                714,
+                103,
+                65
+              ],
+              "aspect": 1.5846,
+              "aspect_penalty": 0.0014,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1156,
+              "score": 1.05953,
+              "density": 0.945631,
+              "mean_saturation": 0.548131,
+              "std_value": 0.098935,
+              "center_density": 0.997886,
+              "center_saturation": 0.629727,
+              "area_ratio": 0.00509,
+              "bbox_detection": [
+                861,
+                693,
+                103,
+                65
+              ],
+              "aspect": 1.5846,
+              "aspect_penalty": 0.0014,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1208,
+              "score": 0.999171,
+              "density": 0.866318,
+              "mean_saturation": 0.542566,
+              "std_value": 0.106915,
+              "center_density": 0.919988,
+              "center_saturation": 0.595473,
+              "area_ratio": 0.00509,
+              "bbox_detection": [
+                840,
+                714,
+                103,
+                65
+              ],
+              "aspect": 1.5846,
+              "aspect_penalty": 0.0014,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1158,
+              "score": 0.94117,
+              "density": 0.8118,
+              "mean_saturation": 0.477272,
+              "std_value": 0.109573,
+              "center_density": 0.941123,
+              "center_saturation": 0.580692,
+              "area_ratio": 0.00509,
+              "bbox_detection": [
+                903,
+                693,
+                103,
+                65
+              ],
+              "aspect": 1.5846,
+              "aspect_penalty": 0.0014,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 4824,
+              "score": 0.912686,
+              "density": 0.710465,
+              "mean_saturation": 0.41617,
+              "std_value": 0.111429,
+              "center_density": 0.984162,
+              "center_saturation": 0.66329,
+              "area_ratio": 0.012765,
+              "bbox_detection": [
+                840,
+                693,
+                163,
+                103
+              ],
+              "aspect": 1.5825,
+              "aspect_penalty": 0.0035,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1262,
+              "score": 0.866211,
+              "density": 0.704406,
+              "mean_saturation": 0.475642,
+              "std_value": 0.11699,
+              "center_density": 0.824275,
+              "center_saturation": 0.553292,
+              "area_ratio": 0.00509,
+              "bbox_detection": [
+                861,
+                735,
+                103,
+                65
+              ],
+              "aspect": 1.5846,
+              "aspect_penalty": 0.0014,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1120,
+              "score": 0.855363,
+              "density": 0.871845,
+              "mean_saturation": 0.415584,
+              "std_value": 0.102596,
+              "center_density": 0.883152,
+              "center_saturation": 0.401955,
+              "area_ratio": 0.00509,
+              "bbox_detection": [
+                882,
+                672,
+                103,
+                65
+              ],
+              "aspect": 1.5846,
+              "aspect_penalty": 0.0014,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1154,
+              "score": 0.795106,
+              "density": 0.794772,
+              "mean_saturation": 0.381629,
+              "std_value": 0.115336,
+              "center_density": 0.800121,
+              "center_saturation": 0.409579,
+              "area_ratio": 0.00509,
+              "bbox_detection": [
+                819,
+                693,
+                103,
+                65
+              ],
+              "aspect": 1.5846,
+              "aspect_penalty": 0.0014,
+              "touches_border": false,
+              "reject_reason": null
+            }
+          ],
+          "candidate_angles": [
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180
+          ]
+        },
+        "normalized_shape": [
+          88,
+          140
+        ],
+        "candidate_count": 16
+      }
+    },
+    "passport_extraction": {
+      "passport_extraction": "passport_mrz_first_best_candidate_v2_strict_early_stop",
+      "selected_angle": 0,
+      "selected_source": "full_image_width_guard",
+      "selected_candidate_index": -1,
+      "selected_debug_prefix": "passport_cand_-1_angle_0",
+      "selected_score": 128.4,
+      "selected_mrz_core_valid": true,
+      "candidate_debug": [
+        {
+          "angle": 0,
+          "source": "full_image_width_guard",
+          "candidate_index": -1,
+          "debug_prefix": "passport_cand_-1_angle_0",
+          "score": 128.4,
+          "mrz_core_valid": true,
+          "validated_fields": 10,
+          "present_fields": 10,
+          "review_required_fields": [],
+          "warnings": [],
+          "passport_debug_summary": {
+            "selected_candidate": "bottom_38_clahe",
+            "selected_score": 88.0
+          }
+        }
+      ],
+      "selected_candidate_debug": {
+        "passport_extraction": "passport_mrz_first_v2_mrz_preprocess_repair",
+        "engine": "easyocr",
+        "language_hints": [
+          "en"
+        ],
+        "selected_candidate": "bottom_38_clahe",
+        "selected_base_candidate": "bottom_38",
+        "selected_variant": "clahe",
+        "selected_bbox_norm": [
+          0.02,
+          0.58,
+          0.96,
+          0.4
+        ],
+        "selected_score": 88.0,
+        "selected_raw_text": "MUPR SRBIJE U0 EESKOVGU Ea 06.08.2011 Bas 06.08.2021 Mez P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<< 9766000736SRB9301179F21080691701993971495<90",
+        "selected_repaired_text": "MUPR SRBIJE U0 EESKOVGU Ea 06.08.2011 Bas 06.08.2021 Mez P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<< 9766000736SRB9301179F21080691701993971495<90",
+        "selected_parsed": {
+          "valid": true,
+          "document_type": "P",
+          "issuing_country": "SRB",
+          "document_number": "976600073",
+          "surname": "NIKOLIC",
+          "given_names": "LIDIJA",
+          "nationality": "SRB",
+          "birth_date": "1993-01-17",
+          "gender": "F",
+          "expiry_date": "2021-08-06",
+          "personal_number": "1701993971495",
+          "mrz_lines": [
+            "P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<<",
+            "9766000736SRB9301179F21080691701993971495<90"
+          ],
+          "checks": {
+            "document_number": true,
+            "birth_date": true,
+            "expiry_date": true,
+            "personal_number": true,
+            "composite": true
+          },
+          "errors": []
+        },
+        "selected_repair_candidates": [
+          {
+            "method": "raw_ocr_text",
+            "text": "MUPR SRBIJE U0 EESKOVGU Ea 06.08.2011 Bas 06.08.2021 Mez P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<< 9766000736SRB9301179F21080691701993971495<90",
+            "score": 88.0,
+            "valid": true,
+            "parsed": {
+              "valid": true,
+              "document_type": "P",
+              "issuing_country": "SRB",
+              "document_number": "976600073",
+              "surname": "NIKOLIC",
+              "given_names": "LIDIJA",
+              "nationality": "SRB",
+              "birth_date": "1993-01-17",
+              "gender": "F",
+              "expiry_date": "2021-08-06",
+              "personal_number": "1701993971495",
+              "mrz_lines": [
+                "P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<<",
+                "9766000736SRB9301179F21080691701993971495<90"
+              ],
+              "checks": {
+                "document_number": true,
+                "birth_date": true,
+                "expiry_date": true,
+                "personal_number": true,
+                "composite": true
+              },
+              "errors": []
+            }
+          }
+        ],
+        "candidates": [
+          {
+            "candidate": "bottom_38_clahe",
+            "base_candidate": "bottom_38",
+            "variant": "clahe",
+            "bbox_norm": [
+              0.02,
+              0.58,
+              0.96,
+              0.4
+            ],
+            "raw_text": "MUPR SRBIJE U0 EESKOVGU Ea 06.08.2011 Bas 06.08.2021 Mez P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<< 9766000736SRB9301179F21080691701993971495<90",
+            "selected_text": "MUPR SRBIJE U0 EESKOVGU Ea 06.08.2011 Bas 06.08.2021 Mez P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<< 9766000736SRB9301179F21080691701993971495<90",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": true,
+              "document_type": "P",
+              "issuing_country": "SRB",
+              "document_number": "976600073",
+              "surname": "NIKOLIC",
+              "given_names": "LIDIJA",
+              "nationality": "SRB",
+              "birth_date": "1993-01-17",
+              "gender": "F",
+              "expiry_date": "2021-08-06",
+              "personal_number": "1701993971495",
+              "mrz_lines": [
+                "P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<<",
+                "9766000736SRB9301179F21080691701993971495<90"
+              ],
+              "checks": {
+                "document_number": true,
+                "birth_date": true,
+                "expiry_date": true,
+                "personal_number": true,
+                "composite": true
+              },
+              "errors": []
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "MUPR SRBIJE U0 EESKOVGU Ea 06.08.2011 Bas 06.08.2021 Mez P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<< 9766000736SRB9301179F21080691701993971495<90",
+                "score": 88.0,
+                "valid": true,
+                "parsed": {
+                  "valid": true,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "976600073",
+                  "surname": "NIKOLIC",
+                  "given_names": "LIDIJA",
+                  "nationality": "SRB",
+                  "birth_date": "1993-01-17",
+                  "gender": "F",
+                  "expiry_date": "2021-08-06",
+                  "personal_number": "1701993971495",
+                  "mrz_lines": [
+                    "P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "9766000736SRB9301179F21080691701993971495<90"
+                  ],
+                  "checks": {
+                    "document_number": true,
+                    "birth_date": true,
+                    "expiry_date": true,
+                    "personal_number": true,
+                    "composite": true
+                  },
+                  "errors": []
+                }
+              }
+            ],
+            "score": 88.0
+          }
+        ]
+      },
+      "early_stop": {
+        "enabled": true,
+        "reason": "valid_mrz_core_checks"
+      }
+    },
+    "passport_width_guard": {
+      "enabled": true,
+      "min_width_ratio": 0.9,
+      "original_width": 2163,
+      "localized_width": 1629,
+      "actual_width_ratio": 0.7531,
+      "use_full_image_candidate": true,
+      "candidate_policy": "full_image_prepended",
+      "selected_source": "full_image_width_guard",
+      "selected_candidate_index": -1
+    },
+    "raw_ocr_executed": false,
+    "strategy": "passport_mrz_first"
+  },
+  "raw_text": "MUPR SRBIJE U0 EESKOVGU Ea 06.08.2011 Bas 06.08.2021 Mez P<SRBNIKOLIC<<LIDIJA<<<<<<<<<<<<<<<<<<<<<<<< 9766000736SRB9301179F21080691701993971495<90",
+  "processing_time_ms": 2042,
+  "warnings": [],
+  "review_reasons": []
+}

@@ -1,0 +1,549 @@
+{
+  "job_id": "e233bcc9-6b18-4c20-a7b7-8af907dd64a4",
+  "status": "review_required",
+  "template_id": "invoice_tn",
+  "document_type": "invoice",
+  "document_variant": null,
+  "engine_used": "paddle",
+  "language_detected": "fr",
+  "global_confidence": 0.7278,
+  "quality_score": 0.78,
+  "fields": [
+    {
+      "name": "invoice_profile",
+      "value": "ttn_electronic",
+      "confidence": 0.8,
+      "validated": true,
+      "raw_text": "ttn_electronic",
+      "raw_template_field": "invoice_profile",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "invoice_number",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": "invoice_number",
+      "error": "invoice_number_not_found",
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": true,
+      "reasons": [
+        "field unresolved"
+      ]
+    },
+    {
+      "name": "invoice_date",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": "invoice_date",
+      "error": "invoice_date_not_found",
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": true,
+      "reasons": [
+        "field unresolved"
+      ]
+    },
+    {
+      "name": "reference_unique",
+      "value": "0736202000888720706603952",
+      "confidence": 0.86,
+      "validated": true,
+      "raw_text": "larirence:0736202000888720706603952",
+      "raw_template_field": "reference_unique",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "total_ht",
+      "value": "2.000",
+      "confidence": 0.84,
+      "validated": true,
+      "raw_text": "TotalH.T.V.A 2,000",
+      "raw_template_field": "total_ht",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "vat_amount",
+      "value": "0.240",
+      "confidence": 0.84,
+      "validated": true,
+      "raw_text": "Montant TVA 0,240",
+      "raw_template_field": "vat_amount",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "vat_rate",
+      "value": "12",
+      "confidence": 0.75,
+      "validated": true,
+      "raw_text": "T.VA 12 PUH",
+      "raw_template_field": "vat_rate",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "stamp_amount",
+      "value": "0.500",
+      "confidence": 0.78,
+      "validated": true,
+      "raw_text": "inferred: total_ttc - total_ht - vat_amount",
+      "raw_template_field": "stamp_amount",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "total_ttc",
+      "value": "2.740",
+      "confidence": 0.9,
+      "validated": true,
+      "raw_text": "Montant T.T.C fallback:  Droit de Timbre Montant TVA TotalH.T.V.A. T.VA 12 PUHTVA 2,000 1000 2,740 0,500 0,240 2,000 TotalH.T.V.A 2,000",
+      "raw_template_field": "total_ttc",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "currency",
+      "value": "TND",
+      "confidence": 0.8,
+      "validated": true,
+      "raw_text": "DINARS",
+      "raw_template_field": "currency",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "amount_consistency",
+      "value": true,
+      "confidence": 0.9,
+      "validated": true,
+      "raw_text": "2.000+0.240+0.500=2.740 ≈ 2.740",
+      "raw_template_field": "amount_consistency",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "invoiceProfile": "ttn_electronic",
+    "referenceUnique": "0736202000888720706603952",
+    "totalHT": "2.000",
+    "vatAmount": "0.240",
+    "vatRate": "12",
+    "stampAmount": "0.500",
+    "totalTTC": "2.740",
+    "currency": "TND",
+    "amountConsistency": true
+  },
+  "routing": {
+    "requested_document_type": "invoice",
+    "requested_template_id": "invoice_tn",
+    "selected_template_id": "invoice_tn",
+    "selected_document_type": "invoice",
+    "method": "explicit_invoice_request_fast_path",
+    "forced_invoice_guard": true
+  },
+  "business_validation": {
+    "status": "review_required",
+    "review_required": true,
+    "review_reasons": [
+      "Missing or invalid required field: invoice_number",
+      "Missing or invalid required field: invoice_date"
+    ],
+    "valid_fields_ok": 9,
+    "present_fields": 9,
+    "field_coverage": 0.8182,
+    "avg_field_confidence": 0.6791,
+    "business_confidence": 0.7278,
+    "quality_score": 0.78
+  },
+  "diagnostics": {
+    "mode": "generic_template_v5_detector_swin_roi_passport_invoice",
+    "processing_mode": "balanced",
+    "routing": {
+      "requested_document_type": "invoice",
+      "requested_template_id": "invoice_tn",
+      "selected_template_id": "invoice_tn",
+      "selected_document_type": "invoice",
+      "method": "explicit_invoice_request_fast_path",
+      "forced_invoice_guard": true
+    },
+    "template_id": "invoice_tn",
+    "document_type": "invoice",
+    "engine": "paddle",
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.945,
+        "contrast": 0.311,
+        "quality_score": 0.78
+      },
+      "transforms": {
+        "resized": true,
+        "deskewed": true,
+        "contrast": true
+      }
+    },
+    "layout": {
+      "page_width": 800,
+      "page_height": 1202,
+      "orientation": "portrait",
+      "has_table": true,
+      "column_count": 2,
+      "regions": [
+        {
+          "type": "text_block",
+          "bbox": [
+            0,
+            215,
+            303,
+            762
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            308,
+            206,
+            492,
+            782
+          ],
+          "confidence": 1.0,
+          "label": null
+        }
+      ],
+      "region_count": 2
+    },
+    "field_count": 11,
+    "validated_field_count": 9,
+    "document_localizer": {
+      "localizer": "skipped",
+      "reason": "explicit_invoice_full_page_ocr_fast_path",
+      "candidate_count": 0
+    },
+    "raw_ocr_executed": true,
+    "raw_ocr_source": "full_page_invoice_ocr",
+    "raw_ocr_score": 0.0,
+    "raw_ocr_processing_time_ms": 4665,
+    "invoice_targeted_ocr": {
+      "executed": false,
+      "reason": "disabled_outside_supported_modes",
+      "mode": "balanced",
+      "combined_text": "",
+      "zones": [],
+      "candidates": [],
+      "best_candidates": {
+        "invoice_number": null,
+        "invoice_date": null
+      },
+      "processing_time_ms": 4,
+      "triggered_by_missing_critical_fields": [
+        "invoice_number",
+        "invoice_date"
+      ],
+      "policy": "header_fields_only_no_amount_merge",
+      "source_image": {
+        "selected": "uploaded_file_image",
+        "reason": "strict_priority_uploaded_file_first",
+        "fallback_used": false,
+        "file_path": "\\tmp\\ocr_uploads\\00000000-0000-0000-0000-000000000000_uploads_f1a4ca9f-461a-4f63-b36c-ede82a4ffdf3_Premiere-Facture-Electronique-Tunisie.jpg",
+        "file_load_error": null,
+        "selected_shape": {
+          "available": true,
+          "height": 977,
+          "width": 650,
+          "channels": 3,
+          "area": 635050
+        },
+        "candidates": {
+          "uploaded_file_image": {
+            "available": true,
+            "height": 977,
+            "width": 650,
+            "channels": 3,
+            "area": 635050
+          }
+        }
+      },
+      "easyocr_fallback": {
+        "enabled": false,
+        "init_error": null,
+        "scope": "invoice_number_and_invoice_date_only"
+      }
+    },
+    "invoice_text_enriched": false,
+    "invoice_targeted_policy": "diagnostic_and_header_fields_only",
+    "invoice_extraction": {
+      "invoice_extraction": "invoice_extractor_v3_tn_multi_profile_raw_text_rules",
+      "critical_fields": [
+        "invoice_date",
+        "invoice_number",
+        "total_ttc"
+      ],
+      "fields": [
+        {
+          "name": "invoice_profile",
+          "value": "ttn_electronic",
+          "validated": true,
+          "error": null,
+          "confidence": 0.8,
+          "included_in_response": true
+        },
+        {
+          "name": "invoice_number",
+          "value": null,
+          "validated": false,
+          "error": "invoice_number_not_found",
+          "confidence": 0.0,
+          "included_in_response": true
+        },
+        {
+          "name": "invoice_date",
+          "value": null,
+          "validated": false,
+          "error": "invoice_date_not_found",
+          "confidence": 0.0,
+          "included_in_response": true
+        },
+        {
+          "name": "reference_unique",
+          "value": "0736202000888720706603952",
+          "validated": true,
+          "error": null,
+          "confidence": 0.86,
+          "included_in_response": true
+        },
+        {
+          "name": "supplier_name",
+          "label": "Fournisseur",
+          "value": null,
+          "validated": false,
+          "error": "supplier_name_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "customer_name",
+          "label": "Client",
+          "value": null,
+          "validated": false,
+          "error": "customer_name_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "supplier_tax_id",
+          "label": "Matricule fiscal fournisseur",
+          "value": null,
+          "validated": false,
+          "error": "supplier_tax_id_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "customer_tax_id",
+          "label": "Matricule fiscal client",
+          "value": null,
+          "validated": false,
+          "error": "customer_tax_id_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "period_start",
+          "label": "Début de période",
+          "value": null,
+          "validated": false,
+          "error": "period_start_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "period_end",
+          "label": "Fin de période",
+          "value": null,
+          "validated": false,
+          "error": "period_end_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "payment_due_date",
+          "label": "Date limite de paiement",
+          "value": null,
+          "validated": false,
+          "error": "payment_due_date_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "total_ht",
+          "value": "2.000",
+          "validated": true,
+          "error": null,
+          "confidence": 0.84,
+          "included_in_response": true
+        },
+        {
+          "name": "vat_amount",
+          "value": "0.240",
+          "validated": true,
+          "error": null,
+          "confidence": 0.84,
+          "included_in_response": true
+        },
+        {
+          "name": "vat_rate",
+          "value": "12",
+          "validated": true,
+          "error": null,
+          "confidence": 0.75,
+          "included_in_response": true
+        },
+        {
+          "name": "stamp_amount",
+          "value": "0.500",
+          "validated": true,
+          "error": null,
+          "confidence": 0.78,
+          "included_in_response": true
+        },
+        {
+          "name": "total_ttc",
+          "value": "2.740",
+          "validated": true,
+          "error": null,
+          "confidence": 0.9,
+          "included_in_response": true
+        },
+        {
+          "name": "currency",
+          "value": "TND",
+          "validated": true,
+          "error": null,
+          "confidence": 0.8,
+          "included_in_response": true
+        },
+        {
+          "name": "line_items",
+          "label": "Contenu du tableau",
+          "value": [],
+          "validated": false,
+          "error": "line_items_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "amount_consistency",
+          "value": true,
+          "validated": true,
+          "error": null,
+          "confidence": 0.9,
+          "included_in_response": true
+        }
+      ],
+      "targeted_header_merge": {
+        "executed": false,
+        "policy": "invoice_number_and_invoice_date_only",
+        "missing_before": [
+          "invoice_number",
+          "invoice_date"
+        ],
+        "missing_after": [
+          "invoice_number",
+          "invoice_date"
+        ],
+        "reason": "no_valid_targeted_header_candidate",
+        "structured_best_candidates": {
+          "invoice_number": null,
+          "invoice_date": null
+        },
+        "targeted_debug": {
+          "structured_candidates_used": false,
+          "combined_text_fallback_used": false,
+          "source_image": {
+            "selected": "uploaded_file_image",
+            "reason": "strict_priority_uploaded_file_first",
+            "fallback_used": false,
+            "file_path": "\\tmp\\ocr_uploads\\00000000-0000-0000-0000-000000000000_uploads_f1a4ca9f-461a-4f63-b36c-ede82a4ffdf3_Premiere-Facture-Electronique-Tunisie.jpg",
+            "file_load_error": null,
+            "selected_shape": {
+              "available": true,
+              "height": 977,
+              "width": 650,
+              "channels": 3,
+              "area": 635050
+            },
+            "candidates": {
+              "uploaded_file_image": {
+                "available": true,
+                "height": 977,
+                "width": 650,
+                "channels": 3,
+                "area": 635050
+              }
+            }
+          }
+        }
+      }
+    },
+    "strategy": "invoice_raw_text_rules",
+    "roi_skipped": true,
+    "roi_skipped_reason": "invoice_full_page_ocr_path"
+  },
+  "raw_text": "SAd2000000DT/CoeTVA0732XAM00/C112000 Le baqus 1o pries de pyer aRBs 0410 50404701381036 Regler exclus Arie l priee acnum sud erer ou ouision d nore pant ila soenme de: DEUX DINARS ET SEPT CENT QUARANTE MILLIMES Total Tax% 12.0 DDM Code 2,000 2,000 Base Dossier DDM Designation Copie de la facture lectronique Date Limite de paiemsent: Matricule Fiscal : Rang du compte: Mode de connexion: deClient: Nom.Cormpte: Montant TVA 0,240 0,240 Qusatite 1.0 eregisteceTTNsos larirence:0736202000888720706603952 04/11/2016 41101180 Salle Publique SMTP. Montant T.T.C Droit de Timbre Montant TVA TotalH.T.V.A. T.VA 12 PUHTVA 2,000 1000 2,740 0,500 0,240 2,000 TotalH.T.V.A 2,000",
+  "processing_time_ms": 4680,
+  "warnings": [
+    "Required invoice field 'invoice_number' missing or invalid",
+    "Required invoice field 'invoice_date' missing or invalid"
+  ],
+  "review_reasons": [
+    "Missing or invalid required field: invoice_number",
+    "Missing or invalid required field: invoice_date"
+  ]
+}

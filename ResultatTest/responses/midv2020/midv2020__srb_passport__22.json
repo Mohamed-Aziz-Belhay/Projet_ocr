@@ -1,0 +1,2849 @@
+{
+  "job_id": "23ca0af0-fed3-48bb-910e-23d4d9d2a45a",
+  "status": "review_required",
+  "template_id": "midv_srb_passport",
+  "document_type": "passport",
+  "document_variant": null,
+  "engine_used": "passport_mrz",
+  "language_detected": "en",
+  "global_confidence": 0.0,
+  "quality_score": 0.741,
+  "fields": [
+    {
+      "name": "document_number",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121MM28030652101976814718<1",
+      "raw_template_field": "document_number",
+      "error": "invalid_document_number",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "suppressed:invalid_mrz_core_validation"
+      ]
+    },
+    {
+      "name": "surname",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121MM28030652101976814718<1",
+      "raw_template_field": "surname",
+      "error": "invalid_surname",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "suppressed:invalid_mrz_core_validation"
+      ]
+    },
+    {
+      "name": "given_names",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121MM28030652101976814718<1",
+      "raw_template_field": "given_names",
+      "error": "invalid_given_names",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "field unresolved",
+        "suppressed:invalid_mrz_core_validation"
+      ]
+    },
+    {
+      "name": "nationality",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121MM28030652101976814718<1",
+      "raw_template_field": "nationality",
+      "error": "invalid_nationality",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "suppressed:invalid_mrz_core_validation"
+      ]
+    },
+    {
+      "name": "birth_date",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121MM28030652101976814718<1",
+      "raw_template_field": "birth_date",
+      "error": "invalid_birth_date",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "suppressed:invalid_mrz_core_validation"
+      ]
+    },
+    {
+      "name": "gender",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121MM28030652101976814718<1",
+      "raw_template_field": "gender",
+      "error": "invalid_gender",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "field unresolved",
+        "suppressed:invalid_mrz_core_validation"
+      ]
+    },
+    {
+      "name": "expiry_date",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121MM28030652101976814718<1",
+      "raw_template_field": "expiry_date",
+      "error": "invalid_expiry_date",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "suppressed:invalid_mrz_core_validation"
+      ]
+    },
+    {
+      "name": "issuing_country",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121MM28030652101976814718<1",
+      "raw_template_field": "issuing_country",
+      "error": "invalid_issuing_country",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "field unresolved",
+        "suppressed:invalid_mrz_core_validation"
+      ]
+    },
+    {
+      "name": "personal_number",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121MM28030652101976814718<1",
+      "raw_template_field": "personal_number",
+      "error": "invalid_personal_number",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "field unresolved",
+        "suppressed:invalid_mrz_core_validation"
+      ]
+    },
+    {
+      "name": "mrz",
+      "value": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n8314196930BSRB760121MM28030652101976814718<1",
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121MM28030652101976814718<1",
+      "raw_template_field": "mrz",
+      "error": "invalid_mrz",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz",
+        "suppressed:invalid_mrz_core_validation"
+      ]
+    }
+  ],
+  "normalized_data": {},
+  "routing": {
+    "requested_document_type": "auto",
+    "requested_template_id": null,
+    "selected_template_id": "midv_srb_passport",
+    "selected_document_type": "passport",
+    "method": "swin_image_classifier",
+    "document_class": "srb_passport",
+    "confidence": 1.0
+  },
+  "business_validation": {
+    "status": "review_required",
+    "review_required": true,
+    "review_reasons": [
+      "Missing or invalid required field: document_number",
+      "Missing or invalid required field: surname",
+      "Missing or invalid required field: nationality",
+      "Missing or invalid required field: birth_date",
+      "Missing or invalid required field: expiry_date"
+    ],
+    "valid_fields_ok": 0,
+    "present_fields": 1,
+    "field_coverage": 0.0,
+    "avg_field_confidence": 0.0,
+    "business_confidence": 0.0,
+    "quality_score": 0.741
+  },
+  "diagnostics": {
+    "mode": "generic_template_v5_detector_swin_roi_passport_invoice",
+    "processing_mode": "fast",
+    "routing": {
+      "requested_document_type": "auto",
+      "requested_template_id": null,
+      "selected_template_id": "midv_srb_passport",
+      "selected_document_type": "passport",
+      "method": "swin_image_classifier",
+      "document_class": "srb_passport",
+      "confidence": 1.0
+    },
+    "template_id": "midv_srb_passport",
+    "document_type": "passport",
+    "engine": "passport_mrz",
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.685,
+        "contrast": 0.4,
+        "quality_score": 0.741
+      },
+      "transforms": {
+        "resized": true,
+        "deskewed": true,
+        "contrast": true
+      }
+    },
+    "layout": {
+      "page_width": 2000,
+      "page_height": 1375,
+      "orientation": "landscape",
+      "has_table": true,
+      "column_count": 3,
+      "regions": [
+        {
+          "type": "footer",
+          "bbox": [
+            492,
+            1334,
+            70,
+            41
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            378,
+            1333,
+            105,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            381,
+            1290,
+            98,
+            31
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            381,
+            1249,
+            85,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            378,
+            1165,
+            105,
+            81
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            358,
+            1122,
+            127,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            379,
+            1038,
+            108,
+            77
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            358,
+            999,
+            131,
+            33
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            381,
+            956,
+            110,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            381,
+            912,
+            111,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            381,
+            870,
+            106,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            381,
+            822,
+            181,
+            47
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            358,
+            785,
+            107,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            358,
+            618,
+            204,
+            165
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            382,
+            617,
+            81,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            360,
+            533,
+            202,
+            78
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            381,
+            363,
+            187,
+            165
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            382,
+            317,
+            186,
+            44
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            381,
+            279,
+            187,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            381,
+            197,
+            82,
+            35
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            381,
+            196,
+            181,
+            81
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            381,
+            149,
+            187,
+            47
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            381,
+            112,
+            85,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            381,
+            68,
+            187,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            382,
+            0,
+            1325,
+            1375
+          ],
+          "confidence": 1.0,
+          "label": null
+        }
+      ],
+      "region_count": 25
+    },
+    "field_count": 10,
+    "validated_field_count": 0,
+    "document_localizer": {
+      "localizer": "document_localizer_v3_yolo_raw_plus_normalized",
+      "method": "yolo_crop",
+      "detector": {
+        "found": true,
+        "bbox_xyxy": [
+          0.0,
+          0.0,
+          1587.1893310546875,
+          1488.0
+        ],
+        "confidence": 0.8847,
+        "class_name": "document",
+        "method": "yolo_document_detector",
+        "error": null
+      },
+      "input_shape": [
+        1488,
+        2163
+      ],
+      "localized_shape": [
+        1488,
+        1619
+      ],
+      "candidate_count": 20,
+      "raw_candidate_count": 4,
+      "normalized_candidate_count": 16,
+      "yolo_crop_padding": 0.02,
+      "aspect_trim": {
+        "enabled": false,
+        "reason": "aspect trimming degraded ROI alignment in previous tests"
+      },
+      "post_yolo_normalizer": {
+        "executed": true,
+        "diagnostics": {
+          "normalizer": "classical_cv_multi_candidate_v6_strict_color_nms",
+          "input_shape": [
+            1488,
+            1619
+          ],
+          "detection_shape": [
+            1103,
+            1200
+          ],
+          "scale": 0.7411982705373688,
+          "mode": "fast",
+          "found_contour": true,
+          "contours_total": 279,
+          "sliding_candidate_count": 8,
+          "contour_candidate_count": 42,
+          "candidate_pool_count": 50,
+          "crop_candidate_count": 8,
+          "final_candidate_count": 16,
+          "rejected": {
+            "too_small": 32,
+            "too_large": 0,
+            "bad_aspect": 6,
+            "touches_border_large": 0,
+            "invalid_crop": 0
+          },
+          "selected_strategy": "multi_candidate_roi_score",
+          "candidates_preview": [
+            {
+              "source": "sliding_color_window",
+              "index": 1215,
+              "score": 1.185515,
+              "density": 1.0,
+              "mean_saturation": 0.707798,
+              "std_value": 0.089184,
+              "center_density": 1.0,
+              "center_saturation": 0.681983,
+              "area_ratio": 0.005236,
+              "bbox_detection": [
+                882,
+                714,
+                105,
+                66
+              ],
+              "aspect": 1.5909,
+              "aspect_penalty": 0.0049,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1163,
+              "score": 0.996383,
+              "density": 0.898268,
+              "mean_saturation": 0.497599,
+              "std_value": 0.104979,
+              "center_density": 0.984474,
+              "center_saturation": 0.585775,
+              "area_ratio": 0.005236,
+              "bbox_detection": [
+                861,
+                693,
+                105,
+                66
+              ],
+              "aspect": 1.5909,
+              "aspect_penalty": 0.0049,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1213,
+              "score": 0.97671,
+              "density": 0.866234,
+              "mean_saturation": 0.530706,
+              "std_value": 0.10848,
+              "center_density": 0.90023,
+              "center_saturation": 0.559791,
+              "area_ratio": 0.005236,
+              "bbox_detection": [
+                840,
+                714,
+                105,
+                66
+              ],
+              "aspect": 1.5909,
+              "aspect_penalty": 0.0049,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1165,
+              "score": 0.941434,
+              "density": 0.824964,
+              "mean_saturation": 0.470083,
+              "std_value": 0.108523,
+              "center_density": 0.963772,
+              "center_saturation": 0.565089,
+              "area_ratio": 0.005236,
+              "bbox_detection": [
+                903,
+                693,
+                105,
+                66
+              ],
+              "aspect": 1.5909,
+              "aspect_penalty": 0.0049,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1267,
+              "score": 0.923488,
+              "density": 0.74733,
+              "mean_saturation": 0.491769,
+              "std_value": 0.113411,
+              "center_density": 0.901668,
+              "center_saturation": 0.600459,
+              "area_ratio": 0.005236,
+              "bbox_detection": [
+                861,
+                735,
+                105,
+                66
+              ],
+              "aspect": 1.5909,
+              "aspect_penalty": 0.0049,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 4958,
+              "score": 0.903222,
+              "density": 0.732925,
+              "mean_saturation": 0.416009,
+              "std_value": 0.110231,
+              "center_density": 0.956897,
+              "center_saturation": 0.626702,
+              "area_ratio": 0.012965,
+              "bbox_detection": [
+                840,
+                693,
+                165,
+                104
+              ],
+              "aspect": 1.5865,
+              "aspect_penalty": 0.0005,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1269,
+              "score": 0.871326,
+              "density": 0.674459,
+              "mean_saturation": 0.465704,
+              "std_value": 0.116007,
+              "center_density": 0.890454,
+              "center_saturation": 0.580222,
+              "area_ratio": 0.005236,
+              "bbox_detection": [
+                903,
+                735,
+                105,
+                66
+              ],
+              "aspect": 1.5909,
+              "aspect_penalty": 0.0049,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1217,
+              "score": 0.842446,
+              "density": 0.692641,
+              "mean_saturation": 0.489612,
+              "std_value": 0.11607,
+              "center_density": 0.762507,
+              "center_saturation": 0.512424,
+              "area_ratio": 0.005236,
+              "bbox_detection": [
+                924,
+                714,
+                105,
+                66
+              ],
+              "aspect": 1.5909,
+              "aspect_penalty": 0.0049,
+              "touches_border": false,
+              "reject_reason": null
+            }
+          ],
+          "candidate_angles": [
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180
+          ]
+        },
+        "normalized_shape": [
+          89,
+          142
+        ],
+        "candidate_count": 16
+      }
+    },
+    "passport_extraction": {
+      "passport_extraction": "passport_mrz_first_best_candidate_v2_strict",
+      "selected_angle": 0,
+      "selected_source": "full_image_width_guard",
+      "selected_candidate_index": -1,
+      "selected_debug_prefix": "passport_cand_-1_angle_0",
+      "selected_score": -15.0,
+      "selected_mrz_core_valid": false,
+      "candidate_debug": [
+        {
+          "angle": 0,
+          "source": "full_image_width_guard",
+          "candidate_index": -1,
+          "debug_prefix": "passport_cand_-1_angle_0",
+          "score": -15.0,
+          "mrz_core_valid": false,
+          "validated_fields": 0,
+          "present_fields": 1,
+          "review_required_fields": [
+            "document_number",
+            "surname",
+            "nationality",
+            "birth_date",
+            "expiry_date"
+          ],
+          "warnings": [
+            "Required passport MRZ field 'document_number' missing or invalid",
+            "Required passport MRZ field 'surname' missing or invalid",
+            "Required passport MRZ field 'nationality' missing or invalid",
+            "Required passport MRZ field 'birth_date' missing or invalid",
+            "Required passport MRZ field 'expiry_date' missing or invalid",
+            "Passport MRZ parsed but validation is incomplete or failed",
+            "Passport MRZ core validation failed"
+          ],
+          "passport_debug_summary": {
+            "selected_candidate": "bottom_38_clahe",
+            "selected_score": 12.4
+          }
+        },
+        {
+          "angle": 0,
+          "source": "yolo_crop_raw",
+          "candidate_index": 0,
+          "debug_prefix": "passport_cand_0_angle_0",
+          "score": -15.0,
+          "mrz_core_valid": false,
+          "validated_fields": 0,
+          "present_fields": 1,
+          "review_required_fields": [
+            "document_number",
+            "surname",
+            "nationality",
+            "birth_date",
+            "expiry_date"
+          ],
+          "warnings": [
+            "Required passport MRZ field 'document_number' missing or invalid",
+            "Required passport MRZ field 'surname' missing or invalid",
+            "Required passport MRZ field 'nationality' missing or invalid",
+            "Required passport MRZ field 'birth_date' missing or invalid",
+            "Required passport MRZ field 'expiry_date' missing or invalid",
+            "Passport MRZ parsed but validation is incomplete or failed",
+            "Passport MRZ core validation failed"
+          ],
+          "passport_debug_summary": {
+            "selected_candidate": "bottom_38_clahe",
+            "selected_score": 10.4
+          }
+        },
+        {
+          "angle": 180,
+          "source": "yolo_crop_raw",
+          "candidate_index": 0,
+          "debug_prefix": "passport_cand_0_angle_180",
+          "score": -15.0,
+          "mrz_core_valid": false,
+          "validated_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [],
+          "warnings": [
+            "No MRZ candidate crop found",
+            "Passport MRZ core validation failed"
+          ],
+          "passport_debug_summary": {
+            "selected_candidate": null,
+            "selected_score": null
+          }
+        },
+        {
+          "angle": 90,
+          "source": "yolo_crop_raw",
+          "candidate_index": 0,
+          "debug_prefix": "passport_cand_0_angle_90",
+          "score": -15.0,
+          "mrz_core_valid": false,
+          "validated_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [],
+          "warnings": [
+            "No MRZ candidate crop found",
+            "Passport MRZ core validation failed"
+          ],
+          "passport_debug_summary": {
+            "selected_candidate": null,
+            "selected_score": null
+          }
+        },
+        {
+          "angle": 270,
+          "source": "yolo_crop_raw",
+          "candidate_index": 0,
+          "debug_prefix": "passport_cand_0_angle_270",
+          "score": -15.0,
+          "mrz_core_valid": false,
+          "validated_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [],
+          "warnings": [
+            "No MRZ candidate crop found",
+            "Passport MRZ core validation failed"
+          ],
+          "passport_debug_summary": {
+            "selected_candidate": null,
+            "selected_score": null
+          }
+        },
+        {
+          "angle": 0,
+          "source": "yolo_crop_normalized:sliding_color_window",
+          "candidate_index": 100,
+          "debug_prefix": "passport_cand_100_angle_0",
+          "score": -15.0,
+          "mrz_core_valid": false,
+          "validated_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [],
+          "warnings": [
+            "No MRZ candidate crop found",
+            "Passport MRZ core validation failed"
+          ],
+          "passport_debug_summary": {
+            "selected_candidate": null,
+            "selected_score": null
+          }
+        },
+        {
+          "angle": 180,
+          "source": "yolo_crop_normalized:sliding_color_window",
+          "candidate_index": 101,
+          "debug_prefix": "passport_cand_101_angle_180",
+          "score": -15.0,
+          "mrz_core_valid": false,
+          "validated_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [],
+          "warnings": [
+            "No MRZ candidate crop found",
+            "Passport MRZ core validation failed"
+          ],
+          "passport_debug_summary": {
+            "selected_candidate": null,
+            "selected_score": null
+          }
+        }
+      ],
+      "selected_candidate_debug": {
+        "passport_extraction": "passport_mrz_first_v2_mrz_preprocess_repair",
+        "engine": "easyocr",
+        "language_hints": [
+          "en"
+        ],
+        "selected_candidate": "bottom_38_clahe",
+        "selected_base_candidate": "bottom_38",
+        "selected_variant": "clahe",
+        "selected_bbox_norm": [
+          0.02,
+          0.58,
+          0.96,
+          0.4
+        ],
+        "selected_score": 12.4,
+        "selected_raw_text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Ear Ranak 06.03,.2018 28 Bas 06.03.2028 P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<< 83141969308SRB7601211M28030652101976814718<12 Weo",
+        "selected_repaired_text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121MM28030652101976814718<1",
+        "selected_parsed": {
+          "valid": false,
+          "document_type": "P",
+          "issuing_country": "SRB",
+          "document_number": "831419693",
+          "surname": "TADIC",
+          "given_names": "JANKO",
+          "nationality": "BSR",
+          "birth_date": null,
+          "gender": "M",
+          "expiry_date": null,
+          "personal_number": "52101976814718",
+          "mrz_lines": [
+            "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+            "8314196930BSRB760121MM28030652101976814718<1"
+          ],
+          "checks": {
+            "document_number": false,
+            "birth_date": false,
+            "expiry_date": false,
+            "personal_number": false,
+            "composite": true
+          },
+          "errors": [
+            "invalid_birth_date",
+            "invalid_expiry_date",
+            "mrz_checksum_or_core_validation_failed"
+          ]
+        },
+        "selected_repair_candidates": [
+          {
+            "method": "raw_ocr_text",
+            "text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Ear Ranak 06.03,.2018 28 Bas 06.03.2028 P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<< 83141969308SRB7601211M28030652101976814718<12 Weo",
+            "score": 10.4,
+            "valid": false,
+            "parsed": {
+              "valid": false,
+              "document_type": "P",
+              "issuing_country": "SRB",
+              "document_number": "831419693",
+              "surname": "TADIC",
+              "given_names": "JANKO",
+              "nationality": "BSR",
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": "52101976814718",
+              "mrz_lines": [
+                "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                "8314196930BSRB7601211M28030652101976814718<1"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": true
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            }
+          },
+          {
+            "method": "token_reconstruction",
+            "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB7601211M28030652101976814718<1",
+            "score": 10.4,
+            "valid": false,
+            "parsed": {
+              "valid": false,
+              "document_type": "P",
+              "issuing_country": "SRB",
+              "document_number": "831419693",
+              "surname": "TADIC",
+              "given_names": "JANKO",
+              "nationality": "BSR",
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": "52101976814718",
+              "mrz_lines": [
+                "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                "8314196930BSRB7601211M28030652101976814718<1"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": true
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            }
+          },
+          {
+            "method": "token_reconstruction",
+            "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SR87601211M28030652101976814718<1",
+            "score": 7.4,
+            "valid": false,
+            "parsed": {
+              "valid": false,
+              "document_type": "P",
+              "issuing_country": "SRB",
+              "document_number": "831419693",
+              "surname": "TADIC",
+              "given_names": "JANKO",
+              "nationality": "BSR",
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": "52101976814718",
+              "mrz_lines": [
+                "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                "8314196930BSR87601211M28030652101976814718<1"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            }
+          },
+          {
+            "method": "token_reconstruction",
+            "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121MM28030652101976814718<1",
+            "score": 12.4,
+            "valid": false,
+            "parsed": {
+              "valid": false,
+              "document_type": "P",
+              "issuing_country": "SRB",
+              "document_number": "831419693",
+              "surname": "TADIC",
+              "given_names": "JANKO",
+              "nationality": "BSR",
+              "birth_date": null,
+              "gender": "M",
+              "expiry_date": null,
+              "personal_number": "52101976814718",
+              "mrz_lines": [
+                "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                "8314196930BSRB760121MM28030652101976814718<1"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": true
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            }
+          },
+          {
+            "method": "token_reconstruction",
+            "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121FM28030652101976814718<1",
+            "score": 12.4,
+            "valid": false,
+            "parsed": {
+              "valid": false,
+              "document_type": "P",
+              "issuing_country": "SRB",
+              "document_number": "831419693",
+              "surname": "TADIC",
+              "given_names": "JANKO",
+              "nationality": "BSR",
+              "birth_date": null,
+              "gender": "F",
+              "expiry_date": null,
+              "personal_number": "52101976814718",
+              "mrz_lines": [
+                "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                "8314196930BSRB760121FM28030652101976814718<1"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": true
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            }
+          },
+          {
+            "method": "token_reconstruction",
+            "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121<M28030652101976814718<1",
+            "score": 10.4,
+            "valid": false,
+            "parsed": {
+              "valid": false,
+              "document_type": "P",
+              "issuing_country": "SRB",
+              "document_number": "831419693",
+              "surname": "TADIC",
+              "given_names": "JANKO",
+              "nationality": "BSR",
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": "52101976814718",
+              "mrz_lines": [
+                "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                "8314196930BSRB760121<M28030652101976814718<1"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": true
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            }
+          },
+          {
+            "method": "token_reconstruction",
+            "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SR8760121MM28030652101976814718<1",
+            "score": 9.4,
+            "valid": false,
+            "parsed": {
+              "valid": false,
+              "document_type": "P",
+              "issuing_country": "SRB",
+              "document_number": "831419693",
+              "surname": "TADIC",
+              "given_names": "JANKO",
+              "nationality": "BSR",
+              "birth_date": null,
+              "gender": "M",
+              "expiry_date": null,
+              "personal_number": "52101976814718",
+              "mrz_lines": [
+                "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                "8314196930BSR8760121MM28030652101976814718<1"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            }
+          },
+          {
+            "method": "token_reconstruction",
+            "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SR8760121FM28030652101976814718<1",
+            "score": 9.4,
+            "valid": false,
+            "parsed": {
+              "valid": false,
+              "document_type": "P",
+              "issuing_country": "SRB",
+              "document_number": "831419693",
+              "surname": "TADIC",
+              "given_names": "JANKO",
+              "nationality": "BSR",
+              "birth_date": null,
+              "gender": "F",
+              "expiry_date": null,
+              "personal_number": "52101976814718",
+              "mrz_lines": [
+                "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                "8314196930BSR8760121FM28030652101976814718<1"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            }
+          },
+          {
+            "method": "token_reconstruction",
+            "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SR8760121<M28030652101976814718<1",
+            "score": 7.4,
+            "valid": false,
+            "parsed": {
+              "valid": false,
+              "document_type": "P",
+              "issuing_country": "SRB",
+              "document_number": "831419693",
+              "surname": "TADIC",
+              "given_names": "JANKO",
+              "nationality": "BSR",
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": "52101976814718",
+              "mrz_lines": [
+                "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                "8314196930BSR8760121<M28030652101976814718<1"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            }
+          }
+        ],
+        "candidates": [
+          {
+            "candidate": "bottom_38_clahe",
+            "base_candidate": "bottom_38",
+            "variant": "clahe",
+            "bbox_norm": [
+              0.02,
+              0.58,
+              0.96,
+              0.4
+            ],
+            "raw_text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Ear Ranak 06.03,.2018 28 Bas 06.03.2028 P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<< 83141969308SRB7601211M28030652101976814718<12 Weo",
+            "selected_text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121MM28030652101976814718<1",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": "P",
+              "issuing_country": "SRB",
+              "document_number": "831419693",
+              "surname": "TADIC",
+              "given_names": "JANKO",
+              "nationality": "BSR",
+              "birth_date": null,
+              "gender": "M",
+              "expiry_date": null,
+              "personal_number": "52101976814718",
+              "mrz_lines": [
+                "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                "8314196930BSRB760121MM28030652101976814718<1"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": true
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Ear Ranak 06.03,.2018 28 Bas 06.03.2028 P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<< 83141969308SRB7601211M28030652101976814718<12 Weo",
+                "score": 10.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSRB7601211M28030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": true
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB7601211M28030652101976814718<1",
+                "score": 10.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSRB7601211M28030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": true
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SR87601211M28030652101976814718<1",
+                "score": 7.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSR87601211M28030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121MM28030652101976814718<1",
+                "score": 12.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": "M",
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSRB760121MM28030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": true
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121FM28030652101976814718<1",
+                "score": 12.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": "F",
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSRB760121FM28030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": true
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121<M28030652101976814718<1",
+                "score": 10.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSRB760121<M28030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": true
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SR8760121MM28030652101976814718<1",
+                "score": 9.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": "M",
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSR8760121MM28030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SR8760121FM28030652101976814718<1",
+                "score": 9.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": "F",
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSR8760121FM28030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SR8760121<M28030652101976814718<1",
+                "score": 7.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSR8760121<M28030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              }
+            ],
+            "score": 12.4
+          },
+          {
+            "candidate": "bottom_38_sharp",
+            "base_candidate": "bottom_38",
+            "variant": "sharp",
+            "bbox_norm": [
+              0.02,
+              0.58,
+              0.96,
+              0.4
+            ],
+            "raw_text": "MUPR SRBIJE PUZAGRAD BEOGRAD {Ex Feiode 06 03,2018 28 06,03.2028 Haz P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<< < 83141969308SRB7601211M28030652101976814718<12",
+            "selected_text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121MM28030652101976814718<1",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": "P",
+              "issuing_country": "SRB",
+              "document_number": "831419693",
+              "surname": "TADIC",
+              "given_names": "JANKO",
+              "nationality": "BSR",
+              "birth_date": null,
+              "gender": "M",
+              "expiry_date": null,
+              "personal_number": "52101976814718",
+              "mrz_lines": [
+                "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                "8314196930BSRB760121MM28030652101976814718<1"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": true
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "MUPR SRBIJE PUZAGRAD BEOGRAD {Ex Feiode 06 03,2018 28 06,03.2028 Haz P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<< < 83141969308SRB7601211M28030652101976814718<12",
+                "score": 10.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSRB7601211M28030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": true
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB7601211M28030652101976814718<1",
+                "score": 10.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSRB7601211M28030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": true
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SR87601211M28030652101976814718<1",
+                "score": 7.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSR87601211M28030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121MM28030652101976814718<1",
+                "score": 12.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": "M",
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSRB760121MM28030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": true
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121FM28030652101976814718<1",
+                "score": 12.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": "F",
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSRB760121FM28030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": true
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121<M28030652101976814718<1",
+                "score": 10.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSRB760121<M28030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": true
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SR8760121MM28030652101976814718<1",
+                "score": 9.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": "M",
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSR8760121MM28030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SR8760121FM28030652101976814718<1",
+                "score": 9.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": "F",
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSR8760121FM28030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SR8760121<M28030652101976814718<1",
+                "score": 7.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSR8760121<M28030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              }
+            ],
+            "score": 12.4
+          },
+          {
+            "candidate": "bottom_38_binary",
+            "base_candidate": "bottom_38",
+            "variant": "binary",
+            "bbox_norm": [
+              0.02,
+              0.58,
+              0.96,
+              0.4
+            ],
+            "raw_text": "SNpN8pe8Ea 8Y 43 6304e5vi8) 1058828 LA 0670320288 MEesi3_ PSRBTADTC< < JANKO 8311969308SRB7601211028030652401976814718442",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": null,
+              "issuing_country": null,
+              "document_number": null,
+              "surname": null,
+              "given_names": null,
+              "nationality": null,
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": null,
+              "mrz_lines": [],
+              "checks": {},
+              "errors": [
+                "empty_mrz_text"
+              ]
+            },
+            "repair_candidates": [],
+            "score": -25.0,
+            "skipped_reason": "no_mrz_anchor_detected"
+          },
+          {
+            "candidate": "bottom_35_clahe",
+            "base_candidate": "bottom_35",
+            "variant": "clahe",
+            "bbox_norm": [
+              0.03,
+              0.62,
+              0.94,
+              0.35
+            ],
+            "raw_text": "06.03,2018 1d6 28 Basaeo 070; \"pad Ke 06.03.2028 Oaz P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<< 83141969308SRB7601211028030652101976814718<12",
+            "selected_text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121M028030652101976814718<1",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": "P",
+              "issuing_country": "SRB",
+              "document_number": "831419693",
+              "surname": "TADIC",
+              "given_names": "JANKO",
+              "nationality": "BSR",
+              "birth_date": null,
+              "gender": "M",
+              "expiry_date": null,
+              "personal_number": "52101976814718",
+              "mrz_lines": [
+                "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                "8314196930BSRB760121M028030652101976814718<1"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "06.03,2018 1d6 28 Basaeo 070; \"pad Ke 06.03.2028 Oaz P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<< 83141969308SRB7601211028030652101976814718<12",
+                "score": 7.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSRB7601211028030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB7601211028030652101976814718<1",
+                "score": 7.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSRB7601211028030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SR87601211028030652101976814718<1",
+                "score": 7.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSR87601211028030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121M028030652101976814718<1",
+                "score": 9.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": "M",
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSRB760121M028030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121F028030652101976814718<1",
+                "score": 9.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": "F",
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSRB760121F028030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121<028030652101976814718<1",
+                "score": 7.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSRB760121<028030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SR8760121M028030652101976814718<1",
+                "score": 9.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": "M",
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSR8760121M028030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SR8760121F028030652101976814718<1",
+                "score": 9.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": "F",
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSR8760121F028030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SR8760121<028030652101976814718<1",
+                "score": 7.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSR8760121<028030652101976814718<1"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              }
+            ],
+            "score": 9.4
+          },
+          {
+            "candidate": "bottom_35_sharp",
+            "base_candidate": "bottom_35",
+            "variant": "sharp",
+            "bbox_norm": [
+              0.03,
+              0.62,
+              0.94,
+              0.35
+            ],
+            "raw_text": "06.03,2018 06 28_ Babteo 06 03.2028 Iaen P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<< 83141969308SRB7601211028030652101976814718<42",
+            "selected_text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121M028030652101976814718<4",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": "P",
+              "issuing_country": "SRB",
+              "document_number": "831419693",
+              "surname": "TADIC",
+              "given_names": "JANKO",
+              "nationality": "BSR",
+              "birth_date": null,
+              "gender": "M",
+              "expiry_date": null,
+              "personal_number": "52101976814718",
+              "mrz_lines": [
+                "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                "8314196930BSRB760121M028030652101976814718<4"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "06.03,2018 06 28_ Babteo 06 03.2028 Iaen P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<< 83141969308SRB7601211028030652101976814718<42",
+                "score": 7.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSRB7601211028030652101976814718<4"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB7601211028030652101976814718<4",
+                "score": 7.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSRB7601211028030652101976814718<4"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SR87601211028030652101976814718<4",
+                "score": 7.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSR87601211028030652101976814718<4"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121M028030652101976814718<4",
+                "score": 9.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": "M",
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSRB760121M028030652101976814718<4"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121F028030652101976814718<4",
+                "score": 9.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": "F",
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSRB760121F028030652101976814718<4"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SRB760121<028030652101976814718<4",
+                "score": 7.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSRB760121<028030652101976814718<4"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SR8760121M028030652101976814718<4",
+                "score": 9.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": "M",
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSR8760121M028030652101976814718<4"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SR8760121F028030652101976814718<4",
+                "score": 9.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": "F",
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSR8760121F028030652101976814718<4"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              },
+              {
+                "method": "token_reconstruction",
+                "text": "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<\n83141969308SR8760121<028030652101976814718<4",
+                "score": 7.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "831419693",
+                  "surname": "TADIC",
+                  "given_names": "JANKO",
+                  "nationality": "BSR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "52101976814718",
+                  "mrz_lines": [
+                    "P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "8314196930BSR8760121<028030652101976814718<4"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              }
+            ],
+            "score": 9.4
+          },
+          {
+            "candidate": "bottom_35_binary",
+            "base_candidate": "bottom_35",
+            "variant": "binary",
+            "bbox_norm": [
+              0.03,
+              0.62,
+              0.94,
+              0.35
+            ],
+            "raw_text": "0e2ue E 06032028 WE32e PSSRBTADTC<< JANKO: 822 83141969308SRB7,601211028030652101976814718242",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": null,
+              "issuing_country": null,
+              "document_number": null,
+              "surname": null,
+              "given_names": null,
+              "nationality": null,
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": null,
+              "mrz_lines": [],
+              "checks": {},
+              "errors": [
+                "empty_mrz_text"
+              ]
+            },
+            "repair_candidates": [],
+            "score": -25.0,
+            "skipped_reason": "no_mrz_anchor_detected"
+          }
+        ]
+      }
+    },
+    "passport_width_guard": {
+      "enabled": true,
+      "min_width_ratio": 0.9,
+      "original_width": 2163,
+      "localized_width": 1619,
+      "actual_width_ratio": 0.7485,
+      "use_full_image_candidate": true,
+      "candidate_policy": "full_image_prepended",
+      "selected_source": "full_image_width_guard",
+      "selected_candidate_index": -1
+    },
+    "raw_ocr_executed": false,
+    "strategy": "passport_mrz_first"
+  },
+  "raw_text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Ear Ranak 06.03,.2018 28 Bas 06.03.2028 P<SRBTADIC<<JANKO<<<<<<<<<<<<<<<<<<<<<<<<<<< 83141969308SRB7601211M28030652101976814718<12 Weo",
+  "processing_time_ms": 20793,
+  "warnings": [
+    "Required passport MRZ field 'document_number' missing or invalid",
+    "Required passport MRZ field 'surname' missing or invalid",
+    "Required passport MRZ field 'nationality' missing or invalid",
+    "Required passport MRZ field 'birth_date' missing or invalid",
+    "Required passport MRZ field 'expiry_date' missing or invalid",
+    "Passport MRZ parsed but validation is incomplete or failed",
+    "Passport MRZ core validation failed"
+  ],
+  "review_reasons": [
+    "Missing or invalid required field: document_number",
+    "Missing or invalid required field: surname",
+    "Missing or invalid required field: nationality",
+    "Missing or invalid required field: birth_date",
+    "Missing or invalid required field: expiry_date"
+  ]
+}

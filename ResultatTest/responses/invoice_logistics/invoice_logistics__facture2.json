@@ -1,0 +1,461 @@
+{
+  "job_id": "017f1876-91cc-489f-8160-ceda15a588ca",
+  "status": "review_required",
+  "template_id": "invoice_logistics_intl",
+  "document_type": "invoice",
+  "document_variant": null,
+  "engine_used": "paddle",
+  "language_detected": "en",
+  "global_confidence": 0.5324,
+  "quality_score": 0.785,
+  "fields": [
+    {
+      "name": "invoice_profile",
+      "value": "standard",
+      "confidence": 0.8,
+      "validated": true,
+      "raw_text": "standard",
+      "raw_template_field": "invoice_profile",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "invoice_number",
+      "value": "TUN00035092",
+      "confidence": 0.88,
+      "validated": true,
+      "raw_text": "INVOICE TUN00035092",
+      "raw_template_field": "invoice_number",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "invoice_date",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": "invoice_date",
+      "error": "invoice_date_not_found",
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": true,
+      "reasons": [
+        "field unresolved"
+      ]
+    },
+    {
+      "name": "total_ttc",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": "total_ttc",
+      "error": "total_ttc_not_found",
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": true,
+      "reasons": [
+        "field unresolved"
+      ]
+    },
+    {
+      "name": "currency",
+      "value": "TND",
+      "confidence": 0.8,
+      "validated": true,
+      "raw_text": "TND",
+      "raw_template_field": "currency",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "invoiceProfile": "standard",
+    "invoiceNumber": "TUN00035092",
+    "currency": "TND"
+  },
+  "routing": {
+    "requested_document_type": "invoice",
+    "requested_template_id": "invoice_logistics_intl",
+    "selected_template_id": "invoice_logistics_intl",
+    "selected_document_type": "invoice",
+    "method": "explicit_invoice_request_fast_path",
+    "forced_invoice_guard": true
+  },
+  "business_validation": {
+    "status": "review_required",
+    "review_required": true,
+    "review_reasons": [
+      "Missing or invalid required field: invoice_date",
+      "Missing or invalid required field: total_ttc"
+    ],
+    "valid_fields_ok": 3,
+    "present_fields": 3,
+    "field_coverage": 0.6,
+    "avg_field_confidence": 0.496,
+    "business_confidence": 0.5324,
+    "quality_score": 0.785
+  },
+  "diagnostics": {
+    "mode": "generic_template_v5_detector_swin_roi_passport_invoice",
+    "processing_mode": "balanced",
+    "routing": {
+      "requested_document_type": "invoice",
+      "requested_template_id": "invoice_logistics_intl",
+      "selected_template_id": "invoice_logistics_intl",
+      "selected_document_type": "invoice",
+      "method": "explicit_invoice_request_fast_path",
+      "forced_invoice_guard": true
+    },
+    "template_id": "invoice_logistics_intl",
+    "document_type": "invoice",
+    "engine": "paddle",
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.956,
+        "contrast": 0.32,
+        "quality_score": 0.785
+      },
+      "transforms": {
+        "resized": true,
+        "deskewed": true,
+        "contrast": true
+      }
+    },
+    "layout": {
+      "page_width": 1414,
+      "page_height": 2000,
+      "orientation": "portrait",
+      "has_table": false,
+      "column_count": 3,
+      "regions": [
+        {
+          "type": "text_block",
+          "bbox": [
+            1069,
+            370,
+            345,
+            1264
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            428,
+            370,
+            637,
+            1264
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            0,
+            370,
+            267,
+            1264
+          ],
+          "confidence": 1.0,
+          "label": null
+        }
+      ],
+      "region_count": 3
+    },
+    "field_count": 5,
+    "validated_field_count": 3,
+    "document_localizer": {
+      "localizer": "skipped",
+      "reason": "explicit_invoice_full_page_ocr_fast_path",
+      "candidate_count": 0
+    },
+    "raw_ocr_executed": true,
+    "raw_ocr_source": "full_page_invoice_ocr",
+    "raw_ocr_score": 0.0,
+    "raw_ocr_processing_time_ms": 8681,
+    "invoice_targeted_ocr": {
+      "executed": false,
+      "reason": "disabled_outside_supported_modes",
+      "mode": "balanced",
+      "combined_text": "",
+      "zones": [],
+      "candidates": [],
+      "best_candidates": {
+        "invoice_number": null,
+        "invoice_date": null
+      },
+      "processing_time_ms": 23,
+      "triggered_by_missing_critical_fields": [
+        "invoice_date"
+      ],
+      "policy": "header_fields_only_no_amount_merge",
+      "source_image": {
+        "selected": "uploaded_file_image",
+        "reason": "strict_priority_uploaded_file_first",
+        "fallback_used": false,
+        "file_path": "\\tmp\\ocr_uploads\\00000000-0000-0000-0000-000000000000_uploads_34a4cbda-775d-4e02-ac46-7d24bdddea9a_facture2.jpg",
+        "file_load_error": null,
+        "selected_shape": {
+          "available": true,
+          "height": 2339,
+          "width": 1654,
+          "channels": 3,
+          "area": 3868706
+        },
+        "candidates": {
+          "uploaded_file_image": {
+            "available": true,
+            "height": 2339,
+            "width": 1654,
+            "channels": 3,
+            "area": 3868706
+          }
+        }
+      },
+      "easyocr_fallback": {
+        "enabled": false,
+        "init_error": null,
+        "scope": "invoice_number_and_invoice_date_only"
+      }
+    },
+    "invoice_text_enriched": false,
+    "invoice_targeted_policy": "diagnostic_and_header_fields_only",
+    "invoice_extraction": {
+      "invoice_extraction": "invoice_extractor_v3_tn_multi_profile_raw_text_rules",
+      "critical_fields": [
+        "invoice_date",
+        "invoice_number",
+        "total_ttc"
+      ],
+      "fields": [
+        {
+          "name": "invoice_profile",
+          "value": "standard",
+          "validated": true,
+          "error": null,
+          "confidence": 0.8,
+          "included_in_response": true
+        },
+        {
+          "name": "invoice_number",
+          "value": "TUN00035092",
+          "validated": true,
+          "error": null,
+          "confidence": 0.88,
+          "included_in_response": true
+        },
+        {
+          "name": "invoice_date",
+          "value": null,
+          "validated": false,
+          "error": "invoice_date_not_found",
+          "confidence": 0.0,
+          "included_in_response": true
+        },
+        {
+          "name": "reference_unique",
+          "label": "Référence unique",
+          "value": null,
+          "validated": false,
+          "error": "reference_unique_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "supplier_name",
+          "label": "Fournisseur",
+          "value": null,
+          "validated": false,
+          "error": "supplier_name_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "customer_name",
+          "label": "Client",
+          "value": null,
+          "validated": false,
+          "error": "customer_name_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "supplier_tax_id",
+          "label": "Matricule fiscal fournisseur",
+          "value": null,
+          "validated": false,
+          "error": "supplier_tax_id_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "customer_tax_id",
+          "label": "Matricule fiscal client",
+          "value": null,
+          "validated": false,
+          "error": "customer_tax_id_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "period_start",
+          "label": "Début de période",
+          "value": null,
+          "validated": false,
+          "error": "period_start_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "period_end",
+          "label": "Fin de période",
+          "value": null,
+          "validated": false,
+          "error": "period_end_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "payment_due_date",
+          "label": "Date limite de paiement",
+          "value": null,
+          "validated": false,
+          "error": "payment_due_date_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "total_ht",
+          "label": "Total H.T.",
+          "value": null,
+          "validated": false,
+          "error": "total_ht_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "vat_amount",
+          "label": "Montant TVA",
+          "value": null,
+          "validated": false,
+          "error": "vat_amount_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "vat_rate",
+          "label": "Taux TVA",
+          "value": null,
+          "validated": false,
+          "error": "vat_rate_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "stamp_amount",
+          "label": "Droit de timbre",
+          "value": null,
+          "validated": false,
+          "error": "stamp_amount_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "total_ttc",
+          "value": null,
+          "validated": false,
+          "error": "total_ttc_not_found",
+          "confidence": 0.0,
+          "included_in_response": true
+        },
+        {
+          "name": "currency",
+          "value": "TND",
+          "validated": true,
+          "error": null,
+          "confidence": 0.8,
+          "included_in_response": true
+        },
+        {
+          "name": "line_items",
+          "label": "Contenu du tableau",
+          "value": [],
+          "validated": false,
+          "error": "line_items_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "amount_consistency",
+          "label": "Cohérence des montants",
+          "value": null,
+          "validated": false,
+          "error": "amount_consistency_not_computable_or_failed",
+          "skipped_from_response": true
+        }
+      ],
+      "targeted_header_merge": {
+        "executed": false,
+        "policy": "invoice_number_and_invoice_date_only",
+        "missing_before": [
+          "invoice_date"
+        ],
+        "missing_after": [
+          "invoice_date"
+        ],
+        "reason": "no_valid_targeted_header_candidate",
+        "structured_best_candidates": {
+          "invoice_number": null,
+          "invoice_date": null
+        },
+        "targeted_debug": {
+          "structured_candidates_used": false,
+          "combined_text_fallback_used": false,
+          "source_image": {
+            "selected": "uploaded_file_image",
+            "reason": "strict_priority_uploaded_file_first",
+            "fallback_used": false,
+            "file_path": "\\tmp\\ocr_uploads\\00000000-0000-0000-0000-000000000000_uploads_34a4cbda-775d-4e02-ac46-7d24bdddea9a_facture2.jpg",
+            "file_load_error": null,
+            "selected_shape": {
+              "available": true,
+              "height": 2339,
+              "width": 1654,
+              "channels": 3,
+              "area": 3868706
+            },
+            "candidates": {
+              "uploaded_file_image": {
+                "available": true,
+                "height": 2339,
+                "width": 1654,
+                "channels": 3,
+                "area": 3868706
+              }
+            }
+          }
+        }
+      }
+    },
+    "strategy": "invoice_raw_text_rules",
+    "roi_skipped": true,
+    "roi_skipped_reason": "invoice_full_page_ocr_path"
+  },
+  "raw_text": "Transfer Funds To: TOTAL CHARGES Taxe scanner en Tunisie International Freight 950€*3.3918 DESCRIPTION CHARGES EXW - Ex Works INCO TERM ESBCN = Barcelona, Spain ORIGIN CM610VW / 30-Dec ROAD REFERENCE IMPORT CUSTOMS BROKER GOODS DESCRIPTION ORDER NUMBERS / OWNER'S REFERENCE RANDOM TEX SL SHIPPER SHIPMENT DETAILS TISSU INVOICE TUN00035092 PAYMENT METHOD VA# CUSTOMER ID DENIMHOUTN1 CITE INDUSTRIELLE 5070 ZI KSAR HLEL DENIM HOUSE 2281.000 KG WEIGHT 30-Dec-23 ETD Invoiced Address: ADDITIONAL TERMS TNTUN = Tunis, Tunisia DESTINATION MASTER BILL VOLUME DENIM HOUSSE BANSARD TUNISIE CONSIGNEE TND 3,282.210 CONSOL NUMBERCO230235298 SUBTOTAL REGISTRATION # 1328625CAM000 TOTAL TND Carrier Bkg. Ref Add TVA CHARGEABLE CUSTOMER IDDENIMHOUTN1 INVOICE DATE04-Jan-24 Zero Rated zero Rated TVA IN TND SHIPMENTSO230448757 DUE DATE04-Jan-24 BALANCE DUE TERMSCash on Delivery DUE DATE PRINTED BY: Souhir Lassoued HOUSE BILL 69 CTN PACKAGES CHARGES IN TND 01-Jan-24 3,282.210 ETA TND 3,282.210 3,222.210 Page 1 of 1 3,282.210 04-Jan-2 0.000 60.000",
+  "processing_time_ms": 8716,
+  "warnings": [
+    "Required invoice field 'invoice_date' missing or invalid",
+    "Required invoice field 'total_ttc' missing or invalid"
+  ],
+  "review_reasons": [
+    "Missing or invalid required field: invoice_date",
+    "Missing or invalid required field: total_ttc"
+  ]
+}

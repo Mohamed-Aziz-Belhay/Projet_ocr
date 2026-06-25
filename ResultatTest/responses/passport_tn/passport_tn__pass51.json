@@ -1,0 +1,3 @@
+{
+  "detail": "Extraction failed: Unable to allocate 5.04 MiB for an array with shape (330510, 2) and data type int64. Saved file: \\tmp\\ocr_uploads\\00000000-0000-0000-0000-000000000000_uploads_f48b934a-67b3-4791-b0f1-01b82409343a_pass51.jpg. Upload filename: pass51.jpg. Size: 181362 bytes."
+}

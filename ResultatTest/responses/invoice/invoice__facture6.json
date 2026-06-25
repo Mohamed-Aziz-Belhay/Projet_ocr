@@ -1,0 +1,591 @@
+{
+  "job_id": "6aea80e6-5e1f-4182-8ca0-8aee65c079c9",
+  "status": "review_required",
+  "template_id": "invoice_tn",
+  "document_type": "invoice",
+  "document_variant": null,
+  "engine_used": "paddle",
+  "language_detected": "en",
+  "global_confidence": 0.5275,
+  "quality_score": 0.805,
+  "fields": [
+    {
+      "name": "invoice_profile",
+      "value": "ttn_electronic",
+      "confidence": 0.8,
+      "validated": true,
+      "raw_text": "ttn_electronic",
+      "raw_template_field": "invoice_profile",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "invoice_number",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": "invoice_number",
+      "error": "invoice_number_not_found",
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": true,
+      "reasons": [
+        "field unresolved"
+      ]
+    },
+    {
+      "name": "invoice_date",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": "invoice_date",
+      "error": "invoice_date_not_found",
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": true,
+      "reasons": [
+        "field unresolved"
+      ]
+    },
+    {
+      "name": "supplier_name",
+      "value": "SARL Avenue Hedi Nouira",
+      "confidence": 0.78,
+      "validated": true,
+      "raw_text": "SARL Avenue Hedi Nouira",
+      "raw_template_field": "supplier_name",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "customer_name",
+      "value": "EL-SADAT CITY - 32148 DENIM HOUSE KM1, ROUTE DE SOUSSE, 5016. KSAR HEL",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "Client: EL-SADAT CITY - 32148 DENIM HOUSE KM1, ROUTE DE SOUSSE, 5016. KSAR HEL",
+      "raw_template_field": "customer_name",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "supplier_tax_id",
+      "value": "1527250ZAM000",
+      "confidence": 0.72,
+      "validated": true,
+      "raw_text": "MF:1527250ZAM000",
+      "raw_template_field": "supplier_tax_id",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    },
+    {
+      "name": "total_ttc",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": "total_ttc",
+      "error": "total_ttc_not_found",
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": true,
+      "reasons": [
+        "field unresolved"
+      ]
+    },
+    {
+      "name": "currency",
+      "value": "TND",
+      "confidence": 0.8,
+      "validated": true,
+      "raw_text": "TND",
+      "raw_template_field": "currency",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "invoiceProfile": "ttn_electronic",
+    "supplierName": "SARL Avenue Hedi Nouira",
+    "customerName": "EL-SADAT CITY - 32148 DENIM HOUSE KM1, ROUTE DE SOUSSE, 5016. KSAR HEL",
+    "supplierTaxId": "1527250ZAM000",
+    "currency": "TND"
+  },
+  "routing": {
+    "requested_document_type": "invoice",
+    "requested_template_id": "invoice_tn",
+    "selected_template_id": "invoice_tn",
+    "selected_document_type": "invoice",
+    "method": "explicit_invoice_request_fast_path",
+    "forced_invoice_guard": true
+  },
+  "business_validation": {
+    "status": "review_required",
+    "review_required": true,
+    "review_reasons": [
+      "Missing or invalid required field: invoice_number",
+      "Missing or invalid required field: invoice_date",
+      "Missing or invalid required field: total_ttc"
+    ],
+    "valid_fields_ok": 5,
+    "present_fields": 5,
+    "field_coverage": 0.625,
+    "avg_field_confidence": 0.475,
+    "business_confidence": 0.5275,
+    "quality_score": 0.805
+  },
+  "diagnostics": {
+    "mode": "generic_template_v5_detector_swin_roi_passport_invoice",
+    "processing_mode": "balanced",
+    "routing": {
+      "requested_document_type": "invoice",
+      "requested_template_id": "invoice_tn",
+      "selected_template_id": "invoice_tn",
+      "selected_document_type": "invoice",
+      "method": "explicit_invoice_request_fast_path",
+      "forced_invoice_guard": true
+    },
+    "template_id": "invoice_tn",
+    "document_type": "invoice",
+    "engine": "paddle",
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.943,
+        "contrast": 0.398,
+        "quality_score": 0.805
+      },
+      "transforms": {
+        "resized": true,
+        "deskewed": true,
+        "contrast": true
+      }
+    },
+    "layout": {
+      "page_width": 1414,
+      "page_height": 2000,
+      "orientation": "portrait",
+      "has_table": true,
+      "column_count": 3,
+      "regions": [
+        {
+          "type": "text_block",
+          "bbox": [
+            16,
+            1806,
+            1318,
+            157
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            43,
+            1768,
+            893,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            46,
+            1728,
+            848,
+            31
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "table",
+          "bbox": [
+            13,
+            217,
+            1360,
+            1503
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            1193,
+            181,
+            131,
+            24
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            574,
+            169,
+            218,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            840,
+            145,
+            189,
+            22
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            839,
+            30,
+            319,
+            112
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            0,
+            8,
+            724,
+            147
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            840,
+            2,
+            263,
+            25
+          ],
+          "confidence": 1.0,
+          "label": null
+        }
+      ],
+      "region_count": 10
+    },
+    "field_count": 8,
+    "validated_field_count": 5,
+    "document_localizer": {
+      "localizer": "skipped",
+      "reason": "explicit_invoice_full_page_ocr_fast_path",
+      "candidate_count": 0
+    },
+    "raw_ocr_executed": true,
+    "raw_ocr_source": "full_page_invoice_ocr",
+    "raw_ocr_score": 0.0,
+    "raw_ocr_processing_time_ms": 8615,
+    "invoice_targeted_ocr": {
+      "executed": false,
+      "reason": "disabled_outside_supported_modes",
+      "mode": "balanced",
+      "combined_text": "",
+      "zones": [],
+      "candidates": [],
+      "best_candidates": {
+        "invoice_number": null,
+        "invoice_date": null
+      },
+      "processing_time_ms": 18,
+      "triggered_by_missing_critical_fields": [
+        "invoice_number",
+        "invoice_date"
+      ],
+      "policy": "header_fields_only_no_amount_merge",
+      "source_image": {
+        "selected": "uploaded_file_image",
+        "reason": "strict_priority_uploaded_file_first",
+        "fallback_used": false,
+        "file_path": "\\tmp\\ocr_uploads\\00000000-0000-0000-0000-000000000000_uploads_ed7690ae-d76d-4a93-9ad4-749d7926617c_facture6.jpg",
+        "file_load_error": null,
+        "selected_shape": {
+          "available": true,
+          "height": 2339,
+          "width": 1654,
+          "channels": 3,
+          "area": 3868706
+        },
+        "candidates": {
+          "uploaded_file_image": {
+            "available": true,
+            "height": 2339,
+            "width": 1654,
+            "channels": 3,
+            "area": 3868706
+          }
+        }
+      },
+      "easyocr_fallback": {
+        "enabled": false,
+        "init_error": null,
+        "scope": "invoice_number_and_invoice_date_only"
+      }
+    },
+    "invoice_text_enriched": false,
+    "invoice_targeted_policy": "diagnostic_and_header_fields_only",
+    "invoice_extraction": {
+      "invoice_extraction": "invoice_extractor_v3_tn_multi_profile_raw_text_rules",
+      "critical_fields": [
+        "invoice_date",
+        "invoice_number",
+        "total_ttc"
+      ],
+      "fields": [
+        {
+          "name": "invoice_profile",
+          "value": "ttn_electronic",
+          "validated": true,
+          "error": null,
+          "confidence": 0.8,
+          "included_in_response": true
+        },
+        {
+          "name": "invoice_number",
+          "value": null,
+          "validated": false,
+          "error": "invoice_number_not_found",
+          "confidence": 0.0,
+          "included_in_response": true
+        },
+        {
+          "name": "invoice_date",
+          "value": null,
+          "validated": false,
+          "error": "invoice_date_not_found",
+          "confidence": 0.0,
+          "included_in_response": true
+        },
+        {
+          "name": "reference_unique",
+          "label": "Référence unique",
+          "value": null,
+          "validated": false,
+          "error": "reference_unique_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "supplier_name",
+          "value": "SARL Avenue Hedi Nouira",
+          "validated": true,
+          "error": null,
+          "confidence": 0.78,
+          "included_in_response": true
+        },
+        {
+          "name": "customer_name",
+          "value": "EL-SADAT CITY - 32148 DENIM HOUSE KM1, ROUTE DE SOUSSE, 5016. KSAR HEL",
+          "validated": true,
+          "error": null,
+          "confidence": 0.7,
+          "included_in_response": true
+        },
+        {
+          "name": "supplier_tax_id",
+          "value": "1527250ZAM000",
+          "validated": true,
+          "error": null,
+          "confidence": 0.72,
+          "included_in_response": true
+        },
+        {
+          "name": "customer_tax_id",
+          "label": "Matricule fiscal client",
+          "value": null,
+          "validated": false,
+          "error": "customer_tax_id_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "period_start",
+          "label": "Début de période",
+          "value": null,
+          "validated": false,
+          "error": "period_start_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "period_end",
+          "label": "Fin de période",
+          "value": null,
+          "validated": false,
+          "error": "period_end_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "payment_due_date",
+          "label": "Date limite de paiement",
+          "value": null,
+          "validated": false,
+          "error": "payment_due_date_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "total_ht",
+          "label": "Total H.T.",
+          "value": null,
+          "validated": false,
+          "error": "total_ht_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "vat_amount",
+          "label": "Montant TVA",
+          "value": null,
+          "validated": false,
+          "error": "vat_amount_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "vat_rate",
+          "label": "Taux TVA",
+          "value": null,
+          "validated": false,
+          "error": "vat_rate_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "stamp_amount",
+          "label": "Droit de timbre",
+          "value": null,
+          "validated": false,
+          "error": "stamp_amount_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "total_ttc",
+          "value": null,
+          "validated": false,
+          "error": "total_ttc_not_found",
+          "confidence": 0.0,
+          "included_in_response": true
+        },
+        {
+          "name": "currency",
+          "value": "TND",
+          "validated": true,
+          "error": null,
+          "confidence": 0.8,
+          "included_in_response": true
+        },
+        {
+          "name": "line_items",
+          "label": "Contenu du tableau",
+          "value": [],
+          "validated": false,
+          "error": "line_items_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "amount_consistency",
+          "label": "Cohérence des montants",
+          "value": null,
+          "validated": false,
+          "error": "amount_consistency_not_computable_or_failed",
+          "skipped_from_response": true
+        }
+      ],
+      "targeted_header_merge": {
+        "executed": false,
+        "policy": "invoice_number_and_invoice_date_only",
+        "missing_before": [
+          "invoice_number",
+          "invoice_date"
+        ],
+        "missing_after": [
+          "invoice_number",
+          "invoice_date"
+        ],
+        "reason": "no_valid_targeted_header_candidate",
+        "structured_best_candidates": {
+          "invoice_number": null,
+          "invoice_date": null
+        },
+        "targeted_debug": {
+          "structured_candidates_used": false,
+          "combined_text_fallback_used": false,
+          "source_image": {
+            "selected": "uploaded_file_image",
+            "reason": "strict_priority_uploaded_file_first",
+            "fallback_used": false,
+            "file_path": "\\tmp\\ocr_uploads\\00000000-0000-0000-0000-000000000000_uploads_ed7690ae-d76d-4a93-9ad4-749d7926617c_facture6.jpg",
+            "file_load_error": null,
+            "selected_shape": {
+              "available": true,
+              "height": 2339,
+              "width": 1654,
+              "channels": 3,
+              "area": 3868706
+            },
+            "candidates": {
+              "uploaded_file_image": {
+                "available": true,
+                "height": 2339,
+                "width": 1654,
+                "channels": 3,
+                "area": 3868706
+              }
+            }
+          }
+        }
+      }
+    },
+    "strategy": "invoice_raw_text_rules",
+    "roi_skipped": true,
+    "roi_skipped_reason": "invoice_full_page_ocr_path"
+  },
+  "raw_text": "TUNISIA- MONASTIR SAVINO DEL BENE° Savino del Bene Tunisie SARL Avenue Hedi Nouira,App 102 Ksar Hellal, Monastir 5070 Global Logistics and Forwarding Company Tel. Fax: MF:1527250ZAM000 FACTURE ORIGINAL Expéditeur / Transitaire / Seller: Facture: Notre ref. Date ALROUBAIA FOURTEX TEXTILES CO S.A.E 502516 T40006 23/01/2024 3RD INDUSTRIAL ZONE EXTENSION P.O.... Client: EL-SADAT CITY - 32148 DENIM HOUSE KM1, ROUTE DE SOUSSE, 5016. KSAR HELL Destinataire: DENIM HOUSE KSAR HELLAL - 5016 KM1, ROUTE DE SOUSSE, 5016. KSAR... TN NIF: 1328625CAM000 KSAR HELLAL - 5016 Notify: Accounting code: 4110001539 Origin Ref. De: A: MARSEILLE-EN-BEAUVAISIS RADES Trucking#: Departure Date: Arrival Date: GN132VD 30/12/2023 15/01/2024 Entry#: UPON ARRIVAL REFERENCE Colis Kgs. Volume (m3) FABRICS 94 6078.000 0.000 Notes: CBC J -5 Purchase Order 610 02/01/2024 No Libellés TVA Taxable Non taxable 1FRET ROUTE IMPORT 1,701.840USD 0.00% 5,289.490 Total non tax: Total taxable: TVA Tax amount: TOTAL A V/ DEBIT 5,289.490 TND 5,289.490_EXEMPT TND 0.000 TND 5,289.490 Arretée la Présente Facture a la Somme de: CINQ MILLE DEUX CENT QUATRE-VINGT-NEUF Dinars ET 490 millimes Veuillez libeller vos chéques au nom de Savino del Bene Tunisie SARL Coordonnées bancaires: ZITOUNA (TND) - Iban: TN59 2505 6000 0014 0519 7880_Swift: BZITTNTT BIAT (TND)-Iban TN59 0860 3000 1510 02445854 Swift: BIATTNTT BIAT (EUR)-Iban: TN59 0860 3000 1559 01576451 Swift: BIATTNTT BIAT (USD) - Iban: TN59 0860 3000 1559 0154 3859 Swift: BIATTNTT Tribunal Compétent : Tunisl Page: 1/1",
+  "processing_time_ms": 8646,
+  "warnings": [
+    "Required invoice field 'invoice_number' missing or invalid",
+    "Required invoice field 'invoice_date' missing or invalid",
+    "Required invoice field 'total_ttc' missing or invalid"
+  ],
+  "review_reasons": [
+    "Missing or invalid required field: invoice_number",
+    "Missing or invalid required field: invoice_date",
+    "Missing or invalid required field: total_ttc"
+  ]
+}

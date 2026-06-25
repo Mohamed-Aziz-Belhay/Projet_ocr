@@ -1,0 +1,1100 @@
+{
+  "job_id": "28d2c73b-1b48-4dd4-8ed6-603b3c367456",
+  "status": "success",
+  "template_id": "midv_srb_passport",
+  "document_type": "passport",
+  "document_variant": null,
+  "engine_used": "passport_mrz",
+  "language_detected": "en",
+  "global_confidence": 0.9629,
+  "quality_score": 0.744,
+  "fields": [
+    {
+      "name": "document_number",
+      "value": "223458741",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE Puu SoMbORU Eat JipE 1012.2019 Ito 10.*12.2029 IZVt5 P<SRBSAPONJ Ic<<VERA<<<<<<<<<<<<<<<<<<<<<<<<< 2234587416SRB8001254F29121092501980241945<48",
+      "raw_template_field": "document_number",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "surname",
+      "value": "SAPONJIC",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE Puu SoMbORU Eat JipE 1012.2019 Ito 10.*12.2029 IZVt5 P<SRBSAPONJ Ic<<VERA<<<<<<<<<<<<<<<<<<<<<<<<< 2234587416SRB8001254F29121092501980241945<48",
+      "raw_template_field": "surname",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "given_names",
+      "value": "VERA",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE Puu SoMbORU Eat JipE 1012.2019 Ito 10.*12.2029 IZVt5 P<SRBSAPONJ Ic<<VERA<<<<<<<<<<<<<<<<<<<<<<<<< 2234587416SRB8001254F29121092501980241945<48",
+      "raw_template_field": "given_names",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "nationality",
+      "value": "SRB",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE Puu SoMbORU Eat JipE 1012.2019 Ito 10.*12.2029 IZVt5 P<SRBSAPONJ Ic<<VERA<<<<<<<<<<<<<<<<<<<<<<<<< 2234587416SRB8001254F29121092501980241945<48",
+      "raw_template_field": "nationality",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "birth_date",
+      "value": "1980-01-25",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE Puu SoMbORU Eat JipE 1012.2019 Ito 10.*12.2029 IZVt5 P<SRBSAPONJ Ic<<VERA<<<<<<<<<<<<<<<<<<<<<<<<< 2234587416SRB8001254F29121092501980241945<48",
+      "raw_template_field": "birth_date",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "gender",
+      "value": "F",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE Puu SoMbORU Eat JipE 1012.2019 Ito 10.*12.2029 IZVt5 P<SRBSAPONJ Ic<<VERA<<<<<<<<<<<<<<<<<<<<<<<<< 2234587416SRB8001254F29121092501980241945<48",
+      "raw_template_field": "gender",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "expiry_date",
+      "value": "2029-12-10",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE Puu SoMbORU Eat JipE 1012.2019 Ito 10.*12.2029 IZVt5 P<SRBSAPONJ Ic<<VERA<<<<<<<<<<<<<<<<<<<<<<<<< 2234587416SRB8001254F29121092501980241945<48",
+      "raw_template_field": "expiry_date",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "issuing_country",
+      "value": "SRB",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE Puu SoMbORU Eat JipE 1012.2019 Ito 10.*12.2029 IZVt5 P<SRBSAPONJ Ic<<VERA<<<<<<<<<<<<<<<<<<<<<<<<< 2234587416SRB8001254F29121092501980241945<48",
+      "raw_template_field": "issuing_country",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "personal_number",
+      "value": "2501980241945",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE Puu SoMbORU Eat JipE 1012.2019 Ito 10.*12.2029 IZVt5 P<SRBSAPONJ Ic<<VERA<<<<<<<<<<<<<<<<<<<<<<<<< 2234587416SRB8001254F29121092501980241945<48",
+      "raw_template_field": "personal_number",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "mrz",
+      "value": "P<SRBSAPONJIC<<VERA<<<<<<<<<<<<<<<<<<<<<<<<<\n2234587416SRB8001254F29121092501980241945<48",
+      "confidence": 0.97,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE Puu SoMbORU Eat JipE 1012.2019 Ito 10.*12.2029 IZVt5 P<SRBSAPONJ Ic<<VERA<<<<<<<<<<<<<<<<<<<<<<<<< 2234587416SRB8001254F29121092501980241945<48",
+      "raw_template_field": "mrz",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "document_number": "223458741",
+    "surname": "SAPONJIC",
+    "given_names": "VERA",
+    "nationality": "SRB",
+    "birth_date": "1980-01-25",
+    "gender": "F",
+    "expiry_date": "2029-12-10",
+    "issuing_country": "SRB",
+    "personal_number": "2501980241945",
+    "mrz": "P<SRBSAPONJIC<<VERA<<<<<<<<<<<<<<<<<<<<<<<<<\n2234587416SRB8001254F29121092501980241945<48"
+  },
+  "routing": {
+    "requested_document_type": "auto",
+    "requested_template_id": null,
+    "selected_template_id": "midv_srb_passport",
+    "selected_document_type": "passport",
+    "method": "swin_image_classifier",
+    "document_class": "srb_passport",
+    "confidence": 1.0
+  },
+  "business_validation": {
+    "status": "success",
+    "review_required": false,
+    "review_reasons": [],
+    "valid_fields_ok": 10,
+    "present_fields": 10,
+    "field_coverage": 1.0,
+    "avg_field_confidence": 0.943,
+    "business_confidence": 0.9629,
+    "quality_score": 0.744
+  },
+  "diagnostics": {
+    "mode": "generic_template_v5_detector_swin_roi_passport_invoice",
+    "processing_mode": "fast",
+    "routing": {
+      "requested_document_type": "auto",
+      "requested_template_id": null,
+      "selected_template_id": "midv_srb_passport",
+      "selected_document_type": "passport",
+      "method": "swin_image_classifier",
+      "document_class": "srb_passport",
+      "confidence": 1.0
+    },
+    "template_id": "midv_srb_passport",
+    "document_type": "passport",
+    "engine": "passport_mrz",
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.684,
+        "contrast": 0.41,
+        "quality_score": 0.744
+      },
+      "transforms": {
+        "resized": true,
+        "deskewed": true,
+        "contrast": true
+      }
+    },
+    "layout": {
+      "page_width": 2000,
+      "page_height": 1375,
+      "orientation": "landscape",
+      "has_table": true,
+      "column_count": 3,
+      "regions": [
+        {
+          "type": "footer",
+          "bbox": [
+            388,
+            1282,
+            84,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            388,
+            1241,
+            85,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            387,
+            1198,
+            85,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            387,
+            1155,
+            86,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            1112,
+            84,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            387,
+            1029,
+            86,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            387,
+            989,
+            85,
+            34
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            945,
+            84,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            901,
+            85,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            387,
+            861,
+            86,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            777,
+            85,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            690,
+            84,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            651,
+            84,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            565,
+            84,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            387,
+            524,
+            85,
+            35
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            494,
+            522,
+            81,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            494,
+            482,
+            81,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            481,
+            84,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            494,
+            441,
+            81,
+            35
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            387,
+            397,
+            86,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            494,
+            395,
+            81,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            387,
+            355,
+            86,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            387,
+            311,
+            86,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            494,
+            271,
+            81,
+            35
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            269,
+            81,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            388,
+            229,
+            81,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            387,
+            187,
+            82,
+            35
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            494,
+            144,
+            81,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            387,
+            143,
+            85,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            625,
+            128,
+            62,
+            63
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            493,
+            101,
+            82,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            494,
+            60,
+            81,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            388,
+            58,
+            84,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            494,
+            17,
+            81,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            388,
+            16,
+            84,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            587,
+            0,
+            1120,
+            1375
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            610,
+            0,
+            77,
+            127
+          ],
+          "confidence": 1.0,
+          "label": null
+        }
+      ],
+      "region_count": 37
+    },
+    "field_count": 10,
+    "validated_field_count": 10,
+    "document_localizer": {
+      "localizer": "document_localizer_v3_yolo_raw_plus_normalized",
+      "method": "yolo_crop",
+      "detector": {
+        "found": true,
+        "bbox_xyxy": [
+          0.0,
+          0.0,
+          1555.177490234375,
+          1488.0
+        ],
+        "confidence": 0.6904,
+        "class_name": "document",
+        "method": "yolo_document_detector",
+        "error": null
+      },
+      "input_shape": [
+        1488,
+        2163
+      ],
+      "localized_shape": [
+        1488,
+        1586
+      ],
+      "candidate_count": 20,
+      "raw_candidate_count": 4,
+      "normalized_candidate_count": 16,
+      "yolo_crop_padding": 0.02,
+      "aspect_trim": {
+        "enabled": false,
+        "reason": "aspect trimming degraded ROI alignment in previous tests"
+      },
+      "post_yolo_normalizer": {
+        "executed": true,
+        "diagnostics": {
+          "normalizer": "classical_cv_multi_candidate_v6_strict_color_nms",
+          "input_shape": [
+            1488,
+            1586
+          ],
+          "detection_shape": [
+            1126,
+            1200
+          ],
+          "scale": 0.7566204287515763,
+          "mode": "fast",
+          "found_contour": true,
+          "contours_total": 310,
+          "sliding_candidate_count": 8,
+          "contour_candidate_count": 42,
+          "candidate_pool_count": 50,
+          "crop_candidate_count": 8,
+          "final_candidate_count": 16,
+          "rejected": {
+            "too_small": 34,
+            "too_large": 0,
+            "bad_aspect": 4,
+            "touches_border_large": 0,
+            "invalid_crop": 0
+          },
+          "selected_strategy": "multi_candidate_roi_score",
+          "candidates_preview": [
+            {
+              "source": "sliding_color_window",
+              "index": 1262,
+              "score": 1.167806,
+              "density": 0.99648,
+              "mean_saturation": 0.679162,
+              "std_value": 0.089589,
+              "center_density": 1.0,
+              "center_saturation": 0.680061,
+              "area_ratio": 0.005256,
+              "bbox_detection": [
+                903,
+                735,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1208,
+              "score": 1.073245,
+              "density": 0.944382,
+              "mean_saturation": 0.553556,
+              "std_value": 0.099237,
+              "center_density": 0.99971,
+              "center_saturation": 0.660083,
+              "area_ratio": 0.005256,
+              "bbox_detection": [
+                882,
+                714,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1210,
+              "score": 0.994732,
+              "density": 0.844551,
+              "mean_saturation": 0.505112,
+              "std_value": 0.10773,
+              "center_density": 0.984638,
+              "center_saturation": 0.628525,
+              "area_ratio": 0.005256,
+              "bbox_detection": [
+                924,
+                714,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1260,
+              "score": 0.979179,
+              "density": 0.855956,
+              "mean_saturation": 0.524966,
+              "std_value": 0.108817,
+              "center_density": 0.908116,
+              "center_saturation": 0.582805,
+              "area_ratio": 0.005256,
+              "bbox_detection": [
+                861,
+                735,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 5044,
+              "score": 0.88967,
+              "density": 0.780484,
+              "mean_saturation": 0.413588,
+              "std_value": 0.111249,
+              "center_density": 0.933795,
+              "center_saturation": 0.548485,
+              "area_ratio": 0.013462,
+              "bbox_detection": [
+                861,
+                693,
+                170,
+                107
+              ],
+              "aspect": 1.5888,
+              "aspect_penalty": 0.0028,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1170,
+              "score": 0.881317,
+              "density": 0.87412,
+              "mean_saturation": 0.43806,
+              "std_value": 0.106162,
+              "center_density": 0.889565,
+              "center_saturation": 0.431504,
+              "area_ratio": 0.005256,
+              "bbox_detection": [
+                903,
+                693,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1313,
+              "score": 0.844393,
+              "density": 0.682343,
+              "mean_saturation": 0.46041,
+              "std_value": 0.118211,
+              "center_density": 0.809275,
+              "center_saturation": 0.547332,
+              "area_ratio": 0.005256,
+              "bbox_detection": [
+                882,
+                756,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1264,
+              "score": 0.824016,
+              "density": 0.689946,
+              "mean_saturation": 0.467962,
+              "std_value": 0.117922,
+              "center_density": 0.752174,
+              "center_saturation": 0.501391,
+              "area_ratio": 0.005256,
+              "bbox_detection": [
+                945,
+                735,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            }
+          ],
+          "candidate_angles": [
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180
+          ]
+        },
+        "normalized_shape": [
+          89,
+          140
+        ],
+        "candidate_count": 16
+      }
+    },
+    "passport_extraction": {
+      "passport_extraction": "passport_mrz_first_best_candidate_v2_strict_early_stop",
+      "selected_angle": 0,
+      "selected_source": "full_image_width_guard",
+      "selected_candidate_index": -1,
+      "selected_debug_prefix": "passport_cand_-1_angle_0",
+      "selected_score": 128.4,
+      "selected_mrz_core_valid": true,
+      "candidate_debug": [
+        {
+          "angle": 0,
+          "source": "full_image_width_guard",
+          "candidate_index": -1,
+          "debug_prefix": "passport_cand_-1_angle_0",
+          "score": 128.4,
+          "mrz_core_valid": true,
+          "validated_fields": 10,
+          "present_fields": 10,
+          "review_required_fields": [],
+          "warnings": [],
+          "passport_debug_summary": {
+            "selected_candidate": "bottom_38_clahe",
+            "selected_score": 88.0
+          }
+        }
+      ],
+      "selected_candidate_debug": {
+        "passport_extraction": "passport_mrz_first_v2_mrz_preprocess_repair",
+        "engine": "easyocr",
+        "language_hints": [
+          "en"
+        ],
+        "selected_candidate": "bottom_38_clahe",
+        "selected_base_candidate": "bottom_38",
+        "selected_variant": "clahe",
+        "selected_bbox_norm": [
+          0.02,
+          0.58,
+          0.96,
+          0.4
+        ],
+        "selected_score": 88.0,
+        "selected_raw_text": "MUPR SRBIJE Puu SoMbORU Eat JipE 1012.2019 Ito 10.*12.2029 IZVt5 P<SRBSAPONJ Ic<<VERA<<<<<<<<<<<<<<<<<<<<<<<<< 2234587416SRB8001254F29121092501980241945<48",
+        "selected_repaired_text": "MUPR SRBIJE Puu SoMbORU Eat JipE 1012.2019 Ito 10.*12.2029 IZVt5 P<SRBSAPONJ Ic<<VERA<<<<<<<<<<<<<<<<<<<<<<<<< 2234587416SRB8001254F29121092501980241945<48",
+        "selected_parsed": {
+          "valid": true,
+          "document_type": "P",
+          "issuing_country": "SRB",
+          "document_number": "223458741",
+          "surname": "SAPONJIC",
+          "given_names": "VERA",
+          "nationality": "SRB",
+          "birth_date": "1980-01-25",
+          "gender": "F",
+          "expiry_date": "2029-12-10",
+          "personal_number": "2501980241945",
+          "mrz_lines": [
+            "P<SRBSAPONJIC<<VERA<<<<<<<<<<<<<<<<<<<<<<<<<",
+            "2234587416SRB8001254F29121092501980241945<48"
+          ],
+          "checks": {
+            "document_number": true,
+            "birth_date": true,
+            "expiry_date": true,
+            "personal_number": true,
+            "composite": true
+          },
+          "errors": []
+        },
+        "selected_repair_candidates": [
+          {
+            "method": "raw_ocr_text",
+            "text": "MUPR SRBIJE Puu SoMbORU Eat JipE 1012.2019 Ito 10.*12.2029 IZVt5 P<SRBSAPONJ Ic<<VERA<<<<<<<<<<<<<<<<<<<<<<<<< 2234587416SRB8001254F29121092501980241945<48",
+            "score": 88.0,
+            "valid": true,
+            "parsed": {
+              "valid": true,
+              "document_type": "P",
+              "issuing_country": "SRB",
+              "document_number": "223458741",
+              "surname": "SAPONJIC",
+              "given_names": "VERA",
+              "nationality": "SRB",
+              "birth_date": "1980-01-25",
+              "gender": "F",
+              "expiry_date": "2029-12-10",
+              "personal_number": "2501980241945",
+              "mrz_lines": [
+                "P<SRBSAPONJIC<<VERA<<<<<<<<<<<<<<<<<<<<<<<<<",
+                "2234587416SRB8001254F29121092501980241945<48"
+              ],
+              "checks": {
+                "document_number": true,
+                "birth_date": true,
+                "expiry_date": true,
+                "personal_number": true,
+                "composite": true
+              },
+              "errors": []
+            }
+          }
+        ],
+        "candidates": [
+          {
+            "candidate": "bottom_38_clahe",
+            "base_candidate": "bottom_38",
+            "variant": "clahe",
+            "bbox_norm": [
+              0.02,
+              0.58,
+              0.96,
+              0.4
+            ],
+            "raw_text": "MUPR SRBIJE Puu SoMbORU Eat JipE 1012.2019 Ito 10.*12.2029 IZVt5 P<SRBSAPONJ Ic<<VERA<<<<<<<<<<<<<<<<<<<<<<<<< 2234587416SRB8001254F29121092501980241945<48",
+            "selected_text": "MUPR SRBIJE Puu SoMbORU Eat JipE 1012.2019 Ito 10.*12.2029 IZVt5 P<SRBSAPONJ Ic<<VERA<<<<<<<<<<<<<<<<<<<<<<<<< 2234587416SRB8001254F29121092501980241945<48",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": true,
+              "document_type": "P",
+              "issuing_country": "SRB",
+              "document_number": "223458741",
+              "surname": "SAPONJIC",
+              "given_names": "VERA",
+              "nationality": "SRB",
+              "birth_date": "1980-01-25",
+              "gender": "F",
+              "expiry_date": "2029-12-10",
+              "personal_number": "2501980241945",
+              "mrz_lines": [
+                "P<SRBSAPONJIC<<VERA<<<<<<<<<<<<<<<<<<<<<<<<<",
+                "2234587416SRB8001254F29121092501980241945<48"
+              ],
+              "checks": {
+                "document_number": true,
+                "birth_date": true,
+                "expiry_date": true,
+                "personal_number": true,
+                "composite": true
+              },
+              "errors": []
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "MUPR SRBIJE Puu SoMbORU Eat JipE 1012.2019 Ito 10.*12.2029 IZVt5 P<SRBSAPONJ Ic<<VERA<<<<<<<<<<<<<<<<<<<<<<<<< 2234587416SRB8001254F29121092501980241945<48",
+                "score": 88.0,
+                "valid": true,
+                "parsed": {
+                  "valid": true,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "223458741",
+                  "surname": "SAPONJIC",
+                  "given_names": "VERA",
+                  "nationality": "SRB",
+                  "birth_date": "1980-01-25",
+                  "gender": "F",
+                  "expiry_date": "2029-12-10",
+                  "personal_number": "2501980241945",
+                  "mrz_lines": [
+                    "P<SRBSAPONJIC<<VERA<<<<<<<<<<<<<<<<<<<<<<<<<",
+                    "2234587416SRB8001254F29121092501980241945<48"
+                  ],
+                  "checks": {
+                    "document_number": true,
+                    "birth_date": true,
+                    "expiry_date": true,
+                    "personal_number": true,
+                    "composite": true
+                  },
+                  "errors": []
+                }
+              }
+            ],
+            "score": 88.0
+          }
+        ]
+      },
+      "early_stop": {
+        "enabled": true,
+        "reason": "valid_mrz_core_checks"
+      }
+    },
+    "passport_width_guard": {
+      "enabled": true,
+      "min_width_ratio": 0.9,
+      "original_width": 2163,
+      "localized_width": 1586,
+      "actual_width_ratio": 0.7332,
+      "use_full_image_candidate": true,
+      "candidate_policy": "full_image_prepended",
+      "selected_source": "full_image_width_guard",
+      "selected_candidate_index": -1
+    },
+    "raw_ocr_executed": false,
+    "strategy": "passport_mrz_first"
+  },
+  "raw_text": "MUPR SRBIJE Puu SoMbORU Eat JipE 1012.2019 Ito 10.*12.2029 IZVt5 P<SRBSAPONJ Ic<<VERA<<<<<<<<<<<<<<<<<<<<<<<<< 2234587416SRB8001254F29121092501980241945<48",
+  "processing_time_ms": 2256,
+  "warnings": [],
+  "review_reasons": []
+}

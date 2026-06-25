@@ -1,0 +1,1707 @@
+{
+  "job_id": "86f1ac66-7a60-46dd-96ad-dfdaa43b41eb",
+  "status": "success",
+  "template_id": "midv_aze_passport",
+  "document_type": "passport",
+  "document_variant": null,
+  "engine_used": "passport_mrz",
+  "language_detected": "en",
+  "global_confidence": 0.9629,
+  "quality_score": 0.763,
+  "fields": [
+    {
+      "name": "document_number",
+      "value": "C54925501",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "24105 021 DAXILI ISLOR NAZIRLIY| MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMI FN<<<<<<<54",
+      "raw_template_field": "document_number",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "surname",
+      "value": "MIKAYILOVA",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "24105 021 DAXILI ISLOR NAZIRLIY| MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMI FN<<<<<<<54",
+      "raw_template_field": "surname",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "given_names",
+      "value": "ALMAZ",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "24105 021 DAXILI ISLOR NAZIRLIY| MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMI FN<<<<<<<54",
+      "raw_template_field": "given_names",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "nationality",
+      "value": "AZE",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "24105 021 DAXILI ISLOR NAZIRLIY| MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMI FN<<<<<<<54",
+      "raw_template_field": "nationality",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "birth_date",
+      "value": "1994-03-18",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "24105 021 DAXILI ISLOR NAZIRLIY| MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMI FN<<<<<<<54",
+      "raw_template_field": "birth_date",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "gender",
+      "value": "F",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "24105 021 DAXILI ISLOR NAZIRLIY| MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMI FN<<<<<<<54",
+      "raw_template_field": "gender",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "expiry_date",
+      "value": "2021-05-24",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "24105 021 DAXILI ISLOR NAZIRLIY| MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMI FN<<<<<<<54",
+      "raw_template_field": "expiry_date",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "issuing_country",
+      "value": "AZE",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "24105 021 DAXILI ISLOR NAZIRLIY| MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMI FN<<<<<<<54",
+      "raw_template_field": "issuing_country",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "personal_number",
+      "value": "HNEMIFN",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "24105 021 DAXILI ISLOR NAZIRLIY| MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMI FN<<<<<<<54",
+      "raw_template_field": "personal_number",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "mrz",
+      "value": "PCAZEMIKAYILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<<\nC549255013AZE9403187F2105242HNEMIFN<<<<<<<54",
+      "confidence": 0.97,
+      "validated": true,
+      "raw_text": "24105 021 DAXILI ISLOR NAZIRLIY| MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMI FN<<<<<<<54",
+      "raw_template_field": "mrz",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "document_number": "C54925501",
+    "surname": "MIKAYILOVA",
+    "given_names": "ALMAZ",
+    "nationality": "AZE",
+    "birth_date": "1994-03-18",
+    "gender": "F",
+    "expiry_date": "2021-05-24",
+    "issuing_country": "AZE",
+    "personal_number": "HNEMIFN",
+    "mrz": "PCAZEMIKAYILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<<\nC549255013AZE9403187F2105242HNEMIFN<<<<<<<54"
+  },
+  "routing": {
+    "requested_document_type": "auto",
+    "requested_template_id": null,
+    "selected_template_id": "midv_aze_passport",
+    "selected_document_type": "passport",
+    "method": "swin_image_classifier",
+    "document_class": "aze_passport",
+    "confidence": 1.0
+  },
+  "business_validation": {
+    "status": "success",
+    "review_required": false,
+    "review_reasons": [],
+    "valid_fields_ok": 10,
+    "present_fields": 10,
+    "field_coverage": 1.0,
+    "avg_field_confidence": 0.943,
+    "business_confidence": 0.9629,
+    "quality_score": 0.763
+  },
+  "diagnostics": {
+    "mode": "generic_template_v5_detector_swin_roi_passport_invoice",
+    "processing_mode": "fast",
+    "routing": {
+      "requested_document_type": "auto",
+      "requested_template_id": null,
+      "selected_template_id": "midv_aze_passport",
+      "selected_document_type": "passport",
+      "method": "swin_image_classifier",
+      "document_class": "aze_passport",
+      "confidence": 1.0
+    },
+    "template_id": "midv_aze_passport",
+    "document_type": "passport",
+    "engine": "passport_mrz",
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.794,
+        "contrast": 0.382,
+        "quality_score": 0.763
+      },
+      "transforms": {
+        "resized": true,
+        "deskewed": true,
+        "contrast": true
+      }
+    },
+    "layout": {
+      "page_width": 2000,
+      "page_height": 1407,
+      "orientation": "landscape",
+      "has_table": true,
+      "column_count": 3,
+      "regions": [
+        {
+          "type": "text_block",
+          "bbox": [
+            1676,
+            1334,
+            46,
+            73
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            0,
+            1243,
+            321,
+            164
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            697,
+            1120,
+            222,
+            287
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            986,
+            1118,
+            116,
+            99
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            412,
+            1060,
+            79,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            0,
+            967,
+            320,
+            29
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            0,
+            941,
+            320,
+            22
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            0,
+            907,
+            320,
+            31
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            412,
+            899,
+            82,
+            35
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1474,
+            864,
+            163,
+            498
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            412,
+            857,
+            82,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            655,
+            838,
+            74,
+            197
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            412,
+            818,
+            82,
+            35
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1676,
+            772,
+            324,
+            558
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            411,
+            736,
+            83,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            412,
+            655,
+            82,
+            35
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            507,
+            613,
+            79,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1678,
+            610,
+            322,
+            160
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            507,
+            573,
+            79,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            412,
+            572,
+            82,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1678,
+            535,
+            322,
+            73
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            411,
+            532,
+            83,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            507,
+            491,
+            79,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            411,
+            451,
+            83,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1678,
+            448,
+            322,
+            83
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            411,
+            411,
+            83,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            412,
+            370,
+            82,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            507,
+            369,
+            79,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            412,
+            329,
+            82,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            507,
+            328,
+            79,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            655,
+            292,
+            984,
+            742
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            506,
+            289,
+            80,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1677,
+            272,
+            323,
+            171
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            507,
+            250,
+            79,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            412,
+            207,
+            79,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            1676,
+            201,
+            324,
+            70
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            507,
+            167,
+            79,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            411,
+            167,
+            83,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            1678,
+            134,
+            322,
+            58
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1476,
+            108,
+            106,
+            175
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            507,
+            85,
+            79,
+            78
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            411,
+            85,
+            83,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            507,
+            3,
+            79,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1678,
+            0,
+            322,
+            125
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1475,
+            0,
+            105,
+            93
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            983,
+            0,
+            124,
+            112
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            873,
+            0,
+            566,
+            227
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            702,
+            0,
+            127,
+            94
+          ],
+          "confidence": 1.0,
+          "label": null
+        }
+      ],
+      "region_count": 48
+    },
+    "field_count": 10,
+    "validated_field_count": 10,
+    "document_localizer": {
+      "localizer": "document_localizer_v3_yolo_raw_plus_normalized",
+      "method": "yolo_crop",
+      "detector": {
+        "found": true,
+        "bbox_xyxy": [
+          0.0,
+          0.0,
+          1557.808349609375,
+          1525.0
+        ],
+        "confidence": 0.8047,
+        "class_name": "document",
+        "method": "yolo_document_detector",
+        "error": null
+      },
+      "input_shape": [
+        1525,
+        2167
+      ],
+      "localized_shape": [
+        1525,
+        1589
+      ],
+      "candidate_count": 20,
+      "raw_candidate_count": 4,
+      "normalized_candidate_count": 16,
+      "yolo_crop_padding": 0.02,
+      "aspect_trim": {
+        "enabled": false,
+        "reason": "aspect trimming degraded ROI alignment in previous tests"
+      },
+      "post_yolo_normalizer": {
+        "executed": true,
+        "diagnostics": {
+          "normalizer": "classical_cv_multi_candidate_v6_strict_color_nms",
+          "input_shape": [
+            1525,
+            1589
+          ],
+          "detection_shape": [
+            1152,
+            1200
+          ],
+          "scale": 0.7551919446192574,
+          "mode": "fast",
+          "found_contour": true,
+          "contours_total": 393,
+          "sliding_candidate_count": 8,
+          "contour_candidate_count": 41,
+          "candidate_pool_count": 49,
+          "crop_candidate_count": 8,
+          "final_candidate_count": 16,
+          "rejected": {
+            "too_small": 24,
+            "too_large": 0,
+            "bad_aspect": 15,
+            "touches_border_large": 0,
+            "invalid_crop": 0
+          },
+          "selected_strategy": "multi_candidate_roi_score",
+          "candidates_preview": [
+            {
+              "source": "sliding_color_window",
+              "index": 216,
+              "score": 0.831453,
+              "density": 0.68794,
+              "mean_saturation": 0.374945,
+              "std_value": 0.224731,
+              "center_density": 0.952303,
+              "center_saturation": 0.479925,
+              "area_ratio": 0.005441,
+              "bbox_detection": [
+                210,
+                105,
+                109,
+                69
+              ],
+              "aspect": 1.5797,
+              "aspect_penalty": 0.0063,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 265,
+              "score": 0.676329,
+              "density": 0.580242,
+              "mean_saturation": 0.328898,
+              "std_value": 0.215445,
+              "center_density": 0.716831,
+              "center_saturation": 0.373345,
+              "area_ratio": 0.005441,
+              "bbox_detection": [
+                231,
+                126,
+                109,
+                69
+              ],
+              "aspect": 1.5797,
+              "aspect_penalty": 0.0063,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 218,
+              "score": 0.671496,
+              "density": 0.606302,
+              "mean_saturation": 0.321667,
+              "std_value": 0.220216,
+              "center_density": 0.675713,
+              "center_saturation": 0.361204,
+              "area_ratio": 0.005441,
+              "bbox_detection": [
+                252,
+                105,
+                109,
+                69
+              ],
+              "aspect": 1.5797,
+              "aspect_penalty": 0.0063,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 263,
+              "score": 0.563751,
+              "density": 0.476798,
+              "mean_saturation": 0.283295,
+              "std_value": 0.209233,
+              "center_density": 0.587719,
+              "center_saturation": 0.31979,
+              "area_ratio": 0.005441,
+              "bbox_detection": [
+                189,
+                126,
+                109,
+                69
+              ],
+              "aspect": 1.5797,
+              "aspect_penalty": 0.0063,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 169,
+              "score": 0.514768,
+              "density": 0.425608,
+              "mean_saturation": 0.266553,
+              "std_value": 0.213422,
+              "center_density": 0.506853,
+              "center_saturation": 0.307868,
+              "area_ratio": 0.005441,
+              "bbox_detection": [
+                231,
+                84,
+                109,
+                69
+              ],
+              "aspect": 1.5797,
+              "aspect_penalty": 0.0063,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 223,
+              "score": 0.505969,
+              "density": 0.504587,
+              "mean_saturation": 0.217659,
+              "std_value": 0.174717,
+              "center_density": 0.60636,
+              "center_saturation": 0.240084,
+              "area_ratio": 0.005441,
+              "bbox_detection": [
+                357,
+                105,
+                109,
+                69
+              ],
+              "aspect": 1.5797,
+              "aspect_penalty": 0.0063,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 3109,
+              "score": 0.498212,
+              "density": 0.37445,
+              "mean_saturation": 0.231702,
+              "std_value": 0.192622,
+              "center_density": 0.580565,
+              "center_saturation": 0.323106,
+              "area_ratio": 0.013641,
+              "bbox_detection": [
+                210,
+                84,
+                173,
+                109
+              ],
+              "aspect": 1.5872,
+              "aspect_penalty": 0.0012,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 267,
+              "score": 0.496931,
+              "density": 0.458982,
+              "mean_saturation": 0.253674,
+              "std_value": 0.193008,
+              "center_density": 0.494243,
+              "center_saturation": 0.26079,
+              "area_ratio": 0.005441,
+              "bbox_detection": [
+                273,
+                126,
+                109,
+                69
+              ],
+              "aspect": 1.5797,
+              "aspect_penalty": 0.0063,
+              "touches_border": false,
+              "reject_reason": null
+            }
+          ],
+          "candidate_angles": [
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180
+          ]
+        },
+        "normalized_shape": [
+          91,
+          144
+        ],
+        "candidate_count": 16
+      }
+    },
+    "passport_extraction": {
+      "passport_extraction": "passport_mrz_first_best_candidate_v2_strict_early_stop",
+      "selected_angle": 0,
+      "selected_source": "full_image_width_guard",
+      "selected_candidate_index": -1,
+      "selected_debug_prefix": "passport_cand_-1_angle_0",
+      "selected_score": 128.4,
+      "selected_mrz_core_valid": true,
+      "candidate_debug": [
+        {
+          "angle": 0,
+          "source": "full_image_width_guard",
+          "candidate_index": -1,
+          "debug_prefix": "passport_cand_-1_angle_0",
+          "score": 128.4,
+          "mrz_core_valid": true,
+          "validated_fields": 10,
+          "present_fields": 10,
+          "review_required_fields": [],
+          "warnings": [],
+          "passport_debug_summary": {
+            "selected_candidate": "bottom_30_clahe",
+            "selected_score": 82.0
+          }
+        }
+      ],
+      "selected_candidate_debug": {
+        "passport_extraction": "passport_mrz_first_v2_mrz_preprocess_repair",
+        "engine": "easyocr",
+        "language_hints": [
+          "en"
+        ],
+        "selected_candidate": "bottom_30_clahe",
+        "selected_base_candidate": "bottom_30",
+        "selected_variant": "clahe",
+        "selected_bbox_norm": [
+          0.03,
+          0.67,
+          0.94,
+          0.3
+        ],
+        "selected_score": 82.0,
+        "selected_raw_text": "24105 021 DAXILI ISLOR NAZIRLIY| MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMI FN<<<<<<<54",
+        "selected_repaired_text": "24105 021 DAXILI ISLOR NAZIRLIY| MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMI FN<<<<<<<54",
+        "selected_parsed": {
+          "valid": true,
+          "document_type": "PC",
+          "issuing_country": "AZE",
+          "document_number": "C54925501",
+          "surname": "MIKAYILOVA",
+          "given_names": "ALMAZ",
+          "nationality": "AZE",
+          "birth_date": "1994-03-18",
+          "gender": "F",
+          "expiry_date": "2021-05-24",
+          "personal_number": "HNEMIFN",
+          "mrz_lines": [
+            "PCAZEMIKAYILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<<",
+            "C549255013AZE9403187F2105242HNEMIFN<<<<<<<54"
+          ],
+          "checks": {
+            "document_number": true,
+            "birth_date": true,
+            "expiry_date": true,
+            "personal_number": false,
+            "composite": false
+          },
+          "errors": []
+        },
+        "selected_repair_candidates": [
+          {
+            "method": "raw_ocr_text",
+            "text": "24105 021 DAXILI ISLOR NAZIRLIY| MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMI FN<<<<<<<54",
+            "score": 82.0,
+            "valid": true,
+            "parsed": {
+              "valid": true,
+              "document_type": "PC",
+              "issuing_country": "AZE",
+              "document_number": "C54925501",
+              "surname": "MIKAYILOVA",
+              "given_names": "ALMAZ",
+              "nationality": "AZE",
+              "birth_date": "1994-03-18",
+              "gender": "F",
+              "expiry_date": "2021-05-24",
+              "personal_number": "HNEMIFN",
+              "mrz_lines": [
+                "PCAZEMIKAYILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<<",
+                "C549255013AZE9403187F2105242HNEMIFN<<<<<<<54"
+              ],
+              "checks": {
+                "document_number": true,
+                "birth_date": true,
+                "expiry_date": true,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": []
+            }
+          }
+        ],
+        "candidates": [
+          {
+            "candidate": "bottom_38_clahe",
+            "base_candidate": "bottom_38",
+            "variant": "clahe",
+            "bbox_norm": [
+              0.02,
+              0.58,
+              0.96,
+              0.4
+            ],
+            "raw_text": "Yenimp larixilvaie 0Isque ellivemWWWWpWivaue WieAU 25.05.2011 24.05.2021 Pasportulveran orqan lssuing authority 24 021 DAXiLi iSLOR NAZiRLivi MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA Y ILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMIFN<<<<<<<54 d_>",
+            "selected_text": "Yenimp larixilvaie 0Isque ellivemWWWWpWivaue WieAU 25.05.2011 24.05.2021 Pasportulveran orqan lssuing authority 24 021 DAXiLi iSLOR NAZiRLivi MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA Y ILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMIFN<<<<<<<54 d_>",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": "PL",
+              "issuing_country": "ARI",
+              "document_number": "520112405",
+              "surname": "XILVAIEISQUEELLIVEMWWWWPWIVAUEWIEAU",
+              "given_names": null,
+              "nationality": "OZI",
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": "RQANLSSUINGAUT",
+              "mrz_lines": [
+                "PLARIXILVAIE0ISQUEELLIVEMWWWWPWIVAUEWIEAU250",
+                "5201124052OZIPASPORTULVERANORQANLSSUINGAUTHO"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "Yenimp larixilvaie 0Isque ellivemWWWWpWivaue WieAU 25.05.2011 24.05.2021 Pasportulveran orqan lssuing authority 24 021 DAXiLi iSLOR NAZiRLivi MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA Y ILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMIFN<<<<<<<54 d_>",
+                "score": 3.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "PL",
+                  "issuing_country": "ARI",
+                  "document_number": "520112405",
+                  "surname": "XILVAIEISQUEELLIVEMWWWWPWIVAUEWIEAU",
+                  "given_names": null,
+                  "nationality": "OZI",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "RQANLSSUINGAUT",
+                  "mrz_lines": [
+                    "PLARIXILVAIE0ISQUEELLIVEMWWWWPWIVAUEWIEAU250",
+                    "5201124052OZIPASPORTULVERANORQANLSSUINGAUTHO"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              }
+            ],
+            "score": 3.4
+          },
+          {
+            "candidate": "bottom_38_sharp",
+            "base_candidate": "bottom_38",
+            "variant": "sharp",
+            "bbox_norm": [
+              0.02,
+              0.58,
+              0.96,
+              0.4
+            ],
+            "raw_text": "Yenimp lanixiivaie @Nsque JellIWemWWWwew veueWNeRW 25.05.2011 24.05.2021 Pasportul veran orqan Issuing authority 24 021 DAXiLi iSLOR NAZIRLivi MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA Y ILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMI FN<<<<<<<54 d8_2",
+            "selected_text": "Yenimp lanixiivaie @Nsque JellIWemWWWwew veueWNeRW 25.05.2011 24.05.2021 Pasportul veran orqan Issuing authority 24 021 DAXiLi iSLOR NAZIRLivi MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA Y ILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMI FN<<<<<<<54 d8_2",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": "PL",
+              "issuing_country": "ANI",
+              "document_number": "201124052",
+              "surname": "XIIVAIENSQUEJELLIWEMWWWWEWVEUEWNERW",
+              "given_names": null,
+              "nationality": "ZIP",
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": "QANISSUINGAUTH",
+              "mrz_lines": [
+                "PLANIXIIVAIENSQUEJELLIWEMWWWWEWVEUEWNERW2505",
+                "2011240520ZIPASPORTULVERANORQANISSUINGAUTHOR"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "Yenimp lanixiivaie @Nsque JellIWemWWWwew veueWNeRW 25.05.2011 24.05.2021 Pasportul veran orqan Issuing authority 24 021 DAXiLi iSLOR NAZIRLivi MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA Y ILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMI FN<<<<<<<54 d8_2",
+                "score": 3.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "PL",
+                  "issuing_country": "ANI",
+                  "document_number": "201124052",
+                  "surname": "XIIVAIENSQUEJELLIWEMWWWWEWVEUEWNERW",
+                  "given_names": null,
+                  "nationality": "ZIP",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "QANISSUINGAUTH",
+                  "mrz_lines": [
+                    "PLANIXIIVAIENSQUEJELLIWEMWWWWEWVEUEWNERW2505",
+                    "2011240520ZIPASPORTULVERANORQANISSUINGAUTHOR"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              }
+            ],
+            "score": 3.4
+          },
+          {
+            "candidate": "bottom_38_binary",
+            "base_candidate": "bottom_38",
+            "variant": "binary",
+            "bbox_norm": [
+              0.02,
+              0.58,
+              0.96,
+              0.4
+            ],
+            "raw_text": "#enim? {arxiruale Q1 Issue EliwzhhY MWmWrutale QI ExtiY 25.05.2011 24.05.2021 Pasportu veran orqan/lssuing authority 24_ 1021 DAxiLi iSLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA Y ILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<< < C54925501342E9403187F2105242HNEM1 FN<<<<<<<54 Ib>D",
+            "selected_text": "#enim? {arxiruale Q1 Issue EliwzhhY MWmWrutale QI ExtiY 25.05.2011 24.05.2021 Pasportu veran orqan/lssuing authority 24_ 1021 DAxiLi iSLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA Y ILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<< < C54925501342E9403187F2105242HNEM1 FN<<<<<<<54 Ib>D",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": "PA",
+              "issuing_country": "SPO",
+              "document_number": "ILIISLORN",
+              "surname": "RTUVERANORQANLSSUINGAUTHORITY DAX",
+              "given_names": null,
+              "nationality": "ZIR",
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": "NTERNALAFFAIRS",
+              "mrz_lines": [
+                "PASPORTUVERANORQANLSSUINGAUTHORITY24<1021DAX",
+                "ILIISLORNAZIRLIYIMINISTRYOFINTERNALAFFAIRSPC"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "#enim? {arxiruale Q1 Issue EliwzhhY MWmWrutale QI ExtiY 25.05.2011 24.05.2021 Pasportu veran orqan/lssuing authority 24_ 1021 DAxiLi iSLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA Y ILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<< < C54925501342E9403187F2105242HNEM1 FN<<<<<<<54 Ib>D",
+                "score": 3.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "PA",
+                  "issuing_country": "SPO",
+                  "document_number": "ILIISLORN",
+                  "surname": "RTUVERANORQANLSSUINGAUTHORITY DAX",
+                  "given_names": null,
+                  "nationality": "ZIR",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "NTERNALAFFAIRS",
+                  "mrz_lines": [
+                    "PASPORTUVERANORQANLSSUINGAUTHORITY24<1021DAX",
+                    "ILIISLORNAZIRLIYIMINISTRYOFINTERNALAFFAIRSPC"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              }
+            ],
+            "score": 3.4
+          },
+          {
+            "candidate": "bottom_35_clahe",
+            "base_candidate": "bottom_35",
+            "variant": "clahe",
+            "bbox_norm": [
+              0.03,
+              0.62,
+              0.94,
+              0.35
+            ],
+            "raw_text": "Coiodic# Fuet Pasportu veran orqan lssuing authority 24 021 DAXiLi iSLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA Y ILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMIFN< < <<<<<54",
+            "selected_text": "Coiodic# Fuet Pasportu veran orqan lssuing authority 24 021 DAXiLi iSLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA Y ILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMIFN< < <<<<<54",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": "PA",
+              "issuing_country": "SPO",
+              "document_number": "IISLORNAZ",
+              "surname": "RTUVERANORQANLSSUINGAUTHORITYDAXIL",
+              "given_names": null,
+              "nationality": "RLI",
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": "ERNALAFFAIRSPC",
+              "mrz_lines": [
+                "PASPORTUVERANORQANLSSUINGAUTHORITY24021DAXIL",
+                "IISLORNAZIRLIYIMINISTRYOFINTERNALAFFAIRSPCAZ"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "Coiodic# Fuet Pasportu veran orqan lssuing authority 24 021 DAXiLi iSLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA Y ILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMIFN< < <<<<<54",
+                "score": 3.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "PA",
+                  "issuing_country": "SPO",
+                  "document_number": "IISLORNAZ",
+                  "surname": "RTUVERANORQANLSSUINGAUTHORITYDAXIL",
+                  "given_names": null,
+                  "nationality": "RLI",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "ERNALAFFAIRSPC",
+                  "mrz_lines": [
+                    "PASPORTUVERANORQANLSSUINGAUTHORITY24021DAXIL",
+                    "IISLORNAZIRLIYIMINISTRYOFINTERNALAFFAIRSPCAZ"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              }
+            ],
+            "score": 3.4
+          },
+          {
+            "candidate": "bottom_35_sharp",
+            "base_candidate": "bottom_35",
+            "variant": "sharp",
+            "bbox_norm": [
+              0.03,
+              0.62,
+              0.94,
+              0.35
+            ],
+            "raw_text": "LoiodL# Fueon Pasportui veran orqan Issuing authority 24 021 DAXiLi iSLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<< < < <<<<<<<< C54925501342E9403187F2105242HNEMIFN< <<<<<<54",
+            "selected_text": "LoiodL# Fueon Pasportui veran orqan Issuing authority 24 021 DAXiLi iSLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<< < < <<<<<<<< C54925501342E9403187F2105242HNEMIFN< <<<<<<54",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": "PA",
+              "issuing_country": "SPO",
+              "document_number": "LIISLORNA",
+              "surname": "RTUIVERANORQANISSUINGAUTHORITYDAXI",
+              "given_names": null,
+              "nationality": "IRL",
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": "TERNALAFFAIRSP",
+              "mrz_lines": [
+                "PASPORTUIVERANORQANISSUINGAUTHORITY24021DAXI",
+                "LIISLORNAZIRLIYIMINISTRYOFINTERNALAFFAIRSPCA"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "LoiodL# Fueon Pasportui veran orqan Issuing authority 24 021 DAXiLi iSLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<< < < <<<<<<<< C54925501342E9403187F2105242HNEMIFN< <<<<<<54",
+                "score": 3.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "PA",
+                  "issuing_country": "SPO",
+                  "document_number": "LIISLORNA",
+                  "surname": "RTUIVERANORQANISSUINGAUTHORITYDAXI",
+                  "given_names": null,
+                  "nationality": "IRL",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "TERNALAFFAIRSP",
+                  "mrz_lines": [
+                    "PASPORTUIVERANORQANISSUINGAUTHORITY24021DAXI",
+                    "LIISLORNAZIRLIYIMINISTRYOFINTERNALAFFAIRSPCA"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              }
+            ],
+            "score": 3.4
+          },
+          {
+            "candidate": "bottom_35_binary",
+            "base_candidate": "bottom_35",
+            "variant": "binary",
+            "bbox_norm": [
+              0.03,
+              0.62,
+              0.94,
+              0.35
+            ],
+            "raw_text": "LOioolo Pasporu veran orqanflssuing authority 24 1021 DAXiLI iSLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMIFN<<<<<<<54",
+            "selected_text": "LOioolo Pasporu veran orqanflssuing authority 24 1021 DAXiLI iSLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMIFN<<<<<<<54",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": false,
+              "document_type": "PA",
+              "issuing_country": "SPO",
+              "document_number": "LIISLORNA",
+              "surname": "RUVERANORQANFLSSUINGAUTHORITYDAXI",
+              "given_names": null,
+              "nationality": "IRL",
+              "birth_date": null,
+              "gender": null,
+              "expiry_date": null,
+              "personal_number": "TERNALAFFAIRSP",
+              "mrz_lines": [
+                "PASPORUVERANORQANFLSSUINGAUTHORITY241021DAXI",
+                "LIISLORNAZIRLIYIMINISTRYOFINTERNALAFFAIRSPCA"
+              ],
+              "checks": {
+                "document_number": false,
+                "birth_date": false,
+                "expiry_date": false,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": [
+                "invalid_birth_date",
+                "invalid_expiry_date",
+                "mrz_checksum_or_core_validation_failed"
+              ]
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "LOioolo Pasporu veran orqanflssuing authority 24 1021 DAXiLI iSLOR NAZiRLiyi MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMIFN<<<<<<<54",
+                "score": 3.4,
+                "valid": false,
+                "parsed": {
+                  "valid": false,
+                  "document_type": "PA",
+                  "issuing_country": "SPO",
+                  "document_number": "LIISLORNA",
+                  "surname": "RUVERANORQANFLSSUINGAUTHORITYDAXI",
+                  "given_names": null,
+                  "nationality": "IRL",
+                  "birth_date": null,
+                  "gender": null,
+                  "expiry_date": null,
+                  "personal_number": "TERNALAFFAIRSP",
+                  "mrz_lines": [
+                    "PASPORUVERANORQANFLSSUINGAUTHORITY241021DAXI",
+                    "LIISLORNAZIRLIYIMINISTRYOFINTERNALAFFAIRSPCA"
+                  ],
+                  "checks": {
+                    "document_number": false,
+                    "birth_date": false,
+                    "expiry_date": false,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": [
+                    "invalid_birth_date",
+                    "invalid_expiry_date",
+                    "mrz_checksum_or_core_validation_failed"
+                  ]
+                }
+              }
+            ],
+            "score": 3.4
+          },
+          {
+            "candidate": "bottom_30_clahe",
+            "base_candidate": "bottom_30",
+            "variant": "clahe",
+            "bbox_norm": [
+              0.03,
+              0.67,
+              0.94,
+              0.3
+            ],
+            "raw_text": "24105 021 DAXILI ISLOR NAZIRLIY| MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMI FN<<<<<<<54",
+            "selected_text": "24105 021 DAXILI ISLOR NAZIRLIY| MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMI FN<<<<<<<54",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": true,
+              "document_type": "PC",
+              "issuing_country": "AZE",
+              "document_number": "C54925501",
+              "surname": "MIKAYILOVA",
+              "given_names": "ALMAZ",
+              "nationality": "AZE",
+              "birth_date": "1994-03-18",
+              "gender": "F",
+              "expiry_date": "2021-05-24",
+              "personal_number": "HNEMIFN",
+              "mrz_lines": [
+                "PCAZEMIKAYILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<<",
+                "C549255013AZE9403187F2105242HNEMIFN<<<<<<<54"
+              ],
+              "checks": {
+                "document_number": true,
+                "birth_date": true,
+                "expiry_date": true,
+                "personal_number": false,
+                "composite": false
+              },
+              "errors": []
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "24105 021 DAXILI ISLOR NAZIRLIY| MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMI FN<<<<<<<54",
+                "score": 82.0,
+                "valid": true,
+                "parsed": {
+                  "valid": true,
+                  "document_type": "PC",
+                  "issuing_country": "AZE",
+                  "document_number": "C54925501",
+                  "surname": "MIKAYILOVA",
+                  "given_names": "ALMAZ",
+                  "nationality": "AZE",
+                  "birth_date": "1994-03-18",
+                  "gender": "F",
+                  "expiry_date": "2021-05-24",
+                  "personal_number": "HNEMIFN",
+                  "mrz_lines": [
+                    "PCAZEMIKAYILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<<",
+                    "C549255013AZE9403187F2105242HNEMIFN<<<<<<<54"
+                  ],
+                  "checks": {
+                    "document_number": true,
+                    "birth_date": true,
+                    "expiry_date": true,
+                    "personal_number": false,
+                    "composite": false
+                  },
+                  "errors": []
+                }
+              }
+            ],
+            "score": 82.0
+          }
+        ]
+      },
+      "early_stop": {
+        "enabled": true,
+        "reason": "valid_mrz_core_checks"
+      }
+    },
+    "passport_width_guard": {
+      "enabled": true,
+      "min_width_ratio": 0.9,
+      "original_width": 2167,
+      "localized_width": 1589,
+      "actual_width_ratio": 0.7333,
+      "use_full_image_candidate": true,
+      "candidate_policy": "full_image_prepended",
+      "selected_source": "full_image_width_guard",
+      "selected_candidate_index": -1
+    },
+    "raw_ocr_executed": false,
+    "strategy": "passport_mrz_first"
+  },
+  "raw_text": "24105 021 DAXILI ISLOR NAZIRLIY| MINISTRY OF INTERNAL AFFAIRS PCAZEMIKA YILOVA<<ALMAZ<<<<<<<<<<<<<<<<<<<<<< C54925501342E9403187F2105242HNEMI FN<<<<<<<54",
+  "processing_time_ms": 4889,
+  "warnings": [],
+  "review_reasons": []
+}

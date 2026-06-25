@@ -1,0 +1,765 @@
+{
+  "job_id": "fe86880a-c09f-4131-b518-08d189c63fce",
+  "status": "review_required",
+  "template_id": "cin_tn",
+  "document_type": "cin_tn",
+  "document_variant": "recto",
+  "engine_used": "mixed(easyocr,easyocr_boxes,global_text)",
+  "language_detected": "ar",
+  "global_confidence": 0.784,
+  "quality_score": 0.546,
+  "fields": [
+    {
+      "name": "id_number",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": "CIN introuvable",
+      "selected_engine": null,
+      "selected_source": null,
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "critical field missing"
+      ]
+    },
+    {
+      "name": "last_name",
+      "value": "فيرعتلا ةقاطب يثوغلب",
+      "confidence": 0.9,
+      "validated": true,
+      "raw_text": "يثوغلب",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "global_text",
+      "selected_source": "cin_postprocess_laqab_line",
+      "review_required": false,
+      "reasons": [
+        "selected_from:text_family_fallback",
+        "reconstructed_from:اللقب_line"
+      ]
+    },
+    {
+      "name": "first_name",
+      "value": "نايل",
+      "confidence": 0.73,
+      "validated": true,
+      "raw_text": "نايل",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "text_first_fallback",
+      "review_required": false,
+      "reasons": [
+        "selected_from:text_first_fallback"
+      ]
+    },
+    {
+      "name": "birth_date",
+      "value": "1995-12-18",
+      "confidence": 0.82,
+      "validated": true,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": null,
+      "selected_source": "cin_postprocess_birth_date_context",
+      "review_required": false,
+      "reasons": [
+        "field unresolved",
+        "critical field missing",
+        "birth_date_recovered:contextual_birth_date"
+      ]
+    },
+    {
+      "name": "birth_place",
+      "value": "نابل",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "نابل",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "idNumber": null,
+    "lastName": "فيرعتلا ةقاطب يثوغلب",
+    "firstName": "نايل",
+    "birthDate": "1995-12-18",
+    "birthPlace": "نابل"
+  },
+  "routing": null,
+  "business_validation": {
+    "status": "review_required",
+    "review_required": true,
+    "review_reasons": [
+      "critical field missing or invalid: id_number"
+    ],
+    "warnings": [
+      "Champ critique à vérifier: id_number"
+    ],
+    "business_confidence": 0.784,
+    "critical_fields_ok": 2,
+    "valid_fields_ok": 4,
+    "present_fields": 4,
+    "quality_score": 0.546,
+    "avg_field_confidence": 0.85,
+    "field_coverage": 0.8
+  },
+  "diagnostics": {
+    "mode": "cin_specialized_v2",
+    "cin_mode": "balanced",
+    "strategy": "balanced: spatial-first + targeted-roi-fallback + optional-full-fallback",
+    "pipeline_steps": [
+      "easyocr_boxes",
+      "paddle_boxes",
+      "targeted_roi:easyocr",
+      "targeted_roi:paddle",
+      "full_ocr:paddle"
+    ],
+    "preprocessing": {
+      "quality": {
+        "sharpness": 0.703,
+        "brightness": 0.421,
+        "contrast": 0.414,
+        "quality_score": 0.546
+      },
+      "transforms": {
+        "resized": false,
+        "deskewed": false,
+        "contrast": true,
+        "mode": "cin_legacy_compatible"
+      },
+      "cin_preprocessor_keys": [
+        "binary",
+        "card_roi",
+        "deskewed",
+        "gray",
+        "oriented",
+        "original"
+      ]
+    },
+    "quality_checks": {
+      "sharpness": 0.703,
+      "brightness": 0.421,
+      "contrast": 0.414,
+      "quality_score": 0.546
+    },
+    "roi_fields": {
+      "cin_number": [
+        34,
+        303
+      ],
+      "family_name": [
+        28,
+        265
+      ],
+      "first_name": [
+        28,
+        265
+      ],
+      "date_of_birth": [
+        30,
+        265
+      ],
+      "place_of_birth": [
+        30,
+        265
+      ],
+      "gender": [
+        22,
+        130
+      ],
+      "right_text_block": [
+        155,
+        297
+      ]
+    },
+    "engines": [
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "targeted_missing_rois",
+        "target_fields": [
+          "cin_number",
+          "first_name",
+          "date_of_birth"
+        ],
+        "processing_time_ms": 467,
+        "zones": {
+          "cin_number": "",
+          "first_name": "بنذتى",
+          "date_of_birth": "",
+          "right_text_block": "بلغو الذ فيروز محمدال صالح نت ناخ لودادة 18 ديسمبر 5 ناىل الم"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "paddle",
+        "executed": true,
+        "trial_type": "targeted_missing_rois",
+        "target_fields": [
+          "cin_number",
+          "first_name"
+        ],
+        "processing_time_ms": 1204,
+        "zones": {
+          "cin_number": "",
+          "first_name": "نشلا",
+          "right_text_block": "يثوغلب بقلا لادمحم نب زوريف مسألا جلاص تنب ربمسيد ةدالولا خبات لبان"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "first_name": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "paddle",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "ةيسنوتلا ةيروهمجلا ةينطولا فيرعتلا ةقاطب يثوغلب بقللا حلاصلا دمحم نب زوريف مسألا حلاص تنب 995 ربمسيد ةدطولا خرات لبان",
+        "full_text_score": 0.0,
+        "processing_time_ms": 1740,
+        "zones": {
+          "cin_number": "",
+          "family_name": "",
+          "first_name": "نشلا",
+          "date_of_birth": "ن جلاص تنب",
+          "place_of_birth": "ةدالولا خبات",
+          "gender": "",
+          "right_text_block": "يثوغلب بقلا لادمحم نب زوريف مسألا جلاص تنب ربمسيد ةدالولا خبات لبان"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      }
+    ],
+    "spatial": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "box_count": 13,
+          "fields": {
+            "family_name": "بلغو",
+            "first_name": "فيروز",
+            "place_of_birth": "نابل"
+          },
+          "scores": {
+            "family_name": 11.637972363993766,
+            "first_name": 11.185825740542127,
+            "place_of_birth": 9.0
+          },
+          "meta": {
+            "cin_number": {
+              "chosen_from": null,
+              "candidate_text": null,
+              "source_kind": "spatial_numeric"
+            },
+            "family_name": {
+              "chosen_from": "القب",
+              "candidate_text": "بلغو",
+              "source_kind": "label_neighbor_merged",
+              "anchors_found": 1
+            },
+            "first_name": {
+              "chosen_from": "اللم",
+              "candidate_text": "فيروز",
+              "source_kind": "label_neighbor",
+              "anchors_found": 1
+            },
+            "date_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_date",
+              "anchors_found": 1
+            },
+            "place_of_birth": {
+              "chosen_from": "right_text_block",
+              "candidate_text": "الجمهوربة التونسيذ بطاقةالتعربف الوطنيه ثي بلغو القب فيروز اللم الصالاح بنت صالح :1995 ن لثلمنه ناخ الودادة 18 نابل",
+              "source_kind": "right_text_fallback",
+              "anchors_found": 0
+            },
+            "label_spatial": {
+              "reason": "no_items"
+            }
+          },
+          "label_spatial": {
+            "fields": {},
+            "scores": {},
+            "meta": {
+              "reason": "no_items"
+            }
+          },
+          "raw_text_reconstructed": ""
+        },
+        {
+          "engine": "paddle_boxes",
+          "box_count": 15,
+          "fields": {
+            "family_name": "زوريف"
+          },
+          "scores": {
+            "family_name": 11.535660454686372
+          },
+          "meta": {
+            "cin_number": {
+              "chosen_from": null,
+              "candidate_text": null,
+              "source_kind": "spatial_numeric"
+            },
+            "family_name": {
+              "chosen_from": "بقللا",
+              "candidate_text": "زوريف",
+              "source_kind": "label_neighbor_merged",
+              "anchors_found": 1
+            },
+            "first_name": {
+              "chosen_from": null,
+              "source_kind": "dropped_duplicate"
+            },
+            "date_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_date",
+              "anchors_found": 1
+            },
+            "place_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_place",
+              "anchors_found": 0
+            },
+            "label_spatial": {
+              "reason": "no_items"
+            }
+          },
+          "label_spatial": {
+            "fields": {},
+            "scores": {},
+            "meta": {
+              "reason": "no_items"
+            }
+          },
+          "raw_text_reconstructed": ""
+        }
+      ]
+    },
+    "fusion": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "source": "spatial_boxes",
+          "fields": {
+            "family_name": "بلغو",
+            "first_name": "فيروز",
+            "place_of_birth": "نابل"
+          }
+        },
+        {
+          "engine": "paddle_boxes",
+          "source": "spatial_boxes",
+          "fields": {
+            "family_name": "زوريف"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "targeted_roi_ocr",
+          "fields": {
+            "cin_number": "CIN_FAMILY_NAME:",
+            "family_name": "CIN_FIRST_NAME: بنذتى",
+            "first_name": "بنذتى",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
+            "place_of_birth": "بلغو الذ فيروز محمدال صالح نت ناخ لودادة 18 ديسمبر 5 ناىل الم"
+          }
+        },
+        {
+          "engine": "paddle",
+          "source": "targeted_roi_ocr",
+          "fields": {
+            "cin_number": "CIN_FAMILY_NAME:",
+            "family_name": "CIN_FIRST_NAME: نشلا",
+            "first_name": "نشلا",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
+            "place_of_birth": "يثوغلب بقلا لادمحم نب زوريف مسألا جلاص تنب ربمسيد ةدالولا خبات لبان"
+          }
+        },
+        {
+          "engine": "paddle",
+          "source": "roi_ocr",
+          "fields": {
+            "cin_number": "CIN_FAMILY_NAME:",
+            "family_name": "CIN_FIRST_NAME: نشلا",
+            "first_name": "نشلا",
+            "date_of_birth": "ن جلاص تنب",
+            "place_of_birth": "ةدالولا خبات"
+          }
+        }
+      ],
+      "aggregated": {
+        "cin_number": [],
+        "family_name": [
+          {
+            "value": "يثوغلب",
+            "avg_conf": 0.0,
+            "count": 3,
+            "engines": [
+              "global_text",
+              "paddle"
+            ],
+            "sources": [
+              "text_family_fallback",
+              "text_family_global"
+            ],
+            "profiles": [],
+            "selection_score": 53.0,
+            "raw_value": "يثوغلب",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_combined_text": true
+              }
+            ]
+          },
+          {
+            "value": "زوريف",
+            "avg_conf": 11.53566,
+            "count": 1,
+            "engines": [
+              "paddle_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 46.53566,
+            "raw_value": "زوريف",
+            "meta": []
+          },
+          {
+            "value": "وغلب",
+            "avg_conf": 11.637972,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 43.737972,
+            "raw_value": "بلغو",
+            "meta": []
+          },
+          {
+            "value": "نايل",
+            "avg_conf": 0.0,
+            "count": 1,
+            "engines": [
+              "easyocr"
+            ],
+            "sources": [
+              "text_family_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 32.6,
+            "raw_value": "نايل",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          }
+        ],
+        "first_name": [
+          {
+            "value": "يثوغلب",
+            "avg_conf": 0.0,
+            "count": 3,
+            "engines": [
+              "global_text",
+              "paddle"
+            ],
+            "sources": [
+              "text_first_fallback",
+              "text_first_global"
+            ],
+            "profiles": [],
+            "selection_score": 53.0,
+            "raw_value": "يثوغلب",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_combined_text": true
+              }
+            ]
+          },
+          {
+            "value": "زوريف",
+            "avg_conf": 11.637972,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 44.637972,
+            "raw_value": "فيروز",
+            "meta": []
+          },
+          {
+            "value": "نايل",
+            "avg_conf": 0.0,
+            "count": 1,
+            "engines": [
+              "easyocr"
+            ],
+            "sources": [
+              "text_first_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 32.6,
+            "raw_value": "نايل",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          },
+          {
+            "value": "الشن",
+            "avg_conf": 0.0,
+            "count": 4,
+            "engines": [
+              "paddle"
+            ],
+            "sources": [
+              "extractor",
+              "roi_ocr",
+              "targeted_roi_ocr"
+            ],
+            "profiles": [],
+            "selection_score": 31.9,
+            "raw_value": "نشلا",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_raw_text": true
+              }
+            ]
+          },
+          {
+            "value": "بنذتي",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "easyocr"
+            ],
+            "sources": [
+              "extractor",
+              "targeted_roi_ocr"
+            ],
+            "profiles": [],
+            "selection_score": 19.4,
+            "raw_value": "بنذتى",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          }
+        ],
+        "date_of_birth": [],
+        "place_of_birth": [
+          {
+            "value": "نابل",
+            "avg_conf": 11.637972,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 53.637972,
+            "raw_value": "نابل",
+            "meta": []
+          },
+          {
+            "value": "ةدالولا خبات",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "paddle"
+            ],
+            "sources": [
+              "extractor",
+              "roi_ocr"
+            ],
+            "profiles": [],
+            "selection_score": -5.5,
+            "raw_value": "ةدالولا خبات",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          }
+        ]
+      },
+      "selected": {
+        "family_name": {
+          "value": "يثوغلب",
+          "avg_conf": 0.0,
+          "count": 3,
+          "engines": [
+            "global_text",
+            "paddle"
+          ],
+          "sources": [
+            "text_family_fallback",
+            "text_family_global"
+          ],
+          "profiles": [],
+          "selection_score": 53.0,
+          "raw_value": "يثوغلب",
+          "meta": [
+            {
+              "from_raw_text": true
+            },
+            {
+              "from_raw_text": true
+            },
+            {
+              "from_combined_text": true
+            }
+          ]
+        },
+        "first_name": {
+          "value": "نايل",
+          "avg_conf": 0.0,
+          "count": 1,
+          "engines": [
+            "easyocr"
+          ],
+          "sources": [
+            "text_first_fallback"
+          ],
+          "profiles": [],
+          "selection_score": 32.6,
+          "raw_value": "نايل",
+          "meta": [
+            {
+              "from_raw_text": true
+            }
+          ]
+        },
+        "date_of_birth": null,
+        "place_of_birth": {
+          "value": "نابل",
+          "avg_conf": 11.637972,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 53.637972,
+          "raw_value": "نابل",
+          "meta": []
+        }
+      }
+    },
+    "cin_postprocess": {
+      "executed": true,
+      "name_extraction": {
+        "debug_sequence": "اللقب:فيرعتلا ةقاطب يثوغلب الاسم:? variants:normal",
+        "family_name": "فيرعتلا ةقاطب يثوغلب",
+        "first_name": null,
+        "rule": "family_name=all words after اللقب; first_name=words on الاسم line before بن/بنت"
+      },
+      "applied": [
+        {
+          "field": "last_name",
+          "type": "laqab_line_extraction",
+          "old": "يثوغلب",
+          "new": "فيرعتلا ةقاطب يثوغلب"
+        },
+        {
+          "field": "birth_date",
+          "type": "contextual_date_recovery",
+          "old": null,
+          "new": "1995-12-18",
+          "reason": "contextual_birth_date"
+        }
+      ]
+    },
+    "review_required": true,
+    "review_reasons": [
+      "critical field missing or invalid: id_number"
+    ],
+    "business_validation": {
+      "status": "review_required",
+      "review_required": true,
+      "review_reasons": [
+        "critical field missing or invalid: id_number"
+      ],
+      "warnings": [
+        "Champ critique à vérifier: id_number"
+      ],
+      "business_confidence": 0.784,
+      "critical_fields_ok": 2,
+      "valid_fields_ok": 4,
+      "present_fields": 4,
+      "quality_score": 0.546,
+      "avg_field_confidence": 0.85,
+      "field_coverage": 0.8
+    }
+  },
+  "raw_text": "بلغو فيروز نابل زوريف CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: بنذتى CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: بلغو الذ فيروز محمدال صالح بنت ناخ لودادة 18 ديسمبر 5 ناىل الم CIN_FAMILY_NAME: CIN_FIRST_NAME: بنذتى بنذتى CIN_PLACE_OF_BIRTH: بلغو الذ فيروز محمدال صالح بنت ناخ لودادة 18 ديسمبر 5 ناىل الم CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: نشلا CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: يثوغلب بقلا لادمحم نب زوريف مسألا جلاص تنب ربمسيد الولادة خبات لبان CIN_FAMILY_NAME: CIN_FIRST_NAME: نشلا نشلا CIN_PLACE_OF_BIRTH: يثوغلب بقلا لادمحم نب زوريف مسألا جلاص تنب ربمسيد الولادة خبات لبان CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: نشلا CIN_DATE_OF_BIRTH: ن جلاص تنب CIN_PLACE_OF_BIRTH: الولادة خبات ةيسنوتلا ةيروهمجلا ةينطولا فيرعتلا ةقاطب يثوغلب اللقب حلاصلا محمد نب زوريف مسألا حلاص تنب 995 ربمسيد ةدطولا خرات لبان CIN_FAMILY_NAME: CIN_FIRST_NAME: نشلا نشلا ن جلاص تنب الولادة خبات بلغو فيروز نابل بلغو القب فيروز اللم الجمهوربة التونسيذ بطاقةالتعربف الوطنيه ثي بلغو القب فيروز اللم الصالاح ببنت صالح :1995 ن لثلمنه ناخ الودادة 18 نابل right_text_block زوريف زوريف اللقب بنذتى بلغو الذ فيروز محمدال صالح بنت ناخ لودادة 18 ديسمبر 5 ناىل الم نشلا يثوغلب بقلا لادمحم نب زوريف مسألا جلاص تنب ربمسيد الولادة خبات لبان ةيسنوتلا ةيروهمجلا ةينطولا فيرعتلا ةقاطب يثوغلب اللقب حلاصلا محمد نب زوريف مسألا حلاص تنب 995 ربمسيد ةدطولا خرات لبان نشلا ن جلاص تنب الولادة خبات يثوغلب بقلا لادمحم نب زوريف مسألا جلاص تنب ربمسيد الولادة خبات لبان",
+  "processing_time_ms": 6016,
+  "warnings": [
+    "Champ critique à vérifier: id_number",
+    "Champ requis 'numero_cin' à vérifier"
+  ],
+  "review_reasons": [
+    "critical field missing or invalid: id_number"
+  ]
+}

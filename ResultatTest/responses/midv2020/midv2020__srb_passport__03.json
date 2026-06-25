@@ -1,0 +1,1110 @@
+{
+  "job_id": "50e8965a-60fd-40ea-a20f-56f98a1b1bd0",
+  "status": "success",
+  "template_id": "midv_srb_passport",
+  "document_type": "passport",
+  "document_variant": null,
+  "engine_used": "passport_mrz",
+  "language_detected": "en",
+  "global_confidence": 0.8668,
+  "quality_score": 0.742,
+  "fields": [
+    {
+      "name": "document_number",
+      "value": "011946553",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Eat Datr 27.01,.2014 127 @ 24 27.01.2024 Tse P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<< 0119465538SRB8001151024012761501980331854<02",
+      "raw_template_field": "document_number",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "surname",
+      "value": "NESTOROVSKI",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Eat Datr 27.01,.2014 127 @ 24 27.01.2024 Tse P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<< 0119465538SRB8001151024012761501980331854<02",
+      "raw_template_field": "surname",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "given_names",
+      "value": "ZIVORAD",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Eat Datr 27.01,.2014 127 @ 24 27.01.2024 Tse P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<< 0119465538SRB8001151024012761501980331854<02",
+      "raw_template_field": "given_names",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "nationality",
+      "value": "SRB",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Eat Datr 27.01,.2014 127 @ 24 27.01.2024 Tse P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<< 0119465538SRB8001151024012761501980331854<02",
+      "raw_template_field": "nationality",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "birth_date",
+      "value": "1980-01-15",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Eat Datr 27.01,.2014 127 @ 24 27.01.2024 Tse P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<< 0119465538SRB8001151024012761501980331854<02",
+      "raw_template_field": "birth_date",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "gender",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Eat Datr 27.01,.2014 127 @ 24 27.01.2024 Tse P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<< 0119465538SRB8001151024012761501980331854<02",
+      "raw_template_field": "gender",
+      "error": "invalid_gender",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "field unresolved"
+      ]
+    },
+    {
+      "name": "expiry_date",
+      "value": "2024-01-27",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Eat Datr 27.01,.2014 127 @ 24 27.01.2024 Tse P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<< 0119465538SRB8001151024012761501980331854<02",
+      "raw_template_field": "expiry_date",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "issuing_country",
+      "value": "SRB",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Eat Datr 27.01,.2014 127 @ 24 27.01.2024 Tse P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<< 0119465538SRB8001151024012761501980331854<02",
+      "raw_template_field": "issuing_country",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "personal_number",
+      "value": "1501980331854",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Eat Datr 27.01,.2014 127 @ 24 27.01.2024 Tse P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<< 0119465538SRB8001151024012761501980331854<02",
+      "raw_template_field": "personal_number",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "mrz",
+      "value": "P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<<\n0119465538SRB8001151024012761501980331854<02",
+      "confidence": 0.97,
+      "validated": true,
+      "raw_text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Eat Datr 27.01,.2014 127 @ 24 27.01.2024 Tse P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<< 0119465538SRB8001151024012761501980331854<02",
+      "raw_template_field": "mrz",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "document_number": "011946553",
+    "surname": "NESTOROVSKI",
+    "given_names": "ZIVORAD",
+    "nationality": "SRB",
+    "birth_date": "1980-01-15",
+    "expiry_date": "2024-01-27",
+    "issuing_country": "SRB",
+    "personal_number": "1501980331854",
+    "mrz": "P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<<\n0119465538SRB8001151024012761501980331854<02"
+  },
+  "routing": {
+    "requested_document_type": "auto",
+    "requested_template_id": null,
+    "selected_template_id": "midv_srb_passport",
+    "selected_document_type": "passport",
+    "method": "swin_image_classifier",
+    "document_class": "srb_passport",
+    "confidence": 1.0
+  },
+  "business_validation": {
+    "status": "success",
+    "review_required": false,
+    "review_reasons": [],
+    "valid_fields_ok": 9,
+    "present_fields": 9,
+    "field_coverage": 0.9,
+    "avg_field_confidence": 0.849,
+    "business_confidence": 0.8668,
+    "quality_score": 0.742
+  },
+  "diagnostics": {
+    "mode": "generic_template_v5_detector_swin_roi_passport_invoice",
+    "processing_mode": "fast",
+    "routing": {
+      "requested_document_type": "auto",
+      "requested_template_id": null,
+      "selected_template_id": "midv_srb_passport",
+      "selected_document_type": "passport",
+      "method": "swin_image_classifier",
+      "document_class": "srb_passport",
+      "confidence": 1.0
+    },
+    "template_id": "midv_srb_passport",
+    "document_type": "passport",
+    "engine": "passport_mrz",
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.686,
+        "contrast": 0.4,
+        "quality_score": 0.742
+      },
+      "transforms": {
+        "resized": true,
+        "deskewed": true,
+        "contrast": true
+      }
+    },
+    "layout": {
+      "page_width": 2000,
+      "page_height": 1375,
+      "orientation": "landscape",
+      "has_table": true,
+      "column_count": 3,
+      "regions": [
+        {
+          "type": "footer",
+          "bbox": [
+            395,
+            1295,
+            84,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            395,
+            1253,
+            84,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            395,
+            1212,
+            85,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            395,
+            1168,
+            85,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            395,
+            1126,
+            85,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            395,
+            1043,
+            85,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            395,
+            1002,
+            84,
+            35
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            395,
+            915,
+            84,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            395,
+            873,
+            84,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            395,
+            833,
+            85,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            502,
+            792,
+            115,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            395,
+            747,
+            188,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            502,
+            706,
+            81,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            395,
+            705,
+            84,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            395,
+            665,
+            85,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            501,
+            663,
+            82,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            485,
+            620,
+            98,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            395,
+            620,
+            81,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            395,
+            538,
+            188,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            485,
+            495,
+            92,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            485,
+            453,
+            92,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            395,
+            410,
+            188,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            395,
+            369,
+            188,
+            41
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            485,
+            327,
+            98,
+            35
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            395,
+            325,
+            85,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            395,
+            283,
+            81,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            485,
+            282,
+            98,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            395,
+            243,
+            81,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            485,
+            201,
+            98,
+            79
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            395,
+            200,
+            81,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            501,
+            157,
+            114,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            502,
+            115,
+            81,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            395,
+            114,
+            111,
+            82
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            502,
+            33,
+            120,
+            35
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            395,
+            33,
+            84,
+            34
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            1006,
+            0,
+            113,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            587,
+            0,
+            1120,
+            1375
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            395,
+            0,
+            296,
+            229
+          ],
+          "confidence": 1.0,
+          "label": null
+        }
+      ],
+      "region_count": 38
+    },
+    "field_count": 10,
+    "validated_field_count": 9,
+    "document_localizer": {
+      "localizer": "document_localizer_v3_yolo_raw_plus_normalized",
+      "method": "yolo_crop",
+      "detector": {
+        "found": true,
+        "bbox_xyxy": [
+          0.0,
+          0.0,
+          1586.2320556640625,
+          1488.0
+        ],
+        "confidence": 0.8425,
+        "class_name": "document",
+        "method": "yolo_document_detector",
+        "error": null
+      },
+      "input_shape": [
+        1488,
+        2163
+      ],
+      "localized_shape": [
+        1488,
+        1618
+      ],
+      "candidate_count": 20,
+      "raw_candidate_count": 4,
+      "normalized_candidate_count": 16,
+      "yolo_crop_padding": 0.02,
+      "aspect_trim": {
+        "enabled": false,
+        "reason": "aspect trimming degraded ROI alignment in previous tests"
+      },
+      "post_yolo_normalizer": {
+        "executed": true,
+        "diagnostics": {
+          "normalizer": "classical_cv_multi_candidate_v6_strict_color_nms",
+          "input_shape": [
+            1488,
+            1618
+          ],
+          "detection_shape": [
+            1104,
+            1200
+          ],
+          "scale": 0.7416563658838071,
+          "mode": "fast",
+          "found_contour": true,
+          "contours_total": 290,
+          "sliding_candidate_count": 8,
+          "contour_candidate_count": 43,
+          "candidate_pool_count": 51,
+          "crop_candidate_count": 8,
+          "final_candidate_count": 16,
+          "rejected": {
+            "too_small": 30,
+            "too_large": 0,
+            "bad_aspect": 7,
+            "touches_border_large": 0,
+            "invalid_crop": 0
+          },
+          "selected_strategy": "multi_candidate_roi_score",
+          "candidates_preview": [
+            {
+              "source": "sliding_color_window",
+              "index": 1201,
+              "score": 1.184973,
+              "density": 1.0,
+              "mean_saturation": 0.705875,
+              "std_value": 0.089837,
+              "center_density": 1.0,
+              "center_saturation": 0.683006,
+              "area_ratio": 0.005231,
+              "bbox_detection": [
+                882,
+                714,
+                105,
+                66
+              ],
+              "aspect": 1.5909,
+              "aspect_penalty": 0.0049,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1151,
+              "score": 0.98694,
+              "density": 0.888456,
+              "mean_saturation": 0.491512,
+              "std_value": 0.106946,
+              "center_density": 0.981024,
+              "center_saturation": 0.580153,
+              "area_ratio": 0.005231,
+              "bbox_detection": [
+                861,
+                693,
+                105,
+                66
+              ],
+              "aspect": 1.5909,
+              "aspect_penalty": 0.0049,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1199,
+              "score": 0.967666,
+              "density": 0.858874,
+              "mean_saturation": 0.526931,
+              "std_value": 0.109395,
+              "center_density": 0.886429,
+              "center_saturation": 0.555538,
+              "area_ratio": 0.005231,
+              "bbox_detection": [
+                840,
+                714,
+                105,
+                66
+              ],
+              "aspect": 1.5909,
+              "aspect_penalty": 0.0049,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1153,
+              "score": 0.939603,
+              "density": 0.826984,
+              "mean_saturation": 0.468636,
+              "std_value": 0.109357,
+              "center_density": 0.957447,
+              "center_saturation": 0.562857,
+              "area_ratio": 0.005231,
+              "bbox_detection": [
+                903,
+                693,
+                105,
+                66
+              ],
+              "aspect": 1.5909,
+              "aspect_penalty": 0.0049,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1253,
+              "score": 0.933186,
+              "density": 0.75267,
+              "mean_saturation": 0.495175,
+              "std_value": 0.112779,
+              "center_density": 0.917481,
+              "center_saturation": 0.608142,
+              "area_ratio": 0.005231,
+              "bbox_detection": [
+                861,
+                735,
+                105,
+                66
+              ],
+              "aspect": 1.5909,
+              "aspect_penalty": 0.0049,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 4860,
+              "score": 0.902084,
+              "density": 0.736014,
+              "mean_saturation": 0.416904,
+              "std_value": 0.110456,
+              "center_density": 0.953118,
+              "center_saturation": 0.620546,
+              "area_ratio": 0.012953,
+              "bbox_detection": [
+                840,
+                693,
+                165,
+                104
+              ],
+              "aspect": 1.5865,
+              "aspect_penalty": 0.0005,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1255,
+              "score": 0.88629,
+              "density": 0.687734,
+              "mean_saturation": 0.47307,
+              "std_value": 0.114372,
+              "center_density": 0.902243,
+              "center_saturation": 0.590673,
+              "area_ratio": 0.005231,
+              "bbox_detection": [
+                903,
+                735,
+                105,
+                66
+              ],
+              "aspect": 1.5909,
+              "aspect_penalty": 0.0049,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1203,
+              "score": 0.848986,
+              "density": 0.69899,
+              "mean_saturation": 0.491168,
+              "std_value": 0.115406,
+              "center_density": 0.771133,
+              "center_saturation": 0.516968,
+              "area_ratio": 0.005231,
+              "bbox_detection": [
+                924,
+                714,
+                105,
+                66
+              ],
+              "aspect": 1.5909,
+              "aspect_penalty": 0.0049,
+              "touches_border": false,
+              "reject_reason": null
+            }
+          ],
+          "candidate_angles": [
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180
+          ]
+        },
+        "normalized_shape": [
+          89,
+          142
+        ],
+        "candidate_count": 16
+      }
+    },
+    "passport_extraction": {
+      "passport_extraction": "passport_mrz_first_best_candidate_v2_strict_early_stop",
+      "selected_angle": 0,
+      "selected_source": "full_image_width_guard",
+      "selected_candidate_index": -1,
+      "selected_debug_prefix": "passport_cand_-1_angle_0",
+      "selected_score": 120.64,
+      "selected_mrz_core_valid": true,
+      "candidate_debug": [
+        {
+          "angle": 0,
+          "source": "full_image_width_guard",
+          "candidate_index": -1,
+          "debug_prefix": "passport_cand_-1_angle_0",
+          "score": 120.64,
+          "mrz_core_valid": true,
+          "validated_fields": 9,
+          "present_fields": 9,
+          "review_required_fields": [],
+          "warnings": [],
+          "passport_debug_summary": {
+            "selected_candidate": "bottom_38_clahe",
+            "selected_score": 86.0
+          }
+        }
+      ],
+      "selected_candidate_debug": {
+        "passport_extraction": "passport_mrz_first_v2_mrz_preprocess_repair",
+        "engine": "easyocr",
+        "language_hints": [
+          "en"
+        ],
+        "selected_candidate": "bottom_38_clahe",
+        "selected_base_candidate": "bottom_38",
+        "selected_variant": "clahe",
+        "selected_bbox_norm": [
+          0.02,
+          0.58,
+          0.96,
+          0.4
+        ],
+        "selected_score": 86.0,
+        "selected_raw_text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Eat Datr 27.01,.2014 127 @ 24 27.01.2024 Tse P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<< 0119465538SRB8001151024012761501980331854<02",
+        "selected_repaired_text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Eat Datr 27.01,.2014 127 @ 24 27.01.2024 Tse P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<< 0119465538SRB8001151024012761501980331854<02",
+        "selected_parsed": {
+          "valid": true,
+          "document_type": "P",
+          "issuing_country": "SRB",
+          "document_number": "011946553",
+          "surname": "NESTOROVSKI",
+          "given_names": "ZIVORAD",
+          "nationality": "SRB",
+          "birth_date": "1980-01-15",
+          "gender": null,
+          "expiry_date": "2024-01-27",
+          "personal_number": "1501980331854",
+          "mrz_lines": [
+            "P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<<",
+            "0119465538SRB8001151024012761501980331854<02"
+          ],
+          "checks": {
+            "document_number": true,
+            "birth_date": true,
+            "expiry_date": true,
+            "personal_number": true,
+            "composite": true
+          },
+          "errors": []
+        },
+        "selected_repair_candidates": [
+          {
+            "method": "raw_ocr_text",
+            "text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Eat Datr 27.01,.2014 127 @ 24 27.01.2024 Tse P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<< 0119465538SRB8001151024012761501980331854<02",
+            "score": 86.0,
+            "valid": true,
+            "parsed": {
+              "valid": true,
+              "document_type": "P",
+              "issuing_country": "SRB",
+              "document_number": "011946553",
+              "surname": "NESTOROVSKI",
+              "given_names": "ZIVORAD",
+              "nationality": "SRB",
+              "birth_date": "1980-01-15",
+              "gender": null,
+              "expiry_date": "2024-01-27",
+              "personal_number": "1501980331854",
+              "mrz_lines": [
+                "P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<<",
+                "0119465538SRB8001151024012761501980331854<02"
+              ],
+              "checks": {
+                "document_number": true,
+                "birth_date": true,
+                "expiry_date": true,
+                "personal_number": true,
+                "composite": true
+              },
+              "errors": []
+            }
+          }
+        ],
+        "candidates": [
+          {
+            "candidate": "bottom_38_clahe",
+            "base_candidate": "bottom_38",
+            "variant": "clahe",
+            "bbox_norm": [
+              0.02,
+              0.58,
+              0.96,
+              0.4
+            ],
+            "raw_text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Eat Datr 27.01,.2014 127 @ 24 27.01.2024 Tse P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<< 0119465538SRB8001151024012761501980331854<02",
+            "selected_text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Eat Datr 27.01,.2014 127 @ 24 27.01.2024 Tse P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<< 0119465538SRB8001151024012761501980331854<02",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": true,
+              "document_type": "P",
+              "issuing_country": "SRB",
+              "document_number": "011946553",
+              "surname": "NESTOROVSKI",
+              "given_names": "ZIVORAD",
+              "nationality": "SRB",
+              "birth_date": "1980-01-15",
+              "gender": null,
+              "expiry_date": "2024-01-27",
+              "personal_number": "1501980331854",
+              "mrz_lines": [
+                "P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<<",
+                "0119465538SRB8001151024012761501980331854<02"
+              ],
+              "checks": {
+                "document_number": true,
+                "birth_date": true,
+                "expiry_date": true,
+                "personal_number": true,
+                "composite": true
+              },
+              "errors": []
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Eat Datr 27.01,.2014 127 @ 24 27.01.2024 Tse P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<< 0119465538SRB8001151024012761501980331854<02",
+                "score": 86.0,
+                "valid": true,
+                "parsed": {
+                  "valid": true,
+                  "document_type": "P",
+                  "issuing_country": "SRB",
+                  "document_number": "011946553",
+                  "surname": "NESTOROVSKI",
+                  "given_names": "ZIVORAD",
+                  "nationality": "SRB",
+                  "birth_date": "1980-01-15",
+                  "gender": null,
+                  "expiry_date": "2024-01-27",
+                  "personal_number": "1501980331854",
+                  "mrz_lines": [
+                    "P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<<",
+                    "0119465538SRB8001151024012761501980331854<02"
+                  ],
+                  "checks": {
+                    "document_number": true,
+                    "birth_date": true,
+                    "expiry_date": true,
+                    "personal_number": true,
+                    "composite": true
+                  },
+                  "errors": []
+                }
+              }
+            ],
+            "score": 86.0
+          }
+        ]
+      },
+      "early_stop": {
+        "enabled": true,
+        "reason": "valid_mrz_core_checks"
+      }
+    },
+    "passport_width_guard": {
+      "enabled": true,
+      "min_width_ratio": 0.9,
+      "original_width": 2163,
+      "localized_width": 1618,
+      "actual_width_ratio": 0.748,
+      "use_full_image_candidate": true,
+      "candidate_policy": "full_image_prepended",
+      "selected_source": "full_image_width_guard",
+      "selected_candidate_index": -1
+    },
+    "raw_ocr_executed": false,
+    "strategy": "passport_mrz_first"
+  },
+  "raw_text": "MUPR SRBIJE PPU LAGRAD BEOGRAD Eat Datr 27.01,.2014 127 @ 24 27.01.2024 Tse P<SRBNESTOROVSKI<<ZIVORAD<<<<<<<<<<<<<<<<<<< 0119465538SRB8001151024012761501980331854<02",
+  "processing_time_ms": 2176,
+  "warnings": [],
+  "review_reasons": []
+}

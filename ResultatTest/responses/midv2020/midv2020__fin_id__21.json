@@ -1,0 +1,1534 @@
+{
+  "job_id": "60067c67-767e-4b20-9115-d931848c9fcf",
+  "status": "review_required",
+  "template_id": "midv_fin_id",
+  "document_type": "id_document",
+  "document_variant": null,
+  "engine_used": "easyocr",
+  "language_detected": "auto",
+  "global_confidence": 0.7584,
+  "quality_score": 0.778,
+  "fields": [
+    {
+      "name": "birth_date",
+      "value": "1995-02-07",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "07.02. 1995",
+      "raw_template_field": "birth_date",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "birth_date_2",
+      "value": "074295",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "074295",
+      "raw_template_field": "birth_date_2",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "birth_date_22",
+      "value": "070295",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "070295",
+      "raw_template_field": "birth_date_22",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "code",
+      "value": "-685R",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "-685R",
+      "raw_template_field": "code",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "expiry_date",
+      "value": "2021-03-30",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "30. 03.2021",
+      "raw_template_field": "expiry_date",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "gender",
+      "value": "M",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "M",
+      "raw_template_field": "gender",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "issue_date",
+      "value": "2016-03-30",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "30. 03. 2016",
+      "raw_template_field": "issue_date",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "name",
+      "value": "ANTTI",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "ANTTI",
+      "raw_template_field": "name",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "nationality",
+      "value": "FIN",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "FIN",
+      "raw_template_field": "nationality",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "number",
+      "value": "135622938NA",
+      "confidence": 0.45,
+      "validated": false,
+      "raw_text": "135622938 Na",
+      "raw_template_field": "number",
+      "error": "invalid_document_number",
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": true,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "surname",
+      "value": "LILJA",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "LILJA",
+      "raw_template_field": "surname",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "birth_date": "1995-02-07",
+    "birth_date_2": "074295",
+    "birth_date_22": "070295",
+    "code": "-685R",
+    "expiry_date": "2021-03-30",
+    "gender": "M",
+    "issue_date": "2016-03-30",
+    "name": "ANTTI",
+    "nationality": "FIN",
+    "surname": "LILJA"
+  },
+  "routing": {
+    "requested_document_type": "auto",
+    "requested_template_id": null,
+    "selected_template_id": "midv_fin_id",
+    "selected_document_type": "id_document",
+    "method": "swin_image_classifier",
+    "document_class": "fin_id",
+    "confidence": 1.0
+  },
+  "business_validation": {
+    "status": "review_required",
+    "review_required": true,
+    "review_reasons": [
+      "Missing or invalid required field: number"
+    ],
+    "valid_fields_ok": 10,
+    "present_fields": 11,
+    "field_coverage": 0.9091,
+    "avg_field_confidence": 0.6773,
+    "business_confidence": 0.7584,
+    "quality_score": 0.778
+  },
+  "diagnostics": {
+    "mode": "generic_template_v5_detector_swin_roi_passport_invoice",
+    "processing_mode": "fast",
+    "routing": {
+      "requested_document_type": "auto",
+      "requested_template_id": null,
+      "selected_template_id": "midv_fin_id",
+      "selected_document_type": "id_document",
+      "method": "swin_image_classifier",
+      "document_class": "fin_id",
+      "confidence": 1.0
+    },
+    "template_id": "midv_fin_id",
+    "document_type": "id_document",
+    "engine": "easyocr",
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.799,
+        "contrast": 0.429,
+        "quality_score": 0.778
+      },
+      "transforms": {
+        "resized": true,
+        "deskewed": true,
+        "contrast": true
+      }
+    },
+    "layout": {
+      "page_width": 1275,
+      "page_height": 800,
+      "orientation": "landscape",
+      "has_table": true,
+      "column_count": 3,
+      "regions": [
+        {
+          "type": "text_block",
+          "bbox": [
+            195,
+            649,
+            225,
+            123
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            0,
+            571,
+            440,
+            79
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            581,
+            527,
+            143,
+            119
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            356,
+            527,
+            242,
+            44
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            0,
+            502,
+            344,
+            71
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            357,
+            467,
+            249,
+            44
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            32,
+            453,
+            297,
+            45
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            96,
+            414,
+            70,
+            17
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            869,
+            355,
+            372,
+            413
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            358,
+            330,
+            535,
+            146
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            351,
+            308,
+            338,
+            71
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            573,
+            242,
+            681,
+            81
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            353,
+            236,
+            195,
+            68
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            55,
+            231,
+            296,
+            183
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            360,
+            186,
+            142,
+            42
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            41,
+            179,
+            281,
+            49
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            364,
+            142,
+            130,
+            41
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            42,
+            134,
+            306,
+            46
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "table",
+          "bbox": [
+            48,
+            20,
+            1207,
+            125
+          ],
+          "confidence": 1.0,
+          "label": null
+        }
+      ],
+      "region_count": 19
+    },
+    "field_count": 11,
+    "validated_field_count": 10,
+    "document_localizer": {
+      "localizer": "document_localizer_v3_yolo_raw_plus_normalized",
+      "method": "yolo_crop",
+      "detector": {
+        "found": true,
+        "bbox_xyxy": [
+          0.0,
+          0.0,
+          674.8052978515625,
+          584.0
+        ],
+        "confidence": 0.9665,
+        "class_name": "document",
+        "method": "yolo_document_detector",
+        "error": null
+      },
+      "input_shape": [
+        584,
+        931
+      ],
+      "localized_shape": [
+        584,
+        688
+      ],
+      "candidate_count": 20,
+      "raw_candidate_count": 4,
+      "normalized_candidate_count": 16,
+      "yolo_crop_padding": 0.02,
+      "aspect_trim": {
+        "enabled": false,
+        "reason": "aspect trimming degraded ROI alignment in previous tests"
+      },
+      "post_yolo_normalizer": {
+        "executed": true,
+        "diagnostics": {
+          "normalizer": "classical_cv_multi_candidate_v6_strict_color_nms",
+          "input_shape": [
+            584,
+            688
+          ],
+          "detection_shape": [
+            584,
+            688
+          ],
+          "scale": 1.0,
+          "mode": "fast",
+          "found_contour": true,
+          "contours_total": 1,
+          "sliding_candidate_count": 8,
+          "contour_candidate_count": 1,
+          "candidate_pool_count": 9,
+          "crop_candidate_count": 8,
+          "final_candidate_count": 16,
+          "rejected": {
+            "too_small": 0,
+            "too_large": 1,
+            "bad_aspect": 0,
+            "touches_border_large": 0,
+            "invalid_crop": 0
+          },
+          "selected_strategy": "multi_candidate_roi_score",
+          "candidates_preview": [
+            {
+              "source": "sliding_color_window",
+              "index": 4780,
+              "score": 1.302092,
+              "density": 0.998926,
+              "mean_saturation": 0.770205,
+              "std_value": 0.191566,
+              "center_density": 1.0,
+              "center_saturation": 0.780604,
+              "area_ratio": 0.027805,
+              "bbox_detection": [
+                96,
+                204,
+                133,
+                84
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 775,
+              "score": 1.294013,
+              "density": 1.0,
+              "mean_saturation": 0.7822,
+              "std_value": 0.178698,
+              "center_density": 1.0,
+              "center_saturation": 0.78555,
+              "area_ratio": 0.014186,
+              "bbox_detection": [
+                120,
+                192,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 877,
+              "score": 1.2826,
+              "density": 1.0,
+              "mean_saturation": 0.769884,
+              "std_value": 0.171456,
+              "center_density": 1.0,
+              "center_saturation": 0.777467,
+              "area_ratio": 0.014186,
+              "bbox_detection": [
+                144,
+                216,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 975,
+              "score": 1.272623,
+              "density": 0.997895,
+              "mean_saturation": 0.760925,
+              "std_value": 0.19804,
+              "center_density": 0.995671,
+              "center_saturation": 0.74893,
+              "area_ratio": 0.014186,
+              "bbox_detection": [
+                120,
+                240,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 872,
+              "score": 1.261152,
+              "density": 0.979474,
+              "mean_saturation": 0.744045,
+              "std_value": 0.165097,
+              "center_density": 1.0,
+              "center_saturation": 0.784792,
+              "area_ratio": 0.014186,
+              "bbox_detection": [
+                84,
+                216,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 723,
+              "score": 1.248952,
+              "density": 0.971228,
+              "mean_saturation": 0.72216,
+              "std_value": 0.196114,
+              "center_density": 1.0,
+              "center_saturation": 0.771594,
+              "area_ratio": 0.014186,
+              "bbox_detection": [
+                96,
+                180,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 727,
+              "score": 1.215173,
+              "density": 0.93,
+              "mean_saturation": 0.694345,
+              "std_value": 0.198577,
+              "center_density": 0.998557,
+              "center_saturation": 0.764973,
+              "area_ratio": 0.014186,
+              "bbox_detection": [
+                144,
+                180,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1023,
+              "score": 1.184831,
+              "density": 0.90614,
+              "mean_saturation": 0.666367,
+              "std_value": 0.209849,
+              "center_density": 0.998196,
+              "center_saturation": 0.741673,
+              "area_ratio": 0.014186,
+              "bbox_detection": [
+                96,
+                252,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            }
+          ],
+          "candidate_angles": [
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180
+          ]
+        },
+        "normalized_shape": [
+          84,
+          133
+        ],
+        "candidate_count": 16
+      }
+    },
+    "roi_extraction": {
+      "roi_extraction": "template_roi_with_document_localization_v3_weighted_score_safe",
+      "selected_angle": 0,
+      "selected_source": "full_image_roi_width_guard",
+      "selected_candidate_index": -1,
+      "selected_rotation_index": null,
+      "selected_debug_prefix": "cand_-1_angle_0",
+      "selected_content_bbox_norm": null,
+      "selected_score": 66.15,
+      "document_normalizer": {
+        "normalizer": "skipped",
+        "reason": "using_document_localizer_candidates",
+        "candidate_count": 21
+      },
+      "candidate_debug": [
+        {
+          "angle": 0,
+          "source": "full_image_roi_width_guard",
+          "candidate_index": -1,
+          "rotation_index": null,
+          "debug_prefix": "cand_-1_angle_0",
+          "content_bbox_norm": null,
+          "score": 66.15,
+          "validated_fields": 10,
+          "validated_strong_fields": 5,
+          "present_fields": 11,
+          "review_required_fields": [
+            "number"
+          ],
+          "warnings": [
+            "Required ROI field 'number' missing or invalid"
+          ]
+        },
+        {
+          "angle": 0,
+          "source": "yolo_crop_raw",
+          "candidate_index": 0,
+          "rotation_index": 0,
+          "debug_prefix": "cand_0_angle_0",
+          "content_bbox_norm": null,
+          "score": -54.9,
+          "validated_fields": 2,
+          "validated_strong_fields": 0,
+          "present_fields": 5,
+          "review_required_fields": [
+            "birth_date",
+            "expiry_date",
+            "name",
+            "number",
+            "surname"
+          ],
+          "warnings": [
+            "Required ROI field 'birth_date' missing or invalid",
+            "Required ROI field 'expiry_date' missing or invalid",
+            "Required ROI field 'name' missing or invalid",
+            "Required ROI field 'number' missing or invalid"
+          ]
+        },
+        {
+          "angle": 180,
+          "source": "yolo_crop_raw",
+          "candidate_index": 0,
+          "rotation_index": 1,
+          "debug_prefix": "cand_0_angle_180",
+          "content_bbox_norm": null,
+          "score": -55.0,
+          "validated_fields": 2,
+          "validated_strong_fields": 0,
+          "present_fields": 4,
+          "review_required_fields": [
+            "birth_date",
+            "expiry_date",
+            "name",
+            "number",
+            "surname"
+          ],
+          "warnings": [
+            "Required ROI field 'birth_date' missing or invalid",
+            "Required ROI field 'expiry_date' missing or invalid",
+            "Required ROI field 'name' missing or invalid",
+            "Required ROI field 'number' missing or invalid",
+            "Required ROI field 'surname' missing or invalid"
+          ]
+        },
+        {
+          "angle": 90,
+          "source": "yolo_crop_raw",
+          "candidate_index": 0,
+          "rotation_index": 2,
+          "debug_prefix": "cand_0_angle_90",
+          "content_bbox_norm": null,
+          "score": -55.4,
+          "validated_fields": 2,
+          "validated_strong_fields": 0,
+          "present_fields": 2,
+          "review_required_fields": [
+            "birth_date",
+            "expiry_date",
+            "name",
+            "number",
+            "surname"
+          ],
+          "warnings": [
+            "Required ROI field 'birth_date' missing or invalid",
+            "Required ROI field 'expiry_date' missing or invalid",
+            "Required ROI field 'name' missing or invalid",
+            "Required ROI field 'number' missing or invalid",
+            "Required ROI field 'surname' missing or invalid"
+          ]
+        },
+        {
+          "angle": 270,
+          "source": "yolo_crop_raw",
+          "candidate_index": 0,
+          "rotation_index": 3,
+          "debug_prefix": "cand_0_angle_270",
+          "content_bbox_norm": null,
+          "score": -55.4,
+          "validated_fields": 2,
+          "validated_strong_fields": 0,
+          "present_fields": 2,
+          "review_required_fields": [
+            "birth_date",
+            "expiry_date",
+            "name",
+            "number",
+            "surname"
+          ],
+          "warnings": [
+            "Required ROI field 'birth_date' missing or invalid",
+            "Required ROI field 'expiry_date' missing or invalid",
+            "Required ROI field 'name' missing or invalid",
+            "Required ROI field 'number' missing or invalid",
+            "Required ROI field 'surname' missing or invalid"
+          ]
+        },
+        {
+          "angle": 0,
+          "source": "yolo_crop_normalized:sliding_color_window",
+          "candidate_index": 100,
+          "rotation_index": 0,
+          "debug_prefix": "cand_100_angle_0",
+          "content_bbox_norm": null,
+          "score": -58.8,
+          "validated_fields": 0,
+          "validated_strong_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [
+            "birth_date",
+            "expiry_date",
+            "name",
+            "number",
+            "surname"
+          ],
+          "warnings": [
+            "Required ROI field 'birth_date' missing or invalid",
+            "Required ROI field 'expiry_date' missing or invalid",
+            "Required ROI field 'name' missing or invalid",
+            "Required ROI field 'number' missing or invalid",
+            "Required ROI field 'surname' missing or invalid"
+          ]
+        },
+        {
+          "angle": 180,
+          "source": "yolo_crop_normalized:sliding_color_window",
+          "candidate_index": 101,
+          "rotation_index": 1,
+          "debug_prefix": "cand_101_angle_180",
+          "content_bbox_norm": null,
+          "score": -58.8,
+          "validated_fields": 0,
+          "validated_strong_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [
+            "birth_date",
+            "expiry_date",
+            "name",
+            "number",
+            "surname"
+          ],
+          "warnings": [
+            "Required ROI field 'birth_date' missing or invalid",
+            "Required ROI field 'expiry_date' missing or invalid",
+            "Required ROI field 'name' missing or invalid",
+            "Required ROI field 'number' missing or invalid",
+            "Required ROI field 'surname' missing or invalid"
+          ]
+        },
+        {
+          "angle": 0,
+          "source": "yolo_crop_normalized:sliding_color_window",
+          "candidate_index": 102,
+          "rotation_index": 2,
+          "debug_prefix": "cand_102_angle_0",
+          "content_bbox_norm": null,
+          "score": -58.8,
+          "validated_fields": 0,
+          "validated_strong_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [
+            "birth_date",
+            "expiry_date",
+            "name",
+            "number",
+            "surname"
+          ],
+          "warnings": [
+            "Required ROI field 'birth_date' missing or invalid",
+            "Required ROI field 'expiry_date' missing or invalid",
+            "Required ROI field 'name' missing or invalid",
+            "Required ROI field 'number' missing or invalid",
+            "Required ROI field 'surname' missing or invalid"
+          ]
+        },
+        {
+          "angle": 180,
+          "source": "yolo_crop_normalized:sliding_color_window",
+          "candidate_index": 103,
+          "rotation_index": 3,
+          "debug_prefix": "cand_103_angle_180",
+          "content_bbox_norm": null,
+          "score": -58.8,
+          "validated_fields": 0,
+          "validated_strong_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [
+            "birth_date",
+            "expiry_date",
+            "name",
+            "number",
+            "surname"
+          ],
+          "warnings": [
+            "Required ROI field 'birth_date' missing or invalid",
+            "Required ROI field 'expiry_date' missing or invalid",
+            "Required ROI field 'name' missing or invalid",
+            "Required ROI field 'number' missing or invalid",
+            "Required ROI field 'surname' missing or invalid"
+          ]
+        },
+        {
+          "angle": 0,
+          "source": "yolo_crop_normalized:sliding_color_window",
+          "candidate_index": 104,
+          "rotation_index": 4,
+          "debug_prefix": "cand_104_angle_0",
+          "content_bbox_norm": null,
+          "score": -58.8,
+          "validated_fields": 0,
+          "validated_strong_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [
+            "birth_date",
+            "expiry_date",
+            "name",
+            "number",
+            "surname"
+          ],
+          "warnings": [
+            "Required ROI field 'birth_date' missing or invalid",
+            "Required ROI field 'expiry_date' missing or invalid",
+            "Required ROI field 'name' missing or invalid",
+            "Required ROI field 'number' missing or invalid",
+            "Required ROI field 'surname' missing or invalid"
+          ]
+        },
+        {
+          "angle": 180,
+          "source": "yolo_crop_normalized:sliding_color_window",
+          "candidate_index": 105,
+          "rotation_index": 5,
+          "debug_prefix": "cand_105_angle_180",
+          "content_bbox_norm": null,
+          "score": -58.8,
+          "validated_fields": 0,
+          "validated_strong_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [
+            "birth_date",
+            "expiry_date",
+            "name",
+            "number",
+            "surname"
+          ],
+          "warnings": [
+            "Required ROI field 'birth_date' missing or invalid",
+            "Required ROI field 'expiry_date' missing or invalid",
+            "Required ROI field 'name' missing or invalid",
+            "Required ROI field 'number' missing or invalid",
+            "Required ROI field 'surname' missing or invalid"
+          ]
+        },
+        {
+          "angle": 0,
+          "source": "yolo_crop_normalized:sliding_color_window",
+          "candidate_index": 106,
+          "rotation_index": 6,
+          "debug_prefix": "cand_106_angle_0",
+          "content_bbox_norm": null,
+          "score": -58.8,
+          "validated_fields": 0,
+          "validated_strong_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [
+            "birth_date",
+            "expiry_date",
+            "name",
+            "number",
+            "surname"
+          ],
+          "warnings": [
+            "Required ROI field 'birth_date' missing or invalid",
+            "Required ROI field 'expiry_date' missing or invalid",
+            "Required ROI field 'name' missing or invalid",
+            "Required ROI field 'number' missing or invalid",
+            "Required ROI field 'surname' missing or invalid"
+          ]
+        },
+        {
+          "angle": 180,
+          "source": "yolo_crop_normalized:sliding_color_window",
+          "candidate_index": 107,
+          "rotation_index": 7,
+          "debug_prefix": "cand_107_angle_180",
+          "content_bbox_norm": null,
+          "score": -58.8,
+          "validated_fields": 0,
+          "validated_strong_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [
+            "birth_date",
+            "expiry_date",
+            "name",
+            "number",
+            "surname"
+          ],
+          "warnings": [
+            "Required ROI field 'birth_date' missing or invalid",
+            "Required ROI field 'expiry_date' missing or invalid",
+            "Required ROI field 'name' missing or invalid",
+            "Required ROI field 'number' missing or invalid",
+            "Required ROI field 'surname' missing or invalid"
+          ]
+        },
+        {
+          "angle": 0,
+          "source": "yolo_crop_normalized:sliding_color_window",
+          "candidate_index": 108,
+          "rotation_index": 8,
+          "debug_prefix": "cand_108_angle_0",
+          "content_bbox_norm": null,
+          "score": -58.8,
+          "validated_fields": 0,
+          "validated_strong_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [
+            "birth_date",
+            "expiry_date",
+            "name",
+            "number",
+            "surname"
+          ],
+          "warnings": [
+            "Required ROI field 'birth_date' missing or invalid",
+            "Required ROI field 'expiry_date' missing or invalid",
+            "Required ROI field 'name' missing or invalid",
+            "Required ROI field 'number' missing or invalid",
+            "Required ROI field 'surname' missing or invalid"
+          ]
+        },
+        {
+          "angle": 180,
+          "source": "yolo_crop_normalized:sliding_color_window",
+          "candidate_index": 109,
+          "rotation_index": 9,
+          "debug_prefix": "cand_109_angle_180",
+          "content_bbox_norm": null,
+          "score": -58.8,
+          "validated_fields": 0,
+          "validated_strong_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [
+            "birth_date",
+            "expiry_date",
+            "name",
+            "number",
+            "surname"
+          ],
+          "warnings": [
+            "Required ROI field 'birth_date' missing or invalid",
+            "Required ROI field 'expiry_date' missing or invalid",
+            "Required ROI field 'name' missing or invalid",
+            "Required ROI field 'number' missing or invalid",
+            "Required ROI field 'surname' missing or invalid"
+          ]
+        },
+        {
+          "angle": 0,
+          "source": "yolo_crop_normalized:sliding_color_window",
+          "candidate_index": 110,
+          "rotation_index": 10,
+          "debug_prefix": "cand_110_angle_0",
+          "content_bbox_norm": null,
+          "score": -58.8,
+          "validated_fields": 0,
+          "validated_strong_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [
+            "birth_date",
+            "expiry_date",
+            "name",
+            "number",
+            "surname"
+          ],
+          "warnings": [
+            "Required ROI field 'birth_date' missing or invalid",
+            "Required ROI field 'expiry_date' missing or invalid",
+            "Required ROI field 'name' missing or invalid",
+            "Required ROI field 'number' missing or invalid",
+            "Required ROI field 'surname' missing or invalid"
+          ]
+        },
+        {
+          "angle": 180,
+          "source": "yolo_crop_normalized:sliding_color_window",
+          "candidate_index": 111,
+          "rotation_index": 11,
+          "debug_prefix": "cand_111_angle_180",
+          "content_bbox_norm": null,
+          "score": -58.8,
+          "validated_fields": 0,
+          "validated_strong_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [
+            "birth_date",
+            "expiry_date",
+            "name",
+            "number",
+            "surname"
+          ],
+          "warnings": [
+            "Required ROI field 'birth_date' missing or invalid",
+            "Required ROI field 'expiry_date' missing or invalid",
+            "Required ROI field 'name' missing or invalid",
+            "Required ROI field 'number' missing or invalid",
+            "Required ROI field 'surname' missing or invalid"
+          ]
+        },
+        {
+          "angle": 0,
+          "source": "yolo_crop_normalized:sliding_color_window",
+          "candidate_index": 112,
+          "rotation_index": 12,
+          "debug_prefix": "cand_112_angle_0",
+          "content_bbox_norm": null,
+          "score": -58.8,
+          "validated_fields": 0,
+          "validated_strong_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [
+            "birth_date",
+            "expiry_date",
+            "name",
+            "number",
+            "surname"
+          ],
+          "warnings": [
+            "Required ROI field 'birth_date' missing or invalid",
+            "Required ROI field 'expiry_date' missing or invalid",
+            "Required ROI field 'name' missing or invalid",
+            "Required ROI field 'number' missing or invalid",
+            "Required ROI field 'surname' missing or invalid"
+          ]
+        },
+        {
+          "angle": 180,
+          "source": "yolo_crop_normalized:sliding_color_window",
+          "candidate_index": 113,
+          "rotation_index": 13,
+          "debug_prefix": "cand_113_angle_180",
+          "content_bbox_norm": null,
+          "score": -58.8,
+          "validated_fields": 0,
+          "validated_strong_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [
+            "birth_date",
+            "expiry_date",
+            "name",
+            "number",
+            "surname"
+          ],
+          "warnings": [
+            "Required ROI field 'birth_date' missing or invalid",
+            "Required ROI field 'expiry_date' missing or invalid",
+            "Required ROI field 'name' missing or invalid",
+            "Required ROI field 'number' missing or invalid",
+            "Required ROI field 'surname' missing or invalid"
+          ]
+        },
+        {
+          "angle": 0,
+          "source": "yolo_crop_normalized:sliding_color_window",
+          "candidate_index": 114,
+          "rotation_index": 14,
+          "debug_prefix": "cand_114_angle_0",
+          "content_bbox_norm": null,
+          "score": -58.8,
+          "validated_fields": 0,
+          "validated_strong_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [
+            "birth_date",
+            "expiry_date",
+            "name",
+            "number",
+            "surname"
+          ],
+          "warnings": [
+            "Required ROI field 'birth_date' missing or invalid",
+            "Required ROI field 'expiry_date' missing or invalid",
+            "Required ROI field 'name' missing or invalid",
+            "Required ROI field 'number' missing or invalid",
+            "Required ROI field 'surname' missing or invalid"
+          ]
+        },
+        {
+          "angle": 180,
+          "source": "yolo_crop_normalized:sliding_color_window",
+          "candidate_index": 115,
+          "rotation_index": 15,
+          "debug_prefix": "cand_115_angle_180",
+          "content_bbox_norm": null,
+          "score": -58.8,
+          "validated_fields": 0,
+          "validated_strong_fields": 0,
+          "present_fields": 0,
+          "review_required_fields": [
+            "birth_date",
+            "expiry_date",
+            "name",
+            "number",
+            "surname"
+          ],
+          "warnings": [
+            "Required ROI field 'birth_date' missing or invalid",
+            "Required ROI field 'expiry_date' missing or invalid",
+            "Required ROI field 'name' missing or invalid",
+            "Required ROI field 'number' missing or invalid",
+            "Required ROI field 'surname' missing or invalid"
+          ]
+        }
+      ],
+      "selected_candidate_debug": {
+        "roi_extraction": "template_roi_v3_expected_nationality_strict_midv",
+        "engine": "easyocr",
+        "language_hints": [
+          "en"
+        ],
+        "template_id": "midv_fin_id",
+        "source_class": "fin_id",
+        "expected_nationality": null,
+        "debug_prefix": "cand_-1_angle_0",
+        "content_bbox_norm_received": null,
+        "content_bbox_norm_applied": false,
+        "fields": [
+          {
+            "name": "birth_date",
+            "output_key": "birthDate",
+            "raw_text": "07.02. 1995",
+            "value": "1995-02-07",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.296389,
+              0.505137,
+              0.163276,
+              0.037671
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_birth_date.jpg",
+            "review_required": false
+          },
+          {
+            "name": "birth_date_2",
+            "output_key": "birthDateShort",
+            "raw_text": "074295",
+            "value": "074295",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.474692,
+              0.720908,
+              0.083017,
+              0.030822
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_birth_date_2.jpg",
+            "review_required": false
+          },
+          {
+            "name": "birth_date_22",
+            "output_key": "birthDateShortRotated",
+            "raw_text": "070295",
+            "value": "070295",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.705538,
+              0.880119,
+              0.008781,
+              0.056966
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_birth_date_22.jpg",
+            "review_required": false
+          },
+          {
+            "name": "code",
+            "output_key": "countryCode",
+            "raw_text": "-685R",
+            "value": "-685R",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.47364,
+              0.505137,
+              0.077546,
+              0.035959
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_code.jpg",
+            "review_required": false
+          },
+          {
+            "name": "expiry_date",
+            "output_key": "expiryDate",
+            "raw_text": "30. 03.2021",
+            "value": "2021-03-30",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.297519,
+              0.672927,
+              0.163055,
+              0.037689
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_expiry_date.jpg",
+            "review_required": false
+          },
+          {
+            "name": "face",
+            "output_key": "face",
+            "skipped": true,
+            "reason": "visual field",
+            "bbox_norm": [
+              0.75353,
+              0.534511,
+              0.164373,
+              0.361566
+            ]
+          },
+          {
+            "name": "gender",
+            "output_key": "gender",
+            "raw_text": "M",
+            "value": "M",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.390911,
+              0.339041,
+              0.018681,
+              0.037671
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_gender.jpg",
+            "review_required": false
+          },
+          {
+            "name": "issue_date",
+            "output_key": "issueDate",
+            "raw_text": "30. 03. 2016",
+            "value": "2016-03-30",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.297519,
+              0.597603,
+              0.163675,
+              0.037671
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_issue_date.jpg",
+            "review_required": false
+          },
+          {
+            "name": "name",
+            "output_key": "givenNames",
+            "raw_text": "ANTTI",
+            "value": "ANTTI",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.293244,
+              0.246575,
+              0.089185,
+              0.037671
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_name.jpg",
+            "review_required": false
+          },
+          {
+            "name": "nationality",
+            "output_key": "nationality",
+            "raw_text": "FIN",
+            "value": "FIN",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.925875,
+              0.327055,
+              0.039,
+              0.037671
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_nationality.jpg",
+            "review_required": false
+          },
+          {
+            "name": "number",
+            "output_key": "documentNumber",
+            "raw_text": "135622938 Na",
+            "value": "135622938NA",
+            "valid": false,
+            "error": "invalid_document_number",
+            "bbox_norm": [
+              0.610075,
+              0.333904,
+              0.163952,
+              0.037671
+            ],
+            "confidence": 0.45,
+            "debug_file": "debug_roi/cand_-1_angle_0_number.jpg",
+            "review_required": true
+          },
+          {
+            "name": "photo",
+            "output_key": "photo",
+            "skipped": true,
+            "reason": "visual field",
+            "bbox_norm": [
+              0.710942,
+              0.444252,
+              0.252926,
+              0.492445
+            ]
+          },
+          {
+            "name": "signature",
+            "output_key": "signature",
+            "skipped": true,
+            "reason": "visual field",
+            "bbox_norm": [
+              0.210814,
+              0.830197,
+              0.237678,
+              0.137304
+            ]
+          },
+          {
+            "name": "surname",
+            "output_key": "surname",
+            "raw_text": "LILJA",
+            "value": "LILJA",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.294207,
+              0.191781,
+              0.131972,
+              0.037671
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_surname.jpg",
+            "review_required": false
+          }
+        ]
+      }
+    },
+    "roi_width_guard": {
+      "enabled": true,
+      "min_width_ratio": 0.9,
+      "original_width": 931,
+      "localized_width": 688,
+      "actual_width_ratio": 0.739,
+      "use_full_image_candidate": true,
+      "candidate_policy": "full_image_prepended",
+      "selected_source": "full_image_roi_width_guard",
+      "selected_candidate_index": -1,
+      "selected_angle": 0,
+      "selected_score": 66.15
+    },
+    "raw_ocr_executed": false,
+    "raw_ocr_skipped_reason": "fast_mode"
+  },
+  "raw_text": "",
+  "processing_time_ms": 7754,
+  "warnings": [
+    "Required ROI field 'number' missing or invalid"
+  ],
+  "review_reasons": [
+    "Missing or invalid required field: number"
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "job_id": "80cb66b5-de38-4928-b25b-0b992f6d44e3",
+  "job_id": "96f795e8-8d42-48b7-ac92-b1d335f84b06",
   "status": "review_required",
   "template_id": "invoice_tn",
   "document_type": "invoice",
@@ -225,7 +225,7 @@
     "raw_ocr_executed": true,
     "raw_ocr_source": "full_page_invoice_ocr",
     "raw_ocr_score": 0.0,
-    "raw_ocr_processing_time_ms": 2747,
+    "raw_ocr_processing_time_ms": 3881,
     "invoice_targeted_ocr": {
       "executed": false,
       "reason": "disabled_outside_supported_modes",
@@ -237,7 +237,7 @@
         "invoice_number": null,
         "invoice_date": null
       },
-      "processing_time_ms": 6,
+      "processing_time_ms": 9,
       "triggered_by_missing_critical_fields": [
         "invoice_number"
       ],
@@ -246,7 +246,7 @@
         "selected": "uploaded_file_image",
         "reason": "strict_priority_uploaded_file_first",
         "fallback_used": false,
-        "file_path": "\\tmp\\ocr_uploads\\00000000-0000-0000-0000-000000000000_uploads_3e407c24-3dd6-4c62-ae4e-06ca0b2e0be6_facture1.jpg",
+        "file_path": "\\tmp\\ocr_uploads\\00000000-0000-0000-0000-000000000000_uploads_7c810af6-ff6c-4114-bf87-26c8420896c5_facture1.jpg",
         "file_load_error": null,
         "selected_shape": {
           "available": true,
@@ -455,7 +455,7 @@
             "selected": "uploaded_file_image",
             "reason": "strict_priority_uploaded_file_first",
             "fallback_used": false,
-            "file_path": "\\tmp\\ocr_uploads\\00000000-0000-0000-0000-000000000000_uploads_3e407c24-3dd6-4c62-ae4e-06ca0b2e0be6_facture1.jpg",
+            "file_path": "\\tmp\\ocr_uploads\\00000000-0000-0000-0000-000000000000_uploads_7c810af6-ff6c-4114-bf87-26c8420896c5_facture1.jpg",
             "file_load_error": null,
             "selected_shape": {
               "available": true,
@@ -482,7 +482,7 @@
     "roi_skipped_reason": "invoice_full_page_ocr_path"
   },
   "raw_text": "ARTICLE DATE 18/04/2022 DEVIS ND2204-017 en cours de Réparation CALANDRE PLASTIC IVECO E6 PARE CHOCIVECO STRALIS E6 CALANDRE SUP IVECO E6 Sous Réserve Controle DESCRIPTION TOTALTTC TOTALTVA TOTALHT Les Photos en Cours sont Obligatoires prix unitaire Sol ICE:002439910000077 Client:QQTRANS Fixe0539944135obile:0661334948 2YPIECES/AUTO 2000,00 3000,00 4700,00 Quaruer apresReparatior Sous Féserve Controle PrixDhs 1640,00 1940,00 9700,00 0000Z 30000020",
-  "processing_time_ms": 2760,
+  "processing_time_ms": 3900,
   "warnings": [
     "Required invoice field 'invoice_number' missing or invalid",
     "Required invoice field 'total_ttc' missing or invalid"

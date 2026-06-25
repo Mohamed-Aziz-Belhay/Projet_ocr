@@ -1,0 +1,437 @@
+{
+  "job_id": "82264143-1706-45db-a24a-7d15f63d85e5",
+  "status": "success",
+  "template_id": "cin_tn",
+  "document_type": "cin_tn",
+  "document_variant": "recto",
+  "engine_used": "easyocr_boxes",
+  "language_detected": "ar",
+  "global_confidence": 0.9319,
+  "quality_score": 0.358,
+  "fields": [
+    {
+      "name": "id_number",
+      "value": "12880413",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "12880413",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    },
+    {
+      "name": "last_name",
+      "value": "الكناني",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "ظافر",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "cin_postprocess_laqab_line",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes",
+        "reconstructed_from:اللقب_line"
+      ]
+    },
+    {
+      "name": "first_name",
+      "value": "ظافر",
+      "confidence": 0.9,
+      "validated": true,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": null,
+      "selected_source": "cin_postprocess_ism_before_bin",
+      "review_required": false,
+      "reasons": [
+        "field unresolved",
+        "critical field missing",
+        "reconstructed_from:الاسم_before_بن/بنت"
+      ]
+    },
+    {
+      "name": "birth_date",
+      "value": "2002-01-30",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "2002-01-30",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    },
+    {
+      "name": "birth_place",
+      "value": "سوسة",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "سوسة",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "idNumber": "12880413",
+    "lastName": "الكناني",
+    "firstName": "ظافر",
+    "birthDate": "2002-01-30",
+    "birthPlace": "سوسة"
+  },
+  "routing": null,
+  "business_validation": {
+    "status": "success",
+    "review_required": false,
+    "review_reasons": [],
+    "warnings": [],
+    "business_confidence": 0.9319,
+    "critical_fields_ok": 3,
+    "valid_fields_ok": 5,
+    "present_fields": 5,
+    "quality_score": 0.358,
+    "avg_field_confidence": 0.94,
+    "field_coverage": 1.0
+  },
+  "diagnostics": {
+    "mode": "cin_specialized_v2",
+    "cin_mode": "balanced",
+    "strategy": "balanced: spatial-first + targeted-roi-fallback + optional-full-fallback",
+    "pipeline_steps": [
+      "easyocr_boxes"
+    ],
+    "preprocessing": {
+      "quality": {
+        "sharpness": 0.166,
+        "brightness": 0.583,
+        "contrast": 0.457,
+        "quality_score": 0.358
+      },
+      "transforms": {
+        "resized": true,
+        "deskewed": false,
+        "contrast": true,
+        "mode": "cin_legacy_compatible"
+      },
+      "cin_preprocessor_keys": [
+        "binary",
+        "card_roi",
+        "deskewed",
+        "gray",
+        "oriented",
+        "original"
+      ]
+    },
+    "quality_checks": {
+      "sharpness": 0.166,
+      "brightness": 0.583,
+      "contrast": 0.457,
+      "quality_score": 0.358
+    },
+    "roi_fields": {
+      "cin_number": [
+        156,
+        928
+      ],
+      "family_name": [
+        132,
+        832
+      ],
+      "first_name": [
+        132,
+        832
+      ],
+      "date_of_birth": [
+        144,
+        832
+      ],
+      "place_of_birth": [
+        144,
+        832
+      ],
+      "gender": [
+        96,
+        416
+      ],
+      "right_text_block": [
+        696,
+        912
+      ]
+    },
+    "engines": [],
+    "spatial": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "box_count": 11,
+          "fields": {
+            "cin_number": "12880413",
+            "family_name": "ظافر",
+            "date_of_birth": "2002-01-30",
+            "place_of_birth": "سوسة"
+          },
+          "scores": {
+            "cin_number": 20.199740365306546,
+            "family_name": 8.949633226789203,
+            "date_of_birth": 14.095265477055337,
+            "place_of_birth": 9.0
+          },
+          "meta": {
+            "cin_number": {
+              "chosen_from": "12880413",
+              "candidate_text": "12880413",
+              "source_kind": "spatial_numeric"
+            },
+            "family_name": {
+              "chosen_from": "اللقب",
+              "candidate_text": "ظافر",
+              "source_kind": "label_neighbor_merged",
+              "anchors_found": 1
+            },
+            "first_name": {
+              "chosen_from": null,
+              "source_kind": "dropped_duplicate"
+            },
+            "date_of_birth": {
+              "chosen_from": "تاخ الولادة  30 جانفي 2002",
+              "candidate_text": "30 جانفي 2002",
+              "source_kind": "inline",
+              "anchors_found": 1
+            },
+            "place_of_birth": {
+              "chosen_from": "right_text_block",
+              "candidate_text": "الجمهوريف التونسيف بطاقف التعرف الوطنيه 12880413 الكناني اللقب ظافر الاسم بن بديع بن محمود تاخ الولادة 30 جانفي 2002 مانها سوسة",
+              "source_kind": "right_text_fallback",
+              "anchors_found": 0
+            },
+            "label_spatial": {
+              "reason": "no_items"
+            }
+          },
+          "label_spatial": {
+            "fields": {},
+            "scores": {},
+            "meta": {
+              "reason": "no_items"
+            }
+          },
+          "raw_text_reconstructed": ""
+        }
+      ]
+    },
+    "fusion": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "source": "spatial_boxes",
+          "fields": {
+            "cin_number": "12880413",
+            "family_name": "ظافر",
+            "date_of_birth": "2002-01-30",
+            "place_of_birth": "سوسة"
+          }
+        }
+      ],
+      "aggregated": {
+        "cin_number": [
+          {
+            "value": "12880413",
+            "avg_conf": 20.19974,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 49.19974,
+            "raw_value": "12880413",
+            "meta": []
+          }
+        ],
+        "family_name": [
+          {
+            "value": "ظافر",
+            "avg_conf": 20.19974,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 53.59974,
+            "raw_value": "ظافر",
+            "meta": []
+          }
+        ],
+        "first_name": [],
+        "date_of_birth": [
+          {
+            "value": "30/01/2002",
+            "avg_conf": 20.19974,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 49.19974,
+            "raw_value": "2002-01-30",
+            "meta": []
+          }
+        ],
+        "place_of_birth": [
+          {
+            "value": "سوسة",
+            "avg_conf": 20.19974,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 62.19974,
+            "raw_value": "سوسة",
+            "meta": []
+          }
+        ]
+      },
+      "selected": {
+        "cin_number": {
+          "value": "12880413",
+          "avg_conf": 20.19974,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 49.19974,
+          "raw_value": "12880413",
+          "meta": []
+        },
+        "family_name": {
+          "value": "ظافر",
+          "avg_conf": 20.19974,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 53.59974,
+          "raw_value": "ظافر",
+          "meta": []
+        },
+        "first_name": null,
+        "date_of_birth": {
+          "value": "30/01/2002",
+          "avg_conf": 20.19974,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 49.19974,
+          "raw_value": "2002-01-30",
+          "meta": []
+        },
+        "place_of_birth": {
+          "value": "سوسة",
+          "avg_conf": 20.19974,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 62.19974,
+          "raw_value": "سوسة",
+          "meta": []
+        }
+      }
+    },
+    "cin_postprocess": {
+      "executed": true,
+      "name_extraction": {
+        "debug_sequence": "اللقب:الكناني الاسم:ظافر variants:normal",
+        "family_name": "الكناني",
+        "first_name": "ظافر",
+        "rule": "family_name=all words after اللقب; first_name=words on الاسم line before بن/بنت"
+      },
+      "applied": [
+        {
+          "field": "last_name",
+          "type": "laqab_line_extraction",
+          "old": "ظافر",
+          "new": "الكناني"
+        },
+        {
+          "field": "first_name",
+          "type": "ism_before_bin_extraction",
+          "old": null,
+          "new": "ظافر"
+        },
+        {
+          "field": "birth_place",
+          "type": "postprocess_skip_place_override",
+          "kept": "سوسة",
+          "candidate": "سوسة",
+          "reason": "place_after_label:مكانها سوسة",
+          "good_spatial": true
+        }
+      ]
+    },
+    "review_required": false,
+    "review_reasons": [],
+    "business_validation": {
+      "status": "success",
+      "review_required": false,
+      "review_reasons": [],
+      "warnings": [],
+      "business_confidence": 0.9319,
+      "critical_fields_ok": 3,
+      "valid_fields_ok": 5,
+      "present_fields": 5,
+      "quality_score": 0.358,
+      "avg_field_confidence": 0.94,
+      "field_coverage": 1.0
+    }
+  },
+  "raw_text": "12880413 ظافر 2002-01-30 سوسة 12880413 ظافر 2002-01-30 سوسة 12880413 12880413 ظافر اللقب 30 جانفي 2002 تاخ الولادة 30 جانفي 2002 الجمهوريف التونسيف بطاقف التعرف الوطنيه 12880413 الكناني اللقب ظافر الاسم بن بديع بن محمود تاخ الولادة 30 جانفي 2002 مكانها سوسة right_text_block",
+  "processing_time_ms": 1303,
+  "warnings": [],
+  "review_reasons": []
+}

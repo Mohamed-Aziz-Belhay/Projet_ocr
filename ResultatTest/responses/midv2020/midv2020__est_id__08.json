@@ -1,0 +1,1001 @@
+{
+  "job_id": "67a24d45-c55e-4ba2-8b5d-bf7e8e3aeca2",
+  "status": "success",
+  "template_id": "midv_est_id",
+  "document_type": "id_document",
+  "document_variant": null,
+  "engine_used": "easyocr",
+  "language_detected": "auto",
+  "global_confidence": 0.805,
+  "quality_score": 0.759,
+  "fields": [
+    {
+      "name": "birth_date",
+      "value": "1970-04-16",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "16.04.1970",
+      "raw_template_field": "birth_date",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "expiry_date",
+      "value": "2020-03-29",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "29.03.2020",
+      "raw_template_field": "expiry_date",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "gender",
+      "value": "F",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "NIF",
+      "raw_template_field": "gender",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "id_number",
+      "value": "004700/4169",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "oDE 47004169759",
+      "raw_template_field": "id_number",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "name",
+      "value": "AINO",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "AINO",
+      "raw_template_field": "name",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "nationality",
+      "value": "EST",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "EST",
+      "raw_template_field": "nationality",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "number",
+      "value": "AA448957",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "AA4489573",
+      "raw_template_field": "number",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "number2",
+      "value": "AA4489573",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "AA4489573",
+      "raw_template_field": "number2",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "number3",
+      "value": "AA4489573",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "AA4489573",
+      "raw_template_field": "number3",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    },
+    {
+      "name": "surname",
+      "value": "LEMSALU",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "LEMSALU",
+      "raw_template_field": "surname",
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "birth_date": "1970-04-16",
+    "expiry_date": "2020-03-29",
+    "gender": "F",
+    "id_number": "004700/4169",
+    "name": "AINO",
+    "nationality": "EST",
+    "number": "AA448957",
+    "number2": "AA4489573",
+    "number3": "AA4489573",
+    "surname": "LEMSALU"
+  },
+  "routing": {
+    "requested_document_type": "auto",
+    "requested_template_id": null,
+    "selected_template_id": "midv_est_id",
+    "selected_document_type": "id_document",
+    "method": "swin_image_classifier",
+    "document_class": "est_id",
+    "confidence": 1.0
+  },
+  "business_validation": {
+    "status": "success",
+    "review_required": false,
+    "review_reasons": [],
+    "valid_fields_ok": 10,
+    "present_fields": 10,
+    "field_coverage": 1.0,
+    "avg_field_confidence": 0.7,
+    "business_confidence": 0.805,
+    "quality_score": 0.759
+  },
+  "diagnostics": {
+    "mode": "generic_template_v5_detector_swin_roi_passport_invoice",
+    "processing_mode": "fast",
+    "routing": {
+      "requested_document_type": "auto",
+      "requested_template_id": null,
+      "selected_template_id": "midv_est_id",
+      "selected_document_type": "id_document",
+      "method": "swin_image_classifier",
+      "document_class": "est_id",
+      "confidence": 1.0
+    },
+    "template_id": "midv_est_id",
+    "document_type": "id_document",
+    "engine": "easyocr",
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.792,
+        "contrast": 0.37,
+        "quality_score": 0.759
+      },
+      "transforms": {
+        "resized": true,
+        "deskewed": true,
+        "contrast": true
+      }
+    },
+    "layout": {
+      "page_width": 1281,
+      "page_height": 800,
+      "orientation": "landscape",
+      "has_table": false,
+      "column_count": 3,
+      "regions": [
+        {
+          "type": "footer",
+          "bbox": [
+            711,
+            734,
+            388,
+            20
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            446,
+            717,
+            225,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            450,
+            685,
+            267,
+            19
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            92,
+            657,
+            328,
+            50
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            448,
+            629,
+            280,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            734,
+            626,
+            301,
+            91
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            555,
+            578,
+            98,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            471,
+            578,
+            96,
+            17
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            590,
+            525,
+            265,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            590,
+            473,
+            223,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            176,
+            465,
+            145,
+            48
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            197,
+            430,
+            92,
+            25
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            592,
+            421,
+            105,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            592,
+            366,
+            93,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1146,
+            296,
+            60,
+            164
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            450,
+            144,
+            183,
+            19
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            39,
+            125,
+            665,
+            484
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            384,
+            87,
+            596,
+            30
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            994,
+            34,
+            227,
+            91
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            58,
+            34,
+            159,
+            62
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            221,
+            29,
+            756,
+            52
+          ],
+          "confidence": 1.0,
+          "label": null
+        }
+      ],
+      "region_count": 21
+    },
+    "field_count": 10,
+    "validated_field_count": 10,
+    "document_localizer": {
+      "localizer": "document_localizer_v3_yolo_raw_plus_normalized",
+      "method": "yolo_crop",
+      "detector": {
+        "found": true,
+        "bbox_xyxy": [
+          0.0,
+          0.0,
+          673.8948974609375,
+          580.0
+        ],
+        "confidence": 0.8658,
+        "class_name": "document",
+        "method": "yolo_document_detector",
+        "error": null
+      },
+      "input_shape": [
+        580,
+        929
+      ],
+      "localized_shape": [
+        580,
+        687
+      ],
+      "candidate_count": 20,
+      "raw_candidate_count": 4,
+      "normalized_candidate_count": 16,
+      "yolo_crop_padding": 0.02,
+      "aspect_trim": {
+        "enabled": false,
+        "reason": "aspect trimming degraded ROI alignment in previous tests"
+      },
+      "post_yolo_normalizer": {
+        "executed": true,
+        "diagnostics": {
+          "normalizer": "classical_cv_multi_candidate_v6_strict_color_nms",
+          "input_shape": [
+            580,
+            687
+          ],
+          "detection_shape": [
+            580,
+            687
+          ],
+          "scale": 1.0,
+          "mode": "fast",
+          "found_contour": true,
+          "contours_total": 27,
+          "sliding_candidate_count": 8,
+          "contour_candidate_count": 33,
+          "candidate_pool_count": 41,
+          "crop_candidate_count": 8,
+          "final_candidate_count": 16,
+          "rejected": {
+            "too_small": 15,
+            "too_large": 0,
+            "bad_aspect": 6,
+            "touches_border_large": 0,
+            "invalid_crop": 0
+          },
+          "selected_strategy": "multi_candidate_roi_score",
+          "candidates_preview": [
+            {
+              "source": "sliding_color_window",
+              "index": 54,
+              "score": 0.683107,
+              "density": 0.412982,
+              "mean_saturation": 0.356644,
+              "std_value": 0.410562,
+              "center_density": 0.526696,
+              "center_saturation": 0.484215,
+              "area_ratio": 0.014305,
+              "bbox_detection": [
+                48,
+                12,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1030,
+              "score": 0.592517,
+              "density": 0.685263,
+              "mean_saturation": 0.18356,
+              "std_value": 0.236822,
+              "center_density": 0.695527,
+              "center_saturation": 0.21382,
+              "area_ratio": 0.014305,
+              "bbox_detection": [
+                312,
+                480,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 106,
+              "score": 0.56161,
+              "density": 0.317193,
+              "mean_saturation": 0.308841,
+              "std_value": 0.386615,
+              "center_density": 0.496392,
+              "center_saturation": 0.356096,
+              "area_ratio": 0.014305,
+              "bbox_detection": [
+                72,
+                24,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1129,
+              "score": 0.551114,
+              "density": 0.620351,
+              "mean_saturation": 0.154892,
+              "std_value": 0.224836,
+              "center_density": 0.815296,
+              "center_saturation": 0.154885,
+              "area_ratio": 0.014305,
+              "bbox_detection": [
+                300,
+                504,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 102,
+              "score": 0.538889,
+              "density": 0.335965,
+              "mean_saturation": 0.288621,
+              "std_value": 0.364156,
+              "center_density": 0.487013,
+              "center_saturation": 0.322901,
+              "area_ratio": 0.014305,
+              "bbox_detection": [
+                24,
+                24,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 194,
+              "score": 0.511353,
+              "density": 0.456667,
+              "mean_saturation": 0.274954,
+              "std_value": 0.041151,
+              "center_density": 0.580808,
+              "center_saturation": 0.304878,
+              "area_ratio": 0.014305,
+              "bbox_detection": [
+                528,
+                36,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 990,
+              "score": 0.501071,
+              "density": 0.473684,
+              "mean_saturation": 0.172722,
+              "std_value": 0.264853,
+              "center_density": 0.652958,
+              "center_saturation": 0.215686,
+              "area_ratio": 0.014305,
+              "bbox_detection": [
+                336,
+                468,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 133,
+              "score": 0.49888,
+              "density": 0.357018,
+              "mean_saturation": 0.346218,
+              "std_value": 0.039349,
+              "center_density": 0.413781,
+              "center_saturation": 0.367871,
+              "area_ratio": 0.014305,
+              "bbox_detection": [
+                396,
+                24,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            }
+          ],
+          "candidate_angles": [
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180
+          ]
+        },
+        "normalized_shape": [
+          60,
+          95
+        ],
+        "candidate_count": 16
+      }
+    },
+    "roi_extraction": {
+      "roi_extraction": "template_roi_with_document_localization_v3_weighted_score_safe",
+      "selected_angle": 0,
+      "selected_source": "full_image_roi_width_guard",
+      "selected_candidate_index": -1,
+      "selected_rotation_index": null,
+      "selected_debug_prefix": "cand_-1_angle_0",
+      "selected_content_bbox_norm": null,
+      "selected_score": 95.05,
+      "document_normalizer": {
+        "normalizer": "skipped",
+        "reason": "using_document_localizer_candidates",
+        "candidate_count": 21
+      },
+      "candidate_debug": [
+        {
+          "angle": 0,
+          "source": "full_image_roi_width_guard",
+          "candidate_index": -1,
+          "rotation_index": null,
+          "debug_prefix": "cand_-1_angle_0",
+          "content_bbox_norm": null,
+          "score": 95.05,
+          "validated_fields": 10,
+          "validated_strong_fields": 6,
+          "present_fields": 10,
+          "review_required_fields": [],
+          "warnings": []
+        }
+      ],
+      "selected_candidate_debug": {
+        "roi_extraction": "template_roi_v3_expected_nationality_strict_midv",
+        "engine": "easyocr",
+        "language_hints": [
+          "en"
+        ],
+        "template_id": "midv_est_id",
+        "source_class": "est_id",
+        "expected_nationality": null,
+        "debug_prefix": "cand_-1_angle_0",
+        "content_bbox_norm_received": null,
+        "content_bbox_norm_applied": false,
+        "fields": [
+          {
+            "name": "birth_date",
+            "output_key": "birthDate",
+            "raw_text": "16.04.1970",
+            "value": "1970-04-16",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.474815,
+              0.596552,
+              0.144097,
+              0.032759
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_birth_date.jpg",
+            "review_required": false
+          },
+          {
+            "name": "expiry_date",
+            "output_key": "expiryDate",
+            "raw_text": "29.03.2020",
+            "value": "2020-03-29",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.362678,
+              0.901724,
+              0.145872,
+              0.034483
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_expiry_date.jpg",
+            "review_required": false
+          },
+          {
+            "name": "face",
+            "output_key": "face",
+            "skipped": true,
+            "reason": "visual field",
+            "bbox_norm": [
+              0.093128,
+              0.269392,
+              0.195699,
+              0.432723
+            ]
+          },
+          {
+            "name": "gender",
+            "output_key": "gender",
+            "raw_text": "NIF",
+            "value": "F",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.476646,
+              0.462069,
+              0.04754,
+              0.036207
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_gender.jpg",
+            "review_required": false
+          },
+          {
+            "name": "id_number",
+            "output_key": "personalNumber",
+            "raw_text": "oDE 47004169759",
+            "value": "004700/4169",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.475469,
+              0.662069,
+              0.176589,
+              0.032759
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_id_number.jpg",
+            "review_required": false
+          },
+          {
+            "name": "name",
+            "output_key": "givenNames",
+            "raw_text": "AINO",
+            "value": "AINO",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.362745,
+              0.332759,
+              0.086303,
+              0.032759
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_name.jpg",
+            "review_required": false
+          },
+          {
+            "name": "nationality",
+            "output_key": "nationality",
+            "raw_text": "EST",
+            "value": "EST",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.476768,
+              0.531034,
+              0.051624,
+              0.036207
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_nationality.jpg",
+            "review_required": false
+          },
+          {
+            "name": "number",
+            "output_key": "documentNumber",
+            "raw_text": "AA4489573",
+            "value": "AA448957",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.364743,
+              0.789655,
+              0.189329,
+              0.039655
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_number.jpg",
+            "review_required": false
+          },
+          {
+            "name": "number2",
+            "output_key": "documentNumber2",
+            "raw_text": "AA4489573",
+            "value": "AA4489573",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.1507,
+              0.844828,
+              0.162396,
+              0.034483
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_number2.jpg",
+            "review_required": false
+          },
+          {
+            "name": "number3",
+            "output_key": "documentNumber3",
+            "raw_text": "AA4489573",
+            "value": "AA4489573",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.90958,
+              0.373871,
+              0.017223,
+              0.195432
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_number3.jpg",
+            "review_required": false
+          },
+          {
+            "name": "photo",
+            "output_key": "photo",
+            "skipped": true,
+            "reason": "visual field",
+            "bbox_norm": [
+              0.040837,
+              0.163456,
+              0.294863,
+              0.591682
+            ]
+          },
+          {
+            "name": "signature",
+            "output_key": "signature",
+            "skipped": true,
+            "reason": "visual field",
+            "bbox_norm": [
+              0.638398,
+              0.774973,
+              0.157868,
+              0.10807
+            ]
+          },
+          {
+            "name": "surname",
+            "output_key": "surname",
+            "raw_text": "LEMSALU",
+            "value": "LEMSALU",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.363344,
+              0.22069,
+              0.127429,
+              0.044828
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_surname.jpg",
+            "review_required": false
+          }
+        ]
+      },
+      "early_stop": {
+        "enabled": true,
+        "reason": "strong_full_image_roi_width_guard_candidate",
+        "min_score": 80.0,
+        "validated_strong_fields": 6
+      }
+    },
+    "roi_width_guard": {
+      "enabled": true,
+      "min_width_ratio": 0.9,
+      "original_width": 929,
+      "localized_width": 687,
+      "actual_width_ratio": 0.7395,
+      "use_full_image_candidate": true,
+      "candidate_policy": "full_image_prepended",
+      "selected_source": "full_image_roi_width_guard",
+      "selected_candidate_index": -1,
+      "selected_angle": 0,
+      "selected_score": 95.05
+    },
+    "raw_ocr_executed": false,
+    "raw_ocr_skipped_reason": "strong_roi_candidate"
+  },
+  "raw_text": "",
+  "processing_time_ms": 1381,
+  "warnings": [],
+  "review_reasons": []
+}

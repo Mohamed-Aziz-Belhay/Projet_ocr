@@ -1,0 +1,17 @@
+{
+  "detail": {
+    "error": "DOCUMENT_TYPE_MISMATCH",
+    "message": "Le type de document sélectionné ne correspond pas au document uploadé.",
+    "selected_type": "passport",
+    "detected_type": "cin_tn",
+    "confidence": 1.0,
+    "reasons": [
+      "الجمهورية",
+      "التونسية",
+      "تونسية",
+      "تونس",
+      "الإسم"
+    ],
+    "recommendation": "Choisissez le type 'cin_tn' ou utilisez 'auto'."
+  }
+}

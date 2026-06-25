@@ -1,0 +1,511 @@
+{
+  "job_id": "74bcdbb3-0b44-42b4-aa76-690ca255defe",
+  "status": "success",
+  "template_id": "cin_tn",
+  "document_type": "cin_tn",
+  "document_variant": "recto",
+  "engine_used": "mixed(easyocr_boxes,paddle_boxes)",
+  "language_detected": "ar",
+  "global_confidence": 0.9429,
+  "quality_score": 0.771,
+  "fields": [
+    {
+      "name": "id_number",
+      "value": "08526359",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "08526359",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    },
+    {
+      "name": "last_name",
+      "value": "الحسني",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "الحسني",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    },
+    {
+      "name": "first_name",
+      "value": "رضا",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "اضر",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "paddle_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes",
+        "cin_arabic_ocr_fix:اضر->رضا"
+      ]
+    },
+    {
+      "name": "birth_date",
+      "value": "1982-11-02",
+      "confidence": 0.82,
+      "validated": true,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": null,
+      "selected_source": "cin_postprocess_birth_date_context",
+      "review_required": false,
+      "reasons": [
+        "field unresolved",
+        "critical field missing",
+        "birth_date_recovered:contextual_birth_date"
+      ]
+    },
+    {
+      "name": "birth_place",
+      "value": "زهرة مدين",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "زهرة مدين",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "idNumber": "08526359",
+    "lastName": "الحسني",
+    "firstName": "رضا",
+    "birthDate": "1982-11-02",
+    "birthPlace": "زهرة مدين"
+  },
+  "routing": null,
+  "business_validation": {
+    "status": "success",
+    "review_required": false,
+    "review_reasons": [],
+    "warnings": [],
+    "business_confidence": 0.9429,
+    "critical_fields_ok": 3,
+    "valid_fields_ok": 5,
+    "present_fields": 5,
+    "quality_score": 0.771,
+    "avg_field_confidence": 0.924,
+    "field_coverage": 1.0
+  },
+  "diagnostics": {
+    "mode": "cin_specialized_v2",
+    "cin_mode": "balanced",
+    "strategy": "balanced: spatial-first + targeted-roi-fallback + optional-full-fallback",
+    "pipeline_steps": [
+      "easyocr_boxes",
+      "paddle_boxes"
+    ],
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.706,
+        "contrast": 0.481,
+        "quality_score": 0.771
+      },
+      "transforms": {
+        "resized": false,
+        "deskewed": true,
+        "contrast": true,
+        "mode": "cin_legacy_compatible"
+      },
+      "cin_preprocessor_keys": [
+        "binary",
+        "card_roi",
+        "deskewed",
+        "gray",
+        "oriented",
+        "original"
+      ]
+    },
+    "quality_checks": {
+      "sharpness": 1.0,
+      "brightness": 0.706,
+      "contrast": 0.481,
+      "quality_score": 0.771
+    },
+    "roi_fields": {
+      "cin_number": [
+        30,
+        224
+      ],
+      "family_name": [
+        25,
+        196
+      ],
+      "first_name": [
+        25,
+        196
+      ],
+      "date_of_birth": [
+        27,
+        196
+      ],
+      "place_of_birth": [
+        28,
+        196
+      ],
+      "gender": [
+        20,
+        96
+      ],
+      "right_text_block": [
+        140,
+        220
+      ]
+    },
+    "engines": [],
+    "spatial": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "box_count": 15,
+          "fields": {
+            "cin_number": "08526359",
+            "family_name": "الحسني",
+            "place_of_birth": "زهرة مدين"
+          },
+          "scores": {
+            "cin_number": 20.19616989949032,
+            "family_name": 11.35460533104728,
+            "place_of_birth": 9.0
+          },
+          "meta": {
+            "cin_number": {
+              "chosen_from": "08526359",
+              "candidate_text": "08526359",
+              "source_kind": "spatial_numeric"
+            },
+            "family_name": {
+              "chosen_from": "اللقب",
+              "candidate_text": "الحسني",
+              "source_kind": "label_neighbor_merged",
+              "anchors_found": 1
+            },
+            "first_name": {
+              "chosen_from": null,
+              "source_kind": "dropped_duplicate"
+            },
+            "date_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_date",
+              "anchors_found": 1
+            },
+            "place_of_birth": {
+              "chosen_from": "right_text_block",
+              "candidate_text": "الجمهوريذالتوذ بطاقةالتعريفالوطنيه 08526359 اللقب الحسني اللم رضا بن عمر بن العربي تارخ الولادة 02 نو فمبر 1982 عانها زهرة مدين",
+              "source_kind": "right_text_fallback",
+              "anchors_found": 0
+            },
+            "label_spatial": {
+              "reason": "no_items"
+            }
+          },
+          "label_spatial": {
+            "fields": {},
+            "scores": {},
+            "meta": {
+              "reason": "no_items"
+            }
+          },
+          "raw_text_reconstructed": ""
+        },
+        {
+          "engine": "paddle_boxes",
+          "box_count": 13,
+          "fields": {
+            "cin_number": "08526359",
+            "family_name": "ينسحلا",
+            "first_name": "اضر"
+          },
+          "scores": {
+            "cin_number": 20.171031713485718,
+            "family_name": 11.436428911826667,
+            "first_name": 15.174966275691986
+          },
+          "meta": {
+            "cin_number": {
+              "chosen_from": "08526359",
+              "candidate_text": "08526359",
+              "source_kind": "spatial_numeric"
+            },
+            "family_name": {
+              "chosen_from": "بقللا",
+              "candidate_text": "ينسحلا",
+              "source_kind": "label_neighbor_merged",
+              "anchors_found": 1
+            },
+            "first_name": {
+              "chosen_from": "اضر مسالا",
+              "candidate_text": "اضر",
+              "source_kind": "inline",
+              "anchors_found": 1
+            },
+            "date_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_date",
+              "anchors_found": 1
+            },
+            "place_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_place",
+              "anchors_found": 0
+            },
+            "label_spatial": {
+              "reason": "no_items"
+            }
+          },
+          "label_spatial": {
+            "fields": {},
+            "scores": {},
+            "meta": {
+              "reason": "no_items"
+            }
+          },
+          "raw_text_reconstructed": ""
+        }
+      ]
+    },
+    "fusion": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "source": "spatial_boxes",
+          "fields": {
+            "cin_number": "08526359",
+            "family_name": "الحسني",
+            "place_of_birth": "زهرة مدين"
+          }
+        },
+        {
+          "engine": "paddle_boxes",
+          "source": "spatial_boxes",
+          "fields": {
+            "cin_number": "08526359",
+            "family_name": "ينسحلا",
+            "first_name": "اضر"
+          }
+        }
+      ],
+      "aggregated": {
+        "cin_number": [
+          {
+            "value": "08526359",
+            "avg_conf": 20.183601,
+            "count": 2,
+            "engines": [
+              "easyocr_boxes",
+              "paddle_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 56.183601,
+            "raw_value": "08526359",
+            "meta": []
+          }
+        ],
+        "family_name": [
+          {
+            "value": "الحسني",
+            "avg_conf": 20.183601,
+            "count": 2,
+            "engines": [
+              "easyocr_boxes",
+              "paddle_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 61.983601,
+            "raw_value": "الحسني",
+            "meta": []
+          }
+        ],
+        "first_name": [
+          {
+            "value": "اضر",
+            "avg_conf": 20.171032,
+            "count": 1,
+            "engines": [
+              "paddle_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 54.271032,
+            "raw_value": "اضر",
+            "meta": []
+          }
+        ],
+        "date_of_birth": [],
+        "place_of_birth": [
+          {
+            "value": "زهرة مدين",
+            "avg_conf": 20.19617,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 65.19617,
+            "raw_value": "زهرة مدين",
+            "meta": []
+          }
+        ]
+      },
+      "selected": {
+        "cin_number": {
+          "value": "08526359",
+          "avg_conf": 20.183601,
+          "count": 2,
+          "engines": [
+            "easyocr_boxes",
+            "paddle_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 56.183601,
+          "raw_value": "08526359",
+          "meta": []
+        },
+        "family_name": {
+          "value": "الحسني",
+          "avg_conf": 20.183601,
+          "count": 2,
+          "engines": [
+            "easyocr_boxes",
+            "paddle_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 61.983601,
+          "raw_value": "الحسني",
+          "meta": []
+        },
+        "first_name": {
+          "value": "اضر",
+          "avg_conf": 20.171032,
+          "count": 1,
+          "engines": [
+            "paddle_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 54.271032,
+          "raw_value": "اضر",
+          "meta": []
+        },
+        "date_of_birth": null,
+        "place_of_birth": {
+          "value": "زهرة مدين",
+          "avg_conf": 20.19617,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 65.19617,
+          "raw_value": "زهرة مدين",
+          "meta": []
+        }
+      }
+    },
+    "cin_postprocess": {
+      "executed": true,
+      "name_extraction": {
+        "debug_sequence": "اللقب:الحسني الاسم:? variants:normal",
+        "family_name": "الحسني",
+        "first_name": null,
+        "rule": "family_name=all words after اللقب; first_name=words on الاسم line before بن/بنت"
+      },
+      "applied": [
+        {
+          "field": "first_name",
+          "type": "arabic_ocr_name_fix",
+          "old": "اضر",
+          "new": "رضا"
+        },
+        {
+          "field": "last_name",
+          "type": "postprocess_skip_name_override",
+          "kept": "الحسني",
+          "candidate": "الحسني",
+          "candidate_ok": true,
+          "old_ok": true,
+          "good_spatial": true
+        },
+        {
+          "field": "birth_date",
+          "type": "contextual_date_recovery",
+          "old": null,
+          "new": "1982-11-02",
+          "reason": "contextual_birth_date"
+        },
+        {
+          "field": "birth_place",
+          "type": "postprocess_skip_place_override",
+          "kept": "زهرة مدين",
+          "candidate": "زهرة مدين",
+          "reason": "known_place_in_raw_text",
+          "good_spatial": true
+        }
+      ]
+    },
+    "review_required": false,
+    "review_reasons": [],
+    "business_validation": {
+      "status": "success",
+      "review_required": false,
+      "review_reasons": [],
+      "warnings": [],
+      "business_confidence": 0.9429,
+      "critical_fields_ok": 3,
+      "valid_fields_ok": 5,
+      "present_fields": 5,
+      "quality_score": 0.771,
+      "avg_field_confidence": 0.924,
+      "field_coverage": 1.0
+    }
+  },
+  "raw_text": "08526359 الحسني زهرة مدين 08526359 الحسني رضا 08526359 الحسني زهرة مدين 08526359 08526359 الحسني اللقب الجمهوريذالتوذ بطاقةالتعريفالوطنيه 08526359 اللقب الحسني اللم رضا بن عمر بن العربي تاريخ الولادة 02 نو فمبر 1982 مكانها زهرة مدين right_text_block 08526359 الحسني رضا 08526359 08526359 الحسني اللقب رضا رضا الاسم",
+  "processing_time_ms": 1389,
+  "warnings": [],
+  "review_reasons": []
+}

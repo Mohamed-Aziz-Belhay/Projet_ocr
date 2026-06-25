@@ -1,0 +1,589 @@
+{
+  "job_id": "11d1f3ae-a0bb-47ce-ac5a-9683a918a7a3",
+  "status": "review_required",
+  "template_id": "cin_tn",
+  "document_type": "cin_tn",
+  "document_variant": "recto",
+  "engine_used": "easyocr",
+  "language_detected": "ar",
+  "global_confidence": 0.0176,
+  "quality_score": 0.353,
+  "fields": [
+    {
+      "name": "id_number",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": "CIN introuvable",
+      "selected_engine": null,
+      "selected_source": null,
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "critical field missing"
+      ]
+    },
+    {
+      "name": "last_name",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": "Nom introuvable",
+      "selected_engine": null,
+      "selected_source": null,
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "critical field missing"
+      ]
+    },
+    {
+      "name": "first_name",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": "Prénom introuvable",
+      "selected_engine": null,
+      "selected_source": null,
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "critical field missing"
+      ]
+    },
+    {
+      "name": "birth_date",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": "Date introuvable",
+      "selected_engine": null,
+      "selected_source": null,
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "critical field missing"
+      ]
+    },
+    {
+      "name": "birth_place",
+      "value": "الجم",
+      "confidence": 0.6,
+      "validated": false,
+      "raw_text": "الجم",
+      "raw_template_field": null,
+      "error": "Lieu de naissance générique/suspect - vérification requise",
+      "selected_engine": "easyocr",
+      "selected_source": "spatial_boxes",
+      "review_required": true,
+      "reasons": [
+        "selected_from:spatial_boxes",
+        "invalid_suspicious_birth_place"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "idNumber": null,
+    "lastName": null,
+    "firstName": null,
+    "birthDate": null,
+    "birthPlace": "الجم"
+  },
+  "routing": null,
+  "business_validation": {
+    "status": "review_required",
+    "review_required": true,
+    "review_reasons": [
+      "critical field missing or invalid: last_name",
+      "critical field missing or invalid: id_number",
+      "critical field missing or invalid: first_name",
+      "birth_date missing"
+    ],
+    "warnings": [
+      "Champ critique à vérifier: last_name",
+      "Champ critique à vérifier: id_number",
+      "Champ critique à vérifier: first_name",
+      "Date de naissance à vérifier"
+    ],
+    "business_confidence": 0.0176,
+    "critical_fields_ok": 0,
+    "valid_fields_ok": 0,
+    "present_fields": 1,
+    "quality_score": 0.353,
+    "avg_field_confidence": 0.0,
+    "field_coverage": 0.0
+  },
+  "diagnostics": {
+    "mode": "cin_specialized_v2",
+    "cin_mode": "balanced",
+    "strategy": "balanced: spatial-first + targeted-roi-fallback + optional-full-fallback",
+    "pipeline_steps": [
+      "easyocr_boxes",
+      "paddle_boxes",
+      "targeted_roi:easyocr",
+      "targeted_roi:paddle",
+      "full_ocr:paddle"
+    ],
+    "preprocessing": {
+      "quality": {
+        "sharpness": 0.199,
+        "brightness": 0.61,
+        "contrast": 0.37,
+        "quality_score": 0.353
+      },
+      "transforms": {
+        "resized": false,
+        "deskewed": true,
+        "contrast": true,
+        "mode": "cin_legacy_compatible"
+      },
+      "cin_preprocessor_keys": [
+        "binary",
+        "card_roi",
+        "deskewed",
+        "gray",
+        "oriented",
+        "original"
+      ]
+    },
+    "quality_checks": {
+      "sharpness": 0.199,
+      "brightness": 0.61,
+      "contrast": 0.37,
+      "quality_score": 0.353
+    },
+    "roi_fields": {
+      "cin_number": [
+        52,
+        475
+      ],
+      "family_name": [
+        43,
+        415
+      ],
+      "first_name": [
+        43,
+        415
+      ],
+      "date_of_birth": [
+        48,
+        415
+      ],
+      "place_of_birth": [
+        48,
+        415
+      ],
+      "gender": [
+        35,
+        203
+      ],
+      "right_text_block": [
+        243,
+        466
+      ]
+    },
+    "engines": [
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "targeted_missing_rois",
+        "target_fields": [
+          "cin_number",
+          "family_name",
+          "first_name",
+          "date_of_birth",
+          "place_of_birth"
+        ],
+        "processing_time_ms": 253,
+        "zones": {
+          "cin_number": "فاالتوس",
+          "family_name": "",
+          "first_name": "",
+          "date_of_birth": "",
+          "place_of_birth": "",
+          "right_text_block": "بطاقذ التعرفالن الجمهوري"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "paddle",
+        "executed": true,
+        "trial_type": "targeted_missing_rois",
+        "target_fields": [
+          "cin_number",
+          "family_name",
+          "first_name",
+          "date_of_birth",
+          "place_of_birth"
+        ],
+        "processing_time_ms": 1343,
+        "zones": {
+          "cin_number": "",
+          "family_name": "لا",
+          "first_name": "",
+          "date_of_birth": "",
+          "place_of_birth": "",
+          "right_text_block": "ولايرغشلا راوهمجلا ةقاطب"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "paddle",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "ةينطولا ةيسنوتلا ةبروهمجلا ظيرعتلا ةقاطب ينس",
+        "full_text_score": 0.0,
+        "processing_time_ms": 757,
+        "zones": {
+          "cin_number": "",
+          "family_name": "لا",
+          "first_name": "",
+          "date_of_birth": "",
+          "place_of_birth": "",
+          "gender": "",
+          "right_text_block": "ولايرغشلا راوهمجلا ةقاطب"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      }
+    ],
+    "spatial": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "box_count": 2,
+          "fields": {
+            "place_of_birth": "الجم"
+          },
+          "scores": {
+            "place_of_birth": 9.0
+          },
+          "meta": {
+            "cin_number": {
+              "chosen_from": null,
+              "candidate_text": null,
+              "source_kind": "spatial_numeric"
+            },
+            "family_name": {
+              "chosen_from": null,
+              "source_kind": "no_label",
+              "anchors_found": 0
+            },
+            "first_name": {
+              "chosen_from": null,
+              "source_kind": "no_label",
+              "anchors_found": 0
+            },
+            "date_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_date",
+              "anchors_found": 0
+            },
+            "place_of_birth": {
+              "chosen_from": "right_text_block",
+              "candidate_text": "الجمهوريف التونسيف بطاقةالتعريف الوطنيه",
+              "source_kind": "right_text_fallback",
+              "anchors_found": 0
+            },
+            "label_spatial": {
+              "reason": "no_items"
+            }
+          },
+          "label_spatial": {
+            "fields": {},
+            "scores": {},
+            "meta": {
+              "reason": "no_items"
+            }
+          },
+          "raw_text_reconstructed": ""
+        },
+        {
+          "engine": "paddle_boxes",
+          "box_count": 5,
+          "fields": {},
+          "scores": {},
+          "meta": {
+            "cin_number": {
+              "chosen_from": null,
+              "candidate_text": null,
+              "source_kind": "spatial_numeric"
+            },
+            "family_name": {
+              "chosen_from": null,
+              "source_kind": "no_label",
+              "anchors_found": 0
+            },
+            "first_name": {
+              "chosen_from": null,
+              "source_kind": "no_label",
+              "anchors_found": 0
+            },
+            "date_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_date",
+              "anchors_found": 0
+            },
+            "place_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_place",
+              "anchors_found": 0
+            },
+            "label_spatial": {
+              "reason": "no_items"
+            }
+          },
+          "label_spatial": {
+            "fields": {},
+            "scores": {},
+            "meta": {
+              "reason": "no_items"
+            }
+          },
+          "raw_text_reconstructed": ""
+        }
+      ]
+    },
+    "fusion": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "source": "spatial_boxes",
+          "fields": {
+            "place_of_birth": "الجم"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "targeted_roi_ocr",
+          "fields": {
+            "cin_number": "فاالتوس",
+            "family_name": "CIN_FIRST_NAME:",
+            "first_name": "CIN_DATE_OF_BIRTH:",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
+            "place_of_birth": "بطاقذ التعرفالن الجمهوري"
+          }
+        },
+        {
+          "engine": "paddle",
+          "source": "targeted_roi_ocr",
+          "fields": {
+            "cin_number": "CIN_FAMILY_NAME: لا",
+            "family_name": "لا",
+            "first_name": "CIN_DATE_OF_BIRTH:",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
+            "place_of_birth": "ولايرغشلا راوهمجلا ةقاطب"
+          }
+        },
+        {
+          "engine": "paddle",
+          "source": "roi_ocr",
+          "fields": {
+            "cin_number": "CIN_FAMILY_NAME: لا",
+            "family_name": "لا",
+            "first_name": "CIN_DATE_OF_BIRTH:",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
+            "place_of_birth": "ةينطولا ةيسنوتلا ةبروهمجلا ظيرعتلا ةقاطب ينس"
+          }
+        }
+      ],
+      "aggregated": {
+        "cin_number": [],
+        "family_name": [],
+        "first_name": [],
+        "date_of_birth": [],
+        "place_of_birth": [
+          {
+            "value": "الجم",
+            "avg_conf": 3.0,
+            "count": 3,
+            "engines": [
+              "easyocr",
+              "easyocr_boxes",
+              "global_text"
+            ],
+            "sources": [
+              "spatial_boxes",
+              "text_place_fallback",
+              "text_place_global"
+            ],
+            "profiles": [],
+            "selection_score": 65.0,
+            "raw_value": "الجم",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_combined_text": true
+              }
+            ]
+          },
+          {
+            "value": "بطاقذ التعرفالن الجمهوري",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "easyocr"
+            ],
+            "sources": [
+              "extractor",
+              "targeted_roi_ocr"
+            ],
+            "profiles": [],
+            "selection_score": 6.5,
+            "raw_value": "بطاقذ التعرفالن الجمهوري",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          },
+          {
+            "value": "ولايرغشلا راوهمجلا ةقاطب",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "paddle"
+            ],
+            "sources": [
+              "extractor",
+              "targeted_roi_ocr"
+            ],
+            "profiles": [],
+            "selection_score": 6.5,
+            "raw_value": "ولايرغشلا راوهمجلا ةقاطب",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          }
+        ]
+      },
+      "selected": {
+        "family_name": null,
+        "first_name": null,
+        "date_of_birth": null,
+        "place_of_birth": {
+          "value": "الجم",
+          "avg_conf": 3.0,
+          "count": 3,
+          "engines": [
+            "easyocr",
+            "easyocr_boxes",
+            "global_text"
+          ],
+          "sources": [
+            "spatial_boxes",
+            "text_place_fallback",
+            "text_place_global"
+          ],
+          "profiles": [],
+          "selection_score": 65.0,
+          "raw_value": "الجم",
+          "meta": [
+            {
+              "from_raw_text": true
+            },
+            {
+              "from_combined_text": true
+            }
+          ]
+        }
+      }
+    },
+    "cin_postprocess": {
+      "executed": true,
+      "name_extraction": null,
+      "applied": [
+        {
+          "field": "birth_place",
+          "type": "invalid_suspicious_birth_place",
+          "value": "الجم"
+        }
+      ]
+    },
+    "review_required": true,
+    "review_reasons": [
+      "critical field missing or invalid: last_name",
+      "critical field missing or invalid: id_number",
+      "critical field missing or invalid: first_name",
+      "birth_date missing"
+    ],
+    "business_validation": {
+      "status": "review_required",
+      "review_required": true,
+      "review_reasons": [
+        "critical field missing or invalid: last_name",
+        "critical field missing or invalid: id_number",
+        "critical field missing or invalid: first_name",
+        "birth_date missing"
+      ],
+      "warnings": [
+        "Champ critique à vérifier: last_name",
+        "Champ critique à vérifier: id_number",
+        "Champ critique à vérifier: first_name",
+        "Date de naissance à vérifier"
+      ],
+      "business_confidence": 0.0176,
+      "critical_fields_ok": 0,
+      "valid_fields_ok": 0,
+      "present_fields": 1,
+      "quality_score": 0.353,
+      "avg_field_confidence": 0.0,
+      "field_coverage": 0.0
+    }
+  },
+  "raw_text": "الجم CIN_NUMBER: فاالتوس CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: بطاقذ التعرفالن الجمهوري فاالتوس CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: بطاقذ التعرفالن الجمهوري CIN_NUMBER: CIN_FAMILY_NAME: لا CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ولايرغشلا راوهمجلا ةقاطب CIN_FAMILY_NAME: لا لا CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ولايرغشلا راوهمجلا ةقاطب CIN_NUMBER: CIN_FAMILY_NAME: لا CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ةينطولا ةيسنوتلا ةبروهمجلا ظيرعتلا ةقاطب ينس CIN_FAMILY_NAME: لا لا CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ةينطولا ةيسنوتلا ةبروهمجلا ظيرعتلا ةقاطب ينس الجم الجمهوريف التونسيف بطاقةالتعريف الوطنيه right_text_block فاالتوس بطاقذ التعرفالن الجمهوري لا ولايرغشلا راوهمجلا ةقاطب ةينطولا ةيسنوتلا ةبروهمجلا ظيرعتلا ةقاطب ينس لا ولايرغشلا راوهمجلا ةقاطب",
+  "processing_time_ms": 3937,
+  "warnings": [
+    "Champ critique à vérifier: last_name",
+    "Champ critique à vérifier: id_number",
+    "Champ critique à vérifier: first_name",
+    "Date de naissance à vérifier",
+    "Champ requis 'numero_cin' à vérifier",
+    "Champ requis 'nom' à vérifier",
+    "Champ requis 'prenom' à vérifier",
+    "Champ requis 'date_naissance' à vérifier",
+    "Champ requis 'lieu_naissance' à vérifier"
+  ],
+  "review_reasons": [
+    "critical field missing or invalid: last_name",
+    "critical field missing or invalid: id_number",
+    "critical field missing or invalid: first_name",
+    "birth_date missing"
+  ]
+}

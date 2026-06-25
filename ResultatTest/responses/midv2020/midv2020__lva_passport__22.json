@@ -1,0 +1,1077 @@
+{
+  "job_id": "803b9249-69a5-4f31-ab04-6e7f47190198",
+  "status": "success",
+  "template_id": "midv_lva_passport",
+  "document_type": "passport",
+  "document_variant": null,
+  "engine_used": "passport_mrz",
+  "language_detected": "en",
+  "global_confidence": 0.8668,
+  "quality_score": 0.778,
+  "fields": [
+    {
+      "name": "document_number",
+      "value": "LV1406112",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "Dalened Anet 26.04.2012 11 Denca Bap/odon? [Date of explry/ 26 04.2022 . i42 9809 P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKrKK<<< LV14061127LVA740328602204260280374<11745k<46",
+      "raw_template_field": "document_number",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "surname",
+      "value": "KANEPS",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "Dalened Anet 26.04.2012 11 Denca Bap/odon? [Date of explry/ 26 04.2022 . i42 9809 P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKrKK<<< LV14061127LVA740328602204260280374<11745k<46",
+      "raw_template_field": "surname",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "given_names",
+      "value": "ALVIS RKRKK",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "Dalened Anet 26.04.2012 11 Denca Bap/odon? [Date of explry/ 26 04.2022 . i42 9809 P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKrKK<<< LV14061127LVA740328602204260280374<11745k<46",
+      "raw_template_field": "given_names",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "nationality",
+      "value": "LVA",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "Dalened Anet 26.04.2012 11 Denca Bap/odon? [Date of explry/ 26 04.2022 . i42 9809 P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKrKK<<< LV14061127LVA740328602204260280374<11745k<46",
+      "raw_template_field": "nationality",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "birth_date",
+      "value": "1974-03-28",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "Dalened Anet 26.04.2012 11 Denca Bap/odon? [Date of explry/ 26 04.2022 . i42 9809 P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKrKK<<< LV14061127LVA740328602204260280374<11745k<46",
+      "raw_template_field": "birth_date",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "gender",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": "Dalened Anet 26.04.2012 11 Denca Bap/odon? [Date of explry/ 26 04.2022 . i42 9809 P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKrKK<<< LV14061127LVA740328602204260280374<11745k<46",
+      "raw_template_field": "gender",
+      "error": "invalid_gender",
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "field unresolved"
+      ]
+    },
+    {
+      "name": "expiry_date",
+      "value": "2022-04-26",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "Dalened Anet 26.04.2012 11 Denca Bap/odon? [Date of explry/ 26 04.2022 . i42 9809 P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKrKK<<< LV14061127LVA740328602204260280374<11745k<46",
+      "raw_template_field": "expiry_date",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "issuing_country",
+      "value": "LVA",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "Dalened Anet 26.04.2012 11 Denca Bap/odon? [Date of explry/ 26 04.2022 . i42 9809 P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKrKK<<< LV14061127LVA740328602204260280374<11745k<46",
+      "raw_template_field": "issuing_country",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "personal_number",
+      "value": "28037411745K",
+      "confidence": 0.94,
+      "validated": true,
+      "raw_text": "Dalened Anet 26.04.2012 11 Denca Bap/odon? [Date of explry/ 26 04.2022 . i42 9809 P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKrKK<<< LV14061127LVA740328602204260280374<11745k<46",
+      "raw_template_field": "personal_number",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    },
+    {
+      "name": "mrz",
+      "value": "P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKRKK<<<\nLV14061127LVA740328602204260280374<11745K<46",
+      "confidence": 0.97,
+      "validated": true,
+      "raw_text": "Dalened Anet 26.04.2012 11 Denca Bap/odon? [Date of explry/ 26 04.2022 . i42 9809 P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKrKK<<< LV14061127LVA740328602204260280374<11745k<46",
+      "raw_template_field": "mrz",
+      "error": null,
+      "selected_engine": "passport_mrz",
+      "selected_source": "mrz",
+      "review_required": false,
+      "reasons": [
+        "selected_from:mrz"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "document_number": "LV1406112",
+    "surname": "KANEPS",
+    "given_names": "ALVIS RKRKK",
+    "nationality": "LVA",
+    "birth_date": "1974-03-28",
+    "expiry_date": "2022-04-26",
+    "issuing_country": "LVA",
+    "personal_number": "28037411745K",
+    "mrz": "P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKRKK<<<\nLV14061127LVA740328602204260280374<11745K<46"
+  },
+  "routing": {
+    "requested_document_type": "auto",
+    "requested_template_id": null,
+    "selected_template_id": "midv_lva_passport",
+    "selected_document_type": "passport",
+    "method": "swin_image_classifier",
+    "document_class": "lva_passport",
+    "confidence": 1.0
+  },
+  "business_validation": {
+    "status": "success",
+    "review_required": false,
+    "review_reasons": [],
+    "valid_fields_ok": 9,
+    "present_fields": 9,
+    "field_coverage": 0.9,
+    "avg_field_confidence": 0.849,
+    "business_confidence": 0.8668,
+    "quality_score": 0.778
+  },
+  "diagnostics": {
+    "mode": "generic_template_v5_detector_swin_roi_passport_invoice",
+    "processing_mode": "fast",
+    "routing": {
+      "requested_document_type": "auto",
+      "requested_template_id": null,
+      "selected_template_id": "midv_lva_passport",
+      "selected_document_type": "passport",
+      "method": "swin_image_classifier",
+      "document_class": "lva_passport",
+      "confidence": 1.0
+    },
+    "template_id": "midv_lva_passport",
+    "document_type": "passport",
+    "engine": "passport_mrz",
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.84,
+        "contrast": 0.393,
+        "quality_score": 0.778
+      },
+      "transforms": {
+        "resized": true,
+        "deskewed": true,
+        "contrast": true
+      }
+    },
+    "layout": {
+      "page_width": 2000,
+      "page_height": 1403,
+      "orientation": "landscape",
+      "has_table": true,
+      "column_count": 3,
+      "regions": [
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            1150,
+            86,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            1108,
+            86,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            1067,
+            86,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            1027,
+            87,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            984,
+            87,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            945,
+            87,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            903,
+            87,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            861,
+            86,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            822,
+            87,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            739,
+            87,
+            79
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            698,
+            87,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            658,
+            87,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            615,
+            83,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            574,
+            86,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            532,
+            87,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            473,
+            493,
+            84,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            493,
+            87,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            451,
+            86,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            410,
+            87,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            473,
+            409,
+            83,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            473,
+            371,
+            83,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            369,
+            86,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            473,
+            327,
+            83,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            327,
+            86,
+            39
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            286,
+            83,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            375,
+            206,
+            83,
+            79
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            473,
+            205,
+            84,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            473,
+            165,
+            83,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            375,
+            162,
+            86,
+            40
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            473,
+            124,
+            83,
+            36
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            375,
+            123,
+            87,
+            37
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            473,
+            81,
+            83,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0,
+            0,
+            1582,
+            1403
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            473,
+            0,
+            83,
+            79
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "header",
+          "bbox": [
+            375,
+            0,
+            86,
+            38
+          ],
+          "confidence": 1.0,
+          "label": null
+        }
+      ],
+      "region_count": 35
+    },
+    "field_count": 10,
+    "validated_field_count": 9,
+    "document_localizer": {
+      "localizer": "document_localizer_v3_yolo_raw_plus_normalized",
+      "method": "yolo_crop",
+      "detector": {
+        "found": true,
+        "bbox_xyxy": [
+          0.0,
+          0.0,
+          1590.66162109375,
+          1492.675537109375
+        ],
+        "confidence": 0.826,
+        "class_name": "document",
+        "method": "yolo_document_detector",
+        "error": null
+      },
+      "input_shape": [
+        1521,
+        2167
+      ],
+      "localized_shape": [
+        1521,
+        1622
+      ],
+      "candidate_count": 20,
+      "raw_candidate_count": 4,
+      "normalized_candidate_count": 16,
+      "yolo_crop_padding": 0.02,
+      "aspect_trim": {
+        "enabled": false,
+        "reason": "aspect trimming degraded ROI alignment in previous tests"
+      },
+      "post_yolo_normalizer": {
+        "executed": true,
+        "diagnostics": {
+          "normalizer": "classical_cv_multi_candidate_v6_strict_color_nms",
+          "input_shape": [
+            1521,
+            1622
+          ],
+          "detection_shape": [
+            1125,
+            1200
+          ],
+          "scale": 0.7398273736128237,
+          "mode": "fast",
+          "found_contour": true,
+          "contours_total": 248,
+          "sliding_candidate_count": 8,
+          "contour_candidate_count": 43,
+          "candidate_pool_count": 51,
+          "crop_candidate_count": 8,
+          "final_candidate_count": 16,
+          "rejected": {
+            "too_small": 21,
+            "too_large": 0,
+            "bad_aspect": 16,
+            "touches_border_large": 0,
+            "invalid_crop": 0
+          },
+          "selected_strategy": "multi_candidate_roi_score",
+          "candidates_preview": [
+            {
+              "source": "sliding_color_window",
+              "index": 1211,
+              "score": 0.718864,
+              "density": 0.867221,
+              "mean_saturation": 0.228892,
+              "std_value": 0.08686,
+              "center_density": 1.0,
+              "center_saturation": 0.2546,
+              "area_ratio": 0.005261,
+              "bbox_detection": [
+                189,
+                819,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1213,
+              "score": 0.713804,
+              "density": 0.866376,
+              "mean_saturation": 0.224482,
+              "std_value": 0.084547,
+              "center_density": 1.0,
+              "center_saturation": 0.249688,
+              "area_ratio": 0.005261,
+              "bbox_detection": [
+                231,
+                819,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1209,
+              "score": 0.667073,
+              "density": 0.809631,
+              "mean_saturation": 0.207108,
+              "std_value": 0.080605,
+              "center_density": 0.958551,
+              "center_saturation": 0.234827,
+              "area_ratio": 0.005261,
+              "bbox_detection": [
+                147,
+                819,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1215,
+              "score": 0.63797,
+              "density": 0.768798,
+              "mean_saturation": 0.199975,
+              "std_value": 0.083098,
+              "center_density": 0.924058,
+              "center_saturation": 0.227479,
+              "area_ratio": 0.005261,
+              "bbox_detection": [
+                273,
+                819,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1159,
+              "score": 0.630129,
+              "density": 0.757392,
+              "mean_saturation": 0.204102,
+              "std_value": 0.112691,
+              "center_density": 0.861449,
+              "center_saturation": 0.226265,
+              "area_ratio": 0.005261,
+              "bbox_detection": [
+                210,
+                798,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1161,
+              "score": 0.616871,
+              "density": 0.739228,
+              "mean_saturation": 0.192786,
+              "std_value": 0.115549,
+              "center_density": 0.866087,
+              "center_saturation": 0.222236,
+              "area_ratio": 0.005261,
+              "bbox_detection": [
+                252,
+                798,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1157,
+              "score": 0.615497,
+              "density": 0.737398,
+              "mean_saturation": 0.198037,
+              "std_value": 0.10299,
+              "center_density": 0.862609,
+              "center_saturation": 0.223107,
+              "area_ratio": 0.005261,
+              "bbox_detection": [
+                168,
+                798,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 124,
+              "score": 0.546072,
+              "density": 0.427767,
+              "mean_saturation": 0.282775,
+              "std_value": 0.143732,
+              "center_density": 0.584058,
+              "center_saturation": 0.375524,
+              "area_ratio": 0.005261,
+              "bbox_detection": [
+                1050,
+                105,
+                106,
+                67
+              ],
+              "aspect": 1.5821,
+              "aspect_penalty": 0.0039,
+              "touches_border": false,
+              "reject_reason": null
+            }
+          ],
+          "candidate_angles": [
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180
+          ]
+        },
+        "normalized_shape": [
+          91,
+          143
+        ],
+        "candidate_count": 16
+      }
+    },
+    "passport_extraction": {
+      "passport_extraction": "passport_mrz_first_best_candidate_v2_strict_early_stop",
+      "selected_angle": 0,
+      "selected_source": "full_image_width_guard",
+      "selected_candidate_index": -1,
+      "selected_debug_prefix": "passport_cand_-1_angle_0",
+      "selected_score": 120.64,
+      "selected_mrz_core_valid": true,
+      "candidate_debug": [
+        {
+          "angle": 0,
+          "source": "full_image_width_guard",
+          "candidate_index": -1,
+          "debug_prefix": "passport_cand_-1_angle_0",
+          "score": 120.64,
+          "mrz_core_valid": true,
+          "validated_fields": 9,
+          "present_fields": 9,
+          "review_required_fields": [],
+          "warnings": [],
+          "passport_debug_summary": {
+            "selected_candidate": "bottom_38_clahe",
+            "selected_score": 86.0
+          }
+        }
+      ],
+      "selected_candidate_debug": {
+        "passport_extraction": "passport_mrz_first_v2_mrz_preprocess_repair",
+        "engine": "easyocr",
+        "language_hints": [
+          "en"
+        ],
+        "selected_candidate": "bottom_38_clahe",
+        "selected_base_candidate": "bottom_38",
+        "selected_variant": "clahe",
+        "selected_bbox_norm": [
+          0.02,
+          0.58,
+          0.96,
+          0.4
+        ],
+        "selected_score": 86.0,
+        "selected_raw_text": "Dalened Anet 26.04.2012 11 Denca Bap/odon? [Date of explry/ 26 04.2022 . i42 9809 P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKrKK<<< LV14061127LVA740328602204260280374<11745k<46",
+        "selected_repaired_text": "Dalened Anet 26.04.2012 11 Denca Bap/odon? [Date of explry/ 26 04.2022 . i42 9809 P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKrKK<<< LV14061127LVA740328602204260280374<11745k<46",
+        "selected_parsed": {
+          "valid": true,
+          "document_type": "P",
+          "issuing_country": "LVA",
+          "document_number": "LV1406112",
+          "surname": "KANEPS",
+          "given_names": "ALVIS RKRKK",
+          "nationality": "LVA",
+          "birth_date": "1974-03-28",
+          "gender": null,
+          "expiry_date": "2022-04-26",
+          "personal_number": "28037411745K",
+          "mrz_lines": [
+            "P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKRKK<<<",
+            "LV14061127LVA740328602204260280374<11745K<46"
+          ],
+          "checks": {
+            "document_number": true,
+            "birth_date": true,
+            "expiry_date": true,
+            "personal_number": true,
+            "composite": true
+          },
+          "errors": []
+        },
+        "selected_repair_candidates": [
+          {
+            "method": "raw_ocr_text",
+            "text": "Dalened Anet 26.04.2012 11 Denca Bap/odon? [Date of explry/ 26 04.2022 . i42 9809 P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKrKK<<< LV14061127LVA740328602204260280374<11745k<46",
+            "score": 86.0,
+            "valid": true,
+            "parsed": {
+              "valid": true,
+              "document_type": "P",
+              "issuing_country": "LVA",
+              "document_number": "LV1406112",
+              "surname": "KANEPS",
+              "given_names": "ALVIS RKRKK",
+              "nationality": "LVA",
+              "birth_date": "1974-03-28",
+              "gender": null,
+              "expiry_date": "2022-04-26",
+              "personal_number": "28037411745K",
+              "mrz_lines": [
+                "P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKRKK<<<",
+                "LV14061127LVA740328602204260280374<11745K<46"
+              ],
+              "checks": {
+                "document_number": true,
+                "birth_date": true,
+                "expiry_date": true,
+                "personal_number": true,
+                "composite": true
+              },
+              "errors": []
+            }
+          }
+        ],
+        "candidates": [
+          {
+            "candidate": "bottom_38_clahe",
+            "base_candidate": "bottom_38",
+            "variant": "clahe",
+            "bbox_norm": [
+              0.02,
+              0.58,
+              0.96,
+              0.4
+            ],
+            "raw_text": "Dalened Anet 26.04.2012 11 Denca Bap/odon? [Date of explry/ 26 04.2022 . i42 9809 P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKrKK<<< LV14061127LVA740328602204260280374<11745k<46",
+            "selected_text": "Dalened Anet 26.04.2012 11 Denca Bap/odon? [Date of explry/ 26 04.2022 . i42 9809 P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKrKK<<< LV14061127LVA740328602204260280374<11745k<46",
+            "ocr_score": 0.0,
+            "parsed": {
+              "valid": true,
+              "document_type": "P",
+              "issuing_country": "LVA",
+              "document_number": "LV1406112",
+              "surname": "KANEPS",
+              "given_names": "ALVIS RKRKK",
+              "nationality": "LVA",
+              "birth_date": "1974-03-28",
+              "gender": null,
+              "expiry_date": "2022-04-26",
+              "personal_number": "28037411745K",
+              "mrz_lines": [
+                "P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKRKK<<<",
+                "LV14061127LVA740328602204260280374<11745K<46"
+              ],
+              "checks": {
+                "document_number": true,
+                "birth_date": true,
+                "expiry_date": true,
+                "personal_number": true,
+                "composite": true
+              },
+              "errors": []
+            },
+            "repair_candidates": [
+              {
+                "method": "raw_ocr_text",
+                "text": "Dalened Anet 26.04.2012 11 Denca Bap/odon? [Date of explry/ 26 04.2022 . i42 9809 P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKrKK<<< LV14061127LVA740328602204260280374<11745k<46",
+                "score": 86.0,
+                "valid": true,
+                "parsed": {
+                  "valid": true,
+                  "document_type": "P",
+                  "issuing_country": "LVA",
+                  "document_number": "LV1406112",
+                  "surname": "KANEPS",
+                  "given_names": "ALVIS RKRKK",
+                  "nationality": "LVA",
+                  "birth_date": "1974-03-28",
+                  "gender": null,
+                  "expiry_date": "2022-04-26",
+                  "personal_number": "28037411745K",
+                  "mrz_lines": [
+                    "P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKRKK<<<",
+                    "LV14061127LVA740328602204260280374<11745K<46"
+                  ],
+                  "checks": {
+                    "document_number": true,
+                    "birth_date": true,
+                    "expiry_date": true,
+                    "personal_number": true,
+                    "composite": true
+                  },
+                  "errors": []
+                }
+              }
+            ],
+            "score": 86.0
+          }
+        ]
+      },
+      "early_stop": {
+        "enabled": true,
+        "reason": "valid_mrz_core_checks"
+      }
+    },
+    "passport_width_guard": {
+      "enabled": true,
+      "min_width_ratio": 0.9,
+      "original_width": 2167,
+      "localized_width": 1622,
+      "actual_width_ratio": 0.7485,
+      "use_full_image_candidate": true,
+      "candidate_policy": "full_image_prepended",
+      "selected_source": "full_image_width_guard",
+      "selected_candidate_index": -1
+    },
+    "raw_ocr_executed": false,
+    "strategy": "passport_mrz_first"
+  },
+  "raw_text": "Dalened Anet 26.04.2012 11 Denca Bap/odon? [Date of explry/ 26 04.2022 . i42 9809 P<LVAKANEPS<<ALVIS<<<<<<<<<<<<<<<<<<RKrKK<<< LV14061127LVA740328602204260280374<11745k<46",
+  "processing_time_ms": 2370,
+  "warnings": [],
+  "review_reasons": []
+}

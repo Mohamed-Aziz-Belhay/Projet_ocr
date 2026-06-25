@@ -114,10 +114,17 @@ def discover_flat_dir(
     expected_document_type: str,
     expected_template_id: Optional[str],
     max_cases: int = 0,
+    in_scope_filenames: Optional[set] = None,
 ) -> List[Dict[str, Any]]:
     """
     Découvre toutes les images directement dans `folder` (pas de sous-dossiers
     de variantes) - utilisé pour CIN TN, Passeport TN, Facture.
+
+    in_scope_filenames: si fourni, seuls les fichiers dont le nom (insensible
+    à la casse) figure dans cet ensemble sont marqués in_scope=True. Les
+    autres sont in_scope=False (utilisés comme test de rejet hors-périmètre,
+    pas comme test de succès). Si None, tout est considéré in_scope=True
+    (comportement par défaut, inchangé pour cin_tn/passport_tn).
     """
     if not folder.exists():
         print(f"[WARN] Dossier introuvable, ignoré : {folder}")
@@ -133,6 +140,11 @@ def discover_flat_dir(
 
     cases = []
     for image_path in image_paths:
+        if in_scope_filenames is None:
+            in_scope = True
+        else:
+            in_scope = image_path.name.lower() in in_scope_filenames
+
         cases.append({
             "case_id": f"{family}__{image_path.stem}",
             "family": family,
@@ -144,6 +156,7 @@ def discover_flat_dir(
             "critical_fields": critical_fields,
             "expected_document_type": expected_document_type,
             "expected_template_id": expected_template_id,
+            "in_scope": in_scope,
         })
     return cases
 
@@ -163,6 +176,48 @@ def critical_fields_for_midv(class_name: str, expected_document_type: str) -> Li
     if expected_document_type == "passport":
         return PASSPORT_CRITICAL_FIELDS
     return MIDV_DEFAULT_CRITICAL_FIELDS
+
+
+def discover_explicit_files(
+    *,
+    folder: Path,
+    filenames: List[str],
+    family: str,
+    document_type: str,
+    template_id: Optional[str],
+    engine: str,
+    processing_mode: str,
+    critical_fields: List[str],
+    expected_document_type: str,
+    expected_template_id: Optional[str],
+) -> List[Dict[str, Any]]:
+    """
+    Comme discover_flat_dir, mais cible une liste précise de noms de fichiers
+    au lieu de scanner tout le dossier - utile quand un sous-ensemble connu
+    de fichiers correspond à un template spécifique (ex: les 6 factures
+    logistiques internationales identifiées dans DataSetOCR/Facture, qui
+    coexistent avec des TTN et des devis hors-périmètre dans le même dossier).
+    """
+    cases = []
+    for filename in filenames:
+        image_path = folder / filename
+        if not image_path.exists():
+            print(f"[WARN] Fichier introuvable, ignoré : {image_path}")
+            continue
+        cases.append({
+            "case_id": f"{family}__{image_path.stem}",
+            "family": family,
+            "file": str(image_path),
+            "document_type": document_type,
+            "template_id": template_id,
+            "engine": engine,
+            "processing_mode": processing_mode,
+            "critical_fields": critical_fields,
+            "expected_document_type": expected_document_type,
+            "expected_template_id": expected_template_id,
+            "in_scope": True,
+        })
+    return cases
 
 
 def discover_midv(
@@ -394,6 +449,18 @@ def build_row_from_payload(
     row["critical_missing"] = "; ".join(critical_missing)
     row["critical_pass"] = critical_valid_count == len(critical_fields)
 
+    # behavior_correct tient compte du périmètre déclaré du document :
+    # - in_scope=True (ou non précisé) : le bon comportement est critical_pass=True
+    # - in_scope=False (ex: facture hors-périmètre invoice_tn) : le bon
+    #   comportement est de NE PAS valider faussement les champs critiques
+    #   (pas de faux positif), donc critical_pass doit être False.
+    in_scope = case.get("in_scope", True)
+    if in_scope:
+        row["behavior_correct"] = row["critical_pass"]
+    else:
+        row["behavior_correct"] = not row["critical_pass"]
+    row["in_scope"] = in_scope
+
     expected_template = case.get("expected_template_id")
     expected_doc_type = case.get("expected_document_type")
 
@@ -414,7 +481,8 @@ CSV_FIELDS = [
     "engine_used", "strategy", "processing_time_ms", "global_confidence",
     "quality_score", "field_count", "validated_field_count",
     "critical_total", "critical_valid_count", "critical_missing",
-    "template_ok", "document_type_ok", "critical_pass", "error", "response_file",
+    "template_ok", "document_type_ok", "critical_pass",
+    "in_scope", "behavior_correct", "error", "response_file",
 ]
 
 
@@ -447,6 +515,8 @@ def build_global_summary(all_rows: List[Dict[str, Any]]) -> Dict[str, Any]:
             "cases": 0, "http_ok": 0, "success": 0,
             "review_required": 0, "other_status": 0,
             "critical_pass": 0, "technical_failures": 0,
+            "in_scope_cases": 0, "in_scope_critical_pass": 0,
+            "out_of_scope_cases": 0, "out_of_scope_correct_rejection": 0,
         })
         item["cases"] += 1
         if row.get("http_ok"):
@@ -464,6 +534,28 @@ def build_global_summary(all_rows: List[Dict[str, Any]]) -> Dict[str, Any]:
 
         if row.get("critical_pass"):
             item["critical_pass"] += 1
+
+        # Suivi séparé périmètre / hors-périmètre (ex: invoice_tn vs factures
+        # étrangères ou devis hors-format TTN dans le même dossier de test).
+        if row.get("in_scope", True):
+            item["in_scope_cases"] += 1
+            if row.get("critical_pass"):
+                item["in_scope_critical_pass"] += 1
+        else:
+            item["out_of_scope_cases"] += 1
+            if not row.get("critical_pass"):
+                item["out_of_scope_correct_rejection"] += 1
+
+    # Taux calculés, seulement si pertinent (cases > 0)
+    for fam, item in by_family.items():
+        if item["in_scope_cases"] > 0:
+            item["in_scope_pass_rate"] = round(
+                item["in_scope_critical_pass"] / item["in_scope_cases"], 4
+            )
+        if item["out_of_scope_cases"] > 0:
+            item["out_of_scope_correct_rejection_rate"] = round(
+                item["out_of_scope_correct_rejection"] / item["out_of_scope_cases"], 4
+            )
 
     total = len(all_rows)
     return {
@@ -529,8 +621,27 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--midv-engine", default="easyocr")
     p.add_argument("--midv-mode", default="fast")
 
+    p.add_argument(
+        "--invoice-ttn-files",
+        default="facture3.jpg,Premiere-Facture-Electronique-Tunisie.jpg",
+        help="Noms de fichiers (séparés par virgule, dans --invoice-dir) considérés "
+             "dans le périmètre TTN électronique du template invoice_tn. Tous les "
+             "autres fichiers du dossier sont traités comme des tests de rejet "
+             "hors-périmètre (le bon comportement attendu est l'absence de faux "
+             "positif, pas un critical_pass). Mettre une chaîne vide pour désactiver "
+             "(tout est alors considéré in_scope=True, comportement historique).",
+    )
     p.add_argument("--timeout", type=int, default=180)
     p.add_argument("--dry-run", action="store_true", help="Découvre les cas sans appeler l'API.")
+    p.add_argument(
+        "--only-families",
+        default=None,
+        help="Liste de familles à traiter, séparées par des virgules "
+             "(ex: invoice,midv2020). Par défaut: toutes. Utile pour isoler "
+             "passport_tn (le plus gourmand en mémoire) des autres familles "
+             "et éviter qu'un crash pendant les passeports n'empêche de "
+             "terminer factures/MIDV2020.",
+    )
     p.add_argument(
         "--resume",
         action="store_true",
@@ -563,6 +674,13 @@ def main() -> int:
     max_passport = 1 if args.smoke_test else args.max_passport
     max_invoice = 1 if args.smoke_test else args.max_invoice
     max_midv = 1 if args.smoke_test else args.max_per_class_midv
+
+    if args.invoice_ttn_files.strip():
+        invoice_ttn_files = {
+            f.strip().lower() for f in args.invoice_ttn_files.split(",") if f.strip()
+        }
+    else:
+        invoice_ttn_files = None
 
     families: Dict[str, List[Dict[str, Any]]] = {}
 
@@ -603,6 +721,7 @@ def main() -> int:
         expected_document_type="invoice",
         expected_template_id="invoice_tn",
         max_cases=max_invoice,
+        in_scope_filenames=invoice_ttn_files,
     )
 
     families["midv2020"] = discover_midv(
@@ -613,13 +732,33 @@ def main() -> int:
         max_per_class=max_midv,
     )
 
+    families["invoice_logistics"] = discover_explicit_files(
+        folder=Path(args.invoice_dir),
+        filenames=[
+            "facture2.jpg", "facture4.jpg", "facture5.jpg",
+            "facture6.jpg", "facture7.jpg", "facture8.jpg",
+        ],
+        family="invoice_logistics",
+        document_type="invoice",
+        template_id="invoice_logistics_intl",
+        engine=args.invoice_engine,
+        processing_mode=args.invoice_mode,
+        critical_fields=INVOICE_CRITICAL_FIELDS,
+        expected_document_type="invoice",
+        expected_template_id="invoice_logistics_intl",
+    )
+
+    if args.only_families:
+        wanted = {f.strip() for f in args.only_families.split(",") if f.strip()}
+        unknown = wanted - set(families.keys())
+        if unknown:
+            print(f"[WARN] Familles inconnues ignorées dans --only-families: {unknown}")
+        families = {k: v for k, v in families.items() if k in wanted}
+        print(f"[INFO] --only-families actif -> traitement limité à: {list(families.keys())}")
+
     total_cases = sum(len(v) for v in families.values())
-    print(f"[INFO] Cas découverts : "
-          f"cin_tn={len(families['cin_tn'])}, "
-          f"passport_tn={len(families['passport_tn'])}, "
-          f"invoice={len(families['invoice'])}, "
-          f"midv2020={len(families['midv2020'])} "
-          f"-> total={total_cases}")
+    counts_str = ", ".join(f"{fam}={len(cases)}" for fam, cases in families.items())
+    print(f"[INFO] Cas découverts : {counts_str} -> total={total_cases}")
 
     if total_cases == 0:
         print("[ERROR] Aucun cas trouvé. Vérifie les chemins --cin-dir / --passport-dir / --invoice-dir / --midv-root.")

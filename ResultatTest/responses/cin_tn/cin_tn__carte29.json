@@ -1,0 +1,548 @@
+{
+  "job_id": "aab91384-037e-4d79-b3d3-d0738fd943c3",
+  "status": "review_required",
+  "template_id": "cin_tn",
+  "document_type": "cin_tn",
+  "document_variant": "recto",
+  "engine_used": "easyocr_boxes",
+  "language_detected": "ar",
+  "global_confidence": 0.0341,
+  "quality_score": 0.682,
+  "fields": [
+    {
+      "name": "id_number",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": "CIN introuvable",
+      "selected_engine": null,
+      "selected_source": null,
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "critical field missing"
+      ]
+    },
+    {
+      "name": "last_name",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": "Nom introuvable",
+      "selected_engine": null,
+      "selected_source": null,
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "critical field missing"
+      ]
+    },
+    {
+      "name": "first_name",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": "Prénom introuvable",
+      "selected_engine": null,
+      "selected_source": null,
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "critical field missing"
+      ]
+    },
+    {
+      "name": "birth_date",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": "Date introuvable",
+      "selected_engine": null,
+      "selected_source": null,
+      "review_required": true,
+      "reasons": [
+        "field unresolved",
+        "critical field missing"
+      ]
+    },
+    {
+      "name": "birth_place",
+      "value": "الجم",
+      "confidence": 0.6,
+      "validated": false,
+      "raw_text": "الجم",
+      "raw_template_field": null,
+      "error": "Lieu de naissance générique/suspect - vérification requise",
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": true,
+      "reasons": [
+        "selected_from:spatial_boxes",
+        "invalid_suspicious_birth_place"
+      ]
+    }
+  ],
+  "normalized_data": {
+    "idNumber": null,
+    "lastName": null,
+    "firstName": null,
+    "birthDate": null,
+    "birthPlace": "الجم"
+  },
+  "routing": null,
+  "business_validation": {
+    "status": "review_required",
+    "review_required": true,
+    "review_reasons": [
+      "critical field missing or invalid: last_name",
+      "critical field missing or invalid: id_number",
+      "critical field missing or invalid: first_name",
+      "birth_date missing"
+    ],
+    "warnings": [
+      "Champ critique à vérifier: last_name",
+      "Champ critique à vérifier: id_number",
+      "Champ critique à vérifier: first_name",
+      "Date de naissance à vérifier"
+    ],
+    "business_confidence": 0.0341,
+    "critical_fields_ok": 0,
+    "valid_fields_ok": 0,
+    "present_fields": 1,
+    "quality_score": 0.682,
+    "avg_field_confidence": 0.0,
+    "field_coverage": 0.0
+  },
+  "diagnostics": {
+    "mode": "cin_specialized_v2",
+    "cin_mode": "balanced",
+    "strategy": "balanced: spatial-first + targeted-roi-fallback + optional-full-fallback",
+    "pipeline_steps": [
+      "easyocr_boxes",
+      "paddle_boxes",
+      "targeted_roi:easyocr",
+      "targeted_roi:paddle",
+      "full_ocr:paddle"
+    ],
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.375,
+        "contrast": 0.461,
+        "quality_score": 0.682
+      },
+      "transforms": {
+        "resized": false,
+        "deskewed": false,
+        "contrast": true,
+        "mode": "cin_legacy_compatible"
+      },
+      "cin_preprocessor_keys": [
+        "binary",
+        "card_roi",
+        "deskewed",
+        "gray",
+        "oriented",
+        "original"
+      ]
+    },
+    "quality_checks": {
+      "sharpness": 1.0,
+      "brightness": 0.375,
+      "contrast": 0.461,
+      "quality_score": 0.682
+    },
+    "roi_fields": {
+      "cin_number": [
+        51,
+        319
+      ],
+      "family_name": [
+        44,
+        286
+      ],
+      "first_name": [
+        43,
+        286
+      ],
+      "date_of_birth": [
+        47,
+        286
+      ],
+      "place_of_birth": [
+        47,
+        286
+      ],
+      "gender": [
+        32,
+        143
+      ],
+      "right_text_block": [
+        229,
+        313
+      ]
+    },
+    "engines": [
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "targeted_missing_rois",
+        "target_fields": [
+          "cin_number",
+          "family_name",
+          "first_name",
+          "date_of_birth",
+          "place_of_birth"
+        ],
+        "processing_time_ms": 380,
+        "zones": {
+          "cin_number": "",
+          "family_name": "طاقذ التعرئف الود",
+          "first_name": "",
+          "date_of_birth": "",
+          "place_of_birth": "ذكرى",
+          "right_text_block": "بطاقةالتعربف الوط الجريدي ذكرى صادق = ن٢"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "paddle",
+        "executed": true,
+        "trial_type": "targeted_missing_rois",
+        "target_fields": [
+          "cin_number",
+          "family_name",
+          "first_name",
+          "date_of_birth",
+          "place_of_birth"
+        ],
+        "processing_time_ms": 1082,
+        "zones": {
+          "cin_number": "",
+          "family_name": "",
+          "first_name": "",
+          "date_of_birth": "",
+          "place_of_birth": "",
+          "right_text_block": "نطولا فيرعتلا ةقاطب يديرجلا كركن داص نب"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "paddle",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "ةيسنوتلا ةيروهمجلا ةينطولاا ةقاطب فيرعتلا يديرجلا بق ىركن م نب يبرع 1988 ربمتس ةرلرلا",
+        "full_text_score": 0.0,
+        "processing_time_ms": 1202,
+        "zones": {
+          "cin_number": "",
+          "family_name": "",
+          "first_name": "",
+          "date_of_birth": "",
+          "place_of_birth": "",
+          "gender": "",
+          "right_text_block": "نطولا فيرعتلا ةقاطب يديرجلا كركن داص نب"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      }
+    ],
+    "spatial": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "box_count": 9,
+          "fields": {
+            "place_of_birth": "الجم"
+          },
+          "scores": {
+            "place_of_birth": 9.0
+          },
+          "meta": {
+            "cin_number": {
+              "chosen_from": null,
+              "candidate_text": null,
+              "source_kind": "spatial_numeric"
+            },
+            "family_name": {
+              "chosen_from": null,
+              "source_kind": "no_label",
+              "anchors_found": 0
+            },
+            "first_name": {
+              "chosen_from": null,
+              "source_kind": "no_label",
+              "anchors_found": 0
+            },
+            "date_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_date",
+              "anchors_found": 0
+            },
+            "place_of_birth": {
+              "chosen_from": "right_text_block",
+              "candidate_text": "الجمهوريه التونسيذ بطاقهالتعرف الوطيه الجريدي ذكرى صادق عربى 1918 ٤الربادة26 تملر",
+              "source_kind": "right_text_fallback",
+              "anchors_found": 0
+            },
+            "label_spatial": {
+              "reason": "no_items"
+            }
+          },
+          "label_spatial": {
+            "fields": {},
+            "scores": {},
+            "meta": {
+              "reason": "no_items"
+            }
+          },
+          "raw_text_reconstructed": ""
+        },
+        {
+          "engine": "paddle_boxes",
+          "box_count": 13,
+          "fields": {},
+          "scores": {},
+          "meta": {
+            "cin_number": {
+              "chosen_from": null,
+              "candidate_text": null,
+              "source_kind": "spatial_numeric"
+            },
+            "family_name": {
+              "chosen_from": null,
+              "source_kind": "no_label",
+              "anchors_found": 0
+            },
+            "first_name": {
+              "chosen_from": null,
+              "source_kind": "no_label",
+              "anchors_found": 0
+            },
+            "date_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_date",
+              "anchors_found": 1
+            },
+            "place_of_birth": {
+              "chosen_from": null,
+              "source_kind": "no_valid_place",
+              "anchors_found": 0
+            },
+            "label_spatial": {
+              "reason": "no_items"
+            }
+          },
+          "label_spatial": {
+            "fields": {},
+            "scores": {},
+            "meta": {
+              "reason": "no_items"
+            }
+          },
+          "raw_text_reconstructed": ""
+        }
+      ]
+    },
+    "fusion": {
+      "trials": [
+        {
+          "engine": "easyocr_boxes",
+          "source": "spatial_boxes",
+          "fields": {
+            "place_of_birth": "الجم"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "targeted_roi_ocr",
+          "fields": {
+            "cin_number": "CIN_FAMILY_NAME: طاقذ التعرئف الود",
+            "family_name": "طاقذ التعرئف الود",
+            "first_name": "CIN_DATE_OF_BIRTH:",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: ذكرى",
+            "place_of_birth": "ذكرى"
+          }
+        },
+        {
+          "engine": "paddle",
+          "source": "targeted_roi_ocr",
+          "fields": {
+            "cin_number": "CIN_FAMILY_NAME:",
+            "family_name": "CIN_FIRST_NAME:",
+            "first_name": "CIN_DATE_OF_BIRTH:",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
+            "place_of_birth": "نطولا فيرعتلا ةقاطب يديرجلا كركن داص نب"
+          }
+        },
+        {
+          "engine": "paddle",
+          "source": "roi_ocr",
+          "fields": {
+            "cin_number": "CIN_FAMILY_NAME:",
+            "family_name": "CIN_FIRST_NAME:",
+            "first_name": "CIN_DATE_OF_BIRTH:",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
+            "place_of_birth": "ةيسنوتلا ةيروهمجلا ةينطولاا ةقاطب فيرعتلا يديرجلا بق ىركن م نب يبرع 1988 ربمتس ةرلرلا"
+          }
+        }
+      ],
+      "aggregated": {
+        "cin_number": [],
+        "family_name": [
+          {
+            "value": "ذقاط فيرعتلا دولا",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "easyocr"
+            ],
+            "sources": [
+              "extractor",
+              "targeted_roi_ocr"
+            ],
+            "profiles": [],
+            "selection_score": 20.2,
+            "raw_value": "طاقذ التعرئف الود",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          }
+        ],
+        "first_name": [],
+        "date_of_birth": [],
+        "place_of_birth": [
+          {
+            "value": "الجم",
+            "avg_conf": 9.0,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 51.0,
+            "raw_value": "الجم",
+            "meta": []
+          }
+        ]
+      },
+      "selected": {
+        "family_name": null,
+        "first_name": null,
+        "date_of_birth": null,
+        "place_of_birth": {
+          "value": "الجم",
+          "avg_conf": 9.0,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 51.0,
+          "raw_value": "الجم",
+          "meta": []
+        }
+      }
+    },
+    "cin_postprocess": {
+      "executed": true,
+      "name_extraction": null,
+      "applied": [
+        {
+          "field": "birth_place",
+          "type": "invalid_suspicious_birth_place",
+          "value": "الجم"
+        }
+      ]
+    },
+    "review_required": true,
+    "review_reasons": [
+      "critical field missing or invalid: last_name",
+      "critical field missing or invalid: id_number",
+      "critical field missing or invalid: first_name",
+      "birth_date missing"
+    ],
+    "business_validation": {
+      "status": "review_required",
+      "review_required": true,
+      "review_reasons": [
+        "critical field missing or invalid: last_name",
+        "critical field missing or invalid: id_number",
+        "critical field missing or invalid: first_name",
+        "birth_date missing"
+      ],
+      "warnings": [
+        "Champ critique à vérifier: last_name",
+        "Champ critique à vérifier: id_number",
+        "Champ critique à vérifier: first_name",
+        "Date de naissance à vérifier"
+      ],
+      "business_confidence": 0.0341,
+      "critical_fields_ok": 0,
+      "valid_fields_ok": 0,
+      "present_fields": 1,
+      "quality_score": 0.682,
+      "avg_field_confidence": 0.0,
+      "field_coverage": 0.0
+    }
+  },
+  "raw_text": "الجم CIN_NUMBER: CIN_FAMILY_NAME: طاقذ التعرئف الود CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ذكرى بطاقةالتعربف الوط الجريدي ذكرى صادق = ن2 CIN_FAMILY_NAME: طاقذ التعرئف الود طاقذ التعرئف الود CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ذكرى ذكرى CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: نطولا فيرعتلا ةقاطب يديرجلا كركن داص نب CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: نطولا فيرعتلا ةقاطب يديرجلا كركن داص نب CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ةيسنوتلا ةيروهمجلا ةينطولاا ةقاطب فيرعتلا يديرجلا بق ىركن م نب يبرع 1988 ربمتس ةرلرلا CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ةيسنوتلا ةيروهمجلا ةينطولاا ةقاطب فيرعتلا يديرجلا بق ىركن م نب يبرع 1988 ربمتس ةرلرلا الجم الجمهوريه التونسيذ بطاقهالتعرف الوطيه الجريدي ذكرى صادق عربى 1918 4الربادة26 تملر right_text_block طاقذ التعرئف الود ذكرى بطاقةالتعربف الوط الجريدي ذكرى صادق = ن2 نطولا فيرعتلا ةقاطب يديرجلا كركن داص نب ةيسنوتلا ةيروهمجلا ةينطولاا ةقاطب فيرعتلا يديرجلا بق ىركن م نب يبرع 1988 ربمتس ةرلرلا نطولا فيرعتلا ةقاطب يديرجلا كركن داص نب",
+  "processing_time_ms": 4844,
+  "warnings": [
+    "Champ critique à vérifier: last_name",
+    "Champ critique à vérifier: id_number",
+    "Champ critique à vérifier: first_name",
+    "Date de naissance à vérifier",
+    "Champ requis 'numero_cin' à vérifier",
+    "Champ requis 'nom' à vérifier",
+    "Champ requis 'prenom' à vérifier",
+    "Champ requis 'date_naissance' à vérifier",
+    "Champ requis 'lieu_naissance' à vérifier"
+  ],
+  "review_reasons": [
+    "critical field missing or invalid: last_name",
+    "critical field missing or invalid: id_number",
+    "critical field missing or invalid: first_name",
+    "birth_date missing"
+  ]
+}
