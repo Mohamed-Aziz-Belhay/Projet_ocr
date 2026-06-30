@@ -21,6 +21,17 @@
         <span>Dashboard</span>
       </a>
 
+      <a class="sb-link" routerLink="/admin/monitoring" *ngIf="auth.canSeeMonitoring()">
+        <span class="sb-svg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 20c1.7-4 4.4-6 8-6s6.3 2 8 6"/>
+          </svg>
+        </span>
+        <span>Monitoring</span>
+      </a>
+      
+
       <a class="sb-link" routerLink="/profile">
         <span class="sb-svg" aria-hidden="true">
           <svg viewBox="0 0 24 24" focusable="false">

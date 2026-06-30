@@ -20,6 +20,7 @@ import { adminGuard } from './app/services/admin.guard';
 import { roleGuard } from './app/services/role.guard';
 import { ForgotPasswordComponent } from './app/pages/forgot-password/forgot-password.component';
 import { HomeComponent } from './app/pages/home/home.component';
+import { MonitoringComponent } from './app/pages/admin/monitoring/monitoring.component';
 
 const routes: Routes = [
   // Page publique : visible même sans login.
@@ -57,6 +58,11 @@ const routes: Routes = [
     canActivate: [authGuard, roleGuard],
     data: { roles: ['admin', 'operator'] },
   },
+  {
+  path: 'admin/monitoring',
+  component: MonitoringComponent,
+  canActivate: [authGuard, adminGuard],
+},
 
   // Tout utilisateur connecté
   {

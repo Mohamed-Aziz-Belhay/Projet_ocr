@@ -193,6 +193,7 @@ export class AuthApiService {
   }
 
   canAdmin():            boolean { return this.isAdmin(); }
+  canSeeMonitoring():    boolean { return this.isAdmin(); }
   canManageUsers():      boolean { return this.isAdmin(); }
   canManageTemplates():  boolean { return this.isAdmin(); }
   canManageSwin():       boolean { return this.isAdmin(); }

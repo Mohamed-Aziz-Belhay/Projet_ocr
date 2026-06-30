@@ -156,6 +156,7 @@ def create_app() -> FastAPI:
             "app.routers.routes_jobs",
             "app.routers.routes_tenants",
             "app.routers.routes_gdpr",
+            "app.routers.routes_monitoring",
         ),
         critical_modules=(
             "app.routers.routes_health",

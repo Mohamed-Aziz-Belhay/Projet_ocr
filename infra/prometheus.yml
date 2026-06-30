@@ -35,14 +35,14 @@ scrape_configs:
   #     - targets: ['worker:9191']
 
   # ── PostgreSQL (optionnel — nécessite postgres_exporter) ──────────────────
-  # - job_name: 'postgres'
-  #   static_configs:
-  #     - targets: ['postgres-exporter:9187']
+  - job_name: 'postgres'
+    static_configs:
+      - targets: ['postgres-exporter:9187']
 
   # ── Redis (optionnel — nécessite redis_exporter) ──────────────────────────
-  # - job_name: 'redis'
-  #   static_configs:
-  #     - targets: ['redis-exporter:9121']
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['redis-exporter:9121']
 
   # ── Prometheus lui-même ───────────────────────────────────────────────────
   - job_name: 'prometheus'

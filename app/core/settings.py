@@ -83,6 +83,9 @@ class Settings(BaseSettings):
     ENABLE_AUDIT_LOG: bool = False
     ENABLE_QUOTA_DB_UPDATE: bool = False
 
+    PROMETHEUS_URL: str = "http://localhost:9090"
+    GRAFANA_URL: str = "http://localhost:3000"
+
     DATABASE_URL: str = "postgresql+asyncpg://ocr:ocr@localhost:5432/ocrdb"
     DB_POOL_SIZE: int = 10
     DB_MAX_OVERFLOW: int = 20

@@ -10,6 +10,7 @@ import { AdminDashboardComponent } from './pages/admin/dashboard/admin-dashboard
 import { AdminUsersComponent } from './pages/admin/users/admin-users.component';
 import { AdminSwinComponent } from './pages/admin/swin/admin-swin.component';
 import { OcrAssistantComponent } from './pages/assistant/ocr-assistant.component';
+import { MonitoringComponent } from './pages/admin/monitoring/monitoring.component';
 
 import { authGuard } from './services/auth.guard';
 import { adminGuard } from './services/admin.guard';
@@ -38,6 +39,11 @@ export const routes: Routes = [
 
   { path: 'extract', component: ExtractionComponent, canActivate: [authGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
+  {
+    path: 'admin/monitoring',
+    component: MonitoringComponent,
+    canActivate: [authGuard, adminGuard],
+  },
 
   { path: '**', redirectTo: '' },
   

@@ -6,7 +6,6 @@ Roles:
 - admin: administration complete
 - operator: extraction avancee + historique + assistant
 - simple_user: extraction simple
-- viewer: consultation/audit, pas d'extraction
 """
 from __future__ import annotations
 
@@ -16,9 +15,8 @@ from fastapi import HTTPException, status
 ADMIN = "admin"
 OPERATOR = "operator"
 SIMPLE_USER = "simple_user"
-VIEWER = "viewer"
 
-ALL_ROLES = {ADMIN, OPERATOR, SIMPLE_USER, VIEWER}
+ALL_ROLES = {ADMIN, OPERATOR, SIMPLE_USER}
 EXTRACT_ROLES = {ADMIN, OPERATOR, SIMPLE_USER}
 ADVANCED_USER_ROLES = {ADMIN, OPERATOR}
 ADMIN_ROLES = {ADMIN}
