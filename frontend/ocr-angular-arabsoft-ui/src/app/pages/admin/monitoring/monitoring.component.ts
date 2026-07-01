@@ -447,34 +447,65 @@ export class MonitoringComponent implements OnInit, OnDestroy {
 
   private renderFieldsChart(series: MetricsSummary['field_outcomes']): void {
     if (!this.fieldsCanvas?.nativeElement) return;
-    const palette = ['#73bf69','#5794f2','#ff9830','#b877d9',
-                     '#fade2a','#f2495c','#73bf69','#5794f2',
-                     '#ff9830','#b877d9','#fade2a','#f2495c',
-                     '#73bf69','#5794f2'];
-    const colors = series.map((_, i) => palette[i % palette.length]);
+
+    // Couleurs semantiques alignees sur le dashboard Grafana d'origine :
+    // vert = trouve, orange = manquant, rouge = invalide.
+    const OUTCOME_COLORS: Record<string, string> = {
+      found:   '#73bf69',
+      missing: '#ff9830',
+      invalid: '#f2495c',
+    };
+    const OUTCOME_ORDER = ['found', 'missing', 'invalid'];
+
+    // Liste des champs distincts (axe Y), triee alphabetiquement.
+    const fieldNames = Array.from(new Set(series.map(s => s.field_name))).sort();
+
+    // Un dataset par outcome present dans les donnees, dans un ordre stable.
+    const outcomesPresent = OUTCOME_ORDER.filter(o => series.some(s => s.outcome === o));
+    // Ajoute les outcomes inconnus eventuels, sans casser l'ordre semantique.
+    series.forEach(s => { if (!outcomesPresent.includes(s.outcome)) outcomesPresent.push(s.outcome); });
+
+    const datasets = outcomesPresent.map(outcome => ({
+      label: outcome,
+      data: fieldNames.map(fn => {
+        const match = series.find(s => s.field_name === fn && s.outcome === outcome);
+        return match ? match.value : 0;
+      }),
+      backgroundColor: OUTCOME_COLORS[outcome] ?? '#8e9096',
+      borderColor:     OUTCOME_COLORS[outcome] ?? '#8e9096',
+      borderRadius: 3,
+      barPercentage: 0.7,
+    }));
+
     const config: ChartConfiguration = {
       type: 'bar',
-      data: {
-        labels: series.map(s => s.label),
-        datasets: [{
-          label: 'Taux',
-          data:  series.map(s => s.value),
-          backgroundColor: colors,
-          borderColor:     colors,
-          borderRadius: 3, barPercentage: 0.7,
-        }],
-      },
+      data: { labels: fieldNames, datasets },
       options: {
         ...(this.chartDefaults() as any),
         indexAxis: 'y',
         plugins: {
-          legend: { display: false },
+          legend: {
+            display: true,
+            position: 'top',
+            align: 'end',
+            labels: {
+              color: '#8e9096',
+              boxWidth: 12,
+              font: { size: 11 },
+            },
+          },
           tooltip: this.tooltip(),
+        },
+        scales: {
+          x: { ...(this.chartDefaults() as any).scales.x, stacked: false },
+          y: { ...(this.chartDefaults() as any).scales.y, stacked: false },
         },
       },
     };
+
     if (this.fieldsChart) {
       this.fieldsChart.data = config.data;
+      this.fieldsChart.options = config.options as any;
       this.fieldsChart.update('none');
     } else {
       this.fieldsChart = new Chart(this.fieldsCanvas.nativeElement, config);

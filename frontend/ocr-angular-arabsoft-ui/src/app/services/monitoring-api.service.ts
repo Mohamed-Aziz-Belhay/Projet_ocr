@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { AuthApiService } from './auth-api.service';
 
-export interface FieldOutcome      { label: string; value: number; }
+export interface FieldOutcome      { field_name: string; outcome: string; value: number; }
 export interface DurationByTemplate{ label: string; value: number; }
 
 export interface MetricsSummary {

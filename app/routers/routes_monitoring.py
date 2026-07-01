@@ -89,6 +89,25 @@ def _series(result: list[dict[str, Any]], label_key: str) -> list[dict[str, Any]
     return out
 
 
+def _field_outcome_series(result: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """
+    Comme _series, mais conserve field_name ET outcome separement, pour
+    permettre au frontend de distinguer found/missing/invalid d'un meme
+    champ (au lieu de deux barres identiques nommees pareil).
+    """
+    out = []
+    for item in result:
+        metric = item.get("metric", {})
+        field_name = metric.get("field_name", "unknown")
+        outcome = metric.get("outcome", "unknown")
+        try:
+            v = float(item["value"][1])
+        except (KeyError, IndexError, ValueError, TypeError):
+            continue
+        out.append({"field_name": field_name, "outcome": outcome, "value": v})
+    return out
+
+
 @router.get("/metrics-summary")
 async def get_metrics_summary(
     range: str = Query(default="6h", description="Fenetre PromQL : 15m,1h,3h,6h,24h,7d"),
@@ -130,6 +149,6 @@ async def get_metrics_summary(
         "circuit_breakers_open":    int(_scalar(cb)),
         "active_jobs":              int(_scalar(jobs)),
         "duration_p95_by_template": _series(duration, "template_id"),
-        "field_outcomes":           _series(fields, "field_name"),
+        "field_outcomes":           _field_outcome_series(fields),
         "prometheus_available":     bool(confidence or rate or cb or jobs),
     }
