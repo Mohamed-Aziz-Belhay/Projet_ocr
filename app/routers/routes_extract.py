@@ -10,10 +10,24 @@ Version optimisée:
 - Guard plus rapide: DPI réduit + langues limitées selon le type sélectionné.
 - Pas de guard pour auto/custom.
 - Suppression des prints debug et de l'import Flask incorrect.
+
+MODIFICATIONS (optimisation du garde-fou de type documentaire) :
+- Les langues du guard sont désormais exécutées EN PARALLÈLE (au lieu de
+  séquentiellement), via ThreadPoolExecutor. Chaque langue utilise sa
+  propre instance PaddleOCR mise en cache (_GUARD_OCR_CACHE reste indexé
+  par langue), donc aucun partage de modèle entre threads. Gain attendu
+  ~2x sur les types à deux langues (la majorité des cas réels).
+- Escalade DPI adaptative : si la détection à DPI 80 (rapide) tombe dans
+  une zone ambiguë (ni clairement compatible, ni clairement rejetée), une
+  seconde passe est exécutée à DPI 150 avant de trancher définitivement.
+  Cible les faux blocages observés sur des documents réels mal éclairés
+  ou légèrement penchés, sans jamais ralentir les cas clairs qui restent
+  tranchés dès la première passe rapide.
 """
 from __future__ import annotations
 
 import uuid
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Literal, Optional
 
@@ -52,7 +66,15 @@ CinMode = Literal["fast", "balanced", "full"]
 
 # Cache simple des instances PaddleOCR utilisées par le guard.
 # Gain de temps important en local: évite de réinitialiser le modèle à chaque requête.
+# Indexé par langue : chaque langue a sa propre instance, ce qui permet de
+# les exécuter en parallèle sans partager un même modèle entre threads.
 _GUARD_OCR_CACHE: dict[str, object] = {}
+
+# Zone d'incertitude de la détection de type documentaire : si le score de
+# confiance tombe dans cet intervalle, le résultat est jugé ambigu et une
+# seconde passe à DPI plus élevé est déclenchée avant de trancher.
+_GUARD_AMBIGUOUS_LOW = 0.25   # identique à l'ancien min_confidence_to_block
+_GUARD_AMBIGUOUS_HIGH = 0.45  # au-delà, la première passe suffit déjà
 
 
 def _parse_request(
@@ -405,7 +427,9 @@ def _guard_langs_for_type(document_type: str) -> list[str]:
 def _get_guard_ocr(lang: str):
     """
     Retourne une instance PaddleOCR cachee par langue.
-    Cela réduit beaucoup le temps après la première requête.
+    Cela réduit beaucoup le temps après la première requête, et permet
+    aussi d'exécuter plusieurs langues en parallèle sans partager un
+    même modèle PaddleOCR entre threads (chaque langue = son instance).
     """
     cached = _GUARD_OCR_CACHE.get(lang)
     if cached is not None:
@@ -423,21 +447,101 @@ def _get_guard_ocr(lang: str):
     return ocr
 
 
-def _ocr_preview_for_guard(file_path: str, document_type: str) -> str:
+def _extract_texts_from_paddle(result) -> list[str]:
+    """Parsing du format de sortie PaddleOCR (inchangé)."""
+    texts: list[str] = []
+
+    def walk(obj):
+        if obj is None:
+            return
+
+        if isinstance(obj, str):
+            texts.append(obj)
+            return
+
+        if isinstance(obj, dict):
+            for key in ("text", "transcription", "rec_text"):
+                value = obj.get(key)
+                if isinstance(value, str):
+                    texts.append(value)
+
+            for value in obj.values():
+                walk(value)
+
+            return
+
+        if isinstance(obj, (list, tuple)):
+            # Format classique PaddleOCR: [box, (text, score)]
+            if len(obj) >= 2 and isinstance(obj[1], (list, tuple)) and obj[1]:
+                if isinstance(obj[1][0], str):
+                    texts.append(obj[1][0])
+
+            for item in obj:
+                walk(item)
+
+    walk(result)
+    return texts
+
+
+def _ocr_single_lang_for_guard(rgb_image, lang: str, file_path: str, document_type: str) -> str:
+    """
+    Exécute l'OCR de preview pour UNE langue sur une image déjà chargée.
+    Fonction isolée (pas d'état partagé mutable), appelable en toute
+    sécurité depuis un thread du ThreadPoolExecutor.
+    """
+    try:
+        ocr = _get_guard_ocr(lang)
+        result = ocr.ocr(rgb_image)
+        lang_texts = _extract_texts_from_paddle(result)
+
+        preview_lang = " ".join(t.strip() for t in lang_texts if t and t.strip())
+
+        log.info(
+            "Document type guard OCR preview lang",
+            extra={
+                "file_path": file_path,
+                "requested_document_type": document_type,
+                "paddle_lang": lang,
+                "preview_len": len(preview_lang),
+                "preview_sample": preview_lang[:250],
+            },
+        )
+
+        return preview_lang
+
+    except Exception as lang_exc:
+        log.warning(
+            "Document type guard OCR lang failed",
+            extra={
+                "file_path": file_path,
+                "requested_document_type": document_type,
+                "paddle_lang": lang,
+                "error": str(lang_exc),
+            },
+        )
+        return ""
+
+
+def _ocr_preview_for_guard(file_path: str, document_type: str, dpi: int = 80) -> str:
     """
     OCR rapide seulement pour valider le type documentaire.
 
     Optimisations:
     - Première page uniquement.
-    - DPI réduit à 80.
+    - DPI réduit à 80 par défaut (paramétrable pour l'escalade adaptative,
+      cf. _run_document_type_guard).
     - Langues limitées selon le type choisi.
     - Instances PaddleOCR mises en cache.
+    - Langues exécutées EN PARALLÈLE (ThreadPoolExecutor) : chaque langue
+      utilise sa propre instance PaddleOCR mise en cache, donc aucun
+      partage de modèle entre threads. Gain ~2x sur les types à deux
+      langues par rapport à l'exécution séquentielle.
     """
     try:
         from app.pipeline.io import load_file_as_pages
         import cv2
 
-        pages = load_file_as_pages(file_path, dpi=80)
+        pages = load_file_as_pages(file_path, dpi=dpi)
 
         if not pages:
             return ""
@@ -448,74 +552,17 @@ def _ocr_preview_for_guard(file_path: str, document_type: str) -> str:
         langs = _guard_langs_for_type(document_type)
         all_texts: list[str] = []
 
-        def extract_texts_from_paddle(result) -> list[str]:
-            texts: list[str] = []
-
-            def walk(obj):
-                if obj is None:
-                    return
-
-                if isinstance(obj, str):
-                    texts.append(obj)
-                    return
-
-                if isinstance(obj, dict):
-                    for key in ("text", "transcription", "rec_text"):
-                        value = obj.get(key)
-                        if isinstance(value, str):
-                            texts.append(value)
-
-                    for value in obj.values():
-                        walk(value)
-
-                    return
-
-                if isinstance(obj, (list, tuple)):
-                    # Format classique PaddleOCR: [box, (text, score)]
-                    if len(obj) >= 2 and isinstance(obj[1], (list, tuple)) and obj[1]:
-                        if isinstance(obj[1][0], str):
-                            texts.append(obj[1][0])
-
-                    for item in obj:
-                        walk(item)
-
-            walk(result)
-            return texts
-
-        for lang in langs:
-            try:
-                ocr = _get_guard_ocr(lang)
-                result = ocr.ocr(rgb)
-                lang_texts = extract_texts_from_paddle(result)
-
-                preview_lang = " ".join(
-                    t.strip() for t in lang_texts if t and t.strip()
-                )
-
-                log.info(
-                    "Document type guard OCR preview lang",
-                    extra={
-                        "file_path": file_path,
-                        "requested_document_type": document_type,
-                        "paddle_lang": lang,
-                        "preview_len": len(preview_lang),
-                        "preview_sample": preview_lang[:250],
-                    },
-                )
-
+        with ThreadPoolExecutor(max_workers=len(langs)) as executor:
+            futures = {
+                executor.submit(
+                    _ocr_single_lang_for_guard, rgb, lang, file_path, document_type
+                ): lang
+                for lang in langs
+            }
+            for future in as_completed(futures):
+                preview_lang = future.result()
                 if preview_lang:
                     all_texts.append(preview_lang)
-
-            except Exception as lang_exc:
-                log.warning(
-                    "Document type guard OCR lang failed",
-                    extra={
-                        "file_path": file_path,
-                        "requested_document_type": document_type,
-                        "paddle_lang": lang,
-                        "error": str(lang_exc),
-                    },
-                )
 
         preview = " ".join(all_texts).strip()
 
@@ -524,6 +571,7 @@ def _ocr_preview_for_guard(file_path: str, document_type: str) -> str:
             extra={
                 "file_path": file_path,
                 "document_type": document_type,
+                "dpi": dpi,
                 "preview_len": len(preview),
                 "preview_sample": preview[:500],
             },
@@ -537,6 +585,7 @@ def _ocr_preview_for_guard(file_path: str, document_type: str) -> str:
             extra={
                 "file_path": file_path,
                 "document_type": document_type,
+                "dpi": dpi,
                 "error": str(exc),
             },
         )
@@ -547,6 +596,14 @@ def _run_document_type_guard(file_path: str, request: ExtractionRequest) -> None
     """
     Bloque l'extraction si le type sélectionné est clairement incompatible
     avec le document uploadé.
+
+    Escalade DPI adaptative : la première passe (DPI 80, rapide) tranche
+    la grande majorité des cas. Si le score de confiance de la détection
+    tombe dans une zone ambiguë (_GUARD_AMBIGUOUS_LOW à _GUARD_AMBIGUOUS_HIGH),
+    une seconde passe à DPI 150 est déclenchée avant de statuer
+    définitivement, afin de réduire les faux blocages sur des documents
+    réels mal éclairés ou légèrement penchés — sans jamais ralentir les
+    cas déjà clairs dès la première passe.
     """
     selected_type = normalize_document_type(getattr(request, "document_type", "auto"))
 
@@ -554,30 +611,49 @@ def _run_document_type_guard(file_path: str, request: ExtractionRequest) -> None
     if selected_type in {"auto", "custom", "unknown", ""}:
         return
 
-    raw_text_preview = _ocr_preview_for_guard(
-        file_path=file_path,
-        document_type=selected_type,
-    )
+    def _evaluate(dpi: int):
+        raw_text_preview = _ocr_preview_for_guard(
+            file_path=file_path,
+            document_type=selected_type,
+            dpi=dpi,
+        )
 
-    detected = detect_document_type_from_text(raw_text_preview)
+        detected = detect_document_type_from_text(raw_text_preview)
 
-    log.info(
-        "Document type guard raw preview analysis",
-        extra={
-            "selected_type": selected_type,
-            "raw_preview_len": len(raw_text_preview or ""),
-            "raw_preview_sample": (raw_text_preview or "")[:600],
-            "detected_type": detected.detected_type,
-            "confidence": detected.confidence,
-            "reasons": detected.reasons[:10],
-        },
-    )
+        log.info(
+            "Document type guard raw preview analysis",
+            extra={
+                "selected_type": selected_type,
+                "dpi": dpi,
+                "raw_preview_len": len(raw_text_preview or ""),
+                "raw_preview_sample": (raw_text_preview or "")[:600],
+                "detected_type": detected.detected_type,
+                "confidence": detected.confidence,
+                "reasons": detected.reasons[:10],
+            },
+        )
 
-    compatible, reason = is_type_compatible(
-        selected_type=selected_type,
-        detected=detected,
-        min_confidence_to_block=0.25,
-    )
+        compatible, reason = is_type_compatible(
+            selected_type=selected_type,
+            detected=detected,
+            min_confidence_to_block=_GUARD_AMBIGUOUS_LOW,
+        )
+
+        return detected, compatible, reason
+
+    detected, compatible, reason = _evaluate(dpi=80)
+
+    is_ambiguous = _GUARD_AMBIGUOUS_LOW <= detected.confidence <= _GUARD_AMBIGUOUS_HIGH
+
+    if is_ambiguous:
+        log.info(
+            "Document type guard ambiguous at dpi=80, escalating to dpi=150",
+            extra={
+                "selected_type": selected_type,
+                "confidence_dpi80": detected.confidence,
+            },
+        )
+        detected, compatible, reason = _evaluate(dpi=150)
 
     log.info(
         "Document type guard",
@@ -587,6 +663,7 @@ def _run_document_type_guard(file_path: str, request: ExtractionRequest) -> None
             "confidence": detected.confidence,
             "compatible": compatible,
             "reason": reason,
+            "escalated": is_ambiguous,
             "reasons": detected.reasons[:8],
         },
     )
