@@ -91,13 +91,12 @@ export class ExtractionComponent implements OnInit {
     this.applyDefaults();
   }
 
-  scrollToExtraction(): void {
-  document
-    .getElementById('document-selector')
-    ?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center'
-    });
+  scrollToForm(event: Event): void {
+  event.preventDefault();
+  const target = document.getElementById('bas');
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 }
 
   applyDefaults() {

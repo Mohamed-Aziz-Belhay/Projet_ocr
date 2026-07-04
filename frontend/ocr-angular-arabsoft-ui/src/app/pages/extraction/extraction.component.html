@@ -13,7 +13,7 @@
       Analyse de passeports, CIN, factures tunisiennes et registres de commerce avec routage intelligent, OCR multi-moteurs et décision métier vérifiable.
     </p>
     <div class="hero-cta">
-      <a (click)="scrollToExtraction()" class="btn-primary">
+      <a href="#bas" class="btn-primary" (click)="scrollToForm($event)">
         <span class="ui-svg" aria-hidden="true">
           
         </span>
@@ -284,7 +284,7 @@
           <img [src]="previewUrl()" alt="Aperçu">
         </div>
         <div class="btn-row">
-          <button class="btn-primary submit-as-hero" type="submit" [disabled]="loading()">
+          <button class="btn-primary submit-as-hero" type="submit" [disabled]="loading()" id="bas">
             <ng-container *ngIf="loading(); else submitReady">
               <span class="btn-spinner" aria-hidden="true"></span>
               Extraction en cours…
@@ -294,7 +294,7 @@
               <span class="ui-svg" aria-hidden="true">
           
         </span>
-              Lancer l’extraction
+              Lancer l'extraction
             </ng-template>
           </button>
           <button class="btn-reset" type="button" (click)="reset()" aria-label="Réinitialiser">
