@@ -1,6 +1,6 @@
-
 from __future__ import annotations
 
+import re
 from typing import List, Optional, Set, Tuple
 
 from app.services.cin_rules import (
@@ -400,7 +400,14 @@ def best_known_place_from_text(raw_text: str) -> Optional[str]:
             continue
 
         score = None
-        if p in text_norm:
+        # FIX: match à frontière de mot stricte. L'ancien test `p in text_norm`
+        # était un substring Python brut, sans respect des frontières de mot :
+        # un lieu court comme "الجم" (El Jem, ville réelle) matchait à
+        # l'intérieur d'un mot plus long non lié comme "الجمهورية"
+        # (République), produisant un faux lieu de naissance. La regex
+        # ci-dessous exige que "p" soit un mot/groupe de mots isolé par des
+        # espaces (ou début/fin de chaîne), pas un fragment interne.
+        if re.search(rf"(?<!\S){re.escape(p)}(?!\S)", text_norm):
             score = 100.0 + len(clean_words(p)) * 5 + len(p) * 0.1
         elif p in joined_forms or p.replace(" ", "") in joined_forms:
             score = 95.0 + len(clean_words(p)) * 5 + len(p) * 0.1

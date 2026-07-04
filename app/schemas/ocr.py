@@ -95,11 +95,22 @@ class FieldResult(BaseModel):
     selected_source: Optional[str] = None
     review_required: bool = False
     reasons: List[str] = Field(default_factory=list)
+    original_value: Optional[Any] = None
+    corrected: bool = False
+
+
+class FieldCorrection(BaseModel):
+    name: str
+    value: Any
+
+
+class ExtractionValidationRequest(BaseModel):
+    fields: List[FieldCorrection] = Field(default_factory=list)
 
 
 class ExtractionResponse(BaseModel):
     job_id: str
-    status: Literal["success", "partial", "failed", "review_required"]
+    status: Literal["success", "partial", "failed", "review_required", "validated"]
     template_id: Optional[str]
     document_type: Optional[str] = None
     document_variant: Optional[str] = None

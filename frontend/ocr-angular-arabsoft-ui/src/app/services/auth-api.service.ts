@@ -137,6 +137,17 @@ export class AuthApiService {
     );
   }
 
+  validateHistory(
+    idOrJobId: string,
+    fields: { name: string; value: any }[]
+  ): Observable<HistoryDetailResponse> {
+    return this.http.patch<HistoryDetailResponse>(
+      `${this.baseUrl}/history/${encodeURIComponent(idOrJobId)}/validate`,
+      { fields },
+      { headers: this.authHeaders() }
+    );
+  }
+
   logout(): void {
     localStorage.removeItem('ocr_access_token');
     localStorage.removeItem('ocr_user');

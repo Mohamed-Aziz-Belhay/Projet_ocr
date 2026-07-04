@@ -2,6 +2,15 @@
 app/pipeline/io.py
 Pipeline I/O helpers: load any supported file into numpy page list,
 write debug images, and serialise pipeline artefacts.
+
+MODIFICATION : ajout d'un paramètre optionnel `preprocess` à
+load_file_as_pages(), désactivé par défaut. Quand activé, chaque page
+chargée passe par app.pipeline.preprocessing.preprocess_for_ocr() avant
+d'être retournée (deskew + débruitage/contraste conditionnels selon la
+qualité estimée). Le comportement par défaut (preprocess=False) reste
+strictement identique à l'original — le guard de type documentaire
+(routes_extract.py), qui n'a besoin que de rapidité, continue de
+l'appeler sans ce paramètre et n'est donc pas affecté.
 """
 from __future__ import annotations
 import base64
@@ -18,10 +27,23 @@ log = get_logger(__name__)
 SUPPORTED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg", ".tiff", ".tif", ".webp", ".bmp"}
 
 
-def load_file_as_pages(file_path: str, dpi: int = 200) -> List[np.ndarray]:
+def load_file_as_pages(
+    file_path: str,
+    dpi: int = 200,
+    preprocess: bool = False,
+) -> List[np.ndarray]:
     """
     Universal loader: returns list of BGR numpy arrays (one per page).
     Raises ValueError for unsupported formats.
+
+    Args:
+        file_path: chemin du document à charger.
+        dpi: résolution de rendu pour les PDF.
+        preprocess: si True, applique le prétraitement qualité (deskew,
+            débruitage et contraste conditionnels) à chaque page avant de
+            la retourner. Désactivé par défaut pour ne pas modifier le
+            comportement existant (notamment le guard de type documentaire,
+            qui privilégie la rapidité et n'appelle jamais ce paramètre).
     """
     path = Path(file_path)
     ext = path.suffix.lower()
@@ -30,9 +52,49 @@ def load_file_as_pages(file_path: str, dpi: int = 200) -> List[np.ndarray]:
         raise ValueError(f"Unsupported file extension: '{ext}'")
 
     if ext == ".pdf":
-        return _load_pdf(str(path), dpi=dpi)
+        pages = _load_pdf(str(path), dpi=dpi)
     else:
-        return [_load_image(str(path))]
+        pages = [_load_image(str(path))]
+
+    if preprocess:
+        pages = _preprocess_pages(pages, file_path=str(path))
+
+    return pages
+
+
+def _preprocess_pages(pages: List[np.ndarray], *, file_path: str) -> List[np.ndarray]:
+    """
+    Applique preprocess_for_ocr() à chaque page, en journalisant le
+    rapport de diagnostic (score de flou, étapes appliquées) pour chaque
+    page traitée.
+    """
+    from app.pipeline.preprocessing import preprocess_for_ocr
+
+    processed: List[np.ndarray] = []
+
+    for idx, page in enumerate(pages):
+        try:
+            result, report = preprocess_for_ocr(page)
+            processed.append(result)
+            log.info(
+                "Page preprocessed",
+                extra={
+                    "file_path": file_path,
+                    "page_index": idx,
+                    "blur_score": round(report.blur_score, 1),
+                    "steps_applied": report.steps_applied,
+                },
+            )
+        except Exception as exc:
+            # En cas d'echec du pretraitement, on retombe sur la page
+            # d'origine plutot que de faire echouer tout le chargement.
+            log.warning(
+                "Page preprocessing failed, using original page",
+                extra={"file_path": file_path, "page_index": idx, "error": str(exc)},
+            )
+            processed.append(page)
+
+    return processed
 
 
 def _load_image(path: str) -> np.ndarray:

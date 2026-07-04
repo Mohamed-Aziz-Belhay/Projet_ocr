@@ -18,11 +18,14 @@ DEFAULT_FIXED_ZONES: Dict[str, List[float]] = {
     "right_text": [0.50, 0.18, 0.98, 0.96],
 }
 
+# NOTE: "birth_date" et "birth_place" partagent le mot "الولادة" (naissance).
+# On ancre donc sur l'expression complète ("تاريخ الولادة" / "مكان الولادة"),
+# jamais sur "الولادة" seul, pour ne pas confondre les deux champs.
 ANCHOR_MAP = {
-    "last_name": [ýÿýÿýÿýÿýÿ¨"],
-    "first_name": [ýÿýÿýÿýÿýÿ"],
-    "birth_date": [ýÿýÿýÿýÿýÿ®", ýÿýÿýÿýÿýÿýÿýÿ©"],
-    "birth_place": ["ÙÙØ§ÙÙØ§", "ÙÙØ§Ù", "Ø§ÙÙÙØ§Ø¯Ø©"],
+    "last_name": ["اللقب"],
+    "first_name": ["الاسم"],
+    "birth_date": ["تاريخ الولادة", "تاريخ الميلاد"],
+    "birth_place": ["مكان الولادة", "مكان الميلاد"],
 }
 
 

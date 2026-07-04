@@ -18,13 +18,22 @@ Objectifs:
 - Éviter qu'une carte d'identité étrangère soit acceptée comme passeport.
 - Gérer l'arabe OCR inversé caractère par caractère.
 
-FIX: le motif de détection MRZ "carte identité" (\bid[a-z0-9<]{5,}) était
+FIX 1: le motif de détection MRZ "carte identité" (\bid[a-z0-9<]{5,}) était
 trop permissif et matchait n'importe quel mot commençant par "id" suivi de
 5 caractères alphanumériques - notamment "identité"/"identite", très courant
 sur les CIN tunisiennes elles-mêmes. Remplacé par un motif qui exige la
 présence d'un caractère de remplissage MRZ "<" (comme pour le motif passeport
 P<), ce qui élimine les faux positifs tout en gardant la détection des
 vraies MRZ de carte d'identité (ID<TUN..., ID<SVK..., etc.).
+
+FIX 2: anti-faux-positif symétrique pour "cin_tn". Les mots "الجمهورية
+التونسية" / "تونسية" / "تونس" apparaissent sur TOUT document officiel
+tunisien (passeport inclus), pas seulement la CIN. Un passeport tunisien
+uploadé se voyait donc détecté comme cin_tn avec 100% de confiance, car
+aucun garde de vraisemblance n'existait pour ce type (contrairement au
+garde déjà en place pour "passport"). On applique désormais le même
+principe: cin_tn n'est accepté que s'il y a un indice réellement
+spécifique à la carte d'identité (pas juste une mention du pays).
 """
 from __future__ import annotations
 
@@ -282,7 +291,7 @@ def detect_document_type_from_text(raw_text: str) -> TypeDetectionResult:
         scores["passport"] = (score + 8.0, _unique(reasons + ["MRZ passeport P<"]))
 
     # MRZ carte identité: souvent I< ou ID<..., classé id_document.
-    # FIX: exige un '<' de remplissage MRZ (comme le motif passeport P<)
+    # FIX 1: exige un '<' de remplissage MRZ (comme le motif passeport P<)
     # pour éviter de matcher "identité"/"identite" en faux positif.
     if _has_regex(compact, r"\bid[a-z0-9]{0,3}<[a-z0-9<]{3,}"):
         score, reasons = scores["id_document"]
@@ -316,6 +325,34 @@ def detect_document_type_from_text(raw_text: str) -> TypeDetectionResult:
 
     if best_type == "passport" and not passport_strong:
         scores["passport"] = (0.0, [])
+        best_type = "unknown"
+        best_score = 0.0
+        best_reasons = []
+
+        for doc_type, (score, reasons) in scores.items():
+            if score > best_score:
+                best_type = doc_type
+                best_score = score
+                best_reasons = reasons
+
+    # FIX 2 — Anti-faux positif cin_tn (symétrique au fix passeport ci-dessus):
+    # "الجمهورية التونسية" / "تونسية" / "تونس" / "الجمهورية" apparaissent sur
+    # TOUT document officiel tunisien (passeport inclus). On n'accepte cin_tn
+    # que s'il y a un indice réellement spécifique à la carte d'identité.
+    cin_score, cin_reasons = scores["cin_tn"]
+    cin_strong = any(
+        reason in {
+            "بطاقة التعريف الوطنية",
+            "بطاقة التعريف",
+            "بطاقة",
+            "تعريف",
+            "التعريف",
+        }
+        for reason in cin_reasons
+    )
+
+    if best_type == "cin_tn" and not cin_strong:
+        scores["cin_tn"] = (0.0, [])
         best_type = "unknown"
         best_score = 0.0
         best_reasons = []

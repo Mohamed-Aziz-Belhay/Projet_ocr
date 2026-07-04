@@ -15,6 +15,8 @@ from app.db.models.extraction_history import ExtractionHistory
 from app.db.models.extraction_result import ExtractionResult
 from app.db.models.user import User
 from app.db.session import get_db
+from app.schemas.ocr import ExtractionValidationRequest
+from app.services.history_service import apply_corrections, build_normalized_data
 
 router = APIRouter(prefix="/history", tags=["History"])
 
@@ -162,6 +164,78 @@ async def get_history_detail(
         "fields_json":    getattr(detail, "fields_json", None) if detail else None,
         "diagnostics_json": getattr(detail, "diagnostics_json", None) if detail else None,
         "created_at":     detail.created_at.isoformat() if detail and detail.created_at else None,
+    }
+
+
+@router.patch("/{id_or_job_id}/validate")
+async def validate_history_item(
+    id_or_job_id: str,
+    payload: ExtractionValidationRequest,
+    current: User = Depends(_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    """
+    Human review step: apply user corrections (if any) onto a stored
+    extraction and mark it validated. Every field is marked
+    validated=True/review_required=False (the whole extraction was reviewed),
+    while only the fields present in `payload.fields` get their value
+    overwritten, with the original OCR value preserved for audit.
+    """
+    result = await db.execute(
+        select(ExtractionHistory).where(
+            or_(
+                ExtractionHistory.id == id_or_job_id,
+                ExtractionHistory.job_id == id_or_job_id,
+            )
+        )
+    )
+    history = result.scalar_one_or_none()
+
+    if not history:
+        raise HTTPException(status_code=404, detail="History item not found")
+
+    if not _is_admin(current):
+        own = False
+        if hasattr(history, "user_id"):
+            own = own or getattr(history, "user_id", None) == str(current.id)
+        if hasattr(history, "user_email"):
+            own = own or getattr(history, "user_email", None) == current.email
+        if not own:
+            raise HTTPException(status_code=403, detail="Accès refusé à ce détail")
+
+    detail_result = await db.execute(
+        select(ExtractionResult).where(
+            or_(
+                ExtractionResult.history_id == str(history.id),
+                ExtractionResult.job_id == history.job_id,
+            )
+        )
+    )
+    detail = detail_result.scalar_one_or_none()
+    if not detail:
+        raise HTTPException(status_code=404, detail="Extraction result not found")
+
+    corrections = [c.model_dump() for c in payload.fields]
+    updated_fields = apply_corrections(detail.fields_json, corrections)
+
+    detail.fields_json = updated_fields
+    result_json = dict(detail.result_json or {})
+    result_json["fields"] = updated_fields
+    result_json["normalized_data"] = build_normalized_data(updated_fields)
+    result_json["status"] = "validated"
+    detail.result_json = result_json
+
+    history.status = "validated"
+
+    await db.commit()
+
+    return {
+        "history":        _history_to_dict(history),
+        "raw_text":       detail.raw_text,
+        "result_json":    detail.result_json,
+        "fields_json":    detail.fields_json,
+        "diagnostics_json": detail.diagnostics_json,
+        "created_at":     detail.created_at.isoformat() if detail.created_at else None,
     }
 
 

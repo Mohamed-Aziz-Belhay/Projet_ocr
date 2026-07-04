@@ -29,6 +29,8 @@ export class ExtractionComponent implements OnInit {
   result = signal<any | null>(null);
   error = signal<string | null>(null);
   previewUrl = signal<string | null>(null);
+  editableValues = signal<Record<string, any>>({});
+  validating = signal(false);
 
   apiKey = localStorage.getItem('ocr_api_key') || 'dev-key-123';
   documentType: DocumentType = 'auto';
@@ -355,6 +357,11 @@ this.result.set(null);
       .subscribe({
         next: d => {
           this.result.set(d);
+          const values: Record<string, any> = {};
+          for (const f of d?.fields || []) {
+            values[f.name] = f.value;
+          }
+          this.editableValues.set(values);
           this.saveLastResult(d);
           this.loading.set(false);
         },
@@ -404,6 +411,8 @@ this.result.set(null);
     this.result.set(null);
     this.error.set(null);
     this.previewUrl.set(null);
+    this.editableValues.set({});
+    this.validating.set(false);
     this.selectedFile = null;
     this.documentType = 'auto';
     this.templateId = '';
@@ -417,6 +426,7 @@ this.result.set(null);
         partial: 'Partiel',
         failed: 'Échec',
         review_required: 'Révision requise',
+        validated: 'Validé',
       } as any)[s] ||
       s ||
       '-'
@@ -430,8 +440,57 @@ this.result.set(null);
         partial: 'info',
         failed: 'danger',
         review_required: 'warn',
+        validated: 'ok',
       } as any)[s] || 'info'
     );
+  }
+
+  updateFieldValue(name: string, value: string) {
+    this.editableValues.update(values => ({ ...values, [name]: value }));
+  }
+
+  isValidated() {
+    return this.result()?.status === 'validated';
+  }
+
+  validateExtraction() {
+    const r = this.result();
+    if (!r?.job_id) return;
+
+    const values = this.editableValues();
+    const corrections: { name: string; value: any }[] = [];
+    for (const f of r.fields || []) {
+      const edited = values[f.name];
+      if (edited !== undefined && edited !== f.value) {
+        corrections.push({ name: f.name, value: edited });
+      }
+    }
+
+    this.validating.set(true);
+    this.auth.validateHistory(r.job_id, corrections).subscribe({
+      next: res => {
+        const updated = {
+          ...r,
+          ...(res?.result_json || {}),
+          fields: res?.fields_json || r.fields,
+          status: 'validated',
+        };
+        this.result.set(updated);
+
+        const newValues: Record<string, any> = {};
+        for (const f of updated.fields || []) {
+          newValues[f.name] = f.value;
+        }
+        this.editableValues.set(newValues);
+        this.validating.set(false);
+      },
+      error: e => {
+        this.validating.set(false);
+        this.error.set(
+          e?.error?.detail ? String(e.error.detail) : "Échec de la validation de l'extraction."
+        );
+      },
+    });
   }
 
   percent(v: any) {

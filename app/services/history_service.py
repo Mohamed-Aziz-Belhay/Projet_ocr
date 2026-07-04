@@ -4,7 +4,7 @@ Trace extraction results per authenticated user.
 """
 from __future__ import annotations
 import json
-from typing import Any, Optional
+from typing import Any, Dict, List, Optional
 
 from sqlalchemy import desc, select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -101,3 +101,50 @@ async def list_all_history(db: AsyncSession, *, limit: int = 100) -> list[dict]:
         .limit(limit)
     )
     return [history_to_dict(row) for row in result.scalars().all()]
+
+
+def snake_to_camel(name: str) -> str:
+    head, *tail = name.split("_")
+    return head + "".join(part.capitalize() for part in tail)
+
+
+def build_normalized_data(fields: List[Dict[str, Any]]) -> Dict[str, Any]:
+    return {snake_to_camel(f["name"]): f.get("value") for f in fields if f.get("name")}
+
+
+def apply_corrections(
+    fields: Optional[List[Dict[str, Any]]],
+    corrections: List[Dict[str, Any]],
+) -> List[Dict[str, Any]]:
+    """
+    Apply user-submitted field corrections onto a stored fields_json list.
+
+    Every field is marked validated=True/review_required=False (the human has
+    reviewed the whole extraction, not just the fields they touched). Only
+    fields present in `corrections` with a value actually different from the
+    current one get their value overwritten; for those, `original_value` is
+    set to the true OCR value (only on the first correction — a later
+    correction round must not overwrite it with an already-corrected value)
+    and `corrected` is set to True.
+    """
+    by_name = {c["name"]: c["value"] for c in corrections if c.get("name")}
+
+    updated: List[Dict[str, Any]] = []
+    for field in fields or []:
+        field = dict(field)
+        name = field.get("name")
+        if name in by_name and by_name[name] != field.get("value"):
+            if not field.get("corrected"):
+                field["original_value"] = field.get("value")
+            field["value"] = by_name[name]
+            field["corrected"] = True
+            # error/reasons described why the OLD (now discarded) value was
+            # rejected (e.g. "Lieu de naissance générique/suspect"); keeping
+            # them would misleadingly flag a value the user just confirmed
+            # is correct.
+            field["error"] = None
+            field["reasons"] = ["user_corrected"]
+        field["validated"] = True
+        field["review_required"] = False
+        updated.append(field)
+    return updated

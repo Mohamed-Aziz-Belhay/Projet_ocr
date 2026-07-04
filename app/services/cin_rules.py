@@ -116,8 +116,74 @@ TN_PLACES: Set[str] = {
     "تونس المدينة",
 }
 
+# Common Tunisian given/family names (not exhaustive — a best-effort seed
+# list, grown from real OCR'd cards). Used only to decide whether a name
+# token that fails validation was probably read character-mirrored by OCR
+# (see fix_reversed_name_token below): EasyOCR/Paddle sometimes emit a name
+# box with its Arabic characters in reverse order — this is a DIFFERENT
+# failure mode from the word-order reversal already handled elsewhere, and
+# it is inconsistent (some boxes on the very same card are mirrored, others
+# aren't), so it cannot be "always undone" — only recognizing the intended
+# name lets us tell which orientation is right.
+COMMON_GIVEN_NAMES: Set[str] = {
+    "محمد", "احمد", "علي", "عمر", "يوسف", "ابراهيم", "حسين", "عبدالله",
+    "خالد", "وليد", "سامي", "نبيل", "منير", "كريم", "رياض", "رضا", "هشام",
+    "طارق", "فريد", "نجيب", "مراد", "انيس", "ماهر", "شادي", "زياد", "وسيم",
+    "فادي", "عماد", "صدقي", "المنصف", "الشاذلي", "حبيب", "بشير", "منصف",
+    "عادل", "لطفي", "فوزي", "جمال", "كمال", "بلقاسم", "الطيب", "سفيان",
+    "ياسين", "ايمن", "معز", "غازي", "حمزة", "بلال", "عثمان", "صابر",
+    "ظافر", "روند", "عميد", "زينب", "فاطمة", "امنة", "امينة", "سعاد",
+    "نجاة", "ليلى", "سلمى", "هند", "راضية", "منال", "نادية", "سامية",
+    "وفاء", "ايمان", "درة", "هيفاء", "ذكري", "اسماء", "رانيا", "مريم",
+    "خديجة", "حياة", "سنية", "نعيمة", "منجية", "جميلة", "نجوي", "سهام",
+    "وئام", "دنيا", "يسري", "بسمة", "فاتن", "رجاء", "حنان", "سميرة", "ريم",
+    "اميرة", "شيماء", "نور", "سالم", "امين", "سفيان", "احلام", "وداد",
+}
+
+COMMON_FAMILY_NAMES: Set[str] = {
+    "الشراد", "جماعي", "الزبيدي", "الحسني", "عامري", "بكار", "الوضيف",
+    "العوادي", "جمور", "الجريدي", "نورالدين", "تريكي", "بوعزيزي",
+    "الجلاصي", "الماجري", "الغربي", "السلامي", "الطرابلسي", "الشابي",
+    "القروي", "الفقيه", "الورتاني", "الدريدي", "الحمروني", "الخياري",
+    "الزغل", "الغزواني", "الحداد", "الجندوبي", "السماوي", "الشرفي",
+    "بلحاج", "التومي", "الماجدي", "النقاز", "الكناني", "الجبوزي",
+    "بنعمار",
+}
+
+# Every word making up any entry above, for per-token matching (family
+# names are sometimes 2 tokens, e.g. would split "بن عروس"-style compounds
+# if any were added here).
+_COMMON_NAME_WORDS: Set[str] = {
+    w for name in (COMMON_GIVEN_NAMES | COMMON_FAMILY_NAMES) for w in name.split()
+}
+
+
+def fix_reversed_name_token(token: str) -> str:
+    """
+    If `token` fails to match any known name but its char-by-char reversal
+    does (and only then), return the reversed form — otherwise return the
+    token unchanged. Deliberately conservative: with no gazetteer match in
+    either direction, we have no evidence either way, so we don't guess.
+    """
+    if not token or len(token) < 2:
+        return token
+    if token in _COMMON_NAME_WORDS:
+        return token
+    reversed_token = token[::-1]
+    if reversed_token in _COMMON_NAME_WORDS:
+        return reversed_token
+    return token
+
+
 RELATION_WORDS = {"بن", "بنت", "ابن", "حرم", "نب", "ننب"}
 HEADER_KEYWORDS = {"الجمهورية", "التونسية", "بطاقة", "التعريف", "الوطنية"}
+
+# Individual words making up any TN_PLACES entry (e.g. "حمام" and "الأنف"
+# from "حمام الأنف"). A single-word name candidate that is really just one
+# half of a compound place name is a strong sign it leaked from the
+# birth-place value into a name field (observed in production: a spatial
+# box mismatch returned first_name="حمام", a fragment of "حمام الأنف").
+PLACE_NAME_WORDS: Set[str] = {word for place in TN_PLACES for word in place.split()}
 
 LABEL_KEYWORDS = {
     "اللقب", "الاقب", "لقب", "للقب", "بقللا", "اللفب", "للفب", "القب",
@@ -216,11 +282,17 @@ def contains_relation_word(text: str) -> bool:
 
 
 def contains_label_fragment(text: str) -> bool:
-    t = _normalize_arabic_chars(text)
-    if not t:
+    # Whole-token match only: several LABEL_FRAGMENTS entries are short
+    # (e.g. "الام", "الم") and, as a raw substring check against the whole
+    # text, matched inside common Tunisian first names such as "سالم"
+    # (contains "الم") or "الأمين" (contains "الام"), silently discarding
+    # correctly-OCR'd names. A label fragment only makes sense as a
+    # complete token (or its char-mirrored OCR form), never as an infix.
+    words = clean_words(text)
+    if not words:
         return False
-    for frag in LABEL_FRAGMENTS:
-        if frag in t or frag[::-1] in t:
+    for w in words:
+        if w in LABEL_FRAGMENTS or w[::-1] in LABEL_FRAGMENTS:
             return True
     return False
 
@@ -317,7 +389,11 @@ def is_valid_name(s: str) -> bool:
         return False
     if contains_label_fragment(t):
         return False
-    if contains_relation_word(t):
+    # A relation word ("بن"/"بنت") alone marks a short, legitimate Tunisian
+    # family name such as "بن علي" (Ben Ali) or "بن عمار" — only a full
+    # filiation chain (>=3 tokens, e.g. "رضا بن عمر بن العربي") should be
+    # rejected here. Mirrors app.pipeline.cin_runner._looks_like_family_name.
+    if len(words) >= 3 and contains_relation_word(t):
         return False
     if any(re.search(r"\d", w) for w in words):
         return False
@@ -327,6 +403,8 @@ def is_valid_name(s: str) -> bool:
         return False
     if t in TN_PLACES:
         return False
+    if any(w in PLACE_NAME_WORDS for w in words):
+        return False
     return True
 
 
@@ -335,11 +413,31 @@ def is_valid_family_name(s: str) -> bool:
 
 
 def is_valid_given_name(s: str) -> bool:
+    # Independent from is_valid_name: Tunisian first names may legitimately
+    # be 2-3 tokens (e.g. "محمد الأمين", "فاطمة الزهراء", "عبد الرحمن") —
+    # capping at a single token discarded correctly-OCR'd compound first
+    # names. Mirrors app.pipeline.cin_runner._looks_like_first_name_phrase,
+    # which allows up to 3 tokens.
     t = normalize_name(s)
     words = clean_words(t)
-    if not is_valid_name(t):
+
+    if not t or not words:
         return False
-    if len(words) > 1:
+    if is_placeholder_value(t):
+        return False
+    if contains_label_fragment(t):
+        return False
+    if contains_relation_word(t):
+        return False
+    if any(re.search(r"\d", w) for w in words):
+        return False
+    if any(w in NAME_BAD_TOKENS for w in words):
+        return False
+    if len(words) > 3:
+        return False
+    if t in TN_PLACES:
+        return False
+    if any(w in PLACE_NAME_WORDS for w in words):
         return False
     return True
 
@@ -354,7 +452,10 @@ def is_valid_place(s: str) -> bool:
         return False
     if contains_label_fragment(t):
         return False
-    if contains_relation_word(t):
+    # Same rationale as is_valid_name: "بن عروس" (Ben Arous) is a real
+    # Tunisian governorate and is listed in TN_PLACES — only reject when a
+    # relation word appears inside a much longer (filiation-like) fragment.
+    if len(words) >= 3 and contains_relation_word(t):
         return False
     if any(re.search(r"\d", w) for w in words):
         return False

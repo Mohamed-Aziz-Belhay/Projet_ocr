@@ -445,16 +445,23 @@
                 </div>
               </ng-container>
               <ng-template #normalField>
-                <div class="field-val">
-                  {{ displayValue(f.value) }}
-                </div>
+                <input
+                  class="field-val field-val-input"
+                  dir="auto"
+                  type="text"
+                  [value]="editableValues()[f.name] ?? f.value ?? ''"
+                  (input)="updateFieldValue(f.name, $any($event.target).value)"
+                />
               </ng-template>
-              <div class="field-meta">
+              <div class="field-meta" [class.needs-review]="f.review_required">
                 <span class="tag">
                   {{ percent(f.confidence) }}
                 </span>
                 <span class="tag">
                   {{ f.validated ? 'Validé' : 'Non validé' }}
+                </span>
+                <span class="tag" *ngIf="f.review_required">
+                  À vérifier
                 </span>
                 <span class="tag">
                   {{ f.selected_source || f.selected_engine || '-' }}
@@ -463,6 +470,20 @@
             </article>
           </div>
           <div class="result-actions export-actions">
+            <button
+              class="btn-sm btn-validate"
+              type="button"
+              (click)="validateExtraction()"
+              [disabled]="validating()"
+            >
+              <ng-container *ngIf="validating(); else validateReady">
+                <span class="btn-spinner" aria-hidden="true"></span>
+                Validation…
+              </ng-container>
+              <ng-template #validateReady>
+                {{ isValidated() ? 'Ré-enregistrer' : 'Valider et enregistrer' }}
+              </ng-template>
+            </button>
             <button class="btn-sm" type="button" (click)="copyJson()">
               <span class="ui-svg" aria-hidden="true">
           <svg viewBox="0 0 24 24" focusable="false">

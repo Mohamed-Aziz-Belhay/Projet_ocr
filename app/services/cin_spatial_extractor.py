@@ -13,6 +13,7 @@ from app.services.cin_rules import (
     digits_only,
     extract_best_birth_date_from_text,
     extract_best_birth_place_from_text,
+    fix_reversed_name_token,
     is_valid_birth_place_strict,
     is_valid_cin_number,
     is_valid_family_name,
@@ -193,7 +194,12 @@ def _candidate_from_box_text(text: str, validator) -> Optional[str]:
         return None
     if contains_relation_word(raw):
         return None
-    return raw if validator(raw) else None
+    # EasyOCR/Paddle sometimes emit a name box with its Arabic characters
+    # in reverse order (e.g. "رهام" for "ماهر") — inconsistently, so it
+    # can't be undone unconditionally. Per-token, only flip when the
+    # reversed form matches a known common name and the OCR'd form doesn't.
+    candidate = " ".join(fix_reversed_name_token(tok) for tok in raw.split())
+    return candidate if validator(candidate) else None
 
 
 def _best_numeric_line_candidate(boxes: List[OCRBox]) -> Tuple[Optional[str], float, Dict[str, Any]]:

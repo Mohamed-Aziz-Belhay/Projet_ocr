@@ -572,7 +572,26 @@ select option {
   font-weight:600;
   color:var(--ink);
   word-break:break-word;
-  white-space:pre-wrap
+  white-space:pre-wrap;
+  unicode-bidi:plaintext
+}
+
+.field-val:dir(rtl) {
+  text-align:right
+}
+
+.field-val-input {
+  width:100%;
+  border:1px solid var(--line, #d8dbe3);
+  border-radius:8px;
+  padding:6px 8px;
+  background:var(--surface, #fff);
+  font-family:inherit
+}
+
+.field-val-input:focus {
+  outline:none;
+  border-color:var(--accent, #4f6bed)
 }
 
 .field-meta {
@@ -580,6 +599,17 @@ select option {
   flex-wrap:wrap;
   gap:5px;
   margin-top:10px
+}
+
+.field-meta.needs-review {
+  border-left:3px solid #e0a800;
+  padding-left:6px
+}
+
+.btn-validate {
+  background:var(--accent, #2e7d32);
+  color:#fff;
+  border-color:transparent
 }
 
 .tag {

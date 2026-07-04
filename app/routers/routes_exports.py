@@ -17,9 +17,11 @@ to make the platform look more enterprise and reliable.
 from __future__ import annotations
 
 import csv
+import html
 import io
 import json
-from datetime import datetime
+import re
+from datetime import datetime, timezone
 from typing import Any, Optional
 
 from fastapi import APIRouter, Header, HTTPException
@@ -27,6 +29,8 @@ from fastapi.responses import Response, StreamingResponse
 from pydantic import BaseModel
 
 from app.core.security import decode_access_token
+
+_ARABIC_RE = re.compile(r"[؀-ۿ]")
 
 router = APIRouter(prefix="/exports", tags=["Exports"])
 
@@ -184,68 +188,94 @@ async def export_pdf(
     normalized = result.get("normalized_data") or result.get("normalizedData") or {}
     fields = result.get("fields") if isinstance(result.get("fields"), list) else []
 
-    doc = fitz.open()
-    page = doc.new_page(width=595, height=842)  # A4 points
+    def esc(value: Any) -> str:
+        return html.escape(str(value if value is not None else ""))
 
-    y = 54
-    margin = 48
-    line_h = 17
+    def dir_style(text: str) -> str:
+        return "direction:rtl;text-align:right;" if _ARABIC_RE.search(text or "") else ""
 
-    def add_text(text: str, size: int = 10, bold: bool = False, color=(0, 0, 0)) -> None:
-        nonlocal y, page
-        if y > 790:
-            page = doc.new_page(width=595, height=842)
-            y = 54
-        font = "helv" if not bold else "helv"
-        page.insert_text((margin, y), text[:120], fontsize=size, fontname=font, color=color)
-        y += line_h if size <= 11 else line_h + 4
+    def title(text: str) -> str:
+        return f'<p style="font-size:20px;font-weight:bold;color:#17385f;">{esc(text)}</p>'
 
-    blue = (0.09, 0.36, 0.65)
-    gray = (0.35, 0.42, 0.50)
+    def section(text: str) -> str:
+        return f'<p style="font-size:14px;font-weight:bold;color:#17385f;margin-top:10px;">{esc(text)}</p>'
 
-    add_text("Rapport d'extraction OCR", size=20, bold=True, color=blue)
-    add_text(f"Document : {payload.file_name or 'document'}", size=11)
-    add_text(f"Type : {payload.document_type or result.get('document_type') or 'unknown'}", size=11)
-    add_text(f"Template : {payload.template_id or result.get('template_id') or '-'}", size=11)
-    add_text(f"Date export : {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')}", size=10, color=gray)
-    add_text("")
+    def line(text: str, *, size: int = 11, color: str = "#000000") -> str:
+        return f'<p style="font-size:{size}px;color:{color};{dir_style(text)}">{esc(text)}</p>'
 
-    add_text("Synthèse", size=14, bold=True, color=blue)
-    add_text(f"Statut : {result.get('status', '-')}")
-    add_text(f"Confiance globale : {result.get('global_confidence', '-')}")
-    add_text(f"Temps traitement ms : {result.get('processing_time_ms', '-')}")
-    add_text("")
+    def key_value(key: str, value: str, *, size: int = 10, suffix: str = "") -> str:
+        # Keep the row itself left-aligned (labels are always Latin) and
+        # only let the value flow RTL inline, instead of right-aligning
+        # the whole paragraph — avoids each row jumping to a different
+        # side of the page depending on whether its value is Arabic.
+        value_style = "direction:rtl;unicode-bidi:embed;" if _ARABIC_RE.search(value or "") else ""
+        return (
+            f'<p style="font-size:{size}px;">'
+            f'<b>{esc(key)}</b>: <span style="{value_style}">{esc(value)}</span>{esc(suffix)}</p>'
+        )
+
+    gray = "#59697f"
+    parts: list[str] = []
+
+    parts.append(title("Rapport d'extraction OCR"))
+    parts.append(line(f"Document : {payload.file_name or 'document'}"))
+    parts.append(line(f"Type : {payload.document_type or result.get('document_type') or 'unknown'}"))
+    parts.append(line(f"Template : {payload.template_id or result.get('template_id') or '-'}"))
+    parts.append(line(
+        f"Date export : {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}",
+        size=10, color=gray,
+    ))
+
+    parts.append(section("Synthèse"))
+    parts.append(line(f"Statut : {result.get('status', '-')}"))
+    parts.append(line(f"Confiance globale : {result.get('global_confidence', '-')}"))
+    parts.append(line(f"Temps traitement ms : {result.get('processing_time_ms', '-')}"))
 
     if isinstance(normalized, dict) and normalized:
-        add_text("Données normalisées", size=14, bold=True, color=blue)
+        parts.append(section("Données normalisées"))
         for key, value in list(normalized.items())[:40]:
             if isinstance(value, list):
-                add_text(f"{key}: {len(value)} ligne(s)")
+                parts.append(key_value(key, "", suffix=f"{len(value)} ligne(s)"))
                 for i, item in enumerate(value[:8]):
-                    add_text(f"  - {i + 1}: {_stringify(item)[:95]}", size=9)
+                    parts.append(key_value(f"  - {i + 1}", _stringify(item)[:95], size=9))
             else:
-                add_text(f"{key}: {_stringify(value)[:95]}", size=10)
-        add_text("")
+                parts.append(key_value(key, _stringify(value)[:95]))
 
     if fields:
-        add_text("Champs extraits", size=14, bold=True, color=blue)
+        parts.append(section("Champs extraits"))
         for field in fields[:60]:
             if not isinstance(field, dict):
                 continue
             name = field.get("name") or field.get("field_name") or field.get("key") or "-"
             val = _stringify(field.get("value"))[:80]
             conf = field.get("confidence", "-")
-            add_text(f"{name}: {val}  | conf: {conf}", size=9)
+            parts.append(key_value(name, val, size=9, suffix=f"  | conf: {conf}"))
 
     raw = result.get("raw_text") or result.get("text")
     if raw:
-        add_text("")
-        add_text("Extrait du texte brut OCR", size=14, bold=True, color=blue)
-        for line in str(raw).splitlines()[:18]:
-            add_text(line[:110], size=8, color=gray)
+        parts.append(section("Extrait du texte brut OCR"))
+        for text_line in str(raw).splitlines()[:18]:
+            parts.append(line(text_line[:110], size=8, color=gray))
 
-    pdf_bytes = doc.tobytes()
-    doc.close()
+    # A single Story/DocumentWriter pass over the WHOLE report: PyMuPDF
+    # embeds each font used (Latin base font + the Arabic fallback font)
+    # exactly once for the entire document. Doing this per-line instead
+    # (calling Page.insert_htmlbox once per field) was tried first and
+    # re-embeds a full copy of the Arabic font on every single call,
+    # ballooning a ~15-line report from a few hundred KB to several MB.
+    page_rect = fitz.paper_rect("a4")
+    content_rect = page_rect + (48, 54, -48, -40)
+    story = fitz.Story(html="".join(parts))
+    buf = io.BytesIO()
+    writer = fitz.DocumentWriter(buf)
+    more = True
+    while more:
+        device = writer.begin_page(page_rect)
+        more, _ = story.place(content_rect)
+        story.draw(device)
+        writer.end_page()
+    writer.close()
+    pdf_bytes = buf.getvalue()
 
     filename = _safe_filename(payload.file_name or "ocr_report", "pdf")
     return StreamingResponse(

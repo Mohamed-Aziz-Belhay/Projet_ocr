@@ -1,1 +1,101 @@
-∢ਢ灡⽰瑵汩⽳慤整癟污摩瑡潩⹮祰倊牡楳杮攠⁴潮浲污獩瑡潩⁮敤⁳慤整⁳胢ₔ畳灰牯整㨠 ⴠ䘠牯慭獴渠浵꧃楲畱獥㨠䐠⽄䵍夯奙ⱙ䐠ⵄ䵍夭奙ⱙ夠奙ⵙ䵍䐭ⱄ攠捴ਮ†‭潍獩愠慲敢⁳畴楮楳湥⁳›〢‶곘裙諙蓙諙꧘ㄠ㠹∸‬㌢‰곘Ꟙ蛙臙諙㈠〰∲ ⴠ䴠楯⁳牦湡ꟃ楡⁳›〢‶番汩敬⁴㤱㠸Ⱒ∠〳樠湡楶牥㈠〰∲∊∢昊潲⁭彟畦畴敲彟椠灭牯⁴湡潮慴楴湯ੳ浩潰瑲爠੥牦浯搠瑡瑥浩⁥浩潰瑲搠瑡瑥浩੥牦浯琠灹湩⁧浩潰瑲䰠獩ⱴ传瑰潩慮੬⌊肔铢₀潍獩愠慲敢⁳畴楮楳湥⁳蛢ₒ畮썭犩⁯铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢઀‣畔楮楳⁥瑵汩獩⁥敬⁳潮獭映慲据ⵯ牡扡獥⠠牴湡汳瑩썴犩瑡潩⥮䄊䅒䥂彃位呎午㴠笠 †∠곘Ꟙ蛙臙諙㨢†∠㄰Ⱒ†�����⊉›†〢∱ਬ††�����⊊›†〢∲‬∠臙꣘뇘Ꟙ諙뇘㨢†〢∲‬∠臙諙臙뇘諙㨢†〢∲ਬ††����⊳›†∠㌰Ⱒ †∠ꏘ臙뇘諙蓙㨢†∠㐰Ⱒ†�����⊄›†〢∴‬∠ꏘ꣘뇘諙蓙㨢†〢∴ਬ††���⊊›††〢∵‬∠藙Ꟙ諙裙㨢††〢∵ਬ††����⊆›†∠㘰Ⱒ†�����⊈›†〢∶ਬ††������⊩›∠㜰Ⱒ†������⊇›∠㜰Ⱒ†�����⊈›∠㜰Ⱒ †∠ꏘ裙꫘㨢††∠㠰Ⱒ†���⊪›††〢∸‬∠ꏘ뫘돘럘돘㨢†〢∸ਬ††������⊱›∠㤰Ⱒ†������⊱›∠㤰Ⱒ †∠ꏘ菙꫘裙꣘뇘㨢†ㄢ∰‬∠Ꟙ菙꫘裙꣘뇘㨢†ㄢ∰ਬ††������⊱›∠ㄱⰢ †∠꿘諙돘藙꣘뇘㨢†ㄢ∲‬∠꿘돘藙꣘뇘㨢†∠㈱Ⱒ紊ਊ‣铢肔䴠楯⁳牦湡ꟃ楡⁳铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢肔铢઀剆久䡃䵟乏䡔⁓‽੻††樢湡楶牥㨢†∠㄰Ⱒ∠썦皩楲牥㨢†〢∲‬昢癥楲牥㨢†〢∲ਬ††洢牡≳›††∠㌰Ⱒ∠癡楲≬›†∠㐰Ⱒ∠慭≩›††∠㔰Ⱒ †∠番湩㨢†††〢∶‬樢極汬瑥㨢†〢∷‬愢썯璻㨢††∠㠰Ⱒ †∠潡瑵㨢†††〢∸‬猢灥整扭敲㨢〢∹‬漢瑣扯敲㨢†ㄢ∰ਬ††渢癯浥牢≥›∠ㄱⰢ∠썤掩浥牢≥›ㄢ∲‬搢捥浥牢≥›ㄢ∲ਬ੽弊䕄䅆䱕彔但䵒呁⁓‽ਜ਼††┢⽤津┯≙‬┢ⵤ津┭≙‬┢⹤津┮≙ਬ††┢ⵙ津┭≤‬┢⽙津┯≤ਬ††┢⽭搥┯≙‬┢⽤津┯≹ਬ੝⌊倠瑡整湲㨠樠畯⁲‫潮⁭敤洠楯⁳愨慲敢漠⁵牦湡ꟃ楡⥳⬠愠湮꧃੥呟塅啔䱁䑟呁⁅‽敲挮浯楰敬ਨ††≲尨筤ⰱ紲尩⭳嬨属層嵳㍻ㄬ紵尩⭳尨筤ⰲ紴∩ਬ††敲售䥎佃䕄ਬ਩ਊ敤⁦潮浲污穩彥牡扡捩摟瑡⡥整瑸›瑳⥲ⴠ‾灏楴湯污獛牴㩝 †∠∢ †䌠湯敶瑲瑩∠㘰������₩㤱㠸•畯∠〳�����₊〲㈰•湥∠㘰〯⼷㤱㠸⸢ †删瑥畯湲⁥潎敮猠⁩畡畣敮挠湯敶獲潩⁮潰獳扩敬ਮ††∢ਢ††⁭‽呟塅啔䱁䑟呁⹅敳牡档琨硥⹴瑳楲⡰⤩ †椠⁦潮⁴㩭 †††爠瑥牵⁮潎敮ਊ††慤ⱹ洠湯桴睟牯Ɽ礠慥⁲‽⹭牧畯⡰⤱‬⹭牧畯⡰⤲献牴灩⤨‬⹭牧畯⡰⤳ †洠湯桴睟牯彤潬敷⁲‽潭瑮彨潷摲氮睯牥⤨ਊ††‣桃牥档⁥慤獮氠獥搠略⁸楤瑣潩湮楡敲ੳ††潭瑮彨畮⁭‽ਨ††††剁䉁䍉䵟乏䡔⹓敧⡴潭瑮彨潷摲਩††††牯䄠䅒䥂彃位呎午朮瑥洨湯桴睟牯彤潬敷⥲ †††漠⁲剆久䡃䵟乏䡔⹓敧⡴潭瑮彨潷摲江睯牥਩††਩††晩渠瑯洠湯桴湟浵਺††††敲畴湲丠湯੥ †⌠丠牯慭楬敳氠愧湮꧃⁥′档晩牦獥 †椠⁦敬⡮敹牡 㴽㈠਺††††敹牡㴠∠㤱•‫敹牡椠⁦湩⡴敹牡 ‾〳攠獬⁥㈢∰⬠礠慥ੲ †搠祡㴠搠祡種楦汬㈨਩††敲畴湲映笢慤絹笯潭瑮彨畮絭笯敹牡≽ਊ搊晥瀠牡敳摟瑡⡥整瑸›瑳Ⱳ映牯慭獴›灏楴湯污䱛獩孴瑳嵲⁝‽潎敮 㸭传瑰潩慮孬慤整楴敭㩝 †∠∢ †倠牡敳甠敮搠瑡⁥敤異獩甠敮挠慨껃敮ਮ††獅慳敩搠愧潢摲氠獥映牯慭獴渠浵꧃楲畱獥‬異獩氠獥搠瑡獥琠硥畴汥敬⁳愨慲敢是慲썮憧獩⸩ †∠∢ †椠⁦潮⁴整瑸਺††††敲畴湲丠湯੥ †琠硥⁴‽整瑸献牴灩⤨ †愠汬晟牯慭獴㴠氠獩⡴潦浲瑡⁳牯嬠⥝⬠嬠⁦潦⁲⁦湩张䕄䅆䱕彔但䵒呁⁓晩映渠瑯椠⁮昨牯慭獴漠⁲嵛崩ਊ††‣⸱䘠牯慭獴渠浵꧃楲畱獥搠物捥獴 †映牯映瑭椠⁮污彬潦浲瑡㩳 †††琠祲਺††††††敲畴湲搠瑡瑥浩⹥瑳灲楴敭琨硥ⱴ映瑭਩††††硥散瑰嘠污敵牅潲㩲 †††††挠湯楴畮੥ †⌠㈠‮慄整琠硥畴汥敬愠慲敢漠⁵牦湡ꟃ楡敳銆挠湯敶獲潩⁮畮썭犩煩敵銆瀠牡敳 †渠浵牥捩㴠渠牯慭楬敺慟慲楢彣慤整琨硥⥴ †椠⁦畮敭楲㩣 †††琠祲਺††††††敲畴湲搠瑡瑥浩⹥瑳灲楴敭渨浵牥捩‬┢⽤津┯≙਩††††硥散瑰嘠污敵牅潲㩲 †††††瀠獡ੳ †爠瑥牵⁮潎敮ਊ搊晥渠牯慭楬敺摟瑡⡥瑤›慤整楴敭‬畯灴瑵晟牯慭㩴猠牴㴠∠夥┭⵭搥⤢ⴠ‾瑳㩲 †爠瑥牵⁮瑤献牴瑦浩⡥畯灴瑵晟牯慭⥴ਊ搊晥瀠牡敳慟摮湟牯慭楬敺琨硥㩴猠牴‬畯灴瑵晟牯慭㩴猠牴㴠∠夥┭⵭搥⤢ⴠ‾灏楴湯污獛牴㩝 †∠∢慒捣畯捲⁩慰獲⁥‫潮浲污穩⹥∢ਢ††瑤㴠瀠牡敳摟瑡⡥整瑸਩††敲畴湲渠牯慭楬敺摟瑡⡥瑤‬畯灴瑵晟牯慭⥴椠⁦瑤攠獬⁥整瑸
+"""
+app/utils/date_validation.py
+
+Helpers to parse and validate dates found on Tunisian identity/administrative
+documents (CIN, registre de commerce, factures...): numeric formats
+(JJ/MM/AAAA, JJ-MM-AAAA, JJ.MM.AAAA, AAAA-MM-JJ) and Maghrebi Arabic textual
+dates ("15 جانفي 1990"). Always returns ISO "YYYY-MM-DD" or None.
+"""
+from __future__ import annotations
+
+import re
+from datetime import datetime
+from typing import Optional
+
+_ARABIC_DIGITS_TRANS = str.maketrans("٠١٢٣٤٥٦٧٨٩", "0123456789")
+
+# Mois maghrébins (calques du français, utilisés en Tunisie/Algérie/Maroc),
+# avec quelques variantes d'orthographe et de formes inversées vues en OCR.
+_MONTH_ALIASES = {
+    "جانفي": 1, "جانفى": 1, "يفناج": 1,
+    "فيفري": 2, "فيفرى": 2, "فبراير": 2, "يرفيف": 2,
+    "مارس": 3, "سرام": 3,
+    "افريل": 4, "أفريل": 4, "ابريل": 4, "أبريل": 4, "ليرفا": 4,
+    "ماي": 5, "يام": 5,
+    "جوان": 6, "يونيو": 6, "ناوج": 6,
+    "جويلية": 7, "جويليه": 7, "يوليو": 7, "ةيليوج": 7,
+    "اوت": 8, "أوت": 8, "توأ": 8,
+    "سبتمبر": 9, "ربمتبس": 9,
+    "اكتوبر": 10, "أكتوبر": 10, "ربوتكأ": 10, "ربوتكا": 10,
+    "نوفمبر": 11, "ربمفون": 11,
+    "ديسمبر": 12, "ربمسيد": 12,
+}
+_MONTHS_REGEX = "(?:" + "|".join(sorted(_MONTH_ALIASES, key=len, reverse=True)) + ")"
+
+_NUMERIC_DATE_RE = re.compile(r"\b(\d{1,2})[/\-.](\d{1,2})[/\-.](\d{4})\b")
+_ISO_DATE_RE = re.compile(r"\b(\d{4})[/\-.](\d{1,2})[/\-.](\d{1,2})\b")
+_TEXTUAL_DATE_RE = re.compile(rf"\b(\d{{1,2}})\s+({_MONTHS_REGEX})\s+(\d{{4}})\b")
+
+_MIN_YEAR = 1900
+_MAX_YEAR = 2100
+
+
+def _clean(text: str) -> str:
+    text = (text or "").translate(_ARABIC_DIGITS_TRANS)
+    text = text.replace("\xa0", " ").replace("|", " ").replace("،", " ").replace("؛", " ")
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _to_iso(year: int, month: int, day: int) -> Optional[str]:
+    if not (_MIN_YEAR <= year <= _MAX_YEAR):
+        return None
+    try:
+        return datetime(year, month, day).strftime("%Y-%m-%d")
+    except ValueError:
+        return None
+
+
+def normalize_date_strict(value: str) -> Optional[str]:
+    """Normalise une date numérique (JJ/MM/AAAA, JJ-MM-AAAA, JJ.MM.AAAA ou
+    AAAA-MM-JJ) vers le format ISO "YYYY-MM-DD". Retourne None si la valeur
+    ne contient pas de date numérique valide."""
+    if not value:
+        return None
+    text = _clean(value)
+
+    m = _ISO_DATE_RE.search(text)
+    if m:
+        y, mo, d = int(m.group(1)), int(m.group(2)), int(m.group(3))
+        iso = _to_iso(y, mo, d)
+        if iso:
+            return iso
+
+    m = _NUMERIC_DATE_RE.search(text)
+    if m:
+        d, mo, y = int(m.group(1)), int(m.group(2)), int(m.group(3))
+        return _to_iso(y, mo, d)
+
+    return None
+
+
+def parse_and_normalize(text: str) -> Optional[str]:
+    """Parse une date numérique ou textuelle arabe maghrébine (ex: "15 جانفي
+    1990") depuis un texte OCR bruit et la normalise en "YYYY-MM-DD".
+    Retourne None si aucune date valide n'est trouvée."""
+    if not text:
+        return None
+    cleaned = _clean(text)
+
+    numeric = normalize_date_strict(cleaned)
+    if numeric:
+        return numeric
+
+    m = _TEXTUAL_DATE_RE.search(cleaned)
+    if m:
+        day = int(m.group(1))
+        month = _MONTH_ALIASES.get(m.group(2))
+        year = int(m.group(3))
+        if month is not None:
+            return _to_iso(year, month, day)
+
+    return None
