@@ -71,7 +71,7 @@ class Settings(BaseSettings):
 
     UPLOAD_DIR: str = "/tmp/ocr_uploads"
     RESULT_DIR: str = "/tmp/ocr_results"
-    MAX_UPLOAD_MB: int = 20
+    MAX_UPLOAD_MB: int = 25
     ALLOWED_EXTENSIONS: List[str] = ["pdf", "png", "jpg", "jpeg", "tiff", "webp"]
 
     TEMPLATES_DIR: str = "app/templates"
