@@ -2,6 +2,33 @@
 app/routers/routes_templates.py
 Templates OCR - CRUD PostgreSQL async.
 Compatible Windows (pas d'emojis dans les logs).
+
+CORRECTIF RG8 (rapport PFE, Chapitre 3) :
+Les routes d'écriture PUT/DELETE sont désormais réservées au rôle admin
+côté API. Avant ce correctif, AUCUN contrôle n'était appliqué (seule
+dépendance : get_db), et main.py n'applique aucune authentification
+globale aux routers — n'importe quel appelant pouvait donc modifier ou
+supprimer un template via un appel direct à l'API, le seul blocage étant
+le guard Angular côté frontend.
+
+Mécanisme (vérifié sur app/core/rbac.py) :
+require_admin(user) est un simple helper qui prend un objet user et lève
+une HTTPException — ce n'est PAS une dépendance FastAPI utilisable telle
+quelle dans Depends(). On réutilise donc la dépendance existante
+get_current_admin_user de routes_monitoring.py, qui décode le JWT,
+charge l'utilisateur en base puis applique require_admin(user).
+
+!! APRÈS INSTALLATION :
+1. Import VÉRIFIÉ sur le code réel : routes_monitoring.py définit bien
+   get_current_admin_user(request, db) (decode_access_token -> User ->
+   require_admin) et n'importe aucun autre router — pas d'import
+   circulaire. Le patch fonctionne tel quel.
+2. Retester la collection Postman "Templates" :
+   - PUT/DELETE avec token operator/simple_user  -> 403 Forbidden
+   - PUT/DELETE sans token                        -> 401 Unauthorized
+   - PUT/DELETE avec token admin                  -> comportement inchangé
+   - GET (liste/détail)                           -> inchangé (RG8 :
+     operators et simple_users consultent et utilisent les templates)
 """
 from __future__ import annotations
 
@@ -15,8 +42,18 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.session import get_db
 
+# CORRECTIF RG8 : réutilisation de la dépendance admin du monitoring
+# (JWT -> user -> require_admin). Si vous préférez éviter la dépendance
+# entre routers, copiez la fonction get_current_admin_user de
+# routes_monitoring.py dans app/api/deps.py et importez-la depuis là.
+from app.routers.routes_monitoring import get_current_admin_user
+
 log = logging.getLogger(__name__)
 router = APIRouter(prefix="/templates", tags=["Templates"])
+
+# Dépendance appliquée aux routes d'ÉCRITURE uniquement. Les GET restent
+# accessibles (consultation/utilisation par operator et simple_user, RG8).
+ADMIN_ONLY = [Depends(get_current_admin_user)]
 
 
 # ── Schema ────────────────────────────────────────────────────────────────────
@@ -129,7 +166,12 @@ async def get_template(
 
 
 # ── PUT /templates/{template_id} ───────────────────────────────────────────────
-@router.put("/{template_id}", summary="Cree ou met a jour (upsert)")
+# CORRECTIF RG8 : écriture réservée au rôle admin (401/403 sinon).
+@router.put(
+    "/{template_id}",
+    summary="Cree ou met a jour (upsert) - admin uniquement",
+    dependencies=ADMIN_ONLY,
+)
 async def upsert_template(
     template_id: str,
     body: TemplateBody,
@@ -165,10 +207,12 @@ async def upsert_template(
 # ── DELETE /templates/{template_id} ───────────────────────────────────────────
 # status_code=200 (pas 204) car FastAPI < 0.100 interdit
 # un response body avec 204
+# CORRECTIF RG8 : suppression réservée au rôle admin (401/403 sinon).
 @router.delete(
     "/{template_id}",
     status_code=200,
-    summary="Supprime un template",
+    summary="Supprime un template - admin uniquement",
+    dependencies=ADMIN_ONLY,
 )
 async def delete_template(
     template_id: str,
