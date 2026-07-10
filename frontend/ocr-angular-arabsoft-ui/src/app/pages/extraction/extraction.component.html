@@ -246,7 +246,13 @@
         </span>
           <span>Les autres paramètres sont appliqués automatiquement selon le type de document : moteur OCR, langue, mode balanced/full et diagnostics.</span>
         </div>
-        <label class="upload-zone">
+        <label
+          class="upload-zone"
+          [class.dragging]="isDragging()"
+          (dragover)="onDragOver($event)"
+          (dragleave)="onDragLeave($event)"
+          (drop)="onDrop($event)"
+        >
           <input type="file" accept="image/*,.pdf" (change)="onFileChange($event)">
 
           <div class="upload-main-line">
@@ -272,12 +278,12 @@
             </div>
 
             <strong>
-              {{ selectedFile ? selectedFile.name : 'Sélectionner un document' }}
+              {{ selectedFile ? selectedFile.name : 'Glissez-déposez un document, ou cliquez pour parcourir' }}
             </strong>
           </div>
 
           <span>
-            PNG, JPG, PDF · Max selon configuration backend
+            PNG, JPG, PDF · 25 Mo max
           </span>
         </label>
         <div class="preview-wrap" *ngIf="previewUrl()">
@@ -341,7 +347,10 @@
           <div class="spinner">
           </div>
           <div class="loading-text">
-            Analyse en cours avec {{ engine }} · mode {{ processingMode }}…
+            Analyse en cours avec {{ engine }} · mode {{ processingMode }} — {{ elapsedSeconds() }} s
+          </div>
+          <div class="loading-hint">
+            {{ loadingHint() }}
           </div>
         </div>
         <div class="error-box" *ngIf="error()">

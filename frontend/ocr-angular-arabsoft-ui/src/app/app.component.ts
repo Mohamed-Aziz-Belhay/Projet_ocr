@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthApiService } from './services/auth-api.service';
 import { ScannerSessionApiService } from './services/scanner-session-api.service';
+import { ToastService } from './services/toast.service';
 
 type ThemeMode = 'dark' | 'light';
 
@@ -20,7 +21,8 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(
     public auth: AuthApiService,
     private router: Router,
-    private scannerSession: ScannerSessionApiService
+    private scannerSession: ScannerSessionApiService,
+    public toast: ToastService
   ) {
     const saved = localStorage.getItem('ocr_theme');
     this.theme = saved === 'light' ? 'light' : 'dark';

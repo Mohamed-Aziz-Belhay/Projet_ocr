@@ -73,3 +73,54 @@ main {
   .nav-user-text { display: none; }
   .nav-user { max-width: 52px; padding: 6px; }
 }
+
+
+/* ══════════ Toasts (notifications non bloquantes) ══════════ */
+.toast-stack {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: min(420px, calc(100vw - 36px));
+}
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--radius, 12px);
+  background: var(--glass, rgba(20, 24, 34, 0.92));
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.12));
+  backdrop-filter: var(--blur, blur(10px));
+  color: var(--ink, #eef2ff);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.35);
+  animation: toast-in 0.22s ease-out;
+}
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.toast-dot {
+  width: 9px; height: 9px;
+  margin-top: 5px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+.toast-success .toast-dot { background: var(--success, #22c55e); box-shadow: 0 0 10px var(--success, #22c55e); }
+.toast-error   .toast-dot { background: var(--danger, #ef4444);  box-shadow: 0 0 10px var(--danger, #ef4444); }
+.toast-info    .toast-dot { background: var(--accent, #3b82f6);  box-shadow: 0 0 10px var(--accent, #3b82f6); }
+.toast-text { font-size: 13px; line-height: 1.45; }
+.toast-close {
+  margin-left: auto;
+  background: none; border: none;
+  color: var(--ink3, #94a3b8);
+  font-size: 16px; line-height: 1;
+  cursor: pointer; padding: 0 2px;
+}
+.toast-close:hover { color: var(--ink, #eef2ff); }
+@media (max-width: 640px) {
+  .toast-stack { right: 10px; left: 10px; bottom: 10px; max-width: none; }
+}

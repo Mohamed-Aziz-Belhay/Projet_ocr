@@ -1173,3 +1173,21 @@ textarea,
   box-shadow: none;
   cursor: not-allowed;
 }
+
+/* ══════════ Drag & drop ══════════ */
+.upload-zone.dragging {
+  border-color: var(--accent, #3b82f6);
+  background: color-mix(in srgb, var(--accent, #3b82f6) 10%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent, #3b82f6) 25%, transparent);
+  transform: scale(1.01);
+  transition: all 0.15s ease;
+}
+
+/* ══════════ Indication pendant l'analyse ══════════ */
+.loading-hint {
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: var(--ink3, #94a3b8);
+  text-align: center;
+  max-width: 420px;
+}

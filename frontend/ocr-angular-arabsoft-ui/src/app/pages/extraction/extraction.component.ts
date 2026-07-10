@@ -5,6 +5,7 @@ import { OcrApiService, TemplateSummary } from '../../services/ocr-api.service';
 import { AuthApiService } from '../../services/auth-api.service';
 import { ExportApiService } from '../../services/export-api.service';
 import { Router } from '@angular/router';
+import { ToastService } from '../../services/toast.service';
 
 type DocumentType =
   | 'auto'
@@ -31,8 +32,11 @@ export class ExtractionComponent implements OnInit {
   previewUrl = signal<string | null>(null);
   editableValues = signal<Record<string, any>>({});
   validating = signal(false);
+  isDragging = signal(false);
+  elapsedSeconds = signal(0);
+  private chronoTimer: any = null;
 
-  apiKey = localStorage.getItem('ocr_api_key') || 'dev-key-123';
+  apiKey = localStorage.getItem('ocr_api_key') || '';
   documentType: DocumentType = 'auto';
   templateId = '';
   languageHint = '';
@@ -64,7 +68,8 @@ export class ExtractionComponent implements OnInit {
     private api: OcrApiService,
     private auth: AuthApiService,
     private exportApi: ExportApiService,
-    private router: Router
+    private router: Router,
+    private toast: ToastService
   ) {}
 
   ngOnInit() {
@@ -288,8 +293,27 @@ export class ExtractionComponent implements OnInit {
 
   onFileChange(e: Event) {
     const input = e.target as HTMLInputElement;
-    const file = input.files?.[0] || null;
+    this.setFile(input.files?.[0] || null);
+  }
 
+  onDragOver(e: DragEvent) {
+    e.preventDefault();
+    this.isDragging.set(true);
+  }
+
+  onDragLeave(e: DragEvent) {
+    e.preventDefault();
+    this.isDragging.set(false);
+  }
+
+  onDrop(e: DragEvent) {
+    e.preventDefault();
+    this.isDragging.set(false);
+    const file = e.dataTransfer?.files?.[0] || null;
+    if (file) this.setFile(file);
+  }
+
+  private setFile(file: File | null) {
     this.selectedFile = file;
     this.previewUrl.set(null);
 
@@ -298,22 +322,32 @@ export class ExtractionComponent implements OnInit {
     }
   }
 
+  /** Indication contextuelle pendant l'analyse, selon le type de document. */
+  loadingHint(): string {
+    const hints: Record<string, string> = {
+      passport: 'Lecture de la zone MRZ — environ 2 s pour un passeport net.',
+      cin_tn: 'Extraction multi-moteurs champ par champ — quelques secondes.',
+      invoice: 'OCR pleine page + règles métier — jusqu\'à 15 s pour une facture.',
+      registre_commerce: 'Double OCR avec fusion champ par champ — cela peut prendre quelques secondes.',
+    };
+    return hints[this.documentType] || 'La durée dépend du type et de la qualité du document (15 s max en général).';
+  }
+
+  private startChrono() {
+    this.elapsedSeconds.set(0);
+    this.chronoTimer = setInterval(() => this.elapsedSeconds.update(v => v + 1), 1000);
+  }
+
+  private stopChrono() {
+    if (this.chronoTimer) {
+      clearInterval(this.chronoTimer);
+      this.chronoTimer = null;
+    }
+  }
+
   submit() {
     this.error.set(null);
-    
-    if (!this.auth.isLoggedIn()) {
-      this.error.set(
-        "Vous devez vous connecter pour lancer une extraction. Créez un compte simple user ou demandez un accès operator."
-      );
-      return;
-    }
-
-    if (!this.auth.canExtract()) {
-      this.error.set("Votre rôle ne permet pas de lancer une extraction.");
-      return;
-    }
-
-this.result.set(null);
+    this.result.set(null);
 
     if (!this.auth.isLoggedIn()) {
       this.error.set(
@@ -323,24 +357,23 @@ this.result.set(null);
     }
 
     if (!this.auth.canExtract()) {
-      this.error.set(
-        "Votre rôle simple user ne permet pas de lancer une extraction. Vous devez demander un accès operator et attendre la validation de l'admin."
-      );
+      this.error.set('Votre rôle ne permet pas de lancer une extraction.');
       return;
     }
 
     if (!this.apiKey.trim()) {
-      this.error.set('Clé API obligatoire.');
+      this.error.set('Clé API obligatoire — demandez-la à votre administrateur.');
       return;
     }
 
     if (!this.selectedFile) {
-      this.error.set('Sélectionne un fichier.');
+      this.error.set('Veuillez sélectionner ou déposer un fichier.');
       return;
     }
 
     localStorage.setItem('ocr_api_key', this.apiKey.trim());
     this.loading.set(true);
+    this.startChrono();
 
     this.api
       .extract({
@@ -355,16 +388,19 @@ this.result.set(null);
       })
       .subscribe({
         next: d => {
+          this.stopChrono();
           this.result.set(d);
           const values: Record<string, any> = {};
           for (const f of d?.fields || []) {
             values[f.name] = f.value;
           }
           this.editableValues.set(values);
+          this.restoreDraftIfAny(d?.job_id, values);
           this.saveLastResult(d);
           this.loading.set(false);
         },
         error: e => {
+          this.stopChrono();
           this.loading.set(false);
 
           const detail = e?.error?.detail;
@@ -446,6 +482,31 @@ this.result.set(null);
 
   updateFieldValue(name: string, value: string) {
     this.editableValues.update(values => ({ ...values, [name]: value }));
+    this.persistDraft();
+  }
+
+  /** Brouillon de corrections : survit à une expiration de session (401). */
+  private draftKey(jobId: string): string {
+    return 'ocr_draft_' + jobId;
+  }
+
+  private persistDraft(): void {
+    const r = this.result();
+    if (!r?.job_id) return;
+    try {
+      sessionStorage.setItem(this.draftKey(r.job_id), JSON.stringify(this.editableValues()));
+    } catch {}
+  }
+
+  private restoreDraftIfAny(jobId: string | undefined, baseValues: Record<string, any>): void {
+    if (!jobId) return;
+    try {
+      const raw = sessionStorage.getItem(this.draftKey(jobId));
+      if (!raw) return;
+      const draft = JSON.parse(raw);
+      this.editableValues.set({ ...baseValues, ...draft });
+      this.toast.info('Brouillon de corrections restauré.');
+    } catch {}
   }
 
   isValidated() {
@@ -482,12 +543,19 @@ this.result.set(null);
         }
         this.editableValues.set(newValues);
         this.validating.set(false);
+
+        try { sessionStorage.removeItem(this.draftKey(r.job_id)); } catch {}
+        this.toast.success(
+          corrections.length
+            ? `${corrections.length} correction(s) enregistrée(s) — les valeurs OCR d'origine sont conservées pour l'audit.`
+            : 'Résultat validé et enregistré dans l\'historique.'
+        );
       },
       error: e => {
         this.validating.set(false);
-        this.error.set(
-          e?.error?.detail ? String(e.error.detail) : "Échec de la validation de l'extraction."
-        );
+        const msg = e?.error?.detail ? String(e.error.detail) : "Échec de la validation de l'extraction.";
+        this.error.set(msg);
+        this.toast.error(msg);
       },
     });
   }

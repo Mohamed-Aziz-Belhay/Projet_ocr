@@ -21,6 +21,7 @@ import { roleGuard } from './app/services/role.guard';
 import { ForgotPasswordComponent } from './app/pages/forgot-password/forgot-password.component';
 import { HomeComponent } from './app/pages/home/home.component';
 import { MonitoringComponent } from './app/pages/admin/monitoring/monitoring.component';
+import { httpErrorInterceptor } from './app/services/http-error.interceptor';
 
 const routes: Routes = [
   // Page publique : visible même sans login.
@@ -81,7 +82,7 @@ const routes: Routes = [
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),
-    provideHttpClient(withInterceptors([apiKeyInterceptor])),
+    provideHttpClient(withInterceptors([apiKeyInterceptor, httpErrorInterceptor])),
   ],
 }).catch(console.error);
 

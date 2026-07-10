@@ -46,6 +46,22 @@
   <router-outlet></router-outlet>
 </main>
 
+<!-- Notifications non bloquantes (succès validation RG11, session expirée, erreurs) -->
+<div class="toast-stack" aria-live="polite" aria-atomic="false">
+  <div
+    *ngFor="let t of toast.toasts()"
+    class="toast"
+    [class.toast-success]="t.kind === 'success'"
+    [class.toast-error]="t.kind === 'error'"
+    [class.toast-info]="t.kind === 'info'"
+    role="status"
+  >
+    <span class="toast-dot" aria-hidden="true"></span>
+    <span class="toast-text">{{ t.text }}</span>
+    <button class="toast-close" type="button" aria-label="Fermer la notification" (click)="toast.dismiss(t.id)">×</button>
+  </div>
+</div>
+
 <footer class="app-footer" *ngIf="!isConsoleRoute()">
   <p>© 2026 Arabsoft · OCR Microservice</p>
   <p>FastAPI · PaddleOCR · EasyOCR · Angular</p>
