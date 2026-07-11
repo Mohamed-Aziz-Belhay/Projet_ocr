@@ -31,11 +31,12 @@ interface FaqItem {
 export class HomeComponent {
   constructor(public auth: AuthApiService) {}
 
+  // Chiffres alignés sur la campagne de validation (Chapitre 5 du rapport)
   stats: StatItem[] = [
-    { value: '16', label: 'Routers FastAPI' },
+    { value: '17', label: 'Routers FastAPI' },
     { value: '4', label: 'Types de documents' },
-    { value: '3', label: 'Moteurs OCR' },
-    { value: '88%+', label: 'Accuracy Swin' },
+    { value: '3', label: 'Moteurs OCR + fallback par champ' },
+    { value: '80,7%', label: 'Réussite bout en bout (MIDV-2020)' },
   ];
 
   // 3 rôles uniquement — Viewer supprimé

@@ -10,7 +10,7 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">
-      Plateforme PFE · Arabsoft Solution
+      Extraction documentaire intelligente · Arabsoft Solution
     </div>
 
     <h1 class="hero-title">
@@ -25,9 +25,11 @@
     </p>
 
     <div class="hero-cta">
-      <a routerLink="/extract" class="btn-primary">
-      
-        Commencer
+      <a *ngIf="isLoggedIn()" routerLink="/extract" class="btn-primary">
+        Lancer une extraction
+      </a>
+      <a *ngIf="!isLoggedIn()" routerLink="/register" class="btn-primary">
+        Créer un compte
       </a>
 
       <a href="#fonctionnalites" class="btn-ghost">
@@ -121,7 +123,7 @@
     </div>
     <span class="home-cap-tag">Sécurité</span>
     <h3>JWT + RBAC</h3>
-    <p>4 niveaux d'accès, tokens signés à durée limitée et journal d'audit pour chaque action sensible.</p>
+    <p>3 niveaux d'accès, tokens signés à durée limitée et journal d'audit pour chaque action sensible.</p>
   </div>
 
   <div class="home-cap-card">
@@ -183,8 +185,8 @@
 
   <div class="step-card">
     <div class="step-number">4</div>
-    <h3>Validation &amp; export</h3>
-    <p>Champs scorés et validés, export JSON, CSV ou PDF.</p>
+    <h3>Relecture &amp; export</h3>
+    <p>Les champs douteux sont surlignés pour relecture&nbsp;; chaque correction conserve la valeur d'origine (audit). Export JSON, CSV ou PDF.</p>
   </div>
 </section>
 
@@ -295,7 +297,7 @@
 
 <section class="faq-list">
   <div class="faq-item" *ngFor="let f of faq" [class.faq-open]="f.open">
-    <button class="faq-question" type="button" (click)="toggleFaq(f)">
+    <button class="faq-question" type="button" (click)="toggleFaq(f)" [attr.aria-expanded]="f.open">
       <span>{{ f.question }}</span>
       <span class="faq-chevron">⌄</span>
     </button>
@@ -312,12 +314,13 @@
     <p>L'équipe Arabsoft Solution est disponible pour vous accompagner.</p>
     <div class="contact-info">
       <a href="mailto:contact@arabsoft.com.tn" class="contact-link">contact&#64;arabsoft.com.tn</a>
-      <span class="contact-sep">·</span>
-      <span class="contact-link">+216 71 000 000</span>
     </div>
     <div class="hero-cta">
-      <a routerLink="/extract" class="btn-primary">
-        Commencer maintenant
+      <a *ngIf="isLoggedIn()" routerLink="/extract" class="btn-primary">
+        Lancer une extraction
+      </a>
+      <a *ngIf="!isLoggedIn()" routerLink="/register" class="btn-primary">
+        Créer un compte
       </a>
       <a routerLink="/login" class="btn-ghost" *ngIf="!isLoggedIn()">
         Se connecter
