@@ -1,4 +1,16 @@
 """
+CORRECTIF PERFORMANCE (revue projet) :
+- Chemin SYNCHRONE : le garde-fou de type documentaire n'effectue plus de
+  passe OCR dédiée (DPI 80 + escalade 150). Le contrôle de cohérence est
+  déplacé APRÈS l'extraction, sur le texte intégral déjà produit par le
+  pipeline (_run_post_extraction_type_guard) : jusqu'à 2 passes OCR et
+  les instances PaddleOCR de garde-fou économisées par requête à type
+  déclaré. Contrat d'erreur 422 DOCUMENT_TYPE_MISMATCH inchangé ; un
+  mismatch n'est PAS compté comme échec par le circuit breaker et rien
+  n'est enregistré en historique.
+- Chemin ASYNCHRONE : pré-guard conservé tel quel (le contrôle devra être
+  déplacé dans le worker — perspective).
+
 app/routers/routes_extract.py
 
 OCR extraction routes.
@@ -594,8 +606,10 @@ def _ocr_preview_for_guard(file_path: str, document_type: str, dpi: int = 80) ->
 
 def _run_document_type_guard(file_path: str, request: ExtractionRequest) -> None:
     """
-    Bloque l'extraction si le type sélectionné est clairement incompatible
-    avec le document uploadé.
+    [Chemin ASYNCHRONE uniquement désormais] Bloque l'extraction si le type
+    sélectionné est clairement incompatible avec le document uploadé.
+    Le chemin synchrone utilise _run_post_extraction_type_guard (zéro OCR
+    supplémentaire).
 
     Escalade DPI adaptative : la première passe (DPI 80, rapide) tranche
     la grande majorité des cas. Si le score de confiance de la détection
@@ -683,6 +697,59 @@ def _run_document_type_guard(file_path: str, request: ExtractionRequest) -> None
         )
 
 
+def _run_post_extraction_type_guard(result, request: ExtractionRequest) -> None:
+    """
+    Contrôle de cohérence type déclaré / contenu détecté, appliqué APRÈS
+    l'extraction, sur le texte intégral déjà produit par le pipeline.
+
+    Remplace, pour le chemin synchrone, la passe OCR dédiée du garde-fou :
+    aucune passe OCR supplémentaire, aucune instance PaddleOCR de garde-fou
+    en mémoire, et un texte de meilleure qualité que l'aperçu DPI 80
+    (moins de faux rejets attendus). Contrat d'erreur 422 inchangé.
+    """
+    selected_type = normalize_document_type(getattr(request, "document_type", "auto"))
+
+    if selected_type in {"auto", "custom", "unknown", ""}:
+        return
+
+    raw_text = _extract_raw_text(_as_result_dict(result)) or ""
+
+    detected = detect_document_type_from_text(raw_text)
+
+    compatible, reason = is_type_compatible(
+        selected_type=selected_type,
+        detected=detected,
+        min_confidence_to_block=_GUARD_AMBIGUOUS_LOW,
+    )
+
+    log.info(
+        "Document type guard (post-extraction)",
+        extra={
+            "selected_type": selected_type,
+            "detected_type": detected.detected_type,
+            "confidence": detected.confidence,
+            "compatible": compatible,
+            "reason": reason,
+            "raw_text_len": len(raw_text),
+            "reasons": detected.reasons[:8],
+        },
+    )
+
+    if not compatible:
+        raise HTTPException(
+            status_code=422,
+            detail={
+                "error": "DOCUMENT_TYPE_MISMATCH",
+                "message": "Le type de document sélectionné ne correspond pas au document uploadé.",
+                "selected_type": selected_type,
+                "detected_type": detected.detected_type,
+                "confidence": detected.confidence,
+                "reasons": detected.reasons,
+                "recommendation": f"Choisissez le type '{detected.detected_type}' ou utilisez 'auto'.",
+            },
+        )
+
+
 @router.post(
     "/sync",
     response_model=ExtractionResponse,
@@ -724,7 +791,8 @@ async def extract_sync(
         )
 
         _assert_saved_upload_readable(file_path)
-        _run_document_type_guard(file_path, request)
+        # Garde-fou de type : contrôle déplacé APRÈS l'extraction
+        # (cf. _run_post_extraction_type_guard) — plus de passe OCR dédiée.
 
         if settings.ENABLE_AUDIT_LOG:
             await audit_svc.extraction_started(
@@ -753,6 +821,10 @@ async def extract_sync(
 
             cb.record_success()
 
+            # Cohérence type déclaré / contenu détecté (RG5) — peut lever 422 ;
+            # dans ce cas rien n'est enregistré en historique.
+            _run_post_extraction_type_guard(result, request)
+
             history_id = await _save_history_safely(
                 user_id=str(current_user.id),
                 user_email=current_user.email,
@@ -771,8 +843,15 @@ async def extract_sync(
                 result=result,
             )
 
-        except HTTPException:
-            cb.record_failure()
+        except HTTPException as http_exc:
+            detail = getattr(http_exc, "detail", None)
+            is_type_mismatch = (
+                http_exc.status_code == 422
+                and isinstance(detail, dict)
+                and detail.get("error") == "DOCUMENT_TYPE_MISMATCH"
+            )
+            if not is_type_mismatch:
+                cb.record_failure()
             raise
 
         except Exception as exc:
