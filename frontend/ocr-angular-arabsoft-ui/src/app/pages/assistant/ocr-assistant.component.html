@@ -12,6 +12,16 @@
         <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-9"/></svg></span><span>Dashboard</span>
       </a>
 
+      <a class="sb-link" routerLink="/admin/monitoring" *ngIf="auth.canSeeMonitoring()">
+        <span class="sb-svg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M3.34 19a10 10 0 1 1 17.32 0"/>
+            <path d="m12 14 4-4"/>
+          </svg>
+        </span>
+        <span>Monitoring</span>
+      </a>
+
       <a class="sb-link" routerLink="/profile">
         <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.7-4 4.4-6 8-6s6.3 2 8 6"/></svg></span><span>Profil</span>
       </a>
@@ -59,6 +69,7 @@
 
         <nav class="top-menu">
           <a routerLink="/admin/dashboard" *ngIf="auth.canSeeDashboard()">Dashboard</a>
+          <a routerLink="/admin/monitoring" *ngIf="auth.canSeeMonitoring()">Monitoring</a>
           <a routerLink="/admin/users" *ngIf="auth.canManageUsers()">Users</a>
           <a routerLink="/templates" *ngIf="auth.canManageTemplates()">Templates</a>
           <a routerLink="/history" *ngIf="auth.canViewHistory()">Historique</a>

@@ -1,9 +1,33 @@
 /**
  * src/app/pages/admin/monitoring/monitoring.component.ts
  *
- * Dashboard de supervision natif Angular, style Grafana dark.
- * Inclut un selecteur de periode qui adapte dynamiquement les
- * fenetres PromQL (rate/histogram_quantile) cote backend.
+ * Dashboard de supervision natif Angular.
+ *
+ * REDESIGN (alignement charte graphique) :
+ * Ce composant utilisait une palette Grafana codée en dur (#111217,
+ * #181b1f, #2a2d35, #8e9096, #5794f2...), indépendante du thème
+ * clair/sombre de l'application (elle restait sombre même en thème
+ * clair). Il utilise désormais les tokens CSS globaux (--bg, --glass,
+ * --ink, --accent, --success, --warn, --danger, --radius, --blur...)
+ * définis dans styles.css, ce qui :
+ *   - aligne sa palette et sa typographie (Syne / DM Sans / JetBrains
+ *     Mono) sur le reste de l'application ;
+ *   - lui fait suivre automatiquement le thème clair/sombre choisi
+ *     par l'utilisateur ;
+ *   - garde une identité "console" via des panneaux vitrés (glass +
+ *     blur) cohérents avec le hero et les autres panels de l'app,
+ *     plutôt que le style Grafana d'origine.
+ * Les graphiques Chart.js lisent désormais les couleurs directement
+ * depuis les custom properties CSS (cssVar()) et se re-rendent
+ * automatiquement lors d'un changement de thème (MutationObserver sur
+ * [data-theme]).
+ *
+ * !! Si ce redesign est adopté, mettre à jour la phrase du rapport
+ * (Chapitre 4, section "Composant Angular") qui explique que la
+ * palette reprend volontairement celle de Grafana (fond #111217,
+ * panneaux #181b1f) pour familiarité admin : ce n'est plus le cas,
+ * remplacer par une phrase expliquant l'alignement sur le design
+ * system global et le respect du thème clair/sombre.
  */
 import {
   Component, ElementRef, OnDestroy, OnInit, ViewChild,
@@ -90,7 +114,7 @@ const TIME_RANGES: TimeRange[] = [
          [class.gf-stat-red]="s.confidence_avg_pct > 0 && s.confidence_avg_pct < 50"
          [class.gf-stat-blue]="s.confidence_avg_pct === 0">
       <div class="gf-panel-title">Global Extraction Confidence (avg)</div>
-      <div class="gf-stat-value">
+      <div class="gf-stat-value mono">
         {{ s.confidence_avg_pct | number:'1.1-1' }}%
       </div>
       <div class="gf-stat-unit">{{ selectedRangeLabel }}</div>
@@ -98,7 +122,7 @@ const TIME_RANGES: TimeRange[] = [
 
     <div class="gf-panel gf-stat gf-stat-blue">
       <div class="gf-panel-title">Extraction Rate (req/s)</div>
-      <div class="gf-stat-value">
+      <div class="gf-stat-value mono">
         {{ s.extraction_rate_per_sec | number:'1.0-4' }}
       </div>
       <div class="gf-stat-unit">req/s — {{ selectedRangeLabel }}</div>
@@ -108,7 +132,7 @@ const TIME_RANGES: TimeRange[] = [
          [class.gf-stat-green]="s.circuit_breakers_open === 0"
          [class.gf-stat-red]="s.circuit_breakers_open > 0">
       <div class="gf-panel-title">Circuit Breakers Open</div>
-      <div class="gf-stat-value">{{ s.circuit_breakers_open }}</div>
+      <div class="gf-stat-value mono">{{ s.circuit_breakers_open }}</div>
       <div class="gf-stat-unit">
         {{ s.circuit_breakers_open === 0 ? 'All engines healthy' : 'Engine(s) failing' }}
       </div>
@@ -116,7 +140,7 @@ const TIME_RANGES: TimeRange[] = [
 
     <div class="gf-panel gf-stat gf-stat-blue">
       <div class="gf-panel-title">Active Jobs</div>
-      <div class="gf-stat-value">{{ s.active_jobs }}</div>
+      <div class="gf-stat-value mono">{{ s.active_jobs }}</div>
       <div class="gf-stat-unit">jobs en file</div>
     </div>
 
@@ -156,167 +180,209 @@ const TIME_RANGES: TimeRange[] = [
 </div>
   `,
   styles: [`
-    /* ── Page ──────────────────────────────── */
+    /* ── Page ──────────────────────────────────────────────────
+       Fond aligné sur le design system global (var(--bg)) : suit
+       automatiquement le thème clair/sombre choisi par l'utilisateur,
+       au lieu du gris Grafana fixe #111217 d'origine. ── */
     .gf-page {
-      background: #111217;
+      background: var(--bg);
       min-height: 100vh;
-      font-family: 'DM Sans', 'Inter', sans-serif;
-      color: #d8d9da;
+      color: var(--ink);
       box-sizing: border-box;
+      transition: background .4s, color .3s;
     }
 
-    /* ── Toolbar ───────────────────────────── */
+    /* ── Toolbar : panneau vitré, cohérent avec .top-nav / .panel ── */
     .gf-toolbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #181b1f;
-      border-bottom: 1px solid #2a2d35;
-      padding: 0.65rem 1.25rem;
+      background: var(--glass);
+      backdrop-filter: var(--blur);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
       gap: 1rem;
       flex-wrap: wrap;
     }
     .gf-toolbar-left { display: flex; align-items: baseline; gap: 0.75rem; }
-    .gf-title  { font-size: 1.05rem; font-weight: 600; color: #d8d9da; }
-    .gf-subtitle { font-size: 0.76rem; color: #8e9096; }
+    .gf-title  {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .gf-subtitle { font-size: 0.76rem; color: var(--ink3); }
     .gf-toolbar-right {
       display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
     }
     .gf-toolbar-divider {
-      width: 1px; height: 20px; background: #2a2d35; margin: 0 0.25rem;
+      width: 1px; height: 20px; background: var(--border2); margin: 0 0.25rem;
     }
 
-    /* ── Period selector ───────────────────── */
+    /* ── Period selector ── */
     .gf-period-selector {
       display: flex;
       align-items: center;
       gap: 0.4rem;
-      background: #22252b;
-      border: 1px solid #2a2d35;
-      border-radius: 5px;
-      padding: 0.2rem 0.6rem;
+      background: var(--glass2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xs);
+      padding: 0.25rem 0.7rem;
     }
     .gf-period-icon { font-size: 0.85rem; }
     .gf-period-select {
       background: transparent;
       border: none;
-      color: #d8d9da;
+      color: var(--ink);
       font-size: 0.82rem;
       cursor: pointer;
       outline: none;
       font-family: inherit;
     }
     .gf-period-select option {
-      background: #22252b;
-      color: #d8d9da;
+      background: var(--bg2);
+      color: var(--ink);
+    }
+    .gf-period-select:focus-visible {
+      outline: 2px solid var(--accent-ink);
+      outline-offset: 2px;
+      border-radius: 3px;
     }
 
-    /* ── Buttons & badges ─────────────────── */
+    /* ── Buttons & badges (alignés .btn-ghost / .chip) ── */
     .gf-btn-refresh {
-      background: #22252b;
-      border: 1px solid #2a2d35;
-      border-radius: 4px;
-      color: #d8d9da;
-      padding: 0.22rem 0.7rem;
+      background: var(--glass2);
+      border: 1px solid var(--border2);
+      border-radius: 999px;
+      color: var(--ink);
+      padding: 0.3rem 0.9rem;
       font-size: 0.8rem;
+      font-weight: 500;
       cursor: pointer;
       font-family: inherit;
-      display: flex; align-items: center; gap: 0.3rem;
-      transition: background 0.15s;
+      display: flex; align-items: center; gap: 0.35rem;
+      transition: all 0.2s;
     }
-    .gf-btn-refresh:hover { background: #2a2d35; }
+    .gf-btn-refresh:hover:not(:disabled) {
+      background: var(--bg3);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+    .gf-btn-refresh:focus-visible {
+      outline: 2px solid var(--accent-ink);
+      outline-offset: 2px;
+    }
     .gf-btn-refresh:disabled { opacity: 0.5; cursor: not-allowed; }
-    .spinning { display: inline-block; animation: spin 0.8s linear infinite; }
+    .spinning { display: inline-block; animation: gf-spin 0.8s linear infinite; }
 
     .gf-refresh-badge {
-      background: #22252b; border: 1px solid #2a2d35; border-radius: 4px;
-      padding: 0.2rem 0.6rem; font-size: 0.75rem; color: #8e9096;
+      background: var(--glass2); border: 1px solid var(--border); border-radius: 999px;
+      padding: 0.25rem 0.7rem; font-size: 0.72rem; color: var(--ink3);
+      letter-spacing: .02em; text-transform: uppercase;
     }
     .gf-offline-badge {
-      background: rgba(242,73,92,0.15); border: 1px solid #f2495c;
-      border-radius: 4px; padding: 0.2rem 0.7rem;
-      font-size: 0.75rem; color: #f2495c;
+      background: color-mix(in srgb, var(--danger) 15%, transparent);
+      border: 1px solid var(--danger);
+      border-radius: 999px; padding: 0.25rem 0.8rem;
+      font-size: 0.75rem; font-weight: 500; color: var(--danger);
     }
     .gf-online-badge {
-      background: rgba(115,191,105,0.15); border: 1px solid #73bf69;
-      border-radius: 4px; padding: 0.2rem 0.7rem;
-      font-size: 0.75rem; color: #73bf69;
+      background: color-mix(in srgb, var(--success) 15%, transparent);
+      border: 1px solid var(--success);
+      border-radius: 999px; padding: 0.25rem 0.8rem;
+      font-size: 0.75rem; font-weight: 500; color: var(--success);
     }
 
-    /* ── Grid rows ─────────────────────────── */
+    /* ── Grid rows ── */
     .gf-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 0.75rem;
-      padding: 0.75rem 1.25rem;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
     }
     .gf-charts-row { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 900px) {
+      .gf-row { grid-template-columns: repeat(2, 1fr); }
+      .gf-charts-row { grid-template-columns: 1fr; }
+    }
 
-    /* ── Panels ────────────────────────────── */
+    /* ── Panels : mêmes codes visuels que .panel (glass + blur) ── */
     .gf-panel {
-      background: #181b1f;
-      border: 1px solid #2a2d35;
-      border-radius: 6px;
+      background: var(--glass);
+      backdrop-filter: var(--blur);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
       overflow: hidden;
+      transition: border-color .2s, background .4s;
     }
     .gf-panel-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.55rem 0.9rem;
-      border-bottom: 1px solid #2a2d35;
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--border);
     }
     .gf-panel-title {
       font-size: 0.78rem;
-      color: #8e9096;
+      color: var(--ink3);
+      letter-spacing: .01em;
     }
     .gf-panel-period {
       font-size: 0.72rem;
-      color: #5794f2;
-      background: rgba(87,148,242,0.1);
-      border-radius: 3px;
-      padding: 0.1rem 0.4rem;
+      color: var(--accent-ink);
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      border-radius: 999px;
+      padding: 0.15rem 0.55rem;
     }
-    .gf-panel-body { padding: 0.75rem; min-height: 220px; }
+    .gf-panel-body { padding: 0.85rem; min-height: 220px; }
     .gf-panel-body canvas { width: 100% !important; }
 
-    /* ── Stat cards ────────────────────────── */
+    /* ── Stat cards ── */
     .gf-stat {
       display: flex; flex-direction: column;
-      padding: 0.85rem 1rem;
-      border-left: 4px solid transparent;
+      padding: 1rem 1.1rem;
+      border-left: 3px solid transparent;
       min-height: 100px;
     }
     .gf-stat .gf-panel-title {
-      font-size: 0.75rem; color: #8e9096;
-      margin-bottom: 0.5rem;
+      font-size: 0.75rem; color: var(--ink3);
+      margin-bottom: 0.55rem;
     }
     .gf-stat-value {
-      font-size: 2.3rem; font-weight: 700;
-      line-height: 1; letter-spacing: -0.5px;
+      font-size: 2.2rem; font-weight: 700;
+      line-height: 1; letter-spacing: -0.02em;
+      color: var(--ink);
     }
-    .gf-stat-unit { font-size: 0.75rem; color: #8e9096; margin-top: 0.3rem; }
+    .gf-stat-unit { font-size: 0.75rem; color: var(--ink3); margin-top: 0.35rem; }
 
-    .gf-stat-green  { border-left-color: #73bf69; }
-    .gf-stat-green .gf-stat-value  { color: #73bf69; }
-    .gf-stat-orange { border-left-color: #ff9830; }
-    .gf-stat-orange .gf-stat-value { color: #ff9830; }
-    .gf-stat-red    { border-left-color: #f2495c; }
-    .gf-stat-red .gf-stat-value    { color: #f2495c; }
-    .gf-stat-blue   { border-left-color: #5794f2; }
-    .gf-stat-blue .gf-stat-value   { color: #5794f2; }
+    /* Seuils identiques à la logique métier existante (RG4/RG11) ;
+       seules les couleurs changent, alignées sur les tokens globaux. */
+    .gf-stat-green  { border-left-color: var(--success); }
+    .gf-stat-green .gf-stat-value  { color: var(--success); }
+    .gf-stat-orange { border-left-color: var(--warn); }
+    .gf-stat-orange .gf-stat-value { color: var(--warn); }
+    .gf-stat-red    { border-left-color: var(--danger); }
+    .gf-stat-red .gf-stat-value    { color: var(--danger); }
+    .gf-stat-blue   { border-left-color: var(--accent); }
+    .gf-stat-blue .gf-stat-value   { color: var(--accent-ink); }
 
-    /* ── Loading ───────────────────────────── */
+    /* ── Nombres en JetBrains Mono (cohérent avec le reste de l'app) ── */
+    .mono {
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+    }
+
+    /* ── Loading ── */
     .gf-loading {
       display: flex; align-items: center; justify-content: center;
-      gap: 0.75rem; padding: 4rem; color: #8e9096; font-size: 0.9rem;
+      gap: 0.75rem; padding: 4rem; color: var(--ink3); font-size: 0.9rem;
     }
     .gf-spinner {
-      width: 20px; height: 20px; border: 2px solid #2a2d35;
-      border-top-color: #5794f2; border-radius: 50%;
-      animation: spin 0.8s linear infinite;
+      width: 20px; height: 20px; border: 2px solid var(--border2);
+      border-top-color: var(--accent); border-radius: 50%;
+      animation: gf-spin 0.8s linear infinite;
     }
-    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes gf-spin { to { transform: rotate(360deg); } }
   `],
 })
 export class MonitoringComponent implements OnInit, OnDestroy {
@@ -335,6 +401,10 @@ export class MonitoringComponent implements OnInit, OnDestroy {
   private fieldsChart?: Chart;
   private refreshHandle?: ReturnType<typeof setInterval>;
 
+  // Ré-affiche les graphiques avec les nouvelles couleurs quand le
+  // thème clair/sombre change (attribut data-theme sur <html>).
+  private themeObserver?: MutationObserver;
+
   constructor(private monitoringApi: MonitoringApiService) {}
 
   get selectedRangeLabel(): string {
@@ -344,10 +414,21 @@ export class MonitoringComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.fetchAndRender();
     this.refreshHandle = setInterval(() => this.fetchAndRender(), 30_000);
+
+    this.themeObserver = new MutationObserver(() => {
+      if (this.summary) {
+        setTimeout(() => this.renderCharts(this.summary as MetricsSummary), 50);
+      }
+    });
+    this.themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    });
   }
 
   ngOnDestroy(): void {
     clearInterval(this.refreshHandle);
+    this.themeObserver?.disconnect();
     this.durationChart?.destroy();
     this.fieldsChart?.destroy();
   }
@@ -382,21 +463,31 @@ export class MonitoringComponent implements OnInit, OnDestroy {
     this.renderFieldsChart(data.field_outcomes);
   }
 
+  /** Lit une custom property CSS (--accent, --ink3, ...) sur <html>. */
+  private cssVar(name: string, fallback = ''): string {
+    const value = getComputedStyle(document.documentElement)
+      .getPropertyValue(name)
+      .trim();
+    return value || fallback;
+  }
+
   private chartDefaults(): object {
+    const tickColor = this.cssVar('--ink3', '#94a3b8');
+    const gridColor = this.cssVar('--border', 'rgba(99,130,255,.18)');
     return {
       responsive: true,
       maintainAspectRatio: true,
       plugins: { legend: { display: false } },
       scales: {
         x: {
-          ticks:  { color: '#8e9096', font: { size: 11 } },
-          grid:   { color: 'rgba(255,255,255,0.07)' },
-          border: { color: '#2a2d35' },
+          ticks:  { color: tickColor, font: { size: 11 } },
+          grid:   { color: gridColor },
+          border: { color: gridColor },
         },
         y: {
-          ticks:  { color: '#8e9096', font: { size: 11 } },
-          grid:   { color: 'rgba(255,255,255,0.07)' },
-          border: { color: '#2a2d35' },
+          ticks:  { color: tickColor, font: { size: 11 } },
+          grid:   { color: gridColor },
+          border: { color: gridColor },
         },
       },
     };
@@ -404,16 +495,19 @@ export class MonitoringComponent implements OnInit, OnDestroy {
 
   private tooltip(): object {
     return {
-      backgroundColor: '#22252b',
-      titleColor:  '#d8d9da',
-      bodyColor:   '#8e9096',
-      borderColor: '#2a2d35',
+      backgroundColor: this.cssVar('--bg2', '#111827'),
+      titleColor:  this.cssVar('--ink', '#e8edf8'),
+      bodyColor:   this.cssVar('--ink2', '#94a3b8'),
+      borderColor: this.cssVar('--border2', 'rgba(99,130,255,.32)'),
       borderWidth: 1,
     };
   }
 
   private renderDurationChart(series: MetricsSummary['duration_p95_by_template']): void {
     if (!this.durationCanvas?.nativeElement) return;
+
+    const accent = this.cssVar('--accent', '#4f8eff');
+
     const config: ChartConfiguration = {
       type: 'bar',
       data: {
@@ -421,9 +515,9 @@ export class MonitoringComponent implements OnInit, OnDestroy {
         datasets: [{
           label: 'p95 (s)',
           data:  series.map(s => s.value),
-          backgroundColor: '#5794f2',
-          borderColor:     '#5794f2',
-          borderRadius: 3, barPercentage: 0.55,
+          backgroundColor: accent,
+          borderColor:     accent,
+          borderRadius: 4, barPercentage: 0.55,
         }],
       },
       options: {
@@ -439,6 +533,7 @@ export class MonitoringComponent implements OnInit, OnDestroy {
     };
     if (this.durationChart) {
       this.durationChart.data = config.data;
+      this.durationChart.options = config.options as any;
       this.durationChart.update('none');
     } else {
       this.durationChart = new Chart(this.durationCanvas.nativeElement, config);
@@ -448,14 +543,15 @@ export class MonitoringComponent implements OnInit, OnDestroy {
   private renderFieldsChart(series: MetricsSummary['field_outcomes']): void {
     if (!this.fieldsCanvas?.nativeElement) return;
 
-    // Couleurs semantiques alignees sur le dashboard Grafana d'origine :
-    // vert = trouve, orange = manquant, rouge = invalide.
+    // Couleurs semantiques alignees sur la palette globale de l'app :
+    // succès = --success, manquant = --warn, invalide = --danger.
     const OUTCOME_COLORS: Record<string, string> = {
-      found:   '#73bf69',
-      missing: '#ff9830',
-      invalid: '#f2495c',
+      found:   this.cssVar('--success', '#22d3a0'),
+      missing: this.cssVar('--warn', '#f59e0b'),
+      invalid: this.cssVar('--danger', '#f87171'),
     };
     const OUTCOME_ORDER = ['found', 'missing', 'invalid'];
+    const neutral = this.cssVar('--ink3', '#94a3b8');
 
     // Liste des champs distincts (axe Y), triee alphabetiquement.
     const fieldNames = Array.from(new Set(series.map(s => s.field_name))).sort();
@@ -471,17 +567,19 @@ export class MonitoringComponent implements OnInit, OnDestroy {
         const match = series.find(s => s.field_name === fn && s.outcome === outcome);
         return match ? match.value : 0;
       }),
-      backgroundColor: OUTCOME_COLORS[outcome] ?? '#8e9096',
-      borderColor:     OUTCOME_COLORS[outcome] ?? '#8e9096',
-      borderRadius: 3,
+      backgroundColor: OUTCOME_COLORS[outcome] ?? neutral,
+      borderColor:     OUTCOME_COLORS[outcome] ?? neutral,
+      borderRadius: 4,
       barPercentage: 0.7,
     }));
+
+    const defaults = this.chartDefaults() as any;
 
     const config: ChartConfiguration = {
       type: 'bar',
       data: { labels: fieldNames, datasets },
       options: {
-        ...(this.chartDefaults() as any),
+        ...defaults,
         indexAxis: 'y',
         plugins: {
           legend: {
@@ -489,7 +587,7 @@ export class MonitoringComponent implements OnInit, OnDestroy {
             position: 'top',
             align: 'end',
             labels: {
-              color: '#8e9096',
+              color: this.cssVar('--ink2', '#94a3b8'),
               boxWidth: 12,
               font: { size: 11 },
             },
@@ -497,8 +595,8 @@ export class MonitoringComponent implements OnInit, OnDestroy {
           tooltip: this.tooltip(),
         },
         scales: {
-          x: { ...(this.chartDefaults() as any).scales.x, stacked: false },
-          y: { ...(this.chartDefaults() as any).scales.y, stacked: false },
+          x: { ...defaults.scales.x, stacked: false },
+          y: { ...defaults.scales.y, stacked: false },
         },
       },
     };

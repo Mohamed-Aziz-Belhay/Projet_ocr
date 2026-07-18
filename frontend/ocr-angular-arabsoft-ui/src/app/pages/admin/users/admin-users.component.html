@@ -10,6 +10,17 @@
     <nav class="sb-nav">
       <a class="sb-link" routerLink="/admin/dashboard" *ngIf="auth.canSeeDashboard()">
         <span class="sb-svg" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-9"/></svg></span><span>Dashboard</span>
+
+      </a>
+
+      <a class="sb-link" routerLink="/admin/monitoring" *ngIf="auth.canSeeMonitoring()">
+        <span class="sb-svg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M3.34 19a10 10 0 1 1 17.32 0"/>
+            <path d="m12 14 4-4"/>
+          </svg>
+        </span>
+        <span>Monitoring</span>
       </a>
 
       <a class="sb-link" routerLink="/profile">
@@ -56,6 +67,7 @@
         <label class="menu-btn" for="sidebarToggle" title="Afficher / masquer le menu"><span></span><span></span><span></span></label>
         <nav class="top-menu">
           <a routerLink="/admin/dashboard" *ngIf="auth.canSeeDashboard()">Dashboard</a>
+          <a routerLink="/admin/monitoring" *ngIf="auth.canSeeMonitoring()">Monitoring</a>
           <a routerLink="/admin/users" *ngIf="auth.canManageUsers()">Users</a>
           <a routerLink="/templates" *ngIf="auth.canManageTemplates()">Templates</a>
           <!--<a routerLink="/admin/swin" *ngIf="auth.canManageSwin()">Swin</a>-->
