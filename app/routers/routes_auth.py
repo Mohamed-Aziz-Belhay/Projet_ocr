@@ -7,6 +7,29 @@ Includes:
 - forgot password by email verification code
 - reset password with 30 minutes expiration
 - change password for connected user
+
+CORRECTIFS (revue de sécurité) :
+- [SÉCURITÉ #1] Verrouillage de compte après 5 tentatives de connexion
+  échouées consécutives, fenêtre glissante de 15 minutes. Protège contre
+  le brute-force sur /login, qui n'était protégé par aucune limite
+  jusqu'ici (seul /reset-password avait un compteur de tentatives).
+  Stockage en mémoire (LOGIN_ATTEMPTS), même pattern que RESET_CODES
+  déjà utilisé dans ce fichier — mêmes limites en multi-workers, cf.
+  note ci-dessous.
+- [BUG A] RESET_CODE_EXPIRATION_MINUTES valait 30 côté backend mais le
+  frontend affichait "15 minutes" avec un minuteur codé en dur : aucun
+  changement requis ici, le frontend a été corrigé pour lire
+  expires_in_minutes retourné par /forgot-password au lieu de la valeur
+  fixe. Ce fichier reste la source de vérité unique de cette durée.
+- Correction mineure : le seuil RESET_CODE_MAX_ATTEMPTS autorisait en
+  réalité 6 tentatives (comparaison ">" au lieu de ">="). Corrigé.
+
+!! LIMITE CONNUE (partagée avec RESET_CODES) : LOGIN_ATTEMPTS est un
+dict Python en mémoire de processus. En déploiement multi-workers, la
+protection n'est PAS partagée entre workers (un attaquant distribué sur
+plusieurs workers contourne partiellement la limite). Passer par Redis
+(déjà présent dans l'infrastructure Docker Compose du projet) est la
+perspective recommandée pour une mise en production réelle.
 """
 from __future__ import annotations
 
@@ -47,12 +70,23 @@ settings = get_settings()
 
 # In-memory reset store.
 # ⚠️ Remis à zéro à chaque redémarrage du serveur.
-# Pour la production, remplacez par une table DB.
+# Pour la production, remplacez par une table DB ou Redis.
 RESET_CODES: dict[str, dict[str, Any]] = {}
 
-RESET_CODE_EXPIRATION_MINUTES = 30
+RESET_CODE_EXPIRATION_MINUTES = 15
 RESET_CODE_MAX_ATTEMPTS = 5
 MAX_PASSWORD_LENGTH = 255
+
+# ─────────────────────────────────────────────────────────────────────────────
+# [SÉCURITÉ #1] Verrouillage de compte — protection brute-force sur /login
+# ─────────────────────────────────────────────────────────────────────────────
+# Même limite connue que RESET_CODES : en mémoire de processus, non partagée
+# entre workers en déploiement multi-processus (cf. docstring du module).
+LOGIN_ATTEMPTS: dict[str, dict[str, Any]] = {}
+
+LOGIN_MAX_ATTEMPTS = 5
+LOGIN_LOCKOUT_MINUTES = 15
+LOGIN_ATTEMPTS_WINDOW_MINUTES = 15
 
 
 class ForgotPasswordRequest(BaseModel):
@@ -109,6 +143,65 @@ def _validate_new_password(password: str) -> None:
             status_code=400,
             detail=f"Le mot de passe est trop long. Maximum {MAX_PASSWORD_LENGTH} caractères.",
         )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# [SÉCURITÉ #1] Helpers de verrouillage de compte
+# ─────────────────────────────────────────────────────────────────────────────
+def _check_account_lockout(email: str) -> None:
+    """
+    Lève 429 si le compte est actuellement verrouillé suite à des échecs
+    de connexion répétés. À appeler AVANT toute vérification du mot de passe,
+    pour ne pas gaspiller de calcul PBKDF2 sur un compte déjà verrouillé.
+    """
+    record = LOGIN_ATTEMPTS.get(email)
+
+    if not record:
+        return
+
+    locked_until = record.get("locked_until")
+
+    if locked_until and datetime.utcnow() < locked_until:
+        remaining = int((locked_until - datetime.utcnow()).total_seconds() / 60) + 1
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail=(
+                f"Compte temporairement verrouillé suite à plusieurs échecs de connexion. "
+                f"Réessayez dans environ {remaining} minute(s)."
+            ),
+        )
+
+    # La fenêtre de verrouillage est passée : on nettoie l'entrée pour repartir
+    # sur un compteur propre plutôt que de la laisser traîner indéfiniment.
+    if locked_until and datetime.utcnow() >= locked_until:
+        LOGIN_ATTEMPTS.pop(email, None)
+
+
+def _register_failed_login(email: str) -> None:
+    """
+    Incrémente le compteur d'échecs pour cet email et verrouille le compte
+    si le seuil est atteint. La fenêtre glissante réinitialise le compteur
+    si le dernier échec date de plus de LOGIN_ATTEMPTS_WINDOW_MINUTES.
+    """
+    now = datetime.utcnow()
+    record = LOGIN_ATTEMPTS.get(email)
+
+    if not record or (now - record.get("first_attempt_at", now)) > timedelta(
+        minutes=LOGIN_ATTEMPTS_WINDOW_MINUTES
+    ):
+        record = {"count": 0, "first_attempt_at": now, "locked_until": None}
+
+    record["count"] = int(record.get("count", 0)) + 1
+
+    if record["count"] >= LOGIN_MAX_ATTEMPTS:
+        record["locked_until"] = now + timedelta(minutes=LOGIN_LOCKOUT_MINUTES)
+
+    LOGIN_ATTEMPTS[email] = record
+
+
+def _clear_login_attempts(email: str) -> None:
+    """Réinitialise le compteur après une connexion réussie."""
+    LOGIN_ATTEMPTS.pop(email, None)
 
 
 def _get_smtp_config() -> dict[str, Any]:
@@ -208,10 +301,16 @@ def _get_api_key_for_client() -> str | None:
 
 @router.post("/login", response_model=TokenResponse)
 async def login(payload: LoginRequest, db: AsyncSession = Depends(get_db)):
+    email = _normalize_email(payload.email)
+
+    # [SÉCURITÉ #1] Vérifier le verrouillage AVANT tout calcul de hash.
+    _check_account_lockout(email)
+
     auth = AuthService(db)
     user = await auth.authenticate(email=payload.email, password=payload.password)
 
     if not user:
+        _register_failed_login(email)
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Email ou mot de passe incorrect",
@@ -219,10 +318,15 @@ async def login(payload: LoginRequest, db: AsyncSession = Depends(get_db)):
         )
 
     if not user.is_active:
+        # Ne compte pas comme un échec "mot de passe" : ne pas alimenter le
+        # compteur de verrouillage pour un compte simplement en attente.
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Votre compte est en attente de validation par l'admin.",
         )
+
+    # Connexion réussie : on efface l'historique d'échecs éventuel.
+    _clear_login_attempts(email)
 
     # Persist last_login_at updated in AuthService.authenticate().
     await db.commit()
@@ -310,6 +414,10 @@ async def forgot_password(
     }
 
     # Security: do not reveal whether the account exists.
+    # NOTE : le contenu de la réponse est identique dans les deux branches,
+    # mais cette branche est plus lente (envoi SMTP synchrone) que la sortie
+    # anticipée ci-dessous — un canal de fuite par timing subsiste. Le passer
+    # en tâche de fond (BackgroundTasks / Celery) est recommandé en perspective.
     if not user or not user.is_active:
         return generic_response
 
@@ -363,7 +471,9 @@ async def reset_password(
 
     reset_data["attempts"] = int(reset_data.get("attempts", 0)) + 1
 
-    if reset_data["attempts"] > RESET_CODE_MAX_ATTEMPTS:
+    # Correctif : ">=" au lieu de ">" — l'ancienne condition autorisait
+    # en réalité 6 tentatives (RESET_CODE_MAX_ATTEMPTS + 1) avant blocage.
+    if reset_data["attempts"] >= RESET_CODE_MAX_ATTEMPTS:
         RESET_CODES.pop(email, None)
         raise HTTPException(
             status_code=400,
@@ -399,6 +509,10 @@ async def reset_password(
         ) from exc
 
     RESET_CODES.pop(email, None)
+
+    # [SÉCURITÉ #1] Un reset de mot de passe réussi est aussi l'occasion de
+    # lever un éventuel verrouillage de connexion en cours pour ce compte.
+    _clear_login_attempts(email)
 
     return {
         "ok": True,

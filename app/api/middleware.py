@@ -1,6 +1,19 @@
 """
 app/api/middleware.py — Enterprise Edition
 Request pipeline: Request ID → Rate Limit → Maintenance → Security Headers → Logging → CORS
+
+CORRECTIF (revue de sécurité) :
+- [SÉCURITÉ #2] Ajout de l'en-tête Content-Security-Policy dans
+  SecurityHeadersMiddleware. La chaîne de middlewares appliquait déjà
+  X-Content-Type-Options, X-Frame-Options, X-XSS-Protection,
+  Referrer-Policy et Strict-Transport-Security, mais aucune CSP —
+  c'était le chaînon manquant contre l'injection de scripts (XSS) et le
+  chargement de ressources non désirées.
+  La politique ci-dessous reste volontairement permissive sur connect-src
+  (nécessaire pour les appels API vers le backend et les CDN utilisés par
+  le frontend, cf. cdnjs mentionné dans les skills du projet) : à durcir
+  progressivement (retirer 'unsafe-inline' notamment) une fois l'inventaire
+  exact des ressources externes chargées par Angular stabilisé.
 """
 from __future__ import annotations
 import time
@@ -79,6 +92,22 @@ class MaintenanceMiddleware(BaseHTTPMiddleware):
 
 
 class SecurityHeadersMiddleware(BaseHTTPMiddleware):
+    # [SÉCURITÉ #2] Politique CSP centralisée pour faciliter son ajustement.
+    # 'unsafe-inline' sur style-src reste nécessaire tant que le frontend
+    # utilise des styles inline (cf. artefacts Angular générés) ; à retirer
+    # si un audit confirme qu'ils peuvent être éliminés.
+    _CSP_POLICY = (
+        "default-src 'self'; "
+        "script-src 'self'; "
+        "style-src 'self' 'unsafe-inline'; "
+        "img-src 'self' data: blob:; "
+        "font-src 'self' https://fonts.gstatic.com; "
+        "connect-src 'self'; "
+        "frame-ancestors 'none'; "
+        "base-uri 'self'; "
+        "form-action 'self'"
+    )
+
     async def dispatch(self, request: Request, call_next) -> Response:
         response = await call_next(request)
         response.headers["X-Content-Type-Options"]  = "nosniff"
@@ -86,6 +115,7 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
         response.headers["X-XSS-Protection"]         = "1; mode=block"
         response.headers["Referrer-Policy"]           = "strict-origin-when-cross-origin"
         response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
+        response.headers["Content-Security-Policy"]   = self._CSP_POLICY
         return response
 
 

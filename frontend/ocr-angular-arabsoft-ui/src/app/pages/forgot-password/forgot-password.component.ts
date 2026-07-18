@@ -4,6 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { AuthApiService } from '../../services/auth-api.service';
 
+// [BUG A] Durée par défaut si jamais l'API ne retourne pas expires_in_minutes
+// (compatibilité ascendante). La vraie durée doit toujours venir de la
+// réponse de /forgot-password (RESET_CODE_EXPIRATION_MINUTES côté backend,
+// actuellement 30 min) plutôt que d'une constante dupliquée ici.
+const DEFAULT_EXPIRATION_MINUTES = 15;
+
+// [BUG B] Le backend utilise PBKDF2-SHA256 (pas bcrypt) : la contrainte
+// réelle est MAX_PASSWORD_LENGTH = 255 caractères côté serveur, pas une
+// limite de 72 octets propre à bcrypt.
+const MAX_PASSWORD_LENGTH = 255;
+
 @Component({
   selector: 'ocr-forgot-password',
   standalone: true,
@@ -38,12 +49,18 @@ export class ForgotPasswordComponent implements OnDestroy {
     this.loading = true;
 
     this.auth.requestPasswordReset(this.email.trim()).subscribe({
-      next: () => {
+      next: (res: any) => {
         this.loading = false;
         this.codeSent = true;
-        this.startExpirationTimer();
+
+        // [BUG A] Lire la durée réelle retournée par le backend au lieu
+        // d'une valeur codée en dur, pour rester synchronisé avec
+        // RESET_CODE_EXPIRATION_MINUTES même si elle change côté serveur.
+        const expiresInMinutes = Number(res?.expires_in_minutes) || DEFAULT_EXPIRATION_MINUTES;
+        this.startExpirationTimer(expiresInMinutes);
+
         this.setMessage(
-          'Un code de vérification a été envoyé à votre adresse email. Il expire dans 30 minutes.',
+          `Un code de vérification a été envoyé à votre adresse email. Il expire dans ${expiresInMinutes} minutes.`,
           false
         );
       },
@@ -53,7 +70,7 @@ export class ForgotPasswordComponent implements OnDestroy {
           err?.error?.detail ||
           err?.error?.message ||
           err?.message ||
-          "Impossible d'envoyer le code de vérification."; // ← guillemets droits
+          "Impossible d'envoyer le code de vérification.";
         this.setMessage(String(detail), true);
       },
     });
@@ -79,11 +96,12 @@ export class ForgotPasswordComponent implements OnDestroy {
       return this.setMessage('Le mot de passe doit contenir au moins 8 caractères.', true);
     }
 
-    const passwordBytes = new TextEncoder().encode(this.newPassword).length;
-
-    if (passwordBytes > 72) {
+    // [BUG B] Le backend (PBKDF2) compte des CARACTÈRES, pas des octets
+    // UTF-8 : on vérifie donc .length directement contre la vraie limite
+    // serveur (255), et non un encodage bcrypt qui ne s'applique pas ici.
+    if (this.newPassword.length > MAX_PASSWORD_LENGTH) {
       return this.setMessage(
-        'Le mot de passe est trop long. Maximum 72 octets avec bcrypt.',
+        `Le mot de passe est trop long. Maximum ${MAX_PASSWORD_LENGTH} caractères.`,
         true
       );
     }
@@ -98,13 +116,13 @@ export class ForgotPasswordComponent implements OnDestroy {
       .resetPasswordWithCode(
         this.email.trim(),
         this.code.trim(),
-        this.newPassword.trim() // ← trim ajouté
+        this.newPassword.trim()
       )
       .subscribe({
         next: () => {
           this.loading = false;
           this.clearTimer();
-          this.codeSent = false; // ← réinitialise l'affichage du formulaire
+          this.codeSent = false;
           this.setMessage(
             'Mot de passe modifié avec succès. Vous pouvez maintenant vous connecter.',
             false
@@ -143,9 +161,9 @@ export class ForgotPasswordComponent implements OnDestroy {
       .padStart(2, '0')}`;
   }
 
-  private startExpirationTimer(): void {
+  private startExpirationTimer(expirationMinutes: number = DEFAULT_EXPIRATION_MINUTES): void {
     this.clearTimer();
-    this.remainingSeconds = 30 * 60;
+    this.remainingSeconds = expirationMinutes * 60;
 
     this.timerId = setInterval(() => {
       this.remainingSeconds--;
