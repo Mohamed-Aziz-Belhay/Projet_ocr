@@ -7,6 +7,7 @@ import {
   HistoryDetailResponse,
   HistoryItem,
 } from '../../services/auth-api.service';
+import { ToastService } from '../../services/toast.service';
 
 type DateFilter = 'all' | 'today' | 'week' | 'month' | 'year' | 'custom';
 
@@ -32,6 +33,10 @@ export class HistoryComponent implements OnInit {
   dateFrom = signal<string>('');
   dateTo = signal<string>('');
   searchQuery = signal<string>('');
+
+  // [FONCTIONNALITÉ #3] État du bouton d'export, pour un retour visuel
+  // pendant la génération (utile si la liste s'agrandit un jour).
+  exporting = signal(false);
 
   pageSize = 6;
   currentPage = signal(1);
@@ -107,7 +112,11 @@ export class HistoryComponent implements OnInit {
     return this.filteredItems().slice(start, start + this.pageSize);
   });
 
-  constructor(public authApi: AuthApiService, public auth: AuthApiService) {}
+  constructor(
+    public authApi: AuthApiService,
+    public auth: AuthApiService,
+    private toast: ToastService
+  ) {}
 
   ngOnInit(): void {
     this.load();
@@ -444,5 +453,88 @@ export class HistoryComponent implements OnInit {
     } catch {
       return String(value);
     }
+  }
+
+  // ═══════════════════════════════════════════════════════════
+  // [FONCTIONNALITÉ #3] Export CSV en masse de l'historique
+  // ═══════════════════════════════════════════════════════════
+  //
+  // Choix de conception :
+  // - Exporte filteredItems() (respecte recherche + filtre de date en
+  //   cours), pas toujours l'intégralité des 300 lignes chargées : un
+  //   utilisateur qui a filtré "ce mois" et clique "Exporter" attend
+  //   un CSV du mois, pas de tout l'historique.
+  // - Génération 100% cliente (les données sont déjà en mémoire via
+  //   items()) : aucun appel réseau supplémentaire, aucune route
+  //   backend à créer.
+  // - Séparateur ';' (et non ',') : Excel en локale FR n'interprète
+  //   correctement les CSV qu'avec ce séparateur par défaut.
+  // - BOM UTF-8 ajouté en tête de fichier : sans lui, Excel affiche
+  //   les caractères accentués (é, è, à...) de façon corrompue.
+  exportCsv(): void {
+    const items = this.filteredItems();
+
+    if (!items.length) {
+      this.toast.info('Aucune ligne à exporter avec les filtres actuels.');
+      return;
+    }
+
+    this.exporting.set(true);
+
+    try {
+      const headers = [
+        'Utilisateur', 'Rôle', 'Fichier', 'Job ID', 'Type de document',
+        'Template', 'Statut', 'Confiance (%)', 'Champs extraits',
+        'Moteur OCR', 'Temps de traitement (ms)', 'Date',
+      ];
+
+      const rows = items.map(item => [
+        this.userLabel(item),
+        item.user_role ?? '',
+        item.file_name ?? '',
+        item.job_id ?? '',
+        item.document_type ?? '',
+        item.template_id ?? '',
+        item.status ?? '',
+        this.percent(item.global_confidence).replace('%', '').replace('—', ''),
+        item.field_count ?? '',
+        item.engine_used ?? '',
+        item.processing_time_ms ?? '',
+        item.created_at ? new Date(item.created_at).toLocaleString('fr-FR') : '',
+      ]);
+
+      const csvLines = [headers, ...rows].map(row =>
+        row.map(cell => this.csvEscapeCell(String(cell))).join(';')
+      );
+
+      const BOM = '\uFEFF';
+      const csvContent = BOM + csvLines.join('\r\n');
+
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const dateSuffix = this.formatInputDate(new Date());
+
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `historique_extractly_${dateSuffix}.csv`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+
+      this.toast.success(`${items.length} ligne(s) exportée(s) vers le fichier CSV.`);
+    } catch (e) {
+      this.toast.error("Échec de l'export CSV. Réessayez ou contactez le support.");
+    } finally {
+      this.exporting.set(false);
+    }
+  }
+
+  /** Échappe une cellule pour le format CSV (RFC 4180). */
+  private csvEscapeCell(value: string): string {
+    if (value.includes(';') || value.includes('"') || value.includes('\n') || value.includes('\r')) {
+      return `"${value.replace(/"/g, '""')}"`;
+    }
+    return value;
   }
 }

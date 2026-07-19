@@ -228,6 +228,18 @@
             Tous
           </button>
 
+          <!-- [FONCTIONNALITÉ #3] Export CSV — exporte filteredItems(),
+               donc respecte la recherche et le filtre de date actifs. -->
+          <button
+            class="btn btn-light"
+            type="button"
+            (click)="exportCsv()"
+            [disabled]="exporting() || !filteredItems().length"
+            title="Exporter les lignes affichées (filtres appliqués) au format CSV">
+            <span aria-hidden="true">⬇</span>
+            {{ exporting() ? 'Export…' : 'Exporter CSV' }}
+          </button>
+
           <button class="btn btn-primary" type="button" (click)="load()" [disabled]="loading()">
             {{ loading() ? 'Chargement…' : 'Actualiser' }}
           </button>
