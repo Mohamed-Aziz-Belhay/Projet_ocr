@@ -1,4 +1,4 @@
-#doc_family classifier based on swin and keyword heuristics
+#/classifier/doc_family classifier.py based on swin and keyword heuristics
 from __future__ import annotations
 
 import re

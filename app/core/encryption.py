@@ -41,10 +41,15 @@ def _get_fernet():
 
 # ── File encryption ───────────────────────────────────────────────────────────
 
+_warned_no_key = False
+
 def encrypt_bytes(data: bytes) -> bytes:
-    """Encrypt raw bytes. Returns ciphertext or original if no key configured."""
+    global _warned_no_key
     f = _get_fernet()
     if f is None:
+        if not _warned_no_key:
+            log.warning("ENCRYPTION_KEY absente — données stockées en clair.")
+            _warned_no_key = True
         return data
     return f.encrypt(data)
 
@@ -65,8 +70,12 @@ def decrypt_bytes(data: bytes) -> bytes:
 
 def encrypt_field(value: str) -> str:
     """Encrypt a string field. Returns base64 ciphertext."""
+    global _warned_no_key
     f = _get_fernet()
     if f is None:
+        if not _warned_no_key:
+            log.warning("ENCRYPTION_KEY absente — champs stockés en clair.")
+            _warned_no_key = True
         return value
     return f.encrypt(value.encode()).decode()
 

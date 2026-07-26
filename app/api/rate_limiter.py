@@ -31,8 +31,9 @@ def _get_redis():
         return None
     try:
         import redis
-        _redis_client = redis.from_url(settings.REDIS_URL, decode_responses=True)
-        _redis_client.ping()
+        client = redis.from_url(settings.REDIS_URL, decode_responses=True)
+        client.ping()
+        _redis_client = client
         return _redis_client
     except Exception as exc:
         log.warning("Redis unavailable for rate limiting", extra={"error": str(exc)})
@@ -44,13 +45,6 @@ def check_rate_limit(
     limit_rpm: int,
     burst: Optional[int] = None,
 ) -> Tuple[bool, dict]:
-    """
-    Check and record a request against the rate limit.
-
-    Returns:
-        (allowed: bool, headers: dict)
-        headers contains X-RateLimit-* values for the response.
-    """
     if not settings.RATE_LIMIT_ENABLED or limit_rpm <= 0:
         return True, {}
 
@@ -59,10 +53,13 @@ def check_rate_limit(
 
     r = _get_redis()
     if r is None:
-        # Redis unavailable — allow but warn
+        log.warning(
+            "Rate limiting bypassed: Redis unavailable",
+            extra={"key_prefix": api_key_prefix},
+        )
         return True, {"X-RateLimit-Status": "bypass"}
 
-    window_ms  = 60_000                    # 1 minute in ms
+    window_ms  = 60_000
     now_ms     = int(time.time() * 1000)
     window_start = now_ms - window_ms
     key        = f"rl:{api_key_prefix}"
@@ -96,5 +93,9 @@ def check_rate_limit(
         return True, headers
 
     except Exception as exc:
-        log.error("Rate limiter error", extra={"error": str(exc)})
+        log.error(
+            "Rate limiter error",
+            extra={"error": str(exc), "error_type": type(exc).__name__},
+            exc_info=True,
+        )
         return True, {}   # fail open

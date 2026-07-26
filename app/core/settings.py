@@ -137,11 +137,31 @@ class Settings(BaseSettings):
     WEBHOOK_TIMEOUT_SECONDS: int = 10
     WEBHOOK_RETRIES: int = 3
 
+    
+    CORS_ALLOWED_ORIGINS: List[str] = [
+        "http://localhost:4200", "http://localhost", "http://localhost:80",
+        "http://127.0.0.1:4200", "http://127.0.0.1",
+]
+
     # ✅ APRÈS — bloquer en production, avertir en dev
     @model_validator(mode="after")
     def finalize_settings(self):
         import warnings
         env = (self.ENVIRONMENT or "development").lower()
+
+        # ENCRYPTION_KEY — cohérence avec ENCRYPT_STORED_FILES
+        if self.ENCRYPT_STORED_FILES and not self.ENCRYPTION_KEY:
+            if env == "production":
+                raise ValueError(
+                    "ENCRYPTION_KEY is required in production when ENCRYPT_STORED_FILES=true. "
+                    "Generate one with: python -c \"from cryptography.fernet import Fernet; "
+                    "print(Fernet.generate_key().decode())\""
+                )
+            warnings.warn(
+                "ENCRYPT_STORED_FILES=true but ENCRYPTION_KEY not set — "
+                "les fichiers seront stockés EN CLAIR malgré le flag activé.",
+                stacklevel=2,
+            )
 
         # SECRET_KEY
         if not self.SECRET_KEY:

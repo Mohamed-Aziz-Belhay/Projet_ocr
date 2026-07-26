@@ -26,6 +26,7 @@ log = get_logger("app.main")
 _APP_START = time.time()
 
 
+# ── install_openapi_security() corrigé ────────────────────────────────
 def install_openapi_security(app: FastAPI) -> None:
     def custom_openapi():
         if app.openapi_schema:
@@ -37,9 +38,15 @@ def install_openapi_security(app: FastAPI) -> None:
             routes=app.routes,
         )
         security_schemes = schema.setdefault("components", {}).setdefault("securitySchemes", {})
+
+        env = (settings.ENVIRONMENT or "development").lower()
+        api_key_description = "Clé API transmise via l'en-tête X-API-Key."
+        if env in {"development", "test"} and settings.ALLOWED_API_KEYS:
+            api_key_description += f" (dev: {settings.ALLOWED_API_KEYS[0]})"
+
         security_schemes["ApiKeyAuth"] = {
             "type": "apiKey", "in": "header",
-            "name": "X-API-Key", "description": "Clé API, dev: dev-key-123",
+            "name": "X-API-Key", "description": api_key_description,
         }
         security_schemes["BearerAuth"] = {
             "type": "http", "scheme": "bearer",
@@ -96,6 +103,23 @@ def _include_router_modules(
                     f"Critical router '{module_name}' failed: {exc}"
                 ) from exc
 
+# ── Nouvelle fonction, à ajouter avant create_app() ──────────────────
+def _build_app_description() -> str:
+    base = (
+        "**OCR Microservice Enterprise** — multi-tenant, extraction générique, "
+        "support arabe RTL, Swin Transformer.\n\n"
+        "**Auth API:** header `X-API-Key`.\n"
+        "**Auth utilisateur:** `POST /auth/login` puis `Authorization: Bearer <token>`.\n"
+    )
+    env = (settings.ENVIRONMENT or "development").lower()
+    if env in {"development", "test"} and settings.ALLOWED_API_KEYS:
+        # Lu depuis settings, jamais dupliqué en dur ici — et affiché
+        # uniquement quand l'environnement le justifie.
+        base += f"**Dev key ({env}):** `{settings.ALLOWED_API_KEYS[0]}`\n"
+    else:
+        base += "**Clé API :** fournie par votre administrateur.\n"
+    base += "**UI:** [Ouvrir l'interface](/)"
+    return base
 
 def create_app() -> FastAPI:
     setup_logging(level=settings.LOG_LEVEL, use_json=settings.LOG_JSON)
@@ -103,38 +127,26 @@ def create_app() -> FastAPI:
     app = FastAPI(
         title=settings.APP_NAME,
         version=settings.APP_VERSION,
-        description=(
-            "**OCR Microservice Enterprise** — multi-tenant, extraction générique, "
-            "support arabe RTL, Swin Transformer.\n\n"
-            "**Auth API:** header `X-API-Key`.\n"
-            "**Auth utilisateur:** `POST /auth/login` puis `Authorization: Bearer <token>`.\n"
-            "**Dev key:** `dev-key-123`\n"
-            "**UI:** [Ouvrir l'interface](/)"
-        ),
+        description=_build_app_description(),
         docs_url="/docs",
         redoc_url="/redoc",
         openapi_url="/openapi.json",
-    )
-
-    # ── CORS ─────────────────────────────────────────────────
-    app.add_middleware(
-        CORSMiddleware,
-        allow_origins=[
-            "http://localhost:4200",
-            "http://localhost",
-            "http://localhost:80",
-            "http://127.0.0.1:4200",
-            "http://127.0.0.1",
-        ],
-        allow_credentials=True,
-        allow_methods=["*"],
-        allow_headers=["*"],
     )
 
     install_openapi_security(app)
     register_middleware(app)
     register_error_handlers(app)
     _register_core_engines()
+
+    # ── CORS ─────────────────────────────────────────────────
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=settings.CORS_ALLOWED_ORIGINS,
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
 
     # ── Routers API ───────────────────────────────────────────
     _include_router_modules(
