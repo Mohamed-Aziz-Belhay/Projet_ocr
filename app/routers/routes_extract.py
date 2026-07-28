@@ -772,6 +772,7 @@ async def extract_sync(
 ):
     current_user = await _current_user_from_request(http_request, db)
     tenant.check_quota_jobs()
+    tenant.require_scope("extract:write")  # [FIX RG-GDPR/SCOPE]
 
     job_id = str(uuid.uuid4())
     file_path: Optional[str] = None
@@ -978,6 +979,8 @@ async def extract_async(
 ):
     current_user = await _current_user_from_request(http_request, db)
     tenant.check_quota_jobs()
+    tenant.require_scope("extract:write")  # [FIX RG-GDPR/SCOPE]
+
 
     content = await file.read()
     safe_name = _safe_filename(file.filename)

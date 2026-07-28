@@ -1,4 +1,4 @@
-#routers/routes_scanner.py
+#app/routers/routes_scanner.py
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException, Request

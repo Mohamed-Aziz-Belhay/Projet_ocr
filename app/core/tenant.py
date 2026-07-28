@@ -7,6 +7,18 @@ This version is safe for local/dev execution:
 - If ENABLE_DB_TENANT_LOOKUP=False, it skips PostgreSQL lookup completely.
 - If DB lookup fails, it falls back to settings.ALLOWED_API_KEYS.
 - Type hints avoid conditional SQLAlchemy classes to prevent Pylance errors.
+
+CORRECTIF (revue de sécurité) :
+- [SÉCURITÉ #3] _make_synthetic_tenant() accordait inconditionnellement le
+  scope "admin" complet, y compris en production. Or la même clé API de
+  secours (settings.ALLOWED_API_KEYS[0]) est distribuée par /auth/login
+  à TOUT utilisateur connecté, quel que soit son rôle réel (cf.
+  routes_auth.py, _get_api_key_for_client()). Résultat : un simple_user
+  authentifié récupérait, via cette clé, un scope admin complet sur
+  toutes les routes vérifiant tenant.require_scope("admin").
+  Corrigé en conditionnant le scope par défaut à l'environnement : scope
+  admin complet uniquement en development/test (confort de développement
+  local), scope restreint (sans admin) en production.
 """
 from __future__ import annotations
 
@@ -165,6 +177,22 @@ def _db_tenant_lookup_enabled() -> bool:
 
 
 def _make_synthetic_tenant(raw_key: str) -> TenantContext:
+    """
+    ⚠️ Ce tenant "synthétique" est un mécanisme de secours settings-only,
+    PAS une preuve d'identité admin. La même clé API (ALLOWED_API_KEYS[0])
+    est distribuée par /auth/login à tout utilisateur connecté, quel que
+    soit son rôle réel : lui accorder le scope admin par défaut en
+    production reviendrait à accorder admin à tout compte authentifié.
+
+    [SÉCURITÉ #3] Scope réduit hors development/test.
+    """
+    env = (getattr(settings, "ENVIRONMENT", "development") or "development").lower()
+
+    if env in {"development", "test"}:
+        default_scopes = "extract:read,extract:write,templates:read,templates:write,admin"
+    else:
+        default_scopes = "extract:read,extract:write,templates:read"
+
     synthetic_org = Organization(
         id="00000000-0000-0000-0000-000000000000",
         name="Default Org (settings)",
@@ -183,7 +211,7 @@ def _make_synthetic_tenant(raw_key: str) -> TenantContext:
         key_hash="",
         key_prefix=raw_key[:12],
         organization_id=synthetic_org.id,
-        scopes="extract:read,extract:write,templates:read,templates:write,admin",
+        scopes=default_scopes,
     )
 
     return TenantContext(

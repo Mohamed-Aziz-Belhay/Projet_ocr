@@ -2,6 +2,13 @@
 app/routers/routes_jobs.py — Enterprise Edition
 Full tenant-isolated job management. All operations scoped to org.
 Supports a graceful in-memory fallback when the DB stack is unavailable.
+
+CORRECTIF SÉCURITÉ (revue) :
+delete_job n'appliquait aucun contrôle de scope — toute clé API valide de
+l'organisation pouvait supprimer un job, y compris une clé créée en
+lecture seule pour l'intégration. Scope "extract:write" désormais requis.
+Les routes de lecture (list/get/result) restent accessibles à toute clé
+valide de l'org, ce qui reste raisonnable pour consulter ses propres jobs.
 """
 from __future__ import annotations
 from fastapi import APIRouter, Path, Query, HTTPException
@@ -154,5 +161,7 @@ async def delete_job(
     tenant: TenantDep,
     job_id: str = Path(...),
 ):
+    tenant.require_scope("extract:write")  # [FIX RG-GDPR/SCOPE]
+
     deleted = await _delete_job_backend(job_id, tenant)
     return {"deleted": job_id, "success": deleted}

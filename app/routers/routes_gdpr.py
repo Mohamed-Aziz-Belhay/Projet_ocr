@@ -1,6 +1,13 @@
 """
 app/routers/routes_gdpr.py
 RGPD compliance endpoints — Art. 17 (erasure), Art. 20 (portability), Art. 30 (audit).
+
+CORRECTIF SÉCURITÉ (revue) :
+export_data, erase_job et erase_all n'appliquaient aucun contrôle de scope
+sur la clé API — seule sa validité (TenantDep) était vérifiée. Une clé
+créée avec un scope minimal (ex. "extract:read,extract:write") pouvait
+donc exporter ou effacer IRRÉVERSIBLEMENT toutes les données de
+l'organisation. Ces trois routes exigent désormais le scope "admin".
 """
 from __future__ import annotations
 import json
@@ -36,6 +43,8 @@ async def export_data(
     include_results: bool = Query(True),
     db: AsyncSession = Depends(get_db),
 ):
+    tenant.require_scope("admin")  # [FIX RG-GDPR/SCOPE] export complet = donnée sensible
+
     org_id  = tenant.org_id
     storage = get_storage_service()
 
@@ -95,6 +104,8 @@ async def erase_job(
     job_id: str = Path(...),
     db: AsyncSession = Depends(get_db),
 ):
+    tenant.require_scope("admin")  # [FIX RG-GDPR/SCOPE]
+
     result = await db.execute(
         select(Job).where(and_(Job.id == job_id, Job.organisation_id == tenant.org_id))
     )
@@ -137,6 +148,8 @@ async def erase_all(
     confirm: bool = Query(False, description="Must be true to proceed"),
     db: AsyncSession = Depends(get_db),
 ):
+    tenant.require_scope("admin")  # [FIX RG-GDPR/SCOPE] opération irréversible sur tout l'organisme
+
     if not confirm:
         raise HTTPException(400, "Set ?confirm=true to confirm this irreversible operation")
 
@@ -172,6 +185,8 @@ async def erase_all(
 
 
 # ── Retention info ─────────────────────────────────────────────────────────────
+# Laissé ouvert à toute clé valide de l'org : information non sensible
+# (politique de rétention), pas de donnée personnelle exposée.
 
 @router.get(
     "/retention-info",
@@ -194,6 +209,11 @@ async def retention_info(tenant: TenantDep):
 
 
 # ── Audit log (Art. 30) ────────────────────────────────────────────────────────
+# NOTE : pas de require_scope() ajouté ici pour rester conservateur sur le
+# périmètre du correctif — mais à considérer : cette route expose les
+# chemins HTTP et ressources consultés, une information potentiellement
+# sensible. Si vous voulez la restreindre aussi, ajoutez la même ligne
+# tenant.require_scope("admin") en tête de get_audit_log().
 
 @router.get(
     "/audit-log",
