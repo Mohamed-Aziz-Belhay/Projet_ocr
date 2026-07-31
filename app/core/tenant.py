@@ -221,6 +221,107 @@ def _make_synthetic_tenant(raw_key: str) -> TenantContext:
     )
 
 
+# ─────────────────────────────────────────────────────────────────────────
+# [SÉCURITÉ #4] Séparation clé API / JWT
+# ─────────────────────────────────────────────────────────────────────────
+# get_org_context_for_user() résout un TenantContext directement depuis
+# l'utilisateur JWT authentifié, sans dépendre d'une clé API partagée.
+# Le scope accordé dérive du rôle réel de l'utilisateur (User.role), et non
+# d'un scope statique commun à toute clé API — corrige la racine du
+# problème identifié lors de l'audit de sécurité complémentaire (cf.
+# Sprint 4, Bilan du Sprint) : avant ce changement, tous les rôles
+# recevaient la même clé de secours au login.
+#
+# Utilisé par les routes appelées par le frontend humain (extraction en
+# premier lieu) à la place de TenantDep, qui reste réservé aux véritables
+# intégrations tierces authentifiées par clé API (cf. routes_tenants.py).
+
+_ROLE_TO_SCOPES = {
+    "admin":       "extract:read,extract:write,templates:read,templates:write,admin",
+    "operator":    "extract:read,extract:write,templates:read",
+    "simple_user": "extract:read,extract:write",
+}
+_DEFAULT_ROLE_SCOPES = "extract:read,extract:write"
+
+
+async def _get_or_create_default_organization(db: Any) -> Any:
+    """
+    Organisation de repli pour les utilisateurs sans organization_id
+    (mode démonstration / PFE mono-organisation). Recherchée par slug
+    fixe "default" plutôt que recréée à chaque appel.
+    """
+    if not _DB_STACK_AVAILABLE or db is None:
+        return Organization(
+            id="00000000-0000-0000-0000-000000000000",
+            name="Default Org (JWT fallback)",
+            slug="default",
+            quota_pages_per_month=settings.DEFAULT_ORG_QUOTA_PAGES,
+            quota_jobs_per_month=settings.DEFAULT_ORG_QUOTA_JOBS,
+        )
+
+    result = await db.execute(
+        select(Organization).where(Organization.slug == "default").limit(1)
+    )
+    org = result.scalar_one_or_none()
+
+    if org is None:
+        org = Organization(
+            name="Default Org (JWT fallback)",
+            slug="default",
+            quota_pages_per_month=settings.DEFAULT_ORG_QUOTA_PAGES,
+            quota_jobs_per_month=settings.DEFAULT_ORG_QUOTA_JOBS,
+        )
+        db.add(org)
+        await db.flush()
+
+    return org
+
+
+async def get_org_context_for_user(user: Any, db: Any = None) -> TenantContext:
+    """
+    [SÉCURITÉ #4] Résout un TenantContext depuis l'utilisateur JWT
+    authentifié. Le scope accordé dérive strictement du rôle réel de
+    l'utilisateur, jamais d'une clé API partagée entre tous les rôles.
+    """
+    org = None
+    org_id = getattr(user, "organization_id", None)
+
+    if org_id and _DB_STACK_AVAILABLE and db is not None:
+        org = await db.get(Organization, org_id)
+
+        if org is not None and (not org.is_active or org.is_suspended):
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Organisation inactive ou suspendue.",
+            )
+
+    if org is None:
+        org = await _get_or_create_default_organization(db)
+
+    role = str(getattr(user, "role", "") or "").lower()
+    is_superuser = bool(getattr(user, "is_superuser", False))
+    scopes = _ROLE_TO_SCOPES.get(
+        "admin" if is_superuser else role, _DEFAULT_ROLE_SCOPES
+    )
+
+    user_id = str(getattr(user, "id", "") or "")
+
+    synthetic_key = ApiKey(
+        id=f"jwt-derived-{user_id[:12]}",
+        name="JWT-derived (no shared API key)",
+        key_hash="",
+        key_prefix="jwt:" + user_id[:8],
+        organization_id=org.id,
+        scopes=scopes,
+    )
+
+    return TenantContext(
+        organization=org,
+        api_key=synthetic_key,
+        raw_key_prefix="jwt:" + user_id[:8],
+    )
+
+
 async def _resolve_api_key(raw_key: str, db: Any) -> Optional[Any]:
     """
     Look up ApiKey by SHA-256 hash.
