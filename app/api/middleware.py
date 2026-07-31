@@ -92,10 +92,6 @@ class MaintenanceMiddleware(BaseHTTPMiddleware):
 
 
 class SecurityHeadersMiddleware(BaseHTTPMiddleware):
-    # [SÉCURITÉ #2] Politique CSP centralisée pour faciliter son ajustement.
-    # 'unsafe-inline' sur style-src reste nécessaire tant que le frontend
-    # utilise des styles inline (cf. artefacts Angular générés) ; à retirer
-    # si un audit confirme qu'ils peuvent être éliminés.
     _CSP_POLICY = (
         "default-src 'self'; "
         "script-src 'self'; "
@@ -109,6 +105,24 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
         "form-action 'self'"
     )
 
+    # CSP dédiée à Swagger UI / ReDoc, qui chargent leurs assets depuis un
+    # CDN public (cdn.jsdelivr.net) — jamais utilisée pour les routes
+    # applicatives, qui gardent la politique stricte ci-dessus.
+    _CSP_POLICY_DOCS = (
+        "default-src 'self'; "
+        "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; "
+        "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; "
+        "img-src 'self' data: https://fastapi.tiangolo.com; "
+        "font-src 'self' data:; "
+        "connect-src 'self' https://cdn.jsdelivr.net; "
+        "object-src 'none'; "
+        "frame-ancestors 'none'; "
+        "base-uri 'self'; "
+        "form-action 'self'"
+    )
+
+    _DOCS_PATHS = {"/docs", "/redoc", "/openapi.json"}
+
     async def dispatch(self, request: Request, call_next) -> Response:
         response = await call_next(request)
         response.headers["X-Content-Type-Options"]  = "nosniff"
@@ -116,7 +130,12 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
         response.headers["X-XSS-Protection"]         = "1; mode=block"
         response.headers["Referrer-Policy"]           = "strict-origin-when-cross-origin"
         response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
-        response.headers["Content-Security-Policy"]   = self._CSP_POLICY
+
+        if request.url.path in self._DOCS_PATHS:
+            response.headers["Content-Security-Policy"] = self._CSP_POLICY_DOCS
+        else:
+            response.headers["Content-Security-Policy"] = self._CSP_POLICY
+
         return response
 
 

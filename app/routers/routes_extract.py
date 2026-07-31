@@ -767,15 +767,18 @@ def _run_post_extraction_type_guard(result, request: ExtractionRequest) -> None:
 )
 async def extract_sync(
     http_request: Request,
-    tenant: TenantDep,
     file: UploadFile = File(...),
     request: ExtractionRequest = Depends(_parse_request),
     storage: StorageService = Depends(get_storage_service),
     db: AsyncSession = Depends(get_db),
 ):
     current_user = await _current_user_from_request(http_request, db)
+
+    from app.core.tenant import get_org_context_for_user  # [SÉCURITÉ #4]
+    tenant = await get_org_context_for_user(current_user, db)
+
     tenant.check_quota_jobs()
-    tenant.require_scope("extract:write")  # [FIX RG-GDPR/SCOPE]
+    tenant.require_scope("extract:write")
 
     job_id = str(uuid.uuid4())
     file_path: Optional[str] = None
@@ -1012,15 +1015,18 @@ async def extract_sync(
 )
 async def extract_async(
     http_request: Request,
-    tenant: TenantDep,
     file: UploadFile = File(...),
     request: ExtractionRequest = Depends(_parse_request),
     storage: StorageService = Depends(get_storage_service),
     db: AsyncSession = Depends(get_db),
 ):
     current_user = await _current_user_from_request(http_request, db)
+
+    from app.core.tenant import get_org_context_for_user  # [SÉCURITÉ #4]
+    tenant = await get_org_context_for_user(current_user, db)
+
     tenant.check_quota_jobs()
-    tenant.require_scope("extract:write")  # [FIX RG-GDPR/SCOPE]
+    tenant.require_scope("extract:write")
 
 
     content = await file.read()
