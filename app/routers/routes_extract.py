@@ -795,8 +795,19 @@ async def extract_sync(
         )
 
         _assert_saved_upload_readable(file_path)
-        # Garde-fou de type : contrôle déplacé APRÈS l'extraction
-        # (cf. _run_post_extraction_type_guard) — plus de passe OCR dédiée.
+
+        # Garde-fou de type : déplacé APRÈS l'extraction pour tous les types
+        # (cf. _run_post_extraction_type_guard), SAUF "passport" : son
+        # pipeline MRZ-first force une OCR en anglais uniquement, qui ne
+        # peut par construction jamais produire de texte arabe exploitable.
+        # Un document arabe (CIN) déclaré à tort "passport" ressort donc en
+        # detected_type="unknown", que le garde-fou post-extraction laisse
+        # toujours passer (fail-open volontaire sur type non détecté, cf.
+        # document_type_guard.is_type_compatible). Pour ce cas précis, on
+        # conserve le garde-fou pré-extraction bilingue (ar+en), qui dispose
+        # d'un texte exploitable indépendamment du pipeline ensuite choisi.
+        if normalize_document_type(request.document_type) == "passport":
+            _run_document_type_guard(file_path, request)
 
         if settings.ENABLE_AUDIT_LOG:
             await audit_svc.extraction_started(
