@@ -333,14 +333,15 @@ async def login(payload: LoginRequest, db: AsyncSession = Depends(get_db)):
 
     token, expires_in = auth.create_user_token(user)
 
-    # ✅ Retourner la clé API au frontend pour éviter le fallback 'dev-key-123'
-    api_key = _get_api_key_for_client()
-
+    # [SÉCURITÉ #4] Plus de distribution de clé API au login : les
+    # routes appelées par le frontend humain résolvent désormais leur
+    # contexte organisation via get_org_context_for_user() (JWT), sans
+    # dépendre d'une clé partagée entre tous les rôles.
     return TokenResponse(
         access_token=token,
         expires_in=expires_in,
         user=UserResponse(**user_to_dict(user)),
-        api_key=api_key,
+        api_key=None,
     )
 
 
@@ -380,14 +381,12 @@ async def register(payload: RegisterRequest, db: AsyncSession = Depends(get_db))
 
     token, expires_in = auth.create_user_token(user)
 
-    # ✅ Retourner la clé API au register aussi
-    api_key = _get_api_key_for_client()
-
+    # [SÉCURITÉ #4] Idem login() — plus de clé API distribuée.
     return TokenResponse(
         access_token=token,
         expires_in=expires_in,
         user=UserResponse(**user_to_dict(user)),
-        api_key=api_key,
+        api_key=None,
     )
 
 

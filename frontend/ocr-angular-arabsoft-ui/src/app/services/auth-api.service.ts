@@ -215,22 +215,17 @@ export class AuthApiService {
   canViewHistory():      boolean { return this.hasRole(['admin', 'operator', 'simple_user']); }
   canViewProfile():      boolean { return this.hasRole(['admin', 'operator', 'simple_user', 'viewer']); }
 
-  authHeaders(): HttpHeaders {
-    let headers = new HttpHeaders();
-    const token  = this.getToken();
-    const apiKey = this.getApiKey();
-    if (token)  headers = headers.set('Authorization', `Bearer ${token}`);
-    if (apiKey) headers = headers.set('X-API-Key', apiKey);
-    return headers;
-  }
+  // authHeaders() — retirer X-API-Key
+authHeaders(): HttpHeaders {
+    const token = this.getToken();
+    return token ? new HttpHeaders().set('Authorization', `Bearer ${token}`) : new HttpHeaders();
+}
 
   // ✅ Sauvegarde la clé API retournée par le backend
   private saveSession(response: LoginResponse): void {
     localStorage.setItem('ocr_access_token', response.access_token);
     localStorage.setItem('ocr_user',         JSON.stringify(response.user));
     localStorage.setItem('ocr_user_email',   response.user.email);
-    if (response.api_key) {
-      localStorage.setItem('ocr_api_key', response.api_key);
-    }
+    // [SÉCURITÉ #4] Plus de stockage de clé API côté humain.
   }
 }
