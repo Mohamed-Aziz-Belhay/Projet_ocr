@@ -43,6 +43,9 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Literal, Optional
 
+import asyncio
+from functools import partial#patch du timeout maintenant
+
 from fastapi import APIRouter, Depends, File, Form, HTTPException, Request, UploadFile
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -87,7 +90,7 @@ _GUARD_OCR_CACHE: dict[str, object] = {}
 # seconde passe à DPI plus élevé est déclenchée avant de trancher.
 _GUARD_AMBIGUOUS_LOW = 0.25   # identique à l'ancien min_confidence_to_block
 _GUARD_AMBIGUOUS_HIGH = 0.45  # au-delà, la première passe suffit déjà
-
+EXTRACTION_SYNC_TIMEOUT_SECONDS = 60.0
 
 def _parse_request(
     template_id: Optional[str] = Form(None),
@@ -814,11 +817,38 @@ async def extract_sync(
             )
 
         try:
-            result = get_ocr_service().extract_sync(
-                file_path=file_path,
-                request=request,
-                job_id=job_id,
-            )
+            loop = asyncio.get_running_loop()
+
+            try:
+                result = await asyncio.wait_for(
+                    loop.run_in_executor(
+                        None,
+                        partial(
+                            get_ocr_service().extract_sync,
+                            file_path=file_path,
+                            request=request,
+                            job_id=job_id,
+                        ),
+                    ),
+                    timeout=EXTRACTION_SYNC_TIMEOUT_SECONDS,
+                )
+            except asyncio.TimeoutError as timeout_exc:
+                log.error(
+                    "Extraction sync timeout",
+                    extra={
+                        "job_id": job_id,
+                        "timeout_s": EXTRACTION_SYNC_TIMEOUT_SECONDS,
+                        "file_path": file_path,
+                        "upload_filename": safe_name,
+                    },
+                )
+                raise HTTPException(
+                    status_code=504,
+                    detail=(
+                        f"L'extraction a dépassé le délai maximal de "
+                        f"{int(EXTRACTION_SYNC_TIMEOUT_SECONDS)}s. "
+                    ),
+                ) from timeout_exc
 
             cb.record_success()
 
