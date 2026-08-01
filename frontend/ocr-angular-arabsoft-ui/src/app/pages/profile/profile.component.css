@@ -1286,3 +1286,51 @@
   border-radius: 999px !important;
   background: currentColor !important;
 }
+
+/* [FIX DESIGN #2] Reconnexion au thème global — dark mode */
+:host-context([data-theme="dark"]) {
+  --body-bg: #0a0e1a;
+  --surface: #131a2b;
+  --border: rgba(99, 130, 255, .18);
+  --border-soft: rgba(99, 130, 255, .12);
+  --text-dark: #e8edf8;
+  --text-body: #b6c0d4;
+  --text-muted: #7d8aa3;
+  --blue: #3B82F6;
+  --cyan: #22D3EE;
+  --yellow: #FBBF24;
+  --red: #F87171;
+  --green: #34D399;
+}
+
+:host-context([data-theme="dark"]) .admin-topbar,
+:host-context([data-theme="dark"]) .breadcrumb-bar,
+:host-context([data-theme="dark"]) .profile-summary,
+:host-context([data-theme="dark"]) .btn-secondary,
+:host-context([data-theme="dark"]) .profile-stat,
+:host-context([data-theme="dark"]) .security-icon,
+:host-context([data-theme="dark"]) .password-card {
+  background: var(--surface) !important;
+  color: var(--text-body);
+  border-color: var(--border);
+}
+
+:host-context([data-theme="dark"]) .profile-grid div,
+:host-context([data-theme="dark"]) .btn-secondary:hover {
+  background: var(--body-bg) !important;
+}
+
+:host-context([data-theme="dark"]) .status-pill {
+  background: rgba(148, 163, 184, .16) !important;
+  color: var(--text-body) !important;
+}
+
+:host-context([data-theme="dark"]) .password-grid input {
+  background: var(--surface) !important;
+  color: var(--text-dark);
+}
+
+/* [FIX DESIGN #4] Sidebar — voir admin-dashboard.component.css */
+:host-context([data-theme="dark"]) .admin-sidebar {
+  background: linear-gradient(180deg, #063D66 0%, #021624 100%) !important;
+}

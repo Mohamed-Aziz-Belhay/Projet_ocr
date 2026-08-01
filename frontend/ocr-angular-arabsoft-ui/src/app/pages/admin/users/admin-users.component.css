@@ -1264,3 +1264,67 @@ input[type="checkbox"] {
   accent-color: #1565c0;
   cursor: pointer;
 }
+/* [FIX DESIGN #2] Reconnexion au thème global — dark mode */
+:host-context([data-theme="dark"]) {
+  --body-bg: #0a0e1a;
+  --surface: #131a2b;
+  --border: rgba(99, 130, 255, .18);
+  --border-soft: rgba(99, 130, 255, .12);
+  --text-dark: #e8edf8;
+  --text-body: #b6c0d4;
+  --text-muted: #7d8aa3;
+  --blue: #3B82F6;
+  --cyan: #22D3EE;
+  --yellow: #FBBF24;
+  --red: #F87171;
+  --green: #34D399;
+}
+
+:host-context([data-theme="dark"]) .admin-topbar,
+:host-context([data-theme="dark"]) .breadcrumb-bar,
+:host-context([data-theme="dark"]) .mini,
+:host-context([data-theme="dark"]) .history-search {
+  background: var(--surface) !important;
+  color: var(--text-body);
+}
+
+:host-context([data-theme="dark"]) input,
+:host-context([data-theme="dark"]) select {
+  background: var(--surface) !important;
+  color: var(--text-dark);
+  border-color: var(--border);
+}
+
+:host-context([data-theme="dark"]) table.ocr-tbl th,
+:host-context([data-theme="dark"]) table.ocr-tbl tr:hover td {
+  background: var(--body-bg) !important;
+}
+
+:host-context([data-theme="dark"]) .mini:hover {
+  background: var(--body-bg) !important;
+}
+
+:host-context([data-theme="dark"]) .role-badge.role-admin {
+  background: rgba(124, 58, 237, .22) !important;
+  color: #c4b5fd !important;
+}
+
+:host-context([data-theme="dark"]) .role-badge.role-viewer,
+:host-context([data-theme="dark"]) .super-badge {
+  background: rgba(148, 163, 184, .16) !important;
+  color: var(--text-body) !important;
+}
+
+:host-context([data-theme="dark"]) .super-badge.yes {
+  background: rgba(251, 191, 36, .2) !important;
+  color: #fbbf24 !important;
+}
+
+:host-context([data-theme="dark"]) .users-card {
+  background: var(--surface) !important;
+}
+
+/* [FIX DESIGN #4] Sidebar — voir admin-dashboard.component.css */
+:host-context([data-theme="dark"]) .admin-sidebar {
+  background: linear-gradient(180deg, #063D66 0%, #021624 100%) !important;
+}

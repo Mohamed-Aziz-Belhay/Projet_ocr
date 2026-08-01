@@ -1350,3 +1350,61 @@
     height: 21px;
   }
 }
+
+/* [FIX DESIGN #2] Reconnexion au thème global — dark mode */
+:host-context([data-theme="dark"]) {
+  --body-bg: #0a0e1a;
+  --surface: #131a2b;
+  --border: rgba(99, 130, 255, .18);
+  --border-soft: rgba(99, 130, 255, .12);
+  --text-dark: #e8edf8;
+  --text-body: #b6c0d4;
+  --text-muted: #7d8aa3;
+  --blue: #3B82F6;
+  --cyan: #22D3EE;
+  --yellow: #FBBF24;
+  --red: #F87171;
+  --green: #34D399;
+}
+
+:host-context([data-theme="dark"]) .admin-topbar,
+:host-context([data-theme="dark"]) .breadcrumb-bar,
+:host-context([data-theme="dark"]) .donut-metric,
+:host-context([data-theme="dark"]) .analytics-card,
+:host-context([data-theme="dark"]) .segment button,
+:host-context([data-theme="dark"]) .card {
+  background: var(--surface) !important;
+  color: var(--text-body);
+}
+
+:host-context([data-theme="dark"]) .kpi {
+  background: var(--surface) !important;
+  color: var(--text-dark) !important;
+}
+
+:host-context([data-theme="dark"]) .donut-center {
+  background: var(--surface);
+}
+
+/* [FIX DESIGN #3] Sélecteurs en linear-gradient() ratés par le premier
+   scan (le hex était imbriqué dans le gradient, pas en valeur directe). */
+:host-context([data-theme="dark"]) .analytics-header {
+  background: linear-gradient(180deg, #131a2b, #0d1220) !important;
+}
+
+/* [FIX DESIGN #4] Sidebar — était identique dans les deux thèmes
+   (règle !important non connectée à data-theme). Assombrie ici pour
+   rester cohérente avec le reste de la page en dark mode, tout en
+   gardant l'identité bleue de la marque. */
+:host-context([data-theme="dark"]) .admin-sidebar {
+  background: linear-gradient(180deg, #063D66 0%, #021624 100%) !important;
+}
+
+/* [FIX DESIGN #5] .top-menu a utilisait une couleur de texte codée en
+   dur (#323233), jamais reliée à --text-body — contrairement aux autres
+   pages backoffice qui utilisent déjà var(--text-body) pour ce même
+   sélecteur. Propre à cette page ("DASHBOARD ONLY" dans le commentaire
+   d'origine). */
+:host-context([data-theme="dark"]) .top-menu a {
+  color: var(--text-body) !important;
+}

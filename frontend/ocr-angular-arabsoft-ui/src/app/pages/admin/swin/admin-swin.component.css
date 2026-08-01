@@ -206,3 +206,42 @@
     pointer-events: auto !important;
   }
 }
+/* [FIX DESIGN #2] Reconnexion au thème global — dark mode */
+:host-context([data-theme="dark"]) {
+  --body-bg: #0a0e1a;
+  --surface: #131a2b;
+  --border: rgba(99, 130, 255, .18);
+  --border-soft: rgba(99, 130, 255, .12);
+  --text-dark: #e8edf8;
+  --text-body: #b6c0d4;
+  --text-muted: #7d8aa3;
+  --blue: #3B82F6;
+  --cyan: #22D3EE;
+  --yellow: #FBBF24;
+  --red: #F87171;
+  --green: #34D399;
+}
+
+:host-context([data-theme="dark"]) .admin-topbar,
+:host-context([data-theme="dark"]) .breadcrumb-bar,
+:host-context([data-theme="dark"]) .btn-ghost,
+:host-context([data-theme="dark"]) .train-form input,
+:host-context([data-theme="dark"]) .train-form select,
+:host-context([data-theme="dark"]) .train-form textarea,
+:host-context([data-theme="dark"]) .ocr-tbl th {
+  background: var(--surface) !important;
+  color: var(--text-body);
+  border-color: var(--border);
+}
+
+:host-context([data-theme="dark"]) .alert.error {
+  background: rgba(220, 38, 38, .15) !important;
+}
+
+:host-context([data-theme="dark"]) .upload-zone label {
+  background: rgba(59, 130, 246, .08) !important;
+}
+
+:host-context([data-theme="dark"]) .prediction {
+  background: var(--surface) !important;
+}

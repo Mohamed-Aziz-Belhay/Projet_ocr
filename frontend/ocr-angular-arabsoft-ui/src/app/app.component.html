@@ -1,5 +1,20 @@
 <canvas class="bg-canvas" [class.admin-hidden]="isConsoleRoute()" aria-hidden="true"></canvas>
 
+<!-- [FIX DESIGN #1] Bouton de thème flottant, visible uniquement sur les
+     routes "console" (backoffice), où la nav principale — et donc le
+     bouton de thème original — est masquée par isConsoleRoute(). Sans ce
+     bouton, il n'existait aucun moyen visible de changer de thème sur
+     /admin/*, /history, /assistant, /profile. -->
+<button
+  class="theme-btn theme-btn-floating"
+  type="button"
+  title="Changer de thème"
+  *ngIf="isConsoleRoute()"
+  (click)="toggleTheme()"
+>
+  {{ theme === 'dark' ? '☀️' : '🌙' }}
+</button>
+
 <nav class="top-nav" *ngIf="!isConsoleRoute()">
   <a class="nav-logo" routerLink="/">
     <img src="assets/Arabsoft_Logo.jpg" alt="Arabsoft" class="login-logo-img">

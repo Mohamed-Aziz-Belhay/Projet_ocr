@@ -354,6 +354,7 @@
                 <th>Moteur</th>
                 <th>Temps</th>
                 <th>Date</th>
+                <th>Actions</th>
               </tr>
             </thead>
 
@@ -405,10 +406,20 @@
                 <td>{{ item.engine_used || '—' }}</td>
                 <td>{{ formatMs(item.processing_time_ms) }}</td>
                 <td>{{ formatDate(item.created_at) }}</td>
+
+                <td>
+                  <button
+                    class="row-export-btn"
+                    type="button"
+                    title="Exporter cette ligne en CSV"
+                    (click)="exportRow(item, $event)">
+                    ⬇ CSV
+                  </button>
+                </td>
               </tr>
 
               <tr *ngIf="!filteredItems().length && !loading()">
-                <td colspan="10" class="empty-cell">
+                <td colspan="11" class="empty-cell">
                   Aucune extraction trouvée pour les filtres sélectionnés.
                 </td>
               </tr>

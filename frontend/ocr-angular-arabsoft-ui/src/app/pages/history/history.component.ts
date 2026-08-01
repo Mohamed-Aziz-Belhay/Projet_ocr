@@ -482,33 +482,9 @@ export class HistoryComponent implements OnInit {
     this.exporting.set(true);
 
     try {
-      const headers = [
-        'Utilisateur', 'Rôle', 'Fichier', 'Job ID', 'Type de document',
-        'Template', 'Statut', 'Confiance (%)', 'Champs extraits',
-        'Moteur OCR', 'Temps de traitement (ms)', 'Date',
-      ];
-
-      const rows = items.map(item => [
-        this.userLabel(item),
-        item.user_role ?? '',
-        item.file_name ?? '',
-        item.job_id ?? '',
-        item.document_type ?? '',
-        item.template_id ?? '',
-        item.status ?? '',
-        this.percent(item.global_confidence).replace('%', '').replace('—', ''),
-        item.field_count ?? '',
-        item.engine_used ?? '',
-        item.processing_time_ms ?? '',
-        item.created_at ? new Date(item.created_at).toLocaleString('fr-FR') : '',
-      ]);
-
-      const csvLines = [headers, ...rows].map(row =>
-        row.map(cell => this.csvEscapeCell(String(cell))).join(';')
-      );
-
-      const BOM = '\uFEFF';
-      const csvContent = BOM + csvLines.join('\r\n');
+      const headers = this.csvHeaders();
+      const rows = items.map(item => this.buildCsvRow(item));
+      const csvContent = this.buildCsvContent(headers, rows);
 
       const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
       const url = URL.createObjectURL(blob);
@@ -528,6 +504,80 @@ export class HistoryComponent implements OnInit {
     } finally {
       this.exporting.set(false);
     }
+  }
+
+  // ═══════════════════════════════════════════════════════════
+  // [FONCTIONNALITÉ #4] Export CSV d'une seule ligne
+  // ═══════════════════════════════════════════════════════════
+  //
+  // Déclenché par le bouton dédié de chaque ligne du tableau. Réutilise
+  // le même format que l'export global (mêmes colonnes, même
+  // échappement CSV, même séparateur ';' et BOM UTF-8) pour que les
+  // deux fichiers restent cohérents entre eux.
+  exportRow(item: HistoryItem, event: Event): void {
+    // Empêche l'ouverture du détail : le clic sur la ligne déclenche
+    // normalement selectItem() via (click) sur le <tr> — on ne veut
+    // ici que l'export, pas l'ouverture de la modale de détail.
+    event.stopPropagation();
+
+    try {
+      const headers = this.csvHeaders();
+      const row = this.buildCsvRow(item);
+      const csvContent = this.buildCsvContent(headers, [row]);
+
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const safeName = (item.file_name || 'extraction').replace(/[^a-z0-9_.-]/gi, '_');
+
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `extraction_${safeName}.csv`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+
+      this.toast.success(`Ligne exportée : ${item.file_name || 'extraction'}.`);
+    } catch (e) {
+      this.toast.error("Échec de l'export de la ligne. Réessayez.");
+    }
+  }
+
+  /** Intitulés de colonnes, partagés entre l'export global et l'export par ligne. */
+  private csvHeaders(): string[] {
+    return [
+      'Utilisateur', 'Rôle', 'Fichier', 'Job ID', 'Type de document',
+      'Template', 'Statut', 'Confiance (%)', 'Champs extraits',
+      'Moteur OCR', 'Temps de traitement (ms)', 'Date',
+    ];
+  }
+
+  /** Construit une ligne CSV à partir d'un HistoryItem, dans l'ordre de csvHeaders(). */
+  private buildCsvRow(item: HistoryItem): (string | number)[] {
+    return [
+      this.userLabel(item),
+      item.user_role ?? '',
+      item.file_name ?? '',
+      item.job_id ?? '',
+      item.document_type ?? '',
+      item.template_id ?? '',
+      item.status ?? '',
+      this.percent(item.global_confidence).replace('%', '').replace('—', ''),
+      item.field_count ?? '',
+      item.engine_used ?? '',
+      item.processing_time_ms ?? '',
+      item.created_at ? new Date(item.created_at).toLocaleString('fr-FR') : '',
+    ];
+  }
+
+  /** Assemble l'en-tête + les lignes en contenu CSV complet (BOM + séparateur ';'). */
+  private buildCsvContent(headers: string[], rows: (string | number)[][]): string {
+    const csvLines = [headers, ...rows].map(row =>
+      row.map(cell => this.csvEscapeCell(String(cell))).join(';')
+    );
+
+    const BOM = '\uFEFF';
+    return BOM + csvLines.join('\r\n');
   }
 
   /** Échappe une cellule pour le format CSV (RFC 4180). */
