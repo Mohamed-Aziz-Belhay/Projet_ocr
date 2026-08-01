@@ -65,7 +65,7 @@ export class OcrApiService {
 
   private readonly baseUrl = environment.apiBaseUrl.replace(/\/$/, '');
 
-  constructor(private http: HttpClient,private authService: AuthApiService) {}
+  constructor(private http: HttpClient, private authService: AuthApiService) {}
 
   // ── Extraction ────────────────────────────────────────────────────────────
   extract(req: ExtractRequest): Observable<any> {
@@ -79,7 +79,6 @@ export class OcrApiService {
       if (req.templateId)   f.append('template_id',   req.templateId);
       if (req.languageHint) f.append('language_hint', req.languageHint);
 
-      // ← Ajoute ces headers
       return this.http.post<any>(
         `${this.baseUrl}/extract`, f,
         { headers: this.authService.authHeaders() }
@@ -87,6 +86,14 @@ export class OcrApiService {
   }
 
   // ── Templates ─────────────────────────────────────────────────────────────
+  // [SÉCURITÉ #4] Les 4 méthodes ci-dessous n'envoyaient auparavant aucun
+  // header Authorization : PUT/DELETE, protégés côté backend par
+  // get_current_admin_user (JWT obligatoire), échouaient donc toujours en
+  // 401 dès qu'un compte admin tentait de créer/modifier/supprimer un
+  // template — l'intercepteur global traduisait ce 401 en faux message
+  // "session expirée". GET/GET détail restaient fonctionnels côté backend
+  // (RG8 : consultation ouverte à tous les rôles) mais sont alignés ici
+  // par cohérence.
 
   /**
    * GET /templates
@@ -108,7 +115,7 @@ export class OcrApiService {
 
     return this.http.get<TemplateSummary[]>(
       `${this.baseUrl}/templates`,
-      { params: p },
+      { params: p, headers: this.authService.authHeaders() },
     );
   }
 
@@ -119,30 +126,34 @@ export class OcrApiService {
   getTemplate(id: string): Observable<TemplateDetail> {
     return this.http.get<TemplateDetail>(
       `${this.baseUrl}/templates/${encodeURIComponent(id)}`,
+      { headers: this.authService.authHeaders() },
     );
   }
 
   /**
    * PUT /templates/{id}
-   * ✅ FIX : envoie le contenu JSON directement (plus d'imbrication {id, content}).
-   * Le backend (TemplateUpsertRequest) attend :
+   * Upsert (création si absent, mise à jour sinon).
+   * Le backend (TemplateBody) attend :
    *   { "id": "...", "name": "...", "fields": [...], ... }
+   * Nécessite un JWT admin (get_current_admin_user, RG8).
    */
   saveTemplate(id: string, content: any): Observable<TemplateDetail> {
-    // Fusionne l'id dans le body pour garantir la cohérence
     const body = { ...content, id };
     return this.http.put<TemplateDetail>(
       `${this.baseUrl}/templates/${encodeURIComponent(id)}`,
       body,
+      { headers: this.authService.authHeaders() },
     );
   }
 
   /**
    * DELETE /templates/{id}
+   * Nécessite un JWT admin (get_current_admin_user, RG8).
    */
   deleteTemplate(id: string): Observable<void> {
     return this.http.delete<void>(
       `${this.baseUrl}/templates/${encodeURIComponent(id)}`,
+      { headers: this.authService.authHeaders() },
     );
   }
 }
