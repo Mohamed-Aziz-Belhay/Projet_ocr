@@ -1,13 +1,13 @@
 {
-  "job_id": "e2ddeb62-2b30-4341-aba5-318891d188ae",
-  "status": "success",
+  "job_id": "f7804688-b3da-4ba1-ab36-dd71a08fec6a",
+  "status": "review_required",
   "template_id": "cin_tn",
   "document_type": "cin_tn",
   "document_variant": "recto",
-  "engine_used": "mixed(easyocr,easyocr_boxes,global_text,paddle)",
+  "engine_used": "mixed(easyocr,easyocr_boxes,global_text)",
   "language_detected": "ar",
-  "global_confidence": 0.8727,
-  "quality_score": 0.302,
+  "global_confidence": 0.7781,
+  "quality_score": 0.278,
   "fields": [
     {
       "name": "id_number",
@@ -22,7 +22,9 @@
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "last_name",
@@ -37,27 +39,32 @@
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "first_name",
-      "value": "سيا",
-      "confidence": 0.73,
-      "validated": true,
-      "raw_text": "سيا",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
       "raw_template_field": null,
-      "error": null,
-      "selected_engine": "paddle",
-      "selected_source": "text_first_fallback",
-      "review_required": false,
+      "error": "Prénom introuvable",
+      "selected_engine": null,
+      "selected_source": null,
+      "review_required": true,
       "reasons": [
-        "selected_from:text_first_fallback"
-      ]
+        "field unresolved",
+        "critical field missing"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_date",
       "value": "1995-03-20",
-      "confidence": 0.65,
+      "confidence": 0.75,
       "validated": true,
       "raw_text": "1995-03-20",
       "raw_template_field": null,
@@ -67,44 +74,52 @@
       "review_required": false,
       "reasons": [
         "selected_from:text_date_fallback"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_place",
       "value": "بنزرت",
-      "confidence": 0.95,
+      "confidence": 0.8,
       "validated": true,
       "raw_text": "بنزرت",
       "raw_template_field": null,
       "error": null,
       "selected_engine": "easyocr",
-      "selected_source": "spatial_boxes",
+      "selected_source": "text_place_fallback",
       "review_required": false,
       "reasons": [
-        "selected_from:spatial_boxes"
-      ]
+        "selected_from:text_place_fallback"
+      ],
+      "original_value": null,
+      "corrected": false
     }
   ],
   "normalized_data": {
     "idNumber": "11382190",
     "lastName": "اسحاق",
-    "firstName": "سيا",
+    "firstName": null,
     "birthDate": "1995-03-20",
     "birthPlace": "بنزرت"
   },
   "routing": null,
   "business_validation": {
-    "status": "success",
-    "review_required": false,
-    "review_reasons": [],
-    "warnings": [],
-    "business_confidence": 0.8727,
-    "critical_fields_ok": 3,
-    "valid_fields_ok": 5,
-    "present_fields": 5,
-    "quality_score": 0.302,
-    "avg_field_confidence": 0.846,
-    "field_coverage": 1.0
+    "status": "review_required",
+    "review_required": true,
+    "review_reasons": [
+      "critical field missing or invalid: first_name"
+    ],
+    "warnings": [
+      "Champ critique à vérifier: first_name"
+    ],
+    "business_confidence": 0.7781,
+    "critical_fields_ok": 2,
+    "valid_fields_ok": 4,
+    "present_fields": 4,
+    "quality_score": 0.278,
+    "avg_field_confidence": 0.8625,
+    "field_coverage": 0.8
   },
   "diagnostics": {
     "mode": "cin_specialized_v2",
@@ -115,20 +130,21 @@
       "paddle_boxes",
       "targeted_roi:easyocr",
       "targeted_roi:paddle",
-      "full_ocr:paddle"
+      "full_ocr:paddle",
+      "full_ocr:easyocr"
     ],
     "preprocessing": {
       "quality": {
-        "sharpness": 0.046,
-        "brightness": 0.545,
-        "contrast": 0.482,
-        "quality_score": 0.302
+        "sharpness": 0.011,
+        "brightness": 0.521,
+        "contrast": 0.476,
+        "quality_score": 0.278
       },
       "transforms": {
         "resized": true,
         "deskewed": false,
-        "contrast": true,
-        "mode": "cin_legacy_compatible"
+        "contrast": false,
+        "mode": "cin_simple_deskew_only"
       },
       "cin_preprocessor_keys": [
         "binary",
@@ -140,10 +156,10 @@
       ]
     },
     "quality_checks": {
-      "sharpness": 0.046,
-      "brightness": 0.545,
-      "contrast": 0.482,
-      "quality_score": 0.302
+      "sharpness": 0.011,
+      "brightness": 0.521,
+      "contrast": 0.476,
+      "quality_score": 0.278
     },
     "roi_fields": {
       "cin_number": [
@@ -182,17 +198,20 @@
         "trial_type": "targeted_missing_rois",
         "target_fields": [
           "first_name",
-          "date_of_birth"
+          "date_of_birth",
+          "place_of_birth"
         ],
-        "processing_time_ms": 816,
+        "processing_time_ms": 1106,
         "zones": {
-          "first_name": "ب اسحاق",
-          "date_of_birth": "د ب ماس بر",
-          "right_text_block": "1382190 اسحاق ب بن+ - نبماء بنن بوصببح جرم 20 مارس 1995 بنزرت الناس انبس"
+          "first_name": "اسحاق ؟ب",
+          "date_of_birth": "ماس بر ولتل سف ا",
+          "place_of_birth": "ذ9ا1 ?0 مارس",
+          "right_text_block": "1182190 اسحاق الف بن + م~ نبماء بنت حرم انبس بوصببح 20 مارس 1995 شم بنزرت الماس"
         },
         "zone_scores": {
           "first_name": 0.0,
           "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
           "right_text_block": 0.0
         },
         "notes": []
@@ -204,10 +223,10 @@
         "target_fields": [
           "first_name"
         ],
-        "processing_time_ms": 2849,
+        "processing_time_ms": 1707,
         "zones": {
-          "first_name": "قاحسا بفلل",
-          "right_text_block": "1382190 قاحسا بفللا سايلا تنب ءاميش ع نب مالا سيئا مرح سرام 0 ةمالو عوأ ترزنب"
+          "first_name": "قاحسا بقلل",
+          "right_text_block": "1382190 قاحسا بقلا نب سايلا تنب ءاميش ع مأللا سيتئا مرح سرام ةمظورعو ترزنب"
         },
         "zone_scores": {
           "first_name": 0.0,
@@ -219,17 +238,44 @@
         "engine": "paddle",
         "executed": true,
         "trial_type": "full_card_and_all_rois",
-        "full_text": "ةيسنوتلا ةير وهمجلا ةينطولا ةقاطب فيؤعتلا 11382190 قاحسا بقللا ننب تنب ءاميش نامثع سايلا مإل سيئا حيبصوب مرح 1999 سرام 0 ةمظر عوات ترزنب",
+        "full_text": "ةيسن نوتلا ةير وهمجلا ةيطولاقيرعتا ةقاطب 11382190 قاحسا بقللا تنب ءاميش نامثع نب سايلا مسهل سيتئا حيبصوب مرح 1999 سرام 0 ةمظر عوات ترزنب ةي",
         "full_text_score": 0.0,
-        "processing_time_ms": 4192,
+        "processing_time_ms": 4025,
         "zones": {
-          "cin_number": "ةقاطب طولا فترغتلا",
+          "cin_number": "ةقاطب طولا فترغتا",
           "family_name": "382190",
-          "first_name": "قاحسا بفلل",
-          "date_of_birth": "نب سايلا تتب ههس",
-          "place_of_birth": "9959 0 ةمالو ع سرام",
+          "first_name": "قاحسا بقلل",
+          "date_of_birth": "نب سايلا تتب ءس سيئا",
+          "place_of_birth": "9959 0 ةمظورعو سرام",
           "gender": "",
-          "right_text_block": "1382190 قاحسا بفللا سايلا تنب ءاميش ع نب مالا سيئا مرح سرام 0 ةمالو عوأ ترزنب"
+          "right_text_block": "1382190 قاحسا بقلا نب سايلا تنب ءاميش ع مأللا سيتئا مرح سرام ةمظورعو ترزنب"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "التمذورىه ال نسله بطاقه التعربف الوطنيه 11382190 اسحاق ا بر سماء ىنت حرم انبس بوصببح دع وديم 20 مارس 1995 بنزرت ا ٢ الماس منمان",
+        "full_text_score": 0.0,
+        "processing_time_ms": 2569,
+        "zones": {
+          "cin_number": "بطاقه التعرنف الوط",
+          "family_name": "182190",
+          "first_name": "اسحاق ؟ب",
+          "date_of_birth": "ماس بر ولتل سف ا",
+          "place_of_birth": "ذ9ا1 ?0 مارس",
+          "gender": "",
+          "right_text_block": "1182190 اسحاق الف بن + م~ نبماء بنت حرم انبس بوصببح 20 مارس 1995 شم بنزرت الماس"
         },
         "zone_scores": {
           "cin_number": 0.0,
@@ -247,14 +293,16 @@
       "trials": [
         {
           "engine": "easyocr_boxes",
-          "box_count": 10,
+          "box_count": 14,
           "fields": {
             "cin_number": "11382190",
-            "place_of_birth": "بنزرت"
+            "first_name": "اس",
+            "place_of_birth": "ا ذورنه الونسيه"
           },
           "scores": {
-            "cin_number": 20.199921752249665,
-            "place_of_birth": 9.0
+            "cin_number": 20.198997777310215,
+            "first_name": 15.151870686645696,
+            "place_of_birth": 14.022735218541213
           },
           "meta": {
             "cin_number": {
@@ -268,9 +316,10 @@
               "anchors_found": 0
             },
             "first_name": {
-              "chosen_from": null,
-              "source_kind": "no_label",
-              "anchors_found": 0
+              "chosen_from": "الماس",
+              "candidate_text": "اس",
+              "source_kind": "inline",
+              "anchors_found": 1
             },
             "date_of_birth": {
               "chosen_from": null,
@@ -278,10 +327,10 @@
               "anchors_found": 0
             },
             "place_of_birth": {
-              "chosen_from": "right_text_block",
-              "candidate_text": "الجمهوربه التونسيه بطاقه التعربف الوطنيذ 11382190 الب اسحاق ا~ شبماء بنت الباس بذ عنمان انبس حرم بوصببو199 ناع وامن 20 مارس بنزرت",
-              "source_kind": "right_text_fallback",
-              "anchors_found": 0
+              "chosen_from": "الحمذورنه الونسيه",
+              "candidate_text": "ا ذورنه الونسيه",
+              "source_kind": "inline",
+              "anchors_found": 1
             },
             "label_spatial": {
               "reason": "no_items"
@@ -298,14 +347,14 @@
         },
         {
           "engine": "paddle_boxes",
-          "box_count": 23,
+          "box_count": 24,
           "fields": {
             "cin_number": "11382190",
             "family_name": "قاحسا"
           },
           "scores": {
-            "cin_number": 20.185046434402466,
-            "family_name": 7.533026642711234
+            "cin_number": 20.18394808769226,
+            "family_name": 7.524594151116858
           },
           "meta": {
             "cin_number": {
@@ -356,7 +405,8 @@
           "source": "spatial_boxes",
           "fields": {
             "cin_number": "11382190",
-            "place_of_birth": "بنزرت"
+            "first_name": "اس",
+            "place_of_birth": "ا ذورنه الونسيه"
           }
         },
         {
@@ -372,10 +422,10 @@
           "source": "targeted_roi_ocr",
           "fields": {
             "cin_number": "CIN_FAMILY_NAME:",
-            "family_name": "CIN_FIRST_NAME: ب اسحاق",
-            "first_name": "ب اسحاق",
-            "date_of_birth": "د ب ماس بر",
-            "place_of_birth": "1382190 اسحاق ب بن+ - نبماء بنن بوصببح جرم 20 مارس 1995 بنزرت الناس انبس"
+            "family_name": "CIN_FIRST_NAME: اسحاق ؟ب",
+            "first_name": "اسحاق ؟ب",
+            "date_of_birth": "ماس بر ولتل سف ا",
+            "place_of_birth": "ذ9ا1 ?0 مارس"
           }
         },
         {
@@ -383,21 +433,32 @@
           "source": "targeted_roi_ocr",
           "fields": {
             "cin_number": "CIN_FAMILY_NAME:",
-            "family_name": "CIN_FIRST_NAME: قاحسا بفلل",
-            "first_name": "قاحسا بفلل",
+            "family_name": "CIN_FIRST_NAME: قاحسا بقلل",
+            "first_name": "قاحسا بقلل",
             "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "1382190 قاحسا بفللا سايلا تنب ءاميش ع نب مالا سيئا مرح سرام 0 ةمالو عوأ ترزنب"
+            "place_of_birth": "1382190 قاحسا بقلا نب سايلا تنب ءاميش ع مأللا سيتئا مرح سرام ةمظورعو ترزنب"
           }
         },
         {
           "engine": "paddle",
           "source": "roi_ocr",
           "fields": {
-            "cin_number": "ةقاطب طولا فترغتلا",
+            "cin_number": "ةقاطب طولا فترغتا",
             "family_name": "382190",
-            "first_name": "قاحسا بفلل",
-            "date_of_birth": "نب سايلا تتب ههس",
-            "place_of_birth": "9959 0 ةمالو ع سرام"
+            "first_name": "قاحسا بقلل",
+            "date_of_birth": "نب سايلا تتب ءس سيئا",
+            "place_of_birth": "9959 0 ةمظورعو سرام"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "roi_ocr",
+          "fields": {
+            "cin_number": "بطاقه التعرنف الوط",
+            "family_name": "182190",
+            "first_name": "اسحاق ؟ب",
+            "date_of_birth": "ماس بر ولتل سف ا",
+            "place_of_birth": "ذ9ا1 ?0 مارس"
           }
         }
       ],
@@ -405,7 +466,7 @@
         "cin_number": [
           {
             "value": "11382190",
-            "avg_conf": 20.192484,
+            "avg_conf": 20.191473,
             "count": 2,
             "engines": [
               "easyocr_boxes",
@@ -415,7 +476,7 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 56.192484,
+            "selection_score": 56.191473,
             "raw_value": "11382190",
             "meta": []
           }
@@ -423,8 +484,8 @@
         "family_name": [
           {
             "value": "اسحاق",
-            "avg_conf": 6.728349,
-            "count": 3,
+            "avg_conf": 5.045987,
+            "count": 4,
             "engines": [
               "global_text",
               "paddle",
@@ -436,33 +497,17 @@
               "text_family_global"
             ],
             "profiles": [],
-            "selection_score": 59.728349,
+            "selection_score": 65.045987,
             "raw_value": "اسحاق",
             "meta": [
               {
                 "from_raw_text": true
               },
               {
-                "from_combined_text": true
-              }
-            ]
-          },
-          {
-            "value": "سيا",
-            "avg_conf": 0.0,
-            "count": 1,
-            "engines": [
-              "paddle"
-            ],
-            "sources": [
-              "text_family_fallback"
-            ],
-            "profiles": [],
-            "selection_score": 31.5,
-            "raw_value": "سيا",
-            "meta": [
-              {
                 "from_raw_text": true
+              },
+              {
+                "from_combined_text": true
               }
             ]
           },
@@ -485,13 +530,33 @@
                 "from_raw_text": true
               }
             ]
+          },
+          {
+            "value": "182190",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "easyocr"
+            ],
+            "sources": [
+              "extractor",
+              "roi_ocr"
+            ],
+            "profiles": [],
+            "selection_score": 16.9,
+            "raw_value": "182190",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
           }
         ],
         "first_name": [
           {
             "value": "اسحاق",
             "avg_conf": 0.0,
-            "count": 2,
+            "count": 3,
             "engines": [
               "global_text",
               "paddle"
@@ -501,9 +566,12 @@
               "text_first_global"
             ],
             "profiles": [],
-            "selection_score": 46.0,
+            "selection_score": 53.0,
             "raw_value": "اسحاق",
             "meta": [
+              {
+                "from_raw_text": true
+              },
               {
                 "from_raw_text": true
               },
@@ -513,11 +581,11 @@
             ]
           },
           {
-            "value": "اسحاق لفب",
+            "value": "اسحاق ب",
             "avg_conf": 0.0,
             "count": 4,
             "engines": [
-              "paddle"
+              "easyocr"
             ],
             "sources": [
               "extractor",
@@ -525,51 +593,12 @@
               "targeted_roi_ocr"
             ],
             "profiles": [],
-            "selection_score": 35.6,
-            "raw_value": "قاحسا بفلل",
+            "selection_score": 32.8,
+            "raw_value": "اسحاق ؟ب",
             "meta": [
               {
                 "from_raw_text": true
               },
-              {
-                "from_raw_text": true
-              }
-            ]
-          },
-          {
-            "value": "سيا",
-            "avg_conf": 0.0,
-            "count": 1,
-            "engines": [
-              "paddle"
-            ],
-            "sources": [
-              "text_first_fallback"
-            ],
-            "profiles": [],
-            "selection_score": 31.5,
-            "raw_value": "سيا",
-            "meta": [
-              {
-                "from_raw_text": true
-              }
-            ]
-          },
-          {
-            "value": "ب اسحاق",
-            "avg_conf": 0.0,
-            "count": 2,
-            "engines": [
-              "easyocr"
-            ],
-            "sources": [
-              "extractor",
-              "targeted_roi_ocr"
-            ],
-            "profiles": [],
-            "selection_score": 20.8,
-            "raw_value": "ب اسحاق",
-            "meta": [
               {
                 "from_raw_text": true
               }
@@ -580,7 +609,7 @@
           {
             "value": "20/03/1995",
             "avg_conf": 0.0,
-            "count": 1,
+            "count": 2,
             "engines": [
               "easyocr"
             ],
@@ -588,9 +617,12 @@
               "text_date_fallback"
             ],
             "profiles": [],
-            "selection_score": 19.0,
+            "selection_score": 26.0,
             "raw_value": "1995-03-20",
             "meta": [
+              {
+                "from_raw_text": true
+              },
               {
                 "from_raw_text": true
               }
@@ -600,22 +632,23 @@
         "place_of_birth": [
           {
             "value": "بنزرت",
-            "avg_conf": 6.733307,
+            "avg_conf": 0.0,
             "count": 3,
             "engines": [
               "easyocr",
-              "easyocr_boxes",
               "global_text"
             ],
             "sources": [
-              "spatial_boxes",
               "text_place_fallback",
               "text_place_global"
             ],
             "profiles": [],
-            "selection_score": 68.733307,
+            "selection_score": 62.0,
             "raw_value": "بنزرت",
             "meta": [
+              {
+                "from_raw_text": true
+              },
               {
                 "from_raw_text": true
               },
@@ -623,13 +656,28 @@
                 "from_combined_text": true
               }
             ]
+          },
+          {
+            "value": "ا ذورنه الونسيه",
+            "avg_conf": 20.198998,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 41.198998,
+            "raw_value": "ا ذورنه الونسيه",
+            "meta": []
           }
         ]
       },
       "selected": {
         "cin_number": {
           "value": "11382190",
-          "avg_conf": 20.192484,
+          "avg_conf": 20.191473,
           "count": 2,
           "engines": [
             "easyocr_boxes",
@@ -639,14 +687,14 @@
             "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 56.192484,
+          "selection_score": 56.191473,
           "raw_value": "11382190",
           "meta": []
         },
         "family_name": {
           "value": "اسحاق",
-          "avg_conf": 6.728349,
-          "count": 3,
+          "avg_conf": 5.045987,
+          "count": 4,
           "engines": [
             "global_text",
             "paddle",
@@ -658,9 +706,12 @@
             "text_family_global"
           ],
           "profiles": [],
-          "selection_score": 59.728349,
+          "selection_score": 65.045987,
           "raw_value": "اسحاق",
           "meta": [
+            {
+              "from_raw_text": true
+            },
             {
               "from_raw_text": true
             },
@@ -669,29 +720,11 @@
             }
           ]
         },
-        "first_name": {
-          "value": "سيا",
-          "avg_conf": 0.0,
-          "count": 1,
-          "engines": [
-            "paddle"
-          ],
-          "sources": [
-            "text_first_fallback"
-          ],
-          "profiles": [],
-          "selection_score": 31.5,
-          "raw_value": "سيا",
-          "meta": [
-            {
-              "from_raw_text": true
-            }
-          ]
-        },
+        "first_name": null,
         "date_of_birth": {
           "value": "20/03/1995",
           "avg_conf": 0.0,
-          "count": 1,
+          "count": 2,
           "engines": [
             "easyocr"
           ],
@@ -699,9 +732,12 @@
             "text_date_fallback"
           ],
           "profiles": [],
-          "selection_score": 19.0,
+          "selection_score": 26.0,
           "raw_value": "1995-03-20",
           "meta": [
+            {
+              "from_raw_text": true
+            },
             {
               "from_raw_text": true
             }
@@ -709,22 +745,23 @@
         },
         "place_of_birth": {
           "value": "بنزرت",
-          "avg_conf": 6.733307,
+          "avg_conf": 0.0,
           "count": 3,
           "engines": [
             "easyocr",
-            "easyocr_boxes",
             "global_text"
           ],
           "sources": [
-            "spatial_boxes",
             "text_place_fallback",
             "text_place_global"
           ],
           "profiles": [],
-          "selection_score": 68.733307,
+          "selection_score": 62.0,
           "raw_value": "بنزرت",
           "meta": [
+            {
+              "from_raw_text": true
+            },
             {
               "from_raw_text": true
             },
@@ -752,27 +789,46 @@
           "candidate_ok": true,
           "old_ok": true,
           "good_spatial": true
+        },
+        {
+          "field": "birth_place",
+          "type": "postprocess_skip_place_override",
+          "kept": "بنزرت",
+          "candidate": "بنزرت",
+          "reason": "known_place_in_raw_text",
+          "good_spatial": false
         }
       ]
     },
-    "review_required": false,
-    "review_reasons": [],
+    "review_required": true,
+    "review_reasons": [
+      "critical field missing or invalid: first_name"
+    ],
     "business_validation": {
-      "status": "success",
-      "review_required": false,
-      "review_reasons": [],
-      "warnings": [],
-      "business_confidence": 0.8727,
-      "critical_fields_ok": 3,
-      "valid_fields_ok": 5,
-      "present_fields": 5,
-      "quality_score": 0.302,
-      "avg_field_confidence": 0.846,
-      "field_coverage": 1.0
+      "status": "review_required",
+      "review_required": true,
+      "review_reasons": [
+        "critical field missing or invalid: first_name"
+      ],
+      "warnings": [
+        "Champ critique à vérifier: first_name"
+      ],
+      "business_confidence": 0.7781,
+      "critical_fields_ok": 2,
+      "valid_fields_ok": 4,
+      "present_fields": 4,
+      "quality_score": 0.278,
+      "avg_field_confidence": 0.8625,
+      "field_coverage": 0.8
     }
   },
-  "raw_text": "11382190 بنزرت 11382190 قاحسا CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: ب اسحاق CIN_DATE_OF_BIRTH: د ب ماس بر CIN_PLACE_OF_BIRTH: 1382190 اسحاق ب بن+ - نبماء بنن بوصببح جرم 20 مارس 1995 بنزرت الناس انبس CIN_FAMILY_NAME: CIN_FIRST_NAME: ب اسحاق ب اسحاق د ب ماس بر 1382190 اسحاق ب بن+ - نبماء بنن بوصببح جرم 20 مارس 1995 بنزرت الناس انبس CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: قاحسا بفلل CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 1382190 قاحسا بفللا سايلا تنب ءاميش ع نب مالا سيئا مرح سرام 0 ةمالو عوأ ترزنب CIN_FAMILY_NAME: CIN_FIRST_NAME: قاحسا بفلل قاحسا بفلل CIN_PLACE_OF_BIRTH: 1382190 قاحسا بفللا سايلا تنب ءاميش ع نب مالا سيئا مرح سرام 0 ةمالو عوأ ترزنب CIN_NUMBER: ةقاطب طولا فترغتلا CIN_FAMILY_NAME: 382190 CIN_FIRST_NAME: قاحسا بفلل CIN_DATE_OF_BIRTH: نب سايلا تتب ههس CIN_PLACE_OF_BIRTH: 9959 0 ةمالو ع سرام ةيسنوتلا ةير وهمجلا ةينطولا ةقاطب فيؤعتلا 11382190 قاحسا اللقب ننب تنب ءاميش عثمان سايلا مإل سيئا حيبصوب مرح 1999 سرام 0 ةمظر عوات ترزنب ةقاطب طولا فترغتلا 382190 قاحسا بفلل نب سايلا تتب ههس 9959 0 ةمالو ع سرام 11382190 بنزرت 11382190 11382190 الجمهوربه التونسيه بطاقه التعربف الوطنيذ 11382190 الب اسحاق ا~ شبماء ببنت الباس بذ عنمان انبس حرم بوصببو199 ناع وامن 20 مارس بنزرت right_text_block 11382190 قاحسا 11382190 11382190 قاحسا اللقب ب اسحاق د ب ماس بر 1382190 اسحاق ب بن+ - نبماء بنن بوصببح جرم 20 مارس 1995 بنزرت الناس انبس قاحسا بفلل 1382190 قاحسا بفللا سايلا تنب ءاميش ع نب مالا سيئا مرح سرام 0 ةمالو عوأ ترزنب ةيسنوتلا ةير وهمجلا ةينطولا ةقاطب فيؤعتلا 11382190 قاحسا اللقب ننب تنب ءاميش عثمان سايلا مإل سيئا حيبصوب مرح 1999 سرام 0 ةمظر عوات ترزنب ةقاطب طولا فترغتلا 382190 قاحسا بفلل نب سايلا تتب ههس 9959 0 ةمالو ع سرام 1382190 قاحسا بفللا سايلا تنب ءاميش ع نب مالا سيئا مرح سرام 0 ةمالو عوأ ترزنب",
-  "processing_time_ms": 10905,
-  "warnings": [],
-  "review_reasons": []
+  "raw_text": "11382190 اس ا ذورنه الونسيه 11382190 قاحسا CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: اسحاق ؟ب CIN_DATE_OF_BIRTH: ماس بر ولتل سف ا CIN_PLACE_OF_BIRTH: ذ9ا1 ?0 مارس 1182190 اسحاق الف بن + م~ نبماء ببنت حرم انبس بوصببح 20 مارس 1995 شم بنزرت الماس CIN_FAMILY_NAME: CIN_FIRST_NAME: اسحاق ؟ب اسحاق ؟ب ماس بر ولتل سف ا ذ9ا1 ?0 مارس CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: قاحسا بقلل CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 1382190 قاحسا بقلا نب سايلا تنب ءاميش ع مأللا سيتئا مرح سرام ةمظورعو ترزنب CIN_FAMILY_NAME: CIN_FIRST_NAME: قاحسا بقلل قاحسا بقلل CIN_PLACE_OF_BIRTH: 1382190 قاحسا بقلا نب سايلا تنب ءاميش ع مأللا سيتئا مرح سرام ةمظورعو ترزنب CIN_NUMBER: ةقاطب طولا فترغتا CIN_FAMILY_NAME: 382190 CIN_FIRST_NAME: قاحسا بقلل CIN_DATE_OF_BIRTH: نب سايلا تتب ءس سيئا CIN_PLACE_OF_BIRTH: 9959 0 ةمظورعو سرام ةيسن نوتلا ةير وهمجلا ةيطولاقيرعتا ةقاطب 11382190 قاحسا اللقب تنب ءاميش عثمان نب سايلا مسهل سيتئا حيبصوب مرح 1999 سرام 0 ةمظر عوات ترزنب ةي ةقاطب طولا فترغتا 382190 قاحسا بقلل نب سايلا تتب ءس سيئا 9959 0 ةمظورعو سرام CIN_NUMBER: بطاقه التعرنف الوط CIN_FAMILY_NAME: 182190 CIN_FIRST_NAME: اسحاق ؟ب CIN_DATE_OF_BIRTH: ماس بر ولتل سف ا CIN_PLACE_OF_BIRTH: ذ9ا1 ?0 مارس التمذورىه ال نسله بطاقه التعربف الوطنيه 11382190 اسحاق ا بر سماء ببنت حرم انبس بوصببح دع وديم 20 مارس 1995 بنزرت ا 2 الماس منمان بطاقه التعرنف الوط 182190 اسحاق ؟ب ماس بر ولتل سف ا ذ9ا1 ?0 مارس 11382190 اس ا ذورنه الونسيه 11382190 11382190 اس الماس ا ذورنه الونسيه الحمذورنه الونسيه 11382190 قاحسا 11382190 11382190 قاحسا اللقب اسحاق ؟ب ماس بر ولتل سف ا ذ9ا1 ?0 مارس 1182190 اسحاق الف بن + م~ نبماء ببنت حرم انبس بوصببح 20 مارس 1995 شم بنزرت الماس قاحسا بقلل 1382190 قاحسا بقلا نب سايلا تنب ءاميش ع مأللا سيتئا مرح سرام ةمظورعو ترزنب ةيسن نوتلا ةير وهمجلا ةيطولاقيرعتا ةقاطب 11382190 قاحسا اللقب تنب ءاميش عثمان نب سايلا مسهل سيتئا حيبصوب مرح 1999 سرام 0 ةمظر عوات ترزنب ةي ةقاطب طولا فترغتا 382190 قاحسا بقلل نب سايلا تتب ءس سيئا 9959 0 ةمظورعو سرام 1382190 قاحسا بقلا نب سايلا تنب ءاميش ع مأللا سيتئا مرح سرام ةمظورعو ترزنب التمذورىه ال نسله بطاقه التعربف الوطنيه 11382190 اسحاق ا بر سماء ببنت حرم انبس بوصببح دع وديم 20 مارس 1995 بنزرت ا 2 الماس منمان بطاقه التعرنف الوط 182190 اسحاق ؟ب ماس بر ولتل سف ا ذ9ا1 ?0 مارس 1182190 اسحاق الف بن + م~ نبماء ببنت حرم انبس بوصببح 20 مارس 1995 شم بنزرت الماس",
+  "processing_time_ms": 14671,
+  "warnings": [
+    "Champ critique à vérifier: first_name",
+    "Champ requis 'prenom' à vérifier"
+  ],
+  "review_reasons": [
+    "critical field missing or invalid: first_name"
+  ]
 }

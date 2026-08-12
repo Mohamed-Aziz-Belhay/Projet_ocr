@@ -1,13 +1,13 @@
 {
-  "job_id": "ce391b42-880a-4a8c-bde4-bfa9fc407f8b",
+  "job_id": "4cb5595e-3426-428c-ae08-94389d2a3323",
   "status": "review_required",
   "template_id": "cin_tn",
   "document_type": "cin_tn",
   "document_variant": "recto",
-  "engine_used": "mixed(easyocr_boxes,paddle,paddle_boxes)",
+  "engine_used": "mixed(easyocr_boxes,paddle_boxes)",
   "language_detected": "ar",
-  "global_confidence": 0.8301,
-  "quality_score": 0.669,
+  "global_confidence": 0.8009,
+  "quality_score": 0.604,
   "fields": [
     {
       "name": "id_number",
@@ -23,7 +23,9 @@
       "reasons": [
         "field unresolved",
         "critical field missing"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "last_name",
@@ -33,34 +35,21 @@
       "raw_text": "مثيه",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "paddle",
+      "selected_engine": "paddle_boxes",
       "selected_source": "spatial_boxes",
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "first_name",
       "value": "بلق",
       "confidence": 0.95,
       "validated": true,
-      "raw_text": "قلب",
-      "raw_template_field": null,
-      "error": null,
-      "selected_engine": "paddle_boxes",
-      "selected_source": "spatial_boxes",
-      "review_required": false,
-      "reasons": [
-        "selected_from:spatial_boxes"
-      ]
-    },
-    {
-      "name": "birth_date",
-      "value": "1995-02-23",
-      "confidence": 0.95,
-      "validated": true,
-      "raw_text": "1995-02-23",
+      "raw_text": "بلق",
       "raw_template_field": null,
       "error": null,
       "selected_engine": "easyocr_boxes",
@@ -68,7 +57,28 @@
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
+    },
+    {
+      "name": "birth_date",
+      "value": "1995-09-03",
+      "confidence": 0.82,
+      "validated": true,
+      "raw_text": null,
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": null,
+      "selected_source": "cin_postprocess_birth_date_context",
+      "review_required": false,
+      "reasons": [
+        "field unresolved",
+        "critical field missing",
+        "birth_date_recovered:contextual_birth_date"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_place",
@@ -84,14 +94,16 @@
       "reasons": [
         "selected_from:spatial_boxes",
         "invalid_suspicious_birth_place"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     }
   ],
   "normalized_data": {
     "idNumber": null,
     "lastName": "مثيه",
     "firstName": "بلق",
-    "birthDate": "1995-02-23",
+    "birthDate": "1995-09-03",
     "birthPlace": "الجم"
   },
   "routing": null,
@@ -104,12 +116,12 @@
     "warnings": [
       "Champ critique à vérifier: id_number"
     ],
-    "business_confidence": 0.8301,
+    "business_confidence": 0.8009,
     "critical_fields_ok": 2,
     "valid_fields_ok": 3,
     "present_fields": 4,
-    "quality_score": 0.669,
-    "avg_field_confidence": 0.95,
+    "quality_score": 0.604,
+    "avg_field_confidence": 0.9067,
     "field_coverage": 0.6
   },
   "diagnostics": {
@@ -121,20 +133,21 @@
       "paddle_boxes",
       "targeted_roi:easyocr",
       "targeted_roi:paddle",
-      "full_ocr:paddle"
+      "full_ocr:paddle",
+      "full_ocr:easyocr"
     ],
     "preprocessing": {
       "quality": {
-        "sharpness": 1.0,
-        "brightness": 0.494,
-        "contrast": 0.317,
-        "quality_score": 0.669
+        "sharpness": 0.912,
+        "brightness": 0.468,
+        "contrast": 0.256,
+        "quality_score": 0.604
       },
       "transforms": {
         "resized": false,
         "deskewed": false,
-        "contrast": true,
-        "mode": "cin_legacy_compatible"
+        "contrast": false,
+        "mode": "cin_simple_deskew_only"
       },
       "cin_preprocessor_keys": [
         "binary",
@@ -146,10 +159,10 @@
       ]
     },
     "quality_checks": {
-      "sharpness": 1.0,
-      "brightness": 0.494,
-      "contrast": 0.317,
-      "quality_score": 0.669
+      "sharpness": 0.912,
+      "brightness": 0.468,
+      "contrast": 0.256,
+      "quality_score": 0.604
     },
     "roi_fields": {
       "cin_number": [
@@ -188,16 +201,19 @@
         "trial_type": "targeted_missing_rois",
         "target_fields": [
           "cin_number",
+          "date_of_birth",
           "place_of_birth"
         ],
-        "processing_time_ms": 525,
+        "processing_time_ms": 741,
         "zones": {
-          "cin_number": "بماقه التعريف الوطا",
-          "place_of_birth": "797",
-          "right_text_block": "الهمامي الاقب بن الازهر بن ي 1995 نارخ الولادة 23 نارا تو الام هىثم بلقاسم فيفر نس"
+          "cin_number": "لماقذ التعريف الوطا",
+          "date_of_birth": "٦٣٥ ب 1995 ؟ ناريخ الودادة 23 فيفر تلقاسم",
+          "place_of_birth": "٣ 9",
+          "right_text_block": "الا قب بن الازهر بن ي 1995 نارخ الولادة 23 تغانرا تو الهمامي ررىم هنثم بلقاسم فيفر نس"
         },
         "zone_scores": {
           "cin_number": 0.0,
+          "date_of_birth": 0.0,
           "place_of_birth": 0.0,
           "right_text_block": 0.0
         },
@@ -211,11 +227,11 @@
           "cin_number",
           "place_of_birth"
         ],
-        "processing_time_ms": 1395,
+        "processing_time_ms": 1427,
         "zones": {
-          "cin_number": "طلاا ةيرعتلا ةتا",
-          "place_of_birth": "",
-          "right_text_block": "يمامهلا بقللا مثيه مسإلا رهزالا نب مساقلب نب ةدالولا خيات 19959 يرفيف سنوت"
+          "cin_number": "طولا ةقاس ظيرعتلا",
+          "place_of_birth": "رس",
+          "right_text_block": "يمامهلا بقللا مثيه مسألا رهزالا نب مساقلب نب 1995 ةدالولا خيات يرفيف ثنوت اهن انح"
         },
         "zone_scores": {
           "cin_number": 0.0,
@@ -228,17 +244,44 @@
         "engine": "paddle",
         "executed": true,
         "trial_type": "full_card_and_all_rois",
-        "full_text": "ةيسنوتلا ةيروهمجلا ةقا ةينطولا ةيرعتلا يمامهلا ةيشلا مثيه مسإلا نب رهزالا نب مساقلب ةدالولا ات 195 يرفيف سنوت",
+        "full_text": "ةيسنوتلا ةيروهمجلا ةقالس ةينطولا فيرعتلا يمامهلا بقللا مثيه مساألا نب رهزالا نب مساقلب 19959 ةدالول ات يرفيف سنوت",
         "full_text_score": 0.0,
-        "processing_time_ms": 2069,
+        "processing_time_ms": 2244,
         "zones": {
-          "cin_number": "طلاا ةيرعتلا ةتا",
+          "cin_number": "طولا ةقاس ظيرعتلا",
           "family_name": "",
-          "first_name": "ثه مإلا",
-          "date_of_birth": "رهورالا نب رفيف ةدالولا خيات 15",
-          "place_of_birth": "",
+          "first_name": "يمام مثه مسألا",
+          "date_of_birth": "مساقلس نب رهرالا ب ةدالولا خي ات 1995 ىرفف",
+          "place_of_birth": "رس",
           "gender": "",
-          "right_text_block": "يمامهلا بقللا مثيه مسإلا رهزالا نب مساقلب نب ةدالولا خيات 19959 يرفيف سنوت"
+          "right_text_block": "يمامهلا بقللا مثيه مسألا رهزالا نب مساقلب نب 1995 ةدالولا خيات يرفيف ثنوت اهن انح"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "الجمهوريه التونسيه باقهالتعرف الوطنيه الهمامي الا قب بن الازهر بن ي 1995 تاخ الودا دة 23 تنانرا تو الدىم هلتم بلقاسم فيفر نس",
+        "full_text_score": 0.0,
+        "processing_time_ms": 1714,
+        "zones": {
+          "cin_number": "لماقذ التعريف الوطا",
+          "family_name": "",
+          "first_name": "٢ دما ك رلاس",
+          "date_of_birth": "٦٣٥ ب 1995 ؟ ناريخ الودادة 23 فيفر تلقاسم",
+          "place_of_birth": "٣ 9",
+          "gender": "",
+          "right_text_block": "الا قب بن الازهر بن ي 1995 نارخ الولادة 23 تغانرا تو الهمامي ررىم هنثم بلقاسم فيفر نس"
         },
         "zone_scores": {
           "cin_number": 0.0,
@@ -256,17 +299,15 @@
       "trials": [
         {
           "engine": "easyocr_boxes",
-          "box_count": 11,
+          "box_count": 13,
           "fields": {
             "family_name": "الا قب",
-            "first_name": "لق",
-            "date_of_birth": "1995-02-23",
+            "first_name": "بلق",
             "place_of_birth": "الجم"
           },
           "scores": {
-            "family_name": 15.049304760988614,
-            "first_name": 15.197179644502532,
-            "date_of_birth": 14.10334619917011,
+            "family_name": 15.121538285956268,
+            "first_name": 15.159480470918805,
             "place_of_birth": 9.0
           },
           "meta": {
@@ -282,20 +323,19 @@
               "anchors_found": 1
             },
             "first_name": {
-              "chosen_from": "لقاسم",
-              "candidate_text": "لق",
+              "chosen_from": "بلقاسم",
+              "candidate_text": "بلق",
               "source_kind": "inline",
-              "anchors_found": 2
+              "anchors_found": 1
             },
             "date_of_birth": {
-              "chosen_from": "تابيخ الولادة 23 فيفري 1995",
-              "candidate_text": "تابيخ 23 فيفري 1995",
-              "source_kind": "inline",
+              "chosen_from": null,
+              "source_kind": "no_valid_date",
               "anchors_found": 1
             },
             "place_of_birth": {
               "chosen_from": "right_text_block",
-              "candidate_text": "الجمهوريةالتونسيه بلاقةالتعرف الوطنيه الا قب الهمامي اللم هيثم بن الازهر لقاسم بن تابيخ الولادة 23 فيفري 1995 ناغا تونس",
+              "candidate_text": "الجمهوريف التونسيه بداقهالتعرفالوطنيه الا قب الهمامي رلام هيثم بن الازهر بن بلقاسم تاتخ الودا دة 23 فيفر ي 1995 تنانرا تو نس",
               "source_kind": "right_text_fallback",
               "anchors_found": 0
             },
@@ -314,14 +354,14 @@
         },
         {
           "engine": "paddle_boxes",
-          "box_count": 19,
+          "box_count": 18,
           "fields": {
             "family_name": "مثيه",
             "first_name": "قلب"
           },
           "scores": {
-            "family_name": 11.205098802152365,
-            "first_name": 15.182009029388428
+            "family_name": 11.219561369106172,
+            "first_name": 15.190865612030029
           },
           "meta": {
             "cin_number": {
@@ -344,7 +384,7 @@
             "date_of_birth": {
               "chosen_from": null,
               "source_kind": "no_valid_date",
-              "anchors_found": 1
+              "anchors_found": 0
             },
             "place_of_birth": {
               "chosen_from": null,
@@ -373,8 +413,7 @@
           "source": "spatial_boxes",
           "fields": {
             "family_name": "الا قب",
-            "first_name": "لق",
-            "date_of_birth": "1995-02-23",
+            "first_name": "بلق",
             "place_of_birth": "الجم"
           }
         },
@@ -390,33 +429,44 @@
           "engine": "easyocr",
           "source": "targeted_roi_ocr",
           "fields": {
-            "cin_number": "بماقه التعريف الوطا",
+            "cin_number": "لماقذ التعريف الوطا",
             "family_name": "CIN_FIRST_NAME:",
-            "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH: 797",
-            "place_of_birth": "797"
+            "first_name": "CIN_DATE_OF_BIRTH: ٦٣٥ ب 1995 ؟ ناريخ الودادة 23 فيفر تلقاسم",
+            "date_of_birth": "٦٣٥ ب 1995 ؟ ناريخ الودادة 23 فيفر تلقاسم",
+            "place_of_birth": "٣ 9"
           }
         },
         {
           "engine": "paddle",
           "source": "targeted_roi_ocr",
           "fields": {
-            "cin_number": "طلاا ةيرعتلا ةتا",
+            "cin_number": "طولا ةقاس ظيرعتلا",
             "family_name": "CIN_FIRST_NAME:",
             "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "يمامهلا بقللا مثيه مسإلا رهزالا نب مساقلب نب ةدالولا خيات 19959 يرفيف سنوت"
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: رس",
+            "place_of_birth": "رس"
           }
         },
         {
           "engine": "paddle",
           "source": "roi_ocr",
           "fields": {
-            "cin_number": "طلاا ةيرعتلا ةتا",
-            "family_name": "CIN_FIRST_NAME: ثه مإلا",
-            "first_name": "ثه مإلا",
-            "date_of_birth": "رهورالا نب رفيف ةدالولا خيات 15",
-            "place_of_birth": "ةيسنوتلا ةيروهمجلا ةقا ةينطولا ةيرعتلا يمامهلا ةيشلا مثيه مسإلا نب رهزالا نب مساقلب ةدالولا ات 195 يرفيف سنوت"
+            "cin_number": "طولا ةقاس ظيرعتلا",
+            "family_name": "CIN_FIRST_NAME: يمام مثه مسألا",
+            "first_name": "يمام مثه مسألا",
+            "date_of_birth": "مساقلس نب رهرالا ب ةدالولا خي ات 1995 ىرفف",
+            "place_of_birth": "رس"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "roi_ocr",
+          "fields": {
+            "cin_number": "لماقذ التعريف الوطا",
+            "family_name": "CIN_FIRST_NAME: ٢ دما ك رلاس",
+            "first_name": "٢ دما ك رلاس",
+            "date_of_birth": "٦٣٥ ب 1995 ؟ ناريخ الودادة 23 فيفر تلقاسم",
+            "place_of_birth": "٣ 9"
           }
         }
       ],
@@ -428,7 +478,6 @@
             "avg_conf": 0.0,
             "count": 3,
             "engines": [
-              "easyocr",
               "global_text",
               "paddle"
             ],
@@ -453,28 +502,22 @@
           },
           {
             "value": "مثيه",
-            "avg_conf": 7.591005,
-            "count": 2,
+            "avg_conf": 15.190866,
+            "count": 1,
             "engines": [
-              "paddle",
               "paddle_boxes"
             ],
             "sources": [
-              "spatial_boxes",
-              "text_family_fallback"
+              "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 49.191005,
+            "selection_score": 49.790866,
             "raw_value": "مثيه",
-            "meta": [
-              {
-                "from_raw_text": true
-              }
-            ]
+            "meta": []
           },
           {
             "value": "الا بق",
-            "avg_conf": 15.19718,
+            "avg_conf": 15.15948,
             "count": 1,
             "engines": [
               "easyocr_boxes"
@@ -483,7 +526,7 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 46.79718,
+            "selection_score": 46.75948,
             "raw_value": "الا قب",
             "meta": []
           }
@@ -491,23 +534,24 @@
         "first_name": [
           {
             "value": "بلق",
-            "avg_conf": 15.182009,
-            "count": 1,
+            "avg_conf": 15.175173,
+            "count": 2,
             "engines": [
+              "easyocr_boxes",
               "paddle_boxes"
             ],
             "sources": [
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 47.282009,
-            "raw_value": "قلب",
+            "selection_score": 56.275173,
+            "raw_value": "بلق",
             "meta": []
           },
           {
             "value": "الهمامي",
             "avg_conf": 0.0,
-            "count": 2,
+            "count": 3,
             "engines": [
               "global_text",
               "paddle"
@@ -517,9 +561,12 @@
               "text_first_global"
             ],
             "profiles": [],
-            "selection_score": 46.3,
+            "selection_score": 53.3,
             "raw_value": "الهمامي",
             "meta": [
+              {
+                "from_raw_text": true
+              },
               {
                 "from_raw_text": true
               },
@@ -529,37 +576,19 @@
             ]
           },
           {
-            "value": "اران",
+            "value": "2 امد ك سالر",
             "avg_conf": 0.0,
-            "count": 1,
+            "count": 2,
             "engines": [
               "easyocr"
             ],
             "sources": [
-              "text_first_fallback"
+              "extractor",
+              "roi_ocr"
             ],
             "profiles": [],
-            "selection_score": 32.6,
-            "raw_value": "اران",
-            "meta": [
-              {
-                "from_raw_text": true
-              }
-            ]
-          },
-          {
-            "value": "مثيه",
-            "avg_conf": 0.0,
-            "count": 1,
-            "engines": [
-              "paddle"
-            ],
-            "sources": [
-              "text_first_fallback"
-            ],
-            "profiles": [],
-            "selection_score": 32.6,
-            "raw_value": "مثيه",
+            "selection_score": 17.6,
+            "raw_value": "٢ دما ك رلاس",
             "meta": [
               {
                 "from_raw_text": true
@@ -567,27 +596,11 @@
             ]
           }
         ],
-        "date_of_birth": [
-          {
-            "value": "23/02/1995",
-            "avg_conf": 15.19718,
-            "count": 1,
-            "engines": [
-              "easyocr_boxes"
-            ],
-            "sources": [
-              "spatial_boxes"
-            ],
-            "profiles": [],
-            "selection_score": 44.19718,
-            "raw_value": "1995-02-23",
-            "meta": []
-          }
-        ],
+        "date_of_birth": [],
         "place_of_birth": [
           {
             "value": "الجم",
-            "avg_conf": 15.19718,
+            "avg_conf": 15.15948,
             "count": 1,
             "engines": [
               "easyocr_boxes"
@@ -596,7 +609,7 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 57.19718,
+            "selection_score": 57.15948,
             "raw_value": "الجم",
             "meta": []
           }
@@ -605,58 +618,39 @@
       "selected": {
         "family_name": {
           "value": "مثيه",
-          "avg_conf": 7.591005,
-          "count": 2,
+          "avg_conf": 15.190866,
+          "count": 1,
           "engines": [
-            "paddle",
             "paddle_boxes"
           ],
           "sources": [
-            "spatial_boxes",
-            "text_family_fallback"
+            "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 49.191005,
+          "selection_score": 49.790866,
           "raw_value": "مثيه",
-          "meta": [
-            {
-              "from_raw_text": true
-            }
-          ]
+          "meta": []
         },
         "first_name": {
           "value": "بلق",
-          "avg_conf": 15.182009,
-          "count": 1,
+          "avg_conf": 15.175173,
+          "count": 2,
           "engines": [
+            "easyocr_boxes",
             "paddle_boxes"
           ],
           "sources": [
             "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 47.282009,
-          "raw_value": "قلب",
+          "selection_score": 56.275173,
+          "raw_value": "بلق",
           "meta": []
         },
-        "date_of_birth": {
-          "value": "23/02/1995",
-          "avg_conf": 15.19718,
-          "count": 1,
-          "engines": [
-            "easyocr_boxes"
-          ],
-          "sources": [
-            "spatial_boxes"
-          ],
-          "profiles": [],
-          "selection_score": 44.19718,
-          "raw_value": "1995-02-23",
-          "meta": []
-        },
+        "date_of_birth": null,
         "place_of_birth": {
           "value": "الجم",
-          "avg_conf": 15.19718,
+          "avg_conf": 15.15948,
           "count": 1,
           "engines": [
             "easyocr_boxes"
@@ -665,7 +659,7 @@
             "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 57.19718,
+          "selection_score": 57.15948,
           "raw_value": "الجم",
           "meta": []
         }
@@ -674,8 +668,8 @@
     "cin_postprocess": {
       "executed": true,
       "name_extraction": {
-        "debug_sequence": "اللقب:ةيرعتلا ةتا يمامهلا الاسم:? variants:normal",
-        "family_name": "ةيرعتلا ةتا يمامهلا",
+        "debug_sequence": "اللقب:مثيه الاسم:? variants:normal",
+        "family_name": "مثيه",
         "first_name": null,
         "rule": "family_name=all words after اللقب; first_name=words on الاسم line before بن/بنت"
       },
@@ -684,9 +678,24 @@
           "field": "last_name",
           "type": "postprocess_skip_name_override",
           "kept": "مثيه",
-          "candidate": "ةيرعتلا ةتا يمامهلا",
+          "candidate": "مثيه",
           "candidate_ok": true,
           "old_ok": true,
+          "good_spatial": true
+        },
+        {
+          "field": "birth_date",
+          "type": "contextual_date_recovery",
+          "old": null,
+          "new": "1995-09-03",
+          "reason": "contextual_birth_date"
+        },
+        {
+          "field": "birth_place",
+          "type": "postprocess_skip_place_override",
+          "kept": "الجم",
+          "candidate": "الجم",
+          "reason": "known_place_in_raw_text",
           "good_spatial": true
         },
         {
@@ -709,17 +718,17 @@
       "warnings": [
         "Champ critique à vérifier: id_number"
       ],
-      "business_confidence": 0.8301,
+      "business_confidence": 0.8009,
       "critical_fields_ok": 2,
       "valid_fields_ok": 3,
       "present_fields": 4,
-      "quality_score": 0.669,
-      "avg_field_confidence": 0.95,
+      "quality_score": 0.604,
+      "avg_field_confidence": 0.9067,
       "field_coverage": 0.6
     }
   },
-  "raw_text": "الا قب لق 1995-02-23 الجم مثيه قلب CIN_NUMBER: بماقه التعريف الوطا CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 797 الهمامي اللقب بن الازهر بن ي 1995 نارخ الولادة 23 نارا تو الام هىثم بلقاسم فيفر نس بماقه التعريف الوطا CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 797 797 CIN_NUMBER: طلاا ةيرعتلا ةتا CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: يمامهلا اللقب مثيه الاسم رهزالا نب الاسمقلب نب الولادة خيات 19959 يرفيف سنوت طلاا ةيرعتلا ةتا CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: يمامهلا اللقب مثيه الاسم رهزالا نب الاسمقلب نب الولادة خيات 19959 يرفيف سنوت CIN_NUMBER: طلاا ةيرعتلا ةتا CIN_FAMILY_NAME: CIN_FIRST_NAME: ثه مإلا CIN_DATE_OF_BIRTH: رهورالا نب رفيف الولادة خيات 15 CIN_PLACE_OF_BIRTH: ةيسنوتلا ةيروهمجلا ةقا ةينطولا ةيرعتلا يمامهلا ةيشلا مثيه الاسم نب رهزالا نب الاسمقلب الولادة ات 195 يرفيف سنوت طلاا ةيرعتلا ةتا CIN_FIRST_NAME: ثه مإلا ثه مإلا رهورالا نب رفيف الولادة خيات 15 ةيسنوتلا ةيروهمجلا ةقا ةينطولا ةيرعتلا يمامهلا ةيشلا مثيه الاسم نب رهزالا نب الاسمقلب الولادة ات 195 يرفيف سنوت الا قب لق 1995-02-23 الجم الا قب الا قب لق لقاسم تابيخ 23 فيفري 1995 تاريخ الولادة 23 فيفري 1995 الجمهوريةالتونسيه بلاقةالتعرف الوطنيه الا قب الهمامي اللم هيثم بن الازهر لقاسم بن تاريخ الولادة 23 فيفري 1995 ناغا تونس right_text_block مثيه قلب مثيه اللقب قلب الاسمقلب بماقه التعريف الوطا 797 الهمامي اللقب بن الازهر بن ي 1995 نارخ الولادة 23 نارا تو الام هىثم بلقاسم فيفر نس طلاا ةيرعتلا ةتا يمامهلا اللقب مثيه الاسم رهزالا نب الاسمقلب نب الولادة خيات 19959 يرفيف سنوت ةيسنوتلا ةيروهمجلا ةقا ةينطولا ةيرعتلا يمامهلا ةيشلا مثيه الاسم نب رهزالا نب الاسمقلب الولادة ات 195 يرفيف سنوت طلاا ةيرعتلا ةتا ثه مإلا رهورالا نب رفيف الولادة خيات 15 يمامهلا اللقب مثيه الاسم رهزالا نب الاسمقلب نب الولادة خيات 19959 يرفيف سنوت",
-  "processing_time_ms": 6734,
+  "raw_text": "الا قب بلق الجم مثيه قلب CIN_NUMBER: لماقذ التعريف الوطا CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: 635 ب 1995 ؟ ناريخ الودادة 23 فيفر تلقاسم CIN_PLACE_OF_BIRTH: 3 9 الا قب بن الازهر بن ي 1995 نارخ الولادة 23 تغانرا تو الهمامي ررىم هنثم بلقاسم فيفر نس لماقذ التعريف الوطا CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: 635 ب 1995 ؟ ناريخ الودادة 23 فيفر تلقاسم 635 ب 1995 ؟ ناريخ الودادة 23 فيفر تلقاسم 3 9 CIN_NUMBER: طولا ةقاس ظيرعتلا CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: رس يمامهلا اللقب مثيه مسألا رهزالا نب الاسمقلب نب 1995 الولادة خيات يرفيف ثنوت اهن انح طولا ةقاس ظيرعتلا CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: رس رس CIN_NUMBER: طولا ةقاس ظيرعتلا CIN_FAMILY_NAME: CIN_FIRST_NAME: يمام مثه مسألا CIN_DATE_OF_BIRTH: الاسمقلس نب رهرالا ب الولادة خي ات 1995 ىرفف CIN_PLACE_OF_BIRTH: رس ةيسنوتلا ةيروهمجلا ةقالس ةينطولا فيرعتلا يمامهلا اللقب مثيه الاسمألا نب رهزالا نب الاسمقلب 19959 ةدالول ات يرفيف سنوت طولا ةقاس ظيرعتلا CIN_FIRST_NAME: يمام مثه مسألا يمام مثه مسألا الاسمقلس نب رهرالا ب الولادة خي ات 1995 ىرفف رس CIN_NUMBER: لماقذ التعريف الوطا CIN_FAMILY_NAME: CIN_FIRST_NAME: 2 دما ك رلاس CIN_DATE_OF_BIRTH: 635 ب 1995 ؟ ناريخ الودادة 23 فيفر تلقاسم CIN_PLACE_OF_BIRTH: 3 9 الجمهوريه التونسيه باقهالتعرف الوطنيه الهمامي الا قب بن الازهر بن ي 1995 تاخ الودا دة 23 تنانرا تو الدىم هلتم بلقاسم فيفر نس لماقذ التعريف الوطا CIN_FIRST_NAME: 2 دما ك رلاس 2 دما ك رلاس 635 ب 1995 ؟ ناريخ الودادة 23 فيفر تلقاسم 3 9 الا قب بلق الجم الا قب الا قب بلق بلقاسم الجمهوريف التونسيه بداقهالتعرفالوطنيه الا قب الهمامي رلام هيثم بن الازهر بن بلقاسم تاتخ الودا دة 23 فيفر ي 1995 تنانرا تو نس right_text_block مثيه قلب مثيه اللقب قلب الاسمقلب لماقذ التعريف الوطا 635 ب 1995 ؟ ناريخ الودادة 23 فيفر تلقاسم 3 9 الا قب بن الازهر بن ي 1995 نارخ الولادة 23 تغانرا تو الهمامي ررىم هنثم بلقاسم فيفر نس طولا ةقاس ظيرعتلا رس يمامهلا اللقب مثيه مسألا رهزالا نب الاسمقلب نب 1995 الولادة خيات يرفيف ثنوت اهن انح ةيسنوتلا ةيروهمجلا ةقالس ةينطولا فيرعتلا يمامهلا اللقب مثيه الاسمألا نب رهزالا نب الاسمقلب 19959 ةدالول ات يرفيف سنوت طولا ةقاس ظيرعتلا يمام مثه مسألا الاسمقلس نب رهرالا ب الولادة خي ات 1995 ىرفف رس يمامهلا اللقب مثيه مسألا رهزالا نب الاسمقلب نب 1995 الولادة خيات يرفيف ثنوت اهن انح الجمهوريه التونسيه باقهالتعرف الوطنيه الهمامي الا قب بن الازهر بن ي 1995 تاخ الودا دة 23 تنانرا تو الدىم هلتم بلقاسم فيفر نس لماقذ التعريف الوطا 2 دما ك رلاس 635 ب 1995 ؟ ناريخ الودادة 23 فيفر تلقاسم 3 9 الا قب بن الازهر بن ي 1995 نارخ الولادة 23 تغانرا تو الهمامي ررىم هنثم بلقاسم فيفر نس",
+  "processing_time_ms": 10417,
   "warnings": [
     "Champ critique à vérifier: id_number",
     "Champ requis 'numero_cin' à vérifier",

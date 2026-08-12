@@ -1,0 +1,30 @@
+[
+  {
+    "case_id": "passport_tn__pass47",
+    "family": "passport_tn",
+    "file": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\Passport\\pass47.jpg",
+    "file_exists": true,
+    "expected_document_type": "passport",
+    "expected_template_id": "passport_generic",
+    "critical_total": 7,
+    "error": null,
+    "response_file": "ResultatTest\\responses\\passport_tn\\passport_tn__pass47.json",
+    "http_status": 200,
+    "http_ok": true,
+    "api_status": "partial",
+    "template_id": "passport_generic",
+    "document_type": "passport",
+    "engine_used": "paddle",
+    "strategy": null,
+    "processing_time_ms": 18276,
+    "global_confidence": 0.1515,
+    "quality_score": 0.562,
+    "field_count": 6,
+    "validated_field_count": 1,
+    "critical_valid_count": 0,
+    "critical_missing": "document_number:field_not_found; surname:field not found; given_names:field not found; nationality:field not found; birth_date:field_not_found; expiry_date:field not found; mrz:field_not_found",
+    "template_ok": true,
+    "document_type_ok": true,
+    "critical_pass": false
+  }
+]

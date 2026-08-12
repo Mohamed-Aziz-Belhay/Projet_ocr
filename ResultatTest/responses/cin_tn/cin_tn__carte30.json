@@ -1,13 +1,13 @@
 {
-  "job_id": "9f142b86-0837-4c09-a4ab-1280acedc06f",
+  "job_id": "9728e9f7-f7a1-448d-8c86-5c4d290be13b",
   "status": "review_required",
   "template_id": "cin_tn",
   "document_type": "cin_tn",
   "document_variant": "recto",
-  "engine_used": "mixed(global_text,paddle_boxes)",
+  "engine_used": "mixed(easyocr,easyocr_boxes)",
   "language_detected": "ar",
-  "global_confidence": 0.8121,
-  "quality_score": 0.708,
+  "global_confidence": 0.636,
+  "quality_score": 0.654,
   "fields": [
     {
       "name": "id_number",
@@ -23,77 +23,87 @@
       "reasons": [
         "field unresolved",
         "critical field missing"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "last_name",
-      "value": "اللقب",
-      "confidence": 0.95,
-      "validated": true,
-      "raw_text": "الاقب",
-      "raw_template_field": null,
-      "error": null,
-      "selected_engine": "paddle_boxes",
-      "selected_source": "spatial_boxes",
-      "review_required": false,
-      "reasons": [
-        "selected_from:spatial_boxes",
-        "cin_arabic_ocr_fix:الاقب->اللقب"
-      ]
-    },
-    {
-      "name": "first_name",
-      "value": "رهام",
-      "confidence": 0.95,
-      "validated": true,
-      "raw_text": "رهام",
-      "raw_template_field": null,
-      "error": null,
-      "selected_engine": "global_text",
-      "selected_source": "spatial_boxes",
-      "review_required": false,
-      "reasons": [
-        "selected_from:spatial_boxes"
-      ]
-    },
-    {
-      "name": "birth_date",
       "value": null,
       "confidence": 0.0,
       "validated": false,
       "raw_text": null,
       "raw_template_field": null,
-      "error": "Date introuvable",
+      "error": "Nom introuvable",
       "selected_engine": null,
       "selected_source": null,
       "review_required": true,
       "reasons": [
         "field unresolved",
         "critical field missing"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
+    },
+    {
+      "name": "first_name",
+      "value": "ماهر",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "ماهر",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ],
+      "original_value": null,
+      "corrected": false
+    },
+    {
+      "name": "birth_date",
+      "value": "1986-01-19",
+      "confidence": 0.65,
+      "validated": true,
+      "raw_text": "1986-01-19",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "text_date_fallback",
+      "review_required": false,
+      "reasons": [
+        "selected_from:text_date_fallback"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_place",
-      "value": null,
-      "confidence": 0.0,
+      "value": "الجم",
+      "confidence": 0.6,
       "validated": false,
-      "raw_text": null,
+      "raw_text": "الجم",
       "raw_template_field": null,
-      "error": "Lieu introuvable",
-      "selected_engine": null,
-      "selected_source": null,
-      "review_required": false,
+      "error": "Lieu de naissance générique/suspect - vérification requise",
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": true,
       "reasons": [
-        "field unresolved"
-      ]
+        "selected_from:spatial_boxes",
+        "invalid_suspicious_birth_place"
+      ],
+      "original_value": null,
+      "corrected": false
     }
   ],
   "normalized_data": {
     "idNumber": null,
-    "lastName": "اللقب",
-    "firstName": "رهام",
-    "birthDate": null,
-    "birthPlace": null
+    "lastName": null,
+    "firstName": "ماهر",
+    "birthDate": "1986-01-19",
+    "birthPlace": "الجم"
   },
   "routing": null,
   "business_validation": {
@@ -101,18 +111,18 @@
     "review_required": true,
     "review_reasons": [
       "critical field missing or invalid: id_number",
-      "birth_date missing"
+      "critical field missing or invalid: last_name"
     ],
     "warnings": [
       "Champ critique à vérifier: id_number",
-      "Date de naissance à vérifier"
+      "Champ critique à vérifier: last_name"
     ],
-    "business_confidence": 0.8121,
-    "critical_fields_ok": 2,
+    "business_confidence": 0.636,
+    "critical_fields_ok": 1,
     "valid_fields_ok": 2,
-    "present_fields": 2,
-    "quality_score": 0.708,
-    "avg_field_confidence": 0.95,
+    "present_fields": 3,
+    "quality_score": 0.654,
+    "avg_field_confidence": 0.8,
     "field_coverage": 0.4
   },
   "diagnostics": {
@@ -124,20 +134,21 @@
       "paddle_boxes",
       "targeted_roi:easyocr",
       "targeted_roi:paddle",
-      "full_ocr:paddle"
+      "full_ocr:paddle",
+      "full_ocr:easyocr"
     ],
     "preprocessing": {
       "quality": {
-        "sharpness": 1.0,
-        "brightness": 0.568,
-        "contrast": 0.387,
-        "quality_score": 0.708
+        "sharpness": 0.952,
+        "brightness": 0.519,
+        "contrast": 0.32,
+        "quality_score": 0.654
       },
       "transforms": {
         "resized": false,
         "deskewed": false,
-        "contrast": true,
-        "mode": "cin_legacy_compatible"
+        "contrast": false,
+        "mode": "cin_simple_deskew_only"
       },
       "cin_preprocessor_keys": [
         "binary",
@@ -149,39 +160,39 @@
       ]
     },
     "quality_checks": {
-      "sharpness": 1.0,
-      "brightness": 0.568,
-      "contrast": 0.387,
-      "quality_score": 0.708
+      "sharpness": 0.952,
+      "brightness": 0.519,
+      "contrast": 0.32,
+      "quality_score": 0.654
     },
     "roi_fields": {
       "cin_number": [
-        19,
-        191
+        27,
+        218
       ],
       "family_name": [
-        16,
-        167
+        23,
+        191
       ],
       "first_name": [
-        16,
-        167
+        22,
+        191
       ],
       "date_of_birth": [
-        17,
-        167
+        25,
+        191
       ],
       "place_of_birth": [
-        18,
-        167
+        25,
+        191
       ],
       "gender": [
-        12,
-        81
+        18,
+        94
       ],
       "right_text_block": [
-        87,
-        187
+        125,
+        214
       ]
     },
     "engines": [
@@ -191,19 +202,19 @@
         "trial_type": "targeted_missing_rois",
         "target_fields": [
           "cin_number",
-          "date_of_birth",
+          "family_name",
           "place_of_birth"
         ],
-        "processing_time_ms": 224,
+        "processing_time_ms": 607,
         "zones": {
-          "cin_number": "",
-          "date_of_birth": "",
-          "place_of_birth": "",
-          "right_text_block": "على بن 19#6 ذابغ الرلادة 19 حانذ مافر"
+          "cin_number": "بماذ العرتفالوملا",
+          "family_name": "",
+          "place_of_birth": "1٧٢ دانذ",
+          "right_text_block": "ادم مار بن على بن 19#6 ناج الرلادن 19 سانوا الشر جانفى"
         },
         "zone_scores": {
           "cin_number": 0.0,
-          "date_of_birth": 0.0,
+          "family_name": 0.0,
           "place_of_birth": 0.0,
           "right_text_block": 0.0
         },
@@ -215,19 +226,19 @@
         "trial_type": "targeted_missing_rois",
         "target_fields": [
           "cin_number",
-          "date_of_birth",
+          "family_name",
           "place_of_birth"
         ],
-        "processing_time_ms": 905,
+        "processing_time_ms": 13,
         "zones": {
           "cin_number": "",
-          "date_of_birth": "",
+          "family_name": "",
           "place_of_birth": "",
-          "right_text_block": "رهام مسإلو ن للع ن 1986 ىفناح ةدالولا خبات سنوت اع"
+          "right_text_block": ""
         },
         "zone_scores": {
           "cin_number": 0.0,
-          "date_of_birth": 0.0,
+          "family_name": 0.0,
           "place_of_birth": 0.0,
           "right_text_block": 0.0
         },
@@ -237,9 +248,9 @@
         "engine": "paddle",
         "executed": true,
         "trial_type": "full_card_and_all_rois",
-        "full_text": "رشلا بقألا رهام ملا ن مع نب 1986 ةناح ةدولا خيات",
+        "full_text": "",
         "full_text_score": 0.0,
-        "processing_time_ms": 936,
+        "processing_time_ms": 32,
         "zones": {
           "cin_number": "",
           "family_name": "",
@@ -247,7 +258,34 @@
           "date_of_birth": "",
           "place_of_birth": "",
           "gender": "",
-          "right_text_block": "رهام مسإلو ن للع ن 1986 ىفناح ةدالولا خبات سنوت اع"
+          "right_text_block": ""
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "الجمهوريف التونسيذ بطاقذ التعرف الوطنيذ الشر بن على بن نارخ الولادةً 19 جانفى 1986 سائا تو اتلم ماذر",
+        "full_text_score": 0.0,
+        "processing_time_ms": 795,
+        "zones": {
+          "cin_number": "بماذ العرتفالوملا",
+          "family_name": "",
+          "first_name": "",
+          "date_of_birth": "",
+          "place_of_birth": "1٧٢ دانذ",
+          "gender": "",
+          "right_text_block": "ادم مار بن على بن 19#6 ناج الرلادن 19 سانوا الشر جانفى"
         },
         "zone_scores": {
           "cin_number": 0.0,
@@ -265,12 +303,14 @@
       "trials": [
         {
           "engine": "easyocr_boxes",
-          "box_count": 4,
+          "box_count": 8,
           "fields": {
-            "first_name": "مافر"
+            "first_name": "ماهر",
+            "place_of_birth": "الجم"
           },
           "scores": {
-            "first_name": 15.06526890737988
+            "first_name": 15.106620151535926,
+            "place_of_birth": 9.0
           },
           "meta": {
             "cin_number": {
@@ -284,8 +324,8 @@
               "anchors_found": 0
             },
             "first_name": {
-              "chosen_from": "اسم مافر",
-              "candidate_text": "مافر",
+              "chosen_from": "اسم ماهر",
+              "candidate_text": "ماهر",
               "source_kind": "inline",
               "anchors_found": 1
             },
@@ -295,60 +335,9 @@
               "anchors_found": 1
             },
             "place_of_birth": {
-              "chosen_from": null,
-              "source_kind": "no_valid_place",
-              "anchors_found": 0
-            },
-            "label_spatial": {
-              "reason": "no_items"
-            }
-          },
-          "label_spatial": {
-            "fields": {},
-            "scores": {},
-            "meta": {
-              "reason": "no_items"
-            }
-          },
-          "raw_text_reconstructed": ""
-        },
-        {
-          "engine": "paddle_boxes",
-          "box_count": 9,
-          "fields": {
-            "family_name": "بقالا",
-            "first_name": "رهام"
-          },
-          "scores": {
-            "family_name": 15.169884586334229,
-            "first_name": 15.162547981739044
-          },
-          "meta": {
-            "cin_number": {
-              "chosen_from": null,
-              "candidate_text": null,
-              "source_kind": "spatial_numeric"
-            },
-            "family_name": {
-              "chosen_from": "بقألا",
-              "candidate_text": "بقألا",
-              "source_kind": "inline",
-              "anchors_found": 1
-            },
-            "first_name": {
-              "chosen_from": "رهام ملا",
-              "candidate_text": "رهام",
-              "source_kind": "inline",
-              "anchors_found": 1
-            },
-            "date_of_birth": {
-              "chosen_from": null,
-              "source_kind": "no_valid_date",
-              "anchors_found": 1
-            },
-            "place_of_birth": {
-              "chosen_from": null,
-              "source_kind": "no_valid_place",
+              "chosen_from": "right_text_block",
+              "candidate_text": "الجمهوريف التونسيذ بطاقذ التعرف الوطنيغ الشر اسم ماهر بن على بن 1986 ناريح الولادة 19 جانفى نانها",
+              "source_kind": "right_text_fallback",
               "anchors_found": 0
             },
             "label_spatial": {
@@ -364,6 +353,9 @@
           },
           "raw_text_reconstructed": ""
         }
+      ],
+      "errors": [
+        "paddle_boxes: could not create a primitive"
       ]
     },
     "fusion": {
@@ -372,26 +364,19 @@
           "engine": "easyocr_boxes",
           "source": "spatial_boxes",
           "fields": {
-            "first_name": "مافر"
-          }
-        },
-        {
-          "engine": "paddle_boxes",
-          "source": "spatial_boxes",
-          "fields": {
-            "family_name": "بقالا",
-            "first_name": "رهام"
+            "first_name": "ماهر",
+            "place_of_birth": "الجم"
           }
         },
         {
           "engine": "easyocr",
           "source": "targeted_roi_ocr",
           "fields": {
-            "cin_number": "CIN_FAMILY_NAME:",
+            "cin_number": "بماذ العرتفالوملا",
             "family_name": "CIN_FIRST_NAME:",
             "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "على بن 19#6 ذابغ الرلادة 19 حانذ مافر"
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: 1٧٢ دانذ",
+            "place_of_birth": "1٧٢ دانذ"
           }
         },
         {
@@ -401,8 +386,7 @@
             "cin_number": "CIN_FAMILY_NAME:",
             "family_name": "CIN_FIRST_NAME:",
             "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "رهام مسإلو ن للع ن 1986 ىفناح ةدالولا خبات سنوت اع"
+            "date_of_birth": "CIN_PLACE_OF_BIRTH:"
           }
         },
         {
@@ -412,90 +396,28 @@
             "cin_number": "CIN_FAMILY_NAME:",
             "family_name": "CIN_FIRST_NAME:",
             "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "رشلا بقألا رهام ملا ن مع نب 1986 ةناح ةدولا خيات"
+            "date_of_birth": "CIN_PLACE_OF_BIRTH:"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "roi_ocr",
+          "fields": {
+            "cin_number": "بماذ العرتفالوملا",
+            "family_name": "CIN_FIRST_NAME:",
+            "first_name": "CIN_DATE_OF_BIRTH:",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: 1٧٢ دانذ",
+            "place_of_birth": "1٧٢ دانذ"
           }
         }
       ],
       "aggregated": {
         "cin_number": [],
-        "family_name": [
-          {
-            "value": "رهام",
-            "avg_conf": 0.0,
-            "count": 3,
-            "engines": [
-              "global_text",
-              "paddle"
-            ],
-            "sources": [
-              "text_family_fallback",
-              "text_family_global"
-            ],
-            "profiles": [],
-            "selection_score": 52.6,
-            "raw_value": "رهام",
-            "meta": [
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_combined_text": true
-              }
-            ]
-          },
-          {
-            "value": "الاقب",
-            "avg_conf": 15.169885,
-            "count": 1,
-            "engines": [
-              "paddle_boxes"
-            ],
-            "sources": [
-              "spatial_boxes"
-            ],
-            "profiles": [],
-            "selection_score": 48.469885,
-            "raw_value": "بقالا",
-            "meta": []
-          }
-        ],
+        "family_name": [],
         "first_name": [
           {
-            "value": "رهام",
-            "avg_conf": 3.792471,
-            "count": 4,
-            "engines": [
-              "global_text",
-              "paddle",
-              "paddle_boxes"
-            ],
-            "sources": [
-              "spatial_boxes",
-              "text_first_fallback",
-              "text_first_global"
-            ],
-            "profiles": [],
-            "selection_score": 63.392471,
-            "raw_value": "رهام",
-            "meta": [
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_combined_text": true
-              }
-            ]
-          },
-          {
-            "value": "مافر",
-            "avg_conf": 15.065269,
+            "value": "ماهر",
+            "avg_conf": 15.10662,
             "count": 1,
             "engines": [
               "easyocr_boxes"
@@ -504,61 +426,101 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 49.665269,
-            "raw_value": "مافر",
+            "selection_score": 49.70662,
+            "raw_value": "ماهر",
             "meta": []
           }
         ],
-        "date_of_birth": [],
-        "place_of_birth": []
+        "date_of_birth": [
+          {
+            "value": "19/01/1986",
+            "avg_conf": 0.0,
+            "count": 1,
+            "engines": [
+              "easyocr"
+            ],
+            "sources": [
+              "text_date_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 19.0,
+            "raw_value": "1986-01-19",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          }
+        ],
+        "place_of_birth": [
+          {
+            "value": "الجم",
+            "avg_conf": 15.10662,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 57.10662,
+            "raw_value": "الجم",
+            "meta": []
+          }
+        ]
       },
       "selected": {
-        "family_name": {
-          "value": "الاقب",
-          "avg_conf": 15.169885,
+        "family_name": null,
+        "first_name": {
+          "value": "ماهر",
+          "avg_conf": 15.10662,
           "count": 1,
           "engines": [
-            "paddle_boxes"
+            "easyocr_boxes"
           ],
           "sources": [
             "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 48.469885,
-          "raw_value": "بقالا",
+          "selection_score": 49.70662,
+          "raw_value": "ماهر",
           "meta": []
         },
-        "first_name": {
-          "value": "رهام",
-          "avg_conf": 3.792471,
-          "count": 4,
+        "date_of_birth": {
+          "value": "19/01/1986",
+          "avg_conf": 0.0,
+          "count": 1,
           "engines": [
-            "global_text",
-            "paddle",
-            "paddle_boxes"
+            "easyocr"
           ],
           "sources": [
-            "spatial_boxes",
-            "text_first_fallback",
-            "text_first_global"
+            "text_date_fallback"
           ],
           "profiles": [],
-          "selection_score": 63.392471,
-          "raw_value": "رهام",
+          "selection_score": 19.0,
+          "raw_value": "1986-01-19",
           "meta": [
             {
               "from_raw_text": true
-            },
-            {
-              "from_raw_text": true
-            },
-            {
-              "from_combined_text": true
             }
           ]
         },
-        "date_of_birth": null,
-        "place_of_birth": null
+        "place_of_birth": {
+          "value": "الجم",
+          "avg_conf": 15.10662,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 57.10662,
+          "raw_value": "الجم",
+          "meta": []
+        }
       }
     },
     "cin_postprocess": {
@@ -566,48 +528,56 @@
       "name_extraction": null,
       "applied": [
         {
-          "field": "last_name",
-          "type": "arabic_ocr_name_fix",
-          "old": "الاقب",
-          "new": "اللقب"
+          "field": "birth_place",
+          "type": "postprocess_skip_place_override",
+          "kept": "الجم",
+          "candidate": "الجم",
+          "reason": "known_place_in_raw_text",
+          "good_spatial": true
+        },
+        {
+          "field": "birth_place",
+          "type": "invalid_suspicious_birth_place",
+          "value": "الجم"
         }
       ]
     },
     "review_required": true,
     "review_reasons": [
       "critical field missing or invalid: id_number",
-      "birth_date missing"
+      "critical field missing or invalid: last_name"
     ],
     "business_validation": {
       "status": "review_required",
       "review_required": true,
       "review_reasons": [
         "critical field missing or invalid: id_number",
-        "birth_date missing"
+        "critical field missing or invalid: last_name"
       ],
       "warnings": [
         "Champ critique à vérifier: id_number",
-        "Date de naissance à vérifier"
+        "Champ critique à vérifier: last_name"
       ],
-      "business_confidence": 0.8121,
-      "critical_fields_ok": 2,
+      "business_confidence": 0.636,
+      "critical_fields_ok": 1,
       "valid_fields_ok": 2,
-      "present_fields": 2,
-      "quality_score": 0.708,
-      "avg_field_confidence": 0.95,
+      "present_fields": 3,
+      "quality_score": 0.654,
+      "avg_field_confidence": 0.8,
       "field_coverage": 0.4
     }
   },
-  "raw_text": "مافر بقالا رهام CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: على بن 19#6 ذابغ الرلادة 19 حانذ مافر CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: على بن 19#6 ذابغ الرلادة 19 حانذ مافر CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: رهام مسإلو ن للع ن 1986 ىفناح الولادة خبات سنوت اع CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: رهام مسإلو ن للع ن 1986 ىفناح الولادة خبات سنوت اع CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: رشلا بقألا رهام ملا ن مع نب 1986 ةناح ةدولا خيات CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: رشلا بقألا رهام ملا ن مع نب 1986 ةناح ةدولا خيات مافر مافر اسم مافر بقالا رهام بقألا بقألا رهام رهام ملا على بن 19#6 ذابغ الرلادة 19 حانذ مافر رهام مسإلو ن للع ن 1986 ىفناح الولادة خبات سنوت اع رشلا بقألا رهام ملا ن مع نب 1986 ةناح ةدولا خيات رهام مسإلو ن للع ن 1986 ىفناح الولادة خبات سنوت اع",
-  "processing_time_ms": 3676,
+  "raw_text": "ماهر الجم CIN_NUMBER: بماذ العرتفالوملا CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 172 دانذ ادم مار بن على بن 19#6 ناج الرلادن 19 سانوا الشر جانفى بماذ العرتفالوملا CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 172 دانذ 172 دانذ CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_NUMBER: بماذ العرتفالوملا CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 172 دانذ الجمهوريف التونسيذ بطاقذ التعرف الوطنيذ الشر بن على بن نارخ الولادةً 19 جانفى 1986 سائا تو اتلم ماذر بماذ العرتفالوملا CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 172 دانذ 172 دانذ ماهر الجم ماهر اسم ماهر الجمهوريف التونسيذ بطاقذ التعرف الوطنيغ الشر اسم ماهر بن على بن 1986 ناريح الولادة 19 جانفى نممكانها right_text_block بماذ العرتفالوملا 172 دانذ ادم مار بن على بن 19#6 ناج الرلادن 19 سانوا الشر جانفى الجمهوريف التونسيذ بطاقذ التعرف الوطنيذ الشر بن على بن نارخ الولادةً 19 جانفى 1986 سائا تو اتلم ماذر بماذ العرتفالوملا 172 دانذ ادم مار بن على بن 19#6 ناج الرلادن 19 سانوا الشر جانفى",
+  "processing_time_ms": 2944,
   "warnings": [
     "Champ critique à vérifier: id_number",
-    "Date de naissance à vérifier",
+    "Champ critique à vérifier: last_name",
     "Champ requis 'numero_cin' à vérifier",
-    "Champ requis 'date_naissance' à vérifier"
+    "Champ requis 'nom' à vérifier",
+    "Champ requis 'lieu_naissance' à vérifier"
   ],
   "review_reasons": [
     "critical field missing or invalid: id_number",
-    "birth_date missing"
+    "critical field missing or invalid: last_name"
   ]
 }

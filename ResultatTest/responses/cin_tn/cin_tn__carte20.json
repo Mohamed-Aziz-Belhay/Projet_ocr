@@ -1,13 +1,13 @@
 {
-  "job_id": "1c893774-72d3-4fea-9952-701b310835eb",
+  "job_id": "f0ad0d43-3ca5-4155-a084-96ccc1c2dd6e",
   "status": "review_required",
   "template_id": "cin_tn",
   "document_type": "cin_tn",
   "document_variant": "recto",
-  "engine_used": "mixed(easyocr,paddle)",
+  "engine_used": "mixed(easyocr,easyocr_boxes)",
   "language_detected": "ar",
-  "global_confidence": 0.7963,
-  "quality_score": 0.712,
+  "global_confidence": 0.8191,
+  "quality_score": 0.439,
   "fields": [
     {
       "name": "id_number",
@@ -23,39 +23,44 @@
       "reasons": [
         "field unresolved",
         "critical field missing"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "last_name",
-      "value": "اصد وعلا يدا",
-      "confidence": 0.9,
+      "value": "العو",
+      "confidence": 0.95,
       "validated": true,
-      "raw_text": "ولافيرعسل",
+      "raw_text": "العو",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "easyocr",
-      "selected_source": "cin_postprocess_laqab_line",
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
       "review_required": false,
       "reasons": [
-        "selected_from:text_family_fallback",
-        "reconstructed_from:اللقب_line"
-      ]
+        "selected_from:spatial_boxes"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "first_name",
       "value": "محمد",
       "confidence": 0.95,
       "validated": true,
-      "raw_text": "دمحم",
+      "raw_text": "محمل",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "paddle",
+      "selected_engine": "easyocr_boxes",
       "selected_source": "spatial_boxes",
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes",
-        "cin_arabic_ocr_fix:دمحم->محمد"
-      ]
+        "cin_arabic_ocr_fix:محمل->محمد"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_date",
@@ -72,31 +77,34 @@
         "field unresolved",
         "critical field missing",
         "birth_date_recovered:contextual_birth_date"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_place",
-      "value": "الجم",
-      "confidence": 0.6,
-      "validated": false,
-      "raw_text": "الجم",
+      "value": "تونس",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "تونس",
       "raw_template_field": null,
-      "error": "Lieu de naissance générique/suspect - vérification requise",
+      "error": null,
       "selected_engine": "easyocr",
       "selected_source": "spatial_boxes",
-      "review_required": true,
+      "review_required": false,
       "reasons": [
-        "selected_from:spatial_boxes",
-        "invalid_suspicious_birth_place"
-      ]
+        "selected_from:spatial_boxes"
+      ],
+      "original_value": null,
+      "corrected": false
     }
   ],
   "normalized_data": {
     "idNumber": null,
-    "lastName": "اصد وعلا يدا",
+    "lastName": "العو",
     "firstName": "محمد",
     "birthDate": "1986-05-16",
-    "birthPlace": "الجم"
+    "birthPlace": "تونس"
   },
   "routing": null,
   "business_validation": {
@@ -108,13 +116,13 @@
     "warnings": [
       "Champ critique à vérifier: id_number"
     ],
-    "business_confidence": 0.7963,
+    "business_confidence": 0.8191,
     "critical_fields_ok": 2,
-    "valid_fields_ok": 3,
+    "valid_fields_ok": 4,
     "present_fields": 4,
-    "quality_score": 0.712,
-    "avg_field_confidence": 0.89,
-    "field_coverage": 0.6
+    "quality_score": 0.439,
+    "avg_field_confidence": 0.9175,
+    "field_coverage": 0.8
   },
   "diagnostics": {
     "mode": "cin_specialized_v2",
@@ -125,20 +133,21 @@
       "paddle_boxes",
       "targeted_roi:easyocr",
       "targeted_roi:paddle",
-      "full_ocr:paddle"
+      "full_ocr:paddle",
+      "full_ocr:easyocr"
     ],
     "preprocessing": {
       "quality": {
-        "sharpness": 1.0,
-        "brightness": 0.589,
-        "contrast": 0.381,
-        "quality_score": 0.712
+        "sharpness": 0.375,
+        "brightness": 0.627,
+        "contrast": 0.377,
+        "quality_score": 0.439
       },
       "transforms": {
         "resized": false,
         "deskewed": false,
-        "contrast": true,
-        "mode": "cin_legacy_compatible"
+        "contrast": false,
+        "mode": "cin_simple_deskew_only"
       },
       "cin_preprocessor_keys": [
         "binary",
@@ -150,10 +159,10 @@
       ]
     },
     "quality_checks": {
-      "sharpness": 1.0,
-      "brightness": 0.589,
-      "contrast": 0.381,
-      "quality_score": 0.712
+      "sharpness": 0.375,
+      "brightness": 0.627,
+      "contrast": 0.377,
+      "quality_score": 0.439
     },
     "roi_fields": {
       "cin_number": [
@@ -192,17 +201,17 @@
         "trial_type": "targeted_missing_rois",
         "target_fields": [
           "cin_number",
-          "place_of_birth"
+          "date_of_birth"
         ],
-        "processing_time_ms": 880,
+        "processing_time_ms": 871,
         "zones": {
-          "cin_number": "الجمهورية التونسية : ٠1 حا٦ ٠\"",
-          "place_of_birth": "ماي 0200 تق٦ د ج1 عاها تونس",
-          "right_text_block": "بعاذة ا لسعريفالو اللقب مجمد بن محمود بن عبدالله 1986 تاخ الولادة 16 عاها تونس العو ادى أمين الابم ماي"
+          "cin_number": "الجمهورية التونسيذ : ٠1 4٢ ٠٠٦ : ٠٠٦٢",
+          "date_of_birth": "امين محمل بن محمود بن عبدالله الام",
+          "right_text_block": "بعاخ الغرفالوا اللقب م جمل بن محمود بن عبدالله 1986 تاخ الولادة 16 مكانها تو ادى العو أمين الاىم ماي ونس"
         },
         "zone_scores": {
           "cin_number": 0.0,
-          "place_of_birth": 0.0,
+          "date_of_birth": 0.0,
           "right_text_block": 0.0
         },
         "notes": []
@@ -212,19 +221,14 @@
         "executed": true,
         "trial_type": "targeted_missing_rois",
         "target_fields": [
-          "cin_number",
-          "place_of_birth"
+          "cin_number"
         ],
-        "processing_time_ms": 2054,
+        "processing_time_ms": 494,
         "zones": {
-          "cin_number": "ةيسنوتلا هير وهمجلا ١",
-          "place_of_birth": "١٩ يام 0١ هدالولا جتا سنوت انهشاكم",
-          "right_text_block": "ولا قيرعلا ٦ اصد وعلا يدا بقللا نيمأ كمحم مسإلا هللا دبع نب دومحم نب 1986 ياام 16 ةدالولا خرات سنوت انهشاكم"
+          "cin_number": "ةيسنوتلا ةيير وهمجلا ٢١"
         },
         "zone_scores": {
-          "cin_number": 0.0,
-          "place_of_birth": 0.0,
-          "right_text_block": 0.0
+          "cin_number": 0.0
         },
         "notes": []
       },
@@ -232,17 +236,44 @@
         "engine": "paddle",
         "executed": true,
         "trial_type": "full_card_and_all_rois",
-        "full_text": "ةيسنوتلا ةيرر وهمجلا ةينطولا ةقاطب فيرعتلا وعلا يدا بقللا نيمأ كمحم مسإلا هللا دبع دومحم نب نب 1986 يام 16 ةدالولا خرات سنوت اهشكم",
+        "full_text": "ةيسنوتلا ةيير وهمجلا ةينطوولا ةقاطب فيرعتلا وعلا يدا بقللا نيمأ دمحم مسالا هللا دبع نب دومحم نب 196 يام 16 ةدالولا خيات سنوت ا",
         "full_text_score": 0.0,
-        "processing_time_ms": 3852,
+        "processing_time_ms": 4000,
         "zones": {
-          "cin_number": "ةيسنوتلا هير وهمجلا ١",
+          "cin_number": "ةيسنوتلا ةيير وهمجلا ٢١",
           "family_name": "",
-          "first_name": "ىدا وعلا بقللا",
-          "date_of_birth": "نيمأ دمحم مسالا هللا دبع نب دومحم نب",
-          "place_of_birth": "١٩ يام 0١ هدالولا جتا سنوت انهشاكم",
+          "first_name": "دا وعلا بقللا",
+          "date_of_birth": "نيمأ دمحم هللا دبع فب دومحم نب",
+          "place_of_birth": "6٩ يام ١ هدالولا جتان انهاكم سنوت",
           "gender": "",
-          "right_text_block": "ولا قيرعلا ٦ اصد وعلا يدا بقللا نيمأ كمحم مسإلا هللا دبع نب دومحم نب 1986 ياام 16 ةدالولا خرات سنوت انهشاكم"
+          "right_text_block": "ولا قفييرعتللا ةقاطب وعلا يدا بقللا نيمأ دمحم مسالا هللا دبع نب دومحم نب 1986 يام 16 ةدالولا خيرات سنوت انهاكم"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "الجمهوريف التونسيذ بطاقةالتعريف الوطنيذ اللقب م جمل بن محمود بن عبدالله 1986 تاخ الولادة 16 مكانها تونس ادى العو أمين الام ماي",
+        "full_text_score": 0.0,
+        "processing_time_ms": 2238,
+        "zones": {
+          "cin_number": "الجمهورية التونسيذ : ٠1 4٢ ٠٠٦ : ٠٠٦٢",
+          "family_name": "ena",
+          "first_name": "اللقب العه ادي",
+          "date_of_birth": "امين محمل بن محمود بن عبدالله الام",
+          "place_of_birth": "17 ماي ت ٦دد٠ ٥ معانها تونس",
+          "gender": "",
+          "right_text_block": "بعاخ الغرفالوا اللقب م جمل بن محمود بن عبدالله 1986 تاخ الولادة 16 مكانها تو ادى العو أمين الاىم ماي ونس"
         },
         "zone_scores": {
           "cin_number": 0.0,
@@ -263,13 +294,13 @@
           "box_count": 13,
           "fields": {
             "family_name": "العو",
-            "first_name": "مجم",
-            "place_of_birth": "الجم"
+            "first_name": "محمل",
+            "place_of_birth": "تونس"
           },
           "scores": {
-            "family_name": 10.957701774171042,
-            "first_name": 10.623407636458087,
-            "place_of_birth": 9.0
+            "family_name": 10.987322639133842,
+            "first_name": 10.613536888329808,
+            "place_of_birth": 14.065100599023445
           },
           "meta": {
             "cin_number": {
@@ -285,7 +316,7 @@
             },
             "first_name": {
               "chosen_from": "اللم",
-              "candidate_text": "مجم",
+              "candidate_text": "محمل",
               "source_kind": "label_neighbor",
               "anchors_found": 1
             },
@@ -295,10 +326,10 @@
               "anchors_found": 1
             },
             "place_of_birth": {
-              "chosen_from": "right_text_block",
-              "candidate_text": "الجمهوريةالتونسية بطاقهالتعريف الوطنيذ اللقب العو ادي اللم أمين مجم بن محمود بن عبدالله 1986 تاخ الولادة 16 ماي عاها تونس",
-              "source_kind": "right_text_fallback",
-              "anchors_found": 0
+              "chosen_from": "مكانها تونس",
+              "candidate_text": "تونس",
+              "source_kind": "inline",
+              "anchors_found": 1
             },
             "label_spatial": {
               "reason": "no_items"
@@ -315,14 +346,14 @@
         },
         {
           "engine": "paddle_boxes",
-          "box_count": 22,
+          "box_count": 23,
           "fields": {
             "family_name": "وعلا",
-            "first_name": "دمحم"
+            "first_name": "محمد"
           },
           "scores": {
-            "family_name": 11.008764697473044,
-            "first_name": 11.188950689374504
+            "family_name": 11.02131457261646,
+            "first_name": 11.204203568920578
           },
           "meta": {
             "cin_number": {
@@ -337,7 +368,7 @@
               "anchors_found": 1
             },
             "first_name": {
-              "chosen_from": "مسإلا",
+              "chosen_from": "مسالا",
               "candidate_text": "دمحم",
               "source_kind": "label_neighbor_merged",
               "anchors_found": 1
@@ -350,7 +381,7 @@
             "place_of_birth": {
               "chosen_from": null,
               "source_kind": "no_valid_place",
-              "anchors_found": 0
+              "anchors_found": 1
             },
             "label_spatial": {
               "reason": "no_items"
@@ -374,8 +405,8 @@
           "source": "spatial_boxes",
           "fields": {
             "family_name": "العو",
-            "first_name": "مجم",
-            "place_of_birth": "الجم"
+            "first_name": "محمل",
+            "place_of_birth": "تونس"
           }
         },
         {
@@ -383,40 +414,50 @@
           "source": "spatial_boxes",
           "fields": {
             "family_name": "وعلا",
-            "first_name": "دمحم"
+            "first_name": "محمد"
           }
         },
         {
           "engine": "easyocr",
           "source": "targeted_roi_ocr",
           "fields": {
-            "cin_number": "الجمهورية التونسية : ٠1 حا٦ ٠\"",
+            "cin_number": "الجمهورية التونسيذ : ٠1 4٢ ٠٠٦ : ٠٠٦٢",
             "family_name": "CIN_FIRST_NAME:",
-            "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH: ماي 0200 تق٦ د ج1 عاها تونس",
-            "place_of_birth": "ماي 0200 تق٦ د ج1 عاها تونس"
+            "first_name": "CIN_DATE_OF_BIRTH: امين محمل بن محمود بن عبدالله الام",
+            "date_of_birth": "امين محمل بن محمود بن عبدالله الام",
+            "place_of_birth": "بعاخ الغرفالوا اللقب م جمل بن محمود بن عبدالله 1986 تاخ الولادة 16 مكانها تو ادى العو أمين الاىم ماي ونس"
           }
         },
         {
           "engine": "paddle",
           "source": "targeted_roi_ocr",
           "fields": {
-            "cin_number": "ةيسنوتلا هير وهمجلا ١",
+            "cin_number": "ةيسنوتلا ةيير وهمجلا ٢١",
             "family_name": "CIN_FIRST_NAME:",
             "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH: ١٩ يام 0١ هدالولا جتا سنوت انهشاكم",
-            "place_of_birth": "١٩ يام 0١ هدالولا جتا سنوت انهشاكم"
+            "date_of_birth": "CIN_PLACE_OF_BIRTH:"
           }
         },
         {
           "engine": "paddle",
           "source": "roi_ocr",
           "fields": {
-            "cin_number": "ةيسنوتلا هير وهمجلا ١",
-            "family_name": "CIN_FIRST_NAME: ىدا وعلا بقللا",
-            "first_name": "ىدا وعلا بقللا",
-            "date_of_birth": "نيمأ دمحم مسالا هللا دبع نب دومحم نب",
-            "place_of_birth": "١٩ يام 0١ هدالولا جتا سنوت انهشاكم"
+            "cin_number": "ةيسنوتلا ةيير وهمجلا ٢١",
+            "family_name": "CIN_FIRST_NAME: دا وعلا بقللا",
+            "first_name": "دا وعلا بقللا",
+            "date_of_birth": "نيمأ دمحم هللا دبع فب دومحم نب",
+            "place_of_birth": "6٩ يام ١ هدالولا جتان انهاكم سنوت"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "roi_ocr",
+          "fields": {
+            "cin_number": "الجمهورية التونسيذ : ٠1 4٢ ٠٠٦ : ٠٠٦٢",
+            "family_name": "ena",
+            "first_name": "اللقب العه ادي",
+            "date_of_birth": "امين محمل بن محمود بن عبدالله الام",
+            "place_of_birth": "17 ماي ت ٦دد٠ ٥ معانها تونس"
           }
         }
       ],
@@ -424,9 +465,9 @@
         "cin_number": [],
         "family_name": [
           {
-            "value": "ولافيرعسل",
+            "value": "عبداله",
             "avg_conf": 0.0,
-            "count": 2,
+            "count": 3,
             "engines": [
               "easyocr",
               "global_text"
@@ -436,9 +477,12 @@
               "text_family_global"
             ],
             "profiles": [],
-            "selection_score": 46.0,
-            "raw_value": "ولافيرعسل",
+            "selection_score": 53.0,
+            "raw_value": "عبداله",
             "meta": [
+              {
+                "from_raw_text": true
+              },
               {
                 "from_raw_text": true
               },
@@ -449,7 +493,7 @@
           },
           {
             "value": "العو",
-            "avg_conf": 10.957702,
+            "avg_conf": 14.065101,
             "count": 1,
             "engines": [
               "easyocr_boxes"
@@ -458,13 +502,13 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 44.257702,
+            "selection_score": 47.365101,
             "raw_value": "العو",
             "meta": []
           },
           {
             "value": "وعلا",
-            "avg_conf": 11.188951,
+            "avg_conf": 11.204204,
             "count": 1,
             "engines": [
               "paddle_boxes"
@@ -473,7 +517,7 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 44.188951,
+            "selection_score": 44.204204,
             "raw_value": "وعلا",
             "meta": []
           },
@@ -495,53 +539,13 @@
                 "from_raw_text": true
               }
             ]
-          },
-          {
-            "value": "دمحم",
-            "avg_conf": 0.0,
-            "count": 1,
-            "engines": [
-              "paddle"
-            ],
-            "sources": [
-              "text_family_fallback"
-            ],
-            "profiles": [],
-            "selection_score": 32.1,
-            "raw_value": "دمحم",
-            "meta": [
-              {
-                "from_raw_text": true
-              }
-            ]
           }
         ],
         "first_name": [
           {
-            "value": "دمحم",
-            "avg_conf": 5.594475,
-            "count": 2,
-            "engines": [
-              "paddle",
-              "paddle_boxes"
-            ],
-            "sources": [
-              "spatial_boxes",
-              "text_first_fallback"
-            ],
-            "profiles": [],
-            "selection_score": 46.694475,
-            "raw_value": "دمحم",
-            "meta": [
-              {
-                "from_raw_text": true
-              }
-            ]
-          },
-          {
-            "value": "ولافيرعسل",
+            "value": "عبداله",
             "avg_conf": 0.0,
-            "count": 2,
+            "count": 3,
             "engines": [
               "easyocr",
               "global_text"
@@ -551,9 +555,12 @@
               "text_first_global"
             ],
             "profiles": [],
-            "selection_score": 46.0,
-            "raw_value": "ولافيرعسل",
+            "selection_score": 53.0,
+            "raw_value": "عبداله",
             "meta": [
+              {
+                "from_raw_text": true
+              },
               {
                 "from_raw_text": true
               },
@@ -563,8 +570,8 @@
             ]
           },
           {
-            "value": "مجم",
-            "avg_conf": 10.957702,
+            "value": "محمل",
+            "avg_conf": 14.065101,
             "count": 1,
             "engines": [
               "easyocr_boxes"
@@ -573,8 +580,23 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 45.057702,
-            "raw_value": "مجم",
+            "selection_score": 48.165101,
+            "raw_value": "محمل",
+            "meta": []
+          },
+          {
+            "value": "محمد",
+            "avg_conf": 11.204204,
+            "count": 1,
+            "engines": [
+              "paddle_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 45.304204,
+            "raw_value": "محمد",
             "meta": []
           },
           {
@@ -600,8 +622,8 @@
         "date_of_birth": [],
         "place_of_birth": [
           {
-            "value": "الجم",
-            "avg_conf": 3.652567,
+            "value": "تونس",
+            "avg_conf": 4.688367,
             "count": 3,
             "engines": [
               "easyocr",
@@ -614,8 +636,8 @@
               "text_place_global"
             ],
             "profiles": [],
-            "selection_score": 65.652567,
-            "raw_value": "الجم",
+            "selection_score": 66.688367,
+            "raw_value": "تونس",
             "meta": [
               {
                 "from_raw_text": true
@@ -629,54 +651,39 @@
       },
       "selected": {
         "family_name": {
-          "value": "ولافيرعسل",
-          "avg_conf": 0.0,
-          "count": 2,
+          "value": "العو",
+          "avg_conf": 14.065101,
+          "count": 1,
           "engines": [
-            "easyocr",
-            "global_text"
+            "easyocr_boxes"
           ],
           "sources": [
-            "text_family_fallback",
-            "text_family_global"
+            "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 46.0,
-          "raw_value": "ولافيرعسل",
-          "meta": [
-            {
-              "from_raw_text": true
-            },
-            {
-              "from_combined_text": true
-            }
-          ]
+          "selection_score": 47.365101,
+          "raw_value": "العو",
+          "meta": []
         },
         "first_name": {
-          "value": "دمحم",
-          "avg_conf": 5.594475,
-          "count": 2,
+          "value": "محمل",
+          "avg_conf": 14.065101,
+          "count": 1,
           "engines": [
-            "paddle",
-            "paddle_boxes"
+            "easyocr_boxes"
           ],
           "sources": [
-            "spatial_boxes",
-            "text_first_fallback"
+            "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 46.694475,
-          "raw_value": "دمحم",
-          "meta": [
-            {
-              "from_raw_text": true
-            }
-          ]
+          "selection_score": 48.165101,
+          "raw_value": "محمل",
+          "meta": []
         },
         "date_of_birth": null,
         "place_of_birth": {
-          "value": "الجم",
-          "avg_conf": 3.652567,
+          "value": "تونس",
+          "avg_conf": 4.688367,
           "count": 3,
           "engines": [
             "easyocr",
@@ -689,8 +696,8 @@
             "text_place_global"
           ],
           "profiles": [],
-          "selection_score": 65.652567,
-          "raw_value": "الجم",
+          "selection_score": 66.688367,
+          "raw_value": "تونس",
           "meta": [
             {
               "from_raw_text": true
@@ -705,8 +712,8 @@
     "cin_postprocess": {
       "executed": true,
       "name_extraction": {
-        "debug_sequence": "اللقب:اصد وعلا يدا الاسم:? variants:normal",
-        "family_name": "اصد وعلا يدا",
+        "debug_sequence": "اللقب:نيمأ محمد الاسم:? variants:normal",
+        "family_name": "نيمأ محمد",
         "first_name": null,
         "rule": "family_name=all words after اللقب; first_name=words on الاسم line before بن/بنت"
       },
@@ -714,14 +721,17 @@
         {
           "field": "first_name",
           "type": "arabic_ocr_name_fix",
-          "old": "دمحم",
+          "old": "محمل",
           "new": "محمد"
         },
         {
           "field": "last_name",
-          "type": "laqab_line_extraction",
-          "old": "ولافيرعسل",
-          "new": "اصد وعلا يدا"
+          "type": "postprocess_skip_name_override",
+          "kept": "العو",
+          "candidate": "نيمأ محمد",
+          "candidate_ok": true,
+          "old_ok": true,
+          "good_spatial": true
         },
         {
           "field": "birth_date",
@@ -732,8 +742,11 @@
         },
         {
           "field": "birth_place",
-          "type": "invalid_suspicious_birth_place",
-          "value": "الجم"
+          "type": "postprocess_skip_place_override",
+          "kept": "تونس",
+          "candidate": "تونس",
+          "reason": "place_after_label:مكانها تونس بعاخ الغرفالوا",
+          "good_spatial": true
         }
       ]
     },
@@ -750,21 +763,20 @@
       "warnings": [
         "Champ critique à vérifier: id_number"
       ],
-      "business_confidence": 0.7963,
+      "business_confidence": 0.8191,
       "critical_fields_ok": 2,
-      "valid_fields_ok": 3,
+      "valid_fields_ok": 4,
       "present_fields": 4,
-      "quality_score": 0.712,
-      "avg_field_confidence": 0.89,
-      "field_coverage": 0.6
+      "quality_score": 0.439,
+      "avg_field_confidence": 0.9175,
+      "field_coverage": 0.8
     }
   },
-  "raw_text": "CIN_NUMBER: الجمهورية التونسية : 01 حا6 0\" CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ماي 0200 تق6 د ج1 عاها تونس بعاذة ا لسعريفالو اللقب مجمد بن محمود بن عبدالله 1986 تاخ الولادة 16 عاها تونس العو ادى أمين الابم ماي العو مجم الجم وعلا محمد الجمهورية التونسية : 01 حا6 0\" CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ماي 0200 تق6 د ج1 عاها تونس ماي 0200 تق6 د ج1 عاها تونس CIN_NUMBER: ةيسنوتلا هير وهمجلا 1 CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 19 يام 01 هدالولا جتا سنوت انهشاكم ولا قيرعلا 6 اصد وعلا يدا اللقب نيمأ كمحم الاسم هللا دبع نب دومحم نب 1986 ياام 16 الولادة خرات سنوت انهشاكم ةيسنوتلا هير وهمجلا 1 CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 19 يام 01 هدالولا جتا سنوت انهشاكم 19 يام 01 هدالولا جتا سنوت انهشاكم CIN_NUMBER: ةيسنوتلا هير وهمجلا 1 CIN_FAMILY_NAME: CIN_FIRST_NAME: ىدا وعلا اللقب CIN_DATE_OF_BIRTH: نيمأ محمد الاسم هللا دبع نب دومحم نب CIN_PLACE_OF_BIRTH: 19 يام 01 هدالولا جتا سنوت انهشاكم ةيسنوتلا ةيرر وهمجلا ةينطولا ةقاطب فيرعتلا وعلا يدا اللقب نيمأ كمحم الاسم هللا دبع دومحم نب نب 1986 يام 16 الولادة خرات سنوت اهشكم ةيسنوتلا هير وهمجلا 1 CIN_FIRST_NAME: ىدا وعلا اللقب ىدا وعلا اللقب نيمأ محمد الاسم هللا دبع نب دومحم نب 19 يام 01 هدالولا جتا سنوت انهشاكم العو مجم الجم العو اللقب مجم اللم الجمهوريةالتونسية بطاقهالتعريف الوطنيذ اللقب العو ادي اللم أمين مجم بن محمود بن عبدالله 1986 تاخ الولادة 16 ماي عاها تونس right_text_block وعلا محمد وعلا اللقب محمد الاسم الجمهورية التونسية : 01 حا6 0\" ماي 0200 تق6 د ج1 عاها تونس بعاذة ا لسعريفالو اللقب مجمد بن محمود بن عبدالله 1986 تاخ الولادة 16 عاها تونس العو ادى أمين الابم ماي ةيسنوتلا هير وهمجلا 1 19 يام 01 هدالولا جتا سنوت انهشاكم ولا قيرعلا 6 اصد وعلا يدا اللقب نيمأ كمحم الاسم هللا دبع نب دومحم نب 1986 ياام 16 الولادة خرات سنوت انهشاكم ةيسنوتلا ةيرر وهمجلا ةينطولا ةقاطب فيرعتلا وعلا يدا اللقب نيمأ كمحم الاسم هللا دبع دومحم نب نب 1986 يام 16 الولادة خرات سنوت اهشكم ةيسنوتلا هير وهمجلا 1 ىدا وعلا اللقب نيمأ محمد الاسم هللا دبع نب دومحم نب 19 يام 01 هدالولا جتا سنوت انهشاكم ولا قيرعلا 6 اصد وعلا يدا اللقب نيمأ كمحم الاسم هللا دبع نب دومحم نب 1986 ياام 16 الولادة خرات سنوت انهشاكم",
-  "processing_time_ms": 10330,
+  "raw_text": "CIN_NUMBER: الجمهورية التونسيذ : 01 42 006 : 0062 CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: امين محمد بن محمود بن عبدالله الام CIN_PLACE_OF_BIRTH: بعاخ الغرفالوا اللقب م جمل بن محمود بن عبدالله 1986 تاخ الولادة 16 مكانها تو ادى العو أمين الاىم ماي ونس CIN_NUMBER: الجمهورية التونسيذ : 01 42 006 : 0062 CIN_FAMILY_NAME: ena CIN_FIRST_NAME: اللقب العه ادي CIN_DATE_OF_BIRTH: امين محمد بن محمود بن عبدالله الام CIN_PLACE_OF_BIRTH: 17 ماي ت 6دد0 5 ممكانها تونس الجمهوريف التونسيذ بطاقةالتعريف الوطنيذ اللقب م جمل بن محمود بن عبدالله 1986 تاخ الولادة 16 مكانها تونس ادى العو أمين الام ماي العو محمد تونس وعلا محمد الجمهورية التونسيذ : 01 42 006 : 0062 CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: امين محمد بن محمود بن عبدالله الام امين محمد بن محمود بن عبدالله الام بعاخ الغرفالوا اللقب م جمل بن محمود بن عبدالله 1986 تاخ الولادة 16 مكانها تو ادى العو أمين الاىم ماي ونس CIN_NUMBER: ةيسنوتلا ةيير وهمجلا 21 CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ةيسنوتلا ةيير وهمجلا 21 CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_NUMBER: ةيسنوتلا ةيير وهمجلا 21 CIN_FAMILY_NAME: CIN_FIRST_NAME: دا وعلا اللقب CIN_DATE_OF_BIRTH: نيمأ محمد هللا دبع فب دومحم نب CIN_PLACE_OF_BIRTH: 69 يام 1 هدالولا جتان ممكانهاكم سنوت ةيسنوتلا ةيير وهمجلا ةينطوولا ةقاطب فيرعتلا وعلا يدا اللقب نيمأ محمد الاسم هللا دبع نب دومحم نب 196 يام 16 الولادة خيات سنوت ا ةيسنوتلا ةيير وهمجلا 21 CIN_FIRST_NAME: دا وعلا اللقب دا وعلا اللقب نيمأ محمد هللا دبع فب دومحم نب 69 يام 1 هدالولا جتان ممكانهاكم سنوت الجمهورية التونسيذ : 01 42 006 : 0062 ena اللقب العه ادي امين محمد بن محمود بن عبدالله الام 17 ماي ت 6دد0 5 ممكانها تونس العو محمد تونس العو اللقب محمد اللم تونس مكانها تونس وعلا محمد وعلا اللقب محمد الاسم الجمهورية التونسيذ : 01 42 006 : 0062 امين محمد بن محمود بن عبدالله الام بعاخ الغرفالوا اللقب م جمل بن محمود بن عبدالله 1986 تاخ الولادة 16 مكانها تو ادى العو أمين الاىم ماي ونس ةيسنوتلا ةيير وهمجلا 21 ةيسنوتلا ةيير وهمجلا ةينطوولا ةقاطب فيرعتلا وعلا يدا اللقب نيمأ محمد الاسم هللا دبع نب دومحم نب 196 يام 16 الولادة خيات سنوت ا ةيسنوتلا ةيير وهمجلا 21 دا وعلا اللقب نيمأ محمد هللا دبع فب دومحم نب 69 يام 1 هدالولا جتان ممكانهاكم سنوت ولا قفييرعتللا ةقاطب وعلا يدا اللقب نيمأ محمد الاسم هللا دبع نب دومحم نب 1986 يام 16 الولادة خيرات سنوت ممكانهاكم الجمهوريف التونسيذ بطاقةالتعريف الوطنيذ اللقب م جمل بن محمود بن عبدالله 1986 تاخ الولادة 16 مكانها تونس ادى العو أمين الام ماي الجمهورية التونسيذ : 01 42 006 : 0062 ena اللقب العه ادي امين محمد بن محمود بن عبدالله الام 17 ماي ت 6دد0 5 ممكانها تونس بعاخ الغرفالوا اللقب م جمل بن محمود بن عبدالله 1986 تاخ الولادة 16 مكانها تو ادى العو أمين الاىم ماي ونس",
+  "processing_time_ms": 12267,
   "warnings": [
     "Champ critique à vérifier: id_number",
-    "Champ requis 'numero_cin' à vérifier",
-    "Champ requis 'lieu_naissance' à vérifier"
+    "Champ requis 'numero_cin' à vérifier"
   ],
   "review_reasons": [
     "critical field missing or invalid: id_number"

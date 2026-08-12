@@ -1,13 +1,13 @@
 {
-  "job_id": "bac4b0c6-6744-4c17-9483-10a72148fe2f",
+  "job_id": "95540989-a3b3-40dc-ac31-b67a5d1aa774",
   "status": "review_required",
   "template_id": "cin_tn",
   "document_type": "cin_tn",
   "document_variant": "recto",
-  "engine_used": "mixed(easyocr_boxes,paddle_boxes)",
+  "engine_used": "mixed(easyocr,easyocr_boxes)",
   "language_detected": "ar",
-  "global_confidence": 0.8084,
-  "quality_score": 0.754,
+  "global_confidence": 0.743,
+  "quality_score": 0.593,
   "fields": [
     {
       "name": "id_number",
@@ -23,22 +23,27 @@
       "reasons": [
         "field unresolved",
         "critical field missing"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "last_name",
-      "value": "شعبان",
-      "confidence": 0.95,
-      "validated": true,
-      "raw_text": "نابعش",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
       "raw_template_field": null,
-      "error": null,
-      "selected_engine": "paddle_boxes",
-      "selected_source": "spatial_boxes",
-      "review_required": false,
+      "error": "Nom introuvable",
+      "selected_engine": null,
+      "selected_source": null,
+      "review_required": true,
       "reasons": [
-        "selected_from:spatial_boxes"
-      ]
+        "field unresolved",
+        "critical field missing"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "first_name",
@@ -53,65 +58,70 @@
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_date",
       "value": "1992-08-17",
-      "confidence": 0.82,
+      "confidence": 0.95,
       "validated": true,
-      "raw_text": null,
+      "raw_text": "1992-08-17",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": null,
-      "selected_source": "cin_postprocess_birth_date_context",
+      "selected_engine": "easyocr",
+      "selected_source": "spatial_boxes",
       "review_required": false,
       "reasons": [
-        "field unresolved",
-        "critical field missing",
-        "birth_date_recovered:contextual_birth_date"
-      ]
+        "selected_from:spatial_boxes"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_place",
-      "value": "الجم",
-      "confidence": 0.6,
-      "validated": false,
-      "raw_text": "الجم",
+      "value": "المنستير",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "المنستير",
       "raw_template_field": null,
-      "error": "Lieu de naissance générique/suspect - vérification requise",
-      "selected_engine": "easyocr_boxes",
+      "error": null,
+      "selected_engine": "easyocr",
       "selected_source": "spatial_boxes",
-      "review_required": true,
+      "review_required": false,
       "reasons": [
-        "selected_from:spatial_boxes",
-        "invalid_suspicious_birth_place"
-      ]
+        "selected_from:spatial_boxes"
+      ],
+      "original_value": null,
+      "corrected": false
     }
   ],
   "normalized_data": {
     "idNumber": null,
-    "lastName": "شعبان",
+    "lastName": null,
     "firstName": "ازري",
     "birthDate": "1992-08-17",
-    "birthPlace": "الجم"
+    "birthPlace": "المنستير"
   },
   "routing": null,
   "business_validation": {
     "status": "review_required",
     "review_required": true,
     "review_reasons": [
-      "critical field missing or invalid: id_number"
+      "critical field missing or invalid: id_number",
+      "critical field missing or invalid: last_name"
     ],
     "warnings": [
-      "Champ critique à vérifier: id_number"
+      "Champ critique à vérifier: id_number",
+      "Champ critique à vérifier: last_name"
     ],
-    "business_confidence": 0.8084,
-    "critical_fields_ok": 2,
+    "business_confidence": 0.743,
+    "critical_fields_ok": 1,
     "valid_fields_ok": 3,
-    "present_fields": 4,
-    "quality_score": 0.754,
-    "avg_field_confidence": 0.9067,
+    "present_fields": 3,
+    "quality_score": 0.593,
+    "avg_field_confidence": 0.95,
     "field_coverage": 0.6
   },
   "diagnostics": {
@@ -123,20 +133,21 @@
       "paddle_boxes",
       "targeted_roi:easyocr",
       "targeted_roi:paddle",
-      "full_ocr:paddle"
+      "full_ocr:paddle",
+      "full_ocr:easyocr"
     ],
     "preprocessing": {
       "quality": {
-        "sharpness": 1.0,
-        "brightness": 0.482,
-        "contrast": 0.61,
-        "quality_score": 0.754
+        "sharpness": 0.665,
+        "brightness": 0.41,
+        "contrast": 0.638,
+        "quality_score": 0.593
       },
       "transforms": {
         "resized": false,
         "deskewed": false,
-        "contrast": true,
-        "mode": "cin_legacy_compatible"
+        "contrast": false,
+        "mode": "cin_simple_deskew_only"
       },
       "cin_preprocessor_keys": [
         "binary",
@@ -148,10 +159,10 @@
       ]
     },
     "quality_checks": {
-      "sharpness": 1.0,
-      "brightness": 0.482,
-      "contrast": 0.61,
-      "quality_score": 0.754
+      "sharpness": 0.665,
+      "brightness": 0.41,
+      "contrast": 0.638,
+      "quality_score": 0.593
     },
     "roi_fields": {
       "cin_number": [
@@ -190,20 +201,17 @@
         "trial_type": "targeted_missing_rois",
         "target_fields": [
           "cin_number",
-          "date_of_birth",
-          "place_of_birth"
+          "family_name"
         ],
-        "processing_time_ms": 696,
+        "processing_time_ms": 883,
         "zones": {
-          "cin_number": "التو بطاقذ | الجمهوريف انسلة التعرف الوط",
-          "date_of_birth": "",
-          "place_of_birth": "",
-          "right_text_block": "آلعب ر ي بن 17 ث الولادة اوت شعبان أحمد المازر آحمد 1992 المنستير"
+          "cin_number": "ريفالتو بطاقة | الجمهوا نسنذ التعرف الوط",
+          "family_name": "لاذ بن تخ الولا دة شعبان احمد المازري احمد",
+          "right_text_block": "الاف بن 17 لولا دة 1992 ث او شعبان احمد المازري احمد المنستير"
         },
         "zone_scores": {
           "cin_number": 0.0,
-          "date_of_birth": 0.0,
-          "place_of_birth": 0.0,
+          "family_name": 0.0,
           "right_text_block": 0.0
         },
         "notes": []
@@ -214,17 +222,17 @@
         "trial_type": "targeted_missing_rois",
         "target_fields": [
           "cin_number",
-          "place_of_birth"
+          "family_name"
         ],
-        "processing_time_ms": 1497,
+        "processing_time_ms": 1757,
         "zones": {
-          "cin_number": "ةيسنوتلا ةيرو وهمجلا ةقاطب طولا فيرعتلا",
-          "place_of_birth": "",
-          "right_text_block": "بقللا نابعش دمحأ مسإلا نب يرزاملا ن دمحأ 1 ةدالولا خران 99 توا ةخ ريتسنملا"
+          "cin_number": "ةيير وهمجلا ةيسنوتلاا ةقاطب طولا قيرعتلا",
+          "family_name": "بققلل نابعش دمحأ مسإل نب ن يرزاملا دمحأ ةدالولا خم",
+          "right_text_block": "بقلل نابعش دمحأ مسالا يرزاملا ن نب دمحأ 1 ةدالولا خرا 99 توا اش ريتسنملا"
         },
         "zone_scores": {
           "cin_number": 0.0,
-          "place_of_birth": 0.0,
+          "family_name": 0.0,
           "right_text_block": 0.0
         },
         "notes": []
@@ -233,17 +241,44 @@
         "engine": "paddle",
         "executed": true,
         "trial_type": "full_card_and_all_rois",
-        "full_text": "ةينوتلا ةيروهمجلا ةقاطب ةظنطل فيرالا ق بقلل نابعش دمحأ مملا نب نب دمحأ يرزاملا ةدالولا خرات 99 توا ريتسنملا",
+        "full_text": "ةيروهمجلا ةيسنوتلا ةقاطب ةينطولا فيرعتلا بقلل نابعش دمحأ مسالا نب نب دمحأ يرزاملا ةدالولا خيرات 99 توا ةاهرشم ريتسنملا",
         "full_text_score": 0.0,
-        "processing_time_ms": 2471,
+        "processing_time_ms": 2973,
         "zones": {
-          "cin_number": "ةيسنوتلا ةيرو وهمجلا ةقاطب طولا فيرعتلا",
-          "family_name": "بقلل نابعش دمحأ مسإل نب ن يرزاملا دمحأ ةدالولا خم",
-          "first_name": "دتسد",
+          "cin_number": "ةيير وهمجلا ةيسنوتلاا ةقاطب طولا قيرعتلا",
+          "family_name": "بققلل نابعش دمحأ مسإل نب ن يرزاملا دمحأ ةدالولا خم",
+          "first_name": "ريتسم",
           "date_of_birth": "",
           "place_of_birth": "",
           "gender": "",
-          "right_text_block": "بقللا نابعش دمحأ مسإلا نب يرزاملا ن دمحأ 1 ةدالولا خران 99 توا ةخ ريتسنملا"
+          "right_text_block": "بقلل نابعش دمحأ مسالا يرزاملا ن نب دمحأ 1 ةدالولا خرا 99 توا اش ريتسنملا"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "إنسيذ بطاقة | الاحب ي 17 اوت 1992 الجمهوريف التوا التعرف الوطنيه شعبان ابلتم احمد المازر احمد بن ناخ الولادة مطء با المنستير",
+        "full_text_score": 0.0,
+        "processing_time_ms": 2169,
+        "zones": {
+          "cin_number": "ريفالتو بطاقة | الجمهوا نسنذ التعرف الوط",
+          "family_name": "لاذ بن تخ الولا دة شعبان احمد المازري احمد",
+          "first_name": "المثت",
+          "date_of_birth": "",
+          "place_of_birth": "",
+          "gender": "",
+          "right_text_block": "الاف بن 17 لولا دة 1992 ث او شعبان احمد المازري احمد المنستير"
         },
         "zone_scores": {
           "cin_number": 0.0,
@@ -264,10 +299,12 @@
           "box_count": 16,
           "fields": {
             "first_name": "ازري",
-            "place_of_birth": "الجم"
+            "date_of_birth": "1992-08-17",
+            "place_of_birth": "المنستير"
           },
           "scores": {
-            "first_name": 15.196305976619554,
+            "first_name": 15.199890150605478,
+            "date_of_birth": 12.5,
             "place_of_birth": 9.0
           },
           "meta": {
@@ -288,13 +325,14 @@
               "anchors_found": 3
             },
             "date_of_birth": {
-              "chosen_from": null,
-              "source_kind": "no_valid_date",
-              "anchors_found": 0
+              "chosen_from": "نا الولادة",
+              "candidate_text": "المازري بن احمد نا 17 اوت 1992 مطانها المنستير",
+              "source_kind": "label_row_join",
+              "anchors_found": 1
             },
             "place_of_birth": {
               "chosen_from": "right_text_block",
-              "candidate_text": "الجمهوريف بطاقء | التعريف الوطنيه العب شعبان اللم أحمد بن المازري احمد بن تاح الولا دو ٦7 اوت 1992 ماغبا المتستتر",
+              "candidate_text": "الجمهوريف التوا بطاقة | التعرف الوطنيه الاحب شعبان اام احمد المازري بن احمد نا الولادة 17 اوت 1992 مطانها المنستير",
               "source_kind": "right_text_fallback",
               "anchors_found": 0
             },
@@ -313,14 +351,14 @@
         },
         {
           "engine": "paddle_boxes",
-          "box_count": 15,
+          "box_count": 17,
           "fields": {
             "family_name": "نابعش",
             "first_name": "يرزا"
           },
           "scores": {
-            "family_name": 10.784427998930543,
-            "first_name": 15.195454382896424
+            "family_name": 10.757724043087936,
+            "first_name": 15.196276605129242
           },
           "meta": {
             "cin_number": {
@@ -372,7 +410,8 @@
           "source": "spatial_boxes",
           "fields": {
             "first_name": "ازري",
-            "place_of_birth": "الجم"
+            "date_of_birth": "1992-08-17",
+            "place_of_birth": "المنستير"
           }
         },
         {
@@ -387,33 +426,44 @@
           "engine": "easyocr",
           "source": "targeted_roi_ocr",
           "fields": {
-            "cin_number": "التو بطاقذ | الجمهوريف انسلة التعرف الوط",
-            "family_name": "CIN_FIRST_NAME:",
+            "cin_number": "ريفالتو بطاقة | الجمهوا نسنذ التعرف الوط",
+            "family_name": "لاذ بن تخ الولا دة شعبان احمد المازري احمد",
             "first_name": "CIN_DATE_OF_BIRTH:",
             "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "آلعب ر ي بن 17 ث الولادة اوت شعبان أحمد المازر آحمد 1992 المنستير"
+            "place_of_birth": "الاف بن 17 لولا دة 1992 ث او شعبان احمد المازري احمد المنستير"
           }
         },
         {
           "engine": "paddle",
           "source": "targeted_roi_ocr",
           "fields": {
-            "cin_number": "ةيسنوتلا ةيرو وهمجلا ةقاطب طولا فيرعتلا",
-            "family_name": "CIN_FIRST_NAME:",
+            "cin_number": "ةيير وهمجلا ةيسنوتلاا ةقاطب طولا قيرعتلا",
+            "family_name": "بققلل نابعش دمحأ مسإل نب ن يرزاملا دمحأ ةدالولا خم",
             "first_name": "CIN_DATE_OF_BIRTH:",
             "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "بقللا نابعش دمحأ مسإلا نب يرزاملا ن دمحأ 1 ةدالولا خران 99 توا ةخ ريتسنملا"
+            "place_of_birth": "بقلل نابعش دمحأ مسالا يرزاملا ن نب دمحأ 1 ةدالولا خرا 99 توا اش ريتسنملا"
           }
         },
         {
           "engine": "paddle",
           "source": "roi_ocr",
           "fields": {
-            "cin_number": "ةيسنوتلا ةيرو وهمجلا ةقاطب طولا فيرعتلا",
-            "family_name": "بقلل نابعش دمحأ مسإل نب ن يرزاملا دمحأ ةدالولا خم",
-            "first_name": "دتسد",
+            "cin_number": "ةيير وهمجلا ةيسنوتلاا ةقاطب طولا قيرعتلا",
+            "family_name": "بققلل نابعش دمحأ مسإل نب ن يرزاملا دمحأ ةدالولا خم",
+            "first_name": "ريتسم",
             "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "ةينوتلا ةيروهمجلا ةقاطب ةظنطل فيرالا ق بقلل نابعش دمحأ مملا نب نب دمحأ يرزاملا ةدالولا خرات 99 توا ريتسنملا"
+            "place_of_birth": "ةيروهمجلا ةيسنوتلا ةقاطب ةينطولا فيرعتلا بقلل نابعش دمحأ مسالا نب نب دمحأ يرزاملا ةدالولا خيرات 99 توا ةاهرشم ريتسنملا"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "roi_ocr",
+          "fields": {
+            "cin_number": "ريفالتو بطاقة | الجمهوا نسنذ التعرف الوط",
+            "family_name": "لاذ بن تخ الولا دة شعبان احمد المازري احمد",
+            "first_name": "المثت",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
+            "place_of_birth": "إنسيذ بطاقة | الاحب ي 17 اوت 1992 الجمهوريف التوا التعرف الوطنيه شعبان ابلتم احمد المازر احمد بن ناخ الولادة مطء با المنستير"
           }
         }
       ],
@@ -421,24 +471,9 @@
         "cin_number": [],
         "family_name": [
           {
-            "value": "شعبان",
-            "avg_conf": 15.195454,
-            "count": 1,
-            "engines": [
-              "paddle_boxes"
-            ],
-            "sources": [
-              "spatial_boxes"
-            ],
-            "profiles": [],
-            "selection_score": 48.195454,
-            "raw_value": "نابعش",
-            "meta": []
-          },
-          {
-            "value": "الاريف",
+            "value": "التعريق",
             "avg_conf": 0.0,
-            "count": 2,
+            "count": 3,
             "engines": [
               "global_text",
               "paddle"
@@ -448,9 +483,12 @@
               "text_family_global"
             ],
             "profiles": [],
-            "selection_score": 46.3,
-            "raw_value": "الاريف",
+            "selection_score": 53.3,
+            "raw_value": "التعريق",
             "meta": [
+              {
+                "from_raw_text": true
+              },
               {
                 "from_raw_text": true
               },
@@ -460,33 +498,25 @@
             ]
           },
           {
-            "value": "احمد",
-            "avg_conf": 0.0,
-            "count": 2,
+            "value": "شعبان",
+            "avg_conf": 15.196277,
+            "count": 1,
             "engines": [
-              "easyocr",
-              "paddle"
+              "paddle_boxes"
             ],
             "sources": [
-              "text_family_fallback"
+              "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 39.1,
-            "raw_value": "احمد",
-            "meta": [
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_raw_text": true
-              }
-            ]
+            "selection_score": 48.196277,
+            "raw_value": "نابعش",
+            "meta": []
           }
         ],
         "first_name": [
           {
             "value": "ازري",
-            "avg_conf": 15.19588,
+            "avg_conf": 15.198083,
             "count": 2,
             "engines": [
               "easyocr_boxes",
@@ -496,14 +526,14 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 56.29588,
+            "selection_score": 56.298083,
             "raw_value": "يرزا",
             "meta": []
           },
           {
-            "value": "الاريف",
+            "value": "التعريق",
             "avg_conf": 0.0,
-            "count": 2,
+            "count": 3,
             "engines": [
               "global_text",
               "paddle"
@@ -513,9 +543,12 @@
               "text_first_global"
             ],
             "profiles": [],
-            "selection_score": 46.3,
-            "raw_value": "الاريف",
+            "selection_score": 53.3,
+            "raw_value": "التعريق",
             "meta": [
+              {
+                "from_raw_text": true
+              },
               {
                 "from_raw_text": true
               },
@@ -525,30 +558,7 @@
             ]
           },
           {
-            "value": "احمد",
-            "avg_conf": 0.0,
-            "count": 2,
-            "engines": [
-              "easyocr",
-              "paddle"
-            ],
-            "sources": [
-              "text_first_fallback"
-            ],
-            "profiles": [],
-            "selection_score": 39.1,
-            "raw_value": "احمد",
-            "meta": [
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_raw_text": true
-              }
-            ]
-          },
-          {
-            "value": "دتسد",
+            "value": "ريتسم",
             "avg_conf": 0.0,
             "count": 2,
             "engines": [
@@ -559,8 +569,28 @@
               "roi_ocr"
             ],
             "profiles": [],
-            "selection_score": 19.6,
-            "raw_value": "دتسد",
+            "selection_score": 20.5,
+            "raw_value": "ريتسم",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          },
+          {
+            "value": "المثت",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "easyocr"
+            ],
+            "sources": [
+              "extractor",
+              "roi_ocr"
+            ],
+            "profiles": [],
+            "selection_score": 19.2,
+            "raw_value": "المثت",
             "meta": [
               {
                 "from_raw_text": true
@@ -568,29 +598,65 @@
             ]
           }
         ],
-        "date_of_birth": [],
-        "place_of_birth": [
+        "date_of_birth": [
           {
-            "value": "الجم",
-            "avg_conf": 15.196306,
-            "count": 1,
+            "value": "17/08/1992",
+            "avg_conf": 7.599945,
+            "count": 2,
             "engines": [
+              "easyocr",
               "easyocr_boxes"
             ],
             "sources": [
-              "spatial_boxes"
+              "spatial_boxes",
+              "text_date_fallback"
             ],
             "profiles": [],
-            "selection_score": 57.196306,
-            "raw_value": "الجم",
-            "meta": []
+            "selection_score": 43.599945,
+            "raw_value": "1992-08-17",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          }
+        ],
+        "place_of_birth": [
+          {
+            "value": "المنستير",
+            "avg_conf": 3.799973,
+            "count": 4,
+            "engines": [
+              "easyocr",
+              "easyocr_boxes",
+              "global_text"
+            ],
+            "sources": [
+              "spatial_boxes",
+              "text_place_fallback",
+              "text_place_global"
+            ],
+            "profiles": [],
+            "selection_score": 72.799973,
+            "raw_value": "المنستير",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_combined_text": true
+              }
+            ]
           }
         ]
       },
       "selected": {
         "family_name": {
           "value": "شعبان",
-          "avg_conf": 15.195454,
+          "avg_conf": 15.196277,
           "count": 1,
           "engines": [
             "paddle_boxes"
@@ -599,13 +665,13 @@
             "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 48.195454,
+          "selection_score": 48.196277,
           "raw_value": "نابعش",
           "meta": []
         },
         "first_name": {
           "value": "ازري",
-          "avg_conf": 15.19588,
+          "avg_conf": 15.198083,
           "count": 2,
           "engines": [
             "easyocr_boxes",
@@ -615,90 +681,111 @@
             "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 56.29588,
+          "selection_score": 56.298083,
           "raw_value": "يرزا",
           "meta": []
         },
-        "date_of_birth": null,
-        "place_of_birth": {
-          "value": "الجم",
-          "avg_conf": 15.196306,
-          "count": 1,
+        "date_of_birth": {
+          "value": "17/08/1992",
+          "avg_conf": 7.599945,
+          "count": 2,
           "engines": [
+            "easyocr",
             "easyocr_boxes"
           ],
           "sources": [
-            "spatial_boxes"
+            "spatial_boxes",
+            "text_date_fallback"
           ],
           "profiles": [],
-          "selection_score": 57.196306,
-          "raw_value": "الجم",
-          "meta": []
+          "selection_score": 43.599945,
+          "raw_value": "1992-08-17",
+          "meta": [
+            {
+              "from_raw_text": true
+            }
+          ]
+        },
+        "place_of_birth": {
+          "value": "المنستير",
+          "avg_conf": 3.799973,
+          "count": 4,
+          "engines": [
+            "easyocr",
+            "easyocr_boxes",
+            "global_text"
+          ],
+          "sources": [
+            "spatial_boxes",
+            "text_place_fallback",
+            "text_place_global"
+          ],
+          "profiles": [],
+          "selection_score": 72.799973,
+          "raw_value": "المنستير",
+          "meta": [
+            {
+              "from_raw_text": true
+            },
+            {
+              "from_raw_text": true
+            },
+            {
+              "from_combined_text": true
+            }
+          ]
         }
       }
     },
     "cin_postprocess": {
       "executed": true,
-      "name_extraction": {
-        "debug_sequence": "اللقب:ةقاطب طولا فيرعتلا الاسم:? variants:normal",
-        "family_name": "ةقاطب طولا فيرعتلا",
-        "first_name": null,
-        "rule": "family_name=all words after اللقب; first_name=words on الاسم line before بن/بنت"
-      },
+      "name_extraction": null,
       "applied": [
         {
-          "field": "last_name",
-          "type": "postprocess_skip_name_override",
-          "kept": "شعبان",
-          "candidate": "ةقاطب طولا فيرعتلا",
-          "candidate_ok": true,
-          "old_ok": true,
-          "good_spatial": true
-        },
-        {
-          "field": "birth_date",
-          "type": "contextual_date_recovery",
-          "old": null,
-          "new": "1992-08-17",
-          "reason": "contextual_birth_date"
-        },
-        {
           "field": "birth_place",
-          "type": "invalid_suspicious_birth_place",
-          "value": "الجم"
+          "type": "postprocess_skip_place_override",
+          "kept": "المنستير",
+          "candidate": "المنستير",
+          "reason": "place_after_label:مكانها المنستير نا",
+          "good_spatial": true
         }
       ]
     },
     "review_required": true,
     "review_reasons": [
-      "critical field missing or invalid: id_number"
+      "critical field missing or invalid: id_number",
+      "critical field missing or invalid: last_name"
     ],
     "business_validation": {
       "status": "review_required",
       "review_required": true,
       "review_reasons": [
-        "critical field missing or invalid: id_number"
+        "critical field missing or invalid: id_number",
+        "critical field missing or invalid: last_name"
       ],
       "warnings": [
-        "Champ critique à vérifier: id_number"
+        "Champ critique à vérifier: id_number",
+        "Champ critique à vérifier: last_name"
       ],
-      "business_confidence": 0.8084,
-      "critical_fields_ok": 2,
+      "business_confidence": 0.743,
+      "critical_fields_ok": 1,
       "valid_fields_ok": 3,
-      "present_fields": 4,
-      "quality_score": 0.754,
-      "avg_field_confidence": 0.9067,
+      "present_fields": 3,
+      "quality_score": 0.593,
+      "avg_field_confidence": 0.95,
       "field_coverage": 0.6
     }
   },
-  "raw_text": "ازري الجم نابعش يرزا CIN_NUMBER: التو بطاقذ | الجمهوريف انسلة التعرف الوط CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: آلعب ر ي بن 17 ث الولادة اوت شعبان أحمد المازر آحمد 1992 المنستير التو بطاقذ | الجمهوريف انسلة التعرف الوط CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: آلعب ر ي بن 17 ث الولادة اوت شعبان أحمد المازر آحمد 1992 المنستير CIN_NUMBER: ةيسنوتلا ةيرو وهمجلا ةقاطب طولا فيرعتلا CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: اللقب نابعش دمحأ الاسم نب يرزاملا ن دمحأ 1 الولادة خران 99 توا ةخ ريتسنملا ةيسنوتلا ةيرو وهمجلا ةقاطب طولا فيرعتلا CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: اللقب نابعش دمحأ الاسم نب يرزاملا ن دمحأ 1 الولادة خران 99 توا ةخ ريتسنملا CIN_NUMBER: ةيسنوتلا ةيرو وهمجلا ةقاطب طولا فيرعتلا CIN_FAMILY_NAME: بقلل نابعش دمحأ مسإل نب ن يرزاملا دمحأ الولادة خم CIN_FIRST_NAME: دتسد CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ةينوتلا ةيروهمجلا ةقاطب ةظنطل فيرالا ق بقلل نابعش دمحأ مملا نب نب دمحأ يرزاملا الولادة خرات 99 توا ريتسنملا ةيسنوتلا ةيرو وهمجلا ةقاطب طولا فيرعتلا بقلل نابعش دمحأ مسإل نب ن يرزاملا دمحأ الولادة خم دتسد CIN_PLACE_OF_BIRTH: ةينوتلا ةيروهمجلا ةقاطب ةظنطل فيرالا ق بقلل نابعش دمحأ مملا نب نب دمحأ يرزاملا الولادة خرات 99 توا ريتسنملا ازري الجم ازري المازري الجمهوريف بطاقء | التعريف الوطنيه العب شعبان اللم أحمد بن المازري احمد بن تاح الولا دو 67 اوت 1992 ماغبا المتستتر right_text_block نابعش يرزا نابعش بقلل يرزا يرزاملا التو بطاقذ | الجمهوريف انسلة التعرف الوط آلعب ر ي بن 17 ث الولادة اوت شعبان أحمد المازر آحمد 1992 المنستير ةيسنوتلا ةيرو وهمجلا ةقاطب طولا فيرعتلا اللقب نابعش دمحأ الاسم نب يرزاملا ن دمحأ 1 الولادة خران 99 توا ةخ ريتسنملا ةينوتلا ةيروهمجلا ةقاطب ةظنطل فيرالا ق بقلل نابعش دمحأ مملا نب نب دمحأ يرزاملا الولادة خرات 99 توا ريتسنملا ةيسنوتلا ةيرو وهمجلا ةقاطب طولا فيرعتلا بقلل نابعش دمحأ مسإل نب ن يرزاملا دمحأ الولادة خم دتسد اللقب نابعش دمحأ الاسم نب يرزاملا ن دمحأ 1 الولادة خران 99 توا ةخ ريتسنملا",
-  "processing_time_ms": 7839,
+  "raw_text": "ازري 1992-08-17 المنستير نابعش يرزا CIN_NUMBER: ريفالتو بطاقة | الجمهوا نسنذ التعرف الوط CIN_FAMILY_NAME: لاذ بن تخ الولادة شعبان احمد المازري احمد CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: الاف بن 17 لولا دة 1992 ث او شعبان احمد المازري احمد المنستير ريفالتو بطاقة | الجمهوا نسنذ التعرف الوط لاذ بن تخ الولادة شعبان احمد المازري احمد CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: الاف بن 17 لولا دة 1992 ث او شعبان احمد المازري احمد المنستير CIN_NUMBER: ةيير وهمجلا ةيسنوتلاا ةقاطب طولا قيرعتلا CIN_FAMILY_NAME: بققلل نابعش دمحأ مسإل نب ن يرزاملا دمحأ الولادة خم CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: بقلل نابعش دمحأ الاسم يرزاملا ن نب دمحأ 1 الولادة خرا 99 توا اش ريتسنملا ةيير وهمجلا ةيسنوتلاا ةقاطب طولا قيرعتلا بققلل نابعش دمحأ مسإل نب ن يرزاملا دمحأ الولادة خم CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: بقلل نابعش دمحأ الاسم يرزاملا ن نب دمحأ 1 الولادة خرا 99 توا اش ريتسنملا CIN_NUMBER: ةيير وهمجلا ةيسنوتلاا ةقاطب طولا قيرعتلا CIN_FAMILY_NAME: بققلل نابعش دمحأ مسإل نب ن يرزاملا دمحأ الولادة خم CIN_FIRST_NAME: ريتسم CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ةيروهمجلا ةيسنوتلا ةقاطب ةينطولا فيرعتلا بقلل نابعش دمحأ الاسم نب نب دمحأ يرزاملا الولادة خيرات 99 توا ةاهرشم ريتسنملا ةيير وهمجلا ةيسنوتلاا ةقاطب طولا قيرعتلا بققلل نابعش دمحأ مسإل نب ن يرزاملا دمحأ الولادة خم ريتسم CIN_PLACE_OF_BIRTH: ةيروهمجلا ةيسنوتلا ةقاطب ةينطولا فيرعتلا بقلل نابعش دمحأ الاسم نب نب دمحأ يرزاملا الولادة خيرات 99 توا ةاهرشم ريتسنملا CIN_NUMBER: ريفالتو بطاقة | الجمهوا نسنذ التعرف الوط CIN_FAMILY_NAME: لاذ بن تخ الولادة شعبان احمد المازري احمد CIN_FIRST_NAME: المثت CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: إنسيذ بطاقة | الاحب ي 17 اوت 1992 الجمهوريف التوا التعرف الوطنيه شعبان ابلتم احمد المازر احمد بن تاريخ الولادة مطء با المنستير ريفالتو بطاقة | الجمهوا نسنذ التعرف الوط لاذ بن تخ الولادة شعبان احمد المازري احمد المثت CIN_PLACE_OF_BIRTH: إنسيذ بطاقة | الاحب ي 17 اوت 1992 الجمهوريف التوا التعرف الوطنيه شعبان ابلتم احمد المازر احمد بن تاريخ الولادة مطء با المنستير ازري 1992-08-17 المنستير ازري المازري المازري بن احمد نا 17 اوت 1992 مطممكانها المنستير نا الولادة الجمهوريف التوا بطاقة | التعرف الوطنيه الاحب شعبان اام احمد المازري بن احمد نا الولادة 17 اوت 1992 مطممكانها المنستير right_text_block نابعش يرزا نابعش بقلل يرزا يرزاملا ريفالتو بطاقة | الجمهوا نسنذ التعرف الوط لاذ بن تخ الولادة شعبان احمد المازري احمد الاف بن 17 لولا دة 1992 ث او شعبان احمد المازري احمد المنستير ةيير وهمجلا ةيسنوتلاا ةقاطب طولا قيرعتلا بققلل نابعش دمحأ مسإل نب ن يرزاملا دمحأ الولادة خم بقلل نابعش دمحأ الاسم يرزاملا ن نب دمحأ 1 الولادة خرا 99 توا اش ريتسنملا ةيروهمجلا ةيسنوتلا ةقاطب ةينطولا فيرعتلا بقلل نابعش دمحأ الاسم نب نب دمحأ يرزاملا الولادة خيرات 99 توا ةاهرشم ريتسنملا ةيير وهمجلا ةيسنوتلاا ةقاطب طولا قيرعتلا بققلل نابعش دمحأ مسإل نب ن يرزاملا دمحأ الولادة خم ريتسم بقلل نابعش دمحأ الاسم يرزاملا ن نب دمحأ 1 الولادة خرا 99 توا اش ريتسنملا إنسيذ بطاقة | الاحب ي 17 اوت 1992 الجمهوريف التوا التعرف الوطنيه شعبان ابلتم احمد المازر احمد بن تاريخ الولادة مطء با المنستير ريفالتو بطاقة | الجمهوا نسنذ التعرف الوط لاذ بن تخ الولادة شعبان احمد المازري احمد المثت الاف بن 17 لولا دة 1992 ث او شعبان احمد المازري احمد المنستير",
+  "processing_time_ms": 13187,
   "warnings": [
     "Champ critique à vérifier: id_number",
+    "Champ critique à vérifier: last_name",
     "Champ requis 'numero_cin' à vérifier",
-    "Champ requis 'lieu_naissance' à vérifier"
+    "Champ requis 'nom' à vérifier"
   ],
   "review_reasons": [
-    "critical field missing or invalid: id_number"
+    "critical field missing or invalid: id_number",
+    "critical field missing or invalid: last_name"
   ]
 }

@@ -1,13 +1,13 @@
 {
-  "job_id": "948a8952-f232-4632-a1a3-8b2a2d4adcda",
+  "job_id": "b9044be0-a6d2-4960-8412-c34539b4499d",
   "status": "success",
   "template_id": "cin_tn",
   "document_type": "cin_tn",
   "document_variant": "recto",
-  "engine_used": "mixed(easyocr,easyocr_boxes)",
+  "engine_used": "easyocr_boxes",
   "language_detected": "ar",
-  "global_confidence": 0.8821,
-  "quality_score": 0.37,
+  "global_confidence": 0.9177,
+  "quality_score": 0.266,
   "fields": [
     {
       "name": "id_number",
@@ -22,75 +22,88 @@
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "last_name",
       "value": "بنعمار",
       "confidence": 0.95,
       "validated": true,
-      "raw_text": "رامعنب",
+      "raw_text": "بنعمار",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "easyocr",
+      "selected_engine": "easyocr_boxes",
       "selected_source": "spatial_boxes",
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "first_name",
-      "value": "صابر",
-      "confidence": 0.78,
+      "value": "عمر",
+      "confidence": 0.95,
       "validated": true,
       "raw_text": "صابر",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "easyocr",
-      "selected_source": "text_first_fallback",
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "cin_postprocess_ism_before_bin",
       "review_required": false,
       "reasons": [
-        "selected_from:text_first_fallback"
-      ]
+        "selected_from:spatial_boxes",
+        "reconstructed_from:الاسم_before_بن/بنت"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_date",
       "value": "1998-03-30",
-      "confidence": 0.65,
+      "confidence": 0.82,
       "validated": true,
-      "raw_text": "1998-03-30",
+      "raw_text": null,
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "easyocr",
-      "selected_source": "text_date_fallback",
+      "selected_engine": null,
+      "selected_source": "cin_postprocess_birth_date_context",
       "review_required": false,
       "reasons": [
-        "selected_from:text_date_fallback"
-      ]
+        "field unresolved",
+        "critical field missing",
+        "birth_date_recovered:contextual_birth_date"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_place",
-      "value": "حزوة توزر",
+      "value": "توزر",
       "confidence": 0.95,
       "validated": true,
-      "raw_text": "حزوة توزر",
+      "raw_text": "توزر",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "easyocr",
+      "selected_engine": "easyocr_boxes",
       "selected_source": "spatial_boxes",
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     }
   ],
   "normalized_data": {
     "idNumber": "04951449",
     "lastName": "بنعمار",
-    "firstName": "صابر",
+    "firstName": "عمر",
     "birthDate": "1998-03-30",
-    "birthPlace": "حزوة توزر"
+    "birthPlace": "توزر"
   },
   "routing": null,
   "business_validation": {
@@ -98,12 +111,12 @@
     "review_required": false,
     "review_reasons": [],
     "warnings": [],
-    "business_confidence": 0.8821,
+    "business_confidence": 0.9177,
     "critical_fields_ok": 3,
     "valid_fields_ok": 5,
     "present_fields": 5,
-    "quality_score": 0.37,
-    "avg_field_confidence": 0.856,
+    "quality_score": 0.266,
+    "avg_field_confidence": 0.924,
     "field_coverage": 1.0
   },
   "diagnostics": {
@@ -111,22 +124,20 @@
     "cin_mode": "balanced",
     "strategy": "balanced: spatial-first + targeted-roi-fallback + optional-full-fallback",
     "pipeline_steps": [
-      "easyocr_boxes",
-      "paddle_boxes",
-      "targeted_roi:easyocr"
+      "easyocr_boxes"
     ],
     "preprocessing": {
       "quality": {
-        "sharpness": 0.208,
-        "brightness": 0.545,
-        "contrast": 0.468,
-        "quality_score": 0.37
+        "sharpness": 0.053,
+        "brightness": 0.491,
+        "contrast": 0.397,
+        "quality_score": 0.266
       },
       "transforms": {
         "resized": true,
         "deskewed": false,
-        "contrast": true,
-        "mode": "cin_legacy_compatible"
+        "contrast": false,
+        "mode": "cin_simple_deskew_only"
       },
       "cin_preprocessor_keys": [
         "binary",
@@ -138,10 +149,10 @@
       ]
     },
     "quality_checks": {
-      "sharpness": 0.208,
-      "brightness": 0.545,
-      "contrast": 0.468,
-      "quality_score": 0.37
+      "sharpness": 0.053,
+      "brightness": 0.491,
+      "contrast": 0.397,
+      "quality_score": 0.266
     },
     "roi_fields": {
       "cin_number": [
@@ -173,40 +184,23 @@
         912
       ]
     },
-    "engines": [
-      {
-        "engine": "easyocr",
-        "executed": true,
-        "trial_type": "targeted_missing_rois",
-        "target_fields": [
-          "date_of_birth"
-        ],
-        "processing_time_ms": 592,
-        "zones": {
-          "date_of_birth": "بن العيد بن عمر",
-          "right_text_block": ")4951449 بنعمار الاقب بن العيد بن تاخالولادة 30 مارس 1998 مكانها حزوة توزر صابر الاسم عمر"
-        },
-        "zone_scores": {
-          "date_of_birth": 0.0,
-          "right_text_block": 0.0
-        },
-        "notes": []
-      }
-    ],
+    "engines": [],
     "spatial": {
       "trials": [
         {
           "engine": "easyocr_boxes",
-          "box_count": 13,
+          "box_count": 15,
           "fields": {
             "cin_number": "04951449",
-            "family_name": "صابر",
-            "place_of_birth": "حزوة توزر"
+            "family_name": "بنعمار",
+            "first_name": "صابر",
+            "place_of_birth": "توزر"
           },
           "scores": {
-            "cin_number": 20.196223976192513,
-            "family_name": 8.90821905302812,
-            "place_of_birth": 14.158507417916331
+            "cin_number": 20.16514035752766,
+            "family_name": 7.874736986413738,
+            "first_name": 9.343664415774658,
+            "place_of_birth": 9.0
           },
           "meta": {
             "cin_number": {
@@ -216,76 +210,26 @@
             },
             "family_name": {
               "chosen_from": "اللقب",
+              "candidate_text": "بنعمار",
+              "source_kind": "label_neighbor_merged",
+              "anchors_found": 1
+            },
+            "first_name": {
+              "chosen_from": "الاسم",
               "candidate_text": "صابر",
               "source_kind": "label_neighbor_merged",
               "anchors_found": 1
             },
-            "first_name": {
-              "chosen_from": null,
-              "source_kind": "dropped_duplicate"
-            },
             "date_of_birth": {
               "chosen_from": null,
               "source_kind": "no_valid_date",
               "anchors_found": 1
             },
             "place_of_birth": {
-              "chosen_from": "مكانها حزوة توزر",
-              "candidate_text": "حزوة توزر",
-              "source_kind": "inline",
-              "anchors_found": 1
-            },
-            "label_spatial": {
-              "reason": "no_items"
-            }
-          },
-          "label_spatial": {
-            "fields": {},
-            "scores": {},
-            "meta": {
-              "reason": "no_items"
-            }
-          },
-          "raw_text_reconstructed": ""
-        },
-        {
-          "engine": "paddle_boxes",
-          "box_count": 21,
-          "fields": {
-            "family_name": "رامعنب",
-            "first_name": "ديعلا"
-          },
-          "scores": {
-            "family_name": 7.928066328104751,
-            "first_name": 9.472230572376908
-          },
-          "meta": {
-            "cin_number": {
-              "chosen_from": null,
-              "candidate_text": null,
-              "source_kind": "spatial_numeric"
-            },
-            "family_name": {
-              "chosen_from": "بقللا",
-              "candidate_text": "رامعنب",
-              "source_kind": "label_neighbor_merged",
-              "anchors_found": 1
-            },
-            "first_name": {
-              "chosen_from": "مسالا",
-              "candidate_text": "ديعلا",
-              "source_kind": "label_neighbor_merged",
-              "anchors_found": 1
-            },
-            "date_of_birth": {
-              "chosen_from": null,
-              "source_kind": "no_valid_date",
-              "anchors_found": 1
-            },
-            "place_of_birth": {
-              "chosen_from": null,
-              "source_kind": "no_valid_place",
-              "anchors_found": 1
+              "chosen_from": "right_text_block",
+              "candidate_text": "الجمهوريف التونسيف التعرف الوطنيه بطاقه 04951449 بنعمار اللقب صابر الاسم عمر بن العيد بن 1998 تاريخ ا لودادةً 30 مارس ما نرا حزوة توزر",
+              "source_kind": "right_text_fallback",
+              "anchors_found": 0
             },
             "label_spatial": {
               "reason": "no_items"
@@ -309,27 +253,9 @@
           "source": "spatial_boxes",
           "fields": {
             "cin_number": "04951449",
-            "family_name": "صابر",
-            "place_of_birth": "حزوة توزر"
-          }
-        },
-        {
-          "engine": "paddle_boxes",
-          "source": "spatial_boxes",
-          "fields": {
-            "family_name": "رامعنب",
-            "first_name": "ديعلا"
-          }
-        },
-        {
-          "engine": "easyocr",
-          "source": "targeted_roi_ocr",
-          "fields": {
-            "cin_number": "CIN_FAMILY_NAME:",
-            "family_name": "CIN_FIRST_NAME:",
-            "first_name": "CIN_DATE_OF_BIRTH: بن العيد بن عمر",
-            "date_of_birth": "بن العيد بن عمر",
-            "place_of_birth": ")4951449 بنعمار الاقب بن العيد بن تاخالولادة 30 مارس 1998 مكانها حزوة توزر صابر الاسم عمر"
+            "family_name": "بنعمار",
+            "first_name": "صابر",
+            "place_of_birth": "توزر"
           }
         }
       ],
@@ -337,7 +263,7 @@
         "cin_number": [
           {
             "value": "04951449",
-            "avg_conf": 20.196224,
+            "avg_conf": 20.16514,
             "count": 1,
             "engines": [
               "easyocr_boxes"
@@ -346,7 +272,7 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 49.196224,
+            "selection_score": 49.16514,
             "raw_value": "04951449",
             "meta": []
           }
@@ -354,33 +280,7 @@
         "family_name": [
           {
             "value": "بنعمار",
-            "avg_conf": 3.15741,
-            "count": 3,
-            "engines": [
-              "easyocr",
-              "global_text",
-              "paddle_boxes"
-            ],
-            "sources": [
-              "spatial_boxes",
-              "text_family_fallback",
-              "text_family_global"
-            ],
-            "profiles": [],
-            "selection_score": 57.55741,
-            "raw_value": "رامعنب",
-            "meta": [
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_combined_text": true
-              }
-            ]
-          },
-          {
-            "value": "صابر",
-            "avg_conf": 20.196224,
+            "avg_conf": 20.16514,
             "count": 1,
             "engines": [
               "easyocr_boxes"
@@ -389,106 +289,51 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 53.596224,
-            "raw_value": "صابر",
+            "selection_score": 56.56514,
+            "raw_value": "بنعمار",
             "meta": []
           }
         ],
         "first_name": [
           {
             "value": "صابر",
-            "avg_conf": 0.0,
-            "count": 2,
-            "engines": [
-              "easyocr",
-              "global_text"
-            ],
-            "sources": [
-              "text_first_fallback",
-              "text_first_global"
-            ],
-            "profiles": [],
-            "selection_score": 44.4,
-            "raw_value": "صابر",
-            "meta": [
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_combined_text": true
-              }
-            ]
-          },
-          {
-            "value": "العيد",
-            "avg_conf": 9.472231,
+            "avg_conf": 20.16514,
             "count": 1,
             "engines": [
-              "paddle_boxes"
+              "easyocr_boxes"
             ],
             "sources": [
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 42.772231,
-            "raw_value": "ديعلا",
+            "selection_score": 53.56514,
+            "raw_value": "صابر",
             "meta": []
           }
         ],
-        "date_of_birth": [
-          {
-            "value": "30/03/1998",
-            "avg_conf": 0.0,
-            "count": 1,
-            "engines": [
-              "easyocr"
-            ],
-            "sources": [
-              "text_date_fallback"
-            ],
-            "profiles": [],
-            "selection_score": 19.0,
-            "raw_value": "1998-03-30",
-            "meta": [
-              {
-                "from_raw_text": true
-              }
-            ]
-          }
-        ],
+        "date_of_birth": [],
         "place_of_birth": [
           {
-            "value": "حزوة توزر",
-            "avg_conf": 6.732075,
-            "count": 3,
+            "value": "توزر",
+            "avg_conf": 20.16514,
+            "count": 1,
             "engines": [
-              "easyocr",
-              "easyocr_boxes",
-              "global_text"
+              "easyocr_boxes"
             ],
             "sources": [
-              "spatial_boxes",
-              "text_place_fallback",
-              "text_place_global"
+              "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 71.732075,
-            "raw_value": "حزوة توزر",
-            "meta": [
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_combined_text": true
-              }
-            ]
+            "selection_score": 62.16514,
+            "raw_value": "توزر",
+            "meta": []
           }
         ]
       },
       "selected": {
         "cin_number": {
           "value": "04951449",
-          "avg_conf": 20.196224,
+          "avg_conf": 20.16514,
           "count": 1,
           "engines": [
             "easyocr_boxes"
@@ -497,113 +342,64 @@
             "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 49.196224,
+          "selection_score": 49.16514,
           "raw_value": "04951449",
           "meta": []
         },
         "family_name": {
           "value": "بنعمار",
-          "avg_conf": 3.15741,
-          "count": 3,
+          "avg_conf": 20.16514,
+          "count": 1,
           "engines": [
-            "easyocr",
-            "global_text",
-            "paddle_boxes"
+            "easyocr_boxes"
           ],
           "sources": [
-            "spatial_boxes",
-            "text_family_fallback",
-            "text_family_global"
+            "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 57.55741,
-          "raw_value": "رامعنب",
-          "meta": [
-            {
-              "from_raw_text": true
-            },
-            {
-              "from_combined_text": true
-            }
-          ]
+          "selection_score": 56.56514,
+          "raw_value": "بنعمار",
+          "meta": []
         },
         "first_name": {
           "value": "صابر",
-          "avg_conf": 0.0,
-          "count": 2,
-          "engines": [
-            "easyocr",
-            "global_text"
-          ],
-          "sources": [
-            "text_first_fallback",
-            "text_first_global"
-          ],
-          "profiles": [],
-          "selection_score": 44.4,
-          "raw_value": "صابر",
-          "meta": [
-            {
-              "from_raw_text": true
-            },
-            {
-              "from_combined_text": true
-            }
-          ]
-        },
-        "date_of_birth": {
-          "value": "30/03/1998",
-          "avg_conf": 0.0,
+          "avg_conf": 20.16514,
           "count": 1,
           "engines": [
-            "easyocr"
+            "easyocr_boxes"
           ],
           "sources": [
-            "text_date_fallback"
+            "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 19.0,
-          "raw_value": "1998-03-30",
-          "meta": [
-            {
-              "from_raw_text": true
-            }
-          ]
+          "selection_score": 53.56514,
+          "raw_value": "صابر",
+          "meta": []
         },
+        "date_of_birth": null,
         "place_of_birth": {
-          "value": "حزوة توزر",
-          "avg_conf": 6.732075,
-          "count": 3,
+          "value": "توزر",
+          "avg_conf": 20.16514,
+          "count": 1,
           "engines": [
-            "easyocr",
-            "easyocr_boxes",
-            "global_text"
+            "easyocr_boxes"
           ],
           "sources": [
-            "spatial_boxes",
-            "text_place_fallback",
-            "text_place_global"
+            "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 71.732075,
-          "raw_value": "حزوة توزر",
-          "meta": [
-            {
-              "from_raw_text": true
-            },
-            {
-              "from_combined_text": true
-            }
-          ]
+          "selection_score": 62.16514,
+          "raw_value": "توزر",
+          "meta": []
         }
       }
     },
     "cin_postprocess": {
       "executed": true,
       "name_extraction": {
-        "debug_sequence": "اللقب:بنعمار الاسم:? variants:normal",
-        "family_name": "بنعمار",
-        "first_name": null,
+        "debug_sequence": "اللقب:صابر الاسم:عمر variants:normal",
+        "family_name": "صابر",
+        "first_name": "عمر",
         "rule": "family_name=all words after اللقب; first_name=words on الاسم line before بن/بنت"
       },
       "applied": [
@@ -611,17 +407,30 @@
           "field": "last_name",
           "type": "postprocess_skip_name_override",
           "kept": "بنعمار",
-          "candidate": "بنعمار",
+          "candidate": "صابر",
           "candidate_ok": true,
           "old_ok": true,
           "good_spatial": true
         },
         {
+          "field": "first_name",
+          "type": "ism_before_bin_extraction",
+          "old": "صابر",
+          "new": "عمر"
+        },
+        {
+          "field": "birth_date",
+          "type": "contextual_date_recovery",
+          "old": null,
+          "new": "1998-03-30",
+          "reason": "contextual_birth_date"
+        },
+        {
           "field": "birth_place",
           "type": "postprocess_skip_place_override",
-          "kept": "حزوة توزر",
+          "kept": "توزر",
           "candidate": "حزوة توزر",
-          "reason": "place_after_label:مكانها حزوة توزر صابر",
+          "reason": "known_place_in_raw_text",
           "good_spatial": true
         }
       ]
@@ -633,17 +442,17 @@
       "review_required": false,
       "review_reasons": [],
       "warnings": [],
-      "business_confidence": 0.8821,
+      "business_confidence": 0.9177,
       "critical_fields_ok": 3,
       "valid_fields_ok": 5,
       "present_fields": 5,
-      "quality_score": 0.37,
-      "avg_field_confidence": 0.856,
+      "quality_score": 0.266,
+      "avg_field_confidence": 0.924,
       "field_coverage": 1.0
     }
   },
-  "raw_text": "CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: بن العيد بن عمر CIN_PLACE_OF_BIRTH: )4951449 بنعمار اللقب بن العيد بن تاريخ الولادة 30 مارس 1998 مكانها حزوة توزر صابر الاسم عمر 04951449 صابر حزوة توزر رامعنب ديعلا CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: بن العيد بن عمر بن العيد بن عمر )4951449 بنعمار اللقب بن العيد بن تاريخ الولادة 30 مارس 1998 مكانها حزوة توزر صابر الاسم عمر 04951449 صابر حزوة توزر 04951449 04951449 صابر اللقب حزوة توزر مكانها حزوة توزر رامعنب ديعلا رامعنب اللقب ديعلا الاسم بن العيد بن عمر )4951449 بنعمار اللقب بن العيد بن تاريخ الولادة 30 مارس 1998 مكانها حزوة توزر صابر الاسم عمر",
-  "processing_time_ms": 3022,
+  "raw_text": "04951449 بنعمار صابر توزر 04951449 بنعمار صابر توزر 04951449 04951449 بنعمار اللقب صابر الاسم الجمهوريف التونسيف التعرف الوطنيه بطاقه 04951449 بنعمار اللقب صابر الاسم عمر بن العيد بن 1998 تاريخ ا لودادةً 30 مارس ما نرا حزوة توزر right_text_block",
+  "processing_time_ms": 1151,
   "warnings": [],
   "review_reasons": []
 }

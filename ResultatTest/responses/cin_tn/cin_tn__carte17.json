@@ -1,13 +1,13 @@
 {
-  "job_id": "623cc756-40f5-4bea-94ae-f7ad3d66e30d",
+  "job_id": "242642ed-de87-4c0a-82b0-952f2998d8d6",
   "status": "review_required",
   "template_id": "cin_tn",
   "document_type": "cin_tn",
   "document_variant": "recto",
-  "engine_used": "mixed(easyocr_boxes,global_text,paddle_boxes)",
+  "engine_used": "mixed(easyocr,easyocr_boxes,global_text)",
   "language_detected": "ar",
-  "global_confidence": 0.8328,
-  "quality_score": 0.712,
+  "global_confidence": 0.8097,
+  "quality_score": 0.46,
   "fields": [
     {
       "name": "id_number",
@@ -23,7 +23,9 @@
       "reasons": [
         "field unresolved",
         "critical field missing"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "last_name",
@@ -38,63 +40,68 @@
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "first_name",
-      "value": "مخمتدمعتز",
+      "value": "مخمدمعتز",
       "confidence": 0.95,
       "validated": true,
-      "raw_text": "سارف",
+      "raw_text": "مخمدمعتز",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "paddle_boxes",
+      "selected_engine": "easyocr_boxes",
       "selected_source": "cin_postprocess_ism_before_bin",
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes",
         "reconstructed_from:الاسم_before_بن/بنت"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_date",
-      "value": "2004-06-07",
-      "confidence": 0.82,
+      "value": "2004-06-10",
+      "confidence": 0.95,
       "validated": true,
-      "raw_text": null,
+      "raw_text": "2004-06-10",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": null,
-      "selected_source": "cin_postprocess_birth_date_context",
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
       "review_required": false,
       "reasons": [
-        "field unresolved",
-        "critical field missing",
-        "birth_date_recovered:contextual_birth_date"
-      ]
+        "selected_from:spatial_boxes"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_place",
       "value": "تونس",
-      "confidence": 0.95,
+      "confidence": 0.75,
       "validated": true,
-      "raw_text": "الجم",
+      "raw_text": "تونس",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "easyocr_boxes",
-      "selected_source": "cin_postprocess_birth_place_context",
+      "selected_engine": "easyocr",
+      "selected_source": "text_place_fallback",
       "review_required": false,
       "reasons": [
-        "selected_from:spatial_boxes",
-        "birth_place_recovered:place_after_label:مكانها تونس ةيطع سارف ةيطع"
-      ]
+        "selected_from:text_place_fallback"
+      ],
+      "original_value": null,
+      "corrected": false
     }
   ],
   "normalized_data": {
     "idNumber": null,
     "lastName": "عطية",
-    "firstName": "مخمتدمعتز",
-    "birthDate": "2004-06-07",
+    "firstName": "مخمدمعتز",
+    "birthDate": "2004-06-10",
     "birthPlace": "تونس"
   },
   "routing": null,
@@ -107,12 +114,12 @@
     "warnings": [
       "Champ critique à vérifier: id_number"
     ],
-    "business_confidence": 0.8328,
+    "business_confidence": 0.8097,
     "critical_fields_ok": 2,
     "valid_fields_ok": 4,
     "present_fields": 4,
-    "quality_score": 0.712,
-    "avg_field_confidence": 0.9175,
+    "quality_score": 0.46,
+    "avg_field_confidence": 0.9,
     "field_coverage": 0.8
   },
   "diagnostics": {
@@ -124,20 +131,21 @@
       "paddle_boxes",
       "targeted_roi:easyocr",
       "targeted_roi:paddle",
-      "full_ocr:paddle"
+      "full_ocr:paddle",
+      "full_ocr:easyocr"
     ],
     "preprocessing": {
       "quality": {
-        "sharpness": 1.0,
-        "brightness": 0.548,
-        "contrast": 0.416,
-        "quality_score": 0.712
+        "sharpness": 0.464,
+        "brightness": 0.552,
+        "contrast": 0.379,
+        "quality_score": 0.46
       },
       "transforms": {
         "resized": true,
         "deskewed": false,
-        "contrast": true,
-        "mode": "cin_legacy_compatible"
+        "contrast": false,
+        "mode": "cin_simple_deskew_only"
       },
       "cin_preprocessor_keys": [
         "binary",
@@ -149,10 +157,10 @@
       ]
     },
     "quality_checks": {
-      "sharpness": 1.0,
-      "brightness": 0.548,
-      "contrast": 0.416,
-      "quality_score": 0.712
+      "sharpness": 0.464,
+      "brightness": 0.552,
+      "contrast": 0.379,
+      "quality_score": 0.46
     },
     "roi_fields": {
       "cin_number": [
@@ -192,9 +200,9 @@
         "target_fields": [
           "cin_number"
         ],
-        "processing_time_ms": 132,
+        "processing_time_ms": 130,
         "zones": {
-          "cin_number": "؛٧ ١٥٣،٥١Sف ١١1"
+          "cin_number": "ب٢ر٠٦ ١رج1ا ["
         },
         "zone_scores": {
           "cin_number": 0.0
@@ -208,9 +216,9 @@
         "target_fields": [
           "cin_number"
         ],
-        "processing_time_ms": 427,
+        "processing_time_ms": 352,
         "zones": {
-          "cin_number": "لفلرهتلا نتاوهب"
+          "cin_number": "لادفيخلا ةفاضب"
         },
         "zone_scores": {
           "cin_number": 0.0
@@ -221,17 +229,44 @@
         "engine": "paddle",
         "executed": true,
         "trial_type": "full_card_and_all_rois",
-        "full_text": "ةيروهمجلا ةيسنوتلا ةينطولا ةقاطب فيرعتل ةيطع بقللا زتعمدمحم ل دمحم سارف نب نب وجج 10 204 نا ةدالولا خمات سنوت",
+        "full_text": "ةر روهمجلا ةيسنوتلا ةينطولا ةقاطب فيرعتل ةيطع لب بقللا زتعمدمحم مسالا سارف نب نب دمحم ننا 10 04 وج ةدالولا اختات سنوت اهزاكم",
         "full_text_score": 0.0,
-        "processing_time_ms": 3119,
+        "processing_time_ms": 4174,
         "zones": {
-          "cin_number": "لفلرهتلا نتاوهب",
+          "cin_number": "لادفيخلا ةفاضب",
           "family_name": "",
-          "first_name": "ةيطع رلد بقللا",
+          "first_name": "ةدطع بقللا",
           "date_of_birth": "زتعمدمحم مسالا",
-          "place_of_birth": "",
+          "place_of_birth": "ةدالولا ختات",
           "gender": "",
-          "right_text_block": "ةيطع ال بقللI زتعمدمحم ا سارف دمحم نب نب 0 ناوجج 10 ةدالولا ختسات"
+          "right_text_block": "ةيطع ليب بقلللا زتعمدمحم مسالا سارف دمحم نب نب 0 نا وج ةدالول ختات"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "رلف بطاقهالتعريف الوطنيه عطدة بن مخمدمعتز ر اآرا بن فراس بن محمد 2004 تاريخ الولادة 10 جوان مانها تونس الجمهو غالتونسية |للقب الاسم",
+        "full_text_score": 0.0,
+        "processing_time_ms": 2002,
+        "zones": {
+          "cin_number": "ب٢ر٠٦ ١رج1ا [",
+          "family_name": "",
+          "first_name": "عطدة درا للقب",
+          "date_of_birth": "الدسم مخمدمعتز",
+          "place_of_birth": "٨4 ٠١ ٦ تاتذ الولاده",
+          "gender": "",
+          "right_text_block": "اللقب بن عطية مخمدمعتز بن فراس بن محمد 2004 تاريخ الولادة 10 جوان الاسم"
         },
         "zone_scores": {
           "cin_number": 0.0,
@@ -249,13 +284,17 @@
       "trials": [
         {
           "engine": "easyocr_boxes",
-          "box_count": 11,
+          "box_count": 10,
           "fields": {
-            "family_name": "مخمتدمعتز",
+            "family_name": "ا",
+            "first_name": "مخمدمعتز",
+            "date_of_birth": "2004-06-10",
             "place_of_birth": "الجم"
           },
           "scores": {
-            "family_name": 9.05222975901255,
+            "family_name": 9.888710127832354,
+            "first_name": 8.66717312963031,
+            "date_of_birth": 14.130781689157038,
             "place_of_birth": 9.0
           },
           "meta": {
@@ -265,23 +304,26 @@
               "source_kind": "spatial_numeric"
             },
             "family_name": {
-              "chosen_from": "اللقب بن",
-              "candidate_text": "مخمتدمعتز",
+              "chosen_from": "للقب بن",
+              "candidate_text": "ا",
               "source_kind": "label_neighbor",
               "anchors_found": 1
             },
             "first_name": {
-              "chosen_from": null,
-              "source_kind": "dropped_duplicate"
+              "chosen_from": "الاسم",
+              "candidate_text": "مخمدمعتز",
+              "source_kind": "label_neighbor_merged",
+              "anchors_found": 1
             },
             "date_of_birth": {
-              "chosen_from": null,
-              "source_kind": "no_valid_date",
+              "chosen_from": "تاريخ الولادة 10 جوان 2004",
+              "candidate_text": "10 جوان 2004",
+              "source_kind": "inline",
               "anchors_found": 1
             },
             "place_of_birth": {
               "chosen_from": "right_text_block",
-              "candidate_text": "الجمهور بطاقهالتعرف الوطنيف عطدة اللقب بن الاسم مخمتدمعتز بن فراس بن امحمد 2004 تايخ الولادة 10 جوان مانها تونس",
+              "candidate_text": "الجمهوريف التونسيه بطاقه التعرف الوطنيف ا عطدة للقب بن الاسم مخمدمعتز بن فراس بن محمد تاريخ الولادة 10 جوان 2004 مانها تونس",
               "source_kind": "right_text_fallback",
               "anchors_found": 0
             },
@@ -300,14 +342,14 @@
         },
         {
           "engine": "paddle_boxes",
-          "box_count": 22,
+          "box_count": 23,
           "fields": {
             "family_name": "ةيطع",
-            "first_name": "سارف"
+            "first_name": "زتعمدمحم"
           },
           "scores": {
-            "family_name": 6.950417561293732,
-            "first_name": 9.897476628847201
+            "family_name": 6.9697008428491,
+            "first_name": 8.694175217039414
           },
           "meta": {
             "cin_number": {
@@ -323,14 +365,14 @@
             },
             "first_name": {
               "chosen_from": "مسالا",
-              "candidate_text": "سارف",
+              "candidate_text": "زتعمدمحم",
               "source_kind": "label_neighbor_merged",
               "anchors_found": 1
             },
             "date_of_birth": {
               "chosen_from": null,
               "source_kind": "no_valid_date",
-              "anchors_found": 1
+              "anchors_found": 2
             },
             "place_of_birth": {
               "chosen_from": null,
@@ -358,7 +400,9 @@
           "engine": "easyocr_boxes",
           "source": "spatial_boxes",
           "fields": {
-            "family_name": "مخمتدمعتز",
+            "family_name": "ا",
+            "first_name": "مخمدمعتز",
+            "date_of_birth": "2004-06-10",
             "place_of_birth": "الجم"
           }
         },
@@ -367,14 +411,14 @@
           "source": "spatial_boxes",
           "fields": {
             "family_name": "ةيطع",
-            "first_name": "سارف"
+            "first_name": "زتعمدمحم"
           }
         },
         {
           "engine": "easyocr",
           "source": "targeted_roi_ocr",
           "fields": {
-            "cin_number": "؛٧ ١٥٣،٥١Sف ١١1",
+            "cin_number": "ب٢ر٠٦ ١رج1ا [",
             "family_name": "CIN_FIRST_NAME:",
             "first_name": "CIN_DATE_OF_BIRTH:",
             "date_of_birth": "CIN_PLACE_OF_BIRTH:"
@@ -384,7 +428,7 @@
           "engine": "paddle",
           "source": "targeted_roi_ocr",
           "fields": {
-            "cin_number": "لفلرهتلا نتاوهب",
+            "cin_number": "لادفيخلا ةفاضب",
             "family_name": "CIN_FIRST_NAME:",
             "first_name": "CIN_DATE_OF_BIRTH:",
             "date_of_birth": "CIN_PLACE_OF_BIRTH:"
@@ -394,11 +438,22 @@
           "engine": "paddle",
           "source": "roi_ocr",
           "fields": {
-            "cin_number": "لفلرهتلا نتاوهب",
-            "family_name": "CIN_FIRST_NAME: ةيطع رلد بقللا",
-            "first_name": "ةيطع رلد بقللا",
+            "cin_number": "لادفيخلا ةفاضب",
+            "family_name": "CIN_FIRST_NAME: ةدطع بقللا",
+            "first_name": "ةدطع بقللا",
             "date_of_birth": "زتعمدمحم مسالا",
-            "place_of_birth": "ةيروهمجلا ةيسنوتلا ةينطولا ةقاطب فيرعتل ةيطع بقللا زتعمدمحم ل دمحم سارف نب نب وجج 10 204 نا ةدالولا خمات سنوت"
+            "place_of_birth": "ةدالولا ختات"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "roi_ocr",
+          "fields": {
+            "cin_number": "ب٢ر٠٦ ١رج1ا [",
+            "family_name": "CIN_FIRST_NAME: عطدة درا للقب",
+            "first_name": "عطدة درا للقب",
+            "date_of_birth": "الدسم مخمدمعتز",
+            "place_of_birth": "٨4 ٠١ ٦ تاتذ الولاده"
           }
         }
       ],
@@ -407,7 +462,7 @@
         "family_name": [
           {
             "value": "عطية",
-            "avg_conf": 3.299159,
+            "avg_conf": 2.898058,
             "count": 3,
             "engines": [
               "global_text",
@@ -420,7 +475,7 @@
               "text_family_global"
             ],
             "profiles": [],
-            "selection_score": 55.899159,
+            "selection_score": 55.498058,
             "raw_value": "عطية",
             "meta": [
               {
@@ -432,8 +487,29 @@
             ]
           },
           {
-            "value": "زتعمدتمخم",
-            "avg_conf": 9.05223,
+            "value": "ارد",
+            "avg_conf": 0.0,
+            "count": 1,
+            "engines": [
+              "easyocr"
+            ],
+            "sources": [
+              "text_family_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 32.1,
+            "raw_value": "ارد",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          }
+        ],
+        "first_name": [
+          {
+            "value": "زتعمدمخم",
+            "avg_conf": 14.130782,
             "count": 1,
             "engines": [
               "easyocr_boxes"
@@ -442,12 +518,10 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 41.55223,
-            "raw_value": "مخمتدمعتز",
+            "selection_score": 46.630782,
+            "raw_value": "مخمدمعتز",
             "meta": []
-          }
-        ],
-        "first_name": [
+          },
           {
             "value": "عطية",
             "avg_conf": 0.0,
@@ -473,8 +547,8 @@
             ]
           },
           {
-            "value": "سارف",
-            "avg_conf": 9.897477,
+            "value": "زتعمدمحم",
+            "avg_conf": 8.694175,
             "count": 1,
             "engines": [
               "paddle_boxes"
@@ -483,16 +557,34 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 44.497477,
-            "raw_value": "سارف",
+            "selection_score": 43.194175,
+            "raw_value": "زتعمدمحم",
             "meta": []
+          },
+          {
+            "value": "ارد",
+            "avg_conf": 0.0,
+            "count": 1,
+            "engines": [
+              "easyocr"
+            ],
+            "sources": [
+              "text_first_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 32.1,
+            "raw_value": "ارد",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
           }
         ],
-        "date_of_birth": [],
-        "place_of_birth": [
+        "date_of_birth": [
           {
-            "value": "الجم",
-            "avg_conf": 9.05223,
+            "value": "10/06/2004",
+            "avg_conf": 14.130782,
             "count": 1,
             "engines": [
               "easyocr_boxes"
@@ -501,16 +593,77 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 51.05223,
+            "selection_score": 43.130782,
+            "raw_value": "2004-06-10",
+            "meta": []
+          }
+        ],
+        "place_of_birth": [
+          {
+            "value": "الجم",
+            "avg_conf": 14.130782,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 56.130782,
             "raw_value": "الجم",
             "meta": []
+          },
+          {
+            "value": "تونس",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "easyocr",
+              "global_text"
+            ],
+            "sources": [
+              "text_place_fallback",
+              "text_place_global"
+            ],
+            "profiles": [],
+            "selection_score": 55.0,
+            "raw_value": "تونس",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_combined_text": true
+              }
+            ]
+          },
+          {
+            "value": "ةدالولا ختات",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "paddle"
+            ],
+            "sources": [
+              "extractor",
+              "roi_ocr"
+            ],
+            "profiles": [],
+            "selection_score": -5.5,
+            "raw_value": "ةدالولا ختات",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
           }
         ]
       },
       "selected": {
         "family_name": {
           "value": "عطية",
-          "avg_conf": 3.299159,
+          "avg_conf": 2.898058,
           "count": 3,
           "engines": [
             "global_text",
@@ -523,7 +676,7 @@
             "text_family_global"
           ],
           "profiles": [],
-          "selection_score": 55.899159,
+          "selection_score": 55.498058,
           "raw_value": "عطية",
           "meta": [
             {
@@ -535,24 +688,8 @@
           ]
         },
         "first_name": {
-          "value": "سارف",
-          "avg_conf": 9.897477,
-          "count": 1,
-          "engines": [
-            "paddle_boxes"
-          ],
-          "sources": [
-            "spatial_boxes"
-          ],
-          "profiles": [],
-          "selection_score": 44.497477,
-          "raw_value": "سارف",
-          "meta": []
-        },
-        "date_of_birth": null,
-        "place_of_birth": {
-          "value": "الجم",
-          "avg_conf": 9.05223,
+          "value": "زتعمدمخم",
+          "avg_conf": 14.130782,
           "count": 1,
           "engines": [
             "easyocr_boxes"
@@ -561,18 +698,57 @@
             "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 51.05223,
-          "raw_value": "الجم",
+          "selection_score": 46.630782,
+          "raw_value": "مخمدمعتز",
           "meta": []
+        },
+        "date_of_birth": {
+          "value": "10/06/2004",
+          "avg_conf": 14.130782,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 43.130782,
+          "raw_value": "2004-06-10",
+          "meta": []
+        },
+        "place_of_birth": {
+          "value": "تونس",
+          "avg_conf": 0.0,
+          "count": 2,
+          "engines": [
+            "easyocr",
+            "global_text"
+          ],
+          "sources": [
+            "text_place_fallback",
+            "text_place_global"
+          ],
+          "profiles": [],
+          "selection_score": 55.0,
+          "raw_value": "تونس",
+          "meta": [
+            {
+              "from_raw_text": true
+            },
+            {
+              "from_combined_text": true
+            }
+          ]
         }
       }
     },
     "cin_postprocess": {
       "executed": true,
       "name_extraction": {
-        "debug_sequence": "اللقب:ببببنتاوهب ةيطع رلد الاسم:مخمتدمعتز variants:normal",
-        "family_name": "ببببنتاوهب ةيطع رلد",
-        "first_name": "مخمتدمعتز",
+        "debug_sequence": "اللقب:زتعمدمحم الاسم:مخمدمعتز variants:normal",
+        "family_name": "زتعمدمحم",
+        "first_name": "مخمدمعتز",
         "rule": "family_name=all words after اللقب; first_name=words on الاسم line before بن/بنت"
       },
       "applied": [
@@ -580,7 +756,7 @@
           "field": "last_name",
           "type": "postprocess_skip_name_override",
           "kept": "عطية",
-          "candidate": "ببببنتاوهب ةيطع رلد",
+          "candidate": "زتعمدمحم",
           "candidate_ok": true,
           "old_ok": true,
           "good_spatial": true
@@ -588,22 +764,16 @@
         {
           "field": "first_name",
           "type": "ism_before_bin_extraction",
-          "old": "سارف",
-          "new": "مخمتدمعتز"
-        },
-        {
-          "field": "birth_date",
-          "type": "contextual_date_recovery",
-          "old": null,
-          "new": "2004-06-07",
-          "reason": "contextual_birth_date"
+          "old": "زتعمدمخم",
+          "new": "مخمدمعتز"
         },
         {
           "field": "birth_place",
-          "type": "contextual_place_recovery",
-          "old": "الجم",
-          "new": "تونس",
-          "reason": "place_after_label:مكانها تونس ةيطع سارف ةيطع"
+          "type": "postprocess_skip_place_override",
+          "kept": "تونس",
+          "candidate": "تونس",
+          "reason": "place_after_label:مكانها تونس ةيطع زتعمدمحم ةيطع",
+          "good_spatial": false
         }
       ]
     },
@@ -620,17 +790,17 @@
       "warnings": [
         "Champ critique à vérifier: id_number"
       ],
-      "business_confidence": 0.8328,
+      "business_confidence": 0.8097,
       "critical_fields_ok": 2,
       "valid_fields_ok": 4,
       "present_fields": 4,
-      "quality_score": 0.712,
-      "avg_field_confidence": 0.9175,
+      "quality_score": 0.46,
+      "avg_field_confidence": 0.9,
       "field_coverage": 0.8
     }
   },
-  "raw_text": "مخمتدمعتز الجم ةيطع سارف CIN_NUMBER: ؛7 153،51Sف 111 CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ؛7 153،51Sف 111 CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_NUMBER: لفلرهتلا بنتاوهب CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: لفلرهتلا بنتاوهب CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_NUMBER: لفلرهتلا بنتاوهب CIN_FAMILY_NAME: CIN_FIRST_NAME: ةيطع رلد اللقب CIN_DATE_OF_BIRTH: زتعمدمحم الاسم CIN_PLACE_OF_BIRTH: ةيروهمجلا ةيسنوتلا ةينطولا ةقاطب فيرعتل ةيطع اللقب زتعمدمحم ل محمد سارف نب نب وجج 10 204 نا الولادة خمات سنوت لفلرهتلا بنتاوهب CIN_FIRST_NAME: ةيطع رلد اللقب ةيطع رلد اللقب زتعمدمحم الاسم ةيروهمجلا ةيسنوتلا ةينطولا ةقاطب فيرعتل ةيطع اللقب زتعمدمحم ل محمد سارف نب نب وجج 10 204 نا الولادة خمات سنوت مخمتدمعتز الجم مخمتدمعتز اللقب بن الجمهور بطاقهالتعرف الوطنيف عطدة اللقب بن الاسم مخمتدمعتز بن فراس بن امحمد 2004 تايخ الولادة 10 جوان مكانها تونس right_text_block ةيطع سارف ةيطع اللقب سارف الاسم ؛7 153،51Sف 111 لفلرهتلا بنتاوهب ةيروهمجلا ةيسنوتلا ةينطولا ةقاطب فيرعتل ةيطع اللقب زتعمدمحم ل محمد سارف نب نب وجج 10 204 نا الولادة خمات سنوت لفلرهتلا بنتاوهب ةيطع رلد اللقب زتعمدمحم الاسم ةيطع ال بقللI زتعمدمحم ا سارف محمد نب نب 0 ناوجج 10 الولادة ختسات",
-  "processing_time_ms": 6738,
+  "raw_text": "CIN_NUMBER: ب2ر06 1رج1ا [ CIN_FAMILY_NAME: CIN_FIRST_NAME: عطدة درا للقب CIN_DATE_OF_BIRTH: الدسم مخمدمعتز CIN_PLACE_OF_BIRTH: 84 01 6 تاتذ الولاده رلف بطاقهالتعريف الوطنيه عطدة بن مخمدمعتز ر اآرا بن فراس بن محمد 2004 تاريخ الولادة 10 جوان مكانها تونس الجمهو غالتونسية |للقب الاسم ا مخمدمعتز 2004-06-10 الجم ةيطع زتعمدمحم CIN_NUMBER: ب2ر06 1رج1ا [ CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ب2ر06 1رج1ا [ CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_NUMBER: لادفيخلا ةفاضب CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: لادفيخلا ةفاضب CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_NUMBER: لادفيخلا ةفاضب CIN_FAMILY_NAME: CIN_FIRST_NAME: ةدطع اللقب CIN_DATE_OF_BIRTH: زتعمدمحم الاسم CIN_PLACE_OF_BIRTH: الولادة ختات ةر روهمجلا ةيسنوتلا ةينطولا ةقاطب فيرعتل ةيطع لب اللقب زتعمدمحم الاسم سارف نب نب محمد ننا 10 04 وج الولادة اختات سنوت اهزاكم لادفيخلا ةفاضب CIN_FIRST_NAME: ةدطع اللقب ةدطع اللقب زتعمدمحم الاسم الولادة ختات ب2ر06 1رج1ا [ CIN_FIRST_NAME: عطدة درا للقب عطدة درا للقب الدسم مخمدمعتز 84 01 6 تاتذ الولاده ا مخمدمعتز 2004-06-10 الجم ا للقب بن مخمدمعتز الاسم 10 جوان 2004 تاريخ الولادة 10 جوان 2004 الجمهوريف التونسيه بطاقه التعرف الوطنيف ا عطدة للقب بن الاسم مخمدمعتز بن فراس بن محمد تاريخ الولادة 10 جوان 2004 مكانها تونس right_text_block ةيطع زتعمدمحم ةيطع اللقب زتعمدمحم الاسم ب2ر06 1رج1ا [ لادفيخلا ةفاضب ةر روهمجلا ةيسنوتلا ةينطولا ةقاطب فيرعتل ةيطع لب اللقب زتعمدمحم الاسم سارف نب نب محمد ننا 10 04 وج الولادة اختات سنوت اهزاكم لادفيخلا ةفاضب ةدطع اللقب زتعمدمحم الاسم الولادة ختات ةيطع ليب بقلللا زتعمدمحم الاسم سارف محمد نب نب 0 نا وج ةدالول ختات رلف بطاقهالتعريف الوطنيه عطدة بن مخمدمعتز ر اآرا بن فراس بن محمد 2004 تاريخ الولادة 10 جوان مكانها تونس الجمهو غالتونسية |للقب الاسم ب2ر06 1رج1ا [ عطدة درا للقب الدسم مخمدمعتز 84 01 6 تاتذ الولاده اللقب بن عطية مخمدمعتز بن فراس بن محمد 2004 تاريخ الولادة 10 جوان الاسم",
+  "processing_time_ms": 10273,
   "warnings": [
     "Champ critique à vérifier: id_number",
     "Champ requis 'numero_cin' à vérifier"

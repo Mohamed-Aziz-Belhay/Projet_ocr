@@ -1,5 +1,5 @@
 {
-  "job_id": "5ec7da3e-8e2e-46fc-a029-f1439f0459fc",
+  "job_id": "8ca2f4e1-095b-40dc-a0ce-d3a940da4ab8",
   "status": "review_required",
   "template_id": "cin_tn",
   "document_type": "cin_tn",
@@ -7,7 +7,7 @@
   "engine_used": "easyocr_boxes",
   "language_detected": "ar",
   "global_confidence": 0.7106,
-  "quality_score": 0.746,
+  "quality_score": 0.745,
   "fields": [
     {
       "name": "id_number",
@@ -22,7 +22,9 @@
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "last_name",
@@ -38,7 +40,9 @@
       "reasons": [
         "field unresolved",
         "critical field missing"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "first_name",
@@ -54,7 +58,9 @@
       "reasons": [
         "field unresolved",
         "critical field missing"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_date",
@@ -70,7 +76,9 @@
       "reasons": [
         "field unresolved",
         "critical field missing"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_place",
@@ -85,7 +93,9 @@
       "review_required": false,
       "reasons": [
         "field unresolved"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     }
   ],
   "normalized_data": {
@@ -100,20 +110,20 @@
     "status": "review_required",
     "review_required": true,
     "review_reasons": [
-      "critical field missing or invalid: last_name",
       "critical field missing or invalid: first_name",
+      "critical field missing or invalid: last_name",
       "birth_date missing"
     ],
     "warnings": [
-      "Champ critique à vérifier: last_name",
       "Champ critique à vérifier: first_name",
+      "Champ critique à vérifier: last_name",
       "Date de naissance à vérifier"
     ],
     "business_confidence": 0.7106,
     "critical_fields_ok": 1,
     "valid_fields_ok": 1,
     "present_fields": 1,
-    "quality_score": 0.746,
+    "quality_score": 0.745,
     "avg_field_confidence": 0.95,
     "field_coverage": 0.2
   },
@@ -126,20 +136,21 @@
       "paddle_boxes",
       "targeted_roi:easyocr",
       "targeted_roi:paddle",
-      "full_ocr:paddle"
+      "full_ocr:paddle",
+      "full_ocr:easyocr"
     ],
     "preprocessing": {
       "quality": {
         "sharpness": 1.0,
-        "brightness": 0.464,
-        "contrast": 0.599,
-        "quality_score": 0.746
+        "brightness": 0.442,
+        "contrast": 0.616,
+        "quality_score": 0.745
       },
       "transforms": {
         "resized": false,
         "deskewed": false,
-        "contrast": true,
-        "mode": "cin_legacy_compatible"
+        "contrast": false,
+        "mode": "cin_simple_deskew_only"
       },
       "cin_preprocessor_keys": [
         "binary",
@@ -152,9 +163,9 @@
     },
     "quality_checks": {
       "sharpness": 1.0,
-      "brightness": 0.464,
-      "contrast": 0.599,
-      "quality_score": 0.746
+      "brightness": 0.442,
+      "contrast": 0.616,
+      "quality_score": 0.745
     },
     "roi_fields": {
       "cin_number": [
@@ -197,13 +208,13 @@
           "date_of_birth",
           "place_of_birth"
         ],
-        "processing_time_ms": 102,
+        "processing_time_ms": 280,
         "zones": {
           "family_name": "",
           "first_name": "",
           "date_of_birth": "",
-          "place_of_birth": "",
-          "right_text_block": "12.1"
+          "place_of_birth": "مبمرد",
+          "right_text_block": "٧٦477 ١1"
         },
         "zone_scores": {
           "family_name": 0.0,
@@ -224,13 +235,13 @@
           "date_of_birth",
           "place_of_birth"
         ],
-        "processing_time_ms": 703,
+        "processing_time_ms": 994,
         "zones": {
           "family_name": "",
           "first_name": "",
           "date_of_birth": "",
-          "place_of_birth": "11 يرفيق",
-          "right_text_block": "ىرلا عسات"
+          "place_of_birth": "21 يرفيق ةدظيولا",
+          "right_text_block": "س يلع نب رافع 121 يرفيف ظرلا سا سادرمب"
         },
         "zone_scores": {
           "family_name": 0.0,
@@ -245,17 +256,44 @@
         "engine": "paddle",
         "executed": true,
         "trial_type": "full_card_and_all_rois",
-        "full_text": "ةينطولا فيرعتلا ةقاطب ةيسنوتلا ةيروهمجلا 01644767 سالا نب رامع 11 ةدرلا عن يرفح سادرمب ركرك ة",
+        "full_text": "و ةينطولاا فيرعتلا ةقاطب ةيسنوتلا يروهمجلا 01644767 لاس قملا يبهذلا ىلع نب رافمع نب 21 يرفف ةداذرلا عخيبات سادرمب ركرك",
         "full_text_score": 0.0,
-        "processing_time_ms": 1125,
+        "processing_time_ms": 1503,
         "zones": {
           "cin_number": "",
           "family_name": "",
           "first_name": "",
           "date_of_birth": "",
-          "place_of_birth": "11 يرفيق",
+          "place_of_birth": "21 يرفيق ةدظيولا",
           "gender": "",
-          "right_text_block": "ىرلا عسات"
+          "right_text_block": "س يلع نب رافع 121 يرفيف ظرلا سا سادرمب"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "لنمشورنبالآانس بطاقةالتعرنف الوطنلةً 01644767 /214 آبن بذبرداس",
+        "full_text_score": 0.0,
+        "processing_time_ms": 750,
+        "zones": {
+          "cin_number": "",
+          "family_name": "",
+          "first_name": "",
+          "date_of_birth": "",
+          "place_of_birth": "مبمرد",
+          "gender": "",
+          "right_text_block": "٧٦477 ١1"
         },
         "zone_scores": {
           "cin_number": 0.0,
@@ -273,12 +311,12 @@
       "trials": [
         {
           "engine": "easyocr_boxes",
-          "box_count": 5,
+          "box_count": 7,
           "fields": {
             "cin_number": "01644767"
           },
           "scores": {
-            "cin_number": 20.19937608460393
+            "cin_number": 20.195247311449947
           },
           "meta": {
             "cin_number": {
@@ -321,12 +359,14 @@
         },
         {
           "engine": "paddle_boxes",
-          "box_count": 13,
+          "box_count": 16,
           "fields": {
-            "cin_number": "01644767"
+            "cin_number": "01644767",
+            "first_name": "ق"
           },
           "scores": {
-            "cin_number": 20.161220526695253
+            "cin_number": 20.17911376953125,
+            "first_name": 15.137272953987122
           },
           "meta": {
             "cin_number": {
@@ -340,9 +380,10 @@
               "anchors_found": 0
             },
             "first_name": {
-              "chosen_from": null,
-              "source_kind": "no_label",
-              "anchors_found": 0
+              "chosen_from": "قملا",
+              "candidate_text": "ق",
+              "source_kind": "inline",
+              "anchors_found": 1
             },
             "date_of_birth": {
               "chosen_from": null,
@@ -382,7 +423,8 @@
           "engine": "paddle_boxes",
           "source": "spatial_boxes",
           "fields": {
-            "cin_number": "01644767"
+            "cin_number": "01644767",
+            "first_name": "ق"
           }
         },
         {
@@ -392,8 +434,8 @@
             "cin_number": "CIN_FAMILY_NAME:",
             "family_name": "CIN_FIRST_NAME:",
             "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "12.1"
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: مبمرد",
+            "place_of_birth": "مبمرد"
           }
         },
         {
@@ -403,8 +445,8 @@
             "cin_number": "CIN_FAMILY_NAME:",
             "family_name": "CIN_FIRST_NAME:",
             "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH: 11 يرفيق",
-            "place_of_birth": "11 يرفيق"
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: 21 يرفيق ةدظيولا",
+            "place_of_birth": "21 يرفيق ةدظيولا"
           }
         },
         {
@@ -414,8 +456,19 @@
             "cin_number": "CIN_FAMILY_NAME:",
             "family_name": "CIN_FIRST_NAME:",
             "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH: 11 يرفيق",
-            "place_of_birth": "11 يرفيق"
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: 21 يرفيق ةدظيولا",
+            "place_of_birth": "21 يرفيق ةدظيولا"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "roi_ocr",
+          "fields": {
+            "cin_number": "CIN_FAMILY_NAME:",
+            "family_name": "CIN_FIRST_NAME:",
+            "first_name": "CIN_DATE_OF_BIRTH:",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: مبمرد",
+            "place_of_birth": "مبمرد"
           }
         }
       ],
@@ -423,7 +476,7 @@
         "cin_number": [
           {
             "value": "01644767",
-            "avg_conf": 20.180298,
+            "avg_conf": 20.187181,
             "count": 2,
             "engines": [
               "easyocr_boxes",
@@ -433,7 +486,7 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 56.180298,
+            "selection_score": 56.187181,
             "raw_value": "01644767",
             "meta": []
           }
@@ -446,7 +499,7 @@
       "selected": {
         "cin_number": {
           "value": "01644767",
-          "avg_conf": 20.180298,
+          "avg_conf": 20.187181,
           "count": 2,
           "engines": [
             "easyocr_boxes",
@@ -456,7 +509,7 @@
             "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 56.180298,
+          "selection_score": 56.187181,
           "raw_value": "01644767",
           "meta": []
         },
@@ -473,45 +526,45 @@
     },
     "review_required": true,
     "review_reasons": [
-      "critical field missing or invalid: last_name",
       "critical field missing or invalid: first_name",
+      "critical field missing or invalid: last_name",
       "birth_date missing"
     ],
     "business_validation": {
       "status": "review_required",
       "review_required": true,
       "review_reasons": [
-        "critical field missing or invalid: last_name",
         "critical field missing or invalid: first_name",
+        "critical field missing or invalid: last_name",
         "birth_date missing"
       ],
       "warnings": [
-        "Champ critique à vérifier: last_name",
         "Champ critique à vérifier: first_name",
+        "Champ critique à vérifier: last_name",
         "Date de naissance à vérifier"
       ],
       "business_confidence": 0.7106,
       "critical_fields_ok": 1,
       "valid_fields_ok": 1,
       "present_fields": 1,
-      "quality_score": 0.746,
+      "quality_score": 0.745,
       "avg_field_confidence": 0.95,
       "field_coverage": 0.2
     }
   },
-  "raw_text": "01644767 01644767 CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 12.1 CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 12.1 CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 11 يرفيق ىرلا عسات CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 11 يرفيق 11 يرفيق CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 11 يرفيق ةينطولا فيرعتلا ةقاطب ةيسنوتلا ةيروهمجلا 01644767 سالا نب رامع 11 ةدرلا عن يرفح سادرمب ركرك ة CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 11 يرفيق 11 يرفيق 01644767 01644767 01644767 01644767 01644767 01644767 12.1 11 يرفيق ىرلا عسات ةينطولا فيرعتلا ةقاطب ةيسنوتلا ةيروهمجلا 01644767 سالا نب رامع 11 ةدرلا عن يرفح سادرمب ركرك ة 11 يرفيق ىرلا عسات",
-  "processing_time_ms": 3417,
+  "raw_text": "01644767 01644767 ق CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: مبمرد 76477 11 CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: مبمرد مبمرد CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 21 يرفيق ةدظيولا س يلع نب رافع 121 يرفيف ظرلا سا سادرمب CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 21 يرفيق ةدظيولا 21 يرفيق ةدظيولا CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 21 يرفيق ةدظيولا و ةينطولاا فيرعتلا ةقاطب ةيسنوتلا يروهمجلا 01644767 لاس قملا يبهذلا ىلع نب رافمع نب 21 يرفف ةداذرلا عخيبات سادرمب ركرك CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 21 يرفيق ةدظيولا 21 يرفيق ةدظيولا CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: مبمرد لنمشورنبالآانس بطاقةالتعرنف الوطنلةً 01644767 /214 آبن بذبرداس CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: مبمرد مبمرد 01644767 01644767 01644767 01644767 ق 01644767 01644767 ق قملا مبمرد 76477 11 21 يرفيق ةدظيولا س يلع نب رافع 121 يرفيف ظرلا سا سادرمب و ةينطولاا فيرعتلا ةقاطب ةيسنوتلا يروهمجلا 01644767 لاس قملا يبهذلا ىلع نب رافمع نب 21 يرفف ةداذرلا عخيبات سادرمب ركرك 21 يرفيق ةدظيولا س يلع نب رافع 121 يرفيف ظرلا سا سادرمب لنمشورنبالآانس بطاقةالتعرنف الوطنلةً 01644767 /214 آبن بذبرداس مبمرد 76477 11",
+  "processing_time_ms": 5869,
   "warnings": [
-    "Champ critique à vérifier: last_name",
     "Champ critique à vérifier: first_name",
+    "Champ critique à vérifier: last_name",
     "Date de naissance à vérifier",
     "Champ requis 'nom' à vérifier",
     "Champ requis 'prenom' à vérifier",
     "Champ requis 'date_naissance' à vérifier"
   ],
   "review_reasons": [
-    "critical field missing or invalid: last_name",
     "critical field missing or invalid: first_name",
+    "critical field missing or invalid: last_name",
     "birth_date missing"
   ]
 }

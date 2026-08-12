@@ -1,13 +1,13 @@
 {
-  "job_id": "7260fcc3-6ce1-40be-8047-b89af1e19c4b",
+  "job_id": "bde3ac82-b9f0-4952-af45-466a8fcee054",
   "status": "review_required",
   "template_id": "cin_tn",
   "document_type": "cin_tn",
   "document_variant": "recto",
   "engine_used": "mixed(global_text,paddle_boxes)",
   "language_detected": "ar",
-  "global_confidence": 0.7782,
-  "quality_score": 0.351,
+  "global_confidence": 0.7749,
+  "quality_score": 0.265,
   "fields": [
     {
       "name": "id_number",
@@ -22,11 +22,13 @@
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "last_name",
-      "value": "ُةير همجلا فا",
+      "value": "همجلا فا دلا",
       "confidence": 0.9,
       "validated": true,
       "raw_text": "يفايضلاب",
@@ -38,7 +40,9 @@
       "reasons": [
         "selected_from:text_family_fallback",
         "reconstructed_from:اللقب_line"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "first_name",
@@ -54,24 +58,27 @@
       "reasons": [
         "field unresolved",
         "critical field missing"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_date",
-      "value": "2001-01-01",
-      "confidence": 0.82,
-      "validated": true,
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
       "raw_text": null,
       "raw_template_field": null,
-      "error": null,
+      "error": "Date introuvable",
       "selected_engine": null,
-      "selected_source": "cin_postprocess_birth_date_context",
-      "review_required": false,
+      "selected_source": null,
+      "review_required": true,
       "reasons": [
         "field unresolved",
-        "critical field missing",
-        "birth_date_recovered:contextual_birth_date"
-      ]
+        "critical field missing"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_place",
@@ -86,14 +93,16 @@
       "review_required": false,
       "reasons": [
         "field unresolved"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     }
   ],
   "normalized_data": {
     "idNumber": "12706161",
-    "lastName": "ُةير همجلا فا",
+    "lastName": "همجلا فا دلا",
     "firstName": null,
-    "birthDate": "2001-01-01",
+    "birthDate": null,
     "birthPlace": null
   },
   "routing": null,
@@ -101,18 +110,20 @@
     "status": "review_required",
     "review_required": true,
     "review_reasons": [
-      "critical field missing or invalid: first_name"
+      "critical field missing or invalid: first_name",
+      "birth_date missing"
     ],
     "warnings": [
-      "Champ critique à vérifier: first_name"
+      "Champ critique à vérifier: first_name",
+      "Date de naissance à vérifier"
     ],
-    "business_confidence": 0.7782,
+    "business_confidence": 0.7749,
     "critical_fields_ok": 2,
-    "valid_fields_ok": 3,
-    "present_fields": 3,
-    "quality_score": 0.351,
-    "avg_field_confidence": 0.89,
-    "field_coverage": 0.6
+    "valid_fields_ok": 2,
+    "present_fields": 2,
+    "quality_score": 0.265,
+    "avg_field_confidence": 0.925,
+    "field_coverage": 0.4
   },
   "diagnostics": {
     "mode": "cin_specialized_v2",
@@ -123,20 +134,21 @@
       "paddle_boxes",
       "targeted_roi:easyocr",
       "targeted_roi:paddle",
-      "full_ocr:paddle"
+      "full_ocr:paddle",
+      "full_ocr:easyocr"
     ],
     "preprocessing": {
       "quality": {
-        "sharpness": 0.199,
-        "brightness": 0.586,
-        "contrast": 0.384,
-        "quality_score": 0.351
+        "sharpness": 0.052,
+        "brightness": 0.601,
+        "contrast": 0.305,
+        "quality_score": 0.265
       },
       "transforms": {
         "resized": true,
         "deskewed": false,
-        "contrast": true,
-        "mode": "cin_legacy_compatible"
+        "contrast": false,
+        "mode": "cin_simple_deskew_only"
       },
       "cin_preprocessor_keys": [
         "binary",
@@ -148,10 +160,10 @@
       ]
     },
     "quality_checks": {
-      "sharpness": 0.199,
-      "brightness": 0.586,
-      "contrast": 0.384,
-      "quality_score": 0.351
+      "sharpness": 0.052,
+      "brightness": 0.601,
+      "contrast": 0.305,
+      "quality_score": 0.265
     },
     "roi_fields": {
       "cin_number": [
@@ -194,13 +206,13 @@
           "date_of_birth",
           "place_of_birth"
         ],
-        "processing_time_ms": 811,
+        "processing_time_ms": 893,
         "zones": {
           "family_name": "٤",
-          "first_name": "٤ ٠ ٤",
-          "date_of_birth": "ح كتق",
+          "first_name": "٤ ٤ ٣",
+          "date_of_birth": "ت ح كت]",
           "place_of_birth": "٤",
-          "right_text_block": "ا - - ٤"
+          "right_text_block": "ا ٤ ٤ ؟"
         },
         "zone_scores": {
           "family_name": 0.0,
@@ -221,13 +233,13 @@
           "date_of_birth",
           "place_of_birth"
         ],
-        "processing_time_ms": 1640,
+        "processing_time_ms": 1876,
         "zones": {
-          "family_name": "ا ةيك",
-          "first_name": "01 فيرع وتلا ُةير",
-          "date_of_birth": "همجلا فا",
-          "place_of_birth": "",
-          "right_text_block": "ةيطولايرعتلا ةقاطب ةيسنوتلا ةيروهمجلا 12706161 يفايضلاب بققلل"
+          "family_name": "ةيس",
+          "first_name": "061 فيرع وتلا ُةير",
+          "date_of_birth": "لا ةقط همجلا فا",
+          "place_of_birth": "دلا",
+          "right_text_block": "ةينطولافيرغتلا ةقاطب ةيسنوتلا ةيروهمجلا 12706161 يفايضلاب بققلل"
         },
         "zone_scores": {
           "family_name": 0.0,
@@ -242,17 +254,44 @@
         "engine": "paddle",
         "executed": true,
         "trial_type": "full_card_and_all_rois",
-        "full_text": "ةينطولافيرعتلا ةقاطب ةيسنولا ةيوهمجلا 12706161 2001 ليرفا يفايضلاب بيسح يداش فاكلا اهناكت",
+        "full_text": "٤ ا ةيطولا يرغتلا ةقاطب ةيسنوتلا ةيوهمجلا 12706161 001 ريشبلا ليرفا يفايضلاب نب بيسح فاكلا ةدالولا ختات اهناكم",
         "full_text_score": 0.0,
-        "processing_time_ms": 2082,
+        "processing_time_ms": 2717,
         "zones": {
           "cin_number": "",
-          "family_name": "ا ةيك",
-          "first_name": "01 فيرع وتلا ُةير",
-          "date_of_birth": "همجلا فا",
-          "place_of_birth": "",
+          "family_name": "ةيس",
+          "first_name": "061 فيرع وتلا ُةير",
+          "date_of_birth": "لا ةقط همجلا فا",
+          "place_of_birth": "دلا",
           "gender": "بقللا",
-          "right_text_block": "ةيطولايرعتلا ةقاطب ةيسنوتلا ةيروهمجلا 12706161 يفايضلاب بققلل"
+          "right_text_block": "ةينطولافيرغتلا ةقاطب ةيسنوتلا ةيروهمجلا 12706161 يفايضلاب بققلل"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "[ آ ٤ [ ٥ [ ح ؟ ٠٤٠ ٤ ٢ }",
+        "full_text_score": 0.0,
+        "processing_time_ms": 2173,
+        "zones": {
+          "cin_number": "",
+          "family_name": "٤",
+          "first_name": "٤ ٤ ٣",
+          "date_of_birth": "ت ح كت]",
+          "place_of_birth": "٤",
+          "gender": "",
+          "right_text_block": "ا ٤ ٤ ؟"
         },
         "zone_scores": {
           "cin_number": 0.0,
@@ -270,7 +309,7 @@
       "trials": [
         {
           "engine": "easyocr_boxes",
-          "box_count": 9,
+          "box_count": 10,
           "fields": {},
           "scores": {},
           "meta": {
@@ -314,12 +353,12 @@
         },
         {
           "engine": "paddle_boxes",
-          "box_count": 10,
+          "box_count": 13,
           "fields": {
             "cin_number": "12706161"
           },
           "scores": {
-            "cin_number": 20.193219351768494
+            "cin_number": 20.18768792152405
           },
           "meta": {
             "cin_number": {
@@ -340,7 +379,7 @@
             "date_of_birth": {
               "chosen_from": null,
               "source_kind": "no_valid_date",
-              "anchors_found": 0
+              "anchors_found": 1
             },
             "place_of_birth": {
               "chosen_from": null,
@@ -377,8 +416,8 @@
           "fields": {
             "cin_number": "CIN_FAMILY_NAME: ٤",
             "family_name": "٤",
-            "first_name": "٤ ٠ ٤",
-            "date_of_birth": "ح كتق",
+            "first_name": "٤ ٤ ٣",
+            "date_of_birth": "ت ح كت]",
             "place_of_birth": "٤"
           }
         },
@@ -386,22 +425,33 @@
           "engine": "paddle",
           "source": "targeted_roi_ocr",
           "fields": {
-            "cin_number": "CIN_FAMILY_NAME: ا ةيك",
-            "family_name": "ا ةيك",
-            "first_name": "01 فيرع وتلا ُةير",
-            "date_of_birth": "همجلا فا",
-            "place_of_birth": "ةيطولايرعتلا ةقاطب ةيسنوتلا ةيروهمجلا 12706161 يفايضلاب بققلل"
+            "cin_number": "CIN_FAMILY_NAME: ةيس",
+            "family_name": "ةيس",
+            "first_name": "061 فيرع وتلا ُةير",
+            "date_of_birth": "لا ةقط همجلا فا",
+            "place_of_birth": "دلا"
           }
         },
         {
           "engine": "paddle",
           "source": "roi_ocr",
           "fields": {
-            "cin_number": "CIN_FAMILY_NAME: ا ةيك",
-            "family_name": "ا ةيك",
-            "first_name": "01 فيرع وتلا ُةير",
-            "date_of_birth": "همجلا فا",
-            "place_of_birth": "ةينطولافيرعتلا ةقاطب ةيسنولا ةيوهمجلا 12706161 2001 ليرفا يفايضلاب بيسح يداش فاكلا اهناكت"
+            "cin_number": "CIN_FAMILY_NAME: ةيس",
+            "family_name": "ةيس",
+            "first_name": "061 فيرع وتلا ُةير",
+            "date_of_birth": "لا ةقط همجلا فا",
+            "place_of_birth": "دلا"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "roi_ocr",
+          "fields": {
+            "cin_number": "CIN_FAMILY_NAME: ٤",
+            "family_name": "٤",
+            "first_name": "٤ ٤ ٣",
+            "date_of_birth": "ت ح كت]",
+            "place_of_birth": "٤"
           }
         }
       ],
@@ -409,7 +459,7 @@
         "cin_number": [
           {
             "value": "12706161",
-            "avg_conf": 20.193219,
+            "avg_conf": 20.187688,
             "count": 1,
             "engines": [
               "paddle_boxes"
@@ -418,7 +468,7 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 49.193219,
+            "selection_score": 49.187688,
             "raw_value": "12706161",
             "meta": []
           }
@@ -449,7 +499,7 @@
             ]
           },
           {
-            "value": "ا كية",
+            "value": "سية",
             "avg_conf": 0.0,
             "count": 4,
             "engines": [
@@ -461,8 +511,8 @@
               "targeted_roi_ocr"
             ],
             "profiles": [],
-            "selection_score": 31.3,
-            "raw_value": "ا ةيك",
+            "selection_score": 32.1,
+            "raw_value": "ةيس",
             "meta": [
               {
                 "from_raw_text": true
@@ -499,7 +549,7 @@
             ]
           },
           {
-            "value": "10 عريف التو رية",
+            "value": "160 عريف التو رية",
             "avg_conf": 0.0,
             "count": 4,
             "engines": [
@@ -511,8 +561,8 @@
               "targeted_roi_ocr"
             ],
             "profiles": [],
-            "selection_score": 35.2,
-            "raw_value": "01 فيرع وتلا ُةير",
+            "selection_score": 38.0,
+            "raw_value": "061 فيرع وتلا ُةير",
             "meta": [
               {
                 "from_raw_text": true
@@ -523,20 +573,24 @@
             ]
           },
           {
-            "value": "4 04",
+            "value": "4 43",
             "avg_conf": 0.0,
-            "count": 2,
+            "count": 4,
             "engines": [
               "easyocr"
             ],
             "sources": [
               "extractor",
+              "roi_ocr",
               "targeted_roi_ocr"
             ],
             "profiles": [],
-            "selection_score": 8.9,
-            "raw_value": "٤ ٠ ٤",
+            "selection_score": 22.9,
+            "raw_value": "٤ ٤ ٣",
             "meta": [
+              {
+                "from_raw_text": true
+              },
               {
                 "from_raw_text": true
               }
@@ -549,7 +603,7 @@
       "selected": {
         "cin_number": {
           "value": "12706161",
-          "avg_conf": 20.193219,
+          "avg_conf": 20.187688,
           "count": 1,
           "engines": [
             "paddle_boxes"
@@ -558,7 +612,7 @@
             "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 49.193219,
+          "selection_score": 49.187688,
           "raw_value": "12706161",
           "meta": []
         },
@@ -594,8 +648,8 @@
     "cin_postprocess": {
       "executed": true,
       "name_extraction": {
-        "debug_sequence": "اللقب:ُةير همجلا فا الاسم:? variants:normal",
-        "family_name": "ُةير همجلا فا",
+        "debug_sequence": "اللقب:همجلا فا دلا الاسم:? variants:normal",
+        "family_name": "همجلا فا دلا",
         "first_name": null,
         "rule": "family_name=all words after اللقب; first_name=words on الاسم line before بن/بنت"
       },
@@ -604,46 +658,45 @@
           "field": "last_name",
           "type": "laqab_line_extraction",
           "old": "يفايضلاب",
-          "new": "ُةير همجلا فا"
-        },
-        {
-          "field": "birth_date",
-          "type": "contextual_date_recovery",
-          "old": null,
-          "new": "2001-01-01",
-          "reason": "contextual_birth_date"
+          "new": "همجلا فا دلا"
         }
       ]
     },
     "review_required": true,
     "review_reasons": [
-      "critical field missing or invalid: first_name"
+      "critical field missing or invalid: first_name",
+      "birth_date missing"
     ],
     "business_validation": {
       "status": "review_required",
       "review_required": true,
       "review_reasons": [
-        "critical field missing or invalid: first_name"
+        "critical field missing or invalid: first_name",
+        "birth_date missing"
       ],
       "warnings": [
-        "Champ critique à vérifier: first_name"
+        "Champ critique à vérifier: first_name",
+        "Date de naissance à vérifier"
       ],
-      "business_confidence": 0.7782,
+      "business_confidence": 0.7749,
       "critical_fields_ok": 2,
-      "valid_fields_ok": 3,
-      "present_fields": 3,
-      "quality_score": 0.351,
-      "avg_field_confidence": 0.89,
-      "field_coverage": 0.6
+      "valid_fields_ok": 2,
+      "present_fields": 2,
+      "quality_score": 0.265,
+      "avg_field_confidence": 0.925,
+      "field_coverage": 0.4
     }
   },
-  "raw_text": "12706161 CIN_NUMBER: CIN_FAMILY_NAME: 4 CIN_FIRST_NAME: 4 0 4 CIN_DATE_OF_BIRTH: ح كتق CIN_PLACE_OF_BIRTH: 4 ا - - 4 CIN_FAMILY_NAME: 4 4 4 0 4 ح كتق 4 CIN_NUMBER: CIN_FAMILY_NAME: ا ةيك CIN_FIRST_NAME: 01 فيرع وتلا ُةير CIN_DATE_OF_BIRTH: همجلا فا CIN_PLACE_OF_BIRTH: ةيطولايرعتلا ةقاطب ةيسنوتلا ةيروهمجلا 12706161 يفايضلاب بققلل CIN_FAMILY_NAME: ا ةيك ا ةيك 01 فيرع وتلا ُةير همجلا فا ةيطولايرعتلا ةقاطب ةيسنوتلا ةيروهمجلا 12706161 يفايضلاب بققلل CIN_NUMBER: CIN_FAMILY_NAME: ا ةيك CIN_FIRST_NAME: 01 فيرع وتلا ُةير CIN_DATE_OF_BIRTH: همجلا فا CIN_PLACE_OF_BIRTH: ةينطولافيرعتلا ةقاطب ةيسنولا ةيوهمجلا 12706161 2001 ليرفا يفايضلاب بيسح يداش فاكلا مكانهات CIN_FAMILY_NAME: ا ةيك ا ةيك 01 فيرع وتلا ُةير همجلا فا ةينطولافيرعتلا ةقاطب ةيسنولا ةيوهمجلا 12706161 2001 ليرفا يفايضلاب بيسح يداش فاكلا مكانهات 12706161 12706161 12706161 4 4 0 4 ح كتق 4 ا - - 4 ا ةيك 01 فيرع وتلا ُةير همجلا فا ةيطولايرعتلا ةقاطب ةيسنوتلا ةيروهمجلا 12706161 يفايضلاب بققلل ةينطولافيرعتلا ةقاطب ةيسنولا ةيوهمجلا 12706161 2001 ليرفا يفايضلاب بيسح يداش فاكلا مكانهات ا ةيك 01 فيرع وتلا ُةير همجلا فا اللقب ةيطولايرعتلا ةقاطب ةيسنوتلا ةيروهمجلا 12706161 يفايضلاب بققلل",
-  "processing_time_ms": 7170,
+  "raw_text": "12706161 CIN_NUMBER: CIN_FAMILY_NAME: 4 CIN_FIRST_NAME: 4 4 3 CIN_DATE_OF_BIRTH: ت ح كت] CIN_PLACE_OF_BIRTH: 4 ا 4 4 ؟ CIN_FAMILY_NAME: 4 4 4 4 3 ت ح كت] 4 CIN_NUMBER: CIN_FAMILY_NAME: ةيس CIN_FIRST_NAME: 061 فيرع وتلا ُةير CIN_DATE_OF_BIRTH: لا ةقط همجلا فا CIN_PLACE_OF_BIRTH: دلا ةينطولافيرغتلا ةقاطب ةيسنوتلا ةيروهمجلا 12706161 يفايضلاب بققلل CIN_FAMILY_NAME: ةيس ةيس 061 فيرع وتلا ُةير لا ةقط همجلا فا دلا CIN_NUMBER: CIN_FAMILY_NAME: ةيس CIN_FIRST_NAME: 061 فيرع وتلا ُةير CIN_DATE_OF_BIRTH: لا ةقط همجلا فا CIN_PLACE_OF_BIRTH: دلا 4 ا ةيطولا يرغتلا ةقاطب ةيسنوتلا ةيوهمجلا 12706161 001 ريشبلا ليرفا يفايضلاب نب بيسح فاكلا الولادة ختات مكانها CIN_FAMILY_NAME: ةيس ةيس 061 فيرع وتلا ُةير لا ةقط همجلا فا دلا CIN_NUMBER: CIN_FAMILY_NAME: 4 CIN_FIRST_NAME: 4 4 3 CIN_DATE_OF_BIRTH: ت ح كت] CIN_PLACE_OF_BIRTH: 4 [ آ 4 [ 5 [ ح ؟ 040 4 2 } CIN_FAMILY_NAME: 4 4 4 4 3 ت ح كت] 4 12706161 12706161 12706161 4 4 4 3 ت ح كت] 4 ا 4 4 ؟ ةيس 061 فيرع وتلا ُةير لا ةقط همجلا فا دلا ةينطولافيرغتلا ةقاطب ةيسنوتلا ةيروهمجلا 12706161 يفايضلاب بققلل 4 ا ةيطولا يرغتلا ةقاطب ةيسنوتلا ةيوهمجلا 12706161 001 ريشبلا ليرفا يفايضلاب نب بيسح فاكلا الولادة ختات مكانها ةيس 061 فيرع وتلا ُةير لا ةقط همجلا فا دلا اللقب ةينطولافيرغتلا ةقاطب ةيسنوتلا ةيروهمجلا 12706161 يفايضلاب بققلل [ آ 4 [ 5 [ ح ؟ 040 4 2 } 4 4 4 3 ت ح كت] 4 ا 4 4 ؟",
+  "processing_time_ms": 11513,
   "warnings": [
     "Champ critique à vérifier: first_name",
-    "Champ requis 'prenom' à vérifier"
+    "Date de naissance à vérifier",
+    "Champ requis 'prenom' à vérifier",
+    "Champ requis 'date_naissance' à vérifier"
   ],
   "review_reasons": [
-    "critical field missing or invalid: first_name"
+    "critical field missing or invalid: first_name",
+    "birth_date missing"
   ]
 }

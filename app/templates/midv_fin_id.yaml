@@ -50,6 +50,13 @@ fields:
   type: enum
   required: false
   output_key: gender
+- name: id_number
+  type: text
+  required: true
+  output_key: idNumber
+  validation:
+    min_length: 3
+    max_length: 20
 - name: issue_date
   type: date
   required: false
@@ -162,6 +169,17 @@ roi_fields:
   required: false
   orientation: '0'
   visual: false
+- name: id_number
+  type: text
+  output_key: idNumber
+  bbox_norm:
+  - 0.47364
+  - 0.505137
+  - 0.077546
+  - 0.035959
+  required: true
+  orientation: '0'
+  visual: false
 - name: issue_date
   type: date
   output_key: issueDate
@@ -247,6 +265,7 @@ output_mapping:
   expiry_date: expiryDate
   face: face
   gender: gender
+  id_number: idNumber
   issue_date: issueDate
   name: givenNames
   nationality: nationality

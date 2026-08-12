@@ -1,13 +1,13 @@
 {
-  "job_id": "2b974772-664d-4807-b65a-313ad514c20a",
+  "job_id": "aff94539-0fc3-4023-8ee8-4c3b1e05ce4b",
   "status": "review_required",
   "template_id": "cin_tn",
   "document_type": "cin_tn",
   "document_variant": "recto",
-  "engine_used": "easyocr_boxes",
+  "engine_used": "mixed(easyocr,easyocr_boxes,paddle,paddle_boxes)",
   "language_detected": "ar",
-  "global_confidence": 0.8337,
-  "quality_score": 0.341,
+  "global_confidence": 0.8316,
+  "quality_score": 0.299,
   "fields": [
     {
       "name": "id_number",
@@ -23,37 +23,43 @@
       "reasons": [
         "field unresolved",
         "critical field missing"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "last_name",
       "value": "البر",
       "confidence": 0.95,
       "validated": true,
-      "raw_text": "البر",
+      "raw_text": "ربلا",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "easyocr_boxes",
+      "selected_engine": "paddle",
       "selected_source": "spatial_boxes",
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "first_name",
-      "value": "نصف",
+      "value": "فصن",
       "confidence": 0.95,
       "validated": true,
-      "raw_text": "نصف",
+      "raw_text": "فصن",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "easyocr_boxes",
+      "selected_engine": "paddle_boxes",
       "selected_source": "spatial_boxes",
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_date",
@@ -63,35 +69,40 @@
       "raw_text": "1979-05-07",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "easyocr_boxes",
+      "selected_engine": "easyocr",
       "selected_source": "spatial_boxes",
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_place",
-      "value": "القيروان",
+      "value": "القيرو ان ئارخ",
       "confidence": 0.95,
       "validated": true,
-      "raw_text": "القيروان",
+      "raw_text": "الجم",
       "raw_template_field": null,
       "error": null,
       "selected_engine": "easyocr_boxes",
-      "selected_source": "spatial_boxes",
+      "selected_source": "cin_postprocess_birth_place_context",
       "review_required": false,
       "reasons": [
-        "selected_from:spatial_boxes"
-      ]
+        "selected_from:spatial_boxes",
+        "birth_place_recovered:place_after_label:مكانها القيرو ان ئارخ"
+      ],
+      "original_value": null,
+      "corrected": false
     }
   ],
   "normalized_data": {
     "idNumber": null,
     "lastName": "البر",
-    "firstName": "نصف",
+    "firstName": "فصن",
     "birthDate": "1979-05-07",
-    "birthPlace": "القيروان"
+    "birthPlace": "القيرو ان ئارخ"
   },
   "routing": null,
   "business_validation": {
@@ -103,11 +114,11 @@
     "warnings": [
       "Champ critique à vérifier: id_number"
     ],
-    "business_confidence": 0.8337,
+    "business_confidence": 0.8316,
     "critical_fields_ok": 2,
     "valid_fields_ok": 4,
     "present_fields": 4,
-    "quality_score": 0.341,
+    "quality_score": 0.299,
     "avg_field_confidence": 0.95,
     "field_coverage": 0.8
   },
@@ -120,20 +131,21 @@
       "paddle_boxes",
       "targeted_roi:easyocr",
       "targeted_roi:paddle",
-      "full_ocr:paddle"
+      "full_ocr:paddle",
+      "full_ocr:easyocr"
     ],
     "preprocessing": {
       "quality": {
-        "sharpness": 0.109,
-        "brightness": 0.704,
-        "contrast": 0.387,
-        "quality_score": 0.341
+        "sharpness": 0.041,
+        "brightness": 0.74,
+        "contrast": 0.319,
+        "quality_score": 0.299
       },
       "transforms": {
         "resized": false,
         "deskewed": true,
-        "contrast": true,
-        "mode": "cin_legacy_compatible"
+        "contrast": false,
+        "mode": "cin_simple_deskew_only"
       },
       "cin_preprocessor_keys": [
         "binary",
@@ -145,10 +157,10 @@
       ]
     },
     "quality_checks": {
-      "sharpness": 0.109,
-      "brightness": 0.704,
-      "contrast": 0.387,
-      "quality_score": 0.341
+      "sharpness": 0.041,
+      "brightness": 0.74,
+      "contrast": 0.319,
+      "quality_score": 0.299
     },
     "roi_fields": {
       "cin_number": [
@@ -188,9 +200,9 @@
         "target_fields": [
           "cin_number"
         ],
-        "processing_time_ms": 136,
+        "processing_time_ms": 179,
         "zones": {
-          "cin_number": "بحردة التغربج الود"
+          "cin_number": "بزد التغرفالود"
         },
         "zone_scores": {
           "cin_number": 0.0
@@ -204,7 +216,7 @@
         "target_fields": [
           "cin_number"
         ],
-        "processing_time_ms": 268,
+        "processing_time_ms": 301,
         "zones": {
           "cin_number": ""
         },
@@ -217,17 +229,44 @@
         "engine": "paddle",
         "executed": true,
         "trial_type": "full_card_and_all_rois",
-        "full_text": "ةير وهمجلا ةيسنوتلا ةقاطب ةينطولا افنيرعتلا بقللا قا ربلا يدجم مسالا فّصنملا نب ملاس نب ةدالولا خرات 0 يام ا نا وريقلا",
+        "full_text": "ةيروهمجلا ةيسنوتلا ةقاطب ةينطولا افيرعلتلا بقللا قا ربلا مسالا يدجم نب فصنملا ملاس نب ةدالولا خرات 0 يام 19 اهكزاكم ننا وريقلا",
         "full_text_score": 0.0,
-        "processing_time_ms": 3671,
+        "processing_time_ms": 4934,
         "zones": {
           "cin_number": "",
           "family_name": "",
-          "first_name": "قاربلا سل",
-          "date_of_birth": "فّصنملا",
-          "place_of_birth": "يام 19 اه بقلا",
+          "first_name": "قاربلا س",
+          "date_of_birth": "فصنملا ر",
+          "place_of_birth": "يام 19 اه ربقلا",
           "gender": "",
-          "right_text_block": "بققلل قا ربلا مسالل ي دحم فّصنملا ملاس نب ةدالولا خم 0 يام 19 اه ناوريقلا"
+          "right_text_block": "ربلا بققلل قا مسالل ي دحم ملاس نب ةدالوولا خعم 0 يام 19 اه ننا وريقلا"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "ريذ بطاقم | اق مجدى بن بن ان الجمهوا التونسية التعرف الوطنيه للقب البر الاسم المذصف سالم تارخ الولادة 07 ماي 1979 سانها القيرو",
+        "full_text_score": 0.0,
+        "processing_time_ms": 2855,
+        "zones": {
+          "cin_number": "بزد التغرفالود",
+          "family_name": "",
+          "first_name": "برا9",
+          "date_of_birth": "المذصف",
+          "place_of_birth": "م 7 ٥ا. ماي 1979 القد",
+          "gender": "",
+          "right_text_block": "اق مجدي بن ح الولادهً ٧ ان للقب البر رم المذصف سالم 07 ماي 1979 القيرو"
         },
         "zone_scores": {
           "cin_number": 0.0,
@@ -245,16 +284,16 @@
       "trials": [
         {
           "engine": "easyocr_boxes",
-          "box_count": 21,
+          "box_count": 22,
           "fields": {
-            "family_name": "البر",
-            "first_name": "نصف",
+            "family_name": "لر",
+            "first_name": "ذصف",
             "date_of_birth": "1979-05-07",
-            "place_of_birth": "القيروان"
+            "place_of_birth": "الجم"
           },
           "scores": {
-            "family_name": 9.582316191602235,
-            "first_name": 15.19574467009847,
+            "family_name": 15.042417451315442,
+            "first_name": 15.18960264257199,
             "date_of_birth": 12.5,
             "place_of_birth": 9.0
           },
@@ -265,26 +304,26 @@
               "source_kind": "spatial_numeric"
             },
             "family_name": {
-              "chosen_from": "اللقب",
-              "candidate_text": "البر",
-              "source_kind": "label_neighbor_merged",
+              "chosen_from": "لرلقب",
+              "candidate_text": "لر",
+              "source_kind": "inline",
               "anchors_found": 1
             },
             "first_name": {
-              "chosen_from": "المنصف",
-              "candidate_text": "نصف",
+              "chosen_from": "المذصف",
+              "candidate_text": "ذصف",
               "source_kind": "inline",
               "anchors_found": 3
             },
             "date_of_birth": {
-              "chosen_from": "تاخ الولادة",
-              "candidate_text": "بن التا المنصف بن سالم 07 ماي 1979 حانها القيروان",
+              "chosen_from": "ئارخ الولادة",
+              "candidate_text": "بن المذصف بن سالم ئارخ 07 ماي 1979 سانها القيرو ان",
               "source_kind": "label_row_join",
               "anchors_found": 1
             },
             "place_of_birth": {
               "chosen_from": "right_text_block",
-              "candidate_text": "الجمهو ريذا بطاقه اللقب البر اق الام مجدي بن التا المنصف بن سالم تاخ الولادة 07 ماي 1979 حانها القيروان",
+              "candidate_text": "الجمهوا ريذ بطاقه | لرلقب البر اق رداسم مجدى بن المذصف بن سالم ئارخ الولادة 07 ماي 1979 سانها القيرو ان",
               "source_kind": "right_text_fallback",
               "anchors_found": 0
             },
@@ -303,14 +342,14 @@
         },
         {
           "engine": "paddle_boxes",
-          "box_count": 20,
+          "box_count": 21,
           "fields": {
             "family_name": "ربلا",
-            "first_name": "يدجم"
+            "first_name": "فصن"
           },
           "scores": {
-            "family_name": 9.570831367578258,
-            "first_name": 15.18122581243515
+            "family_name": 9.649126798869517,
+            "first_name": 15.198482072353363
           },
           "meta": {
             "cin_number": {
@@ -325,8 +364,8 @@
               "anchors_found": 1
             },
             "first_name": {
-              "chosen_from": "يدجم مسالا",
-              "candidate_text": "يدجم",
+              "chosen_from": "فصنملا",
+              "candidate_text": "فصن",
               "source_kind": "inline",
               "anchors_found": 3
             },
@@ -338,7 +377,7 @@
             "place_of_birth": {
               "chosen_from": null,
               "source_kind": "no_valid_place",
-              "anchors_found": 1
+              "anchors_found": 0
             },
             "label_spatial": {
               "reason": "no_items"
@@ -361,10 +400,10 @@
           "engine": "easyocr_boxes",
           "source": "spatial_boxes",
           "fields": {
-            "family_name": "البر",
-            "first_name": "نصف",
+            "family_name": "لر",
+            "first_name": "ذصف",
             "date_of_birth": "1979-05-07",
-            "place_of_birth": "القيروان"
+            "place_of_birth": "الجم"
           }
         },
         {
@@ -372,14 +411,14 @@
           "source": "spatial_boxes",
           "fields": {
             "family_name": "ربلا",
-            "first_name": "يدجم"
+            "first_name": "فصن"
           }
         },
         {
           "engine": "easyocr",
           "source": "targeted_roi_ocr",
           "fields": {
-            "cin_number": "بحردة التغربج الود",
+            "cin_number": "بزد التغرفالود",
             "family_name": "CIN_FIRST_NAME:",
             "first_name": "CIN_DATE_OF_BIRTH:",
             "date_of_birth": "CIN_PLACE_OF_BIRTH:"
@@ -400,10 +439,21 @@
           "source": "roi_ocr",
           "fields": {
             "cin_number": "CIN_FAMILY_NAME:",
-            "family_name": "CIN_FIRST_NAME: قاربلا سل",
-            "first_name": "قاربلا سل",
-            "date_of_birth": "فّصنملا",
-            "place_of_birth": "يام 19 اه بقلا"
+            "family_name": "CIN_FIRST_NAME: قاربلا س",
+            "first_name": "قاربلا س",
+            "date_of_birth": "فصنملا ر",
+            "place_of_birth": "يام 19 اه ربقلا"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "roi_ocr",
+          "fields": {
+            "cin_number": "بزد التغرفالود",
+            "family_name": "CIN_FIRST_NAME: برا9",
+            "first_name": "برا9",
+            "date_of_birth": "المذصف",
+            "place_of_birth": "م 7 ٥ا. ماي 1979 القد"
           }
         }
       ],
@@ -412,27 +462,32 @@
         "family_name": [
           {
             "value": "البر",
-            "avg_conf": 15.188485,
+            "avg_conf": 7.599241,
             "count": 2,
             "engines": [
-              "easyocr_boxes",
+              "paddle",
               "paddle_boxes"
             ],
             "sources": [
-              "spatial_boxes"
+              "spatial_boxes",
+              "text_family_fallback"
             ],
             "profiles": [],
-            "selection_score": 56.588485,
-            "raw_value": "البر",
-            "meta": []
+            "selection_score": 48.999241,
+            "raw_value": "ربلا",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
           },
           {
-            "value": "البراق",
+            "value": "الوطنيه",
             "avg_conf": 0.0,
             "count": 2,
             "engines": [
-              "global_text",
-              "paddle"
+              "easyocr",
+              "global_text"
             ],
             "sources": [
               "text_family_fallback",
@@ -440,7 +495,7 @@
             ],
             "profiles": [],
             "selection_score": 46.3,
-            "raw_value": "البراق",
+            "raw_value": "الوطنيه",
             "meta": [
               {
                 "from_raw_text": true
@@ -453,23 +508,8 @@
         ],
         "first_name": [
           {
-            "value": "نصف",
-            "avg_conf": 15.195745,
-            "count": 1,
-            "engines": [
-              "easyocr_boxes"
-            ],
-            "sources": [
-              "spatial_boxes"
-            ],
-            "profiles": [],
-            "selection_score": 49.295745,
-            "raw_value": "نصف",
-            "meta": []
-          },
-          {
-            "value": "يدجم",
-            "avg_conf": 15.181226,
+            "value": "فصن",
+            "avg_conf": 15.198482,
             "count": 1,
             "engines": [
               "paddle_boxes"
@@ -478,17 +518,32 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 49.281226,
-            "raw_value": "يدجم",
+            "selection_score": 49.298482,
+            "raw_value": "فصن",
             "meta": []
           },
           {
-            "value": "البراق",
+            "value": "ذصف",
+            "avg_conf": 15.189603,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 48.089603,
+            "raw_value": "ذصف",
+            "meta": []
+          },
+          {
+            "value": "الوطنيه",
             "avg_conf": 0.0,
             "count": 2,
             "engines": [
-              "global_text",
-              "paddle"
+              "easyocr",
+              "global_text"
             ],
             "sources": [
               "text_first_fallback",
@@ -496,7 +551,7 @@
             ],
             "profiles": [],
             "selection_score": 46.3,
-            "raw_value": "البراق",
+            "raw_value": "الوطنيه",
             "meta": [
               {
                 "from_raw_text": true
@@ -507,7 +562,46 @@
             ]
           },
           {
-            "value": "البراق لس",
+            "value": "البر",
+            "avg_conf": 0.0,
+            "count": 1,
+            "engines": [
+              "paddle"
+            ],
+            "sources": [
+              "text_first_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 32.4,
+            "raw_value": "البر",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          },
+          {
+            "value": "برا9",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "easyocr"
+            ],
+            "sources": [
+              "extractor",
+              "roi_ocr"
+            ],
+            "profiles": [],
+            "selection_score": 19.0,
+            "raw_value": "برا9",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          },
+          {
+            "value": "البراق س",
             "avg_conf": 0.0,
             "count": 2,
             "engines": [
@@ -519,7 +613,7 @@
             ],
             "profiles": [],
             "selection_score": 18.0,
-            "raw_value": "قاربلا سل",
+            "raw_value": "قاربلا س",
             "meta": [
               {
                 "from_raw_text": true
@@ -530,24 +624,30 @@
         "date_of_birth": [
           {
             "value": "07/05/1979",
-            "avg_conf": 15.195745,
-            "count": 1,
+            "avg_conf": 7.594801,
+            "count": 2,
             "engines": [
+              "easyocr",
               "easyocr_boxes"
             ],
             "sources": [
-              "spatial_boxes"
+              "spatial_boxes",
+              "text_date_fallback"
             ],
             "profiles": [],
-            "selection_score": 44.195745,
+            "selection_score": 43.594801,
             "raw_value": "1979-05-07",
-            "meta": []
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
           }
         ],
         "place_of_birth": [
           {
-            "value": "القيروان",
-            "avg_conf": 15.195745,
+            "value": "الجم",
+            "avg_conf": 15.189603,
             "count": 1,
             "engines": [
               "easyocr_boxes"
@@ -556,8 +656,8 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 57.195745,
-            "raw_value": "القيروان",
+            "selection_score": 57.189603,
+            "raw_value": "الجم",
             "meta": []
           }
         ]
@@ -565,53 +665,64 @@
       "selected": {
         "family_name": {
           "value": "البر",
-          "avg_conf": 15.188485,
+          "avg_conf": 7.599241,
           "count": 2,
           "engines": [
-            "easyocr_boxes",
+            "paddle",
+            "paddle_boxes"
+          ],
+          "sources": [
+            "spatial_boxes",
+            "text_family_fallback"
+          ],
+          "profiles": [],
+          "selection_score": 48.999241,
+          "raw_value": "ربلا",
+          "meta": [
+            {
+              "from_raw_text": true
+            }
+          ]
+        },
+        "first_name": {
+          "value": "فصن",
+          "avg_conf": 15.198482,
+          "count": 1,
+          "engines": [
             "paddle_boxes"
           ],
           "sources": [
             "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 56.588485,
-          "raw_value": "البر",
-          "meta": []
-        },
-        "first_name": {
-          "value": "نصف",
-          "avg_conf": 15.195745,
-          "count": 1,
-          "engines": [
-            "easyocr_boxes"
-          ],
-          "sources": [
-            "spatial_boxes"
-          ],
-          "profiles": [],
-          "selection_score": 49.295745,
-          "raw_value": "نصف",
+          "selection_score": 49.298482,
+          "raw_value": "فصن",
           "meta": []
         },
         "date_of_birth": {
           "value": "07/05/1979",
-          "avg_conf": 15.195745,
-          "count": 1,
+          "avg_conf": 7.594801,
+          "count": 2,
           "engines": [
+            "easyocr",
             "easyocr_boxes"
           ],
           "sources": [
-            "spatial_boxes"
+            "spatial_boxes",
+            "text_date_fallback"
           ],
           "profiles": [],
-          "selection_score": 44.195745,
+          "selection_score": 43.594801,
           "raw_value": "1979-05-07",
-          "meta": []
+          "meta": [
+            {
+              "from_raw_text": true
+            }
+          ]
         },
         "place_of_birth": {
-          "value": "القيروان",
-          "avg_conf": 15.195745,
+          "value": "الجم",
+          "avg_conf": 15.189603,
           "count": 1,
           "engines": [
             "easyocr_boxes"
@@ -620,8 +731,8 @@
             "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 57.195745,
-          "raw_value": "القيروان",
+          "selection_score": 57.189603,
+          "raw_value": "الجم",
           "meta": []
         }
       }
@@ -629,8 +740,8 @@
     "cin_postprocess": {
       "executed": true,
       "name_extraction": {
-        "debug_sequence": "اللقب:ةقاطب ةينطولا افنيرعتلا الاسم:? variants:normal",
-        "family_name": "ةقاطب ةينطولا افنيرعتلا",
+        "debug_sequence": "اللقب:قا ربلا الاسم:? variants:normal",
+        "family_name": "قا ربلا",
         "first_name": null,
         "rule": "family_name=all words after اللقب; first_name=words on الاسم line before بن/بنت"
       },
@@ -639,18 +750,17 @@
           "field": "last_name",
           "type": "postprocess_skip_name_override",
           "kept": "البر",
-          "candidate": "ةقاطب ةينطولا افنيرعتلا",
+          "candidate": "قا ربلا",
           "candidate_ok": true,
           "old_ok": true,
           "good_spatial": true
         },
         {
           "field": "birth_place",
-          "type": "postprocess_skip_place_override",
-          "kept": "القيروان",
-          "candidate": "القيروان",
-          "reason": "place_after_label:مكانها القيروان",
-          "good_spatial": true
+          "type": "contextual_place_recovery",
+          "old": "الجم",
+          "new": "القيرو ان ئارخ",
+          "reason": "place_after_label:مكانها القيرو ان ئارخ"
         }
       ]
     },
@@ -667,17 +777,17 @@
       "warnings": [
         "Champ critique à vérifier: id_number"
       ],
-      "business_confidence": 0.8337,
+      "business_confidence": 0.8316,
       "critical_fields_ok": 2,
       "valid_fields_ok": 4,
       "present_fields": 4,
-      "quality_score": 0.341,
+      "quality_score": 0.299,
       "avg_field_confidence": 0.95,
       "field_coverage": 0.8
     }
   },
-  "raw_text": "البر نصف 1979-05-07 القيروان ربلا يدجم CIN_NUMBER: بحردة التغربج الود CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: بحردة التغربج الود CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: قاربلا سل CIN_DATE_OF_BIRTH: فّصنملا CIN_PLACE_OF_BIRTH: يام 19 اه بقلا ةير وهمجلا ةيسنوتلا ةقاطب ةينطولا افنيرعتلا اللقب قا ربلا يدجم الاسم فّصنملا نب ملاس نب الولادة خرات 0 يام ا نا وريقلا CIN_FAMILY_NAME: CIN_FIRST_NAME: قاربلا سل قاربلا سل فّصنملا يام 19 اه بقلا البر نصف 1979-05-07 القيروان البر اللقب نصف المنصف بن التا المنصف بن سالم 07 ماي 1979 حممكانها القيروان تاخ الولادة الجمهو ريذا بطاقه اللقب البر اق الام مجدي بن التا المنصف بن سالم تاخ الولادة 07 ماي 1979 حممكانها القيروان right_text_block ربلا يدجم ربلا اللقب يدجم يدجم الاسم بحردة التغربج الود ةير وهمجلا ةيسنوتلا ةقاطب ةينطولا افنيرعتلا اللقب قا ربلا يدجم الاسم فّصنملا نب ملاس نب الولادة خرات 0 يام ا نا وريقلا قاربلا سل فّصنملا يام 19 اه بقلا بققلل قا ربلا الاسملل ي دحم فّصنملا ملاس نب الولادة خم 0 يام 19 اه ناوريقلا",
-  "processing_time_ms": 6941,
+  "raw_text": "CIN_NUMBER: بزد التغرفالود CIN_FAMILY_NAME: CIN_FIRST_NAME: برا9 CIN_DATE_OF_BIRTH: المذصف CIN_PLACE_OF_BIRTH: م 7 5ا. ماي 1979 القد ريذ بطاقم | اق مجدى بن بن ان الجمهوا التونسية التعرف الوطنيه للقب البر الاسم المذصف سالم تاريخ الولادة 07 ماي 1979 سممكانها القيرو لر ذصف 1979-05-07 الجم ربلا فصن CIN_NUMBER: بزد التغرفالود CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: بزد التغرفالود CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: قاربلا س CIN_DATE_OF_BIRTH: فصنملا ر CIN_PLACE_OF_BIRTH: يام 19 اه ربقلا ةيروهمجلا ةيسنوتلا ةقاطب ةينطولا افيرعلتلا اللقب قا ربلا الاسم يدجم نب فصنملا ملاس نب الولادة خرات 0 يام 19 اهكزاكم ننا وريقلا CIN_FAMILY_NAME: CIN_FIRST_NAME: قاربلا س قاربلا س فصنملا ر يام 19 اه ربقلا بزد التغرفالود CIN_FIRST_NAME: برا9 برا9 المذصف م 7 5ا. ماي 1979 القد لر ذصف 1979-05-07 الجم لر لرلقب ذصف المذصف بن المذصف بن سالم ئارخ 07 ماي 1979 سممكانها القيرو ان ئارخ الولادة الجمهوا ريذ بطاقه | لرلقب البر اق رداسم مجدى بن المذصف بن سالم ئارخ الولادة 07 ماي 1979 سممكانها القيرو ان right_text_block ربلا فصن ربلا اللقب فصن فصنملا بزد التغرفالود ةيروهمجلا ةيسنوتلا ةقاطب ةينطولا افيرعلتلا اللقب قا ربلا الاسم يدجم نب فصنملا ملاس نب الولادة خرات 0 يام 19 اهكزاكم ننا وريقلا قاربلا س فصنملا ر يام 19 اه ربقلا ربلا بققلل قا الاسملل ي دحم ملاس نب ةدالوولا خعم 0 يام 19 اه ننا وريقلا ريذ بطاقم | اق مجدى بن بن ان الجمهوا التونسية التعرف الوطنيه للقب البر الاسم المذصف سالم تاريخ الولادة 07 ماي 1979 سممكانها القيرو بزد التغرفالود برا9 المذصف م 7 5ا. ماي 1979 القد اق مجدي بن ح الولادهً 7 ان للقب البر رم المذصف سالم 07 ماي 1979 القيرو",
+  "processing_time_ms": 12818,
   "warnings": [
     "Champ critique à vérifier: id_number",
     "Champ requis 'numero_cin' à vérifier"

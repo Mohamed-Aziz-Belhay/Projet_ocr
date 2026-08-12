@@ -129,6 +129,10 @@ def normalize_gender(raw: str) -> Tuple[Optional[str], bool]:
 def normalize_document_number(raw: str) -> Tuple[Optional[str], bool]:
     """
     MIDV document number, e.g. EU394022, TJ033945.
+
+    Also supports purely numeric document numbers (e.g. the Finnish
+    "Korttinumero"), which have no letter prefix -- the original
+    letter-prefixed patterns alone always rejected these.
     """
 
     text = _strip_noise(raw).upper()
@@ -159,12 +163,24 @@ def normalize_document_number(raw: str) -> Tuple[Optional[str], bool]:
         value = m.group(0)
         return value, True
 
+    # Purely numeric document number (e.g. Finnish "Korttinumero"),
+    # no letter prefix at all.
+    m = re.search(r"\d{6,12}", text)
+    if m:
+        return m.group(0), True
+
     return text or None, False
 
 
 def normalize_personal_number(raw: str) -> Tuple[Optional[str], bool]:
     """
     Personal number, e.g. 550522/3941 or 800618/4033.
+
+    Also supports short Nordic-style suffix codes with an optional
+    trailing checksum letter (e.g. the Finnish "-159P", "-9898"),
+    which the original 9-10 digit Slovak-style patterns alone always
+    rejected -- and which were being silently stripped of their
+    leading '-' and trailing letter by the digits-only cleanup below.
     """
 
     text = _replace_digit_confusions(raw)
@@ -190,6 +206,13 @@ def normalize_personal_number(raw: str) -> Tuple[Optional[str], bool]:
     m = re.search(r"(\d{6})(\d{3,4})", text)
     if m:
         return f"{m.group(1)}/{m.group(2)}", True
+
+    # Short Nordic-style suffix code: a few digits with an optional
+    # trailing checksum letter, kept intact (not stripped like above).
+    short = _strip_noise(raw).upper().replace(" ", "")
+    m = re.search(r"-?(\d{3,4}[A-Z]?)\b", short)
+    if m:
+        return m.group(1), True
 
     return text or None, False
 

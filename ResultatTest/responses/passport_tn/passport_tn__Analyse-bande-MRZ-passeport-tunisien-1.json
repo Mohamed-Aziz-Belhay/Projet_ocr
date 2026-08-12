@@ -1,5 +1,5 @@
 {
-  "job_id": "aff39f9b-b7c3-471f-a66e-4f0ab70e1dcf",
+  "job_id": "daf55dbc-351d-454a-b091-51d62bba302f",
   "status": "success",
   "template_id": "passport_generic",
   "document_type": "passport",
@@ -22,7 +22,9 @@
       "review_required": false,
       "reasons": [
         "selected_from:mrz"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "surname",
@@ -37,7 +39,9 @@
       "review_required": false,
       "reasons": [
         "selected_from:mrz"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "given_names",
@@ -52,7 +56,9 @@
       "review_required": false,
       "reasons": [
         "selected_from:mrz"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "nationality",
@@ -67,7 +73,9 @@
       "review_required": false,
       "reasons": [
         "selected_from:mrz"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_date",
@@ -82,7 +90,9 @@
       "review_required": false,
       "reasons": [
         "selected_from:mrz"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "gender",
@@ -97,7 +107,9 @@
       "review_required": false,
       "reasons": [
         "selected_from:mrz"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "expiry_date",
@@ -112,7 +124,9 @@
       "review_required": false,
       "reasons": [
         "selected_from:mrz"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "issuing_country",
@@ -127,7 +141,9 @@
       "review_required": false,
       "reasons": [
         "selected_from:mrz"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "personal_number",
@@ -142,7 +158,9 @@
       "review_required": false,
       "reasons": [
         "selected_from:mrz"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "mrz",
@@ -157,7 +175,9 @@
       "review_required": false,
       "reasons": [
         "selected_from:mrz"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     }
   ],
   "normalized_data": {
@@ -174,10 +194,10 @@
   },
   "routing": {
     "requested_document_type": "passport",
-    "requested_template_id": "passport_generic",
+    "requested_template_id": null,
     "selected_template_id": "passport_generic",
     "selected_document_type": "passport",
-    "method": "explicit_template_object"
+    "method": "document_type_mapping"
   },
   "business_validation": {
     "status": "success",
@@ -192,13 +212,13 @@
   },
   "diagnostics": {
     "mode": "generic_template_v5_detector_swin_roi_passport_invoice",
-    "processing_mode": "fast",
+    "processing_mode": "balanced",
     "routing": {
       "requested_document_type": "passport",
-      "requested_template_id": "passport_generic",
+      "requested_template_id": null,
       "selected_template_id": "passport_generic",
       "selected_document_type": "passport",
-      "method": "explicit_template_object"
+      "method": "document_type_mapping"
     },
     "template_id": "passport_generic",
     "document_type": "passport",
@@ -493,7 +513,7 @@
             453
           ],
           "scale": 1.0,
-          "mode": "fast",
+          "mode": "balanced",
           "found_contour": true,
           "contours_total": 46,
           "sliding_candidate_count": 8,
@@ -971,7 +991,7 @@
     "strategy": "passport_mrz_first"
   },
   "raw_text": "BdE OTCddo Dalo 12-09-2008 Da6E P<TUNSPECIMEN<<MAHMOUD<<<<<<K<<<<<<<4<<<*<4< Y777777<<2tun4911117m080912202587989<0001<70",
-  "processing_time_ms": 610,
+  "processing_time_ms": 819,
   "warnings": [],
   "review_reasons": []
 }

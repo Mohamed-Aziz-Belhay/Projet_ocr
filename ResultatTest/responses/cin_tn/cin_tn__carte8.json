@@ -1,13 +1,13 @@
 {
-  "job_id": "a4c5f869-1cae-45bd-82d7-8aecefb117eb",
-  "status": "review_required",
+  "job_id": "b3586287-57ff-4474-ba33-b7303af215c0",
+  "status": "success",
   "template_id": "cin_tn",
   "document_type": "cin_tn",
   "document_variant": "recto",
-  "engine_used": "mixed(easyocr,easyocr_boxes,global_text)",
+  "engine_used": "mixed(easyocr_boxes,paddle_boxes)",
   "language_detected": "ar",
-  "global_confidence": 0.8335,
-  "quality_score": 0.337,
+  "global_confidence": 0.9336,
+  "quality_score": 0.273,
   "fields": [
     {
       "name": "id_number",
@@ -22,38 +22,43 @@
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "last_name",
       "value": "اسلام",
       "confidence": 0.95,
       "validated": true,
-      "raw_text": "اسلام",
+      "raw_text": "مالسا",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "global_text",
+      "selected_engine": "paddle_boxes",
       "selected_source": "spatial_boxes",
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "first_name",
-      "value": null,
-      "confidence": 0.0,
-      "validated": false,
-      "raw_text": null,
+      "value": "ا سم",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "ا سم",
       "raw_template_field": null,
-      "error": "Prénom introuvable",
-      "selected_engine": null,
-      "selected_source": null,
-      "review_required": true,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
       "reasons": [
-        "field unresolved",
-        "critical field missing"
-      ]
+        "selected_from:spatial_boxes"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_date",
@@ -63,12 +68,14 @@
       "raw_text": "2001-06-10",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "easyocr",
+      "selected_engine": "easyocr_boxes",
       "selected_source": "spatial_boxes",
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_place",
@@ -78,38 +85,36 @@
       "raw_text": "سوسة",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "easyocr",
+      "selected_engine": "easyocr_boxes",
       "selected_source": "spatial_boxes",
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     }
   ],
   "normalized_data": {
     "idNumber": "12876892",
     "lastName": "اسلام",
-    "firstName": null,
+    "firstName": "ا سم",
     "birthDate": "2001-06-10",
     "birthPlace": "سوسة"
   },
   "routing": null,
   "business_validation": {
-    "status": "review_required",
-    "review_required": true,
-    "review_reasons": [
-      "critical field missing or invalid: first_name"
-    ],
-    "warnings": [
-      "Champ critique à vérifier: first_name"
-    ],
-    "business_confidence": 0.8335,
-    "critical_fields_ok": 2,
-    "valid_fields_ok": 4,
-    "present_fields": 4,
-    "quality_score": 0.337,
+    "status": "success",
+    "review_required": false,
+    "review_reasons": [],
+    "warnings": [],
+    "business_confidence": 0.9336,
+    "critical_fields_ok": 3,
+    "valid_fields_ok": 5,
+    "present_fields": 5,
+    "quality_score": 0.273,
     "avg_field_confidence": 0.95,
-    "field_coverage": 0.8
+    "field_coverage": 1.0
   },
   "diagnostics": {
     "mode": "cin_specialized_v2",
@@ -117,23 +122,20 @@
     "strategy": "balanced: spatial-first + targeted-roi-fallback + optional-full-fallback",
     "pipeline_steps": [
       "easyocr_boxes",
-      "paddle_boxes",
-      "targeted_roi:easyocr",
-      "targeted_roi:paddle",
-      "full_ocr:paddle"
+      "paddle_boxes"
     ],
     "preprocessing": {
       "quality": {
-        "sharpness": 0.18,
-        "brightness": 0.511,
-        "contrast": 0.428,
-        "quality_score": 0.337
+        "sharpness": 0.046,
+        "brightness": 0.474,
+        "contrast": 0.445,
+        "quality_score": 0.273
       },
       "transforms": {
         "resized": false,
         "deskewed": false,
-        "contrast": true,
-        "mode": "cin_legacy_compatible"
+        "contrast": false,
+        "mode": "cin_simple_deskew_only"
       },
       "cin_preprocessor_keys": [
         "binary",
@@ -145,106 +147,42 @@
       ]
     },
     "quality_checks": {
-      "sharpness": 0.18,
-      "brightness": 0.511,
-      "contrast": 0.428,
-      "quality_score": 0.337
+      "sharpness": 0.046,
+      "brightness": 0.474,
+      "contrast": 0.445,
+      "quality_score": 0.273
     },
     "roi_fields": {
       "cin_number": [
-        56,
-        395
+        80,
+        473
       ],
       "family_name": [
-        46,
-        346
+        67,
+        424
       ],
       "first_name": [
-        46,
-        346
+        68,
+        424
       ],
       "date_of_birth": [
-        51,
-        346
+        73,
+        424
       ],
       "place_of_birth": [
-        51,
-        346
+        73,
+        424
       ],
       "gender": [
-        37,
-        170
+        49,
+        212
       ],
       "right_text_block": [
-        259,
-        388
+        355,
+        465
       ]
     },
-    "engines": [
-      {
-        "engine": "easyocr",
-        "executed": true,
-        "trial_type": "targeted_missing_rois",
-        "target_fields": [
-          "first_name"
-        ],
-        "processing_time_ms": 624,
-        "zones": {
-          "first_name": "اوي اتت ذمر",
-          "right_text_block": "2876892 اوي ب اسلام بنت الأمجد بن 10 جوان 2001 ناخا لولادة سوسة [ خضر اسم صالح"
-        },
-        "zone_scores": {
-          "first_name": 0.0,
-          "right_text_block": 0.0
-        },
-        "notes": []
-      },
-      {
-        "engine": "paddle",
-        "executed": true,
-        "trial_type": "targeted_missing_rois",
-        "target_fields": [
-          "first_name"
-        ],
-        "processing_time_ms": 1261,
-        "zones": {
-          "first_name": "ى ووا",
-          "right_text_block": "286892 يوا رضخ بقللا مالسا مسألا حلاص نب دجمألا تنب 001 ناوج 10 ةدالولا خات ةسوس"
-        },
-        "zone_scores": {
-          "first_name": 0.0,
-          "right_text_block": 0.0
-        },
-        "notes": []
-      },
-      {
-        "engine": "paddle",
-        "executed": true,
-        "trial_type": "full_card_and_all_rois",
-        "full_text": "ةيسنوتلا ةيبرو وهمجلا ةينطولا ةقاطب فيرعتلا 128 89 يوا رضخ بقللا مالسا مسلا حلاص نب دجمألا تنب 001 ناوج 10 ةدالولا عات ةسوس اهم",
-        "full_text_score": 0.0,
-        "processing_time_ms": 2811,
-        "zones": {
-          "cin_number": "ضولا يزعلا ا",
-          "family_name": "76892",
-          "first_name": "ى ووا",
-          "date_of_birth": "حاتنلا لاص دحمألا تن",
-          "place_of_birth": "001 ناوج 10 ةدالولا خبات",
-          "gender": "",
-          "right_text_block": "286892 يوا رضخ بقللا مالسا مسألا حلاص نب دجمألا تنب 001 ناوج 10 ةدالولا خات ةسوس"
-        },
-        "zone_scores": {
-          "cin_number": 0.0,
-          "family_name": 0.0,
-          "first_name": 0.0,
-          "date_of_birth": 0.0,
-          "place_of_birth": 0.0,
-          "gender": 0.0,
-          "right_text_block": 0.0
-        },
-        "notes": []
-      }
-    ],
+    "engines": [],
     "spatial": {
       "trials": [
         {
@@ -252,13 +190,13 @@
           "box_count": 14,
           "fields": {
             "cin_number": "12876892",
-            "first_name": "اسلام",
+            "first_name": "ا سم",
             "date_of_birth": "2001-06-10",
             "place_of_birth": "سوسة"
           },
           "scores": {
-            "cin_number": 20.199937896839312,
-            "first_name": 11.406288229896388,
+            "cin_number": 20.19991120528355,
+            "first_name": 15.046101555578911,
             "date_of_birth": 9.5,
             "place_of_birth": 9.0
           },
@@ -274,20 +212,20 @@
               "anchors_found": 0
             },
             "first_name": {
-              "chosen_from": "بنت الأمجد بن",
-              "candidate_text": "اسلام",
-              "source_kind": "label_neighbor",
-              "anchors_found": 1
+              "chosen_from": "ا سم",
+              "candidate_text": "ا سم",
+              "source_kind": "inline",
+              "anchors_found": 3
             },
             "date_of_birth": {
               "chosen_from": "right_text_block",
-              "candidate_text": "الجمهوريف التوز نسبن بطاقهالتعربف الوطنيه 12876892 ذضر ابتب اوي اسلام اتدم بنت الأمجد بن صالح نائخ لولادة 10 جوان 2001 ٣حما سوسة",
+              "candidate_text": "الجمهورية التوز نسلة بطاقهالتعرف الوطنين 12876892 ذضر ا رالم _اوي ا سم اسلام بنت الأمجد بن صالح 10 جوان 2001 نامح ولاد ج حظ - ت سوسة",
               "source_kind": "right_text_fallback",
               "anchors_found": 0
             },
             "place_of_birth": {
               "chosen_from": "right_text_block",
-              "candidate_text": "الجمهوريف التوز نسبن بطاقهالتعربف الوطنيه 12876892 ذضر ابتب اوي اسلام اتدم بنت الأمجد بن صالح نائخ لولادة 10 جوان 2001 ٣حما سوسة",
+              "candidate_text": "الجمهورية التوز نسلة بطاقهالتعرف الوطنين 12876892 ذضر ا رالم _اوي ا سم اسلام بنت الأمجد بن صالح 10 جوان 2001 نامح ولاد ج حظ - ت سوسة",
               "source_kind": "right_text_fallback",
               "anchors_found": 0
             },
@@ -306,14 +244,14 @@
         },
         {
           "engine": "paddle_boxes",
-          "box_count": 22,
+          "box_count": 20,
           "fields": {
             "family_name": "مالسا",
-            "first_name": "تنب"
+            "first_name": "دجمالا"
           },
           "scores": {
-            "family_name": 10.969084476501363,
-            "first_name": 11.918733752477522
+            "family_name": 11.014874585984881,
+            "first_name": 15.194383251667023
           },
           "meta": {
             "cin_number": {
@@ -328,9 +266,9 @@
               "anchors_found": 1
             },
             "first_name": {
-              "chosen_from": "مسلا",
-              "candidate_text": "تنب",
-              "source_kind": "label_neighbor_merged",
+              "chosen_from": "دجمألا",
+              "candidate_text": "دجمألا",
+              "source_kind": "inline",
               "anchors_found": 2
             },
             "date_of_birth": {
@@ -365,7 +303,7 @@
           "source": "spatial_boxes",
           "fields": {
             "cin_number": "12876892",
-            "first_name": "اسلام",
+            "first_name": "ا سم",
             "date_of_birth": "2001-06-10",
             "place_of_birth": "سوسة"
           }
@@ -375,40 +313,7 @@
           "source": "spatial_boxes",
           "fields": {
             "family_name": "مالسا",
-            "first_name": "تنب"
-          }
-        },
-        {
-          "engine": "easyocr",
-          "source": "targeted_roi_ocr",
-          "fields": {
-            "cin_number": "CIN_FAMILY_NAME:",
-            "family_name": "CIN_FIRST_NAME: اوي اتت ذمر",
-            "first_name": "اوي اتت ذمر",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "2876892 اوي ب اسلام بنت الأمجد بن 10 جوان 2001 ناخا لولادة سوسة [ خضر اسم صالح"
-          }
-        },
-        {
-          "engine": "paddle",
-          "source": "targeted_roi_ocr",
-          "fields": {
-            "cin_number": "CIN_FAMILY_NAME:",
-            "family_name": "CIN_FIRST_NAME: ى ووا",
-            "first_name": "ى ووا",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "286892 يوا رضخ بقللا مالسا مسألا حلاص نب دجمألا تنب 001 ناوج 10 ةدالولا خات ةسوس"
-          }
-        },
-        {
-          "engine": "paddle",
-          "source": "roi_ocr",
-          "fields": {
-            "cin_number": "ضولا يزعلا ا",
-            "family_name": "76892",
-            "first_name": "ى ووا",
-            "date_of_birth": "حاتنلا لاص دحمألا تن",
-            "place_of_birth": "001 ناوج 10 ةدالولا خبات"
+            "first_name": "دجمالا"
           }
         }
       ],
@@ -416,7 +321,7 @@
         "cin_number": [
           {
             "value": "12876892",
-            "avg_conf": 20.199938,
+            "avg_conf": 20.199911,
             "count": 1,
             "engines": [
               "easyocr_boxes"
@@ -425,7 +330,7 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 49.199938,
+            "selection_score": 49.199911,
             "raw_value": "12876892",
             "meta": []
           }
@@ -433,223 +338,91 @@
         "family_name": [
           {
             "value": "اسلام",
-            "avg_conf": 2.979683,
-            "count": 4,
+            "avg_conf": 15.194383,
+            "count": 1,
             "engines": [
-              "global_text",
-              "paddle",
               "paddle_boxes"
             ],
             "sources": [
-              "spatial_boxes",
-              "text_family_fallback",
-              "text_family_global"
+              "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 62.979683,
-            "raw_value": "اسلام",
-            "meta": [
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_combined_text": true
-              }
-            ]
-          },
-          {
-            "value": "خضر",
-            "avg_conf": 0.0,
-            "count": 1,
-            "engines": [
-              "easyocr"
-            ],
-            "sources": [
-              "text_family_fallback"
-            ],
-            "profiles": [],
-            "selection_score": 30.9,
-            "raw_value": "خضر",
-            "meta": [
-              {
-                "from_raw_text": true
-              }
-            ]
-          },
-          {
-            "value": "76892",
-            "avg_conf": 0.0,
-            "count": 2,
-            "engines": [
-              "paddle"
-            ],
-            "sources": [
-              "extractor",
-              "roi_ocr"
-            ],
-            "profiles": [],
-            "selection_score": 16.9,
-            "raw_value": "76892",
-            "meta": [
-              {
-                "from_raw_text": true
-              }
-            ]
+            "selection_score": 48.194383,
+            "raw_value": "مالسا",
+            "meta": []
           }
         ],
         "first_name": [
           {
-            "value": "اسلام",
-            "avg_conf": 5.049984,
-            "count": 4,
-            "engines": [
-              "easyocr_boxes",
-              "global_text",
-              "paddle"
-            ],
-            "sources": [
-              "spatial_boxes",
-              "text_first_fallback",
-              "text_first_global"
-            ],
-            "profiles": [],
-            "selection_score": 65.049984,
-            "raw_value": "اسلام",
-            "meta": [
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_combined_text": true
-              }
-            ]
-          },
-          {
-            "value": "خضر",
-            "avg_conf": 0.0,
+            "value": "ا سم",
+            "avg_conf": 20.199911,
             "count": 1,
             "engines": [
-              "easyocr"
+              "easyocr_boxes"
             ],
             "sources": [
-              "text_first_fallback"
+              "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 30.9,
-            "raw_value": "خضر",
-            "meta": [
-              {
-                "from_raw_text": true
-              }
-            ]
+            "selection_score": 50.699911,
+            "raw_value": "ا سم",
+            "meta": []
           },
           {
-            "value": "ي وا",
-            "avg_conf": 0.0,
-            "count": 4,
+            "value": "الامجد",
+            "avg_conf": 15.194383,
+            "count": 1,
             "engines": [
-              "paddle"
+              "paddle_boxes"
             ],
             "sources": [
-              "extractor",
-              "roi_ocr",
-              "targeted_roi_ocr"
+              "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 28.0,
-            "raw_value": "ى ووا",
-            "meta": [
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_raw_text": true
-              }
-            ]
-          },
-          {
-            "value": "اوي ات ذمر",
-            "avg_conf": 0.0,
-            "count": 2,
-            "engines": [
-              "easyocr"
-            ],
-            "sources": [
-              "extractor",
-              "targeted_roi_ocr"
-            ],
-            "profiles": [],
-            "selection_score": 19.2,
-            "raw_value": "اوي اتت ذمر",
-            "meta": [
-              {
-                "from_raw_text": true
-              }
-            ]
+            "selection_score": 48.494383,
+            "raw_value": "دجمالا",
+            "meta": []
           }
         ],
         "date_of_birth": [
           {
             "value": "10/06/2001",
-            "avg_conf": 10.099969,
-            "count": 2,
+            "avg_conf": 20.199911,
+            "count": 1,
             "engines": [
-              "easyocr",
               "easyocr_boxes"
             ],
             "sources": [
-              "spatial_boxes",
-              "text_date_fallback"
+              "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 46.099969,
+            "selection_score": 49.199911,
             "raw_value": "2001-06-10",
-            "meta": [
-              {
-                "from_raw_text": true
-              }
-            ]
+            "meta": []
           }
         ],
         "place_of_birth": [
           {
             "value": "سوسة",
-            "avg_conf": 6.733313,
-            "count": 3,
+            "avg_conf": 20.199911,
+            "count": 1,
             "engines": [
-              "easyocr",
-              "easyocr_boxes",
-              "global_text"
+              "easyocr_boxes"
             ],
             "sources": [
-              "spatial_boxes",
-              "text_place_fallback",
-              "text_place_global"
+              "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 68.733313,
+            "selection_score": 62.199911,
             "raw_value": "سوسة",
-            "meta": [
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_combined_text": true
-              }
-            ]
+            "meta": []
           }
         ]
       },
       "selected": {
         "cin_number": {
           "value": "12876892",
-          "avg_conf": 20.199938,
+          "avg_conf": 20.199911,
           "count": 1,
           "engines": [
             "easyocr_boxes"
@@ -658,107 +431,76 @@
             "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 49.199938,
+          "selection_score": 49.199911,
           "raw_value": "12876892",
           "meta": []
         },
         "family_name": {
           "value": "اسلام",
-          "avg_conf": 2.979683,
-          "count": 4,
+          "avg_conf": 15.194383,
+          "count": 1,
           "engines": [
-            "global_text",
-            "paddle",
             "paddle_boxes"
           ],
           "sources": [
-            "spatial_boxes",
-            "text_family_fallback",
-            "text_family_global"
+            "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 62.979683,
-          "raw_value": "اسلام",
-          "meta": [
-            {
-              "from_raw_text": true
-            },
-            {
-              "from_raw_text": true
-            },
-            {
-              "from_combined_text": true
-            }
-          ]
+          "selection_score": 48.194383,
+          "raw_value": "مالسا",
+          "meta": []
         },
-        "first_name": null,
-        "date_of_birth": {
-          "value": "10/06/2001",
-          "avg_conf": 10.099969,
-          "count": 2,
+        "first_name": {
+          "value": "ا سم",
+          "avg_conf": 20.199911,
+          "count": 1,
           "engines": [
-            "easyocr",
             "easyocr_boxes"
           ],
           "sources": [
-            "spatial_boxes",
-            "text_date_fallback"
+            "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 46.099969,
+          "selection_score": 50.699911,
+          "raw_value": "ا سم",
+          "meta": []
+        },
+        "date_of_birth": {
+          "value": "10/06/2001",
+          "avg_conf": 20.199911,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 49.199911,
           "raw_value": "2001-06-10",
-          "meta": [
-            {
-              "from_raw_text": true
-            }
-          ]
+          "meta": []
         },
         "place_of_birth": {
           "value": "سوسة",
-          "avg_conf": 6.733313,
-          "count": 3,
+          "avg_conf": 20.199911,
+          "count": 1,
           "engines": [
-            "easyocr",
-            "easyocr_boxes",
-            "global_text"
+            "easyocr_boxes"
           ],
           "sources": [
-            "spatial_boxes",
-            "text_place_fallback",
-            "text_place_global"
+            "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 68.733313,
+          "selection_score": 62.199911,
           "raw_value": "سوسة",
-          "meta": [
-            {
-              "from_raw_text": true
-            },
-            {
-              "from_combined_text": true
-            }
-          ]
+          "meta": []
         }
       }
     },
     "cin_postprocess": {
       "executed": true,
-      "name_extraction": {
-        "debug_sequence": "اللقب:مالسا تنب مالسا الاسم:? variants:normal",
-        "family_name": "مالسا تنب مالسا",
-        "first_name": null,
-        "rule": "family_name=all words after اللقب; first_name=words on الاسم line before بن/بنت"
-      },
+      "name_extraction": null,
       "applied": [
-        {
-          "field": "last_name",
-          "type": "postprocess_skip_name_override",
-          "kept": "اسلام",
-          "candidate": "مالسا تنب مالسا",
-          "candidate_ok": true,
-          "old_ok": true,
-          "good_spatial": true
-        },
         {
           "field": "birth_place",
           "type": "postprocess_skip_place_override",
@@ -769,35 +511,24 @@
         }
       ]
     },
-    "review_required": true,
-    "review_reasons": [
-      "critical field missing or invalid: first_name"
-    ],
+    "review_required": false,
+    "review_reasons": [],
     "business_validation": {
-      "status": "review_required",
-      "review_required": true,
-      "review_reasons": [
-        "critical field missing or invalid: first_name"
-      ],
-      "warnings": [
-        "Champ critique à vérifier: first_name"
-      ],
-      "business_confidence": 0.8335,
-      "critical_fields_ok": 2,
-      "valid_fields_ok": 4,
-      "present_fields": 4,
-      "quality_score": 0.337,
+      "status": "success",
+      "review_required": false,
+      "review_reasons": [],
+      "warnings": [],
+      "business_confidence": 0.9336,
+      "critical_fields_ok": 3,
+      "valid_fields_ok": 5,
+      "present_fields": 5,
+      "quality_score": 0.273,
       "avg_field_confidence": 0.95,
-      "field_coverage": 0.8
+      "field_coverage": 1.0
     }
   },
-  "raw_text": "12876892 اسلام 2001-06-10 سوسة مالسا تنب CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: اوي اتت ذمر CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 2876892 اوي ب اسلام ببنت الأمجد بن 10 جوان 2001 ناخا لولادة سوسة [ خضر اسم صالح CIN_FAMILY_NAME: CIN_FIRST_NAME: اوي اتت ذمر اوي اتت ذمر CIN_PLACE_OF_BIRTH: 2876892 اوي ب اسلام ببنت الأمجد بن 10 جوان 2001 ناخا لولادة سوسة [ خضر اسم صالح CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: ى ووا CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 286892 يوا رضخ اللقب مالسا مسألا حلاص نب دجمألا تنب 001 ناوج 10 الولادة خات ةسوس CIN_FAMILY_NAME: CIN_FIRST_NAME: ى ووا ى ووا CIN_PLACE_OF_BIRTH: 286892 يوا رضخ اللقب مالسا مسألا حلاص نب دجمألا تنب 001 ناوج 10 الولادة خات ةسوس CIN_NUMBER: ضولا يزعلا ا CIN_FAMILY_NAME: 76892 CIN_FIRST_NAME: ى ووا CIN_DATE_OF_BIRTH: حاتنلا لاص دحمألا تن CIN_PLACE_OF_BIRTH: 001 ناوج 10 الولادة خبات ةيسنوتلا ةيبرو وهمجلا ةينطولا ةقاطب فيرعتلا 128 89 يوا رضخ اللقب مالسا مسلا حلاص نب دجمألا تنب 001 ناوج 10 الولادة عات ةسوس اهم ضولا يزعلا ا 76892 ى ووا حاتنلا لاص دحمألا تن 001 ناوج 10 الولادة خبات 12876892 اسلام 2001-06-10 سوسة 12876892 12876892 اسلام ببنت الأمجد بن الجمهوريف التوز نسبن بطاقهالتعربف الوطنيه 12876892 ذضر ابتب اوي اسلام اتدم ببنت الأمجد بن صالح نائخ لولادة 10 جوان 2001 3حما سوسة right_text_block الجمهوريف التوز نسبن بطاقهالتعربف الوطنيه 12876892 ذضر ابتب اوي اسلام اتدم ببنت الأمجد بن صالح نائخ لولادة 10 جوان 2001 3حما سوسة right_text_block مالسا تنب مالسا اللقب تنب مسلا اوي اتت ذمر 2876892 اوي ب اسلام ببنت الأمجد بن 10 جوان 2001 ناخا لولادة سوسة [ خضر اسم صالح ى ووا 286892 يوا رضخ اللقب مالسا مسألا حلاص نب دجمألا تنب 001 ناوج 10 الولادة خات ةسوس ةيسنوتلا ةيبرو وهمجلا ةينطولا ةقاطب فيرعتلا 128 89 يوا رضخ اللقب مالسا مسلا حلاص نب دجمألا تنب 001 ناوج 10 الولادة عات ةسوس اهم ضولا يزعلا ا 76892 ى ووا حاتنلا لاص دحمألا تن 001 ناوج 10 الولادة خبات 286892 يوا رضخ اللقب مالسا مسألا حلاص نب دجمألا تنب 001 ناوج 10 الولادة خات ةسوس",
-  "processing_time_ms": 8325,
-  "warnings": [
-    "Champ critique à vérifier: first_name",
-    "Champ requis 'prenom' à vérifier"
-  ],
-  "review_reasons": [
-    "critical field missing or invalid: first_name"
-  ]
+  "raw_text": "12876892 ا سم 2001-06-10 سوسة مالسا دجمالا 12876892 ا سم 2001-06-10 سوسة 12876892 12876892 ا سم ا سم الجمهورية التوز نسلة بطاقهالتعرف الوطنين 12876892 ذضر ا رالم _اوي ا سم اسلام ببنت الأمجد بن صالح 10 جوان 2001 نامح ولاد ج حظ - ت سوسة right_text_block الجمهورية التوز نسلة بطاقهالتعرف الوطنين 12876892 ذضر ا رالم _اوي ا سم اسلام ببنت الأمجد بن صالح 10 جوان 2001 نامح ولاد ج حظ - ت سوسة right_text_block مالسا دجمالا مالسا اللقب دجمألا دجمألا",
+  "processing_time_ms": 2299,
+  "warnings": [],
+  "review_reasons": []
 }

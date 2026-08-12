@@ -1,0 +1,1043 @@
+{
+  "job_id": "62eed5f5-5d23-45af-8194-346ae4f7830e",
+  "status": "success",
+  "template_id": "midv_fin_id",
+  "document_type": "id_document",
+  "document_variant": null,
+  "engine_used": "paddle",
+  "language_detected": "auto",
+  "global_confidence": 0.805,
+  "quality_score": 0.784,
+  "fields": [
+    {
+      "name": "birth_date",
+      "value": "1975-09-23",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "23.09.1975-",
+      "raw_template_field": "birth_date",
+      "error": null,
+      "selected_engine": "paddle",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ],
+      "original_value": null,
+      "corrected": false
+    },
+    {
+      "name": "birth_date_2",
+      "value": "230975",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "230975",
+      "raw_template_field": "birth_date_2",
+      "error": null,
+      "selected_engine": "paddle",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ],
+      "original_value": null,
+      "corrected": false
+    },
+    {
+      "name": "birth_date_22",
+      "value": "80975",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "80975",
+      "raw_template_field": "birth_date_22",
+      "error": null,
+      "selected_engine": "paddle",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ],
+      "original_value": null,
+      "corrected": false
+    },
+    {
+      "name": "code",
+      "value": "-846R",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "-846R",
+      "raw_template_field": "code",
+      "error": null,
+      "selected_engine": "paddle",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ],
+      "original_value": null,
+      "corrected": false
+    },
+    {
+      "name": "expiry_date",
+      "value": "2023-01-05",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "05.01.2023",
+      "raw_template_field": "expiry_date",
+      "error": null,
+      "selected_engine": "paddle",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ],
+      "original_value": null,
+      "corrected": false
+    },
+    {
+      "name": "gender",
+      "value": "F",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "F",
+      "raw_template_field": "gender",
+      "error": null,
+      "selected_engine": "paddle",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ],
+      "original_value": null,
+      "corrected": false
+    },
+    {
+      "name": "id_number",
+      "value": "846R",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "-846R",
+      "raw_template_field": "id_number",
+      "error": null,
+      "selected_engine": "paddle",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ],
+      "original_value": null,
+      "corrected": false
+    },
+    {
+      "name": "issue_date",
+      "value": "2018-01-05",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "05.01.2018",
+      "raw_template_field": "issue_date",
+      "error": null,
+      "selected_engine": "paddle",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ],
+      "original_value": null,
+      "corrected": false
+    },
+    {
+      "name": "name",
+      "value": "HELLEV",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "HELLEV",
+      "raw_template_field": "name",
+      "error": null,
+      "selected_engine": "paddle",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ],
+      "original_value": null,
+      "corrected": false
+    },
+    {
+      "name": "nationality",
+      "value": "FIN",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "FIN",
+      "raw_template_field": "nationality",
+      "error": null,
+      "selected_engine": "paddle",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ],
+      "original_value": null,
+      "corrected": false
+    },
+    {
+      "name": "number",
+      "value": "866633395",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "866633395",
+      "raw_template_field": "number",
+      "error": null,
+      "selected_engine": "paddle",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ],
+      "original_value": null,
+      "corrected": false
+    },
+    {
+      "name": "surname",
+      "value": "LANKINEN",
+      "confidence": 0.7,
+      "validated": true,
+      "raw_text": "LANKINEN",
+      "raw_template_field": "surname",
+      "error": null,
+      "selected_engine": "paddle",
+      "selected_source": "template_roi",
+      "review_required": false,
+      "reasons": [
+        "selected_from:template_roi"
+      ],
+      "original_value": null,
+      "corrected": false
+    }
+  ],
+  "normalized_data": {
+    "birth_date": "1975-09-23",
+    "birth_date_2": "230975",
+    "birth_date_22": "80975",
+    "code": "-846R",
+    "expiry_date": "2023-01-05",
+    "gender": "F",
+    "id_number": "846R",
+    "issue_date": "2018-01-05",
+    "name": "HELLEV",
+    "nationality": "FIN",
+    "number": "866633395",
+    "surname": "LANKINEN"
+  },
+  "routing": {
+    "requested_document_type": "id_document",
+    "requested_template_id": "midv_fin_id",
+    "selected_template_id": "midv_fin_id",
+    "selected_document_type": "id_document",
+    "method": "explicit_template_object"
+  },
+  "business_validation": {
+    "status": "success",
+    "review_required": false,
+    "review_reasons": [],
+    "valid_fields_ok": 12,
+    "present_fields": 12,
+    "field_coverage": 1.0,
+    "avg_field_confidence": 0.7,
+    "business_confidence": 0.805,
+    "quality_score": 0.784
+  },
+  "diagnostics": {
+    "mode": "generic_template_v5_detector_swin_roi_passport_invoice",
+    "processing_mode": "balanced",
+    "routing": {
+      "requested_document_type": "id_document",
+      "requested_template_id": "midv_fin_id",
+      "selected_template_id": "midv_fin_id",
+      "selected_document_type": "id_document",
+      "method": "explicit_template_object"
+    },
+    "template_id": "midv_fin_id",
+    "document_type": "id_document",
+    "engine": "paddle",
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.79,
+        "contrast": 0.456,
+        "quality_score": 0.784
+      },
+      "transforms": {
+        "resized": true,
+        "deskewed": true,
+        "contrast": true
+      }
+    },
+    "layout": {
+      "page_width": 1275,
+      "page_height": 800,
+      "orientation": "landscape",
+      "has_table": true,
+      "column_count": 3,
+      "regions": [
+        {
+          "type": "text_block",
+          "bbox": [
+            27,
+            575,
+            583,
+            204
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            355,
+            519,
+            368,
+            122
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            28,
+            500,
+            315,
+            72
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            357,
+            466,
+            248,
+            45
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            31,
+            451,
+            297,
+            46
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            725,
+            410,
+            168,
+            67
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            867,
+            362,
+            370,
+            413
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            358,
+            330,
+            516,
+            110
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            351,
+            307,
+            338,
+            72
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            574,
+            242,
+            680,
+            82
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            354,
+            235,
+            193,
+            67
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            82,
+            229,
+            269,
+            184
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            363,
+            185,
+            184,
+            43
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            42,
+            177,
+            280,
+            42
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            365,
+            141,
+            240,
+            44
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            43,
+            135,
+            305,
+            43
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "table",
+          "bbox": [
+            50,
+            18,
+            1206,
+            128
+          ],
+          "confidence": 1.0,
+          "label": null
+        }
+      ],
+      "region_count": 17
+    },
+    "field_count": 12,
+    "validated_field_count": 12,
+    "document_localizer": {
+      "localizer": "document_localizer_v3_yolo_raw_plus_normalized",
+      "method": "yolo_crop",
+      "detector": {
+        "found": true,
+        "bbox_xyxy": [
+          0.0,
+          0.0,
+          674.574462890625,
+          584.0
+        ],
+        "confidence": 0.9719,
+        "class_name": "document",
+        "method": "yolo_document_detector",
+        "error": null
+      },
+      "input_shape": [
+        584,
+        931
+      ],
+      "localized_shape": [
+        584,
+        688
+      ],
+      "candidate_count": 20,
+      "raw_candidate_count": 4,
+      "normalized_candidate_count": 16,
+      "yolo_crop_padding": 0.02,
+      "aspect_trim": {
+        "enabled": false,
+        "reason": "aspect trimming degraded ROI alignment in previous tests"
+      },
+      "post_yolo_normalizer": {
+        "executed": true,
+        "diagnostics": {
+          "normalizer": "classical_cv_multi_candidate_v6_strict_color_nms",
+          "input_shape": [
+            584,
+            688
+          ],
+          "detection_shape": [
+            584,
+            688
+          ],
+          "scale": 1.0,
+          "mode": "balanced",
+          "found_contour": true,
+          "contours_total": 1,
+          "sliding_candidate_count": 8,
+          "contour_candidate_count": 1,
+          "candidate_pool_count": 9,
+          "crop_candidate_count": 8,
+          "final_candidate_count": 16,
+          "rejected": {
+            "too_small": 0,
+            "too_large": 1,
+            "bad_aspect": 0,
+            "touches_border_large": 0,
+            "invalid_crop": 0
+          },
+          "selected_strategy": "multi_candidate_roi_score",
+          "candidates_preview": [
+            {
+              "source": "sliding_color_window",
+              "index": 4882,
+              "score": 1.302092,
+              "density": 0.998926,
+              "mean_saturation": 0.770205,
+              "std_value": 0.191566,
+              "center_density": 1.0,
+              "center_saturation": 0.780604,
+              "area_ratio": 0.027805,
+              "bbox_detection": [
+                96,
+                204,
+                133,
+                84
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 777,
+              "score": 1.294013,
+              "density": 1.0,
+              "mean_saturation": 0.7822,
+              "std_value": 0.178698,
+              "center_density": 1.0,
+              "center_saturation": 0.78555,
+              "area_ratio": 0.014186,
+              "bbox_detection": [
+                120,
+                192,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 879,
+              "score": 1.2826,
+              "density": 1.0,
+              "mean_saturation": 0.769884,
+              "std_value": 0.171456,
+              "center_density": 1.0,
+              "center_saturation": 0.777467,
+              "area_ratio": 0.014186,
+              "bbox_detection": [
+                144,
+                216,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 977,
+              "score": 1.272623,
+              "density": 0.997895,
+              "mean_saturation": 0.760925,
+              "std_value": 0.19804,
+              "center_density": 0.995671,
+              "center_saturation": 0.74893,
+              "area_ratio": 0.014186,
+              "bbox_detection": [
+                120,
+                240,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 874,
+              "score": 1.261152,
+              "density": 0.979474,
+              "mean_saturation": 0.744045,
+              "std_value": 0.165097,
+              "center_density": 1.0,
+              "center_saturation": 0.784792,
+              "area_ratio": 0.014186,
+              "bbox_detection": [
+                84,
+                216,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 725,
+              "score": 1.248952,
+              "density": 0.971228,
+              "mean_saturation": 0.72216,
+              "std_value": 0.196114,
+              "center_density": 1.0,
+              "center_saturation": 0.771594,
+              "area_ratio": 0.014186,
+              "bbox_detection": [
+                96,
+                180,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 729,
+              "score": 1.215173,
+              "density": 0.93,
+              "mean_saturation": 0.694345,
+              "std_value": 0.198577,
+              "center_density": 0.998557,
+              "center_saturation": 0.764973,
+              "area_ratio": 0.014186,
+              "bbox_detection": [
+                144,
+                180,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            },
+            {
+              "source": "sliding_color_window",
+              "index": 1025,
+              "score": 1.184831,
+              "density": 0.90614,
+              "mean_saturation": 0.666367,
+              "std_value": 0.209849,
+              "center_density": 0.998196,
+              "center_saturation": 0.741673,
+              "area_ratio": 0.014186,
+              "bbox_detection": [
+                96,
+                252,
+                95,
+                60
+              ],
+              "aspect": 1.5833,
+              "aspect_penalty": 0.0027,
+              "touches_border": false,
+              "reject_reason": null
+            }
+          ],
+          "candidate_angles": [
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180,
+            0,
+            180
+          ]
+        },
+        "normalized_shape": [
+          84,
+          133
+        ],
+        "candidate_count": 16
+      }
+    },
+    "roi_extraction": {
+      "roi_extraction": "template_roi_with_document_localization_v3_weighted_score_safe",
+      "selected_angle": 0,
+      "selected_source": "full_image_roi_width_guard",
+      "selected_candidate_index": -1,
+      "selected_rotation_index": null,
+      "selected_debug_prefix": "cand_-1_angle_0",
+      "selected_content_bbox_norm": null,
+      "selected_score": 105.25,
+      "document_normalizer": {
+        "normalizer": "skipped",
+        "reason": "using_document_localizer_candidates",
+        "candidate_count": 21
+      },
+      "candidate_debug": [
+        {
+          "angle": 0,
+          "source": "full_image_roi_width_guard",
+          "candidate_index": -1,
+          "rotation_index": null,
+          "debug_prefix": "cand_-1_angle_0",
+          "content_bbox_norm": null,
+          "score": 105.25,
+          "validated_fields": 12,
+          "validated_strong_fields": 7,
+          "present_fields": 12,
+          "review_required_fields": [],
+          "warnings": []
+        }
+      ],
+      "selected_candidate_debug": {
+        "roi_extraction": "template_roi_v3_expected_nationality_strict_midv",
+        "engine": "paddle",
+        "language_hints": [
+          "en"
+        ],
+        "template_id": "midv_fin_id",
+        "source_class": "fin_id",
+        "expected_nationality": null,
+        "debug_prefix": "cand_-1_angle_0",
+        "content_bbox_norm_received": null,
+        "content_bbox_norm_applied": false,
+        "fields": [
+          {
+            "name": "birth_date",
+            "output_key": "birthDate",
+            "raw_text": "23.09.1975-",
+            "value": "1975-09-23",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.296389,
+              0.505137,
+              0.163276,
+              0.037671
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_birth_date.jpg",
+            "review_required": false
+          },
+          {
+            "name": "birth_date_2",
+            "output_key": "birthDateShort",
+            "raw_text": "230975",
+            "value": "230975",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.474692,
+              0.720908,
+              0.083017,
+              0.030822
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_birth_date_2.jpg",
+            "review_required": false
+          },
+          {
+            "name": "birth_date_22",
+            "output_key": "birthDateShortRotated",
+            "raw_text": "80975",
+            "value": "80975",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.705538,
+              0.880119,
+              0.008781,
+              0.056966
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_birth_date_22.jpg",
+            "review_required": false
+          },
+          {
+            "name": "code",
+            "output_key": "countryCode",
+            "raw_text": "-846R",
+            "value": "-846R",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.47364,
+              0.505137,
+              0.077546,
+              0.035959
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_code.jpg",
+            "review_required": false
+          },
+          {
+            "name": "expiry_date",
+            "output_key": "expiryDate",
+            "raw_text": "05.01.2023",
+            "value": "2023-01-05",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.297519,
+              0.672927,
+              0.163055,
+              0.037689
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_expiry_date.jpg",
+            "review_required": false
+          },
+          {
+            "name": "face",
+            "output_key": "face",
+            "skipped": true,
+            "reason": "visual field",
+            "bbox_norm": [
+              0.75353,
+              0.534511,
+              0.164373,
+              0.361566
+            ]
+          },
+          {
+            "name": "gender",
+            "output_key": "gender",
+            "raw_text": "F",
+            "value": "F",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.390911,
+              0.339041,
+              0.018681,
+              0.037671
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_gender.jpg",
+            "review_required": false
+          },
+          {
+            "name": "id_number",
+            "output_key": "idNumber",
+            "raw_text": "-846R",
+            "value": "846R",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.47364,
+              0.505137,
+              0.077546,
+              0.035959
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_id_number.jpg",
+            "review_required": false
+          },
+          {
+            "name": "issue_date",
+            "output_key": "issueDate",
+            "raw_text": "05.01.2018",
+            "value": "2018-01-05",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.297519,
+              0.597603,
+              0.163675,
+              0.037671
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_issue_date.jpg",
+            "review_required": false
+          },
+          {
+            "name": "name",
+            "output_key": "givenNames",
+            "raw_text": "HELLEV",
+            "value": "HELLEV",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.293244,
+              0.246575,
+              0.089185,
+              0.037671
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_name.jpg",
+            "review_required": false
+          },
+          {
+            "name": "nationality",
+            "output_key": "nationality",
+            "raw_text": "FIN",
+            "value": "FIN",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.925875,
+              0.327055,
+              0.039,
+              0.037671
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_nationality.jpg",
+            "review_required": false
+          },
+          {
+            "name": "number",
+            "output_key": "documentNumber",
+            "raw_text": "866633395",
+            "value": "866633395",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.610075,
+              0.333904,
+              0.163952,
+              0.037671
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_number.jpg",
+            "review_required": false
+          },
+          {
+            "name": "photo",
+            "output_key": "photo",
+            "skipped": true,
+            "reason": "visual field",
+            "bbox_norm": [
+              0.710942,
+              0.444252,
+              0.252926,
+              0.492445
+            ]
+          },
+          {
+            "name": "signature",
+            "output_key": "signature",
+            "skipped": true,
+            "reason": "visual field",
+            "bbox_norm": [
+              0.210814,
+              0.830197,
+              0.237678,
+              0.137304
+            ]
+          },
+          {
+            "name": "surname",
+            "output_key": "surname",
+            "raw_text": "LANKINEN",
+            "value": "LANKINEN",
+            "valid": true,
+            "error": null,
+            "bbox_norm": [
+              0.294207,
+              0.191781,
+              0.131972,
+              0.037671
+            ],
+            "confidence": 0.7,
+            "debug_file": "debug_roi/cand_-1_angle_0_surname.jpg",
+            "review_required": false
+          }
+        ]
+      },
+      "early_stop": {
+        "enabled": true,
+        "reason": "strong_full_image_roi_width_guard_candidate",
+        "min_score": 80.0,
+        "validated_strong_fields": 7
+      }
+    },
+    "roi_width_guard": {
+      "enabled": true,
+      "min_width_ratio": 0.9,
+      "original_width": 931,
+      "localized_width": 688,
+      "actual_width_ratio": 0.739,
+      "use_full_image_candidate": true,
+      "candidate_policy": "full_image_prepended",
+      "selected_source": "full_image_roi_width_guard",
+      "selected_candidate_index": -1,
+      "selected_angle": 0,
+      "selected_score": 105.25
+    },
+    "raw_ocr_executed": false,
+    "raw_ocr_skipped_reason": "strong_roi_candidate"
+  },
+  "raw_text": "",
+  "processing_time_ms": 2355,
+  "warnings": [],
+  "review_reasons": []
+}

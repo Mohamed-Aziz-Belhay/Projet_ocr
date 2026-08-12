@@ -1,13 +1,13 @@
 {
-  "job_id": "d489b6cc-a7f5-4b6d-bb0e-521c35612fea",
+  "job_id": "c110afa8-35b2-4d71-bd1f-b277448716d0",
   "status": "review_required",
   "template_id": "cin_tn",
   "document_type": "cin_tn",
   "document_variant": "recto",
-  "engine_used": "easyocr_boxes",
-  "language_detected": "so",
-  "global_confidence": 0.7088,
-  "quality_score": 0.709,
+  "engine_used": "mixed(easyocr,paddle_boxes)",
+  "language_detected": "ar",
+  "global_confidence": 0.7262,
+  "quality_score": 0.658,
   "fields": [
     {
       "name": "id_number",
@@ -17,12 +17,14 @@
       "raw_text": "12621583",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "easyocr_boxes",
+      "selected_engine": "paddle_boxes",
       "selected_source": "spatial_boxes",
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "last_name",
@@ -38,7 +40,9 @@
       "reasons": [
         "field unresolved",
         "critical field missing"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "first_name",
@@ -54,23 +58,26 @@
       "reasons": [
         "field unresolved",
         "critical field missing"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_date",
-      "value": null,
-      "confidence": 0.0,
-      "validated": false,
-      "raw_text": null,
+      "value": "1992-08-21",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "1992-08-21",
       "raw_template_field": null,
-      "error": "Date introuvable",
-      "selected_engine": null,
-      "selected_source": null,
-      "review_required": true,
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
       "reasons": [
-        "field unresolved",
-        "critical field missing"
-      ]
+        "selected_from:spatial_boxes"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_place",
@@ -85,14 +92,16 @@
       "review_required": false,
       "reasons": [
         "field unresolved"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     }
   ],
   "normalized_data": {
     "idNumber": "12621583",
     "lastName": null,
     "firstName": null,
-    "birthDate": null,
+    "birthDate": "1992-08-21",
     "birthPlace": null
   },
   "routing": null,
@@ -100,22 +109,20 @@
     "status": "review_required",
     "review_required": true,
     "review_reasons": [
-      "critical field missing or invalid: last_name",
       "critical field missing or invalid: first_name",
-      "birth_date missing"
+      "critical field missing or invalid: last_name"
     ],
     "warnings": [
-      "Champ critique à vérifier: last_name",
       "Champ critique à vérifier: first_name",
-      "Date de naissance à vérifier"
+      "Champ critique à vérifier: last_name"
     ],
-    "business_confidence": 0.7088,
+    "business_confidence": 0.7262,
     "critical_fields_ok": 1,
-    "valid_fields_ok": 1,
-    "present_fields": 1,
-    "quality_score": 0.709,
+    "valid_fields_ok": 2,
+    "present_fields": 2,
+    "quality_score": 0.658,
     "avg_field_confidence": 0.95,
-    "field_coverage": 0.2
+    "field_coverage": 0.4
   },
   "diagnostics": {
     "mode": "cin_specialized_v2",
@@ -126,20 +133,21 @@
       "paddle_boxes",
       "targeted_roi:easyocr",
       "targeted_roi:paddle",
-      "full_ocr:paddle"
+      "full_ocr:paddle",
+      "full_ocr:easyocr"
     ],
     "preprocessing": {
       "quality": {
         "sharpness": 1.0,
-        "brightness": 0.472,
-        "contrast": 0.47,
-        "quality_score": 0.709
+        "brightness": 0.387,
+        "contrast": 0.37,
+        "quality_score": 0.658
       },
       "transforms": {
         "resized": false,
         "deskewed": false,
-        "contrast": true,
-        "mode": "cin_legacy_compatible"
+        "contrast": false,
+        "mode": "cin_simple_deskew_only"
       },
       "cin_preprocessor_keys": [
         "binary",
@@ -152,17 +160,17 @@
     },
     "quality_checks": {
       "sharpness": 1.0,
-      "brightness": 0.472,
-      "contrast": 0.47,
-      "quality_score": 0.709
+      "brightness": 0.387,
+      "contrast": 0.37,
+      "quality_score": 0.658
     },
     "roi_fields": {
       "cin_number": [
-        17,
+        16,
         123
       ],
       "family_name": [
-        14,
+        13,
         108
       ],
       "first_name": [
@@ -194,21 +202,18 @@
         "target_fields": [
           "family_name",
           "first_name",
-          "date_of_birth",
           "place_of_birth"
         ],
-        "processing_time_ms": 37,
+        "processing_time_ms": 69,
         "zones": {
           "family_name": "",
           "first_name": "",
-          "date_of_birth": "",
           "place_of_birth": "",
-          "right_text_block": ""
+          "right_text_block": "اد2 اوت 1992"
         },
         "zone_scores": {
           "family_name": 0.0,
           "first_name": 0.0,
-          "date_of_birth": 0.0,
           "place_of_birth": 0.0,
           "right_text_block": 0.0
         },
@@ -221,21 +226,18 @@
         "target_fields": [
           "family_name",
           "first_name",
-          "date_of_birth",
           "place_of_birth"
         ],
-        "processing_time_ms": 425,
+        "processing_time_ms": 512,
         "zones": {
           "family_name": "",
           "first_name": "",
-          "date_of_birth": "",
-          "place_of_birth": "ا 2تو",
-          "right_text_block": ""
+          "place_of_birth": "6",
+          "right_text_block": "ربذخ ن دهأ 2 ةلات"
         },
         "zone_scores": {
           "family_name": 0.0,
           "first_name": 0.0,
-          "date_of_birth": 0.0,
           "place_of_birth": 0.0,
           "right_text_block": 0.0
         },
@@ -245,17 +247,44 @@
         "engine": "paddle",
         "executed": true,
         "trial_type": "full_card_and_all_rois",
-        "full_text": "ةينطولا 12621583",
+        "full_text": "و ةينطولا فيرعتلا ةقاطب 12621583 ةلبلد يريذخ نب ميهاربا تش 1992 توا ةدولا ةلات",
         "full_text_score": 0.0,
-        "processing_time_ms": 640,
+        "processing_time_ms": 1563,
+        "zones": {
+          "cin_number": "18",
+          "family_name": "",
+          "first_name": "",
+          "date_of_birth": "وبذح د",
+          "place_of_birth": "6",
+          "gender": "",
+          "right_text_block": "ربذخ ن دهأ 2 ةلات"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "بطاقه التعرف الوطنيه 12621581 _الرددة 21 آوت 1992 تالة",
+        "full_text_score": 0.0,
+        "processing_time_ms": 447,
         "zones": {
           "cin_number": "",
           "family_name": "",
           "first_name": "",
           "date_of_birth": "",
-          "place_of_birth": "ا 2تو",
+          "place_of_birth": "",
           "gender": "",
-          "right_text_block": ""
+          "right_text_block": "اد2 اوت 1992"
         },
         "zone_scores": {
           "cin_number": 0.0,
@@ -273,17 +302,19 @@
       "trials": [
         {
           "engine": "easyocr_boxes",
-          "box_count": 2,
+          "box_count": 4,
           "fields": {
-            "cin_number": "12621583"
+            "cin_number": "12621581",
+            "date_of_birth": "1992-08-21"
           },
           "scores": {
-            "cin_number": 20.196011432785532
+            "cin_number": 20.118857100117285,
+            "date_of_birth": 9.5
           },
           "meta": {
             "cin_number": {
-              "chosen_from": "12621583",
-              "candidate_text": "12621583",
+              "chosen_from": "12621581",
+              "candidate_text": "12621581",
               "source_kind": "spatial_numeric"
             },
             "family_name": {
@@ -297,8 +328,9 @@
               "anchors_found": 0
             },
             "date_of_birth": {
-              "chosen_from": null,
-              "source_kind": "no_valid_date",
+              "chosen_from": "right_text_block",
+              "candidate_text": "بطاقه التعرف الوطنيه 12621581 _الرددة 21 آوت 1992 تالة",
+              "source_kind": "right_text_fallback",
               "anchors_found": 0
             },
             "place_of_birth": {
@@ -321,12 +353,12 @@
         },
         {
           "engine": "paddle_boxes",
-          "box_count": 2,
+          "box_count": 13,
           "fields": {
             "cin_number": "12621583"
           },
           "scores": {
-            "cin_number": 20.175255036354066
+            "cin_number": 20.178254556655883
           },
           "meta": {
             "cin_number": {
@@ -375,7 +407,8 @@
           "engine": "easyocr_boxes",
           "source": "spatial_boxes",
           "fields": {
-            "cin_number": "12621583"
+            "cin_number": "12621581",
+            "date_of_birth": "1992-08-21"
           }
         },
         {
@@ -392,7 +425,8 @@
             "cin_number": "CIN_FAMILY_NAME:",
             "family_name": "CIN_FIRST_NAME:",
             "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH:"
+            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
+            "place_of_birth": "اد2 اوت 1992"
           }
         },
         {
@@ -402,19 +436,30 @@
             "cin_number": "CIN_FAMILY_NAME:",
             "family_name": "CIN_FIRST_NAME:",
             "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH: ا 2تو",
-            "place_of_birth": "ا 2تو"
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: 6",
+            "place_of_birth": "6"
           }
         },
         {
           "engine": "paddle",
           "source": "roi_ocr",
           "fields": {
+            "cin_number": "18",
+            "family_name": "CIN_FIRST_NAME:",
+            "first_name": "CIN_DATE_OF_BIRTH: وبذح د",
+            "date_of_birth": "وبذح د",
+            "place_of_birth": "6"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "roi_ocr",
+          "fields": {
             "cin_number": "CIN_FAMILY_NAME:",
             "family_name": "CIN_FIRST_NAME:",
             "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH: ا 2تو",
-            "place_of_birth": "ا 2تو"
+            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
+            "place_of_birth": "بطاقه التعرف الوطنيه 12621581 _الرددة 21 آوت 1992 تالة"
           }
         }
       ],
@@ -422,46 +467,120 @@
         "cin_number": [
           {
             "value": "12621583",
-            "avg_conf": 20.185633,
-            "count": 2,
+            "avg_conf": 20.178255,
+            "count": 1,
             "engines": [
-              "easyocr_boxes",
               "paddle_boxes"
             ],
             "sources": [
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 56.185633,
+            "selection_score": 49.178255,
             "raw_value": "12621583",
+            "meta": []
+          },
+          {
+            "value": "12621581",
+            "avg_conf": 20.118857,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 49.118857,
+            "raw_value": "12621581",
             "meta": []
           }
         ],
         "family_name": [],
         "first_name": [],
-        "date_of_birth": [],
+        "date_of_birth": [
+          {
+            "value": "21/08/1992",
+            "avg_conf": 10.059429,
+            "count": 2,
+            "engines": [
+              "easyocr",
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes",
+              "text_date_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 46.059429,
+            "raw_value": "1992-08-21",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          },
+          {
+            "value": "02/08/1992",
+            "avg_conf": 0.0,
+            "count": 1,
+            "engines": [
+              "easyocr"
+            ],
+            "sources": [
+              "text_date_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 19.0,
+            "raw_value": "1992-08-02",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          }
+        ],
         "place_of_birth": []
       },
       "selected": {
         "cin_number": {
           "value": "12621583",
-          "avg_conf": 20.185633,
-          "count": 2,
+          "avg_conf": 20.178255,
+          "count": 1,
           "engines": [
-            "easyocr_boxes",
             "paddle_boxes"
           ],
           "sources": [
             "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 56.185633,
+          "selection_score": 49.178255,
           "raw_value": "12621583",
           "meta": []
         },
         "family_name": null,
         "first_name": null,
-        "date_of_birth": null,
+        "date_of_birth": {
+          "value": "21/08/1992",
+          "avg_conf": 10.059429,
+          "count": 2,
+          "engines": [
+            "easyocr",
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes",
+            "text_date_fallback"
+          ],
+          "profiles": [],
+          "selection_score": 46.059429,
+          "raw_value": "1992-08-21",
+          "meta": [
+            {
+              "from_raw_text": true
+            }
+          ]
+        },
         "place_of_birth": null
       }
     },
@@ -472,45 +591,39 @@
     },
     "review_required": true,
     "review_reasons": [
-      "critical field missing or invalid: last_name",
       "critical field missing or invalid: first_name",
-      "birth_date missing"
+      "critical field missing or invalid: last_name"
     ],
     "business_validation": {
       "status": "review_required",
       "review_required": true,
       "review_reasons": [
-        "critical field missing or invalid: last_name",
         "critical field missing or invalid: first_name",
-        "birth_date missing"
+        "critical field missing or invalid: last_name"
       ],
       "warnings": [
-        "Champ critique à vérifier: last_name",
         "Champ critique à vérifier: first_name",
-        "Date de naissance à vérifier"
+        "Champ critique à vérifier: last_name"
       ],
-      "business_confidence": 0.7088,
+      "business_confidence": 0.7262,
       "critical_fields_ok": 1,
-      "valid_fields_ok": 1,
-      "present_fields": 1,
-      "quality_score": 0.709,
+      "valid_fields_ok": 2,
+      "present_fields": 2,
+      "quality_score": 0.658,
       "avg_field_confidence": 0.95,
-      "field_coverage": 0.2
+      "field_coverage": 0.4
     }
   },
-  "raw_text": "12621583 12621583 CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ا 2تو CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ا 2تو ا 2تو CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ا 2تو ةينطولا 12621583 CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ا 2تو ا 2تو 12621583 12621583 12621583 12621583 12621583 12621583 ا 2تو ةينطولا 12621583 ا 2تو",
-  "processing_time_ms": 2001,
+  "raw_text": "12621581 1992-08-21 12621583 CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: اد2 اوت 1992 CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: اد2 اوت 1992 CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 6 ربذخ ن دهأ 2 ةلات CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 6 6 CIN_NUMBER: 18 CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: وبذح د CIN_PLACE_OF_BIRTH: 6 و ةينطولا فيرعتلا ةقاطب 12621583 ةلبلد يريذخ نب ميهاربا تش 1992 توا ةدولا ةلات 18 CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: وبذح د وبذح د 6 CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: بطاقه التعرف الوطنيه 12621581 _الرددة 21 آوت 1992 تالة CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: بطاقه التعرف الوطنيه 12621581 _الرددة 21 آوت 1992 تالة 12621581 1992-08-21 12621581 12621581 بطاقه التعرف الوطنيه 12621581 _الرددة 21 آوت 1992 تالة right_text_block 12621583 12621583 12621583 اد2 اوت 1992 6 ربذخ ن دهأ 2 ةلات و ةينطولا فيرعتلا ةقاطب 12621583 ةلبلد يريذخ نب ميهاربا تش 1992 توا ةدولا ةلات 18 وبذح د 6 ربذخ ن دهأ 2 ةلات بطاقه التعرف الوطنيه 12621581 _الرددة 21 آوت 1992 تالة اد2 اوت 1992",
+  "processing_time_ms": 4282,
   "warnings": [
-    "Champ critique à vérifier: last_name",
     "Champ critique à vérifier: first_name",
-    "Date de naissance à vérifier",
+    "Champ critique à vérifier: last_name",
     "Champ requis 'nom' à vérifier",
-    "Champ requis 'prenom' à vérifier",
-    "Champ requis 'date_naissance' à vérifier"
+    "Champ requis 'prenom' à vérifier"
   ],
   "review_reasons": [
-    "critical field missing or invalid: last_name",
     "critical field missing or invalid: first_name",
-    "birth_date missing"
+    "critical field missing or invalid: last_name"
   ]
 }

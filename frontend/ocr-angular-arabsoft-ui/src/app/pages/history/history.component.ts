@@ -507,40 +507,128 @@ export class HistoryComponent implements OnInit {
   }
 
   // ═══════════════════════════════════════════════════════════
-  // [FONCTIONNALITÉ #4] Export CSV d'une seule ligne
+  // [FONCTIONNALITÉ #4] Export CSV détaillé d'une seule ligne
   // ═══════════════════════════════════════════════════════════
   //
-  // Déclenché par le bouton dédié de chaque ligne du tableau. Réutilise
-  // le même format que l'export global (mêmes colonnes, même
-  // échappement CSV, même séparateur ';' et BOM UTF-8) pour que les
-  // deux fichiers restent cohérents entre eux.
+  // Contrairement à exportCsv() (résumé compact, une ligne par
+  // extraction — adapté à un export en masse), l'export d'UNE seule
+  // ligne va chercher le détail complet (fields_json, même appel que
+  // l'ouverture de la modale) pour lister chaque champ extrait
+  // individuellement — équivalent CSV du rapport PDF (routes_exports.py
+  // /exports/pdf), qui affiche déjà chaque champ avec sa valeur et sa
+  // confiance.
   exportRow(item: HistoryItem, event: Event): void {
     // Empêche l'ouverture du détail : le clic sur la ligne déclenche
     // normalement selectItem() via (click) sur le <tr> — on ne veut
     // ici que l'export, pas l'ouverture de la modale de détail.
     event.stopPropagation();
 
-    try {
-      const headers = this.csvHeaders();
-      const row = this.buildCsvRow(item);
-      const csvContent = this.buildCsvContent(headers, [row]);
+    const id = item.id || item.job_id;
 
-      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      const safeName = (item.file_name || 'extraction').replace(/[^a-z0-9_.-]/gi, '_');
-
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = `extraction_${safeName}.csv`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
-
-      this.toast.success(`Ligne exportée : ${item.file_name || 'extraction'}.`);
-    } catch (e) {
-      this.toast.error("Échec de l'export de la ligne. Réessayez.");
+    if (!id) {
+      this.toast.error("Impossible d'exporter : identifiant manquant.");
+      return;
     }
+
+    this.authApi.historyDetail(id).subscribe({
+      next: detail => this.downloadDetailedRowCsv(item, detail),
+      error: () => {
+        this.toast.error("Impossible de récupérer le détail pour l'export.");
+      },
+    });
+  }
+
+  private downloadDetailedRowCsv(item: HistoryItem, detail: HistoryDetailResponse): void {
+    const lines: string[] = [];
+
+    // Section 1 : résumé de l'extraction
+    lines.push(this.csvRowLine(['Champ', 'Valeur']));
+    lines.push(this.csvRowLine(['Fichier', item.file_name ?? '']));
+    lines.push(this.csvRowLine(['Utilisateur', this.userLabel(item)]));
+    lines.push(this.csvRowLine(['Rôle', item.user_role ?? '']));
+    lines.push(this.csvRowLine(['Job ID', item.job_id ?? '']));
+    lines.push(this.csvRowLine(['Type de document', item.document_type ?? '']));
+    lines.push(this.csvRowLine(['Template', item.template_id ?? '']));
+    lines.push(this.csvRowLine(['Statut', item.status ?? '']));
+    lines.push(this.csvRowLine(['Confiance globale (%)', this.percent(item.global_confidence).replace('%', '')]));
+    lines.push(this.csvRowLine(['Moteur OCR', item.engine_used ?? '']));
+    lines.push(this.csvRowLine(['Temps de traitement', this.formatMs(item.processing_time_ms)]));
+    lines.push(this.csvRowLine(['Date', item.created_at ? new Date(item.created_at).toLocaleString('fr-FR') : '']));
+    lines.push('');
+
+    // Section 2 : champs extraits, un par ligne (équivalent du rapport PDF)
+    const fields = this.extractFieldsArray(detail);
+
+    if (fields.length) {
+      lines.push(this.csvRowLine(['Nom du champ', 'Valeur extraite', 'Confiance (%)', 'Validé']));
+
+      for (const f of fields) {
+        const confRaw = f?.confidence;
+        const confPct = confRaw != null
+          ? (Number(confRaw) <= 1 ? Number(confRaw) * 100 : Number(confRaw)).toFixed(1)
+          : '';
+
+        lines.push(this.csvRowLine([
+          f?.name ?? f?.field_name ?? f?.key ?? '',
+          this.stringifyFieldValue(f?.value),
+          confPct,
+          f?.validated ? 'Oui' : 'Non',
+        ]));
+      }
+    } else {
+      lines.push('Aucun champ détaillé disponible pour cette extraction.');
+    }
+
+    const BOM = '\uFEFF';
+    const csvContent = BOM + lines.join('\r\n');
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const safeName = (item.file_name || 'extraction').replace(/[^a-z0-9_.-]/gi, '_');
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `extraction_${safeName}_detail.csv`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+
+    this.toast.success(`Détail exporté : ${item.file_name || 'extraction'}.`);
+  }
+
+  /** Normalise fields_json (déjà un tableau, ou une chaîne JSON à parser). */
+  private extractFieldsArray(detail: HistoryDetailResponse): any[] {
+    const raw = (detail as any)?.fields_json;
+
+    if (Array.isArray(raw)) {
+      return raw;
+    }
+
+    if (typeof raw === 'string') {
+      try {
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
+      } catch {
+        return [];
+      }
+    }
+
+    return [];
+  }
+
+  private stringifyFieldValue(value: unknown): string {
+    if (value === null || value === undefined) {
+      return '';
+    }
+    if (typeof value === 'object') {
+      return JSON.stringify(value);
+    }
+    return String(value);
+  }
+
+  private csvRowLine(cells: string[]): string {
+    return cells.map(c => this.csvEscapeCell(c)).join(';');
   }
 
   /** Intitulés de colonnes, partagés entre l'export global et l'export par ligne. */

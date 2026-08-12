@@ -1,13 +1,13 @@
 {
-  "job_id": "bd99c5b7-028f-4863-9b90-de9bf19478c9",
+  "job_id": "68ea03f2-9bbe-41a0-87d3-dc309425c516",
   "status": "review_required",
   "template_id": "cin_tn",
   "document_type": "cin_tn",
   "document_variant": "recto",
-  "engine_used": "mixed(global_text,paddle_boxes)",
+  "engine_used": "paddle_boxes",
   "language_detected": "ar",
-  "global_confidence": 0.7616,
-  "quality_score": 0.718,
+  "global_confidence": 0.8058,
+  "quality_score": 0.702,
   "fields": [
     {
       "name": "id_number",
@@ -22,54 +22,63 @@
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "last_name",
-      "value": "وصال",
-      "confidence": 0.78,
-      "validated": true,
-      "raw_text": "وصال",
+      "value": null,
+      "confidence": 0.0,
+      "validated": false,
+      "raw_text": null,
       "raw_template_field": null,
-      "error": null,
-      "selected_engine": "global_text",
-      "selected_source": "text_family_fallback",
-      "review_required": false,
+      "error": "Nom introuvable",
+      "selected_engine": null,
+      "selected_source": null,
+      "review_required": true,
       "reasons": [
-        "selected_from:text_family_fallback"
-      ]
+        "field unresolved",
+        "critical field missing"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "first_name",
-      "value": null,
-      "confidence": 0.0,
-      "validated": false,
-      "raw_text": null,
+      "value": "كراب محمد",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "كراب محمد",
       "raw_template_field": null,
-      "error": "Prénom introuvable",
-      "selected_engine": null,
-      "selected_source": null,
-      "review_required": true,
+      "error": null,
+      "selected_engine": "paddle_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
       "reasons": [
-        "field unresolved",
-        "critical field missing"
-      ]
+        "selected_from:spatial_boxes"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_date",
-      "value": null,
-      "confidence": 0.0,
-      "validated": false,
+      "value": "2002-03-01",
+      "confidence": 0.82,
+      "validated": true,
       "raw_text": null,
       "raw_template_field": null,
-      "error": "Date introuvable",
+      "error": null,
       "selected_engine": null,
-      "selected_source": null,
-      "review_required": true,
+      "selected_source": "cin_postprocess_birth_date_context",
+      "review_required": false,
       "reasons": [
         "field unresolved",
-        "critical field missing"
-      ]
+        "critical field missing",
+        "birth_date_recovered:contextual_birth_date"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_place",
@@ -84,14 +93,16 @@
       "review_required": false,
       "reasons": [
         "field unresolved"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     }
   ],
   "normalized_data": {
     "idNumber": "13511348",
-    "lastName": "وصال",
-    "firstName": null,
-    "birthDate": null,
+    "lastName": null,
+    "firstName": "كراب محمد",
+    "birthDate": "2002-03-01",
     "birthPlace": null
   },
   "routing": null,
@@ -99,20 +110,18 @@
     "status": "review_required",
     "review_required": true,
     "review_reasons": [
-      "critical field missing or invalid: first_name",
-      "birth_date missing"
+      "critical field missing or invalid: last_name"
     ],
     "warnings": [
-      "Champ critique à vérifier: first_name",
-      "Date de naissance à vérifier"
+      "Champ critique à vérifier: last_name"
     ],
-    "business_confidence": 0.7616,
+    "business_confidence": 0.8058,
     "critical_fields_ok": 2,
-    "valid_fields_ok": 2,
-    "present_fields": 2,
-    "quality_score": 0.718,
-    "avg_field_confidence": 0.865,
-    "field_coverage": 0.4
+    "valid_fields_ok": 3,
+    "present_fields": 3,
+    "quality_score": 0.702,
+    "avg_field_confidence": 0.9067,
+    "field_coverage": 0.6
   },
   "diagnostics": {
     "mode": "cin_specialized_v2",
@@ -123,20 +132,21 @@
       "paddle_boxes",
       "targeted_roi:easyocr",
       "targeted_roi:paddle",
-      "full_ocr:paddle"
+      "full_ocr:paddle",
+      "full_ocr:easyocr"
     ],
     "preprocessing": {
       "quality": {
         "sharpness": 1.0,
-        "brightness": 0.626,
-        "contrast": 0.374,
-        "quality_score": 0.718
+        "brightness": 0.629,
+        "contrast": 0.315,
+        "quality_score": 0.702
       },
       "transforms": {
         "resized": false,
         "deskewed": false,
-        "contrast": true,
-        "mode": "cin_legacy_compatible"
+        "contrast": false,
+        "mode": "cin_simple_deskew_only"
       },
       "cin_preprocessor_keys": [
         "binary",
@@ -149,9 +159,9 @@
     },
     "quality_checks": {
       "sharpness": 1.0,
-      "brightness": 0.626,
-      "contrast": 0.374,
-      "quality_score": 0.718
+      "brightness": 0.629,
+      "contrast": 0.315,
+      "quality_score": 0.702
     },
     "roi_fields": {
       "cin_number": [
@@ -190,21 +200,18 @@
         "trial_type": "targeted_missing_rois",
         "target_fields": [
           "family_name",
-          "first_name",
           "date_of_birth",
           "place_of_birth"
         ],
-        "processing_time_ms": 233,
+        "processing_time_ms": 411,
         "zones": {
           "family_name": "",
-          "first_name": "}51134#",
           "date_of_birth": "",
-          "place_of_birth": "",
-          "right_text_block": "بطاقه التعريف الود 1351114# 2002"
+          "place_of_birth": "2002",
+          "right_text_block": "ته ; له ' ٣ بطاقه التعريج الود 1}51114# بنمار إامبال حمدالمبارك أكرم بن 2002 متممر"
         },
         "zone_scores": {
           "family_name": 0.0,
-          "first_name": 0.0,
           "date_of_birth": 0.0,
           "place_of_birth": 0.0,
           "right_text_block": 0.0
@@ -217,22 +224,16 @@
         "trial_type": "targeted_missing_rois",
         "target_fields": [
           "family_name",
-          "first_name",
-          "date_of_birth",
           "place_of_birth"
         ],
-        "processing_time_ms": 612,
+        "processing_time_ms": 1334,
         "zones": {
-          "family_name": "",
-          "first_name": "٤5114٤",
-          "date_of_birth": "",
-          "place_of_birth": "",
-          "right_text_block": "13511348 ا لاصو ا كرابملا دمحم نب مركا عنب 202"
+          "family_name": "ه هشمحلا",
+          "place_of_birth": "فا دح نب ك 2٩2 يتي ةولا واك",
+          "right_text_block": "13511348 رامعنب شا لاصو سؤف كرابملا دمحم نب مركا تننب 202 ريمتبس ارا عك يوخ"
         },
         "zone_scores": {
           "family_name": 0.0,
-          "first_name": 0.0,
-          "date_of_birth": 0.0,
           "place_of_birth": 0.0,
           "right_text_block": 0.0
         },
@@ -242,17 +243,44 @@
         "engine": "paddle",
         "executed": true,
         "trial_type": "full_card_and_all_rois",
-        "full_text": "و ةطوا 13511348 فع كرانما د نب تذب 2002 هتحس هروج",
+        "full_text": "و هنطولا فتعكلا ةفاط 13511348 رامعنب لاصو كرابملا دمحم نب مركأ تخب 202 ريمتس يولا ع ةبرج قوسلا و",
         "full_text_score": 0.0,
-        "processing_time_ms": 1205,
+        "processing_time_ms": 2327,
+        "zones": {
+          "cin_number": "",
+          "family_name": "ه هشمحلا",
+          "first_name": "٤51134٤",
+          "date_of_birth": "رامعنس ش",
+          "place_of_birth": "فا دح نب ك 2٩2 يتي ةولا واك",
+          "gender": "ةيرجج",
+          "right_text_block": "13511348 رامعنب شا لاصو سؤف كرابملا دمحم نب مركا تننب 202 ريمتبس ارا عك يوخ"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "ته ٠ له ال٣ طاقد التعرب الوطلن 1151134# ذصال ئن أكرم بن ا2 سبننبر 2002 حوث السوق جربد",
+        "full_text_score": 0.0,
+        "processing_time_ms": 944,
         "zones": {
           "cin_number": "",
           "family_name": "",
-          "first_name": "٤5114٤",
+          "first_name": "}51134#",
           "date_of_birth": "",
-          "place_of_birth": "",
+          "place_of_birth": "2002",
           "gender": "",
-          "right_text_block": "13511348 ا لاصو ا كرابملا دمحم نب مركا عنب 202"
+          "right_text_block": "ته ; له ' ٣ بطاقه التعريج الود 1}51114# بنمار إامبال حمدالمبارك أكرم بن 2002 متممر"
         },
         "zone_scores": {
           "cin_number": 0.0,
@@ -270,7 +298,7 @@
       "trials": [
         {
           "engine": "easyocr_boxes",
-          "box_count": 3,
+          "box_count": 7,
           "fields": {},
           "scores": {},
           "meta": {
@@ -314,12 +342,14 @@
         },
         {
           "engine": "paddle_boxes",
-          "box_count": 10,
+          "box_count": 16,
           "fields": {
-            "cin_number": "13511348"
+            "cin_number": "13511348",
+            "first_name": "كراب محمد"
           },
           "scores": {
-            "cin_number": 20.18934361934662
+            "cin_number": 20.177690529823302,
+            "first_name": 15.183357524871827
           },
           "meta": {
             "cin_number": {
@@ -333,9 +363,10 @@
               "anchors_found": 0
             },
             "first_name": {
-              "chosen_from": null,
-              "source_kind": "no_label",
-              "anchors_found": 0
+              "chosen_from": "كرابملا دمحم",
+              "candidate_text": "كراب دمحم",
+              "source_kind": "inline",
+              "anchors_found": 1
             },
             "date_of_birth": {
               "chosen_from": null,
@@ -368,7 +399,8 @@
           "engine": "paddle_boxes",
           "source": "spatial_boxes",
           "fields": {
-            "cin_number": "13511348"
+            "cin_number": "13511348",
+            "first_name": "كراب محمد"
           }
         },
         {
@@ -376,32 +408,43 @@
           "source": "targeted_roi_ocr",
           "fields": {
             "cin_number": "CIN_FAMILY_NAME:",
-            "family_name": "CIN_FIRST_NAME: }51134#",
-            "first_name": "}51134#",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "بطاقه التعريف الود 1351114# 2002"
+            "family_name": "CIN_FIRST_NAME:",
+            "first_name": "CIN_DATE_OF_BIRTH:",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: 2002",
+            "place_of_birth": "2002"
           }
         },
         {
           "engine": "paddle",
           "source": "targeted_roi_ocr",
           "fields": {
-            "cin_number": "CIN_FAMILY_NAME:",
-            "family_name": "CIN_FIRST_NAME: ٤5114٤",
-            "first_name": "٤5114٤",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "13511348 ا لاصو ا كرابملا دمحم نب مركا عنب 202"
+            "cin_number": "CIN_FAMILY_NAME: ه هشمحلا",
+            "family_name": "ه هشمحلا",
+            "first_name": "CIN_DATE_OF_BIRTH:",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: فا دح نب ك 2٩2 يتي ةولا واك",
+            "place_of_birth": "فا دح نب ك 2٩2 يتي ةولا واك"
           }
         },
         {
           "engine": "paddle",
           "source": "roi_ocr",
           "fields": {
+            "cin_number": "CIN_FAMILY_NAME: ه هشمحلا",
+            "family_name": "ه هشمحلا",
+            "first_name": "٤51134٤",
+            "date_of_birth": "رامعنس ش",
+            "place_of_birth": "فا دح نب ك 2٩2 يتي ةولا واك"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "roi_ocr",
+          "fields": {
             "cin_number": "CIN_FAMILY_NAME:",
-            "family_name": "CIN_FIRST_NAME: ٤5114٤",
-            "first_name": "٤5114٤",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "و ةطوا 13511348 فع كرانما د نب تذب 2002 هتحس هروج"
+            "family_name": "CIN_FIRST_NAME: }51134#",
+            "first_name": "}51134#",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: 2002",
+            "place_of_birth": "2002"
           }
         }
       ],
@@ -409,7 +452,7 @@
         "cin_number": [
           {
             "value": "13511348",
-            "avg_conf": 20.189344,
+            "avg_conf": 20.177691,
             "count": 1,
             "engines": [
               "paddle_boxes"
@@ -418,64 +461,14 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 49.189344,
+            "selection_score": 49.177691,
             "raw_value": "13511348",
             "meta": []
           }
         ],
         "family_name": [
           {
-            "value": "وصال",
-            "avg_conf": 0.0,
-            "count": 2,
-            "engines": [
-              "global_text",
-              "paddle"
-            ],
-            "sources": [
-              "text_family_fallback",
-              "text_family_global"
-            ],
-            "profiles": [],
-            "selection_score": 45.6,
-            "raw_value": "وصال",
-            "meta": [
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_combined_text": true
-              }
-            ]
-          }
-        ],
-        "first_name": [
-          {
-            "value": "وصال",
-            "avg_conf": 0.0,
-            "count": 2,
-            "engines": [
-              "global_text",
-              "paddle"
-            ],
-            "sources": [
-              "text_first_fallback",
-              "text_first_global"
-            ],
-            "profiles": [],
-            "selection_score": 45.6,
-            "raw_value": "وصال",
-            "meta": [
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_combined_text": true
-              }
-            ]
-          },
-          {
-            "value": "451144",
+            "value": "ه الحمشه",
             "avg_conf": 0.0,
             "count": 4,
             "engines": [
@@ -487,12 +480,49 @@
               "targeted_roi_ocr"
             ],
             "profiles": [],
-            "selection_score": 28.9,
-            "raw_value": "٤5114٤",
+            "selection_score": 32.6,
+            "raw_value": "ه هشمحلا",
             "meta": [
               {
                 "from_raw_text": true
               },
+              {
+                "from_raw_text": true
+              }
+            ]
+          }
+        ],
+        "first_name": [
+          {
+            "value": "كراب محمد",
+            "avg_conf": 20.177691,
+            "count": 1,
+            "engines": [
+              "paddle_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 57.877691,
+            "raw_value": "كراب محمد",
+            "meta": []
+          },
+          {
+            "value": "4511344",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "paddle"
+            ],
+            "sources": [
+              "extractor",
+              "roi_ocr"
+            ],
+            "profiles": [],
+            "selection_score": 14.9,
+            "raw_value": "٤51134٤",
+            "meta": [
               {
                 "from_raw_text": true
               }
@@ -507,7 +537,7 @@
             ],
             "sources": [
               "extractor",
-              "targeted_roi_ocr"
+              "roi_ocr"
             ],
             "profiles": [],
             "selection_score": 14.9,
@@ -525,7 +555,7 @@
       "selected": {
         "cin_number": {
           "value": "13511348",
-          "avg_conf": 20.189344,
+          "avg_conf": 20.177691,
           "count": 1,
           "engines": [
             "paddle_boxes"
@@ -534,35 +564,26 @@
             "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 49.189344,
+          "selection_score": 49.177691,
           "raw_value": "13511348",
           "meta": []
         },
-        "family_name": {
-          "value": "وصال",
-          "avg_conf": 0.0,
-          "count": 2,
+        "family_name": null,
+        "first_name": {
+          "value": "كراب محمد",
+          "avg_conf": 20.177691,
+          "count": 1,
           "engines": [
-            "global_text",
-            "paddle"
+            "paddle_boxes"
           ],
           "sources": [
-            "text_family_fallback",
-            "text_family_global"
+            "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 45.6,
-          "raw_value": "وصال",
-          "meta": [
-            {
-              "from_raw_text": true
-            },
-            {
-              "from_combined_text": true
-            }
-          ]
+          "selection_score": 57.877691,
+          "raw_value": "كراب محمد",
+          "meta": []
         },
-        "first_name": null,
         "date_of_birth": null,
         "place_of_birth": null
       }
@@ -570,43 +591,45 @@
     "cin_postprocess": {
       "executed": true,
       "name_extraction": null,
-      "applied": []
+      "applied": [
+        {
+          "field": "birth_date",
+          "type": "contextual_date_recovery",
+          "old": null,
+          "new": "2002-03-01",
+          "reason": "contextual_birth_date"
+        }
+      ]
     },
     "review_required": true,
     "review_reasons": [
-      "critical field missing or invalid: first_name",
-      "birth_date missing"
+      "critical field missing or invalid: last_name"
     ],
     "business_validation": {
       "status": "review_required",
       "review_required": true,
       "review_reasons": [
-        "critical field missing or invalid: first_name",
-        "birth_date missing"
+        "critical field missing or invalid: last_name"
       ],
       "warnings": [
-        "Champ critique à vérifier: first_name",
-        "Date de naissance à vérifier"
+        "Champ critique à vérifier: last_name"
       ],
-      "business_confidence": 0.7616,
+      "business_confidence": 0.8058,
       "critical_fields_ok": 2,
-      "valid_fields_ok": 2,
-      "present_fields": 2,
-      "quality_score": 0.718,
-      "avg_field_confidence": 0.865,
-      "field_coverage": 0.4
+      "valid_fields_ok": 3,
+      "present_fields": 3,
+      "quality_score": 0.702,
+      "avg_field_confidence": 0.9067,
+      "field_coverage": 0.6
     }
   },
-  "raw_text": "13511348 CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: }51134# CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: بطاقه التعريف الود 1351114# 2002 CIN_FAMILY_NAME: CIN_FIRST_NAME: }51134# }51134# CIN_PLACE_OF_BIRTH: بطاقه التعريف الود 1351114# 2002 CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: 451144 CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 13511348 ا لاصو ا كرابملا محمد نب مركا عنب 202 CIN_FAMILY_NAME: CIN_FIRST_NAME: 451144 451144 CIN_PLACE_OF_BIRTH: 13511348 ا لاصو ا كرابملا محمد نب مركا عنب 202 CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: 451144 CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: و ةطوا 13511348 فع كرانما د نب تذب 2002 هتحس هروج CIN_FAMILY_NAME: CIN_FIRST_NAME: 451144 451144 CIN_PLACE_OF_BIRTH: و ةطوا 13511348 فع كرانما د نب تذب 2002 هتحس هروج 13511348 13511348 13511348 }51134# بطاقه التعريف الود 1351114# 2002 451144 13511348 ا لاصو ا كرابملا محمد نب مركا عنب 202 و ةطوا 13511348 فع كرانما د نب تذب 2002 هتحس هروج 451144 13511348 ا لاصو ا كرابملا محمد نب مركا عنب 202",
-  "processing_time_ms": 3334,
+  "raw_text": "13511348 كراب محمد CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 2002 ته ; له ' 3 بطاقه التعريج الود 1}51114# بنمار إامبال حمدالمبارك أكرم بن 2002 متممر CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 2002 2002 CIN_NUMBER: CIN_FAMILY_NAME: ه هشمحلا CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: فا دح نب ك 292 يتي ةولا واك 13511348 رامعنب شا لاصو سؤف كرابملا محمد نب مركا تننب 202 ريمتبس ارا عك يوخ CIN_FAMILY_NAME: ه هشمحلا ه هشمحلا CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: فا دح نب ك 292 يتي ةولا واك فا دح نب ك 292 يتي ةولا واك CIN_NUMBER: CIN_FAMILY_NAME: ه هشمحلا CIN_FIRST_NAME: 4511344 CIN_DATE_OF_BIRTH: رامعنس ش CIN_PLACE_OF_BIRTH: فا دح نب ك 292 يتي ةولا واك و هنطولا فتعكلا ةفاط 13511348 رامعنب لاصو كرابملا محمد نب مركأ تخب 202 ريمتس يولا ع ةبرج قوسلا و CIN_FAMILY_NAME: ه هشمحلا ه هشمحلا 4511344 رامعنس ش فا دح نب ك 292 يتي ةولا واك CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: }51134# CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 2002 ته 0 له ال3 طاقد التعرب الوطلن 1151134# ذصال ئن أكرم بن ا2 سبننبر 2002 حوث السوق جربد CIN_FAMILY_NAME: CIN_FIRST_NAME: }51134# }51134# CIN_PLACE_OF_BIRTH: 2002 2002 13511348 كراب محمد 13511348 13511348 كراب محمد كرابملا محمد 2002 ته ; له ' 3 بطاقه التعريج الود 1}51114# بنمار إامبال حمدالمبارك أكرم بن 2002 متممر ه هشمحلا فا دح نب ك 292 يتي ةولا واك 13511348 رامعنب شا لاصو سؤف كرابملا محمد نب مركا تننب 202 ريمتبس ارا عك يوخ و هنطولا فتعكلا ةفاط 13511348 رامعنب لاصو كرابملا محمد نب مركأ تخب 202 ريمتس يولا ع ةبرج قوسلا و ه هشمحلا 4511344 رامعنس ش فا دح نب ك 292 يتي ةولا واك ةيرجج 13511348 رامعنب شا لاصو سؤف كرابملا محمد نب مركا تننب 202 ريمتبس ارا عك يوخ ته 0 له ال3 طاقد التعرب الوطلن 1151134# ذصال ئن أكرم بن ا2 سبننبر 2002 حوث السوق جربد }51134# 2002 ته ; له ' 3 بطاقه التعريج الود 1}51114# بنمار إامبال حمدالمبارك أكرم بن 2002 متممر",
+  "processing_time_ms": 8219,
   "warnings": [
-    "Champ critique à vérifier: first_name",
-    "Date de naissance à vérifier",
-    "Champ requis 'prenom' à vérifier",
-    "Champ requis 'date_naissance' à vérifier"
+    "Champ critique à vérifier: last_name",
+    "Champ requis 'nom' à vérifier"
   ],
   "review_reasons": [
-    "critical field missing or invalid: first_name",
-    "birth_date missing"
+    "critical field missing or invalid: last_name"
   ]
 }

@@ -15,10 +15,22 @@ Objectifs:
 Important:
 - Les noms internes restent en anglais pour ne pas casser le backend.
 - Les labels francais sont ajoutes cote runner/API/UI.
+
+Correctifs additionnels (factures de transitaire international, ex.
+SEKO BANSARD, SAVINO DEL BENE) :
+- _TOTAL_TTC_PATTERNS : ajout de motifs "BALANCE DUE", "TOTAL TND" et
+  "TOTAL A V/DEBIT", absents des factures tunisiennes domestiques mais
+  utilises par les transitaires internationaux.
+- _extract_invoice_date : ajout du format "26-Jan-24" (jour, mois
+  abrege en anglais, annee sur 2 chiffres), en complement du format
+  numerique jj/mm/aaaa deja gere. Les deux motifs sont essayes en
+  complement l'un de l'autre, sans rien retirer du comportement deja
+  valide sur les factures tunisiennes.
 """
 from __future__ import annotations
 
 import re
+from collections import Counter
 from decimal import Decimal, InvalidOperation
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -64,7 +76,16 @@ def _normalize_amount(value: Optional[str]) -> Optional[str]:
 
     value = str(value).strip()
     value = value.replace(" ", "")
-    value = value.replace(",", ".")
+
+    # Correctif : distinguer les deux conventions numeriques.
+    # - "1,087.840" (transitaires internationaux) : virgule = separateur
+    #   de milliers, point = decimale -> on retire seulement la virgule.
+    # - "76,500" (factures tunisiennes) : virgule = decimale -> on la
+    #   remplace par un point, comme avant.
+    if "," in value and "." in value:
+        value = value.replace(",", "")
+    else:
+        value = value.replace(",", ".")
 
     try:
         return normalize_number(value)
@@ -80,6 +101,60 @@ def _amount_to_decimal(value: Optional[str]) -> Optional[Decimal]:
         cleaned = str(value).replace(" ", "").replace(",", ".")
         return Decimal(cleaned)
     except (InvalidOperation, ValueError):
+        return None
+
+
+# Mois anglais abreges -> numero de mois (correctif factures internationales).
+_MONTH_NAME_TO_NUM = {
+    "jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
+    "jul": 7, "aug": 8, "sep": 9, "sept": 9, "oct": 10, "nov": 11, "dec": 12,
+}
+
+_MONTH_NAME_DATE_RE = re.compile(
+    r"\b(\d{1,2})[-\s]+([A-Za-z]{3,9})[-\s]+(\d{2,4})\b",
+)
+
+
+def _parse_month_name_date(raw: str) -> Optional[str]:
+    """
+    Parse un format "26-Jan-24" ou "26 Jan 2024" (jour, mois abrege
+    anglais, annee sur 2 ou 4 chiffres) -- correctif pour les factures
+    de transitaire international (ex. SEKO BANSARD), absentes du
+    format numerique jj/mm/aaaa habituel des factures tunisiennes.
+    """
+    if not raw:
+        return None
+
+    m = _MONTH_NAME_DATE_RE.search(raw)
+
+    if not m:
+        return None
+
+    day_str, month_str, year_str = m.groups()
+    month_num = _MONTH_NAME_TO_NUM.get(month_str.strip().lower()[:4].rstrip("."))
+
+    if month_num is None:
+        month_num = _MONTH_NAME_TO_NUM.get(month_str.strip().lower()[:3])
+
+    if month_num is None:
+        return None
+
+    try:
+        day = int(day_str)
+        year = int(year_str)
+
+        if len(year_str) == 2:
+            year = 2000 + year if year < 50 else 1900 + year
+
+        if not (1 <= day <= 31 and 1900 <= year <= 2100):
+            return None
+
+        from datetime import datetime
+
+        dt = datetime(year, month_num, day)
+        return dt.strftime("%Y-%m-%d")
+
+    except (ValueError, Exception):
         return None
 
 
@@ -248,6 +323,15 @@ _INVOICE_NUMBER_PATTERNS = [
     ),
     re.compile(r"\bFacture\s*[:#\-]?\s*([0-9][A-Z0-9\-\/]{0,30})", re.I),
     re.compile(r"\b(?:FAC|INV)\s*[:#\-]?\s*([A-Z0-9][A-Z0-9\-\/]{1,30})", re.I),
+    # Repli fenetre (dernier recours) : sur certaines factures de
+    # transitaire international (ex. SAVINO DEL BENE), l'OCR lineraise
+    # un tableau en regroupant d'abord tous les en-tetes de colonnes
+    # ("Facture: Notre ref. Date"), puis toutes les valeurs plus loin
+    # ("502515 T40005 23/01/2024") -- le numero n'est alors plus
+    # immediatement apres le libelle "Facture". On tolere jusqu'a 100
+    # caracteres intermediaires (ex. la raison sociale du fournisseur),
+    # essaye uniquement si tous les motifs stricts ci-dessus ont echoue.
+    re.compile(r"\bFacture\s*[:#\-]?\s*.{0,100}?(\d{4,10})\b", re.I),
 ]
 
 _REFERENCE_UNIQUE_PATTERNS = [
@@ -304,7 +388,7 @@ _PAYMENT_DUE_PATTERNS = [
 
 _CURRENCY_RE = re.compile(r"\b(DT|TND|EUR|USD|MAD|GBP)\b|\b([€$£])\b|\b(DINARS?|MILLIMES?)\b", re.I)
 
-_AMOUNT_VALUE = r"([0-9]+(?:[.,][0-9]{1,3})?)"
+_AMOUNT_VALUE = r"([0-9]{1,3}(?:,[0-9]{3})*(?:\.[0-9]{1,3})?)"
 
 _TOTAL_HT_PATTERNS = [
     re.compile(r"Total\s*H\.?\s*T\.?\s*V\.?\s*A\.?\s*" + _AMOUNT_VALUE, re.I),
@@ -344,6 +428,14 @@ _TOTAL_TTC_PATTERNS = [
     re.compile(r"Net\s*[àa]\s*payer\s*" + _AMOUNT_VALUE, re.I),
     re.compile(r"Montant\s+(?:total|net|TTC)\s*[:\-]?\s*" + _AMOUNT_VALUE, re.I),
     re.compile(r"Total\s+facture\s*[:\-]?\s*" + _AMOUNT_VALUE, re.I),
+    # Correctifs factures de transitaire international (SEKO BANSARD,
+    # SAVINO DEL BENE) : vocabulaire absent des factures tunisiennes
+    # domestiques, ajoutes en complement, sans rien retirer ci-dessus.
+    # Un code devise (TND, USD...) s'intercale souvent entre le libelle
+    # et le montant -- pris en compte explicitement.
+    re.compile(r"BALANCE\s+DUE\s*(?:[A-Z]{2,4}\s*)?" + _AMOUNT_VALUE, re.I),
+    re.compile(r"TOTAL\s+TND\s*" + _AMOUNT_VALUE, re.I),
+    re.compile(r"TOTAL\s+A\s*V\/?\s*D[EÉ]BIT\s*(?:[A-Z]{2,4}\s*)?" + _AMOUNT_VALUE, re.I),
 ]
 
 
@@ -428,6 +520,11 @@ def _extract_invoice_date(text: str) -> Tuple[Optional[str], Optional[str]]:
 
     On evite de prendre la premiere date trouvee, car les factures TTN contiennent
     souvent une date limite de paiement.
+
+    Correctif : essaie d'abord le format numerique habituel (jj/mm/aaaa),
+    puis, s'il echoue, un format "INVOICE DATE 26-Jan-24" (jour, mois
+    abrege anglais, annee) rencontre sur les factures de transitaire
+    international.
     """
     date_pattern = re.compile(r"\bDate\s*[:\-]?\s*(\d{1,2}[/\-\.]\d{1,2}[/\-\.]\d{2,4})", re.I)
 
@@ -436,6 +533,41 @@ def _extract_invoice_date(text: str) -> Tuple[Optional[str], Optional[str]]:
         after = text[match.start(): match.start() + 55].lower()
 
         if "limite" in before or "limite" in after or "paiement" in after:
+            continue
+
+        return _parse_date_to_iso(match.group(1)), match.group(0).strip()
+
+    # Repli : format "INVOICE DATE 26-Jan-24" / "Date 26 Jan 2024".
+    month_date_pattern = re.compile(
+        r"\bDate\s*[:\-]?\s*(\d{1,2}[-\s]+[A-Za-z]{3,9}[-\s]+\d{2,4})", re.I
+    )
+
+    for match in month_date_pattern.finditer(text):
+        before = text[max(0, match.start() - 35): match.start()].lower()
+        after = text[match.start(): match.start() + 55].lower()
+
+        if "limite" in before or "limite" in after or "paiement" in after or "due" in before:
+            continue
+
+        parsed = _parse_month_name_date(match.group(1))
+
+        if parsed:
+            return parsed, match.group(0).strip()
+
+    # Dernier recours : meme probleme de lineraisation de tableau que
+    # pour invoice_number (cf. commentaire ci-dessus) -- le libelle
+    # "Date" et sa valeur peuvent etre separes par d'autres en-tetes de
+    # colonnes. Tolere jusqu'a 100 caracteres intermediaires, essaye
+    # uniquement si les motifs stricts precedents ont tous echoue.
+    window_date_pattern = re.compile(
+        r"\bDate\s*[:\-]?\s*.{0,100}?(\d{1,2}[/\-\.]\d{1,2}[/\-\.]\d{2,4})\b", re.I
+    )
+
+    for match in window_date_pattern.finditer(text):
+        before = text[max(0, match.start() - 35): match.start()].lower()
+        after = text[match.start(): match.start() + 100].lower()
+
+        if "limite" in before or "limite" in after or "paiement" in after or "due" in before:
             continue
 
         return _parse_date_to_iso(match.group(1)), match.group(0).strip()
@@ -535,43 +667,67 @@ def _extract_total_ttc(
 
     marker = re.search(r"Montant\s*T\.?\s*T\.?\s*C\.?,?", text, re.I)
 
-    if not marker:
-        return None, None
+    if marker:
+        tail = text[marker.end(): marker.end() + 260]
+        candidates = re.findall(r"\b[0-9]+[.,][0-9]{1,3}\b", tail)
 
-    tail = text[marker.end(): marker.end() + 260]
-    candidates = re.findall(r"\b[0-9]+[.,][0-9]{1,3}\b", tail)
+        decimal_candidates: List[Tuple[Decimal, str]] = []
 
-    if not candidates:
-        return None, None
+        for candidate in candidates:
+            item = _normalize_amount(candidate)
+            dec = _amount_to_decimal(item)
 
-    decimal_candidates: List[Tuple[Decimal, str]] = []
+            if dec is None:
+                continue
 
-    for candidate in candidates:
-        item = _normalize_amount(candidate)
-        dec = _amount_to_decimal(item)
+            if Decimal("0") < dec < Decimal("100000"):
+                decimal_candidates.append((dec, item))
 
-        if dec is None:
-            continue
+        if decimal_candidates:
+            ht_dec = _amount_to_decimal(total_ht)
+            vat_dec = _amount_to_decimal(vat_amount)
+            stamp_dec = _amount_to_decimal(stamp_amount) or Decimal("0")
 
-        if Decimal("0") < dec < Decimal("100000"):
-            decimal_candidates.append((dec, item))
+            if ht_dec is not None and vat_dec is not None:
+                expected = ht_dec + vat_dec + stamp_dec
 
-    if not decimal_candidates:
-        return None, None
+                for dec, item in decimal_candidates:
+                    if abs(dec - expected) <= Decimal("0.010"):
+                        return item, f"Montant T.T.C fallback matched consistency: {tail}"
 
-    ht_dec = _amount_to_decimal(total_ht)
-    vat_dec = _amount_to_decimal(vat_amount)
-    stamp_dec = _amount_to_decimal(stamp_amount) or Decimal("0")
+            decimal_candidates.sort(key=lambda x: x[0], reverse=True)
+            return decimal_candidates[0][1], f"Montant T.T.C fallback: {tail}"
 
-    if ht_dec is not None and vat_dec is not None:
-        expected = ht_dec + vat_dec + stamp_dec
+    # Dernier recours : sur certaines factures de transitaire
+    # international (ex. SEKO BANSARD), le montant total n'est adjacent
+    # a AUCUN libelle reconnu dans le texte lineraise par l'OCR (tableau
+    # multi-colonnes eclate). Ces factures repetent neanmoins souvent
+    # leur total a plusieurs endroits (sous-total, solde du, pied de
+    # page) : le montant le plus frequemment repete dans tout le texte
+    # est donc un candidat plausible, essaye uniquement si tout le reste
+    # a echoue.
+    # Garde-fou important : un vrai total de facture a (quasiment) toujours
+    # une partie decimale (centimes/millimes) -- un entier nu comme "24"
+    # (fragment d'annee dans une date "26-Jan-24" repete plusieurs fois)
+    # ne doit jamais etre retenu, meme s'il est frequent.
+    all_amounts = re.findall(r"\b[0-9]{1,3}(?:,[0-9]{3})*\.[0-9]{1,3}\b", text)
+    normalized_amounts = [
+        (_normalize_amount(a), _amount_to_decimal(_normalize_amount(a)))
+        for a in all_amounts
+    ]
+    plausible = [
+        (item, dec) for item, dec in normalized_amounts
+        if dec is not None and Decimal("1") < dec < Decimal("1000000")
+    ]
 
-        for dec, item in decimal_candidates:
-            if abs(dec - expected) <= Decimal("0.010"):
-                return item, f"Montant T.T.C fallback matched consistency: {tail}"
+    if plausible:
+        counts = Counter(item for item, _ in plausible)
+        most_common_item, occurrences = counts.most_common(1)[0]
 
-    decimal_candidates.sort(key=lambda x: x[0], reverse=True)
-    return decimal_candidates[0][1], f"Montant T.T.C fallback: {tail}"
+        if occurrences >= 2:
+            return most_common_item, f"frequency fallback ({occurrences}x in raw_text)"
+
+    return None, None
 
 
 def _infer_stamp_from_summary(

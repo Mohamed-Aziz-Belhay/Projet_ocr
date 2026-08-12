@@ -1,13 +1,13 @@
 {
-  "job_id": "00673410-c0b4-4c76-be0f-a331fc539ed3",
+  "job_id": "a36853b3-3245-4253-8ecc-73901166e28e",
   "status": "review_required",
   "template_id": "cin_tn",
   "document_type": "cin_tn",
   "document_variant": "recto",
-  "engine_used": "mixed(easyocr_boxes,global_text)",
+  "engine_used": "mixed(easyocr,paddle)",
   "language_detected": "ar",
-  "global_confidence": 0.8207,
-  "quality_score": 0.47,
+  "global_confidence": 0.7799,
+  "quality_score": 0.404,
   "fields": [
     {
       "name": "id_number",
@@ -23,22 +23,27 @@
       "reasons": [
         "field unresolved",
         "critical field missing"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "last_name",
-      "value": "العنادي",
-      "confidence": 0.95,
+      "value": "ظيرعتلا خليفة نب",
+      "confidence": 0.9,
       "validated": true,
-      "raw_text": "العنادي",
+      "raw_text": "اوردة",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "easyocr_boxes",
-      "selected_source": "spatial_boxes",
+      "selected_engine": "easyocr",
+      "selected_source": "cin_postprocess_laqab_line",
       "review_required": false,
       "reasons": [
-        "selected_from:spatial_boxes"
-      ]
+        "selected_from:text_family_fallback",
+        "reconstructed_from:اللقب_line"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "first_name",
@@ -48,17 +53,19 @@
       "raw_text": "ناضمر",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "global_text",
+      "selected_engine": "paddle",
       "selected_source": "spatial_boxes",
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes",
         "cin_arabic_ocr_fix:ناضمر->رمضان"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_date",
-      "value": "1962-02-06",
+      "value": "1962-02-14",
       "confidence": 0.82,
       "validated": true,
       "raw_text": null,
@@ -71,29 +78,33 @@
         "field unresolved",
         "critical field missing",
         "birth_date_recovered:contextual_birth_date"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_place",
       "value": "الكرم",
-      "confidence": 0.95,
+      "confidence": 0.75,
       "validated": true,
       "raw_text": "الكرم",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "easyocr_boxes",
-      "selected_source": "spatial_boxes",
+      "selected_engine": "easyocr",
+      "selected_source": "text_place_fallback",
       "review_required": false,
       "reasons": [
-        "selected_from:spatial_boxes"
-      ]
+        "selected_from:text_place_fallback"
+      ],
+      "original_value": null,
+      "corrected": false
     }
   ],
   "normalized_data": {
     "idNumber": null,
-    "lastName": "العنادي",
+    "lastName": "ظيرعتلا خليفة نب",
     "firstName": "رمضان",
-    "birthDate": "1962-02-06",
+    "birthDate": "1962-02-14",
     "birthPlace": "الكرم"
   },
   "routing": null,
@@ -106,12 +117,12 @@
     "warnings": [
       "Champ critique à vérifier: id_number"
     ],
-    "business_confidence": 0.8207,
+    "business_confidence": 0.7799,
     "critical_fields_ok": 2,
     "valid_fields_ok": 4,
     "present_fields": 4,
-    "quality_score": 0.47,
-    "avg_field_confidence": 0.9175,
+    "quality_score": 0.404,
+    "avg_field_confidence": 0.855,
     "field_coverage": 0.8
   },
   "diagnostics": {
@@ -123,20 +134,21 @@
       "paddle_boxes",
       "targeted_roi:easyocr",
       "targeted_roi:paddle",
-      "full_ocr:paddle"
+      "full_ocr:paddle",
+      "full_ocr:easyocr"
     ],
     "preprocessing": {
       "quality": {
-        "sharpness": 0.342,
-        "brightness": 0.614,
-        "contrast": 0.541,
-        "quality_score": 0.47
+        "sharpness": 0.179,
+        "brightness": 0.661,
+        "contrast": 0.526,
+        "quality_score": 0.404
       },
       "transforms": {
         "resized": false,
         "deskewed": false,
-        "contrast": true,
-        "mode": "cin_legacy_compatible"
+        "contrast": false,
+        "mode": "cin_simple_deskew_only"
       },
       "cin_preprocessor_keys": [
         "binary",
@@ -148,10 +160,10 @@
       ]
     },
     "quality_checks": {
-      "sharpness": 0.342,
-      "brightness": 0.614,
-      "contrast": 0.541,
-      "quality_score": 0.47
+      "sharpness": 0.179,
+      "brightness": 0.661,
+      "contrast": 0.526,
+      "quality_score": 0.404
     },
     "roi_fields": {
       "cin_number": [
@@ -189,14 +201,22 @@
         "executed": true,
         "trial_type": "targeted_missing_rois",
         "target_fields": [
-          "cin_number"
+          "cin_number",
+          "date_of_birth",
+          "place_of_birth"
         ],
-        "processing_time_ms": 20,
+        "processing_time_ms": 852,
         "zones": {
-          "cin_number": ""
+          "cin_number": "",
+          "date_of_birth": "زمع",
+          "place_of_birth": "962 14 غغ ا وردة فىفرى",
+          "right_text_block": "بن خليفة دمضان بن العيادي بن 1962 14 خغ اوردة للقب ٧م على فيفري"
         },
         "zone_scores": {
-          "cin_number": 0.0
+          "cin_number": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "right_text_block": 0.0
         },
         "notes": []
       },
@@ -205,14 +225,19 @@
         "executed": true,
         "trial_type": "targeted_missing_rois",
         "target_fields": [
-          "cin_number"
+          "cin_number",
+          "place_of_birth"
         ],
-        "processing_time_ms": 278,
+        "processing_time_ms": 1997,
         "zones": {
-          "cin_number": ""
+          "cin_number": "",
+          "place_of_birth": "6 رفيف 14 ةدالوولا خر ى",
+          "right_text_block": "ةفيلخ نب بقلل ناضمر مسال يلع نب يدايعلا ن 96 يرفيف 14 ةدالولا خرا"
         },
         "zone_scores": {
-          "cin_number": 0.0
+          "cin_number": 0.0,
+          "place_of_birth": 0.0,
+          "right_text_block": 0.0
         },
         "notes": []
       },
@@ -220,17 +245,44 @@
         "engine": "paddle",
         "executed": true,
         "trial_type": "full_card_and_all_rois",
-        "full_text": "ةيسنوتلا ةيروهمجلا ةينطولا ةقاطب فيرغتلا ةفيلخ نب بقللا ناضمر مسالا ىل يدايعلا نب 96 يرفيف ةدالولا خرات اهزاكم مركلا",
+        "full_text": "ةيسنوتلا ةير وهمجلا ةينطولا ةقاطب ظيرعتلا ةفيلخ نب بقللا ناضمر مسألا نب يلع يدايعلا نب 96 يرفيف 14 ةدالولا خرات اهزام مركلا",
         "full_text_score": 0.0,
-        "processing_time_ms": 2538,
+        "processing_time_ms": 3095,
         "zones": {
           "cin_number": "",
           "family_name": "",
-          "first_name": "ةقدلح",
+          "first_name": "ةقدلح ب",
           "date_of_birth": "",
-          "place_of_birth": "6 رفيق ةدالوولا خو",
+          "place_of_birth": "6 رفيف 14 ةدالوولا خر ى",
           "gender": "",
-          "right_text_block": "ةفيلخ نب بققلل ناضمر مألل ىلع نب يدايعلا ن 96 يرفيف 4 ةدالولا خوما"
+          "right_text_block": "ةفيلخ نب بقلل ناضمر مسال يلع نب يدايعلا ن 96 يرفيف 14 ةدالولا خرا"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "الجمهوريذ التونسيذ بطاقهالتعرف الوطنيه بن خليفة اللقب الم د بن بن 1962 14 ن وردة مضان العنادى على فيفري الكر -<",
+        "full_text_score": 0.0,
+        "processing_time_ms": 1624,
+        "zones": {
+          "cin_number": "",
+          "family_name": "",
+          "first_name": "بن حيعه",
+          "date_of_birth": "زمع",
+          "place_of_birth": "962 14 غغ ا وردة فىفرى",
+          "gender": "",
+          "right_text_block": "بن خليفة دمضان بن العيادي بن 1962 14 خغ اوردة للقب ٧م على فيفري"
         },
         "zone_scores": {
           "cin_number": 0.0,
@@ -248,13 +300,13 @@
       "trials": [
         {
           "engine": "easyocr_boxes",
-          "box_count": 13,
+          "box_count": 14,
           "fields": {
             "family_name": "العنادي",
-            "place_of_birth": "الكرم"
+            "place_of_birth": "الجم"
           },
           "scores": {
-            "family_name": 6.239265935478605,
+            "family_name": 5.30534214214428,
             "place_of_birth": 9.0
           },
           "meta": {
@@ -264,7 +316,7 @@
               "source_kind": "spatial_numeric"
             },
             "family_name": {
-              "chosen_from": "اللقب بن خليفة",
+              "chosen_from": "اللقب",
               "candidate_text": "العنادى",
               "source_kind": "below_anchor",
               "anchors_found": 1
@@ -276,11 +328,11 @@
             "date_of_birth": {
               "chosen_from": null,
               "source_kind": "no_valid_date",
-              "anchors_found": 1
+              "anchors_found": 0
             },
             "place_of_birth": {
               "chosen_from": "right_text_block",
-              "candidate_text": "الجمهوريفالتونسيذ بطاقهالتعريف الوطنيه اللقب بن خليفة اللم دمضان العنادى علي بن لن 1962 نخ الولادة 14 فيفري عانها الكرم",
+              "candidate_text": "الجمهوريذ التونسيذ بطاقهالتعرف الوطنيه اللقب بن خليفة اللم رمضان العنادى على بن بن 1962 ن وردة ٦4 فيفري ا الكرد",
               "source_kind": "right_text_fallback",
               "anchors_found": 0
             },
@@ -299,14 +351,14 @@
         },
         {
           "engine": "paddle_boxes",
-          "box_count": 18,
+          "box_count": 21,
           "fields": {
             "family_name": "ةفيلخ",
             "first_name": "ناضمر"
           },
           "scores": {
-            "family_name": 7.916868236962583,
-            "first_name": 10.14622571363745
+            "family_name": 7.87980929442432,
+            "first_name": 9.639039403221497
           },
           "meta": {
             "cin_number": {
@@ -321,9 +373,9 @@
               "anchors_found": 1
             },
             "first_name": {
-              "chosen_from": "مسالا",
+              "chosen_from": "مسألا",
               "candidate_text": "ناضمر",
-              "source_kind": "label_neighbor_merged",
+              "source_kind": "label_neighbor",
               "anchors_found": 1
             },
             "date_of_birth": {
@@ -334,7 +386,7 @@
             "place_of_birth": {
               "chosen_from": null,
               "source_kind": "no_valid_place",
-              "anchors_found": 1
+              "anchors_found": 0
             },
             "label_spatial": {
               "reason": "no_items"
@@ -358,7 +410,7 @@
           "source": "spatial_boxes",
           "fields": {
             "family_name": "العنادي",
-            "place_of_birth": "الكرم"
+            "place_of_birth": "الجم"
           }
         },
         {
@@ -375,8 +427,9 @@
           "fields": {
             "cin_number": "CIN_FAMILY_NAME:",
             "family_name": "CIN_FIRST_NAME:",
-            "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH:"
+            "first_name": "CIN_DATE_OF_BIRTH: زمع",
+            "date_of_birth": "زمع",
+            "place_of_birth": "962 14 غغ ا وردة فىفرى"
           }
         },
         {
@@ -386,7 +439,8 @@
             "cin_number": "CIN_FAMILY_NAME:",
             "family_name": "CIN_FIRST_NAME:",
             "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH:"
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: 6 رفيف 14 ةدالوولا خر ى",
+            "place_of_birth": "6 رفيف 14 ةدالوولا خر ى"
           }
         },
         {
@@ -394,10 +448,21 @@
           "source": "roi_ocr",
           "fields": {
             "cin_number": "CIN_FAMILY_NAME:",
-            "family_name": "CIN_FIRST_NAME: ةقدلح",
-            "first_name": "ةقدلح",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH: 6 رفيق ةدالوولا خو",
-            "place_of_birth": "6 رفيق ةدالوولا خو"
+            "family_name": "CIN_FIRST_NAME: ةقدلح ب",
+            "first_name": "ةقدلح ب",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: 6 رفيف 14 ةدالوولا خر ى",
+            "place_of_birth": "6 رفيف 14 ةدالوولا خر ى"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "roi_ocr",
+          "fields": {
+            "cin_number": "CIN_FAMILY_NAME:",
+            "family_name": "CIN_FIRST_NAME: بن حيعه",
+            "first_name": "بن حيعه",
+            "date_of_birth": "زمع",
+            "place_of_birth": "962 14 غغ ا وردة فىفرى"
           }
         }
       ],
@@ -405,12 +470,12 @@
         "cin_number": [],
         "family_name": [
           {
-            "value": "ناضمر",
+            "value": "اوردة",
             "avg_conf": 0.0,
             "count": 2,
             "engines": [
-              "global_text",
-              "paddle"
+              "easyocr",
+              "global_text"
             ],
             "sources": [
               "text_family_fallback",
@@ -418,13 +483,34 @@
             ],
             "profiles": [],
             "selection_score": 46.0,
-            "raw_value": "ناضمر",
+            "raw_value": "اوردة",
             "meta": [
               {
                 "from_raw_text": true
               },
               {
                 "from_combined_text": true
+              }
+            ]
+          },
+          {
+            "value": "خليفة",
+            "avg_conf": 4.81952,
+            "count": 2,
+            "engines": [
+              "easyocr",
+              "paddle_boxes"
+            ],
+            "sources": [
+              "spatial_boxes",
+              "text_family_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 45.61952,
+            "raw_value": "ةفيلخ",
+            "meta": [
+              {
+                "from_raw_text": true
               }
             ]
           },
@@ -444,39 +530,84 @@
             "meta": []
           },
           {
-            "value": "خليفة",
-            "avg_conf": 10.146226,
+            "value": "ناضمر",
+            "avg_conf": 0.0,
             "count": 1,
             "engines": [
-              "paddle_boxes"
+              "paddle"
             ],
             "sources": [
-              "spatial_boxes"
+              "text_family_fallback"
             ],
             "profiles": [],
-            "selection_score": 41.946226,
-            "raw_value": "ةفيلخ",
-            "meta": []
+            "selection_score": 33.0,
+            "raw_value": "ناضمر",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          },
+          {
+            "value": "علي",
+            "avg_conf": 0.0,
+            "count": 1,
+            "engines": [
+              "paddle"
+            ],
+            "sources": [
+              "text_family_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 32.1,
+            "raw_value": "علي",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
           }
         ],
         "first_name": [
           {
             "value": "ناضمر",
-            "avg_conf": 3.382075,
+            "avg_conf": 3.213013,
             "count": 3,
             "engines": [
-              "global_text",
               "paddle",
               "paddle_boxes"
             ],
             "sources": [
               "spatial_boxes",
+              "text_first_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 52.213013,
+            "raw_value": "ناضمر",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_raw_text": true
+              }
+            ]
+          },
+          {
+            "value": "اوردة",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "easyocr",
+              "global_text"
+            ],
+            "sources": [
               "text_first_fallback",
               "text_first_global"
             ],
             "profiles": [],
-            "selection_score": 56.382075,
-            "raw_value": "ناضمر",
+            "selection_score": 46.0,
+            "raw_value": "اوردة",
             "meta": [
               {
                 "from_raw_text": true
@@ -487,7 +618,26 @@
             ]
           },
           {
-            "value": "حلدقة",
+            "value": "خليفة",
+            "avg_conf": 0.0,
+            "count": 1,
+            "engines": [
+              "easyocr"
+            ],
+            "sources": [
+              "text_first_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 31.8,
+            "raw_value": "خليفة",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          },
+          {
+            "value": "حلدقة ب",
             "avg_conf": 0.0,
             "count": 2,
             "engines": [
@@ -498,8 +648,8 @@
               "roi_ocr"
             ],
             "profiles": [],
-            "selection_score": 18.0,
-            "raw_value": "ةقدلح",
+            "selection_score": 18.3,
+            "raw_value": "ةقدلح ب",
             "meta": [
               {
                 "from_raw_text": true
@@ -511,6 +661,30 @@
         "place_of_birth": [
           {
             "value": "الكرم",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "easyocr",
+              "global_text"
+            ],
+            "sources": [
+              "text_place_fallback",
+              "text_place_global"
+            ],
+            "profiles": [],
+            "selection_score": 55.0,
+            "raw_value": "الكرم",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_combined_text": true
+              }
+            ]
+          },
+          {
+            "value": "الجم",
             "avg_conf": 9.0,
             "count": 1,
             "engines": [
@@ -521,44 +695,27 @@
             ],
             "profiles": [],
             "selection_score": 51.0,
-            "raw_value": "الكرم",
+            "raw_value": "الجم",
             "meta": []
           }
         ]
       },
       "selected": {
         "family_name": {
-          "value": "العنادي",
-          "avg_conf": 9.0,
-          "count": 1,
+          "value": "اوردة",
+          "avg_conf": 0.0,
+          "count": 2,
           "engines": [
-            "easyocr_boxes"
+            "easyocr",
+            "global_text"
           ],
           "sources": [
-            "spatial_boxes"
+            "text_family_fallback",
+            "text_family_global"
           ],
           "profiles": [],
-          "selection_score": 44.3,
-          "raw_value": "العنادي",
-          "meta": []
-        },
-        "first_name": {
-          "value": "ناضمر",
-          "avg_conf": 3.382075,
-          "count": 3,
-          "engines": [
-            "global_text",
-            "paddle",
-            "paddle_boxes"
-          ],
-          "sources": [
-            "spatial_boxes",
-            "text_first_fallback",
-            "text_first_global"
-          ],
-          "profiles": [],
-          "selection_score": 56.382075,
-          "raw_value": "ناضمر",
+          "selection_score": 46.0,
+          "raw_value": "اوردة",
           "meta": [
             {
               "from_raw_text": true
@@ -568,29 +725,62 @@
             }
           ]
         },
+        "first_name": {
+          "value": "ناضمر",
+          "avg_conf": 3.213013,
+          "count": 3,
+          "engines": [
+            "paddle",
+            "paddle_boxes"
+          ],
+          "sources": [
+            "spatial_boxes",
+            "text_first_fallback"
+          ],
+          "profiles": [],
+          "selection_score": 52.213013,
+          "raw_value": "ناضمر",
+          "meta": [
+            {
+              "from_raw_text": true
+            },
+            {
+              "from_raw_text": true
+            }
+          ]
+        },
         "date_of_birth": null,
         "place_of_birth": {
           "value": "الكرم",
-          "avg_conf": 9.0,
-          "count": 1,
+          "avg_conf": 0.0,
+          "count": 2,
           "engines": [
-            "easyocr_boxes"
+            "easyocr",
+            "global_text"
           ],
           "sources": [
-            "spatial_boxes"
+            "text_place_fallback",
+            "text_place_global"
           ],
           "profiles": [],
-          "selection_score": 51.0,
+          "selection_score": 55.0,
           "raw_value": "الكرم",
-          "meta": []
+          "meta": [
+            {
+              "from_raw_text": true
+            },
+            {
+              "from_combined_text": true
+            }
+          ]
         }
       }
     },
     "cin_postprocess": {
       "executed": true,
       "name_extraction": {
-        "debug_sequence": "اللقب:فيرغتلا خليفة نب الاسم:? variants:normal",
-        "family_name": "فيرغتلا خليفة نب",
+        "debug_sequence": "اللقب:ظيرعتلا خليفة نب الاسم:? variants:normal",
+        "family_name": "ظيرعتلا خليفة نب",
         "first_name": null,
         "rule": "family_name=all words after اللقب; first_name=words on الاسم line before بن/بنت"
       },
@@ -603,27 +793,24 @@
         },
         {
           "field": "last_name",
-          "type": "postprocess_skip_name_override",
-          "kept": "العنادي",
-          "candidate": "فيرغتلا خليفة نب",
-          "candidate_ok": true,
-          "old_ok": true,
-          "good_spatial": true
+          "type": "laqab_line_extraction",
+          "old": "اوردة",
+          "new": "ظيرعتلا خليفة نب"
         },
         {
           "field": "birth_date",
           "type": "contextual_date_recovery",
           "old": null,
-          "new": "1962-02-06",
+          "new": "1962-02-14",
           "reason": "contextual_birth_date"
         },
         {
           "field": "birth_place",
           "type": "postprocess_skip_place_override",
           "kept": "الكرم",
-          "candidate": "الكرم",
-          "reason": "place_after_label:مكانها الكرم خليفة رمضان خليفة",
-          "good_spatial": true
+          "candidate": "الجم",
+          "reason": "known_place_in_raw_text",
+          "good_spatial": false
         }
       ]
     },
@@ -640,17 +827,17 @@
       "warnings": [
         "Champ critique à vérifier: id_number"
       ],
-      "business_confidence": 0.8207,
+      "business_confidence": 0.7799,
       "critical_fields_ok": 2,
       "valid_fields_ok": 4,
       "present_fields": 4,
-      "quality_score": 0.47,
-      "avg_field_confidence": 0.9175,
+      "quality_score": 0.404,
+      "avg_field_confidence": 0.855,
       "field_coverage": 0.8
     }
   },
-  "raw_text": "العنادي الكرم خليفة رمضان CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: ةقدلح CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 6 رفيق ةدالوولا خو ةيسنوتلا ةيروهمجلا ةينطولا ةقاطب فيرغتلا خليفة نب اللقب رمضان الاسم ىل يدايعلا نب 96 يرفيف الولادة خرات اهزاكم مركلا CIN_FAMILY_NAME: CIN_FIRST_NAME: ةقدلح ةقدلح CIN_PLACE_OF_BIRTH: 6 رفيق ةدالوولا خو 6 رفيق ةدالوولا خو العنادي الكرم العنادى اللقب بن خليفة الجمهوريفالتونسيذ بطاقهالتعريف الوطنيه اللقب بن خليفة اللم دمضان العنادى علي بن لن 1962 نخ الولادة 14 فيفري مكانها الكرم right_text_block خليفة رمضان خليفة اللقب رمضان الاسم ةيسنوتلا ةيروهمجلا ةينطولا ةقاطب فيرغتلا خليفة نب اللقب رمضان الاسم ىل يدايعلا نب 96 يرفيف الولادة خرات اهزاكم مركلا ةقدلح 6 رفيق ةدالوولا خو خليفة نب بققلل رمضان مألل ىلع نب يدايعلا ن 96 يرفيف 4 الولادة خوما",
-  "processing_time_ms": 4917,
+  "raw_text": "CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: بن حيعه CIN_DATE_OF_BIRTH: زمع CIN_PLACE_OF_BIRTH: 962 14 غغ ا وردة فىفرى الجمهوريذ التونسيذ بطاقهالتعرف الوطنيه بن خليفة اللقب الم د بن بن 1962 14 ن وردة مضان العنادى على فيفري الكر -< العنادي الجم خليفة رمضان CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: زمع CIN_PLACE_OF_BIRTH: 962 14 غغ ا وردة فىفرى بن خليفة دمضان بن العيادي بن 1962 14 خغ اوردة للقب 7م على فيفري CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: زمع زمع 962 14 غغ ا وردة فىفرى CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 6 رفيف 14 ةدالوولا خر ى خليفة نب بقلل رمضان الاسمل يلع نب يدايعلا ن 96 يرفيف 14 الولادة خرا CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 6 رفيف 14 ةدالوولا خر ى 6 رفيف 14 ةدالوولا خر ى CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: ةقدلح ب CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 6 رفيف 14 ةدالوولا خر ى ةيسنوتلا ةير وهمجلا ةينطولا ةقاطب ظيرعتلا خليفة نب اللقب رمضان مسألا نب يلع يدايعلا نب 96 يرفيف 14 الولادة خرات اهزام مركلا CIN_FAMILY_NAME: CIN_FIRST_NAME: ةقدلح ب ةقدلح ب CIN_PLACE_OF_BIRTH: 6 رفيف 14 ةدالوولا خر ى 6 رفيف 14 ةدالوولا خر ى CIN_FAMILY_NAME: CIN_FIRST_NAME: بن حيعه بن حيعه زمع 962 14 غغ ا وردة فىفرى العنادي الجم العنادى اللقب الجمهوريذ التونسيذ بطاقهالتعرف الوطنيه اللقب بن خليفة اللم رمضان العنادى على بن بن 1962 ن وردة 64 فيفري ا الكرد right_text_block خليفة رمضان خليفة اللقب رمضان مسألا زمع 962 14 غغ ا وردة فىفرى بن خليفة دمضان بن العيادي بن 1962 14 خغ اوردة للقب 7م على فيفري 6 رفيف 14 ةدالوولا خر ى خليفة نب بقلل رمضان الاسمل يلع نب يدايعلا ن 96 يرفيف 14 الولادة خرا ةيسنوتلا ةير وهمجلا ةينطولا ةقاطب ظيرعتلا خليفة نب اللقب رمضان مسألا نب يلع يدايعلا نب 96 يرفيف 14 الولادة خرات اهزام مركلا ةقدلح ب 6 رفيف 14 ةدالوولا خر ى خليفة نب بقلل رمضان الاسمل يلع نب يدايعلا ن 96 يرفيف 14 الولادة خرا الجمهوريذ التونسيذ بطاقهالتعرف الوطنيه بن خليفة اللقب الم د بن بن 1962 14 ن وردة مضان العنادى على فيفري الكر -< بن حيعه زمع 962 14 غغ ا وردة فىفرى بن خليفة دمضان بن العيادي بن 1962 14 خغ اوردة للقب 7م على فيفري",
+  "processing_time_ms": 13487,
   "warnings": [
     "Champ critique à vérifier: id_number",
     "Champ requis 'numero_cin' à vérifier"

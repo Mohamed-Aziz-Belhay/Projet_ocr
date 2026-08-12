@@ -1,13 +1,13 @@
 {
-  "job_id": "44008b1c-d336-44b5-9710-590d95d16739",
+  "job_id": "9b55e0a6-05ee-43e9-a0fe-9d84382f8832",
   "status": "review_required",
   "template_id": "cin_tn",
   "document_type": "cin_tn",
   "document_variant": "recto",
-  "engine_used": "mixed(easyocr_boxes,global_text)",
+  "engine_used": "mixed(easyocr,global_text)",
   "language_detected": "ar",
-  "global_confidence": 0.8509,
-  "quality_score": 0.685,
+  "global_confidence": 0.7654,
+  "quality_score": 0.384,
   "fields": [
     {
       "name": "id_number",
@@ -23,37 +23,44 @@
       "reasons": [
         "field unresolved",
         "critical field missing"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "last_name",
-      "value": "الجبوزي",
-      "confidence": 0.95,
-      "validated": true,
-      "raw_text": "يزوبجلا",
-      "raw_template_field": null,
-      "error": null,
-      "selected_engine": "easyocr_boxes",
-      "selected_source": "spatial_boxes",
-      "review_required": false,
-      "reasons": [
-        "selected_from:spatial_boxes"
-      ]
-    },
-    {
-      "name": "first_name",
-      "value": "دنور",
-      "confidence": 0.95,
+      "value": "الجبوزي روند",
+      "confidence": 0.9,
       "validated": true,
       "raw_text": "دنور",
       "raw_template_field": null,
       "error": null,
       "selected_engine": "global_text",
-      "selected_source": "spatial_boxes",
+      "selected_source": "cin_postprocess_laqab_line",
       "review_required": false,
       "reasons": [
-        "selected_from:spatial_boxes"
-      ]
+        "selected_from:text_family_fallback",
+        "reconstructed_from:اللقب_line"
+      ],
+      "original_value": null,
+      "corrected": false
+    },
+    {
+      "name": "first_name",
+      "value": "الجبوزي",
+      "confidence": 0.73,
+      "validated": true,
+      "raw_text": "الجبوزي",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr",
+      "selected_source": "text_first_fallback",
+      "review_required": false,
+      "reasons": [
+        "selected_from:text_first_fallback"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_date",
@@ -63,34 +70,37 @@
       "raw_text": "2000-07-05",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "easyocr_boxes",
+      "selected_engine": "easyocr",
       "selected_source": "spatial_boxes",
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_place",
       "value": "تونس",
-      "confidence": 0.95,
+      "confidence": 0.75,
       "validated": true,
-      "raw_text": "الجم",
+      "raw_text": "تونس",
       "raw_template_field": null,
       "error": null,
-      "selected_engine": "easyocr_boxes",
-      "selected_source": "cin_postprocess_birth_place_context",
+      "selected_engine": "easyocr",
+      "selected_source": "text_place_fallback",
       "review_required": false,
       "reasons": [
-        "selected_from:spatial_boxes",
-        "birth_place_recovered:place_after_label:مكانها تونس يزوبجلا دنور يزوبجلا"
-      ]
+        "selected_from:text_place_fallback"
+      ],
+      "original_value": null,
+      "corrected": false
     }
   ],
   "normalized_data": {
     "idNumber": null,
-    "lastName": "الجبوزي",
-    "firstName": "دنور",
+    "lastName": "الجبوزي روند",
+    "firstName": "الجبوزي",
     "birthDate": "2000-07-05",
     "birthPlace": "تونس"
   },
@@ -104,12 +114,12 @@
     "warnings": [
       "Champ critique à vérifier: id_number"
     ],
-    "business_confidence": 0.8509,
+    "business_confidence": 0.7654,
     "critical_fields_ok": 2,
     "valid_fields_ok": 4,
     "present_fields": 4,
-    "quality_score": 0.685,
-    "avg_field_confidence": 0.95,
+    "quality_score": 0.384,
+    "avg_field_confidence": 0.8325,
     "field_coverage": 0.8
   },
   "diagnostics": {
@@ -121,20 +131,21 @@
       "paddle_boxes",
       "targeted_roi:easyocr",
       "targeted_roi:paddle",
-      "full_ocr:paddle"
+      "full_ocr:paddle",
+      "full_ocr:easyocr"
     ],
     "preprocessing": {
       "quality": {
-        "sharpness": 1.0,
-        "brightness": 0.503,
-        "contrast": 0.363,
-        "quality_score": 0.685
+        "sharpness": 0.429,
+        "brightness": 0.427,
+        "contrast": 0.279,
+        "quality_score": 0.384
       },
       "transforms": {
         "resized": true,
         "deskewed": false,
-        "contrast": true,
-        "mode": "cin_legacy_compatible"
+        "contrast": false,
+        "mode": "cin_simple_deskew_only"
       },
       "cin_preprocessor_keys": [
         "binary",
@@ -146,10 +157,10 @@
       ]
     },
     "quality_checks": {
-      "sharpness": 1.0,
-      "brightness": 0.503,
-      "contrast": 0.363,
-      "quality_score": 0.685
+      "sharpness": 0.429,
+      "brightness": 0.427,
+      "contrast": 0.279,
+      "quality_score": 0.384
     },
     "roi_fields": {
       "cin_number": [
@@ -189,9 +200,9 @@
         "target_fields": [
           "cin_number"
         ],
-        "processing_time_ms": 144,
+        "processing_time_ms": 96,
         "zones": {
-          "cin_number": "5٥،٢:"
+          "cin_number": "51]~_:"
         },
         "zone_scores": {
           "cin_number": 0.0
@@ -205,7 +216,7 @@
         "target_fields": [
           "cin_number"
         ],
-        "processing_time_ms": 447,
+        "processing_time_ms": 455,
         "zones": {
           "cin_number": ""
         },
@@ -218,17 +229,44 @@
         "engine": "paddle",
         "executed": true,
         "trial_type": "full_card_and_all_rois",
-        "full_text": "ةيروهمجلا ةيسنوتلا ةقاطب ةينطلا يرعتل 14/8003 بقللا يزوبجلا دنور مسالا تنب يفطلا دمحم ةدالولا غرات ةيليوج 200 اهزاكم سنوت",
+        "full_text": "ةيروهمجلا ةيسنوتلا ةقاطب ةينطولا فيرعتلا 14/8003 بقللا يزوبجلا دنور مسالا تنب يفطلا دمحم ةدالولا خرات ةيليوج 2000 اهزاكم سنوت",
         "full_text_score": 0.0,
-        "processing_time_ms": 3508,
+        "processing_time_ms": 3644,
         "zones": {
           "cin_number": "",
-          "family_name": "",
+          "family_name": "/0",
           "first_name": "يزوبجلا بفلل",
-          "date_of_birth": "دصور نلا تن",
-          "place_of_birth": "5 ةدالولا حجم ةيليوج 2000",
+          "date_of_birth": "دصور فطل تن",
+          "place_of_birth": "0 ةدالولا حر ةيليوج 2000",
           "gender": "",
-          "right_text_block": "4/8003 بقللا يزوبجلا دنور مسالا يفطلا تنب دمحم نب ةدلرلاخحان 5 ةيليوج 00 اهاكم سنوت"
+          "right_text_block": "4/8003 بقللا يزوبجلا دنور مسالا يفطل تنب نب دمحم ةدالولا خرات ةيليوج 2000 اهاكم سنوت"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "الجمهوريف التونسيه بطاقه التعرف الوطنيذ 142/3003 اللقب الجبوزي ١ بنت ٨| بن محمد 05 جويلية 2000 تونس الاسم روند الطفى تارتخ الولا دة سحانها",
+        "full_text_score": 0.0,
+        "processing_time_ms": 2265,
+        "zones": {
+          "cin_number": "51]~_:",
+          "family_name": "<74003",
+          "first_name": "هب اجبوزي",
+          "date_of_birth": "7 9 نت الاطف",
+          "place_of_birth": "05 تح الولاده جويلية 2000",
+          "gender": "",
+          "right_text_block": "142/3003 الجبوزي ٨١١ ىنت بن محمد 2000 05 جويلية تونس اللقب الاسم روند الطفى تاريخ الودا دة متانها"
         },
         "zone_scores": {
           "cin_number": 0.0,
@@ -254,8 +292,8 @@
             "place_of_birth": "الجم"
           },
           "scores": {
-            "family_name": 7.131765158213022,
-            "first_name": 9.477663653223185,
+            "family_name": 7.128854398649378,
+            "first_name": 9.546541313995561,
             "date_of_birth": 12.5,
             "place_of_birth": 9.0
           },
@@ -278,14 +316,14 @@
               "anchors_found": 1
             },
             "date_of_birth": {
-              "chosen_from": "ثاريخ الولا دة",
-              "candidate_text": "٨١ ىنت الطفى بن محمد ثاريخ الولا دة 05 جويلية 2000 محانها تونس",
+              "chosen_from": "تاريخ الولا دة",
+              "candidate_text": "١ بنت الطفى بن محمد الولا دة 05 جويلية 2000 محانها تونس",
               "source_kind": "label_row_join",
               "anchors_found": 1
             },
             "place_of_birth": {
               "chosen_from": "right_text_block",
-              "candidate_text": "الجمهوا ريفالتونسيه بطاقهالتعرف الوطنيف 142/3003 اللقب الجبوزي الاسم روند ٨١ ىنت الطفى بن محمد ثاريخ الولا دة 05 جويلية 2000 محانها تونس",
+              "candidate_text": "الجمهوا ريفالتونسيه بطاقهالتعرف الوطنيف 142%8003 اللقب الجبوزي الاسم روند ١ بنت الطفى بن محمد تاريخ الولا دة 05 جويلية 2000 محانها تونس",
               "source_kind": "right_text_fallback",
               "anchors_found": 0
             },
@@ -304,14 +342,14 @@
         },
         {
           "engine": "paddle_boxes",
-          "box_count": 19,
+          "box_count": 18,
           "fields": {
-            "family_name": "يزوبجلا",
-            "first_name": "دنور"
+            "family_name": "الجبوزي",
+            "first_name": "روند"
           },
           "scores": {
-            "family_name": 7.15165641981369,
-            "first_name": 9.592232757586276
+            "family_name": 7.1458286768128865,
+            "first_name": 9.598773026189182
           },
           "meta": {
             "cin_number": {
@@ -372,15 +410,15 @@
           "engine": "paddle_boxes",
           "source": "spatial_boxes",
           "fields": {
-            "family_name": "يزوبجلا",
-            "first_name": "دنور"
+            "family_name": "الجبوزي",
+            "first_name": "روند"
           }
         },
         {
           "engine": "easyocr",
           "source": "targeted_roi_ocr",
           "fields": {
-            "cin_number": "5٥،٢:",
+            "cin_number": "51]~_:",
             "family_name": "CIN_FIRST_NAME:",
             "first_name": "CIN_DATE_OF_BIRTH:",
             "date_of_birth": "CIN_PLACE_OF_BIRTH:"
@@ -400,11 +438,22 @@
           "engine": "paddle",
           "source": "roi_ocr",
           "fields": {
-            "cin_number": "CIN_FAMILY_NAME:",
-            "family_name": "CIN_FIRST_NAME: يزوبجلا بفلل",
+            "cin_number": "CIN_FAMILY_NAME: /0",
+            "family_name": "/0",
             "first_name": "يزوبجلا بفلل",
-            "date_of_birth": "دصور نلا تن",
-            "place_of_birth": "5 ةدالولا حجم ةيليوج 2000"
+            "date_of_birth": "دصور فطل تن",
+            "place_of_birth": "0 ةدالولا حر ةيليوج 2000"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "roi_ocr",
+          "fields": {
+            "cin_number": "51]~_:",
+            "family_name": "<74003",
+            "first_name": "هب اجبوزي",
+            "date_of_birth": "7 9 نت الاطف",
+            "place_of_birth": "05 تح الولاده جويلية 2000"
           }
         }
       ],
@@ -413,7 +462,7 @@
         "family_name": [
           {
             "value": "الجبوزي",
-            "avg_conf": 11.046116,
+            "avg_conf": 11.049387,
             "count": 2,
             "engines": [
               "easyocr_boxes",
@@ -423,8 +472,8 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 53.346116,
-            "raw_value": "يزوبجلا",
+            "selection_score": 53.349387,
+            "raw_value": "الجبوزي",
             "meta": []
           },
           {
@@ -450,25 +499,78 @@
                 "from_combined_text": true
               }
             ]
+          },
+          {
+            "value": "سنوت",
+            "avg_conf": 0.0,
+            "count": 1,
+            "engines": [
+              "easyocr"
+            ],
+            "sources": [
+              "text_family_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 31.5,
+            "raw_value": "سنوت",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          },
+          {
+            "value": "74003",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "easyocr"
+            ],
+            "sources": [
+              "extractor",
+              "roi_ocr"
+            ],
+            "profiles": [],
+            "selection_score": 14.9,
+            "raw_value": "<74003",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
           }
         ],
         "first_name": [
           {
-            "value": "دنور",
-            "avg_conf": 3.197411,
-            "count": 3,
+            "value": "روند",
+            "avg_conf": 11.049387,
+            "count": 2,
             "engines": [
-              "global_text",
-              "paddle",
+              "easyocr_boxes",
               "paddle_boxes"
             ],
             "sources": [
-              "spatial_boxes",
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 52.649387,
+            "raw_value": "روند",
+            "meta": []
+          },
+          {
+            "value": "دنور",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "global_text",
+              "paddle"
+            ],
+            "sources": [
               "text_first_fallback",
               "text_first_global"
             ],
             "profiles": [],
-            "selection_score": 55.797411,
+            "selection_score": 45.6,
             "raw_value": "دنور",
             "meta": [
               {
@@ -480,19 +582,23 @@
             ]
           },
           {
-            "value": "روند",
-            "avg_conf": 12.5,
+            "value": "الجبوزي",
+            "avg_conf": 0.0,
             "count": 1,
             "engines": [
-              "easyocr_boxes"
+              "easyocr"
             ],
             "sources": [
-              "spatial_boxes"
+              "text_first_fallback"
             ],
             "profiles": [],
-            "selection_score": 47.1,
-            "raw_value": "روند",
-            "meta": []
+            "selection_score": 33.3,
+            "raw_value": "الجبوزي",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
           },
           {
             "value": "الجبوزي لفب",
@@ -513,26 +619,76 @@
                 "from_raw_text": true
               }
             ]
+          },
+          {
+            "value": "هب اجبوزي",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "easyocr"
+            ],
+            "sources": [
+              "extractor",
+              "roi_ocr"
+            ],
+            "profiles": [],
+            "selection_score": 20.8,
+            "raw_value": "هب اجبوزي",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
           }
         ],
         "date_of_birth": [
           {
             "value": "05/07/2000",
-            "avg_conf": 12.5,
-            "count": 1,
+            "avg_conf": 6.25,
+            "count": 2,
             "engines": [
+              "easyocr",
               "easyocr_boxes"
             ],
             "sources": [
-              "spatial_boxes"
+              "spatial_boxes",
+              "text_date_fallback"
             ],
             "profiles": [],
-            "selection_score": 41.5,
+            "selection_score": 42.25,
             "raw_value": "2000-07-05",
-            "meta": []
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
           }
         ],
         "place_of_birth": [
+          {
+            "value": "تونس",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "easyocr",
+              "global_text"
+            ],
+            "sources": [
+              "text_place_fallback",
+              "text_place_global"
+            ],
+            "profiles": [],
+            "selection_score": 55.0,
+            "raw_value": "تونس",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_combined_text": true
+              }
+            ]
+          },
           {
             "value": "الجم",
             "avg_conf": 12.5,
@@ -552,37 +708,19 @@
       },
       "selected": {
         "family_name": {
-          "value": "الجبوزي",
-          "avg_conf": 11.046116,
+          "value": "دنور",
+          "avg_conf": 0.0,
           "count": 2,
           "engines": [
-            "easyocr_boxes",
-            "paddle_boxes"
-          ],
-          "sources": [
-            "spatial_boxes"
-          ],
-          "profiles": [],
-          "selection_score": 53.346116,
-          "raw_value": "يزوبجلا",
-          "meta": []
-        },
-        "first_name": {
-          "value": "دنور",
-          "avg_conf": 3.197411,
-          "count": 3,
-          "engines": [
             "global_text",
-            "paddle",
-            "paddle_boxes"
+            "paddle"
           ],
           "sources": [
-            "spatial_boxes",
-            "text_first_fallback",
-            "text_first_global"
+            "text_family_fallback",
+            "text_family_global"
           ],
           "profiles": [],
-          "selection_score": 55.797411,
+          "selection_score": 45.6,
           "raw_value": "دنور",
           "meta": [
             {
@@ -593,62 +731,94 @@
             }
           ]
         },
+        "first_name": {
+          "value": "الجبوزي",
+          "avg_conf": 0.0,
+          "count": 1,
+          "engines": [
+            "easyocr"
+          ],
+          "sources": [
+            "text_first_fallback"
+          ],
+          "profiles": [],
+          "selection_score": 33.3,
+          "raw_value": "الجبوزي",
+          "meta": [
+            {
+              "from_raw_text": true
+            }
+          ]
+        },
         "date_of_birth": {
           "value": "05/07/2000",
-          "avg_conf": 12.5,
-          "count": 1,
+          "avg_conf": 6.25,
+          "count": 2,
           "engines": [
+            "easyocr",
             "easyocr_boxes"
           ],
           "sources": [
-            "spatial_boxes"
+            "spatial_boxes",
+            "text_date_fallback"
           ],
           "profiles": [],
-          "selection_score": 41.5,
+          "selection_score": 42.25,
           "raw_value": "2000-07-05",
-          "meta": []
+          "meta": [
+            {
+              "from_raw_text": true
+            }
+          ]
         },
         "place_of_birth": {
-          "value": "الجم",
-          "avg_conf": 12.5,
-          "count": 1,
+          "value": "تونس",
+          "avg_conf": 0.0,
+          "count": 2,
           "engines": [
-            "easyocr_boxes"
+            "easyocr",
+            "global_text"
           ],
           "sources": [
-            "spatial_boxes"
+            "text_place_fallback",
+            "text_place_global"
           ],
           "profiles": [],
-          "selection_score": 54.5,
-          "raw_value": "الجم",
-          "meta": []
+          "selection_score": 55.0,
+          "raw_value": "تونس",
+          "meta": [
+            {
+              "from_raw_text": true
+            },
+            {
+              "from_combined_text": true
+            }
+          ]
         }
       }
     },
     "cin_postprocess": {
       "executed": true,
       "name_extraction": {
-        "debug_sequence": "اللقب:الجبوزي الاسم:? variants:normal",
-        "family_name": "الجبوزي",
+        "debug_sequence": "اللقب:الجبوزي روند الاسم:? variants:normal",
+        "family_name": "الجبوزي روند",
         "first_name": null,
         "rule": "family_name=all words after اللقب; first_name=words on الاسم line before بن/بنت"
       },
       "applied": [
         {
           "field": "last_name",
-          "type": "postprocess_skip_name_override",
-          "kept": "الجبوزي",
-          "candidate": "الجبوزي",
-          "candidate_ok": true,
-          "old_ok": true,
-          "good_spatial": true
+          "type": "laqab_line_extraction",
+          "old": "دنور",
+          "new": "الجبوزي روند"
         },
         {
           "field": "birth_place",
-          "type": "contextual_place_recovery",
-          "old": "الجم",
-          "new": "تونس",
-          "reason": "place_after_label:مكانها تونس يزوبجلا دنور يزوبجلا"
+          "type": "postprocess_skip_place_override",
+          "kept": "تونس",
+          "candidate": "تونس",
+          "reason": "place_after_label:مكانها تونس الجبوزي روند يزوبجلا",
+          "good_spatial": false
         }
       ]
     },
@@ -665,17 +835,17 @@
       "warnings": [
         "Champ critique à vérifier: id_number"
       ],
-      "business_confidence": 0.8509,
+      "business_confidence": 0.7654,
       "critical_fields_ok": 2,
       "valid_fields_ok": 4,
       "present_fields": 4,
-      "quality_score": 0.685,
-      "avg_field_confidence": 0.95,
+      "quality_score": 0.384,
+      "avg_field_confidence": 0.8325,
       "field_coverage": 0.8
     }
   },
-  "raw_text": "الجبوزي روند 2000-07-05 الجم يزوبجلا دنور CIN_NUMBER: 55،2: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 55،2: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: يزوبجلا بفلل CIN_DATE_OF_BIRTH: دصور نلا تن CIN_PLACE_OF_BIRTH: 5 الولادة حجم ةيليوج 2000 ةيروهمجلا ةيسنوتلا ةقاطب ةينطلا يرعتل 14/8003 اللقب يزوبجلا دنور الاسم تنب يفطلا محمد الولادة غرات ةيليوج 200 اهزاكم سنوت CIN_FAMILY_NAME: CIN_FIRST_NAME: يزوبجلا بفلل يزوبجلا بفلل دصور نلا تن 5 الولادة حجم ةيليوج 2000 الجبوزي روند 2000-07-05 الجم الجبوزي اللقب روند الاسم 81 ببنت الطفى بن محمد تاريخ الولادة 05 جويلية 2000 مكانها تونس تاريخ الولادة الجمهوا ريفالتونسيه بطاقهالتعرف الوطنيف 142/3003 اللقب الجبوزي الاسم روند 81 ببنت الطفى بن محمد تاريخ الولادة 05 جويلية 2000 مكانها تونس right_text_block يزوبجلا دنور يزوبجلا اللقب دنور الاسم 55،2: ةيروهمجلا ةيسنوتلا ةقاطب ةينطلا يرعتل 14/8003 اللقب يزوبجلا دنور الاسم تنب يفطلا محمد الولادة غرات ةيليوج 200 اهزاكم سنوت يزوبجلا بفلل دصور نلا تن 5 الولادة حجم ةيليوج 2000 4/8003 اللقب يزوبجلا دنور الاسم يفطلا تنب محمد نب ةدلرلاخحان 5 ةيليوج 00 اهاكم سنوت",
-  "processing_time_ms": 6641,
+  "raw_text": "CIN_NUMBER: 51]~_: CIN_FAMILY_NAME: <74003 CIN_FIRST_NAME: هب اجبوزي CIN_DATE_OF_BIRTH: 7 9 بنت الاطف CIN_PLACE_OF_BIRTH: 05 تح الولاده جويلية 2000 الجمهوريف التونسيه بطاقه التعرف الوطنيذ 142/3003 اللقب الجبوزي 1 ببنت 8| بن محمد 05 جويلية 2000 تونس الاسم روند الطفى تارتخ الولادة سحممكانها الجبوزي روند 2000-07-05 الجم الجبوزي روند CIN_NUMBER: 51]~_: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 51]~_: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: CIN_NUMBER: CIN_FAMILY_NAME: /0 CIN_FIRST_NAME: يزوبجلا بفلل CIN_DATE_OF_BIRTH: دصور فطل تن CIN_PLACE_OF_BIRTH: 0 الولادة حر ةيليوج 2000 ةيروهمجلا ةيسنوتلا ةقاطب ةينطولا فيرعتلا 14/8003 اللقب يزوبجلا دنور الاسم تنب يفطلا محمد الولادة خرات ةيليوج 2000 اهزاكم سنوت CIN_FAMILY_NAME: /0 /0 يزوبجلا بفلل دصور فطل تن 0 الولادة حر ةيليوج 2000 51]~_: <74003 هب اجبوزي 7 9 بنت الاطف 05 تح الولاده جويلية 2000 الجبوزي روند 2000-07-05 الجم الجبوزي اللقب روند الاسم 1 ببنت الطفى بن محمد الولادة 05 جويلية 2000 مكانها تونس تاريخ الولادة الجمهوا ريفالتونسيه بطاقهالتعرف الوطنيف 142%8003 اللقب الجبوزي الاسم روند 1 ببنت الطفى بن محمد تاريخ الولادة 05 جويلية 2000 مكانها تونس right_text_block الجبوزي روند يزوبجلا اللقب دنور الاسم 51]~_: ةيروهمجلا ةيسنوتلا ةقاطب ةينطولا فيرعتلا 14/8003 اللقب يزوبجلا دنور الاسم تنب يفطلا محمد الولادة خرات ةيليوج 2000 اهزاكم سنوت /0 يزوبجلا بفلل دصور فطل تن 0 الولادة حر ةيليوج 2000 4/8003 اللقب يزوبجلا دنور الاسم يفطل تنب نب محمد الولادة خرات ةيليوج 2000 اهاكم سنوت الجمهوريف التونسيه بطاقه التعرف الوطنيذ 142/3003 اللقب الجبوزي 1 ببنت 8| بن محمد 05 جويلية 2000 تونس الاسم روند الطفى تارتخ الولادة سحممكانها 51]~_: <74003 هب اجبوزي 7 9 بنت الاطف 05 تح الولاده جويلية 2000 142/3003 الجبوزي 811 ببنت بن محمد 2000 05 جويلية تونس اللقب الاسم روند الطفى تاريخ الودا دة ممكانها",
+  "processing_time_ms": 11237,
   "warnings": [
     "Champ critique à vérifier: id_number",
     "Champ requis 'numero_cin' à vérifier"

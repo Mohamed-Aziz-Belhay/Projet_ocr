@@ -1,0 +1,128 @@
+[
+  {
+    "case_id": "invoice_logistics__facture2",
+    "family": "invoice_logistics",
+    "file": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\Facture\\facture2.jpg",
+    "http_status": 200,
+    "http_ok": true,
+    "response_file": "ResultatTest\\responses\\invoice_logistics_recheck\\invoice_logistics__facture2.json",
+    "api_status": "success",
+    "critical_valid_count": 3,
+    "critical_total": 3,
+    "critical_missing": "",
+    "critical_pass": true,
+    "values": {
+      "invoice_number": "TUN00035092",
+      "invoice_date": "2024-01-04",
+      "total_ttc": "3282.210"
+    },
+    "global_confidence": 0.9012,
+    "processing_time_ms": 11855,
+    "error": null
+  },
+  {
+    "case_id": "invoice_logistics__facture4",
+    "family": "invoice_logistics",
+    "file": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\Facture\\facture4.jpg",
+    "http_status": 200,
+    "http_ok": true,
+    "response_file": "ResultatTest\\responses\\invoice_logistics_recheck\\invoice_logistics__facture4.json",
+    "api_status": "success",
+    "critical_valid_count": 3,
+    "critical_total": 3,
+    "critical_missing": "",
+    "critical_pass": true,
+    "values": {
+      "invoice_number": "502515",
+      "invoice_date": "2024-01-23",
+      "total_ttc": "1087.840"
+    },
+    "global_confidence": 0.8733,
+    "processing_time_ms": 12248,
+    "error": null
+  },
+  {
+    "case_id": "invoice_logistics__facture5",
+    "family": "invoice_logistics",
+    "file": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\Facture\\facture5.jpg",
+    "http_status": 200,
+    "http_ok": true,
+    "response_file": "ResultatTest\\responses\\invoice_logistics_recheck\\invoice_logistics__facture5.json",
+    "api_status": "success",
+    "critical_valid_count": 3,
+    "critical_total": 3,
+    "critical_missing": "",
+    "critical_pass": true,
+    "values": {
+      "invoice_number": "502514",
+      "invoice_date": "2024-01-23",
+      "total_ttc": "5125.880"
+    },
+    "global_confidence": 0.8733,
+    "processing_time_ms": 12099,
+    "error": null
+  },
+  {
+    "case_id": "invoice_logistics__facture6",
+    "family": "invoice_logistics",
+    "file": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\Facture\\facture6.jpg",
+    "http_status": 200,
+    "http_ok": true,
+    "response_file": "ResultatTest\\responses\\invoice_logistics_recheck\\invoice_logistics__facture6.json",
+    "api_status": "success",
+    "critical_valid_count": 3,
+    "critical_total": 3,
+    "critical_missing": "",
+    "critical_pass": true,
+    "values": {
+      "invoice_number": "502516",
+      "invoice_date": "2024-01-23",
+      "total_ttc": "5289.490"
+    },
+    "global_confidence": 0.8733,
+    "processing_time_ms": 11802,
+    "error": null
+  },
+  {
+    "case_id": "invoice_logistics__facture7",
+    "family": "invoice_logistics",
+    "file": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\Facture\\facture7.jpg",
+    "http_status": 200,
+    "http_ok": true,
+    "response_file": "ResultatTest\\responses\\invoice_logistics_recheck\\invoice_logistics__facture7.json",
+    "api_status": "success",
+    "critical_valid_count": 3,
+    "critical_total": 3,
+    "critical_missing": "",
+    "critical_pass": true,
+    "values": {
+      "invoice_number": "10000386",
+      "invoice_date": "2024-01-26",
+      "total_ttc": "642.251"
+    },
+    "global_confidence": 0.9012,
+    "processing_time_ms": 9821,
+    "error": null
+  },
+  {
+    "case_id": "invoice_logistics__facture8",
+    "family": "invoice_logistics",
+    "file": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\Facture\\facture8.jpg",
+    "http_status": 200,
+    "http_ok": true,
+    "response_file": "ResultatTest\\responses\\invoice_logistics_recheck\\invoice_logistics__facture8.json",
+    "api_status": "success",
+    "critical_valid_count": 3,
+    "critical_total": 3,
+    "critical_missing": "",
+    "critical_pass": true,
+    "values": {
+      "invoice_number": "10000552",
+      "invoice_date": "2024-02-01",
+      "total_ttc": "1045.848"
+    },
+    "global_confidence": 0.9012,
+    "processing_time_ms": 8791,
+    "error": null
+  }
+]

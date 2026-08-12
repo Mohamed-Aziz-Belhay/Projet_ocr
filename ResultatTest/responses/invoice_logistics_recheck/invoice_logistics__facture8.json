@@ -1,0 +1,398 @@
+{
+  "job_id": "4c7d3cf3-6092-45b8-9b37-af0e70f9cda4",
+  "status": "success",
+  "template_id": "invoice_tn",
+  "document_type": "invoice",
+  "document_variant": null,
+  "engine_used": "paddle",
+  "language_detected": "en",
+  "global_confidence": 0.9012,
+  "quality_score": 0.784,
+  "fields": [
+    {
+      "name": "invoice_profile",
+      "value": "standard",
+      "confidence": 0.8,
+      "validated": true,
+      "raw_text": "standard",
+      "raw_template_field": "invoice_profile",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ],
+      "original_value": null,
+      "corrected": false
+    },
+    {
+      "name": "invoice_number",
+      "value": "10000552",
+      "confidence": 0.88,
+      "validated": true,
+      "raw_text": "INVOICE 10000552",
+      "raw_template_field": "invoice_number",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ],
+      "original_value": null,
+      "corrected": false
+    },
+    {
+      "name": "invoice_date",
+      "value": "2024-02-01",
+      "confidence": 0.86,
+      "validated": true,
+      "raw_text": "DATE01-Feb-24",
+      "raw_template_field": "invoice_date",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ],
+      "original_value": null,
+      "corrected": false
+    },
+    {
+      "name": "total_ttc",
+      "value": "1045.848",
+      "confidence": 0.9,
+      "validated": true,
+      "raw_text": "frequency fallback (4x in raw_text)",
+      "raw_template_field": "total_ttc",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ],
+      "original_value": null,
+      "corrected": false
+    },
+    {
+      "name": "currency",
+      "value": "TND",
+      "confidence": 0.8,
+      "validated": true,
+      "raw_text": "TND",
+      "raw_template_field": "currency",
+      "error": null,
+      "selected_engine": "invoice_extractor",
+      "selected_source": "raw_text_invoice_rules",
+      "review_required": false,
+      "reasons": [
+        "selected_from:invoice_extractor"
+      ],
+      "original_value": null,
+      "corrected": false
+    }
+  ],
+  "normalized_data": {
+    "invoiceProfile": "standard",
+    "invoiceNumber": "10000552",
+    "invoiceDate": "2024-02-01",
+    "totalTTC": "1045.848",
+    "currency": "TND"
+  },
+  "routing": {
+    "requested_document_type": "invoice",
+    "requested_template_id": "invoice_logistics_intl",
+    "selected_template_id": "invoice_tn",
+    "selected_document_type": "invoice",
+    "method": "explicit_invoice_request_fast_path",
+    "forced_invoice_guard": true
+  },
+  "business_validation": {
+    "status": "success",
+    "review_required": false,
+    "review_reasons": [],
+    "valid_fields_ok": 5,
+    "present_fields": 5,
+    "field_coverage": 1.0,
+    "avg_field_confidence": 0.848,
+    "business_confidence": 0.9012,
+    "quality_score": 0.784
+  },
+  "diagnostics": {
+    "mode": "generic_template_v5_detector_swin_roi_passport_invoice",
+    "processing_mode": "balanced",
+    "routing": {
+      "requested_document_type": "invoice",
+      "requested_template_id": "invoice_logistics_intl",
+      "selected_template_id": "invoice_tn",
+      "selected_document_type": "invoice",
+      "method": "explicit_invoice_request_fast_path",
+      "forced_invoice_guard": true
+    },
+    "template_id": "invoice_tn",
+    "document_type": "invoice",
+    "engine": "paddle",
+    "preprocessing": {
+      "quality": {
+        "sharpness": 1.0,
+        "brightness": 0.957,
+        "contrast": 0.318,
+        "quality_score": 0.784
+      },
+      "transforms": {
+        "resized": true,
+        "deskewed": true,
+        "contrast": true
+      }
+    },
+    "layout": {
+      "page_width": 1414,
+      "page_height": 2000,
+      "orientation": "portrait",
+      "has_table": false,
+      "column_count": 3,
+      "regions": [
+        {
+          "type": "text_block",
+          "bbox": [
+            1157,
+            480,
+            108,
+            298
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            1040,
+            370,
+            374,
+            1264
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            420,
+            370,
+            615,
+            1264
+          ],
+          "confidence": 1.0,
+          "label": null
+        },
+        {
+          "type": "text_block",
+          "bbox": [
+            0,
+            370,
+            267,
+            1264
+          ],
+          "confidence": 1.0,
+          "label": null
+        }
+      ],
+      "region_count": 4
+    },
+    "field_count": 5,
+    "validated_field_count": 5,
+    "document_localizer": {
+      "localizer": "skipped",
+      "reason": "explicit_invoice_full_page_ocr_fast_path",
+      "candidate_count": 0
+    },
+    "raw_ocr_executed": true,
+    "raw_ocr_source": "full_page_invoice_ocr",
+    "raw_ocr_score": 0.0,
+    "raw_ocr_processing_time_ms": 8782,
+    "invoice_targeted_ocr": {
+      "executed": false,
+      "reason": "not_needed",
+      "combined_text": "",
+      "zones": [],
+      "zone_count": 0,
+      "non_empty_zone_count": 0,
+      "missing_header_fields": [],
+      "policy": "header_fields_only_no_amount_merge"
+    },
+    "invoice_text_enriched": false,
+    "invoice_targeted_policy": "diagnostic_and_header_fields_only",
+    "invoice_extraction": {
+      "invoice_extraction": "invoice_extractor_v3_tn_multi_profile_raw_text_rules",
+      "critical_fields": [
+        "invoice_date",
+        "invoice_number",
+        "total_ttc"
+      ],
+      "fields": [
+        {
+          "name": "invoice_profile",
+          "value": "standard",
+          "validated": true,
+          "error": null,
+          "confidence": 0.8,
+          "included_in_response": true
+        },
+        {
+          "name": "invoice_number",
+          "value": "10000552",
+          "validated": true,
+          "error": null,
+          "confidence": 0.88,
+          "included_in_response": true
+        },
+        {
+          "name": "invoice_date",
+          "value": "2024-02-01",
+          "validated": true,
+          "error": null,
+          "confidence": 0.86,
+          "included_in_response": true
+        },
+        {
+          "name": "reference_unique",
+          "label": "Référence unique",
+          "value": null,
+          "validated": false,
+          "error": "reference_unique_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "supplier_name",
+          "label": "Fournisseur",
+          "value": null,
+          "validated": false,
+          "error": "supplier_name_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "customer_name",
+          "label": "Client",
+          "value": null,
+          "validated": false,
+          "error": "customer_name_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "supplier_tax_id",
+          "label": "Matricule fiscal fournisseur",
+          "value": null,
+          "validated": false,
+          "error": "supplier_tax_id_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "customer_tax_id",
+          "label": "Matricule fiscal client",
+          "value": null,
+          "validated": false,
+          "error": "customer_tax_id_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "period_start",
+          "label": "Début de période",
+          "value": null,
+          "validated": false,
+          "error": "period_start_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "period_end",
+          "label": "Fin de période",
+          "value": null,
+          "validated": false,
+          "error": "period_end_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "payment_due_date",
+          "label": "Date limite de paiement",
+          "value": null,
+          "validated": false,
+          "error": "payment_due_date_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "total_ht",
+          "label": "Total H.T.",
+          "value": null,
+          "validated": false,
+          "error": "total_ht_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "vat_amount",
+          "label": "Montant TVA",
+          "value": null,
+          "validated": false,
+          "error": "vat_amount_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "vat_rate",
+          "label": "Taux TVA",
+          "value": null,
+          "validated": false,
+          "error": "vat_rate_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "stamp_amount",
+          "label": "Droit de timbre",
+          "value": null,
+          "validated": false,
+          "error": "stamp_amount_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "total_ttc",
+          "value": "1045.848",
+          "validated": true,
+          "error": null,
+          "confidence": 0.9,
+          "included_in_response": true
+        },
+        {
+          "name": "currency",
+          "value": "TND",
+          "validated": true,
+          "error": null,
+          "confidence": 0.8,
+          "included_in_response": true
+        },
+        {
+          "name": "line_items",
+          "label": "Contenu du tableau",
+          "value": [],
+          "validated": false,
+          "error": "line_items_not_found",
+          "skipped_from_response": true
+        },
+        {
+          "name": "amount_consistency",
+          "label": "Cohérence des montants",
+          "value": null,
+          "validated": false,
+          "error": "amount_consistency_not_computable_or_failed",
+          "skipped_from_response": true
+        }
+      ]
+    },
+    "strategy": "invoice_raw_text_rules",
+    "roi_skipped": true,
+    "roi_skipped_reason": "invoice_full_page_ocr_path"
+  },
+  "raw_text": "Transfer Funds To: TOTAL CHARGES Scanning - Destination Low Sulphur Surcharge 4€*3.3745 Fret international 300€*3.3745 DESCRIPTION CHARGES FRMRS = Marseille, France ORIGIN 34KJ4096 / 20-Jan ROAD REFERENCE IMPORT CUSTOMS BROKER ETIQUETTE EN CUIR GOODS DESCRIPTION ORDER NUMBERS / OWNER'S REFERENCE KT DERI SANAYI TICARET SHIPPER SHIPMENT DETAILS INVOICE 10000552 VA# CUSTOMER ID DENIMHOUTN1 CITE INDUSTRIELLE 5070 ZI KSAR HLEL DENIM HOUSE 426.000 KG WEIGHT 20-Jan-24 ETD Invoiced BANSARD TUNISIE Address: TNTUN = Tunis, Tunisia DESTINATION MASTER BILL 1.000M3 VOLUME DENIM HOUSE CONSIGNEE TND 1,045.848 CONSOL NUMBERC01606391 LEGACY INVOICE #S02580944/B TOTAL TND SUBTOTAL CHARGEABLE REGISTRATION # 1328625CAM000 426.000 KG CUSTOMER IDDENIMHOUTN1 INVOICE DATE01-Feb-24 Add TVA Zero Rated Zero Rated zero Rated TVA IN TND DUE DATE 01-Feb-24 SHIPMENT S02580944 BALANCE DUE TERMSCash on Delivery DUE DATE HOUSE BILL PRINTED BY: Souhir Lassoue 1 CTN PACKAGES CHARGES IN TND 1,045.848 22-Jan-24 ETA TND 1,045.848 1,012.350 Parcel Count Page 1 of 1 1,045.848 01-Feb-2 0.000 20.000",
+  "processing_time_ms": 8791,
+  "warnings": [],
+  "review_reasons": []
+}

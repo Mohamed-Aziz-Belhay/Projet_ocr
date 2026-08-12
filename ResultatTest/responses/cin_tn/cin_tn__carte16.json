@@ -1,13 +1,13 @@
 {
-  "job_id": "e983bdca-143a-4abf-acf1-8288f820345e",
+  "job_id": "0169a970-e277-446e-b350-beb85fd2d955",
   "status": "review_required",
   "template_id": "cin_tn",
   "document_type": "cin_tn",
   "document_variant": "recto",
-  "engine_used": "paddle_boxes",
+  "engine_used": "mixed(easyocr_boxes,paddle_boxes)",
   "language_detected": "ar",
-  "global_confidence": 0.7082,
-  "quality_score": 0.698,
+  "global_confidence": 0.706,
+  "quality_score": 0.654,
   "fields": [
     {
       "name": "id_number",
@@ -22,7 +22,9 @@
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "last_name",
@@ -38,7 +40,9 @@
       "reasons": [
         "field unresolved",
         "critical field missing"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "first_name",
@@ -54,7 +58,9 @@
       "reasons": [
         "field unresolved",
         "critical field missing"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_date",
@@ -70,22 +76,27 @@
       "reasons": [
         "field unresolved",
         "critical field missing"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_place",
-      "value": null,
-      "confidence": 0.0,
+      "value": "الجم",
+      "confidence": 0.6,
       "validated": false,
-      "raw_text": null,
+      "raw_text": "الجم",
       "raw_template_field": null,
-      "error": "Lieu introuvable",
-      "selected_engine": null,
-      "selected_source": null,
-      "review_required": false,
+      "error": "Lieu de naissance générique/suspect - vérification requise",
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": true,
       "reasons": [
-        "field unresolved"
-      ]
+        "selected_from:spatial_boxes",
+        "invalid_suspicious_birth_place"
+      ],
+      "original_value": null,
+      "corrected": false
     }
   ],
   "normalized_data": {
@@ -93,27 +104,27 @@
     "lastName": null,
     "firstName": null,
     "birthDate": null,
-    "birthPlace": null
+    "birthPlace": "الجم"
   },
   "routing": null,
   "business_validation": {
     "status": "review_required",
     "review_required": true,
     "review_reasons": [
-      "critical field missing or invalid: last_name",
       "critical field missing or invalid: first_name",
+      "critical field missing or invalid: last_name",
       "birth_date missing"
     ],
     "warnings": [
-      "Champ critique à vérifier: last_name",
       "Champ critique à vérifier: first_name",
+      "Champ critique à vérifier: last_name",
       "Date de naissance à vérifier"
     ],
-    "business_confidence": 0.7082,
+    "business_confidence": 0.706,
     "critical_fields_ok": 1,
     "valid_fields_ok": 1,
-    "present_fields": 1,
-    "quality_score": 0.698,
+    "present_fields": 2,
+    "quality_score": 0.654,
     "avg_field_confidence": 0.95,
     "field_coverage": 0.2
   },
@@ -126,20 +137,21 @@
       "paddle_boxes",
       "targeted_roi:easyocr",
       "targeted_roi:paddle",
-      "full_ocr:paddle"
+      "full_ocr:paddle",
+      "full_ocr:easyocr"
     ],
     "preprocessing": {
       "quality": {
         "sharpness": 1.0,
-        "brightness": 0.424,
-        "contrast": 0.473,
-        "quality_score": 0.698
+        "brightness": 0.352,
+        "contrast": 0.386,
+        "quality_score": 0.654
       },
       "transforms": {
         "resized": false,
         "deskewed": false,
-        "contrast": true,
-        "mode": "cin_legacy_compatible"
+        "contrast": false,
+        "mode": "cin_simple_deskew_only"
       },
       "cin_preprocessor_keys": [
         "binary",
@@ -152,9 +164,9 @@
     },
     "quality_checks": {
       "sharpness": 1.0,
-      "brightness": 0.424,
-      "contrast": 0.473,
-      "quality_score": 0.698
+      "brightness": 0.352,
+      "contrast": 0.386,
+      "quality_score": 0.654
     },
     "roi_fields": {
       "cin_number": [
@@ -197,13 +209,13 @@
           "date_of_birth",
           "place_of_birth"
         ],
-        "processing_time_ms": 121,
+        "processing_time_ms": 246,
         "zones": {
           "family_name": "",
           "first_name": "",
           "date_of_birth": "",
           "place_of_birth": "",
-          "right_text_block": "/1859567 عامري"
+          "right_text_block": "|1059567 عامري عذمان 159?"
         },
         "zone_scores": {
           "family_name": 0.0,
@@ -224,13 +236,13 @@
           "date_of_birth",
           "place_of_birth"
         ],
-        "processing_time_ms": 735,
+        "processing_time_ms": 1239,
         "zones": {
           "family_name": "",
-          "first_name": "",
+          "first_name": "ىرماع",
           "date_of_birth": "",
-          "place_of_birth": "",
-          "right_text_block": "1859563 طا بز ةرلا ول ن"
+          "place_of_birth": "ةرولا",
+          "right_text_block": "1859563 يرماع يقتلا ناستتع سين ةرلا عال ن ةيتالسوللا"
         },
         "zone_scores": {
           "family_name": 0.0,
@@ -245,9 +257,36 @@
         "engine": "paddle",
         "executed": true,
         "trial_type": "full_card_and_all_rois",
-        "full_text": "11859563 ديتلا محبرا ةرت نب ةمتال ولا ة",
+        "full_text": "11859563 يرماع يقتلا نامتع 9 ةقرلا عل نب ةمتالسولا ة",
         "full_text_score": 0.0,
-        "processing_time_ms": 918,
+        "processing_time_ms": 1459,
+        "zones": {
+          "cin_number": "",
+          "family_name": "",
+          "first_name": "ىرماع",
+          "date_of_birth": "",
+          "place_of_birth": "ةرولا",
+          "gender": "",
+          "right_text_block": "1859563 يرماع يقتلا ناستتع سين ةرلا عال ن ةيتالسوللا"
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "مذوركالتوذس بطاقهالقعريفالوطنيه 11859563 عامري ورر",
+        "full_text_score": 0.0,
+        "processing_time_ms": 648,
         "zones": {
           "cin_number": "",
           "family_name": "",
@@ -255,7 +294,7 @@
           "date_of_birth": "",
           "place_of_birth": "",
           "gender": "",
-          "right_text_block": "1859563 طا بز ةرلا ول ن"
+          "right_text_block": "|1059567 عامري عذمان 159?"
         },
         "zone_scores": {
           "cin_number": 0.0,
@@ -273,13 +312,19 @@
       "trials": [
         {
           "engine": "easyocr_boxes",
-          "box_count": 3,
-          "fields": {},
-          "scores": {},
+          "box_count": 4,
+          "fields": {
+            "cin_number": "11859561",
+            "place_of_birth": "الجم"
+          },
+          "scores": {
+            "cin_number": 20.096275108728918,
+            "place_of_birth": 9.0
+          },
           "meta": {
             "cin_number": {
-              "chosen_from": null,
-              "candidate_text": null,
+              "chosen_from": "11859561",
+              "candidate_text": ",11859561",
               "source_kind": "spatial_numeric"
             },
             "family_name": {
@@ -298,8 +343,9 @@
               "anchors_found": 0
             },
             "place_of_birth": {
-              "chosen_from": null,
-              "source_kind": "no_valid_place",
+              "chosen_from": "right_text_block",
+              "candidate_text": "الجمشورك التوذسيه بطاقةالعريفالوطيه ,11859561 عامري",
+              "source_kind": "right_text_fallback",
               "anchors_found": 0
             },
             "label_spatial": {
@@ -317,12 +363,12 @@
         },
         {
           "engine": "paddle_boxes",
-          "box_count": 8,
+          "box_count": 9,
           "fields": {
             "cin_number": "11859563"
           },
           "scores": {
-            "cin_number": 20.187013816833495
+            "cin_number": 20.171629893779755
           },
           "meta": {
             "cin_number": {
@@ -368,6 +414,14 @@
     "fusion": {
       "trials": [
         {
+          "engine": "easyocr_boxes",
+          "source": "spatial_boxes",
+          "fields": {
+            "cin_number": "11859561",
+            "place_of_birth": "الجم"
+          }
+        },
+        {
           "engine": "paddle_boxes",
           "source": "spatial_boxes",
           "fields": {
@@ -382,7 +436,7 @@
             "family_name": "CIN_FIRST_NAME:",
             "first_name": "CIN_DATE_OF_BIRTH:",
             "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "/1859567 عامري"
+            "place_of_birth": "|1059567 عامري عذمان 159?"
           }
         },
         {
@@ -390,10 +444,10 @@
           "source": "targeted_roi_ocr",
           "fields": {
             "cin_number": "CIN_FAMILY_NAME:",
-            "family_name": "CIN_FIRST_NAME:",
-            "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "1859563 طا بز ةرلا ول ن"
+            "family_name": "CIN_FIRST_NAME: ىرماع",
+            "first_name": "ىرماع",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: ةرولا",
+            "place_of_birth": "ةرولا"
           }
         },
         {
@@ -401,10 +455,21 @@
           "source": "roi_ocr",
           "fields": {
             "cin_number": "CIN_FAMILY_NAME:",
+            "family_name": "CIN_FIRST_NAME: ىرماع",
+            "first_name": "ىرماع",
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: ةرولا",
+            "place_of_birth": "ةرولا"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "roi_ocr",
+          "fields": {
+            "cin_number": "CIN_FAMILY_NAME:",
             "family_name": "CIN_FIRST_NAME:",
             "first_name": "CIN_DATE_OF_BIRTH:",
             "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "11859563 ديتلا محبرا ةرت نب ةمتال ولا ة"
+            "place_of_birth": "مذوركالتوذس بطاقهالقعريفالوطنيه 11859563 عامري ورر"
           }
         }
       ],
@@ -412,7 +477,7 @@
         "cin_number": [
           {
             "value": "11859563",
-            "avg_conf": 20.187014,
+            "avg_conf": 20.17163,
             "count": 1,
             "engines": [
               "paddle_boxes"
@@ -421,20 +486,76 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 49.187014,
+            "selection_score": 49.17163,
             "raw_value": "11859563",
+            "meta": []
+          },
+          {
+            "value": "11859561",
+            "avg_conf": 20.096275,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 49.096275,
+            "raw_value": "11859561",
             "meta": []
           }
         ],
         "family_name": [],
-        "first_name": [],
+        "first_name": [
+          {
+            "value": "عامري",
+            "avg_conf": 0.0,
+            "count": 4,
+            "engines": [
+              "paddle"
+            ],
+            "sources": [
+              "extractor",
+              "roi_ocr",
+              "targeted_roi_ocr"
+            ],
+            "profiles": [],
+            "selection_score": 32.5,
+            "raw_value": "ىرماع",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_raw_text": true
+              }
+            ]
+          }
+        ],
         "date_of_birth": [],
-        "place_of_birth": []
+        "place_of_birth": [
+          {
+            "value": "الجم",
+            "avg_conf": 20.096275,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 62.096275,
+            "raw_value": "الجم",
+            "meta": []
+          }
+        ]
       },
       "selected": {
         "cin_number": {
           "value": "11859563",
-          "avg_conf": 20.187014,
+          "avg_conf": 20.17163,
           "count": 1,
           "engines": [
             "paddle_boxes"
@@ -443,62 +564,91 @@
             "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 49.187014,
+          "selection_score": 49.17163,
           "raw_value": "11859563",
           "meta": []
         },
         "family_name": null,
         "first_name": null,
         "date_of_birth": null,
-        "place_of_birth": null
+        "place_of_birth": {
+          "value": "الجم",
+          "avg_conf": 20.096275,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 62.096275,
+          "raw_value": "الجم",
+          "meta": []
+        }
       }
     },
     "cin_postprocess": {
       "executed": true,
       "name_extraction": null,
-      "applied": []
+      "applied": [
+        {
+          "field": "birth_place",
+          "type": "postprocess_skip_place_override",
+          "kept": "الجم",
+          "candidate": "الجم",
+          "reason": "known_place_in_raw_text",
+          "good_spatial": true
+        },
+        {
+          "field": "birth_place",
+          "type": "invalid_suspicious_birth_place",
+          "value": "الجم"
+        }
+      ]
     },
     "review_required": true,
     "review_reasons": [
-      "critical field missing or invalid: last_name",
       "critical field missing or invalid: first_name",
+      "critical field missing or invalid: last_name",
       "birth_date missing"
     ],
     "business_validation": {
       "status": "review_required",
       "review_required": true,
       "review_reasons": [
-        "critical field missing or invalid: last_name",
         "critical field missing or invalid: first_name",
+        "critical field missing or invalid: last_name",
         "birth_date missing"
       ],
       "warnings": [
-        "Champ critique à vérifier: last_name",
         "Champ critique à vérifier: first_name",
+        "Champ critique à vérifier: last_name",
         "Date de naissance à vérifier"
       ],
-      "business_confidence": 0.7082,
+      "business_confidence": 0.706,
       "critical_fields_ok": 1,
       "valid_fields_ok": 1,
-      "present_fields": 1,
-      "quality_score": 0.698,
+      "present_fields": 2,
+      "quality_score": 0.654,
       "avg_field_confidence": 0.95,
       "field_coverage": 0.2
     }
   },
-  "raw_text": "11859563 CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: /1859567 عامري CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: /1859567 عامري CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 1859563 طا بز ةرلا ول ن CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 1859563 طا بز ةرلا ول ن CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 11859563 ديتلا محبرا ةرت نب ةمتال ولا ة CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 11859563 ديتلا محبرا ةرت نب ةمتال ولا ة 11859563 11859563 11859563 /1859567 عامري 1859563 طا بز ةرلا ول ن 11859563 ديتلا محبرا ةرت نب ةمتال ولا ة 1859563 طا بز ةرلا ول ن",
-  "processing_time_ms": 2944,
+  "raw_text": "11859561 الجم 11859563 CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: |1059567 عامري عذمان 159? CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: |1059567 عامري عذمان 159? CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: ىرماع CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ةرولا 1859563 يرماع يقتلا ناستتع سين ةرلا عال ن ةيتالسوللا CIN_FAMILY_NAME: CIN_FIRST_NAME: ىرماع ىرماع CIN_PLACE_OF_BIRTH: ةرولا ةرولا CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: ىرماع CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ةرولا 11859563 يرماع يقتلا نامتع 9 ةقرلا عل نب ةمتالسولا ة CIN_FAMILY_NAME: CIN_FIRST_NAME: ىرماع ىرماع CIN_PLACE_OF_BIRTH: ةرولا ةرولا CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: مذوركالتوذس بطاقهالقعريفالوطنيه 11859563 عامري ورر CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: مذوركالتوذس بطاقهالقعريفالوطنيه 11859563 عامري ورر 11859561 الجم ,11859561 11859561 الجمشورك التوذسيه بطاقةالعريفالوطيه ,11859561 عامري right_text_block 11859563 11859563 11859563 |1059567 عامري عذمان 159? ىرماع ةرولا 1859563 يرماع يقتلا ناستتع سين ةرلا عال ن ةيتالسوللا 11859563 يرماع يقتلا نامتع 9 ةقرلا عل نب ةمتالسولا ة ىرماع ةرولا 1859563 يرماع يقتلا ناستتع سين ةرلا عال ن ةيتالسوللا مذوركالتوذس بطاقهالقعريفالوطنيه 11859563 عامري ورر |1059567 عامري عذمان 159?",
+  "processing_time_ms": 5277,
   "warnings": [
-    "Champ critique à vérifier: last_name",
     "Champ critique à vérifier: first_name",
+    "Champ critique à vérifier: last_name",
     "Date de naissance à vérifier",
     "Champ requis 'nom' à vérifier",
     "Champ requis 'prenom' à vérifier",
-    "Champ requis 'date_naissance' à vérifier"
+    "Champ requis 'date_naissance' à vérifier",
+    "Champ requis 'lieu_naissance' à vérifier"
   ],
   "review_reasons": [
-    "critical field missing or invalid: last_name",
     "critical field missing or invalid: first_name",
+    "critical field missing or invalid: last_name",
     "birth_date missing"
   ]
 }

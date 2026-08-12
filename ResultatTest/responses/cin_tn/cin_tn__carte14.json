@@ -1,13 +1,13 @@
 {
-  "job_id": "3312d394-d392-4d7f-867c-b8e0fdb0711a",
-  "status": "review_required",
+  "job_id": "b96d5b27-d1a1-4791-b2e1-f0e502301801",
+  "status": "success",
   "template_id": "cin_tn",
   "document_type": "cin_tn",
   "document_variant": "recto",
-  "engine_used": "mixed(easyocr_boxes,global_text,paddle_boxes)",
+  "engine_used": "mixed(easyocr_boxes,paddle_boxes)",
   "language_detected": "ar",
-  "global_confidence": 0.9184,
-  "quality_score": 0.769,
+  "global_confidence": 0.9582,
+  "quality_score": 0.764,
   "fields": [
     {
       "name": "id_number",
@@ -22,29 +22,16 @@
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "last_name",
-      "value": "الزبيدي",
-      "confidence": 0.95,
-      "validated": true,
-      "raw_text": "يديبزلا",
-      "raw_template_field": null,
-      "error": null,
-      "selected_engine": "global_text",
-      "selected_source": "spatial_boxes",
-      "review_required": false,
-      "reasons": [
-        "selected_from:spatial_boxes"
-      ]
-    },
-    {
-      "name": "first_name",
       "value": "شادي",
       "confidence": 0.95,
       "validated": true,
-      "raw_text": "يداش",
+      "raw_text": "شادي",
       "raw_template_field": null,
       "error": null,
       "selected_engine": "paddle_boxes",
@@ -52,65 +39,82 @@
       "review_required": false,
       "reasons": [
         "selected_from:spatial_boxes"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
+    },
+    {
+      "name": "first_name",
+      "value": "جيبون هدية",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "جيبون هدية",
+      "raw_template_field": null,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
+      "reasons": [
+        "selected_from:spatial_boxes"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_date",
-      "value": null,
-      "confidence": 0.0,
-      "validated": false,
-      "raw_text": null,
+      "value": "1987-11-06",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "1987-11-06",
       "raw_template_field": null,
-      "error": "Date introuvable",
-      "selected_engine": null,
-      "selected_source": null,
-      "review_required": true,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
       "reasons": [
-        "field unresolved",
-        "critical field missing"
-      ]
+        "selected_from:spatial_boxes"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_place",
-      "value": "الجم",
-      "confidence": 0.6,
-      "validated": false,
-      "raw_text": "الجم",
+      "value": "المهدية",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "المهدية",
       "raw_template_field": null,
-      "error": "Lieu de naissance générique/suspect - vérification requise",
+      "error": null,
       "selected_engine": "easyocr_boxes",
       "selected_source": "spatial_boxes",
-      "review_required": true,
+      "review_required": false,
       "reasons": [
-        "selected_from:spatial_boxes",
-        "invalid_suspicious_birth_place"
-      ]
+        "selected_from:spatial_boxes"
+      ],
+      "original_value": null,
+      "corrected": false
     }
   ],
   "normalized_data": {
     "idNumber": "09372713",
-    "lastName": "الزبيدي",
-    "firstName": "شادي",
-    "birthDate": null,
-    "birthPlace": "الجم"
+    "lastName": "شادي",
+    "firstName": "جيبون هدية",
+    "birthDate": "1987-11-06",
+    "birthPlace": "المهدية"
   },
   "routing": null,
   "business_validation": {
-    "status": "review_required",
-    "review_required": true,
-    "review_reasons": [
-      "birth_date missing"
-    ],
-    "warnings": [
-      "Date de naissance à vérifier"
-    ],
-    "business_confidence": 0.9184,
+    "status": "success",
+    "review_required": false,
+    "review_reasons": [],
+    "warnings": [],
+    "business_confidence": 0.9582,
     "critical_fields_ok": 3,
-    "valid_fields_ok": 3,
-    "present_fields": 4,
-    "quality_score": 0.769,
+    "valid_fields_ok": 5,
+    "present_fields": 5,
+    "quality_score": 0.764,
     "avg_field_confidence": 0.95,
-    "field_coverage": 0.6
+    "field_coverage": 1.0
   },
   "diagnostics": {
     "mode": "cin_specialized_v2",
@@ -118,23 +122,20 @@
     "strategy": "balanced: spatial-first + targeted-roi-fallback + optional-full-fallback",
     "pipeline_steps": [
       "easyocr_boxes",
-      "paddle_boxes",
-      "targeted_roi:easyocr",
-      "targeted_roi:paddle",
-      "full_ocr:paddle"
+      "paddle_boxes"
     ],
     "preprocessing": {
       "quality": {
         "sharpness": 1.0,
-        "brightness": 0.707,
-        "contrast": 0.475,
-        "quality_score": 0.769
+        "brightness": 0.743,
+        "contrast": 0.428,
+        "quality_score": 0.764
       },
       "transforms": {
         "resized": false,
         "deskewed": false,
-        "contrast": true,
-        "mode": "cin_legacy_compatible"
+        "contrast": false,
+        "mode": "cin_simple_deskew_only"
       },
       "cin_preprocessor_keys": [
         "binary",
@@ -147,122 +148,56 @@
     },
     "quality_checks": {
       "sharpness": 1.0,
-      "brightness": 0.707,
-      "contrast": 0.475,
-      "quality_score": 0.769
+      "brightness": 0.743,
+      "contrast": 0.428,
+      "quality_score": 0.764
     },
     "roi_fields": {
       "cin_number": [
-        18,
+        21,
         160
       ],
       "family_name": [
-        15,
-        140
-      ],
-      "first_name": [
-        15,
-        140
-      ],
-      "date_of_birth": [
-        16,
-        140
-      ],
-      "place_of_birth": [
         17,
         140
       ],
+      "first_name": [
+        18,
+        140
+      ],
+      "date_of_birth": [
+        19,
+        140
+      ],
+      "place_of_birth": [
+        19,
+        140
+      ],
       "gender": [
-        12,
+        14,
         69
       ],
       "right_text_block": [
-        84,
+        99,
         157
       ]
     },
-    "engines": [
-      {
-        "engine": "easyocr",
-        "executed": true,
-        "trial_type": "targeted_missing_rois",
-        "target_fields": [
-          "date_of_birth",
-          "place_of_birth"
-        ],
-        "processing_time_ms": 123,
-        "zones": {
-          "date_of_birth": "",
-          "place_of_birth": "",
-          "right_text_block": "9372713 سادي"
-        },
-        "zone_scores": {
-          "date_of_birth": 0.0,
-          "place_of_birth": 0.0,
-          "right_text_block": 0.0
-        },
-        "notes": []
-      },
-      {
-        "engine": "paddle",
-        "executed": true,
-        "trial_type": "targeted_missing_rois",
-        "target_fields": [
-          "date_of_birth",
-          "place_of_birth"
-        ],
-        "processing_time_ms": 428,
-        "zones": {
-          "date_of_birth": "",
-          "place_of_birth": "",
-          "right_text_block": "937213 يديبزلا بقللا ىداش مسإلا"
-        },
-        "zone_scores": {
-          "date_of_birth": 0.0,
-          "place_of_birth": 0.0,
-          "right_text_block": 0.0
-        },
-        "notes": []
-      },
-      {
-        "engine": "paddle",
-        "executed": true,
-        "trial_type": "full_card_and_all_rois",
-        "full_text": "ةيسنوتلا ةيروهمجلا ةفطولا فاعلا ةقاطس 09372713 يديبزلا بقللا يداش مسإلا داقلا و نب ةردألا ولا خسات",
-        "full_text_score": 0.0,
-        "processing_time_ms": 1057,
-        "zones": {
-          "cin_number": "",
-          "family_name": "",
-          "first_name": "",
-          "date_of_birth": "",
-          "place_of_birth": "",
-          "gender": "",
-          "right_text_block": "937213 يديبزلا بقللا ىداش مسإلا"
-        },
-        "zone_scores": {
-          "cin_number": 0.0,
-          "family_name": 0.0,
-          "first_name": 0.0,
-          "date_of_birth": 0.0,
-          "place_of_birth": 0.0,
-          "gender": 0.0,
-          "right_text_block": 0.0
-        },
-        "notes": []
-      }
-    ],
+    "engines": [],
     "spatial": {
       "trials": [
         {
           "engine": "easyocr_boxes",
-          "box_count": 4,
+          "box_count": 8,
           "fields": {
             "cin_number": "09372713",
-            "place_of_birth": "الجم"
+            "first_name": "جيبون هدية",
+            "date_of_birth": "1987-11-06",
+            "place_of_birth": "المهدية"
           },
           "scores": {
-            "cin_number": 20.123948607533205,
+            "cin_number": 20.169043409776034,
+            "first_name": 15.066073912220379,
+            "date_of_birth": 9.5,
             "place_of_birth": 9.0
           },
           "meta": {
@@ -277,18 +212,20 @@
               "anchors_found": 0
             },
             "first_name": {
-              "chosen_from": null,
-              "source_kind": "no_label",
-              "anchors_found": 0
+              "chosen_from": "جيبون المهدية",
+              "candidate_text": "جيبون هدية",
+              "source_kind": "inline",
+              "anchors_found": 1
             },
             "date_of_birth": {
-              "chosen_from": null,
-              "source_kind": "no_valid_date",
+              "chosen_from": "right_text_block",
+              "candidate_text": "الجمشورييةالتونسيه بطاقةالتعربف الوطنين 09.372713 للد سادي القادر ناغ الردددة 06 نوفمبر 1987 جيبون المهدية",
+              "source_kind": "right_text_fallback",
               "anchors_found": 0
             },
             "place_of_birth": {
               "chosen_from": "right_text_block",
-              "candidate_text": "الجمهوريةالتونسيه بطاقةالتعربف الوطنيذ 09.372713 198",
+              "candidate_text": "الجمشورييةالتونسيه بطاقةالتعربف الوطنين 09.372713 للد سادي القادر ناغ الردددة 06 نوفمبر 1987 جيبون المهدية",
               "source_kind": "right_text_fallback",
               "anchors_found": 0
             },
@@ -307,16 +244,16 @@
         },
         {
           "engine": "paddle_boxes",
-          "box_count": 13,
+          "box_count": 21,
           "fields": {
             "cin_number": "09372713",
-            "family_name": "يديبزلا",
-            "first_name": "يداش"
+            "family_name": "شادي",
+            "first_name": "ةيده"
           },
           "scores": {
-            "cin_number": 20.16736271381378,
-            "family_name": 11.64856054750034,
-            "first_name": 12.060194093682975
+            "cin_number": 20.176338148117065,
+            "family_name": 11.934743144720438,
+            "first_name": 15.193617618083954
           },
           "meta": {
             "cin_number": {
@@ -326,15 +263,15 @@
             },
             "family_name": {
               "chosen_from": "بقللا",
-              "candidate_text": "يديبزلا",
+              "candidate_text": "يداش",
               "source_kind": "label_neighbor_merged",
               "anchors_found": 1
             },
             "first_name": {
-              "chosen_from": "مسإلا",
-              "candidate_text": "يداش",
-              "source_kind": "label_neighbor_merged",
-              "anchors_found": 1
+              "chosen_from": "ةيدهملا",
+              "candidate_text": "ةيده",
+              "source_kind": "inline",
+              "anchors_found": 2
             },
             "date_of_birth": {
               "chosen_from": null,
@@ -368,7 +305,9 @@
           "source": "spatial_boxes",
           "fields": {
             "cin_number": "09372713",
-            "place_of_birth": "الجم"
+            "first_name": "جيبون هدية",
+            "date_of_birth": "1987-11-06",
+            "place_of_birth": "المهدية"
           }
         },
         {
@@ -376,41 +315,8 @@
           "source": "spatial_boxes",
           "fields": {
             "cin_number": "09372713",
-            "family_name": "يديبزلا",
-            "first_name": "يداش"
-          }
-        },
-        {
-          "engine": "easyocr",
-          "source": "targeted_roi_ocr",
-          "fields": {
-            "cin_number": "CIN_FAMILY_NAME:",
-            "family_name": "CIN_FIRST_NAME:",
-            "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "9372713 سادي"
-          }
-        },
-        {
-          "engine": "paddle",
-          "source": "targeted_roi_ocr",
-          "fields": {
-            "cin_number": "CIN_FAMILY_NAME:",
-            "family_name": "CIN_FIRST_NAME:",
-            "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "937213 يديبزلا بقللا ىداش مسإلا"
-          }
-        },
-        {
-          "engine": "paddle",
-          "source": "roi_ocr",
-          "fields": {
-            "cin_number": "CIN_FAMILY_NAME:",
-            "family_name": "CIN_FIRST_NAME:",
-            "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "ةيسنوتلا ةيروهمجلا ةفطولا فاعلا ةقاطس 09372713 يديبزلا بقللا يداش مسإلا داقلا و نب ةردألا ولا خسات"
+            "family_name": "شادي",
+            "first_name": "ةيده"
           }
         }
       ],
@@ -418,7 +324,7 @@
         "cin_number": [
           {
             "value": "09372713",
-            "avg_conf": 20.145656,
+            "avg_conf": 20.172691,
             "count": 2,
             "engines": [
               "easyocr_boxes",
@@ -428,73 +334,15 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 56.145656,
+            "selection_score": 56.172691,
             "raw_value": "09372713",
             "meta": []
           }
         ],
         "family_name": [
           {
-            "value": "الزبيدي",
-            "avg_conf": 5.041841,
-            "count": 4,
-            "engines": [
-              "global_text",
-              "paddle",
-              "paddle_boxes"
-            ],
-            "sources": [
-              "spatial_boxes",
-              "text_family_fallback",
-              "text_family_global"
-            ],
-            "profiles": [],
-            "selection_score": 65.341841,
-            "raw_value": "يديبزلا",
-            "meta": [
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_combined_text": true
-              }
-            ]
-          }
-        ],
-        "first_name": [
-          {
-            "value": "الزبيدي",
-            "avg_conf": 0.0,
-            "count": 3,
-            "engines": [
-              "global_text",
-              "paddle"
-            ],
-            "sources": [
-              "text_first_fallback",
-              "text_first_global"
-            ],
-            "profiles": [],
-            "selection_score": 53.3,
-            "raw_value": "الزبيدي",
-            "meta": [
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_raw_text": true
-              },
-              {
-                "from_combined_text": true
-              }
-            ]
-          },
-          {
             "value": "شادي",
-            "avg_conf": 20.167363,
+            "avg_conf": 20.176338,
             "count": 1,
             "engines": [
               "paddle_boxes"
@@ -503,16 +351,15 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 52.767363,
-            "raw_value": "يداش",
+            "selection_score": 54.776338,
+            "raw_value": "شادي",
             "meta": []
           }
         ],
-        "date_of_birth": [],
-        "place_of_birth": [
+        "first_name": [
           {
-            "value": "الجم",
-            "avg_conf": 20.123949,
+            "value": "جيبون هدية",
+            "avg_conf": 20.169043,
             "count": 1,
             "engines": [
               "easyocr_boxes"
@@ -521,8 +368,57 @@
               "spatial_boxes"
             ],
             "profiles": [],
-            "selection_score": 62.123949,
-            "raw_value": "الجم",
+            "selection_score": 57.569043,
+            "raw_value": "جيبون هدية",
+            "meta": []
+          },
+          {
+            "value": "هدية",
+            "avg_conf": 20.176338,
+            "count": 1,
+            "engines": [
+              "paddle_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 52.776338,
+            "raw_value": "ةيده",
+            "meta": []
+          }
+        ],
+        "date_of_birth": [
+          {
+            "value": "06/11/1987",
+            "avg_conf": 20.169043,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 49.169043,
+            "raw_value": "1987-11-06",
+            "meta": []
+          }
+        ],
+        "place_of_birth": [
+          {
+            "value": "المهدية",
+            "avg_conf": 20.169043,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 62.169043,
+            "raw_value": "المهدية",
             "meta": []
           }
         ]
@@ -530,7 +426,7 @@
       "selected": {
         "cin_number": {
           "value": "09372713",
-          "avg_conf": 20.145656,
+          "avg_conf": 20.172691,
           "count": 2,
           "engines": [
             "easyocr_boxes",
@@ -540,42 +436,13 @@
             "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 56.145656,
+          "selection_score": 56.172691,
           "raw_value": "09372713",
           "meta": []
         },
         "family_name": {
-          "value": "الزبيدي",
-          "avg_conf": 5.041841,
-          "count": 4,
-          "engines": [
-            "global_text",
-            "paddle",
-            "paddle_boxes"
-          ],
-          "sources": [
-            "spatial_boxes",
-            "text_family_fallback",
-            "text_family_global"
-          ],
-          "profiles": [],
-          "selection_score": 65.341841,
-          "raw_value": "يديبزلا",
-          "meta": [
-            {
-              "from_raw_text": true
-            },
-            {
-              "from_raw_text": true
-            },
-            {
-              "from_combined_text": true
-            }
-          ]
-        },
-        "first_name": {
           "value": "شادي",
-          "avg_conf": 20.167363,
+          "avg_conf": 20.176338,
           "count": 1,
           "engines": [
             "paddle_boxes"
@@ -584,14 +451,13 @@
             "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 52.767363,
-          "raw_value": "يداش",
+          "selection_score": 54.776338,
+          "raw_value": "شادي",
           "meta": []
         },
-        "date_of_birth": null,
-        "place_of_birth": {
-          "value": "الجم",
-          "avg_conf": 20.123949,
+        "first_name": {
+          "value": "جيبون هدية",
+          "avg_conf": 20.169043,
           "count": 1,
           "engines": [
             "easyocr_boxes"
@@ -600,8 +466,38 @@
             "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 62.123949,
-          "raw_value": "الجم",
+          "selection_score": 57.569043,
+          "raw_value": "جيبون هدية",
+          "meta": []
+        },
+        "date_of_birth": {
+          "value": "06/11/1987",
+          "avg_conf": 20.169043,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 49.169043,
+          "raw_value": "1987-11-06",
+          "meta": []
+        },
+        "place_of_birth": {
+          "value": "المهدية",
+          "avg_conf": 20.169043,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 62.169043,
+          "raw_value": "المهدية",
           "meta": []
         }
       }
@@ -609,8 +505,8 @@
     "cin_postprocess": {
       "executed": true,
       "name_extraction": {
-        "debug_sequence": "اللقب:الزبيدي الاسم:? variants:normal",
-        "family_name": "الزبيدي",
+        "debug_sequence": "اللقب:شادي الاسم:? variants:normal",
+        "family_name": "شادي",
         "first_name": null,
         "rule": "family_name=all words after اللقب; first_name=words on الاسم line before بن/بنت"
       },
@@ -618,49 +514,40 @@
         {
           "field": "last_name",
           "type": "postprocess_skip_name_override",
-          "kept": "الزبيدي",
-          "candidate": "الزبيدي",
+          "kept": "شادي",
+          "candidate": "شادي",
           "candidate_ok": true,
           "old_ok": true,
           "good_spatial": true
         },
         {
           "field": "birth_place",
-          "type": "invalid_suspicious_birth_place",
-          "value": "الجم"
+          "type": "postprocess_skip_place_override",
+          "kept": "المهدية",
+          "candidate": "المهدية",
+          "reason": "known_place_in_raw_text",
+          "good_spatial": true
         }
       ]
     },
-    "review_required": true,
-    "review_reasons": [
-      "birth_date missing"
-    ],
+    "review_required": false,
+    "review_reasons": [],
     "business_validation": {
-      "status": "review_required",
-      "review_required": true,
-      "review_reasons": [
-        "birth_date missing"
-      ],
-      "warnings": [
-        "Date de naissance à vérifier"
-      ],
-      "business_confidence": 0.9184,
+      "status": "success",
+      "review_required": false,
+      "review_reasons": [],
+      "warnings": [],
+      "business_confidence": 0.9582,
       "critical_fields_ok": 3,
-      "valid_fields_ok": 3,
-      "present_fields": 4,
-      "quality_score": 0.769,
+      "valid_fields_ok": 5,
+      "present_fields": 5,
+      "quality_score": 0.764,
       "avg_field_confidence": 0.95,
-      "field_coverage": 0.6
+      "field_coverage": 1.0
     }
   },
-  "raw_text": "09372713 الجم 09372713 الزبيدي يداش CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 9372713 سادي CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 9372713 سادي CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 937213 الزبيدي اللقب ىداش الاسم CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: 937213 الزبيدي اللقب ىداش الاسم CIN_NUMBER: CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ةيسنوتلا ةيروهمجلا ةفطولا فاعلا ةقاطس 09372713 الزبيدي اللقب يداش الاسم داقلا و نب ةردألا ولا خسات CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ةيسنوتلا ةيروهمجلا ةفطولا فاعلا ةقاطس 09372713 الزبيدي اللقب يداش الاسم داقلا و نب ةردألا ولا خسات 09372713 الجم 09.372713 09372713 الجمهوريةالتونسيه بطاقةالتعربف الوطنيذ 09.372713 198 right_text_block 09372713 الزبيدي يداش 09372713 09372713 الزبيدي اللقب يداش الاسم 9372713 سادي 937213 الزبيدي اللقب ىداش الاسم ةيسنوتلا ةيروهمجلا ةفطولا فاعلا ةقاطس 09372713 الزبيدي اللقب يداش الاسم داقلا و نب ةردألا ولا خسات 937213 الزبيدي اللقب ىداش الاسم",
-  "processing_time_ms": 3148,
-  "warnings": [
-    "Date de naissance à vérifier",
-    "Champ requis 'date_naissance' à vérifier",
-    "Champ requis 'lieu_naissance' à vérifier"
-  ],
-  "review_reasons": [
-    "birth_date missing"
-  ]
+  "raw_text": "09372713 جيبون هدية 1987-11-06 المهدية 09372713 شادي ةيده 09372713 جيبون هدية 1987-11-06 المهدية 09.372713 09372713 جيبون هدية جيبون المهدية الجمشورييةالتونسيه بطاقةالتعربف الوطنين 09.372713 للد سادي القادر ناغ الردددة 06 نوفمبر 1987 جيبون المهدية right_text_block الجمشورييةالتونسيه بطاقةالتعربف الوطنين 09.372713 للد سادي القادر ناغ الردددة 06 نوفمبر 1987 جيبون المهدية right_text_block 09372713 شادي ةيده 09372713 09372713 يداش اللقب ةيده ةيدهملا",
+  "processing_time_ms": 1586,
+  "warnings": [],
+  "review_reasons": []
 }

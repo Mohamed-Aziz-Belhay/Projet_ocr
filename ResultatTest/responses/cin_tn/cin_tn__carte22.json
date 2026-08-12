@@ -1,13 +1,13 @@
 {
-  "job_id": "11d1f3ae-a0bb-47ce-ac5a-9683a918a7a3",
+  "job_id": "1a4b8c35-4675-48be-aac4-a998e26fd881",
   "status": "review_required",
   "template_id": "cin_tn",
   "document_type": "cin_tn",
   "document_variant": "recto",
-  "engine_used": "easyocr",
+  "engine_used": "easyocr_boxes",
   "language_detected": "ar",
-  "global_confidence": 0.0176,
-  "quality_score": 0.353,
+  "global_confidence": 0.7844,
+  "quality_score": 0.274,
   "fields": [
     {
       "name": "id_number",
@@ -23,55 +23,62 @@
       "reasons": [
         "field unresolved",
         "critical field missing"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "last_name",
-      "value": null,
-      "confidence": 0.0,
-      "validated": false,
-      "raw_text": null,
+      "value": "شكري",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "شكري",
       "raw_template_field": null,
-      "error": "Nom introuvable",
-      "selected_engine": null,
-      "selected_source": null,
-      "review_required": true,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
       "reasons": [
-        "field unresolved",
-        "critical field missing"
-      ]
+        "selected_from:spatial_boxes"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "first_name",
-      "value": null,
-      "confidence": 0.0,
-      "validated": false,
-      "raw_text": null,
+      "value": "رسني",
+      "confidence": 0.95,
+      "validated": true,
+      "raw_text": "رسني",
       "raw_template_field": null,
-      "error": "Prénom introuvable",
-      "selected_engine": null,
-      "selected_source": null,
-      "review_required": true,
+      "error": null,
+      "selected_engine": "easyocr_boxes",
+      "selected_source": "spatial_boxes",
+      "review_required": false,
       "reasons": [
-        "field unresolved",
-        "critical field missing"
-      ]
+        "selected_from:spatial_boxes"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_date",
-      "value": null,
-      "confidence": 0.0,
-      "validated": false,
+      "value": "1976-12-03",
+      "confidence": 0.82,
+      "validated": true,
       "raw_text": null,
       "raw_template_field": null,
-      "error": "Date introuvable",
+      "error": null,
       "selected_engine": null,
-      "selected_source": null,
-      "review_required": true,
+      "selected_source": "cin_postprocess_birth_date_context",
+      "review_required": false,
       "reasons": [
         "field unresolved",
-        "critical field missing"
-      ]
+        "critical field missing",
+        "birth_date_recovered:contextual_birth_date"
+      ],
+      "original_value": null,
+      "corrected": false
     },
     {
       "name": "birth_place",
@@ -81,20 +88,22 @@
       "raw_text": "الجم",
       "raw_template_field": null,
       "error": "Lieu de naissance générique/suspect - vérification requise",
-      "selected_engine": "easyocr",
+      "selected_engine": "easyocr_boxes",
       "selected_source": "spatial_boxes",
       "review_required": true,
       "reasons": [
         "selected_from:spatial_boxes",
         "invalid_suspicious_birth_place"
-      ]
+      ],
+      "original_value": null,
+      "corrected": false
     }
   ],
   "normalized_data": {
     "idNumber": null,
-    "lastName": null,
-    "firstName": null,
-    "birthDate": null,
+    "lastName": "شكري",
+    "firstName": "رسني",
+    "birthDate": "1976-12-03",
     "birthPlace": "الجم"
   },
   "routing": null,
@@ -102,24 +111,18 @@
     "status": "review_required",
     "review_required": true,
     "review_reasons": [
-      "critical field missing or invalid: last_name",
-      "critical field missing or invalid: id_number",
-      "critical field missing or invalid: first_name",
-      "birth_date missing"
+      "critical field missing or invalid: id_number"
     ],
     "warnings": [
-      "Champ critique à vérifier: last_name",
-      "Champ critique à vérifier: id_number",
-      "Champ critique à vérifier: first_name",
-      "Date de naissance à vérifier"
+      "Champ critique à vérifier: id_number"
     ],
-    "business_confidence": 0.0176,
-    "critical_fields_ok": 0,
-    "valid_fields_ok": 0,
-    "present_fields": 1,
-    "quality_score": 0.353,
-    "avg_field_confidence": 0.0,
-    "field_coverage": 0.0
+    "business_confidence": 0.7844,
+    "critical_fields_ok": 2,
+    "valid_fields_ok": 3,
+    "present_fields": 4,
+    "quality_score": 0.274,
+    "avg_field_confidence": 0.9067,
+    "field_coverage": 0.6
   },
   "diagnostics": {
     "mode": "cin_specialized_v2",
@@ -130,20 +133,21 @@
       "paddle_boxes",
       "targeted_roi:easyocr",
       "targeted_roi:paddle",
-      "full_ocr:paddle"
+      "full_ocr:paddle",
+      "full_ocr:easyocr"
     ],
     "preprocessing": {
       "quality": {
-        "sharpness": 0.199,
-        "brightness": 0.61,
-        "contrast": 0.37,
-        "quality_score": 0.353
+        "sharpness": 0.089,
+        "brightness": 0.573,
+        "contrast": 0.302,
+        "quality_score": 0.274
       },
       "transforms": {
         "resized": false,
         "deskewed": true,
-        "contrast": true,
-        "mode": "cin_legacy_compatible"
+        "contrast": false,
+        "mode": "cin_simple_deskew_only"
       },
       "cin_preprocessor_keys": [
         "binary",
@@ -155,39 +159,39 @@
       ]
     },
     "quality_checks": {
-      "sharpness": 0.199,
-      "brightness": 0.61,
-      "contrast": 0.37,
-      "quality_score": 0.353
+      "sharpness": 0.089,
+      "brightness": 0.573,
+      "contrast": 0.302,
+      "quality_score": 0.274
     },
     "roi_fields": {
       "cin_number": [
-        52,
-        475
+        80,
+        545
       ],
       "family_name": [
-        43,
-        415
+        67,
+        477
       ],
       "first_name": [
-        43,
-        415
+        67,
+        477
       ],
       "date_of_birth": [
-        48,
-        415
+        73,
+        477
       ],
       "place_of_birth": [
-        48,
-        415
+        73,
+        477
       ],
       "gender": [
-        35,
-        203
+        54,
+        233
       ],
       "right_text_block": [
-        243,
-        466
+        375,
+        535
       ]
     },
     "engines": [
@@ -197,25 +201,16 @@
         "trial_type": "targeted_missing_rois",
         "target_fields": [
           "cin_number",
-          "family_name",
-          "first_name",
-          "date_of_birth",
           "place_of_birth"
         ],
-        "processing_time_ms": 253,
+        "processing_time_ms": 732,
         "zones": {
-          "cin_number": "فاالتوس",
-          "family_name": "",
-          "first_name": "",
-          "date_of_birth": "",
-          "place_of_birth": "",
-          "right_text_block": "بطاقذ التعرفالن الجمهوري"
+          "cin_number": ": التعررف الوصي الجمهوري",
+          "place_of_birth": "/6 حة ب ت الام سمبر سا",
+          "right_text_block": "با دة اراسم شكرية بن ٤ 03 بن بو المرسني اللقب حمو 1976 سا. دىسمبر الدما لادة"
         },
         "zone_scores": {
           "cin_number": 0.0,
-          "family_name": 0.0,
-          "first_name": 0.0,
-          "date_of_birth": 0.0,
           "place_of_birth": 0.0,
           "right_text_block": 0.0
         },
@@ -227,25 +222,16 @@
         "trial_type": "targeted_missing_rois",
         "target_fields": [
           "cin_number",
-          "family_name",
-          "first_name",
-          "date_of_birth",
           "place_of_birth"
         ],
-        "processing_time_ms": 1343,
+        "processing_time_ms": 1837,
         "zones": {
-          "cin_number": "",
-          "family_name": "لا",
-          "first_name": "",
-          "date_of_birth": "",
-          "place_of_birth": "",
-          "right_text_block": "ولايرغشلا راوهمجلا ةقاطب"
+          "cin_number": "همجلا",
+          "place_of_birth": "نب ةحاسو مسالا ريمسب",
+          "right_text_block": "ةفاطب ينس رملا ةد بقللا ومح 19 يركش نب ةحاسوب مسالا ربمسيد 3 نب ءامدلا ةدال"
         },
         "zone_scores": {
           "cin_number": 0.0,
-          "family_name": 0.0,
-          "first_name": 0.0,
-          "date_of_birth": 0.0,
           "place_of_birth": 0.0,
           "right_text_block": 0.0
         },
@@ -255,17 +241,44 @@
         "engine": "paddle",
         "executed": true,
         "trial_type": "full_card_and_all_rois",
-        "full_text": "ةينطولا ةيسنوتلا ةبروهمجلا ظيرعتلا ةقاطب ينس",
+        "full_text": "",
         "full_text_score": 0.0,
-        "processing_time_ms": 757,
+        "processing_time_ms": 833,
         "zones": {
-          "cin_number": "",
-          "family_name": "لا",
+          "cin_number": "همجلا",
+          "family_name": "",
           "first_name": "",
-          "date_of_birth": "",
-          "place_of_birth": "",
-          "gender": "",
-          "right_text_block": "ولايرغشلا راوهمجلا ةقاطب"
+          "date_of_birth": "يدس رصلا بقلل",
+          "place_of_birth": "نب ةحاسو مسالا ريمسب",
+          "gender": "ءامدلا",
+          "right_text_block": ""
+        },
+        "zone_scores": {
+          "cin_number": 0.0,
+          "family_name": 0.0,
+          "first_name": 0.0,
+          "date_of_birth": 0.0,
+          "place_of_birth": 0.0,
+          "gender": 0.0,
+          "right_text_block": 0.0
+        },
+        "notes": []
+      },
+      {
+        "engine": "easyocr",
+        "executed": true,
+        "trial_type": "full_card_and_all_rois",
+        "full_text": "المرسني حموا شكري بن ااىم سا بو ع ،غار الجمهوريف التونسيف بطاقه التعرف الوطنيذ دة اللقب 1976 احة ديسمبر 03 بن الدما تارتخ الولا دة الخنقة",
+        "full_text_score": 0.0,
+        "processing_time_ms": 2169,
+        "zones": {
+          "cin_number": ": التعررف الوصي الجمهوري",
+          "family_name": "و",
+          "first_name": "",
+          "date_of_birth": "ي للقب المر",
+          "place_of_birth": "/6 حة ب ت الام سمبر سا",
+          "gender": "٤ ما الدما",
+          "right_text_block": "با دة اراسم شكرية بن ٤ 03 بن بو المرسني اللقب حمو 1976 سا. دىسمبر الدما لادة"
         },
         "zone_scores": {
           "cin_number": 0.0,
@@ -283,11 +296,15 @@
       "trials": [
         {
           "engine": "easyocr_boxes",
-          "box_count": 2,
+          "box_count": 21,
           "fields": {
+            "family_name": "شكري",
+            "first_name": "رسني",
             "place_of_birth": "الجم"
           },
           "scores": {
+            "family_name": 10.38283638568005,
+            "first_name": 15.139570087259438,
             "place_of_birth": 9.0
           },
           "meta": {
@@ -297,23 +314,25 @@
               "source_kind": "spatial_numeric"
             },
             "family_name": {
-              "chosen_from": null,
-              "source_kind": "no_label",
-              "anchors_found": 0
+              "chosen_from": "اللقب",
+              "candidate_text": "شكري",
+              "source_kind": "label_neighbor_merged",
+              "anchors_found": 1
             },
             "first_name": {
-              "chosen_from": null,
-              "source_kind": "no_label",
-              "anchors_found": 0
+              "chosen_from": "المرسني",
+              "candidate_text": "رسني",
+              "source_kind": "inline",
+              "anchors_found": 1
             },
             "date_of_birth": {
               "chosen_from": null,
               "source_kind": "no_valid_date",
-              "anchors_found": 0
+              "anchors_found": 1
             },
             "place_of_birth": {
               "chosen_from": "right_text_block",
-              "candidate_text": "الجمهوريف التونسيف بطاقةالتعريف الوطنيه",
+              "candidate_text": "الجموريف التونسيف بطاقه التعرف الوطنيذ المرسني اللقب دة حموا شكري 1976 بن الاىم حة سا ديسمبر بو 03 بن ع الدما تارتخ الولا دة غار الخنقة",
               "source_kind": "right_text_fallback",
               "anchors_found": 0
             },
@@ -332,9 +351,17 @@
         },
         {
           "engine": "paddle_boxes",
-          "box_count": 5,
-          "fields": {},
-          "scores": {},
+          "box_count": 24,
+          "fields": {
+            "family_name": "رملا",
+            "first_name": "ر",
+            "place_of_birth": "اهن اكم"
+          },
+          "scores": {
+            "family_name": 10.640243484689528,
+            "first_name": 15.18653063774109,
+            "place_of_birth": 14.164119172096253
+          },
           "meta": {
             "cin_number": {
               "chosen_from": null,
@@ -342,24 +369,27 @@
               "source_kind": "spatial_numeric"
             },
             "family_name": {
-              "chosen_from": null,
-              "source_kind": "no_label",
-              "anchors_found": 0
+              "chosen_from": "بقللا",
+              "candidate_text": "رملا",
+              "source_kind": "label_neighbor_merged",
+              "anchors_found": 1
             },
             "first_name": {
-              "chosen_from": null,
-              "source_kind": "no_label",
-              "anchors_found": 0
+              "chosen_from": "رملا",
+              "candidate_text": "ر",
+              "source_kind": "inline",
+              "anchors_found": 2
             },
             "date_of_birth": {
               "chosen_from": null,
               "source_kind": "no_valid_date",
-              "anchors_found": 0
+              "anchors_found": 1
             },
             "place_of_birth": {
-              "chosen_from": null,
-              "source_kind": "no_valid_place",
-              "anchors_found": 0
+              "chosen_from": "اهن اكم",
+              "candidate_text": "اهن اكم",
+              "source_kind": "inline",
+              "anchors_found": 1
             },
             "label_spatial": {
               "reason": "no_items"
@@ -382,66 +412,113 @@
           "engine": "easyocr_boxes",
           "source": "spatial_boxes",
           "fields": {
+            "family_name": "شكري",
+            "first_name": "رسني",
             "place_of_birth": "الجم"
+          }
+        },
+        {
+          "engine": "paddle_boxes",
+          "source": "spatial_boxes",
+          "fields": {
+            "family_name": "رملا",
+            "first_name": "ر",
+            "place_of_birth": "اهن اكم"
           }
         },
         {
           "engine": "easyocr",
           "source": "targeted_roi_ocr",
           "fields": {
-            "cin_number": "فاالتوس",
+            "cin_number": ": التعررف الوصي الجمهوري",
             "family_name": "CIN_FIRST_NAME:",
             "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "بطاقذ التعرفالن الجمهوري"
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: /6 حة ب ت الام سمبر سا",
+            "place_of_birth": "/6 حة ب ت الام سمبر سا"
           }
         },
         {
           "engine": "paddle",
           "source": "targeted_roi_ocr",
           "fields": {
-            "cin_number": "CIN_FAMILY_NAME: لا",
-            "family_name": "لا",
+            "cin_number": "همجلا",
+            "family_name": "CIN_FIRST_NAME:",
             "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "ولايرغشلا راوهمجلا ةقاطب"
+            "date_of_birth": "CIN_PLACE_OF_BIRTH: نب ةحاسو مسالا ريمسب",
+            "place_of_birth": "نب ةحاسو مسالا ريمسب"
           }
         },
         {
           "engine": "paddle",
           "source": "roi_ocr",
           "fields": {
-            "cin_number": "CIN_FAMILY_NAME: لا",
-            "family_name": "لا",
-            "first_name": "CIN_DATE_OF_BIRTH:",
-            "date_of_birth": "CIN_PLACE_OF_BIRTH:",
-            "place_of_birth": "ةينطولا ةيسنوتلا ةبروهمجلا ظيرعتلا ةقاطب ينس"
+            "cin_number": "همجلا",
+            "family_name": "CIN_FIRST_NAME:",
+            "first_name": "CIN_DATE_OF_BIRTH: يدس رصلا بقلل",
+            "date_of_birth": "يدس رصلا بقلل",
+            "place_of_birth": "نب ةحاسو مسالا ريمسب"
+          }
+        },
+        {
+          "engine": "easyocr",
+          "source": "roi_ocr",
+          "fields": {
+            "cin_number": ": التعررف الوصي الجمهوري",
+            "family_name": "و",
+            "first_name": "CIN_DATE_OF_BIRTH: ي للقب المر",
+            "date_of_birth": "ي للقب المر",
+            "place_of_birth": "/6 حة ب ت الام سمبر سا"
           }
         }
       ],
       "aggregated": {
         "cin_number": [],
-        "family_name": [],
-        "first_name": [],
-        "date_of_birth": [],
-        "place_of_birth": [
+        "family_name": [
           {
-            "value": "الجم",
-            "avg_conf": 3.0,
-            "count": 3,
+            "value": "شكري",
+            "avg_conf": 15.13957,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 49.23957,
+            "raw_value": "شكري",
+            "meta": []
+          },
+          {
+            "value": "المر",
+            "avg_conf": 15.186531,
+            "count": 1,
+            "engines": [
+              "paddle_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 47.586531,
+            "raw_value": "رملا",
+            "meta": []
+          },
+          {
+            "value": "الجمهوري",
+            "avg_conf": 0.0,
+            "count": 2,
             "engines": [
               "easyocr",
-              "easyocr_boxes",
               "global_text"
             ],
             "sources": [
-              "spatial_boxes",
-              "text_place_fallback",
-              "text_place_global"
+              "text_family_fallback",
+              "text_family_global"
             ],
             "profiles": [],
-            "selection_score": 65.0,
-            "raw_value": "الجم",
+            "selection_score": 46.3,
+            "raw_value": "الجمهوري",
             "meta": [
               {
                 "from_raw_text": true
@@ -452,83 +529,245 @@
             ]
           },
           {
-            "value": "بطاقذ التعرفالن الجمهوري",
-            "avg_conf": 0.0,
-            "count": 2,
-            "engines": [
-              "easyocr"
-            ],
-            "sources": [
-              "extractor",
-              "targeted_roi_ocr"
-            ],
-            "profiles": [],
-            "selection_score": 6.5,
-            "raw_value": "بطاقذ التعرفالن الجمهوري",
-            "meta": [
-              {
-                "from_raw_text": true
-              }
-            ]
-          },
-          {
-            "value": "ولايرغشلا راوهمجلا ةقاطب",
+            "value": "وساحة",
             "avg_conf": 0.0,
             "count": 2,
             "engines": [
               "paddle"
             ],
             "sources": [
-              "extractor",
-              "targeted_roi_ocr"
+              "text_family_fallback"
             ],
             "profiles": [],
-            "selection_score": 6.5,
-            "raw_value": "ولايرغشلا راوهمجلا ةقاطب",
+            "selection_score": 40.0,
+            "raw_value": "وساحة",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_raw_text": true
+              }
+            ]
+          },
+          {
+            "value": "المرسني",
+            "avg_conf": 0.0,
+            "count": 1,
+            "engines": [
+              "easyocr"
+            ],
+            "sources": [
+              "text_family_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 32.8,
+            "raw_value": "المرسني",
             "meta": [
               {
                 "from_raw_text": true
               }
             ]
           }
+        ],
+        "first_name": [
+          {
+            "value": "رسني",
+            "avg_conf": 15.13957,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 49.23957,
+            "raw_value": "رسني",
+            "meta": []
+          },
+          {
+            "value": "الجمهوري",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "easyocr",
+              "global_text"
+            ],
+            "sources": [
+              "text_first_fallback",
+              "text_first_global"
+            ],
+            "profiles": [],
+            "selection_score": 46.3,
+            "raw_value": "الجمهوري",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_combined_text": true
+              }
+            ]
+          },
+          {
+            "value": "وساحة",
+            "avg_conf": 0.0,
+            "count": 2,
+            "engines": [
+              "paddle"
+            ],
+            "sources": [
+              "text_first_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 40.0,
+            "raw_value": "وساحة",
+            "meta": [
+              {
+                "from_raw_text": true
+              },
+              {
+                "from_raw_text": true
+              }
+            ]
+          },
+          {
+            "value": "المرسني",
+            "avg_conf": 0.0,
+            "count": 1,
+            "engines": [
+              "easyocr"
+            ],
+            "sources": [
+              "text_first_fallback"
+            ],
+            "profiles": [],
+            "selection_score": 32.8,
+            "raw_value": "المرسني",
+            "meta": [
+              {
+                "from_raw_text": true
+              }
+            ]
+          }
+        ],
+        "date_of_birth": [],
+        "place_of_birth": [
+          {
+            "value": "الجم",
+            "avg_conf": 15.13957,
+            "count": 1,
+            "engines": [
+              "easyocr_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 57.13957,
+            "raw_value": "الجم",
+            "meta": []
+          },
+          {
+            "value": "اهن اكم",
+            "avg_conf": 15.186531,
+            "count": 1,
+            "engines": [
+              "paddle_boxes"
+            ],
+            "sources": [
+              "spatial_boxes"
+            ],
+            "profiles": [],
+            "selection_score": 36.186531,
+            "raw_value": "اهن اكم",
+            "meta": []
+          }
         ]
       },
       "selected": {
-        "family_name": null,
-        "first_name": null,
+        "family_name": {
+          "value": "شكري",
+          "avg_conf": 15.13957,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 49.23957,
+          "raw_value": "شكري",
+          "meta": []
+        },
+        "first_name": {
+          "value": "رسني",
+          "avg_conf": 15.13957,
+          "count": 1,
+          "engines": [
+            "easyocr_boxes"
+          ],
+          "sources": [
+            "spatial_boxes"
+          ],
+          "profiles": [],
+          "selection_score": 49.23957,
+          "raw_value": "رسني",
+          "meta": []
+        },
         "date_of_birth": null,
         "place_of_birth": {
           "value": "الجم",
-          "avg_conf": 3.0,
-          "count": 3,
+          "avg_conf": 15.13957,
+          "count": 1,
           "engines": [
-            "easyocr",
-            "easyocr_boxes",
-            "global_text"
+            "easyocr_boxes"
           ],
           "sources": [
-            "spatial_boxes",
-            "text_place_fallback",
-            "text_place_global"
+            "spatial_boxes"
           ],
           "profiles": [],
-          "selection_score": 65.0,
+          "selection_score": 57.13957,
           "raw_value": "الجم",
-          "meta": [
-            {
-              "from_raw_text": true
-            },
-            {
-              "from_combined_text": true
-            }
-          ]
+          "meta": []
         }
       }
     },
     "cin_postprocess": {
       "executed": true,
-      "name_extraction": null,
+      "name_extraction": {
+        "debug_sequence": "اللقب:التعرف الوطنيذ دة الاسم:? variants:normal",
+        "family_name": "التعرف الوطنيذ دة",
+        "first_name": null,
+        "rule": "family_name=all words after اللقب; first_name=words on الاسم line before بن/بنت"
+      },
       "applied": [
+        {
+          "field": "last_name",
+          "type": "postprocess_skip_name_override",
+          "kept": "شكري",
+          "candidate": "التعرف الوطنيذ دة",
+          "candidate_ok": true,
+          "old_ok": true,
+          "good_spatial": true
+        },
+        {
+          "field": "birth_date",
+          "type": "contextual_date_recovery",
+          "old": null,
+          "new": "1976-12-03",
+          "reason": "contextual_birth_date"
+        },
+        {
+          "field": "birth_place",
+          "type": "postprocess_skip_place_override",
+          "kept": "الجم",
+          "candidate": "الجم",
+          "reason": "known_place_in_raw_text",
+          "good_spatial": true
+        },
         {
           "field": "birth_place",
           "type": "invalid_suspicious_birth_place",
@@ -538,52 +777,34 @@
     },
     "review_required": true,
     "review_reasons": [
-      "critical field missing or invalid: last_name",
-      "critical field missing or invalid: id_number",
-      "critical field missing or invalid: first_name",
-      "birth_date missing"
+      "critical field missing or invalid: id_number"
     ],
     "business_validation": {
       "status": "review_required",
       "review_required": true,
       "review_reasons": [
-        "critical field missing or invalid: last_name",
-        "critical field missing or invalid: id_number",
-        "critical field missing or invalid: first_name",
-        "birth_date missing"
+        "critical field missing or invalid: id_number"
       ],
       "warnings": [
-        "Champ critique à vérifier: last_name",
-        "Champ critique à vérifier: id_number",
-        "Champ critique à vérifier: first_name",
-        "Date de naissance à vérifier"
+        "Champ critique à vérifier: id_number"
       ],
-      "business_confidence": 0.0176,
-      "critical_fields_ok": 0,
-      "valid_fields_ok": 0,
-      "present_fields": 1,
-      "quality_score": 0.353,
-      "avg_field_confidence": 0.0,
-      "field_coverage": 0.0
+      "business_confidence": 0.7844,
+      "critical_fields_ok": 2,
+      "valid_fields_ok": 3,
+      "present_fields": 4,
+      "quality_score": 0.274,
+      "avg_field_confidence": 0.9067,
+      "field_coverage": 0.6
     }
   },
-  "raw_text": "الجم CIN_NUMBER: فاالتوس CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: بطاقذ التعرفالن الجمهوري فاالتوس CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: بطاقذ التعرفالن الجمهوري CIN_NUMBER: CIN_FAMILY_NAME: لا CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ولايرغشلا راوهمجلا ةقاطب CIN_FAMILY_NAME: لا لا CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ولايرغشلا راوهمجلا ةقاطب CIN_NUMBER: CIN_FAMILY_NAME: لا CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ةينطولا ةيسنوتلا ةبروهمجلا ظيرعتلا ةقاطب ينس CIN_FAMILY_NAME: لا لا CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: ةينطولا ةيسنوتلا ةبروهمجلا ظيرعتلا ةقاطب ينس الجم الجمهوريف التونسيف بطاقةالتعريف الوطنيه right_text_block فاالتوس بطاقذ التعرفالن الجمهوري لا ولايرغشلا راوهمجلا ةقاطب ةينطولا ةيسنوتلا ةبروهمجلا ظيرعتلا ةقاطب ينس لا ولايرغشلا راوهمجلا ةقاطب",
-  "processing_time_ms": 3937,
+  "raw_text": "CIN_NUMBER: : التعررف الوصي الجمهوري CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: /6 حة ب ت الام سمبر سا با دة اراسم شكرية بن 4 03 بن بو المرسني اللقب حمو 1976 سا. دىسمبر الدما لادة CIN_NUMBER: : التعررف الوصي الجمهوري CIN_FAMILY_NAME: و CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: ي للقب المر CIN_PLACE_OF_BIRTH: /6 حة ب ت الام سمبر سا المرسني حموا شكري بن ااىم سا بو ع ،غار الجمهوريف التونسيف بطاقه التعرف الوطنيذ دة اللقب 1976 احة ديسمبر 03 بن الدما تارتخ الولادة الخنقة شكري رسني الجم رملا ر اهن اكم : التعررف الوصي الجمهوري CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: /6 حة ب ت الام سمبر سا /6 حة ب ت الام سمبر سا CIN_NUMBER: همجلا CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: نب ةحاسو الاسم ريمسب ةفاطب ينس رملا ةد اللقب ومح 19 يركش نب ةحاسوب الاسم ربمسيد 3 نب ءامدلا ةدال همجلا CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: CIN_PLACE_OF_BIRTH: نب ةحاسو الاسم ريمسب نب ةحاسو الاسم ريمسب CIN_NUMBER: همجلا CIN_FAMILY_NAME: CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: يدس رصلا بقلل CIN_PLACE_OF_BIRTH: نب ةحاسو الاسم ريمسب همجلا CIN_FIRST_NAME: CIN_DATE_OF_BIRTH: يدس رصلا بقلل يدس رصلا بقلل نب ةحاسو الاسم ريمسب : التعررف الوصي الجمهوري و CIN_DATE_OF_BIRTH: ي للقب المر ي للقب المر /6 حة ب ت الام سمبر سا شكري رسني الجم شكري اللقب رسني المرسني الجموريف التونسيف بطاقه التعرف الوطنيذ المرسني اللقب دة حموا شكري 1976 بن الاىم حة سا ديسمبر بو 03 بن ع الدما تارتخ الولادة غار الخنقة right_text_block رملا ر اهن اكم رملا اللقب ر رملا اهن اكم اهن اكم : التعررف الوصي الجمهوري /6 حة ب ت الام سمبر سا با دة اراسم شكرية بن 4 03 بن بو المرسني اللقب حمو 1976 سا. دىسمبر الدما لادة همجلا نب ةحاسو الاسم ريمسب ةفاطب ينس رملا ةد اللقب ومح 19 يركش نب ةحاسوب الاسم ربمسيد 3 نب ءامدلا ةدال همجلا يدس رصلا بقلل نب ةحاسو الاسم ريمسب ءامدلا المرسني حموا شكري بن ااىم سا بو ع ،غار الجمهوريف التونسيف بطاقه التعرف الوطنيذ دة اللقب 1976 احة ديسمبر 03 بن الدما تارتخ الولادة الخنقة : التعررف الوصي الجمهوري و ي للقب المر /6 حة ب ت الام سمبر سا 4 ما الدما با دة اراسم شكرية بن 4 03 بن بو المرسني اللقب حمو 1976 سا. دىسمبر الدما لادة",
+  "processing_time_ms": 10397,
   "warnings": [
-    "Champ critique à vérifier: last_name",
     "Champ critique à vérifier: id_number",
-    "Champ critique à vérifier: first_name",
-    "Date de naissance à vérifier",
     "Champ requis 'numero_cin' à vérifier",
-    "Champ requis 'nom' à vérifier",
-    "Champ requis 'prenom' à vérifier",
-    "Champ requis 'date_naissance' à vérifier",
     "Champ requis 'lieu_naissance' à vérifier"
   ],
   "review_reasons": [
-    "critical field missing or invalid: last_name",
-    "critical field missing or invalid: id_number",
-    "critical field missing or invalid: first_name",
-    "birth_date missing"
+    "critical field missing or invalid: id_number"
   ]
 }
