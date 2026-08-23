@@ -1,0 +1,62 @@
+[
+  {
+    "case_id": "cin_tn__carte17",
+    "image": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\IMAGES\\carte17.jpg",
+    "reponse": "n",
+    "critical_missing": "id_number:missing_field"
+  },
+  {
+    "case_id": "cin_tn__carte18",
+    "image": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\IMAGES\\carte18.jpg",
+    "reponse": "n",
+    "critical_missing": "id_number:missing_field"
+  },
+  {
+    "case_id": "cin_tn__carte19",
+    "image": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\IMAGES\\carte19.jpg",
+    "reponse": "n",
+    "critical_missing": "id_number:missing_field"
+  },
+  {
+    "case_id": "cin_tn__carte20",
+    "image": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\IMAGES\\carte20.jpg",
+    "reponse": "n",
+    "critical_missing": "id_number:missing_field"
+  },
+  {
+    "case_id": "cin_tn__carte21",
+    "image": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\IMAGES\\carte21.jpg",
+    "reponse": "n",
+    "critical_missing": "id_number:missing_field"
+  },
+  {
+    "case_id": "cin_tn__carte22",
+    "image": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\IMAGES\\carte22.jpg",
+    "reponse": "n",
+    "critical_missing": "id_number:missing_field"
+  },
+  {
+    "case_id": "cin_tn__carte24",
+    "image": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\IMAGES\\carte24.jpg",
+    "reponse": "n",
+    "critical_missing": "id_number:missing_field"
+  },
+  {
+    "case_id": "cin_tn__carte25",
+    "image": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\IMAGES\\carte25.jpg",
+    "reponse": "n",
+    "critical_missing": "id_number:missing_field"
+  },
+  {
+    "case_id": "cin_tn__carte26",
+    "image": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\IMAGES\\carte26.jpg",
+    "reponse": "n",
+    "critical_missing": "id_number:missing_field"
+  },
+  {
+    "case_id": "cin_tn__carte30",
+    "image": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\IMAGES\\carte30.png",
+    "reponse": "n",
+    "critical_missing": "id_number:missing_field"
+  }
+]

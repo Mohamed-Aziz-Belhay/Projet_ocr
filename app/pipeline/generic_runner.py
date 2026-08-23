@@ -3701,9 +3701,34 @@ class GenericPipelineRunner:
             roi_candidates = localized_candidates
 
             if use_full_image_for_roi:
+                # CORRECTIF ROTATION (22/08) : original_image est fixée tout en
+                # haut de run(), AVANT tout appel à self.localizer.localize() --
+                # elle ne bénéficie donc jamais de la correction OSD appliquée
+                # au crop YOLO localisé. Sur un document droit, ça ne se voit
+                # pas (l'image est déjà dans le bon sens). Sur un document
+                # tourné, ce candidat de secours restait à l'envers, écrasait
+                # son propre score (~-65, quasi tous les champs invalides), et
+                # perdait systématiquement face au crop rogné -- pourtant
+                # moins bon sur le fond (dates tronquées par le padding ROI).
+                # On applique donc la même détection OSD ici, indépendamment
+                # de ce qui a déjà été fait sur le crop localisé.
+                full_image_candidate = original_image
+                try:
+                    osd_result = self.localizer._detect_osd_angle(original_image)
+                    if osd_result is not None:
+                        osd_angle, _osd_confidence = osd_result
+                        full_image_candidate = self.localizer._rotate_by_angle(
+                            original_image, osd_angle,
+                        )
+                except Exception:
+                    # Ne jamais faire échouer l'extraction pour une detection
+                    # d'angle en echec -- on retombe sur l'image non corrigee,
+                    # comportement identique a avant ce correctif.
+                    full_image_candidate = original_image
+
                 roi_candidates = [
                     {
-                        "image": original_image,
+                        "image": full_image_candidate,
                         "angle": 0,
                         "candidate_index": -1,
                         "rotation_index": None,

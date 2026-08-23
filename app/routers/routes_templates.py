@@ -11,24 +11,37 @@ globale aux routers — n'importe quel appelant pouvait donc modifier ou
 supprimer un template via un appel direct à l'API, le seul blocage étant
 le guard Angular côté frontend.
 
+CORRECTIF SYNCHRONISATION (rapport PFE, Chapitre 6) :
+PUT/DELETE écrivaient uniquement dans la table PostgreSQL ocr_templates,
+sans jamais repasser par TemplateService -- le pipeline d'extraction,
+qui résout ses templates depuis un cache chargé UNE FOIS au démarrage
+depuis app/templates/*.yaml, ne voyait donc jamais les modifications
+faites via l'éditeur d'administration tant que le service n'était pas
+redémarré manuellement. Chaque écriture DB réussie déclenche désormais
+un appel à TemplateService.update()/create()/delete(), qui réécrit le
+fichier YAML ET rafraîchit le cache mémoire dans le même geste -- plus
+aucun redémarrage nécessaire.
+
+CORRECTIF ANTI-EMPILEMENT "extra" (22/08) :
+_copy() rangeait dans la colonne "extra" TOUT champ du payload non
+déclaré dans TemplateBody -- y compris, si le payload était un GET
+renvoyé tel quel (cas observé avec l'éditeur d'administration), le mot-
+clé "extra" lui-même et les colonnes ORM (is_active, created_at,
+updated_at, usage_count). Résultat : un nouvel objet "extra" imbriqué
+dans l'ancien à chaque cycle édition -> sauvegarde -> réédition, avec
+roi_fields de plus en plus profondément enterré et donc invisible pour
+le pipeline (qui le lit en attribut plat, getattr(template, "roi_fields",
+[])). _NON_DOMAIN_KEYS exclut désormais explicitement ces clés de
+l'empilement, aux deux endroits où le payload est retraité (_copy et
+_sync_to_template_service), et cette dernière dépile récursivement tout
+"extra" imbriqué déjà accumulé avant ce correctif.
+
 Mécanisme (vérifié sur app/core/rbac.py) :
 require_admin(user) est un simple helper qui prend un objet user et lève
 une HTTPException — ce n'est PAS une dépendance FastAPI utilisable telle
 quelle dans Depends(). On réutilise donc la dépendance existante
 get_current_admin_user de routes_monitoring.py, qui décode le JWT,
 charge l'utilisateur en base puis applique require_admin(user).
-
-!! APRÈS INSTALLATION :
-1. Import VÉRIFIÉ sur le code réel : routes_monitoring.py définit bien
-   get_current_admin_user(request, db) (decode_access_token -> User ->
-   require_admin) et n'importe aucun autre router — pas d'import
-   circulaire. Le patch fonctionne tel quel.
-2. Retester la collection Postman "Templates" :
-   - PUT/DELETE avec token operator/simple_user  -> 403 Forbidden
-   - PUT/DELETE sans token                        -> 401 Unauthorized
-   - PUT/DELETE avec token admin                  -> comportement inchangé
-   - GET (liste/détail)                           -> inchangé (RG8 :
-     operators et simple_users consultent et utilisent les templates)
 """
 from __future__ import annotations
 
@@ -48,12 +61,24 @@ from app.db.session import get_db
 # routes_monitoring.py dans app/api/deps.py et importez-la depuis là.
 from app.routers.routes_monitoring import get_current_admin_user
 
+# CORRECTIF SYNCHRONISATION : pont vers le TemplateService (YAML + cache mémoire),
+# jusqu'ici jamais appelé par ce routeur.
+from app.core.errors import TemplateNotFoundError
+from app.schemas.template import TemplateSpec
+from app.services.template_service import get_template_service
+
 log = logging.getLogger(__name__)
 router = APIRouter(prefix="/templates", tags=["Templates"])
 
 # Dépendance appliquée aux routes d'ÉCRITURE uniquement. Les GET restent
 # accessibles (consultation/utilisation par operator et simple_user, RG8).
 ADMIN_ONLY = [Depends(get_current_admin_user)]
+
+# CORRECTIF ANTI-EMPILEMENT : clés qui ne doivent JAMAIS finir rangées dans
+# la colonne/le contenu "extra" -- ni côté ORM, ni côté TemplateSpec --
+# quelle que soit la forme du payload reçu (écrit à la main, ou renvoyé tel
+# quel par l'éditeur d'administration depuis un GET précédent).
+_NON_DOMAIN_KEYS = {"extra", "is_active", "created_at", "updated_at", "usage_count"}
 
 
 # ── Schema ────────────────────────────────────────────────────────────────────
@@ -97,11 +122,80 @@ def _copy(orm_obj: Any, body: TemplateBody) -> Any:
         setattr(orm_obj, key, getattr(body, key))
 
     known = set(TemplateBody.model_fields.keys())
+
+    # CORRECTIF ANTI-EMPILEMENT : on exclut explicitement _NON_DOMAIN_KEYS,
+    # sinon un payload contenant déjà "extra" (GET renvoyé tel quel) ou les
+    # colonnes ORM (is_active, created_at, updated_at, usage_count) les fait
+    # empiler dans ce nouvel "extra", un niveau de plus à chaque cycle.
     orm_obj.extra = {
         k: v for k, v in body.model_dump().items()
-        if k not in known
+        if k not in known and k not in _NON_DOMAIN_KEYS
     }
     return orm_obj
+
+
+def _sync_to_template_service(body: TemplateBody) -> None:
+    """
+    Réécrit le fichier YAML correspondant et rafraîchit le cache mémoire
+    du TemplateService à partir du même contenu que celui écrit en base.
+
+    Défense~: dépile récursivement toute clé "extra" imbriquée (cas de
+    l'éditeur d'administration, qui renvoie tel quel ce qu'un GET lui a
+    fourni), et exclut systématiquement _NON_DOMAIN_KEYS du résultat --
+    y compris si plusieurs niveaux d'empilement se sont déjà accumulés
+    avant ce correctif (observé le 22/08~: "extra": {"extra": {...}}).
+    Sans ce dépliage, roi_fields finit imbriqué et invisible pour le
+    pipeline, qui le lit en attribut plat
+    (getattr(template, "roi_fields", [])).
+
+    Ne fait jamais échouer la requête HTTP appelante~: une erreur ici est
+    journalisée mais ne remonte pas, pour ne jamais faire régresser le
+    comportement du PUT/DELETE existant, qui reste maître de la réponse
+    envoyée au client.
+    """
+    try:
+        data = body.model_dump()
+
+        while isinstance(data.get("extra"), dict):
+            nested = data.pop("extra")
+            for key, value in nested.items():
+                if key not in _NON_DOMAIN_KEYS:
+                    data.setdefault(key, value)
+
+        for key in _NON_DOMAIN_KEYS:
+            data.pop(key, None)
+
+        spec = TemplateSpec(**data)
+        service = get_template_service()
+
+        try:
+            service.update(spec.id, spec)
+        except TemplateNotFoundError:
+            service.create(spec)
+
+        log.info("TemplateService synchronisé (YAML + cache)", extra={"template_id": spec.id})
+
+    except Exception as exc:
+        log.error(
+            "Synchronisation TemplateService echouee -- le pipeline "
+            "continuera de servir l'ancienne version tant que ce n'est "
+            "pas resolu manuellement",
+            extra={"template_id": body.id, "error": str(exc)},
+        )
+
+
+def _sync_delete_from_template_service(template_id: str) -> None:
+    try:
+        get_template_service().delete(template_id)
+        log.info("TemplateService synchronise (suppression)", extra={"template_id": template_id})
+    except TemplateNotFoundError:
+        # Pas de fichier YAML correspondant -- rien a synchroniser, pas une erreur.
+        pass
+    except Exception as exc:
+        log.error(
+            "Synchronisation TemplateService (suppression) echouee",
+            extra={"template_id": template_id, "error": str(exc)},
+        )
 
 
 # ── GET /templates ─────────────────────────────────────────────────────────────
@@ -201,6 +295,12 @@ async def upsert_template(
     db.add(tmpl)
     await db.flush()
     await db.refresh(tmpl)
+
+    # CORRECTIF SYNCHRONISATION : le pipeline d'extraction lit le YAML/cache
+    # du TemplateService, pas cette table -- sans cet appel, la modification
+    # ne serait jamais visible tant que le service n'est pas redémarré.
+    _sync_to_template_service(body)
+
     return tmpl.to_dict()
 
 
@@ -229,4 +329,8 @@ async def delete_template(
         raise HTTPException(404, f"Template '{template_id}' introuvable")
 
     log.info("Template supprime : %s", template_id)
+
+    # CORRECTIF SYNCHRONISATION : supprime aussi le YAML et le cache mémoire.
+    _sync_delete_from_template_service(template_id)
+
     return {"status": "deleted", "id": template_id}

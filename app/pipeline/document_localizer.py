@@ -1,3 +1,4 @@
+#document_localizer.py
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -23,15 +24,33 @@ class DocumentLocalizer:
 
     Strategy:
     1. YOLO detects the document/card/passport area.
-    2. We keep raw YOLO rotation candidates.
-    3. We also run DocumentNormalizer on the YOLO crop to produce deskewed candidates.
-    4. The downstream ROI/MRZ scorer chooses the best candidate.
+    2. Tesseract OSD (Orientation and Script Detection) attempts to detect the
+       real rotation angle (0/90/180/270) directly, before any ROI extraction.
+       If OSD succeeds with sufficient confidence, a single, already-corrected
+       candidate is produced -- avoiding four full ROI extractions followed by
+       a fragile scoring comparison.
+    3. If OSD fails or is not confident enough, we fall back to the original
+       strategy: keep all four raw YOLO rotation candidates, unchanged.
+    4. We also run DocumentNormalizer on the YOLO crop to produce deskewed
+       candidates, for cases where the card is diagonally tilted rather than
+       rotated by a multiple of 90 degrees.
+    5. The downstream ROI/MRZ scorer chooses the best candidate among whatever
+       this method returns.
 
     Why:
     - Passport already works well with raw YOLO crop.
     - svk_id rotated can fail because the card is diagonally tilted, not only 90/180 rotated.
     - Adding normalized candidates improves rotated ID cases without removing the stable raw candidates.
+    - OSD-based correction (added after a diagnosed failure on a 180deg-rotated
+      ID card, cf. rapport Ch.5) removes the ambiguity that let a wrong-rotation
+      candidate outscore the correct one when several ROI fields happened to
+      match valid-looking-but-duplicated values.
     """
+
+    # Seuil de confiance OSD Tesseract en dessous duquel on ne fait pas confiance
+    # à l'angle détecté et on retombe sur les 4 candidats de rotation existants.
+    # Valeur de départ à calibrer empiriquement sur un échantillon réel.
+    OSD_MIN_CONFIDENCE = 1.0
 
     def __init__(self):
         self.detector = get_document_detector()
@@ -57,11 +76,30 @@ class DocumentLocalizer:
             if crop is not None and crop.size > 0:
                 crop = self._force_landscape(crop)
 
-                raw_candidates = self._rotation_candidates(
-                    crop,
-                    source="yolo_crop_raw",
-                    candidate_index_base=0,
-                )
+                osd_result = self._detect_osd_angle(crop)
+
+                if osd_result is not None:
+                    osd_angle, osd_confidence = osd_result
+                    crop = self._rotate_by_angle(crop, osd_angle)
+
+                    raw_candidates = [
+                        {
+                            "image": crop,
+                            "angle": 0,
+                            "candidate_index": 0,
+                            "rotation_index": 0,
+                            "source": "yolo_crop_osd_corrected",
+                            "candidate": None,
+                            "osd_detected_angle": osd_angle,
+                            "osd_confidence": osd_confidence,
+                        }
+                    ]
+                else:
+                    raw_candidates = self._rotation_candidates(
+                        crop,
+                        source="yolo_crop_raw",
+                        candidate_index_base=0,
+                    )
 
                 normalized_candidates: List[Dict[str, Any]] = []
                 normalizer_diagnostics: Dict[str, Any] = {
@@ -96,15 +134,16 @@ class DocumentLocalizer:
                     }
 
                 # Important:
-                # Keep raw candidates first because they are already stable for passports.
-                # Add normalized candidates after them for skewed/rotated IDs.
+                # Keep raw (or OSD-corrected) candidates first because they are
+                # already stable for passports. Add normalized candidates after
+                # them for skewed/rotated IDs.
                 candidates = raw_candidates + normalized_candidates
 
                 return LocalizedDocument(
                     image=crop,
                     candidates=candidates,
                     diagnostics={
-                        "localizer": "document_localizer_v3_yolo_raw_plus_normalized",
+                        "localizer": "document_localizer_v4_osd_plus_raw_plus_normalized",
                         "method": "yolo_crop",
                         "detector": detection.model_dump(),
                         "input_shape": list(image.shape[:2]),
@@ -113,6 +152,12 @@ class DocumentLocalizer:
                         "raw_candidate_count": len(raw_candidates),
                         "normalized_candidate_count": len(normalized_candidates),
                         "yolo_crop_padding": 0.02,
+                        "osd_correction": {
+                            "executed": osd_result is not None,
+                            "detected_angle": osd_result[0] if osd_result else None,
+                            "confidence": osd_result[1] if osd_result else None,
+                            "min_confidence_required": self.OSD_MIN_CONFIDENCE,
+                        },
                         "aspect_trim": {
                             "enabled": False,
                             "reason": "aspect trimming degraded ROI alignment in previous tests",
@@ -138,7 +183,7 @@ class DocumentLocalizer:
             image=normalized.image,
             candidates=candidates,
             diagnostics={
-                "localizer": "document_localizer_v3_yolo_raw_plus_normalized",
+                "localizer": "document_localizer_v4_osd_plus_raw_plus_normalized",
                 "method": "opencv_fallback",
                 "detector": detection.model_dump(),
                 "input_shape": list(image.shape[:2]),
@@ -147,6 +192,49 @@ class DocumentLocalizer:
                 "candidate_count": len(candidates),
             },
         )
+
+    def _detect_osd_angle(self, image: np.ndarray) -> Optional[tuple[int, float]]:
+        """
+        Détecte l'orientation du document via Tesseract OSD (Orientation and
+        Script Detection) -- une passe rapide de détection de mise en page,
+        pas une reconnaissance complète, indépendante du moteur OCR principal
+        utilisé ensuite pour l'extraction des champs.
+
+        Retourne (angle_de_correction, confiance) si la détection est jugée
+        assez fiable, sinon None -- dans ce cas l'appelant retombe sur les
+        4 candidats de rotation existants (comportement d'origine, inchangé).
+        """
+        try:
+            import pytesseract
+
+            osd = pytesseract.image_to_osd(image, output_type=pytesseract.Output.DICT)
+            confidence = float(osd.get("orientation_conf", 0.0))
+
+            if confidence < self.OSD_MIN_CONFIDENCE:
+                return None
+
+            angle = int(osd.get("rotate", 0)) % 360
+
+            if angle not in (0, 90, 180, 270):
+                return None
+
+            return angle, confidence
+
+        except Exception:
+            return None
+
+    @staticmethod
+    def _rotate_by_angle(image: np.ndarray, angle: int) -> np.ndarray:
+        rotation_map = {
+            90: cv2.ROTATE_90_CLOCKWISE,
+            180: cv2.ROTATE_180,
+            270: cv2.ROTATE_90_COUNTERCLOCKWISE,
+        }
+
+        if angle in rotation_map:
+            return cv2.rotate(image, rotation_map[angle])
+
+        return image
 
     def _crop_from_detection(
         self,

@@ -1,0 +1,93 @@
+[
+  {
+    "case_id": "passport_tn__02",
+    "file": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\Passport\\02.jpg",
+    "http_status": 0,
+    "http_ok": false,
+    "response_file": "ResultatTest\\responses\\passport_tn_reste\\passport_tn__02.json",
+    "api_status": null,
+    "critical_valid_count": 0,
+    "critical_total": 7,
+    "critical_missing": "",
+    "critical_pass": false,
+    "error": "('Connection aborted.', ConnectionResetError(10054, 'Une connexion existante a dû être fermée par l’hôte distant', None, 10054, None))"
+  },
+  {
+    "case_id": "passport_tn__03",
+    "file": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\Passport\\03.jpg",
+    "http_status": 0,
+    "http_ok": false,
+    "response_file": "ResultatTest\\responses\\passport_tn_reste\\passport_tn__03.json",
+    "api_status": null,
+    "critical_valid_count": 0,
+    "critical_total": 7,
+    "critical_missing": "",
+    "critical_pass": false,
+    "error": "HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /extract (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=8000): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée\"))"
+  },
+  {
+    "case_id": "passport_tn__04",
+    "file": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\Passport\\04.jpg",
+    "http_status": 0,
+    "http_ok": false,
+    "response_file": "ResultatTest\\responses\\passport_tn_reste\\passport_tn__04.json",
+    "api_status": null,
+    "critical_valid_count": 0,
+    "critical_total": 7,
+    "critical_missing": "",
+    "critical_pass": false,
+    "error": "HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /extract (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=8000): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée\"))"
+  },
+  {
+    "case_id": "passport_tn__05",
+    "file": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\Passport\\05.jpg",
+    "http_status": 0,
+    "http_ok": false,
+    "response_file": "ResultatTest\\responses\\passport_tn_reste\\passport_tn__05.json",
+    "api_status": null,
+    "critical_valid_count": 0,
+    "critical_total": 7,
+    "critical_missing": "",
+    "critical_pass": false,
+    "error": "HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /extract (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=8000): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée\"))"
+  },
+  {
+    "case_id": "passport_tn__06",
+    "file": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\Passport\\06.jpg",
+    "http_status": 0,
+    "http_ok": false,
+    "response_file": "ResultatTest\\responses\\passport_tn_reste\\passport_tn__06.json",
+    "api_status": null,
+    "critical_valid_count": 0,
+    "critical_total": 7,
+    "critical_missing": "",
+    "critical_pass": false,
+    "error": "HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /extract (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=8000): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée\"))"
+  },
+  {
+    "case_id": "passport_tn__07",
+    "file": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\Passport\\07.jpg",
+    "http_status": 0,
+    "http_ok": false,
+    "response_file": "ResultatTest\\responses\\passport_tn_reste\\passport_tn__07.json",
+    "api_status": null,
+    "critical_valid_count": 0,
+    "critical_total": 7,
+    "critical_missing": "",
+    "critical_pass": false,
+    "error": "HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /extract (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=8000): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée\"))"
+  },
+  {
+    "case_id": "passport_tn__08",
+    "file": "C:\\Users\\Belha\\OneDrive\\Bureau\\DataSetOCR\\Passport\\08.jpg",
+    "http_status": 0,
+    "http_ok": false,
+    "response_file": "ResultatTest\\responses\\passport_tn_reste\\passport_tn__08.json",
+    "api_status": null,
+    "critical_valid_count": 0,
+    "critical_total": 7,
+    "critical_missing": "",
+    "critical_pass": false,
+    "error": "HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /extract (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=8000): Failed to establish a new connection: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée\"))"
+  }
+]

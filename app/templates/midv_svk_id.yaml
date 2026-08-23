@@ -1,82 +1,328 @@
 id: midv_svk_id
 name: MIDV-2020 svk_id
-document_type: id_document
-dataset: midv2020
-source_class: svk_id
-template_source_variant: templates
-language: auto
+version: '4.0'
+description: null
+doc_family: null
+language_hints: []
 preferred_engine: paddle
+anchors_required: []
+fields:
+- name: birth_date
+  label: null
+  extraction_method: anchor
+  patterns:
+  - (\d{1,2}[.\-/ ]+\d{1,2}[.\-/ ]+\d{2,4})
+  - (\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4})
+  anchors:
+  - text: date of birth
+    required: false
+  - text: narodenia
+    required: false
+  validation:
+    type: any
+    pattern: null
+    date_formats: []
+    allowed_values: []
+    min_length: null
+    max_length: null
+  normalization:
+    strip: true
+    uppercase: false
+    lowercase: false
+    remove_spaces: false
+    custom_replace: {}
+  required: true
+  output_key: birthDate
+  confidence_weight: 1.0
+- name: expiry_date
+  label: null
+  extraction_method: anchor
+  patterns:
+  - (\d{1,2}[.\-/ ]+\d{1,2}[.\-/ ]+\d{2,4})
+  - (\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4})
+  anchors:
+  - text: date of expiry
+    required: false
+  - text: platnosti
+    required: false
+  validation:
+    type: any
+    pattern: null
+    date_formats: []
+    allowed_values: []
+    min_length: null
+    max_length: null
+  normalization:
+    strip: true
+    uppercase: false
+    lowercase: false
+    remove_spaces: false
+    custom_replace: {}
+  required: true
+  output_key: expiryDate
+  confidence_weight: 1.0
+- name: face
+  label: null
+  extraction_method: regex
+  patterns: []
+  anchors: []
+  validation:
+    type: any
+    pattern: null
+    date_formats: []
+    allowed_values: []
+    min_length: null
+    max_length: null
+  normalization:
+    strip: true
+    uppercase: false
+    lowercase: false
+    remove_spaces: false
+    custom_replace: {}
+  required: false
+  output_key: face
+  confidence_weight: 1.0
+- name: gender
+  label: null
+  extraction_method: regex
+  patterns: []
+  anchors: []
+  validation:
+    type: any
+    pattern: null
+    date_formats: []
+    allowed_values: []
+    min_length: null
+    max_length: null
+  normalization:
+    strip: true
+    uppercase: false
+    lowercase: false
+    remove_spaces: false
+    custom_replace: {}
+  required: false
+  output_key: gender
+  confidence_weight: 1.0
+- name: id_number
+  label: null
+  extraction_method: regex
+  patterns: []
+  anchors: []
+  validation:
+    type: any
+    pattern: null
+    date_formats: []
+    allowed_values: []
+    min_length: 3
+    max_length: 40
+  normalization:
+    strip: true
+    uppercase: false
+    lowercase: false
+    remove_spaces: false
+    custom_replace: {}
+  required: true
+  output_key: personalNumber
+  confidence_weight: 1.0
+- name: issue_date
+  label: null
+  extraction_method: anchor
+  patterns:
+  - (\d{1,2}[.\-/ ]+\d{1,2}[.\-/ ]+\d{2,4})
+  - (\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4})
+  anchors:
+  - text: date of issue
+    required: false
+  - text: vydania
+    required: false
+  validation:
+    type: any
+    pattern: null
+    date_formats: []
+    allowed_values: []
+    min_length: null
+    max_length: null
+  normalization:
+    strip: true
+    uppercase: false
+    lowercase: false
+    remove_spaces: false
+    custom_replace: {}
+  required: false
+  output_key: issueDate
+  confidence_weight: 1.0
+- name: issue_place
+  label: null
+  extraction_method: regex
+  patterns: []
+  anchors: []
+  validation:
+    type: any
+    pattern: null
+    date_formats: []
+    allowed_values: []
+    min_length: null
+    max_length: null
+  normalization:
+    strip: true
+    uppercase: false
+    lowercase: false
+    remove_spaces: false
+    custom_replace: {}
+  required: false
+  output_key: issue_place
+  confidence_weight: 1.0
+- name: name
+  label: null
+  extraction_method: regex
+  patterns: []
+  anchors: []
+  validation:
+    type: any
+    pattern: null
+    date_formats: []
+    allowed_values: []
+    min_length: null
+    max_length: null
+  normalization:
+    strip: true
+    uppercase: false
+    lowercase: false
+    remove_spaces: false
+    custom_replace: {}
+  required: true
+  output_key: givenNames
+  confidence_weight: 1.0
+- name: nationality
+  label: null
+  extraction_method: regex
+  patterns: []
+  anchors: []
+  validation:
+    type: any
+    pattern: null
+    date_formats: []
+    allowed_values: []
+    min_length: null
+    max_length: null
+  normalization:
+    strip: true
+    uppercase: false
+    lowercase: false
+    remove_spaces: false
+    custom_replace: {}
+  required: false
+  output_key: nationality
+  confidence_weight: 1.0
+- name: number
+  label: null
+  extraction_method: regex
+  patterns: []
+  anchors: []
+  validation:
+    type: any
+    pattern: null
+    date_formats: []
+    allowed_values: []
+    min_length: 3
+    max_length: 40
+  normalization:
+    strip: true
+    uppercase: false
+    lowercase: false
+    remove_spaces: false
+    custom_replace: {}
+  required: true
+  output_key: documentNumber
+  confidence_weight: 1.0
+- name: photo
+  label: null
+  extraction_method: regex
+  patterns: []
+  anchors: []
+  validation:
+    type: any
+    pattern: null
+    date_formats: []
+    allowed_values: []
+    min_length: null
+    max_length: null
+  normalization:
+    strip: true
+    uppercase: false
+    lowercase: false
+    remove_spaces: false
+    custom_replace: {}
+  required: false
+  output_key: photo
+  confidence_weight: 1.0
+- name: signature
+  label: null
+  extraction_method: regex
+  patterns: []
+  anchors: []
+  validation:
+    type: any
+    pattern: null
+    date_formats: []
+    allowed_values: []
+    min_length: null
+    max_length: null
+  normalization:
+    strip: true
+    uppercase: false
+    lowercase: false
+    remove_spaces: false
+    custom_replace: {}
+  required: false
+  output_key: signature
+  confidence_weight: 1.0
+- name: surname
+  label: null
+  extraction_method: regex
+  patterns: []
+  anchors: []
+  validation:
+    type: any
+    pattern: null
+    date_formats: []
+    allowed_values: []
+    min_length: null
+    max_length: null
+  normalization:
+    strip: true
+    uppercase: false
+    lowercase: false
+    remove_spaces: false
+    custom_replace: {}
+  required: true
+  output_key: surname
+  confidence_weight: 1.0
+postprocess_hooks: []
+output_mapping:
+  birth_date: birthDate
+  expiry_date: expiryDate
+  face: face
+  gender: gender
+  id_number: personalNumber
+  issue_date: issueDate
+  issue_place: issue_place
+  name: givenNames
+  nationality: nationality
+  number: documentNumber
+  photo: photo
+  signature: signature
+  surname: surname
+pipeline: generic_template_v1
+fixed_zones: {}
 engines:
   primary: paddle
   secondary: easyocr
-fields:
-- name: birth_date
-  type: date
-  required: true
-  output_key: birthDate
-  patterns:
-  - (\d{1,2}[.\-/ ]+\d{1,2}[.\-/ ]+\d{2,4})
-  - (\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4})
-- name: expiry_date
-  type: date
-  required: true
-  output_key: expiryDate
-  patterns:
-  - (\d{1,2}[.\-/ ]+\d{1,2}[.\-/ ]+\d{2,4})
-  - (\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4})
-- name: face
-  type: image
-  required: false
-  output_key: face
-- name: gender
-  type: enum
-  required: false
-  output_key: gender
-- name: id_number
-  type: text
-  required: true
-  output_key: personalNumber
-  validation:
-    min_length: 3
-    max_length: 40
-- name: issue_date
-  type: date
-  required: false
-  output_key: issueDate
-  patterns:
-  - (\d{1,2}[.\-/ ]+\d{1,2}[.\-/ ]+\d{2,4})
-  - (\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4})
-- name: issue_place
-  type: text
-  required: false
-  output_key: issue_place
-- name: name
-  type: text
-  required: true
-  output_key: givenNames
-- name: nationality
-  type: text
-  required: false
-  output_key: nationality
-- name: number
-  type: text
-  required: true
-  output_key: documentNumber
-  validation:
-    min_length: 3
-    max_length: 40
-- name: photo
-  type: image
-  required: false
-  output_key: photo
-- name: signature
-  type: image
-  required: false
-  output_key: signature
-- name: surname
-  type: text
-  required: true
-  output_key: surname
+field_policies: {}
+review_policy: {}
+document_type: id_document
+language: auto
+template_mode: regex
 roi_fields:
 - name: birth_date
   type: date
@@ -221,17 +467,6 @@ roi_fields:
   required: true
   orientation: '0'
   visual: false
-output_mapping:
-  birth_date: birthDate
-  expiry_date: expiryDate
-  face: face
-  gender: gender
-  id_number: personalNumber
-  issue_date: issueDate
-  issue_place: issue_place
-  name: givenNames
-  nationality: nationality
-  number: documentNumber
-  photo: photo
-  signature: signature
-  surname: surname
+dataset: midv2020
+source_class: svk_id
+template_source_variant: templates
